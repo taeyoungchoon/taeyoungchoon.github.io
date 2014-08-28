@@ -5,6 +5,6 @@ so..
 * one more thing
 
 - [ ] excel with kinds of lookup
-- [ ] linux tips and tricks
+- [X] [[file:linux_tips_and_tricks.org][linux tips and tricks]]
 - [ ] open profile
 - [X] [[file:links.org][links]]
