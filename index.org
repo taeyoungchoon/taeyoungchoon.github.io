@@ -1,3 +1,10 @@
 * taeyoungchoon.github.io activated
 
 so..
+
+* one more thing
+
+- [ ] excel with kinds of lookup
+- [ ] linux tips and tricks
+- [ ] open profile
+- [X] [[file:links.org][links]]
