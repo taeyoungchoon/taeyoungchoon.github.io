@@ -1,0 +1,12 @@
+* emacsen but emacs
+
+* configration called init.el ever called as
+
+* emacs related links
+
+** download
+
+- http://www.gnu.org/software/emacs/#Obtaining
+- http://emacsformacosx.com
+
+** known user

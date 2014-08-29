@@ -4,7 +4,9 @@ so..
 
 * one more thing
 
-- [ ] excel with kinds of lookup
+- [ ] [[file:excel_tips.org][excel with kinds of lookup]]
 - [X] [[file:linux_tips_and_tricks.org][linux tips and tricks]]
-- [ ] open profile
+- [ ] [[file:profile.org][open profile]]
 - [X] [[file:links.org][links]]
+- [X] [[file:emacs.org][emacsen]]
+- [ ] [[file:ultima.org][ultima not just a game]]
