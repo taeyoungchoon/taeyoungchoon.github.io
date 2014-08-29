@@ -1,21 +1,12 @@
-* windows
+* windows							    :windows:
 
 - http://technet.microsoft.com/en-us/sysinternals
 
-* mac address lookup
+* mac address lookup						    :network:
 
 - http://www.coffer.com/mac_find/
 - https://www.wireshark.org/tools/oui-lookup.html
 
-* emacs
-
-** download
-
-- http://www.gnu.org/software/emacs/#Obtaining
-- http://emacsformacosx.com
-
-** init.el
-
-* wireshark
+* wireshark							    :network:
 
 - https://www.wireshark.org/download.html
