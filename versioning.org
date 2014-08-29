@@ -1,6 +1,6 @@
 * tools like
 
 - svn
-- git
+- [[file:git.org][git]]
 - (old) cvs
 

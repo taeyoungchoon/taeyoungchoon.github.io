@@ -1,0 +1,11 @@
+* init
+
+* daily
+
+- git pull
+- emacs foo.org
+- git status
+- git add foo.html
+- git commit -m "add foo.html"
+- git push
+
