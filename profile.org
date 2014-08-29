@@ -2,6 +2,12 @@
 
 * history of work space
 
-- linuxone
-- iserve
-- j2t2
+- LinuxOne
+- IServe > folderplus
+- NWS (Next World System)
+- J2T2 > pantech
+
+* I do
+
+- system administrator
+- security administrator

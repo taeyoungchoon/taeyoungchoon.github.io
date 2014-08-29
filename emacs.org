@@ -2,6 +2,27 @@
 
 * configration called init.el ever called as
 
+that I have to seperate
+that I have to share
+
+* org-mode
+
+- http://home.fnal.gov/~neilsen/notebook/orgExamples/org-examples.html
+
+** then export
+
+- C-c C-e b : export to html file
+
+** care about link
+
+- C-c C-l
+- file:index.org
+- C-c C-o
+
+*** links
+
+- http://orgmode.org/manual/Export-settings.html
+
 * emacs related links
 
 ** download
@@ -10,3 +31,4 @@
 - http://emacsformacosx.com
 
 ** known user
+

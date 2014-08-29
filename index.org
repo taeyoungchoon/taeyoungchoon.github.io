@@ -1,12 +1,18 @@
+#+TITLE: home
+#+AUTHOR: Tae Young Choon
+#+STARTUP: showall
+
 * taeyoungchoon.github.io activated
 
 so..
 
 * one more thing
 
-- [ ] [[file:excel_tips.org][excel with kinds of lookup]]
+- [X] [[file:excel_tips.org][excel with kinds of lookup]]
 - [X] [[file:linux_tips_and_tricks.org][linux tips and tricks]]
-- [ ] [[file:profile.org][open profile]]
+- [X] [[file:profile.org][open profile]]
 - [X] [[file:links.org][links]]
 - [X] [[file:emacs.org][emacsen]]
-- [ ] [[file:ultima.org][ultima not just a game]]
+- [X] [[file:ultima.org][ultima not just a game]]
+- [X] [[file:versioning.org][versioning]]
+- [X] [[file:aging.org][aging]]
