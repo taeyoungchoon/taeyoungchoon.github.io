@@ -1,0 +1,6 @@
+* lang
+
+- c
+- perl
+- ruby
+- lisp

@@ -1,0 +1,27 @@
+* R command
+
+which R
+
+* RStudio
+
+* and RStudio + Server
+
+** config
+
+- /etc/rstudio/rserver.conf
+- /etc/rstudio/rsession.conf
+
+** log
+
+*
+
+* Rprofile
+* package
+
+** koNLP
+
+- library(koNLP)
+
+* links
+
+- http://r-project.kr

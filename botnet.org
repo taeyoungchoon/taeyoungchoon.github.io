@@ -1,0 +1,17 @@
+** (zomebie) DDoS attack types
+
+- traffic
+- session
+- cpu
+- weak
+
+** what others happens in there
+
+- (kinds of) gathering
+
+* defense
+
+not by alone +IDC +ISP 
+include malware platform
+detection
+
