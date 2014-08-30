@@ -16,3 +16,7 @@ so..
 - [X] [[file:ultima.org][ultima not just a game]]
 - [X] [[file:versioning.org][versioning]]
 - [X] [[file:aging.org][aging]]
+- [ ] [[file:R.org][R]]
+- [ ] [[file:malware.org][malware]]
+- [ ] [[file:botnet.org][botnet]]
+- [ ] [[file:programming.org][programming]]
