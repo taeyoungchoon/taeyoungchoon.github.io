@@ -13,8 +13,6 @@ which R
 
 ** log
 
-*
-
 * Rprofile
 * package
 
