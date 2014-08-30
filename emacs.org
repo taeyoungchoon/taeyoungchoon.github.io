@@ -1,9 +1,11 @@
 * emacsen but emacs
 
+why? mode
+
 * configration called init.el ever called as
 
-that I have to seperate
-that I have to share
+- that I have to seperate
+- that I have to share
 
 * org-mode
 
@@ -11,12 +13,16 @@ that I have to share
 
 ** then export
 
-- C-c C-e b : export to html file
+org-export-as-html
+
+*** key
+
+- C-c C-e h : export to html file
+- C-c C-e b : export to html file then open
 
 ** care about link
 
 - C-c C-l
-- file:index.org
 - C-c C-o
 
 *** links
@@ -31,4 +37,3 @@ that I have to share
 - http://emacsformacosx.com
 
 ** known user
-
