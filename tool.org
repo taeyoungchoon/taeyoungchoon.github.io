@@ -1,0 +1,24 @@
+* swiss army knife
+
+* wireshark
+* tcpdump with dot
+* freemind +think
+* moleskine +parker pen
+* firefox +firebug +yslow +webdeveloper
+* coffee +shop
+* sysinternals (procexp, procmon, tcpview and more)
+* pstree with grep
+* lsof with grep
+* netstat -ano | findstr /I firefox
+* google with filetype, site, images
+* http://ipconfig.co.kr
+* ping
+* tracert or traceroute
+* http://www.coffer.com/mac_find
+* search then dig with tab browsing
+* strings 
+* strace -fp PID
+* emacs
+* vim
+* shell ( bash, zsh )
+* perl

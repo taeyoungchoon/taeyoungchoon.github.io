@@ -8,6 +8,7 @@ so..
 
 * one more thing
 
+- [ ] [[file:cinema.org][cinema]]
 - [X] [[file:excel_tips.org][excel with kinds of lookup]]
 - [X] [[file:linux_tips_and_tricks.org][linux tips and tricks]]
 - [X] [[file:profile.org][open profile]]
