@@ -1,0 +1,18 @@
+* is not a product but a process that build policy
+* product
+
+- firewall even ngfw
+- vaccine +privacy
+
+* process?
+
+- if corp?
+- team? (can't do it alone! possible?)
+- power? cxx level required
+- with architect
+- with developer, code
+- with system engineer & administrator
+- with networker
+
+** and where I belong? in heaven
+

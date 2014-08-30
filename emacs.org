@@ -7,18 +7,26 @@ why? mode
 - that I have to seperate
 - that I have to share
 
+* general
+* hangul 3bulsik
+* move around
+* eshell
 * org-mode
 
 - http://home.fnal.gov/~neilsen/notebook/orgExamples/org-examples.html
 
 ** then export
 
-org-export-as-html
-
 *** key
 
 - C-c C-e h : export to html file
 - C-c C-e b : export to html file then open
+
+*** css
+
+*** note
+
+export all
 
 ** care about link
 

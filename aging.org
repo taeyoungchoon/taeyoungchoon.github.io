@@ -1,6 +1,6 @@
 * from server normally
 
-required
-if not
-if
-can lose some
+- required
+- if not
+- if
+- can lose some
