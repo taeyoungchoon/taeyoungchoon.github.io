@@ -1,0 +1,3 @@
+* ruby version
+* capistrano
+* syntax

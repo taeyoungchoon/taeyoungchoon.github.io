@@ -1,6 +1,19 @@
 * lang
 
 - c
-- perl
-- ruby
-- lisp
+- [[file:perl.org][perl]]
+- [[file:ruby.org][ruby]]
+- [[file:lisp.org][lisp]]
+
+* that's it? or lots of more ^^;
+
+- network
+- repository (database, storage)
+- web
+- (w)as include logic
+- mobile
+
+* logic
+
+- game
+- AI
