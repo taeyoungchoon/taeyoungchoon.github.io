@@ -1,0 +1,6 @@
+* seperation of space
+
+- work space
+- home space
+- my space
+
