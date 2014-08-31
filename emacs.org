@@ -1,6 +1,8 @@
 * emacsen but emacs
 
-why? mode
+- why? mode
+- 이맥스의 모드가 있다는 것은 나에게 참 그랬다 
+- 운영체제 안의 운영체제 라니 그것도 맞춤형이다, 생각나는 정도까지가 되려면 공수가 많이 들겠지만 말이다
 
 * configration called init.el ever called as
 

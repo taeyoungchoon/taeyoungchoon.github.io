@@ -2,6 +2,8 @@
 
 and more
 
+- robocap
+- total recall
 - [[file:superman.org][superman]]
 - lucy
 - limtless
@@ -15,6 +17,7 @@ and more
 - matrix
 - Gamer
 - Gladiator
+- the family
 - bourne identity
 - mission impossible
 - three days of condor
@@ -22,7 +25,9 @@ and more
 
 * but why?
 
-become one
+- become one
+- 게임을 하지 않는데 그 현실도 뛰어든다
+- 영화가 끝나고 나는 가만히 많은 로그 오프한다 
 
 * alternative [[file:drama.org][drama]]
 
