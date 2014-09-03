@@ -1,14 +1,14 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
                "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>emacs</title>
-<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="emacs"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2014-08-30T09:13+0900"/>
-<meta name="author" content="taeyoungchoon"/>
+<meta name="generated" content="2014-09-01T18:24+0900"/>
+<meta name="author" content=""/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
 <style type="text/css">
@@ -124,23 +124,38 @@ for the JavaScript code in this tag.
 <ul>
 <li><a href="#sec-1">1 emacsen but emacs</a></li>
 <li><a href="#sec-2">2 configration called init.el ever called as</a></li>
-<li><a href="#sec-3">3 org-mode</a>
+<li><a href="#sec-3">3 general</a></li>
+<li><a href="#sec-4">4 한글 3벌식</a>
 <ul>
-<li><a href="#sec-3-1">3.1 then export</a>
+<li><a href="#sec-4-1">4.1 추가</a>
 <ul>
-<li><a href="#sec-3-1-1">3.1.1 key</a></li>
+<li><a href="#sec-4-1-1">4.1.1 참조</a></li>
 </ul>
 </li>
-<li><a href="#sec-3-2">3.2 care about link</a>
+<li><a href="#sec-4-2">4.2 변환</a></li>
+</ul>
+</li>
+<li><a href="#sec-5">5 move around</a></li>
+<li><a href="#sec-6">6 eshell</a></li>
+<li><a href="#sec-7">7 org-mode</a>
 <ul>
-<li><a href="#sec-3-2-1">3.2.1 links</a></li>
+<li><a href="#sec-7-1">7.1 then export</a>
+<ul>
+<li><a href="#sec-7-1-1">7.1.1 key</a></li>
+<li><a href="#sec-7-1-2">7.1.2 css</a></li>
+<li><a href="#sec-7-1-3">7.1.3 note</a></li>
+</ul>
+</li>
+<li><a href="#sec-7-2">7.2 care about link</a>
+<ul>
+<li><a href="#sec-7-2-1">7.2.1 links</a></li>
 </ul></li>
 </ul>
 </li>
-<li><a href="#sec-4">4 emacs related links</a>
+<li><a href="#sec-8">8 emacs related links</a>
 <ul>
-<li><a href="#sec-4-1">4.1 download</a></li>
-<li><a href="#sec-4-2">4.2 known user</a></li>
+<li><a href="#sec-8-1">8.1 download</a></li>
+<li><a href="#sec-8-2">8.2 known user</a></li>
 </ul>
 </li>
 </ul>
@@ -152,26 +167,119 @@ for the JavaScript code in this tag.
 <div class="outline-text-2" id="text-1">
 
 
+<ul>
+<li>why? mode
+</li>
+<li>이맥스의 모드가 있다는 것은 나에게 참 그랬다 
+</li>
+<li>운영체제 안의 운영체제 라니 그것도 맞춤형이다, 생각나는 정도까지가 되려면 공수가 많이 들겠지만 말이다
+</li>
+</ul>
+
+
 </div>
 
 </div>
 
 <div id="outline-container-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> configration called init.el ever called as</h2>
+<h2 id="sec-2"><span class="section-number-2">2</span> configration called <a href="init.el">init.el</a> ever called as</h2>
 <div class="outline-text-2" id="text-2">
 
 
-<p>
-that I have to seperate
-that I have to share
-</p>
+<ul>
+<li>that I have to seperate
+</li>
+<li>that I have to share
+</li>
+</ul>
+
+
 </div>
 
 </div>
 
 <div id="outline-container-3" class="outline-2">
-<h2 id="sec-3"><span class="section-number-2">3</span> org-mode</h2>
+<h2 id="sec-3"><span class="section-number-2">3</span> general</h2>
 <div class="outline-text-2" id="text-3">
+
+</div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> 한글 3벌식</h2>
+<div class="outline-text-2" id="text-4">
+
+
+
+</div>
+
+<div id="outline-container-4-1" class="outline-3">
+<h3 id="sec-4-1"><span class="section-number-3">4.1</span> 추가</h3>
+<div class="outline-text-3" id="text-4-1">
+
+
+
+
+
+<pre class="example">(custom-set-variables
+'(default-input-method "korean-hangul3f")
+)
+</pre>
+
+
+
+</div>
+
+<div id="outline-container-4-1-1" class="outline-4">
+<h4 id="sec-4-1-1"><span class="section-number-4">4.1.1</span> 참조</h4>
+<div class="outline-text-4" id="text-4-1-1">
+
+
+<p>
+<a href="http://orgmode.org/manual/Literal-examples.html">http://orgmode.org/manual/Literal-examples.html</a>
+<a href="http://orgmode.org/manual/Working-With-Source-Code.html">http://orgmode.org/manual/Working-With-Source-Code.html</a>
+</p>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-4-2" class="outline-3">
+<h3 id="sec-4-2"><span class="section-number-3">4.2</span> 변환</h3>
+<div class="outline-text-3" id="text-4-2">
+
+
+<ul>
+<li>C-\
+</li>
+</ul>
+
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> move around</h2>
+<div class="outline-text-2" id="text-5">
+
+</div>
+
+</div>
+
+<div id="outline-container-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> eshell</h2>
+<div class="outline-text-2" id="text-6">
+
+</div>
+
+</div>
+
+<div id="outline-container-7" class="outline-2">
+<h2 id="sec-7"><span class="section-number-2">7</span> org-mode</h2>
+<div class="outline-text-2" id="text-7">
 
 
 <ul>
@@ -183,20 +291,17 @@ that I have to share
 
 </div>
 
-<div id="outline-container-3-1" class="outline-3">
-<h3 id="sec-3-1"><span class="section-number-3">3.1</span> then export</h3>
-<div class="outline-text-3" id="text-3-1">
+<div id="outline-container-7-1" class="outline-3">
+<h3 id="sec-7-1"><span class="section-number-3">7.1</span> then export</h3>
+<div class="outline-text-3" id="text-7-1">
 
 
-<p>
-org-export-as-html
-</p>
 
 </div>
 
-<div id="outline-container-3-1-1" class="outline-4">
-<h4 id="sec-3-1-1"><span class="section-number-4">3.1.1</span> key</h4>
-<div class="outline-text-4" id="text-3-1-1">
+<div id="outline-container-7-1-1" class="outline-4">
+<h4 id="sec-7-1-1"><span class="section-number-4">7.1.1</span> key</h4>
+<div class="outline-text-4" id="text-7-1-1">
 
 
 <ul>
@@ -208,13 +313,34 @@ org-export-as-html
 
 
 </div>
+
+</div>
+
+<div id="outline-container-7-1-2" class="outline-4">
+<h4 id="sec-7-1-2"><span class="section-number-4">7.1.2</span> css</h4>
+<div class="outline-text-4" id="text-7-1-2">
+
+
+</div>
+
+</div>
+
+<div id="outline-container-7-1-3" class="outline-4">
+<h4 id="sec-7-1-3"><span class="section-number-4">7.1.3</span> note</h4>
+<div class="outline-text-4" id="text-7-1-3">
+
+
+<p>
+export all
+</p>
+</div>
 </div>
 
 </div>
 
-<div id="outline-container-3-2" class="outline-3">
-<h3 id="sec-3-2"><span class="section-number-3">3.2</span> care about link</h3>
-<div class="outline-text-3" id="text-3-2">
+<div id="outline-container-7-2" class="outline-3">
+<h3 id="sec-7-2"><span class="section-number-3">7.2</span> care about link</h3>
+<div class="outline-text-3" id="text-7-2">
 
 
 <ul>
@@ -228,9 +354,9 @@ org-export-as-html
 
 </div>
 
-<div id="outline-container-3-2-1" class="outline-4">
-<h4 id="sec-3-2-1"><span class="section-number-4">3.2.1</span> links</h4>
-<div class="outline-text-4" id="text-3-2-1">
+<div id="outline-container-7-2-1" class="outline-4">
+<h4 id="sec-7-2-1"><span class="section-number-4">7.2.1</span> links</h4>
+<div class="outline-text-4" id="text-7-2-1">
 
 
 <ul>
@@ -245,17 +371,17 @@ org-export-as-html
 
 </div>
 
-<div id="outline-container-4" class="outline-2">
-<h2 id="sec-4"><span class="section-number-2">4</span> emacs related links</h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-8" class="outline-2">
+<h2 id="sec-8"><span class="section-number-2">8</span> emacs related links</h2>
+<div class="outline-text-2" id="text-8">
 
 
 
 </div>
 
-<div id="outline-container-4-1" class="outline-3">
-<h3 id="sec-4-1"><span class="section-number-3">4.1</span> download</h3>
-<div class="outline-text-3" id="text-4-1">
+<div id="outline-container-8-1" class="outline-3">
+<h3 id="sec-8-1"><span class="section-number-3">8.1</span> download</h3>
+<div class="outline-text-3" id="text-8-1">
 
 
 <ul>
@@ -270,10 +396,9 @@ org-export-as-html
 
 </div>
 
-<div id="outline-container-4-2" class="outline-3">
-<h3 id="sec-4-2"><span class="section-number-3">4.2</span> known user</h3>
-<div class="outline-text-3" id="text-4-2">
-
+<div id="outline-container-8-2" class="outline-3">
+<h3 id="sec-8-2"><span class="section-number-3">8.2</span> known user</h3>
+<div class="outline-text-3" id="text-8-2">
 
 </div>
 </div>
@@ -281,8 +406,8 @@ org-export-as-html
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2014-08-30T09:13+0900</p>
-<p class="author">Author: taeyoungchoon</p>
+<p class="date">Date: 2014-09-01T18:24+0900</p>
+<p class="author">Author: </p>
 <p class="creator"><a href="http://orgmode.org">Org</a> version 7.9.3f with <a href="http://www.gnu.org/software/emacs/">Emacs</a> version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
 

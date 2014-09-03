@@ -4,13 +4,31 @@
 - 이맥스의 모드가 있다는 것은 나에게 참 그랬다 
 - 운영체제 안의 운영체제 라니 그것도 맞춤형이다, 생각나는 정도까지가 되려면 공수가 많이 들겠지만 말이다
 
-* configration called init.el ever called as
+* configration called [[file:init.el][init.el]] ever called as
 
 - that I have to seperate
 - that I have to share
 
 * general
-* hangul 3bulsik
+* 한글 3벌식
+
+** 추가
+
+#+BEGIN_SRC emacs-lisp
+(custom-set-variables
+'(default-input-method "korean-hangul3f")
+)
+#+END_SRC
+
+*** 참조
+
+http://orgmode.org/manual/Literal-examples.html
+http://orgmode.org/manual/Working-With-Source-Code.html
+
+** 변환
+
+- C-\
+
 * move around
 * eshell
 * org-mode
