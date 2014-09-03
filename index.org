@@ -1,3 +1,9 @@
+#+TITLE:     home
+#+AUTHOR:    
+#+OPTIONS:   H:3 num:t toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+
 * 작은 이야기를 시작하다
+
+이건 나의 이야기다 물론 나만의 이야기가 될 수는 없다. 나는 나가 아니다. 뭐 그런거다.
 
 
