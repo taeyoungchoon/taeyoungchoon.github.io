@@ -1,9 +1,24 @@
-#+TITLE:     home
-#+AUTHOR:    
-#+OPTIONS:   H:3 num:t toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
-
-* 작은 이야기를 시작하다
-
-이건 나의 이야기다 물론 나만의 이야기가 될 수는 없다. 나는 나가 아니다. 뭐 그런거다.
-
-
+* you may say I'm a dreamer but I'm not the only one
+** link
+   - http://www.youtube.com/watch?v=RwUGSYDKUxU
+* stuff
+** linux
+*** operating system can be read
+** language, wall
+*** english
+*** korean
+** human
+*** not only body
+*** body
+** programming
+*** bit code
+** emacs, mode
+*** major and minor
+* taeyoungchoon, TaeYoungChoon, Anselmus, 대조영, 떡갈나무
+** Anselmus, Anselmo
+*** link
+    - http://web.pbc.co.kr/CMS/catholic/view_body.php?menu_fid=720&cid=46952&path=200704
+    - http://info.catholic.or.kr/saint/view.asp?ctxtsaintid=1602
+*** writing
+    - Cur Deus Homo
+    - Monologion
