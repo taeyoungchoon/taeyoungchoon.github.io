@@ -1,24 +1,42 @@
 * you may say I'm a dreamer but I'm not the only one
+
 ** link
    - http://www.youtube.com/watch?v=RwUGSYDKUxU
+
 * stuff
+
 ** linux
-*** operating system can be read
+
+operating system can be read
+
 ** language, wall
-*** english
-*** korean
+
+- english
+- korean
+
 ** human
-*** not only body
-*** body
+
+- not only body
+- body
+
 ** programming
-*** bit code
+
+bit code
+
 ** emacs, mode
-*** major and minor
+
+major and minor
+
 * taeyoungchoon, TaeYoungChoon, Anselmus, 대조영, 떡갈나무
+
 ** Anselmus, Anselmo
+
 *** link
+
     - http://web.pbc.co.kr/CMS/catholic/view_body.php?menu_fid=720&cid=46952&path=200704
     - http://info.catholic.or.kr/saint/view.asp?ctxtsaintid=1602
+
 *** writing
+
     - Cur Deus Homo
     - Monologion
