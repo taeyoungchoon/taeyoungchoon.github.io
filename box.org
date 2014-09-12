@@ -1,0 +1,43 @@
+* box good
+
+simple and one more thing, can be
+
+* platform
+
+| operating system |
+|------------------|
+| linux            |
+| windows          |
+| unix             |
+
+* malware analysis tool, dynamic
+
+| tool             | do        |
+|------------------+-----------|
+| process explorer | process   |
+| process monitor  | process   |
+| vmmap            | memory    |
+| autoruns         | boot time |
+| regmon           | registry  |
+| cport            | network   |
+| wireshark        | network   |
+| smsniff          | network   |
+| gmer             |           |
+
+* malware analysis tool, static
+
+| tool       |
+|------------+
+| ollydbg    |
+| windbg     |
+| winhex     |   
+| HxD        |   
+| peid       |   
+| peview     |   
+| ida pro    | 
+
+* more and more
+
+| tool       |
+|------------|
+| virustotal |
