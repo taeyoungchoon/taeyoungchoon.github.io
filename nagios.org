@@ -1,0 +1,29 @@
+* nagios? 
+
+monitoring +web +way
+
+* one more thing
+
+- nagvis (am not using)
+
+* 말
+
+어디에 자리잡고 무슨 일을 할 때면 항상 사용하게 되는 툴이나 나에게도 그에게도 말이다 무언가를 지속적으로 본다는 것은 필요한 일이다
+
+어렵게 사용하지 않더라도
+
+* recent
+
+- nagios +mobile +vpn +ack
+- security device
+- switch +more
+
+* others
+
+참 많은 툴이 만들어 졌다 그리고 만들어 지고 있다
+
+성숙한 툴은 지금도 계속 사용하는 툴은 이거다
+
+mon도 잠시 cacti도 잠시 custom도 잠시 
+
+custom(손 스크립트) 참 좋은데 말이다 
