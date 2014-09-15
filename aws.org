@@ -1,0 +1,15 @@
+* aws ( amazon web service )
+
+과연 웹인가? 나는 vm ( virtual machine ) 으로 본다 아마 다른 이들도 말이다 그리고 표준이다
+
+* aws > ec2 ( vm )
+
+웹 띠우는데 걸리는 시간은 10 ~ 15 분이다
+
+* web only, pure text ( html ) based then taeyoungchoon.github.io, free?
+
+* testing platform, best
+
+그래 뭐라도 돌려보려면 이게 좋다 참 좋다 12개월간의 무료 기간은 끝나지만 말이다
+
+매달 사용료가 몇 천원씩 나온 것으로 기억한다
