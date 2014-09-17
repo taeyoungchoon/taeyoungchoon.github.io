@@ -1,0 +1,5 @@
+* this is good and free, so good? anyway
+* use it
+* alternative
+  - xen
+  - qemu
