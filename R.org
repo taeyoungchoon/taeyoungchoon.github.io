@@ -2,6 +2,10 @@
 
 which R
 
+* R and Database with connector RODBC, RJDBC, ROracle
+
+** RStudio Server + RODBC fail to work and why?
+
 * RStudio
 
 * and RStudio + Server
