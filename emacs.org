@@ -57,6 +57,8 @@ export all
 
 - http://orgmode.org/manual/Export-settings.html
 
+* package
+- list-packages
 * emacs related links
 
 ** download
