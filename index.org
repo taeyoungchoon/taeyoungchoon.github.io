@@ -1,7 +1,12 @@
+* fun
+
+more than any
+
 * you may say I'm a dreamer but I'm not the only one
 
 ** link
-   - http://www.youtube.com/watch?v=RwUGSYDKUxU
+
+- http://www.youtube.com/watch?v=RwUGSYDKUxU
 
 * stuff
 
@@ -33,10 +38,11 @@ major and minor
 
 *** link
 
-    - http://web.pbc.co.kr/CMS/catholic/view_body.php?menu_fid=720&cid=46952&path=200704
-    - http://info.catholic.or.kr/saint/view.asp?ctxtsaintid=1602
+- http://web.pbc.co.kr/CMS/catholic/view_body.php?menu_fid=720&cid=46952&path=200704
+- http://info.catholic.or.kr/saint/view.asp?ctxtsaintid=1602
 
 *** writing
 
-    - Cur Deus Homo
-    - Monologion
+- Cur Deus Homo
+- Monologion
+
