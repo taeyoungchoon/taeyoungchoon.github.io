@@ -6,6 +6,26 @@ which R
 
 ** RStudio Server + RODBC fail to work and why?
 
+*** dig
+
+https://support.rstudio.com/hc/communities/public/questions/200664273-RODBC-driver-problem-in-RStudio-Server-
+https://support.rstudio.com/hc/communities/public/questions/200645248-Setting-up-LD-LIBRARY-PATH-for-a-rsession
+https://support.rstudio.com/hc/communities/public/questions/200652613-setting-environment-variables-before-compiling-Rcpp-package-with-RStudio-server
+
+RODBC driver problem in RStudio Server 
+
+LD_LIBRARY_PAT
+setting-up-ld_library_path-for-a-rsession
+Renviron
+
+https://support.rstudio.com/hc/en-us/articles/200552316-Configuring-the-Server
+https://support.rstudio.com/hc/communities/public/questions/200654626-odbcDriverConnect-works-in-R-but-not-RStudio
+
+odbcDriverConnect works in R but not RStudio
+
+It seems that R itself is happy with User DSN but Rstudio wants System DSN. 
+I added the database to System DSN and now it works where before it was only in User DSN.
+
 * RStudio
 
 * and RStudio + Server
