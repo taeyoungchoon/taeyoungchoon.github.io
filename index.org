@@ -1,3 +1,5 @@
+#+OPTIONS: toc:nil
+
 * fun
 
 more than any
