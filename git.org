@@ -5,7 +5,7 @@
 - git pull
 - emacs foo.org
 - git status
-- git add foo.html
-- git commit -m "add foo.html"
+- git add foo.org
+- git commit -m "add foo.org"
 - git push
 
