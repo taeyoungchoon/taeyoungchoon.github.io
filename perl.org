@@ -4,4 +4,10 @@
 * perl 6
 
 - not yet
+
 * cpan
+
+the collection of module
+
+- network
+- language

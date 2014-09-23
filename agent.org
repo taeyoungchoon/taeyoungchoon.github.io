@@ -1,0 +1,9 @@
+* puppet agent, nagios agent, hp agent
+* emacs as agent
+* agent talk to agent
+* agent talk to master
+* talk way, protocol
+* sensing
+* collecting
+* analysis
+* decision making
