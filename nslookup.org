@@ -1,0 +1,4 @@
+* and others
+
+- dig
+- host
