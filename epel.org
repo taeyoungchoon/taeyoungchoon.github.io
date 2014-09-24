@@ -14,7 +14,7 @@ maybe right way?
 
 ** steps
    1. go http://fedoraproject.org/wiki/EPEL
-   2. and more
+   2. check version of your Operating System then do the following by the case
 
 * then you can install R
 
