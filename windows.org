@@ -1,0 +1,7 @@
+* dig
+** boot manager
+** kernel but boot
+** repository
+** file
+** process
+** memory
