@@ -1,0 +1,27 @@
+* epel 
+
+- Extra Packages for Enterprise Linux
+- for centos or rhel
+- more package!
+
+* do, easily
+
+sudo yum install epel-release
+
+* do, tough way
+
+maybe right way?
+
+** steps
+   1. go http://fedoraproject.org/wiki/EPEL
+   2. and more
+
+* then you can install R
+
+sudo yum install R
+
+* check it
+
+# R
+> q()
+#
