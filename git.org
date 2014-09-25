@@ -28,6 +28,7 @@ git config user.name "taeyoungchoon"
 git config user.email "taeyoungchoon@gmail.com"
 git commit -m 'mod git the add bash'
 git config --global push.default simple
+git config --global credential.helper store
 git push
 
 * daily
