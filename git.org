@@ -9,3 +9,6 @@
 - git commit -m "add foo.org"
 - git push
 
+* suggest 
+
+- auto aka background

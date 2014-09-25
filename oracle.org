@@ -4,5 +4,40 @@
 
 http://bereanstechnology.com/index.php?q=node/42
 
-막 깔기도 잘 된다
-그런데 자바는? 
+** talk about installation
+
+- disable selinux first
+- xming
+- putty with X11 forwarding
+- tough process
+- what about java
+
+** config from shell
+
+- ORACLE_BASE
+- ORACLE_HOME
+- PATH
+
+** then
+- sqlplus scott/tiger@orcl
+
+** one more thing, not just one maybe
+
+- dbca
+- netca
+
+** lsnrctl start
+
+** sqlplus SYSTEM@orcl
+
+** SID
+
+- ORACLE_SID
+
+** sqlplus / as sysdba
+
+** sqlplus /nolog
+
+connect / as sysdba
+shutdown immediate
+startup
