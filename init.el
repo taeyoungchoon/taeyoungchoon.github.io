@@ -6,17 +6,24 @@
 
 ; init
 (setq inhibit-splash-screen t)
-(visual-line-mode)
 (display-time)
+(load-theme 'wombat)
 
-; init > variables
-(custom-set-variables
- '(custom-enabled-themes (quote (wombat)))
- '(default-input-method "korean-hangul3f")
- '(make-backup-files nil)
- )
+; about backup & auto-save
+; http://www.gnu.org/software/emacs/manual/html_node/elisp/Auto_002dSaving.html
+(setq make-backup-files t)
+(setq backup-directory-alist
+      `((".*" . ,temporary-file-directory)))
 
-; encoding
+(setq auto-save-default t)
+(setq auto-save-interval 300)
+(setq auto-save-timeout 30)
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
+
+; language
+(setq default-input-method "korean-hangul3f")
+
 (prefer-coding-system 'utf-8)
 (set-file-name-coding-system 'utf-8)
 (set-terminal-coding-system 'utf-8)
