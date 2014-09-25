@@ -1,3 +1,11 @@
 * dot
-* graphviz
+
+yum install graphviz
+
+* aka graphviz
+
 * dot and emacs
+
+graphviz-dot-mode
+M-x compile
+C-c p
