@@ -1,0 +1,8 @@
+* dns
+
+- ms
+- bind
+- infoblox
+
+* and resolving, resolver from client
+
