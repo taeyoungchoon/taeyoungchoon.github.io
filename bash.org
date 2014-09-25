@@ -1,0 +1,9 @@
+* .bash_profile
+
+** general
+
+PATH
+
+** oracle
+
+read [[file:oracle.org][oracle]]
