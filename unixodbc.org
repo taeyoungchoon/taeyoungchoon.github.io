@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 * links
 
 http://www.unixodbc.org/odbcinst.html
 http://www.unixodbc.org/internals.html
 https://my.vertica.com/docs/5.1.6/HTML/index.htm#11705.htm
+=======
+* is the implementation of odbc to unix and linux world
+* need dot ( graphviz )
+>>>>>>> 81b902d2a173e5194334dbbf8c2df2a819079976

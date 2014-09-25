@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 * links
 
 http://t0spring.wordpress.com/2014/07/29/then-r-with-more/
 http://t0spring.wordpress.com/2014/07/29/centos-mysql-connector-odbc-unixodbc/
 
+=======
+* enough speed so have to
+>>>>>>> 81b902d2a173e5194334dbbf8c2df2a819079976
