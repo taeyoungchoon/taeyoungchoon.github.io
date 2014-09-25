@@ -1,0 +1,5 @@
+* links
+
+http://www.unixodbc.org/odbcinst.html
+http://www.unixodbc.org/internals.html
+https://my.vertica.com/docs/5.1.6/HTML/index.htm#11705.htm

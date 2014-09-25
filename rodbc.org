@@ -1,0 +1,5 @@
+* links
+
+http://t0spring.wordpress.com/2014/07/29/then-r-with-more/
+http://t0spring.wordpress.com/2014/07/29/centos-mysql-connector-odbc-unixodbc/
+
