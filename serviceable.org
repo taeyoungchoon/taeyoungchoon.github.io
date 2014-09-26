@@ -1,0 +1,4 @@
+* include [[file:serviceping.org][serviceping]]
+* extended to SDI ( Software Driven Infrastructure )
+
+- if nameserver1.serviceping is not good then kill nameserver1.service

@@ -9,11 +9,12 @@ https://my.vertica.com/docs/5.1.6/HTML/index.htm#11705.htm
 * rpm and files, odbc.ini, odbcint.ini, isql, odbcinst
 
 #+BEGIN_SRC sh
-
 $ rpm -qa | grep unixODBC
 unixODBC-2.2.14-12.el6_3.x86_64
 unixODBC-devel-2.2.14-12.el6_3.x86_64
+#+END_SRC
 
+#+BEGIN_SRC sh
 $ rpm -ql unixODBC | grep -v doc | grep -v lib64
 /etc/odbc.ini
 /etc/odbcinst.ini
@@ -22,16 +23,14 @@ $ rpm -ql unixODBC | grep -v doc | grep -v lib64
 /usr/bin/iusql
 /usr/bin/odbc_config
 /usr/bin/odbcinst
-
 #+END_SRC
 
 * with mysql
-
 ** install mysql and mysql odbc driver
 
 #+BEGIN_SRC sh
 sudo yum install mysql-server mysql-connector-odbc 
-sudo /etc/init.d/mysql
+sudo /etc/init.d/mysql start
 /usr/bin/mysqladmin -u root password 'new-password'
 #+END_SRC
 
@@ -53,12 +52,12 @@ Driver          = /usr/lib64/libmyodbc5.so
 Setup           = /usr/lib64/libodbcmyS.so
 FileUsage       = 1
 #+END_SRC
-
+    
 ** odbc.ini then check
 
 #+BEGIN_SRC sh
 vi /etc/odbc.ini
-isql -v DSN
+isql -v MySQL_DSN
 #+END_SRC
 
 *** odbc.ini
@@ -66,7 +65,7 @@ isql -v DSN
 #+BEGIN_SRC sh
 [MySQL_DSN]
 Driver = MySQL_ODBC_Driver
-Description = MySQL DSN
+Description = MySQL_DSN
 SERVER = 127.0.0.1
 PORT = 3306
 USER = root
@@ -79,12 +78,14 @@ OPTION = 3
 *** pre, create table
 
 #+BEGIN_SRC sh
-CREATE TABLE test.example ( id INT, data VARCHAR(100));
+use test;
+CREATE TABLE example ( id INT, data VARCHAR(100) );
 #+END_SRC
 
 *** pre part 2, insert data
 
 #+BEGIN_SRC sh
+use test;
 insert into example values (1,1);
 insert into example values (2,4);
 insert into example values (3,9);
@@ -93,10 +94,12 @@ insert into example values (3,9);
 *** try
 
 #+BEGIN_SRC R
+R
 install.packages("RODBC", dependencies = TRUE)
 #+END_SRC
 
 #+BEGIN_SRC R
+R
 library(RODBC)
 con <- odbcConnect("MySQL_DSN", uid="root", pwd="new-password")
 odbcGetInfo(con)
@@ -107,22 +110,28 @@ sqlQuery(con, "select * from example")
 
 ** pre, activate scott first
 
+now locked
+
 ** edit files, odbcinst.ini, odbc.ini
 
 #+BEGIN_SRC sh
 $ locate libsqora.so
 /home/pz2659/app/pz2659/product/11.2.0/dbhome_1/lib/libsqora.so.11.1
+#+END_SRC
 
+#+BEGIN_SRC sh
 $ vi /etc/odbcinst.ini
 [Oracle_ODBC_Driver]
-Description     = Oracle ODBC driver for Oracle 11g
+Description     = Oracle_ODBC_driver
 Driver          = /home/pz2659/app/pz2659/product/11.2.0/dbhome_1/lib/libsqora.so.11.1
 Setup           =
 FileUsage       =
 CPTimeout       =
 CPReuse         =
 Driver Logging  = 7
+#+END_SRC
 
+#+BEGIN_SRC sh
 $ vi /etc/odbc.ini
 [Oracle_DSN]
 Driver = Oracle_ODBC_Driver
@@ -134,10 +143,12 @@ Password = tiger
 ** try
 
 #+BEGIN_SRC R
+R
 install.packages("RODBC", dependencies = TRUE)
 #+END_SRC
 
 #+BEGIN_SRC R
+R
 library(RODBC)
 con <- odbcConnect("Oracle_DSN", uid="scott", pwd="tiger")
 odbcGetInfo(con)
@@ -160,3 +171,5 @@ $ sudo ldd /home/pz2659/app/pz2659/product/11.2.0/dbhome_1/lib/libsqora.so.11.1
         libc.so.6 => /lib64/libc.so.6 (0x00007f424c3ff000)
         /lib64/ld-linux-x86-64.so.2 (0x0000003608000000)
 #+END_SRC
+
+what is not found? libclntsh.so.11.1, libodbcinst.so.1

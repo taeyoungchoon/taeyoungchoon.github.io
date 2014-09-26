@@ -1,0 +1,27 @@
+* service + ping
+* service aka role
+* case
+
+** serviceping ns1
+
+- role nameservice
+
+*** say
+
+have to response in time
+about what he has, zone
+or not, caching
+
+*** suggest
+
+** serviceping www.foo.com
+
+- role web
+
+*** say
+
+there is a page
+page include specific word
+page have size
+
+*** suggest
