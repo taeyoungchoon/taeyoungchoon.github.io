@@ -41,3 +41,6 @@
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 
 ; swap window
+
+; package dictionary.el
+(global-set-key (kbd "<f8>") 'dictionary-lookup-definition)
