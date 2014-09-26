@@ -9,12 +9,13 @@ git --version
 
 #+BEGIN_SRC sh
 cd /usr/local/src
+sudo yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel -y
 sudo yum install perl-ExtUtils-MakeMaker -y
 sudo git clone https://github.com/msysgit/git.git
 cd git
 sudo make prefix=/usr/local all
 sudo make prefix=/usr/local install
-sudo rpm -e git  perl-Git
+sudo rpm -e git perl-Git
 ln -s /usr/local/bin/git /usr/bin/git
 # or add /usr/local/bin to PATH from .bash_profile
 git --version

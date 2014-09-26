@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
 <meta name="title" content="git"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2014-09-26T09:29+0900"/>
+<meta name="generated" content="2014-09-26T09:34+0900"/>
 <meta name="author" content=""/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -158,12 +158,13 @@ git --version
 
 
 <pre class="example">cd /usr/local/src
+sudo yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel -y
 sudo yum install perl-ExtUtils-MakeMaker -y
 sudo git clone https://github.com/msysgit/git.git
 cd git
 sudo make prefix=/usr/local all
 sudo make prefix=/usr/local install
-sudo rpm -e git  perl-Git
+sudo rpm -e git perl-Git
 ln -s /usr/local/bin/git /usr/bin/git
 # or add /usr/local/bin to PATH from .bash_profile
 git --version
@@ -250,7 +251,7 @@ git push
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2014-09-26T09:29+0900</p>
+<p class="date">Date: 2014-09-26T09:34+0900</p>
 <p class="author">Author: </p>
 <p class="creator"><a href="http://orgmode.org">Org</a> version 7.9.3f with <a href="http://www.gnu.org/software/emacs/">Emacs</a> version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
