@@ -1,10 +1,13 @@
 * check my git is old ( good ) enough
 
+#+BEGIN_SRC sh
 sudo yum install git -y
 git --version
+#+END_SRC 
 
 * if git old enough
 
+#+BEGIN_SRC sh
 cd /usr/local/src
 sudo yum install perl-ExtUtils-MakeMaker -y;sudo make prefix=/usr/local all
 git clone https://github.com/msysgit/git.git
@@ -14,31 +17,38 @@ sudo make prefix=/usr/local install
 sudo rpm -e git  perl-Git
 ln -s /usr/local/bin/git /usr/bin/git (or add /usr/local/bin to PATH from .bash_profile)
 git --version
+#+END_SRC 
 
 * clone
 
+#+BEGIN_SRC sh
 cd
 git clone https://github.com/taeyoungchoon/taeyoungchoon.github.io.git
 cd taeyoungchoon.github.io
 git status
+#+END_SRC
 
 * init
 
+#+BEGIN_SRC sh
 git config user.name "taeyoungchoon" (am I right?)
 git config user.email "taeyoungchoon@gmail.com"
 git commit -m 'mod git the add bash'
 git config --global push.default simple
 git config --global credential.helper store (but where?)
 git push
+#+END_SRC
 
 * daily
 
-- git pull
-- emacs foo.org
-- git status
-- git add foo.org
-- git commit -m "add foo.org"
-- git push
+#+BEGIN_SRC sh
+git pull 
+emacs foo.org
+git status
+git add foo.org
+git commit -m "add foo.org"
+git push
+#+END_SRC
 
 * suggest 
 

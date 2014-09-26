@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
 <meta name="title" content="git"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2014-09-26T09:10+0900"/>
+<meta name="generated" content="2014-09-26T09:23+0900"/>
 <meta name="author" content=""/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -137,10 +137,14 @@ for the JavaScript code in this tag.
 <div class="outline-text-2" id="text-1">
 
 
-<p>
-sudo yum install git -y
-git &ndash;version
-</p>
+
+
+
+<pre class="example">sudo yum install git -y
+git --version
+</pre>
+
+
 </div>
 
 </div>
@@ -150,17 +154,21 @@ git &ndash;version
 <div class="outline-text-2" id="text-2">
 
 
-<p>
-cd /usr/local/src
+
+
+
+<pre class="example">cd /usr/local/src
 sudo yum install perl-ExtUtils-MakeMaker -y;sudo make prefix=/usr/local all
-git clone <a href="https://github.com/msysgit/git.git">https://github.com/msysgit/git.git</a>
+git clone https://github.com/msysgit/git.git
 cd git
 make prefix=/usr/local all
 sudo make prefix=/usr/local install
 sudo rpm -e git  perl-Git
-ln -s /usr/local/bin/git /usr/bin/git (or add /usr/local/bin to PATH from .bash<sub>profile</sub>)
-git &ndash;version
-</p>
+ln -s /usr/local/bin/git /usr/bin/git (or add /usr/local/bin to PATH from .bash_profile)
+git --version
+</pre>
+
+
 </div>
 
 </div>
@@ -170,12 +178,16 @@ git &ndash;version
 <div class="outline-text-2" id="text-3">
 
 
-<p>
-cd
-git clone <a href="https://github.com/taeyoungchoon/taeyoungchoon.github.io.git">https://github.com/taeyoungchoon/taeyoungchoon.github.io.git</a>
+
+
+
+<pre class="example">cd
+git clone https://github.com/taeyoungchoon/taeyoungchoon.github.io.git
 cd taeyoungchoon.github.io
 git status
-</p>
+</pre>
+
+
 </div>
 
 </div>
@@ -185,14 +197,18 @@ git status
 <div class="outline-text-2" id="text-4">
 
 
-<p>
-git config user.name "taeyoungchoon" (am I right?)
+
+
+
+<pre class="example">git config user.name "taeyoungchoon" (am I right?)
 git config user.email "taeyoungchoon@gmail.com"
 git commit -m 'mod git the add bash'
-git config &ndash;global push.default simple
-git config &ndash;global credential.helper store (but where?)
+git config --global push.default simple
+git config --global credential.helper store (but where?)
 git push
-</p>
+</pre>
+
+
 </div>
 
 </div>
@@ -202,20 +218,16 @@ git push
 <div class="outline-text-2" id="text-5">
 
 
-<ul>
-<li>git pull
-</li>
-<li>emacs foo.org
-</li>
-<li>git status
-</li>
-<li>git add foo.org
-</li>
-<li>git commit -m "add foo.org"
-</li>
-<li>git push
-</li>
-</ul>
+
+
+
+<pre class="example">git pull 
+emacs foo.org
+git status
+git add foo.org
+git commit -m "add foo.org"
+git push
+</pre>
 
 
 </div>
@@ -237,7 +249,7 @@ git push
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2014-09-26T09:10+0900</p>
+<p class="date">Date: 2014-09-26T09:23+0900</p>
 <p class="author">Author: </p>
 <p class="creator"><a href="http://orgmode.org">Org</a> version 7.9.3f with <a href="http://www.gnu.org/software/emacs/">Emacs</a> version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>

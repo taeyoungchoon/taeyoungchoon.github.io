@@ -15,3 +15,25 @@
 ;
 
 #+END_SRC
+
+* org-mode with code
+
+- emacs-lisp
+- lisp
+
+- sql
+- dot
+- R
+- java
+- js
+
+- sh
+- perl
+- ruby
+- python
+
+* template
+
+#+BEGIN_SRC sh
+
+#+END_SRC 
