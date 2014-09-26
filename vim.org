@@ -1,0 +1,8 @@
+* not vi but vi
+
+- vi improved?
+
+* config called vimrc
+
+set incsearch
+set hlsearch
