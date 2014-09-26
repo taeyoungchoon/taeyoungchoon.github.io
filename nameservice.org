@@ -4,8 +4,15 @@
 - bind
 - infoblox
 
+* dns + lb ( load balancer )
+
 * and resolving, resolver from client
 
 * memo
 
-bho
+lots of browser then name caching
+ie + bho ( name resolving related )
+primary, secondary, caching name server
+ipconfig /displaydns
+ipconfig /flushdns
+host ( aka node, pc, client ) name caching agent

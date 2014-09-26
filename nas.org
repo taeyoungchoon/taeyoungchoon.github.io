@@ -1,0 +1,7 @@
+* kinds of
+
+netapp, freenas, openfiler
+
+* they do?
+
+http://www.freenas.org/about/features.html

@@ -8,3 +8,11 @@ smartmontools, smartctl
 성공! 없앨 수는 없지만 최소화 할 수는 있었다
 단점은 너무 많이 알아서, 발생할 수 있는 오류를
 너무 많은 디스크를 갈았다는 것이다
+* kinds of
+
+| type   | desc                 |
+|--------+----------------------|
+| raid 0 | stripe               |
+| raid 1 | mirror               |
+| raid 5 | at least three disks |
+

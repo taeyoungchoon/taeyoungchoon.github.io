@@ -1,0 +1,3 @@
+* kinds of
+
+[[file:das.org][das]], [[file:san.org][san]], [[file:nas.org][nas]]

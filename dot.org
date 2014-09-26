@@ -9,3 +9,15 @@ yum install graphviz
 graphviz-dot-mode
 M-x compile
 C-c p
+
+* include dot
+
+#+BEGIN_SRC dot
+digraph sample {
+
+	edge[dir=none]
+	
+	a -> b
+	a -> c
+}
+#+END_SRC
