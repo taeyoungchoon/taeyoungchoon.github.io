@@ -3,11 +3,11 @@
                "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<title>index</title>
+<title>git</title>
 <meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
-<meta name="title" content="index"/>
+<meta name="title" content="git"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2014-09-26T09:12+0900"/>
+<meta name="generated" content="2014-09-26T09:10+0900"/>
 <meta name="author" content=""/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -115,189 +115,129 @@ for the JavaScript code in this tag.
 </div>
 
 <div id="content">
-<h1 class="title">index</h1>
+<h1 class="title">git</h1>
 
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1 check my git is old ( good ) enough</a></li>
+<li><a href="#sec-2">2 if git old enough</a></li>
+<li><a href="#sec-3">3 clone</a></li>
+<li><a href="#sec-4">4 init</a></li>
+<li><a href="#sec-5">5 daily</a></li>
+<li><a href="#sec-6">6 suggest</a></li>
+</ul>
+</div>
+</div>
 
 <div id="outline-container-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> fun</h2>
+<h2 id="sec-1"><span class="section-number-2">1</span> check my git is old ( good ) enough</h2>
 <div class="outline-text-2" id="text-1">
 
 
 <p>
-more than any
+sudo yum install git -y
+git &ndash;version
 </p>
 </div>
 
 </div>
 
 <div id="outline-container-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> you may say I'm a dreamer but I'm not the only one</h2>
+<h2 id="sec-2"><span class="section-number-2">2</span> if git old enough</h2>
 <div class="outline-text-2" id="text-2">
 
 
-
-</div>
-
-<div id="outline-container-2-1" class="outline-3">
-<h3 id="sec-2-1"><span class="section-number-3">2.1</span> link</h3>
-<div class="outline-text-3" id="text-2-1">
-
-
-<ul>
-<li><a href="http://www.youtube.com/watch?v=RwUGSYDKUxU">http://www.youtube.com/watch?v=RwUGSYDKUxU</a>
-</li>
-</ul>
-
-
-</div>
+<p>
+cd /usr/local/src
+sudo yum install perl-ExtUtils-MakeMaker -y;sudo make prefix=/usr/local all
+git clone <a href="https://github.com/msysgit/git.git">https://github.com/msysgit/git.git</a>
+cd git
+make prefix=/usr/local all
+sudo make prefix=/usr/local install
+sudo rpm -e git  perl-Git
+ln -s /usr/local/bin/git /usr/bin/git (or add /usr/local/bin to PATH from .bash<sub>profile</sub>)
+git &ndash;version
+</p>
 </div>
 
 </div>
 
 <div id="outline-container-3" class="outline-2">
-<h2 id="sec-3"><span class="section-number-2">3</span> stuff</h2>
+<h2 id="sec-3"><span class="section-number-2">3</span> clone</h2>
 <div class="outline-text-2" id="text-3">
 
 
-
-</div>
-
-<div id="outline-container-3-1" class="outline-3">
-<h3 id="sec-3-1"><span class="section-number-3">3.1</span> linux</h3>
-<div class="outline-text-3" id="text-3-1">
-
-
 <p>
-operating system can be read
+cd
+git clone <a href="https://github.com/taeyoungchoon/taeyoungchoon.github.io.git">https://github.com/taeyoungchoon/taeyoungchoon.github.io.git</a>
+cd taeyoungchoon.github.io
+git status
 </p>
-</div>
-
-</div>
-
-<div id="outline-container-3-2" class="outline-3">
-<h3 id="sec-3-2"><span class="section-number-3">3.2</span> language, wall</h3>
-<div class="outline-text-3" id="text-3-2">
-
-
-<ul>
-<li>english
-</li>
-<li>korean
-</li>
-</ul>
-
-
-</div>
-
-</div>
-
-<div id="outline-container-3-3" class="outline-3">
-<h3 id="sec-3-3"><span class="section-number-3">3.3</span> human</h3>
-<div class="outline-text-3" id="text-3-3">
-
-
-<ul>
-<li>not only body
-</li>
-<li>body
-</li>
-</ul>
-
-
-</div>
-
-</div>
-
-<div id="outline-container-3-4" class="outline-3">
-<h3 id="sec-3-4"><span class="section-number-3">3.4</span> programming</h3>
-<div class="outline-text-3" id="text-3-4">
-
-
-<p>
-bit code
-</p>
-</div>
-
-</div>
-
-<div id="outline-container-3-5" class="outline-3">
-<h3 id="sec-3-5"><span class="section-number-3">3.5</span> emacs, mode</h3>
-<div class="outline-text-3" id="text-3-5">
-
-
-<p>
-major and minor
-</p>
-</div>
 </div>
 
 </div>
 
 <div id="outline-container-4" class="outline-2">
-<h2 id="sec-4"><span class="section-number-2">4</span> taeyoungchoon, TaeYoungChoon, Anselmus, Dae Jo Young, oak</h2>
+<h2 id="sec-4"><span class="section-number-2">4</span> init</h2>
 <div class="outline-text-2" id="text-4">
 
 
-
-</div>
-
-<div id="outline-container-4-1" class="outline-3">
-<h3 id="sec-4-1"><span class="section-number-3">4.1</span> Anselmus, Anselmo</h3>
-<div class="outline-text-3" id="text-4-1">
-
-
-
-</div>
-
-<div id="outline-container-4-1-1" class="outline-4">
-<h4 id="sec-4-1-1"><span class="section-number-4">4.1.1</span> link</h4>
-<div class="outline-text-4" id="text-4-1-1">
-
-
-<ul>
-<li><a href="http://web.pbc.co.kr/CMS/catholic/view_body.php?menu_fid=720&amp;cid=46952&amp;path=200704">http://web.pbc.co.kr/CMS/catholic/view_body.php?menu_fid=720&amp;cid=46952&amp;path=200704</a>
-</li>
-<li><a href="http://info.catholic.or.kr/saint/view.asp?ctxtsaintid=1602">http://info.catholic.or.kr/saint/view.asp?ctxtsaintid=1602</a>
-</li>
-</ul>
-
-
-</div>
-
-</div>
-
-<div id="outline-container-4-1-2" class="outline-4">
-<h4 id="sec-4-1-2"><span class="section-number-4">4.1.2</span> writing</h4>
-<div class="outline-text-4" id="text-4-1-2">
-
-
-<ul>
-<li>Cur Deus Homo
-</li>
-<li>Monologion
-</li>
-</ul>
-
-
-</div>
-</div>
+<p>
+git config user.name "taeyoungchoon" (am I right?)
+git config user.email "taeyoungchoon@gmail.com"
+git commit -m 'mod git the add bash'
+git config &ndash;global push.default simple
+git config &ndash;global credential.helper store (but where?)
+git push
+</p>
 </div>
 
 </div>
 
 <div id="outline-container-5" class="outline-2">
-<h2 id="sec-5"><span class="section-number-2">5</span> misc</h2>
+<h2 id="sec-5"><span class="section-number-2">5</span> daily</h2>
 <div class="outline-text-2" id="text-5">
 
 
-<p>
-using <a href="git.html">git</a>
-</p></div>
+<ul>
+<li>git pull
+</li>
+<li>emacs foo.org
+</li>
+<li>git status
+</li>
+<li>git add foo.org
+</li>
+<li>git commit -m "add foo.org"
+</li>
+<li>git push
+</li>
+</ul>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> suggest</h2>
+<div class="outline-text-2" id="text-6">
+
+
+<ul>
+<li>auto aka background
+</li>
+</ul>
+
+</div>
 </div>
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2014-09-26T09:12+0900</p>
+<p class="date">Date: 2014-09-26T09:10+0900</p>
 <p class="author">Author: </p>
 <p class="creator"><a href="http://orgmode.org">Org</a> version 7.9.3f with <a href="http://www.gnu.org/software/emacs/">Emacs</a> version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>

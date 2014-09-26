@@ -48,3 +48,6 @@ major and minor
 - Cur Deus Homo
 - Monologion
 
+* misc
+
+using [[file:git.org][git]]

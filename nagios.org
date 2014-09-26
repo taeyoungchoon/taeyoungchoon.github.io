@@ -27,3 +27,8 @@ monitoring +web +way
 mon도 잠시 cacti도 잠시 custom도 잠시 
 
 custom(손 스크립트) 참 좋은데 말이다 
+
+* sample
+
+/usr/lib64/nagios/plugins/check_dns -H linux.com -s 168.126.63.1
+DNS OK: 0.180 seconds response time. linux.com returns 140.211.167.50,140.211.167.51|time=0.179655s;;;0.000000
