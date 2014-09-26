@@ -1,14 +1,22 @@
 * dot
 
+#+BEGIN_SRC sh
 yum install graphviz
+#+END_SRC
 
 * aka graphviz
 
 * dot and emacs
 
+** supporting mode
+
 graphviz-dot-mode
-M-x compile
-C-c p
+
+| command     | desc           |
+|-------------+----------------|
+| M-x compile | generate image |
+| C-c p       | view image     |
+
 
 * include dot
 

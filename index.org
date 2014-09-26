@@ -50,4 +50,5 @@ major and minor
 
 * misc
 
-using [[file:git.org][git]]
+- using [[file:git.org][git]]
+- love [[file:dot.org][dot]]
