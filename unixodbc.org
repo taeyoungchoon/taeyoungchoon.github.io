@@ -1,10 +1,162 @@
-<<<<<<< HEAD
 * links
 
 http://www.unixodbc.org/odbcinst.html
 http://www.unixodbc.org/internals.html
 https://my.vertica.com/docs/5.1.6/HTML/index.htm#11705.htm
-=======
+
 * is the implementation of odbc to unix and linux world
 * need dot ( graphviz )
->>>>>>> 81b902d2a173e5194334dbbf8c2df2a819079976
+* rpm and files, odbc.ini, odbcint.ini, isql, odbcinst
+
+#+BEGIN_SRC sh
+
+$ rpm -qa | grep unixODBC
+unixODBC-2.2.14-12.el6_3.x86_64
+unixODBC-devel-2.2.14-12.el6_3.x86_64
+
+$ rpm -ql unixODBC | grep -v doc | grep -v lib64
+/etc/odbc.ini
+/etc/odbcinst.ini
+/usr/bin/dltest
+/usr/bin/isql
+/usr/bin/iusql
+/usr/bin/odbc_config
+/usr/bin/odbcinst
+
+#+END_SRC
+
+* with mysql
+
+** install mysql and mysql odbc driver
+
+#+BEGIN_SRC sh
+sudo yum install mysql-server mysql-connector-odbc 
+sudo /etc/init.d/mysql
+/usr/bin/mysqladmin -u root password 'new-password'
+#+END_SRC
+
+** odbcinst.ini then check
+
+#+BEGIN_SRC sh
+vi /etc/odbcinst.ini
+odbcint -q -d
+#+END_SRC
+
+*** odbcinit.ini
+
+#+BEGIN_SRC sh
+cat /etc/odbcinst.ini
+
+[MySQL_ODBC_Driver]
+Description     = ODBC for MySQL
+Driver          = /usr/lib64/libmyodbc5.so
+Setup           = /usr/lib64/libodbcmyS.so
+FileUsage       = 1
+#+END_SRC
+
+** odbc.ini then check
+
+#+BEGIN_SRC sh
+vi /etc/odbc.ini
+isql -v DSN
+#+END_SRC
+
+*** odbc.ini
+
+#+BEGIN_SRC sh
+[MySQL_DSN]
+Driver = MySQL_ODBC_Driver
+Description = MySQL DSN
+SERVER = 127.0.0.1
+PORT = 3306
+USER = root
+PASSWORD = new-password
+DATABASE = test
+OPTION = 3
+#+END_SRC
+
+** what about mysql use this
+*** pre, create table
+
+#+BEGIN_SRC sh
+CREATE TABLE test.example ( id INT, data VARCHAR(100));
+#+END_SRC
+
+*** pre part 2, insert data
+
+#+BEGIN_SRC sh
+insert into example values (1,1);
+insert into example values (2,4);
+insert into example values (3,9);
+#+END_SRC
+
+*** try
+
+#+BEGIN_SRC R
+install.packages("RODBC", dependencies = TRUE)
+#+END_SRC
+
+#+BEGIN_SRC R
+library(RODBC)
+con <- odbcConnect("MySQL_DSN", uid="root", pwd="new-password")
+odbcGetInfo(con)
+sqlQuery(con, "select * from example")
+#+END_SRC
+    
+* with oracle but odbc.ini, odbcint.ini again
+
+** pre, activate scott first
+
+** edit files, odbcinst.ini, odbc.ini
+
+#+BEGIN_SRC sh
+$ locate libsqora.so
+/home/pz2659/app/pz2659/product/11.2.0/dbhome_1/lib/libsqora.so.11.1
+
+$ vi /etc/odbcinst.ini
+[Oracle_ODBC_Driver]
+Description     = Oracle ODBC driver for Oracle 11g
+Driver          = /home/pz2659/app/pz2659/product/11.2.0/dbhome_1/lib/libsqora.so.11.1
+Setup           =
+FileUsage       =
+CPTimeout       =
+CPReuse         =
+Driver Logging  = 7
+
+$ vi /etc/odbc.ini
+[Oracle_DSN]
+Driver = Oracle_ODBC_Driver
+DSN = Oracle_DSN
+UserID = scott
+Password = tiger
+#+END_SRC
+
+** try
+
+#+BEGIN_SRC R
+install.packages("RODBC", dependencies = TRUE)
+#+END_SRC
+
+#+BEGIN_SRC R
+library(RODBC)
+con <- odbcConnect("Oracle_DSN", uid="scott", pwd="tiger")
+odbcGetInfo(con)
+sqlQuery(con, "select * from dual")
+#+END_SRC
+
+** one more todo
+
+http://docs.adaptivecomputing.com/mwm/Content/topics/databases/oracle.html
+
+#+BEGIN_SRC sh
+$ sudo ldd /home/pz2659/app/pz2659/product/11.2.0/dbhome_1/lib/libsqora.so.11.1
+        linux-vdso.so.1 =>  (0x00007fff5d349000)
+        libdl.so.2 => /lib64/libdl.so.2 (0x00007f424ce4f000)
+        libm.so.6 => /lib64/libm.so.6 (0x00007f424cbcb000)
+        libpthread.so.0 => /lib64/libpthread.so.0 (0x00007f424c9ad000)
+        libnsl.so.1 => /lib64/libnsl.so.1 (0x00007f424c794000)
+        libclntsh.so.11.1 => not found
+        libodbcinst.so.1 => not found
+        libc.so.6 => /lib64/libc.so.6 (0x00007f424c3ff000)
+        /lib64/ld-linux-x86-64.so.2 (0x0000003608000000)
+#+END_SRC

@@ -1,0 +1,14 @@
+* rmysql, RMySQL
+
+#+BEGIN_SRC sh
+sudo yum install mysql-devel -y
+#+END_SRC
+
+#+BEGIN_SRC R
+> install.packages("RMySQL", dependencies = TRUE)
+> library(RMySQL)
+> con <- dbConnect(dbDriver("MySQL"), user="root", password="new-password")
+> quit()
+#+END_SRC
+
+it works, but not using [[file:rodbc.org][rodbc]]
