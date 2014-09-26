@@ -67,3 +67,5 @@ export all
 - http://emacsformacosx.com
 
 ** known user
+
+- https://github.com/bbatsov/prelude
