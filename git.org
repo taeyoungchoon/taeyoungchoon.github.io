@@ -16,7 +16,7 @@ cd git
 sudo make prefix=/usr/local all
 sudo make prefix=/usr/local install
 sudo rpm -e git perl-Git
-ln -s /usr/local/bin/git /usr/bin/git
+sudo ln -s /usr/local/bin/git /usr/bin/git
 # or add /usr/local/bin to PATH from .bash_profile
 git --version
 #+END_SRC 
@@ -33,11 +33,11 @@ git status
 * init
 
 #+BEGIN_SRC sh
-git config user.name "taeyoungchoon" (am I right?)
+git config user.name "taeyoungchoon"
 git config user.email "taeyoungchoon@gmail.com"
 git commit -m 'mod git the add bash'
 git config --global push.default simple
-git config --global credential.helper store (but where?)
+git config --global credential.helper store
 git push
 #+END_SRC
 
