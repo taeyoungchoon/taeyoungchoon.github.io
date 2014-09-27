@@ -1,0 +1,14 @@
+* list
+
+- palo alto next generation firewall
+- checkpoint
+
+* not on a list
+
+- iptables
+- freebsd one
+- windows one or two
+
+* not only firewall
+
+ids or ips, ddos, waf, spam, network dlp

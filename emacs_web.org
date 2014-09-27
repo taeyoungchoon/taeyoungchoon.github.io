@@ -1,0 +1,3 @@
+* dig information using firefox not emacs
+
+
