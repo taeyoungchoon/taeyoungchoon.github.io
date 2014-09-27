@@ -1,0 +1,4 @@
+* language, wall
+
+- english
+- korean

@@ -1,54 +1,7 @@
 #+OPTIONS: toc:nil
 
-* fun
+* one more thing
 
-more than any
-
-* you may say I'm a dreamer but I'm not the only one
-
-** link
-
-- http://www.youtube.com/watch?v=RwUGSYDKUxU
-
-* stuff
-
-** linux
-
-operating system can be read
-
-** language, wall
-
-- english
-- korean
-
-** human
-
-- not only body
-- body
-
-** programming
-
-bit code
-
-** emacs, mode
-
-major and minor
-
-* taeyoungchoon, TaeYoungChoon, Anselmus, Dae Jo Young, oak
-
-** Anselmus, Anselmo
-
-*** link
-
-- http://web.pbc.co.kr/CMS/catholic/view_body.php?menu_fid=720&cid=46952&path=200704
-- http://info.catholic.or.kr/saint/view.asp?ctxtsaintid=1602
-
-*** writing
-
-- Cur Deus Homo
-- Monologion
-
-* misc
-
-- using [[file:git.org][git]]
-- love [[file:dot.org][dot]]
+- using [[file:git.org][git]] to publish this page
+- using [[file:dot.org][dot]] to draw something
+- and some
