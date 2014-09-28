@@ -1,0 +1,21 @@
+* cli
+
+- show version
+- show interface status
+- show logging
+- show clock
+
+* web?
+* app?
+* about time
+* about log
+
+using syslog
+
+* monitoring
+
+using nagios
+
+* backup configration
+* port mirror, remote
+

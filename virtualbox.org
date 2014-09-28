@@ -1,5 +1,11 @@
 * this is good and free, so good? anyway
+
+오라클이라 싫은데
+
 * use it
+
+[2014-09-28 Sun 20:59] 요즘따라 조금 이상하게 잘 안되기는 한다. vm에서 다시 pm으로.
+
 * alternative
   - xen
   - qemu

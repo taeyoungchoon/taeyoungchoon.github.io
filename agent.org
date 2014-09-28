@@ -1,3 +1,4 @@
+* agent is everything
 * puppet agent, nagios agent, hp agent
 * emacs as agent
 * agent talk to agent

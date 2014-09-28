@@ -1,0 +1,5 @@
+* just one
+
+ntpdate -q time.bora.net
+
+

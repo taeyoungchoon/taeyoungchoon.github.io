@@ -21,14 +21,15 @@ monitoring +web +way
 * others
 
 참 많은 툴이 만들어 졌다 그리고 만들어 지고 있다
-
 성숙한 툴은 지금도 계속 사용하는 툴은 이거다
-
 mon도 잠시 cacti도 잠시 custom도 잠시 
-
 custom(손 스크립트) 참 좋은데 말이다 
 
 * sample
 
 /usr/lib64/nagios/plugins/check_dns -H linux.com -s 168.126.63.1
 DNS OK: 0.180 seconds response time. linux.com returns 140.211.167.50,140.211.167.51|time=0.179655s;;;0.000000
+
+* todo
+
+nagios then no more nagios? ^^

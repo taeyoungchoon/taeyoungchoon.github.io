@@ -1,2 +1,7 @@
 * xen is not a xen too much custom
+
+역시 무슨 말인지 모르겠다. 그리고 지금 쓰지도 않는다. 나는 말이다. 
+
 * alternative qeme and more
+
+qemu도 말이다. 요즘 사용하는 것은 [[file:virtualbox.org][virtualbox]] 이다
