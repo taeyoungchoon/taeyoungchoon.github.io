@@ -1,1 +1,4 @@
 * emacs shell aka eshell
+* more shell
+
+C-u 1 M-x eshell
