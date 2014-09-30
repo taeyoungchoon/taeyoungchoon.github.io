@@ -38,7 +38,7 @@
 (global-set-key (kbd "C-x <left>") 'windmove-left)
 
 (require 'ace-jump-mode)
-(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+(define-key global-map (kbd "C-x j") 'ace-jump-mode)
 
 ; swap window
 
