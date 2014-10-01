@@ -1,0 +1,9 @@
+* get the last field
+** using NF
+
+man awk | col -b
+The number of fields in the current input record
+
+** sample
+
+cat call.list | grep Registered | awk '{ print $NF }'
