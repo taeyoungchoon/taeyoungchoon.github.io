@@ -22,6 +22,10 @@
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
 
+; C:\Users\<username>\AppData\Local\Teqmp
+;(defvar user-temporary-file-directory
+;"~/.emacs-backup")
+
 ; language
 (setq default-input-method "korean-hangul3f")
 (global-set-key (kbd "S-SPC") 'toggle-input-method)
@@ -43,6 +47,8 @@
 (define-key global-map (kbd "C-x j") 'ace-jump-mode)
 
 ; swap window
+
+; resizing window
 
 ; package dictionary.el
 (global-set-key (kbd "<f8>") 'dictionary-lookup-definition)
