@@ -1,0 +1,25 @@
+//
+// graphviz-dot-mode
+//
+// M-x compile
+// C-c p
+//
+
+digraph nameservice {
+
+	// edge[dir=none]
+
+	ns -> os
+	os -> browser
+	
+	// subgraph cluster_repo {
+	// // 	storage
+	// // 	database
+	// // }
+	
+	// // as -> { storage, database }
+	// as -> storage
+	// as -> database[dir=back, color=red]
+
+	// { rank = same; as mon}
+}

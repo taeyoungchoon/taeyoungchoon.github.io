@@ -8,6 +8,11 @@
 
 * and resolving, resolver from client
 
+so much various 
+os resolver default setting
+os resolver config, one or two ns
+kinds of browser, version
+
 * memo
 
 lots of browser then name caching
