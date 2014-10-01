@@ -1,0 +1,22 @@
+* IPSec VPN QoS Design
+
+http://www.cisco.com/c/en/us/td/docs/solutions/Enterprise/WAN_and_MAN/QoS_SRND/QoS-SRND-Book/IPSecQoS.html
+
+** sampling
+
+#+BEGIN_SRC VERSE
+
+!
+policy-map V3PN-TELEWORKER
+class VOICE
+priority 128 ! Encrypted G.711 over Cable
+class INTERNETWORK-CONTROL
+bandwidth percent 5 ! Control Plane provisioning
+class CALL-SIGNALING
+bandwidth percent 5 ! Call-Signaling provisioning
+class class-default
+fair-queue
+queue-limit 30 ! Optional: Anti-Replay Tuning
+!
+
+#+END_SRC
