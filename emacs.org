@@ -69,3 +69,7 @@ export all
 ** known user
 
 - https://github.com/bbatsov/prelude
+
+** known page
+
+- http://www.emacswiki.org/emacs-ko
