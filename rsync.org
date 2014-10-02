@@ -1,0 +1,8 @@
+* as what I say wellknown
+* TODO syntax
+* rsync child? rsync alternative! rsync for windows! rsync for mac!
+* link
+
+http://en.wikipedia.org/wiki/Rsync
+
+* say

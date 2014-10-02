@@ -8,7 +8,7 @@
 (setq inhibit-splash-screen t)
 (display-time)
 (load-theme 'wombat)
-(setq default-directory "t:/taeyoungchoon.github.io")
+(setq default-directory "t:/")
 (eshell)
 
 ; about backup & auto-save
