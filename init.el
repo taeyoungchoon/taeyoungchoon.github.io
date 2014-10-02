@@ -8,7 +8,8 @@
 (setq inhibit-splash-screen t)
 (display-time)
 (load-theme 'wombat)
-;(setq default-directory "t:/")
+(setq default-directory "t:/taeyoungchoon.github.io")
+(eshell)
 
 ; about backup & auto-save
 ; http://www.gnu.org/software/emacs/manual/html_node/elisp/Auto_002dSaving.html
@@ -23,8 +24,8 @@
       `((".*" ,temporary-file-directory t)))
 
 ; C:\Users\<username>\AppData\Local\Teqmp
-;(defvar user-temporary-file-directory
-;"~/.emacs-backup")
+; (defvar user-temporary-file-directory
+; "~/.emacs-backup")
 
 ; language
 (setq default-input-method "korean-hangul3f")
@@ -48,7 +49,7 @@
 
 ; swap window
 
-; resizing window
+; resizing window with windresize
 
 ; package dictionary.el
 (global-set-key (kbd "<f8>") 'dictionary-lookup-definition)
@@ -64,3 +65,7 @@
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 (define-key global-map "\C-ca" 'org-agenda)
 (setq org-log-done t)
+
+; printer
+; http://www.emacs.uniyar.ac.ru/doc/em24h/emacs018.htm
+(setq printer-name "//127.0.0.1/Printer")

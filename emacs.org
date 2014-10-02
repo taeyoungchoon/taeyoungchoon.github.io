@@ -73,3 +73,5 @@ export all
 ** known page
 
 - http://www.emacswiki.org/emacs-ko
+- http://planet.emacsen.org
+- http://reddit.com/r/emacs

@@ -1,5 +1,15 @@
 * list of printer
 
+** hp LaserJet 4200 printer
+
+*** job storage status page
+
+| type     | msg                               |
+|----------+-----------------------------------|
+| Error    | Unable to store job at printer    |
+| Reason   | Printer not configured to collate |
+| Solution | Install an EIO hard disk.         |
+
 * what I can do with it, the printer
 
 * recharge?

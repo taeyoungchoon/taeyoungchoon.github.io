@@ -1,0 +1,13 @@
+* emacs > mode > dired and more
+
+* more package by configure from init.el
+
+#+BEGIN_SRC emacs-lisp
+
+; package
+(require 'package)
+(add-to-list 'package-archives
+  '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(package-initialize)
+
+#+END_SRC
