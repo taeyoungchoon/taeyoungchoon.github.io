@@ -1,3 +1,13 @@
 * suggest
 
 주고 받음 일명 Copy & Paste를 함에 있어서 되야 하고 깨지지 않아야 한다 물론 윈도우 만의 문제는 아니겠지만 말이다.
+
+* windows or linux
+
+* window or terminal
+
+** window-system to display-graphic-p
+
+** links
+
+http://stackoverflow.com/questions/5795451/how-to-detect-that-emacs-is-in-terminal-mode
