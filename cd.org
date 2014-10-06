@@ -1,0 +1,25 @@
+* can do with cd 
+
+- create image
+- burn image
+
+* tools
+
+| purpose     | tool                       |
+|-------------+----------------------------|
+| cd burn     | infra recorder, CDBurnerXP |
+| cd emulator | WinCDEmu                   |
+
+* links
+
+from [[http://www.techdrivein.com/2011/03/9-good-cd-and-dvd-burning-tools-for.html][windows]] and [[http://www.yolinux.com/TUTORIALS/LinuxTutorialCDBurn.html][linux]]
+
+* words
+
+#+BEGIN_VERSE
+
+시디라 
+플로피라
+집드라이브도 있었다
+
+#+END_VERSE

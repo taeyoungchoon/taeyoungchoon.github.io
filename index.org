@@ -1,7 +1,9 @@
 #+OPTIONS: toc:nil
 
-* one more thing
+* go
 
-- using [[file:git.org][git]] to publish this page
-- using [[file:dot.org][dot]] to draw something
-- and some
+- 이맥스를 켜다.
+- 쉘을 수행하고 달력을 보고 글을 쓰고 저장하고 또 [[file:git.org][따로 저장]]하고
+- 그림은 [[file:dot.org][점]]으로 그린다 농담이다 어쨌거나 나는 아티스트일 수는 없는가?
+- 쓸만한 패키지를 받고 이맥스에 반영한다.
+- 또
