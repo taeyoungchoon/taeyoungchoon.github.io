@@ -7,3 +7,7 @@
 - 그림은 [[file:dot.org][점]]으로 그린다 농담이다 어쨌거나 나는 아티스트일 수는 없는가?
 - 쓸만한 패키지를 받고 이맥스에 반영한다.
 - 또
+
+* issue
+
+- [[file:shellshock.org][shellshock]]로 알려진 bash의 버그라니 그런데 과연 치명적일까?

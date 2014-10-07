@@ -1,0 +1,9 @@
+* WWAN ( Wireless Wide Area Network)
+
+GSM, CDMA, LTE
+
+* article
+
+http://konatamoe.tistory.com/507
+http://blog.daum.net/jason.jr.lee/14
+https://mirror.enha.kr/wiki/CDMA
