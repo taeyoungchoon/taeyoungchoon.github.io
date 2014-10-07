@@ -40,11 +40,17 @@ wget http://public-yum.oracle.com/repo/EnterpriseLinux/EL4/latest/i386/getPackag
 
 http://en.wikipedia.org/wiki/Shellshock_%28software_bug%29
 
-** one more
+** timeline
+
+http://www.dwheeler.com/essays/shellshock.html
+
+** apache related
+
+http://security.stackexchange.com/questions/68146/how-do-i-secure-apache-against-the-bash-shellshock-vulnerability
+
+** one more, ssh?
 
 http://www.csoonline.com/article/2687265/application-security/remote-exploit-in-bash-cve-2014-6271.html
 http://unix.stackexchange.com/questions/157477/how-can-shellshock-be-exploited-over-ssh
 
-** timeline
 
-http://www.dwheeler.com/essays/shellshock.html

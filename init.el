@@ -47,6 +47,12 @@
 (require 'ace-jump-mode)
 (define-key global-map (kbd "C-x j") 'ace-jump-mode)
 
+; buffer move
+(global-set-key (kbd "<C-S-up>")     'buf-move-up)
+(global-set-key (kbd "<C-S-down>")   'buf-move-down)
+(global-set-key (kbd "<C-S-left>")   'buf-move-left)
+(global-set-key (kbd "<C-S-right>")  'buf-move-right)
+
 ; swap window
 
 ; resizing window with windresize
