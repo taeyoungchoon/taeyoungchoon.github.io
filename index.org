@@ -11,3 +11,14 @@
 * issue
 
 - [[file:shellshock.org][shellshock]]로 알려진 bash의 버그라니 그런데 과연 치명적일까?
+
+* linux and security
+
+- 1995년 리눅스를 시작으로 
+- 2개의 IDC, 60g의 네트워크 구성, 600대의 동작 중인 서버를 커피와 함께
+- 지금은 보안 관련 업무를 하고 있는데
+
+* hope
+
+- 프로그래머
+- 해커
