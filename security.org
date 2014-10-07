@@ -14,5 +14,24 @@
 - with system engineer & administrator
 - with networker
 
-** and where I belong? in heaven
+** and where I belong? 
+* go
 
+| range            | to know             |
+|------------------+---------------------|
+| network          | cisco               |
+|                  | wireshark           |
+|                  | mobile (3g+)        |
+|                  | PC                  |
+|------------------+---------------------|
+| operating system | windows             |
+|                  | linux               |
+|                  | unix                |
+|------------------+---------------------|
+| application      | web                 |
+|                  | reverse engineering |
+|                  | mobile              |
+
+* certificate
+
+- [ ] CISSP
