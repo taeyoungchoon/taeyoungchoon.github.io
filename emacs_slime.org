@@ -1,0 +1,12 @@
+* links
+
+http://www.common-lisp.net/project/slime/
+
+* config
+
+#+BEGIN_SRC emacs-lisp
+
+(setq inferior-lisp-program "/usr/local/bin/sbcl") ;; this is my sbcl path
+(require 'slime)
+
+#+END_SRC
