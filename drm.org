@@ -1,0 +1,18 @@
+* drm ( digital right management )
+
+- markany
+
+* drm free
+
+얼마전 네이버에서 영화를 받았다. 이런 drm free 군요. 음원도 drm free 추세라고 하는데 확인은 못했군요. 
+그럼 사람들이 이런 사이트에서 받아서 공유사이트에 올릴 수 있다는 말인데 흠
+
+** law
+
+저작권법 104조
+
+* links
+
+http://en.wikipedia.org/wiki/Digital_rights_management
+http://computer.howstuffworks.com/drm.htm
+https://mirror.enha.kr/wiki/DRM
