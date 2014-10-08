@@ -1,0 +1,15 @@
+* my have to old notebook
+
+#+BEGIN_VERSE
+
+Microsoft Windows [Version 6.1.7601]
+Copyright (c) 2009 Microsoft Corporation. All rights reserved.
+
+C:\Users\foo>java -version
+java version "1.6.0_33"
+Java(TM) SE Runtime Environment (build 1.6.0_33-b03)
+Java HotSpot(TM) Client VM (build 20.8-b03, mixed mode, sharing)
+
+C:\Users\foo>
+
+#+END_VERSE

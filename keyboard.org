@@ -1,0 +1,15 @@
+* history
+
+[2014-10-08 수 11:48] C-u C-c ! to insert timestamp
+[2014-10-08 수 11:49] 나름 오랜동안 사용했던 키보드가 고장났다 
+
+* Using 'Microsoft Comfort Curve Keyboard 3000'
+
+http://www.microsoft.com/hardware/ko-kr/p/comfort-curve-keyboard-3000
+
+* have to 'Natural Ergonomic Keyboard 4000' or
+
+http://www.microsoft.com/hardware/ko-kr/p/natural-ergonomic-keyboard-4000/B2M-00011
+
+* 손목터널증후군
+* 자세

@@ -1,0 +1,4 @@
+* seperate 
+
+- network
+- host aka node
