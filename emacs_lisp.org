@@ -1,1 +1,1 @@
-* using emacs ielm or 
+* using emacs ielm or slime?
