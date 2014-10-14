@@ -1,5 +1,5 @@
 * place
 
-도서출판단지
-이이
-이황
+- [[http://pajubookcity.org/content/sub_03_06.asp][지혜의 숲]] 그리고 [[http://pajubookcity.org/content/sub_04_book_2014_01_info.asp][출판도시 인문학당]] 
+- 이이
+- 이황

@@ -35,3 +35,7 @@
 * certificate
 
 - [ ] CISSP
+
+* news
+
+- http://www.dailysecu.com/

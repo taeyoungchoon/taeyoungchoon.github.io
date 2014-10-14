@@ -1,0 +1,18 @@
+//
+// graphviz-dot-mode
+//
+// M-x compile
+// C-c p
+//
+
+digraph networkseperation {
+
+	edge[dir=none]
+	
+	internet -> firewall
+	firewall -> dmzFarm
+	firewall -> serverFarm
+	firewall -> userFarm
+
+}
+
