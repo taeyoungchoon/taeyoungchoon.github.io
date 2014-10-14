@@ -2,3 +2,11 @@
 
 - dsum
 - countif
+
+* filename
+
+http://www.extendoffice.com/documents/excel/1150-excel-insert-path-and-file-name.html
+
+#+BEGIN_SRC excel
+=MID(CELL("filename"),SEARCH("[",CELL("filename"))+1, SEARCH("]",CELL("filename"))-SEARCH("[",CELL("filename"))-1)
+#+END_SRC 
