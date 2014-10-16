@@ -35,6 +35,14 @@
 * certificate
 
 - [ ] CISSP
+- [ ] [[file:sis.org][정보보안기사/정보보안산업기사]]
+
+* related company
+
+http://www.kisa.or.kr/business/protect/protect1_sub4.jsp
+http://www.kisa.or.kr/business/protect/protect1_sub5.jsp
+
+분야, 카테고리가 있을 것이다. 컨설팅 및 관제도 있군요. 시스코나 소만사는 없다. 
 
 * news
 

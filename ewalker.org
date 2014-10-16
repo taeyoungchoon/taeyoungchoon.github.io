@@ -1,0 +1,15 @@
+* fake packet
+
+* pass
+
+http://blog.naver.com/jspak3/40165676365
+
+** using
+
+freeSSHd at home space
+MyEnTunnel ( ssh tunnel ) at work space
+
+** news
+
+http://www.acrofan.com/ko-kr/commerce/news/20131016/00000041
+그리고 업무 효율?

@@ -1,0 +1,21 @@
+* cert
+
+** office
+
+- [ ] 컴퓨터활용능력, 필기&실기
+- [ ] ITQ, 실기 ( http://itq.or.kr )
+- [ ] MOS, 실기
+
+** pc+
+
+- [X] 정보처리기사
+
+** security
+
+- [ ] CISSP
+
+** site
+
+- http://license.korcham.net
+- http://www.q-net.or.kr
+- http://www.examcollection.com/

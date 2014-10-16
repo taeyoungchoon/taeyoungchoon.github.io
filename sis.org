@@ -1,0 +1,50 @@
+* SIS to others like 정보보안기사/정보보안산업기사
+
+- 공신력?
+- 아직도 크고 있는 시험
+- 실기가 조금 문제 있는
+- 아직은 정보보안산업기사
+
+** 실기 관련
+
+http://smleenull.tistory.com/181
+http://binaryu.tistory.com/50
+http://cyhome.cyworld.com/?home_id=a3470455&postSeq=14534670&r=popular
+http://www.boannews.com/media/view.asp?idx=41649
+
+** 책
+
+서점에 책도 있다 '정보보안' 으로 검색
+
+** 모임
+
+http://cafe.naver.com/algisa
+http://cafe.daum.net/kgnkisa
+
+* contents
+
+** 필기
+
+- 시스템 보안
+- 네트워크 보안
+- 어플리케이션 보안
+- 정보보안 일반
+- 정보보안관리 및 법규
+
+** 실기
+
+!?
+
+* 응시자격
+* 비용
+
+필기, 실기 각각 2만원 정도
+
+* schedule
+
+2015년도를 기대하세요
+
+* links
+
+http://www.kisa.or.kr/business/protect/protect1_sub2.jsp
+https://kisq.or.kr/

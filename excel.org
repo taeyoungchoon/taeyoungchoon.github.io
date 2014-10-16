@@ -10,3 +10,9 @@ http://www.extendoffice.com/documents/excel/1150-excel-insert-path-and-file-name
 #+BEGIN_SRC excel
 =MID(CELL("filename"),SEARCH("[",CELL("filename"))+1, SEARCH("]",CELL("filename"))-SEARCH("[",CELL("filename"))-1)
 #+END_SRC 
+* problem
+** 프로그램으로 명령을 전송하는 데 문제가 있습니다.
+
+http://support.microsoft.com/kb/211494/ko
+
+[2014-10-15 수 11:34] Microsoft Fix it 50392을 수행하다, 그리고 대기

@@ -1,0 +1,4 @@
+* cli
+
+http://cyruslab.net/2012/12/10/palo-alto-networks-familiarize-with-pan-cli/
+
