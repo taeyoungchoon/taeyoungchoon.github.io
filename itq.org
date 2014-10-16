@@ -1,0 +1,49 @@
+* 란
+
+국가공인
+ITQ
+http://itq.or.kr
+실기위주
+
+* schedule
+
+http://apply.itq.or.kr/help/help01_1.asp
+
+| 원서접수      | 시험일 |
+|---------------+--------|
+| 10.17 ~ 10.21 |  11.12 |
+| 11.07 ~ 11.11 |  12.13 |
+
+* 과목 중 3과목
+
+워드, [[file:excel.org][엑셀]], 파워포인트
+인터넷 검색, 액세스, 아래한글
+
+* 중 엑셀
+
+** 제 1 작업, 표 서식 작성 및 값 계산, 240점
+
+- rank, year, mid, &, sumif, max, round, average
+- daverage, rounddown, median, sumproduct, choose, left
+
+** 제 2 작업, 필터 및 서식, 80점
+
+- 고급필터
+- 표서식
+
+** 제 3 작업, 정렬 및 부분합, 80점
+
+- 정렬
+- 부분합
+
+http://wdrizzle.tistory.com/entry/%EC%97%91%EC%85%80-%ED%99%94%EB%A9%B4%EC%97%90-%EB%B3%B4%EC%9D%B4%EB%8A%94-%EB%B6%80%EB%B6%84%EB%A7%8C-%EB%B3%B5%EC%82%AC%ED%95%98%EB%8A%94%EB%B0%A9%EB%B2%95
+
+
+** 제 4 작업, 그래프, 100점
+
+- 차트
+
+* study
+
+http://blog.naver.com/windys82/10180631563
+http://www.comcbt.com/xe/itqe

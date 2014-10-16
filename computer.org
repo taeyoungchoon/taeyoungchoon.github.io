@@ -3,8 +3,8 @@
 ** office
 
 - [ ] 컴퓨터활용능력, 필기&실기
-- [ ] ITQ, 실기 ( http://itq.or.kr )
-- [ ] MOS, 실기
+- [X] [[file:itq.org][ITQ]], 실기 ( http://itq.or.kr )
+- [ ] [[file:mos.org][MOS]], 실기
 
 ** pc+
 
