@@ -9,10 +9,12 @@
 - direct over 5h
 - indirect over 7g
 
+and [[file:airplane.org][air plane]]
+
 * but req
 
-http://getabout.hanatour.com/archives/134923
-http://wisdomoftravel.tistory.com/entry/한국에서-캄보디아-시엠립까지-비행기값과-비행시간-알아보기
+- http://getabout.hanatour.com/archives/134923
+- http://wisdomoftravel.tistory.com/entry/한국에서-캄보디아-시엠립까지-비행기값과-비행시간-알아보기
 
 * language
 
