@@ -44,3 +44,29 @@ http://wdrizzle.tistory.com/entry/%EC%97%91%EC%85%80-%ED%99%94%EB%A9%B4%EC%97%90
 http://support.microsoft.com/kb/211494/ko
 
 [2014-10-15 수 11:34] Microsoft Fix it 50392을 수행하다, 그리고 대기
+
+** 셀 서식이 너무 많습니다.
+
+http://jkm501.blogspot.kr/2013/04/blog-post.html
+
+수식, 이름관리자를 정리하면 위의 링크를 보니 이것말고도 다른 부분도 확인이 필요하군요
+
+*** #REF! 
+
+는 잘못된 셀 참조 오류를 나타낸다
+
+*** in english
+
+#REF! - Invalid Cell Reference Errors
+Using Cell References in Excel Formulas
+Name Manager
+
+*** more errors
+
+http://www.excel-easy.com/functions/formula-errors.html
+
+*** tool
+
+http://excelfilecleaner.codeplex.com/
+
+Excel File Cleaner, 테스트는 아직

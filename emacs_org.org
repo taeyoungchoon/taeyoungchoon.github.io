@@ -36,6 +36,7 @@
 
 #+BEGIN_SRC sh
 #+END_SRC 
+
 * timestamp
 
 | typing    | seen                   | prefer |
@@ -43,5 +44,6 @@
 | C-c !     | [2014-09-28 Sun]       |        |
 | C-u C-c ! | [2014-09-28 Sun 20:43] | V      |
 
+* reference card
 
-
+http://orgmode.org/orgcard.pdf

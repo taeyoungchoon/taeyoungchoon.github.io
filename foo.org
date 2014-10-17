@@ -1,0 +1,31 @@
+* this is foo
+* tbl
+
+| Name | Phone | Age |
+|------+-------+-----|
+|      |       |     |
+
+| java.org   | wine.org     |
+| jekyll.org | wireless.org |
+
+| Binary   | Oct | Dec | Hex | Abbr | [a] | [b] | [c] | Name            |
+| 000 0000 | 000 |   0 |  00 | NUL  | ?   | ^@  | \0  | Null character  |
+| 000 0001 | 001 |   1 |  01 | SOH  | ?   | ^A  |     | Start of Header |
+| 000 0010 | 002 |   2 |  02 | STX  | ?   | ^B  |     | Start of Text   |
+| 000 0011 | 003 |   3 |  03 | ETX  | ?   | ^C  |     | End of Text     |
+
+* tbl + calc
+* ex
+  DEADLINE: <2014-10-16 목> SCHEDULED: <2014-10-16 목>
+|---+---+---+---+---|
+|   |   |   |   |   |
+|   |   |   |   |   |
+ec
+
+date
+
+[2014-10-16 목 18:33]
+....
+<2014-10-16 목>
+[2014-10-16 목 18:33]--[2014-10-16 목 18:33]
+[2014-10-16 목]

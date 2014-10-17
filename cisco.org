@@ -5,6 +5,17 @@
 - show logging
 - show clock
 
+* cli + troubleshooting
+
+- show errdisable detect
+- show errdisable recovery
+- show errdisable flap-values
+
+* cli + voip
+
+- show mls qos interface fastEthernet 0/26
+
+* mirroring then with wireshark
 * web?
 * app?
 * about time
