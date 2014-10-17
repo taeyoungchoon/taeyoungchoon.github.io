@@ -7,6 +7,15 @@
 
 * cli + troubleshooting
 
+- ping
+- traceroute (closing : Ctrl + Shift + 6)
+- show cdp nei
+- show arp
+- show mac address-table
+- show ip int bri
+
+* cli + ts part 2
+
 - show errdisable detect
 - show errdisable recovery
 - show errdisable flap-values
@@ -14,6 +23,19 @@
 * cli + voip
 
 - show mls qos interface fastEthernet 0/26
+
+* config
+
+#+BEGIN_SRC sh
+
+hostname xx_yy.nn.n
+clock timezone KOR 9 0
+ntp server n.n.n.n
+logging n.n.n.n
+snmp-server community roing RO
+snmp-server community rwing RW
+
+#+END_SRC
 
 * mirroring then with wireshark
 * web?
