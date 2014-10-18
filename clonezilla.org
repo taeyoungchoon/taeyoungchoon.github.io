@@ -12,3 +12,10 @@
 그리고 조금 더 이야기 하면
 
 systemimager와 fai도 이야기 한다, torrent와 함께 말이다.
+* more
+
+- [X] partition
+- disk
+- mbr
+- linux
+- mac?
