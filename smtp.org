@@ -1,2 +1,5 @@
 * simple mail transfer protocol
 * mail
+* attack!
+
+그래 왜 항상 뭐 꼭 항상이라고 하기는 그렇지만 악성코드는 외부 IP로 그리고 smtp 포트로 접근을 시도하지 과연 메일을 보내는 것일까? 아니면 스캔 아니면 연결 관련 공격
