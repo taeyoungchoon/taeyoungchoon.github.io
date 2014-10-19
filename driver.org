@@ -3,5 +3,24 @@
 http://h10025.www1.hp.com/ewfrf/wc/softwareCategory?cc=kr&lc=ko&dlc=ko&product=5118177
 hp driver
 
+** network
+
+- [X] Realtek PCEi FE Family Controller
+- [ ] Broadcom 802.11n network adapter
+
+** graphic 
+
+- [ ] amd radeon (tm) hd 6470m
+- [ ] intel(r) HD graphic family
+
+** audio
+
+- idt high definition audio codec
+- intel(r) display audio
+
+** one more thing
+
+- [ ] util > hp on-screen display utility
+
 http://download.cnet.com
 3dp

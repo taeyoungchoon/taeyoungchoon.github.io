@@ -39,10 +39,11 @@
 
 * timestamp
 
-| typing    | seen                   | prefer |
-|-----------+------------------------+--------|
-| C-c !     | [2014-09-28 Sun]       |        |
-| C-u C-c ! | [2014-09-28 Sun 20:43] | V      |
+| typing    | seen                   | prefer | desc                        |
+|-----------+------------------------+--------+-----------------------------|
+| C-c .     | <2014-10-17 금>        |        | insert date and time format |
+| C-c !     | [2014-10-17 금]       |        | make stamp inactive (?)     |
+| C-u C-c ! | [2014-09-28 Sun 20:43] | V      |                             |
 
 * reference card
 

@@ -25,7 +25,15 @@
 - Omnibar
 - YouTUbe High Definition
 - Awesome screenshot
+- gmail notifier ( http://add0n.com/gmail-notifier.html )
 
 * 메모
 
 tor 와 연계되어 사용할 수도 있다던데 흠
+
+* plugin container for firefox
+
+- appcrash
+- plugin-container.exe
+- mozalloc.dll
+- 거대한 pdf 문서를 로딩하여 가만히 두지 않고 다른 작업 예를 들면 인쇄 시도등을 할 때 간헐적으로 발생

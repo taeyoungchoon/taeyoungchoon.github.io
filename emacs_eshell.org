@@ -3,3 +3,6 @@
 
 C-u 1 M-x eshell
 
+* note
+
+nowaday I use this all the time as a shell exactly and firefox sometimes
