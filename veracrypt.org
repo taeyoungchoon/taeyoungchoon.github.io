@@ -1,0 +1,11 @@
+* link
+
+https://veracrypt.codeplex.com/
+
+by 
+
+http://www.idrix.fr/
+
+* history
+
+[2014-10-20 월 12:27] testing, not so much stable

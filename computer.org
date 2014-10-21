@@ -6,6 +6,17 @@
 - [ ] [[file:itq.org][ITQ]], 실기 ( http://itq.or.kr )
 - [ ] [[file:mos.org][MOS]], 실기
 
+*** 컴퓨터활용능력
+
+- https://mirror.enha.kr/wiki/컴퓨터활용능력
+- http://ko.wikipedia.org/wiki/컴퓨터활용능력
+- 인강?
+- 언제나 볼 수 있다
+- 2급
+- 엑세스는 왜?
+- http://blog.daum.net/_blog/BlogTypeView.do?blogid=0KbZW&articleno=8727290&categoryId=562975&regdt=20121128221502
+- ITQ와는 차이가 있다
+
 ** pc+
 
 - [X] 정보처리기사

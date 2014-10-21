@@ -1,0 +1,6 @@
+* slackware, redhat, debian
+* ubuntu, mint
+* fedora, centos
+* kali
+* knoppix
+* feather linux, slax

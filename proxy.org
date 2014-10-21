@@ -1,0 +1,5 @@
+* list
+
+- mysql proxy
+- load balancer
+- web application server

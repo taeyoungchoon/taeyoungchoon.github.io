@@ -1,0 +1,40 @@
+* history
+
+- putty가 사라졌다
+- <2014-10-21 화> 이런 업데이트가 안된다, KB2949927를 제거하란다. W7
+
+* KB2949927
+
+** msg
+
+자동 업데이트 유틸리티
+
+업데이트 실패: 프로세스를 끝내는 도중에 오류가 발생하였습니다.
+
+** 안랩 ( http://ahnlab.com ) 의 공지
+
+[공지] Windows 업데이트 삭제 권고
+
+지난 10월 15일(수) 발표된 Microsoft의 Windows 업데이트 설치 이후 안랩 일부 제품
+에서 업데이트 및 실행 오류 현상이 발생했습니다.
+이 문제의 해결을 위해서는 아래의 안내에 따라 'Windows 업데이트 항목 중
+KB2949927 파일'을 삭제하시기 바랍니다.
+
+o 영향 받는 OS 환경
+- OS: Windows 7, Windows Server 2008 R2
+o 해결 방법
+- Windows 업데이트 파일 삭제
+
+** KB2949927
+
+*** notice
+
+http://support.microsoft.com/kb/2949927
+
+*** cli
+
+wusa /uninstall /KB:2949927
+
+*** news
+
+http://www.ddaily.co.kr/mobile/section_view.html?no=123520

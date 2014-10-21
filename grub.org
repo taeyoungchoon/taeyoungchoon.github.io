@@ -1,0 +1,5 @@
+* boot loader
+* linux
+* grub2
+* lilo
+* not so good enough
