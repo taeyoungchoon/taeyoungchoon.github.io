@@ -2,8 +2,8 @@
 
 ** office
 
-- [ ] 컴퓨터활용능력, 필기&실기
-- [X] [[file:itq.org][ITQ]], 실기 ( http://itq.or.kr )
+- [X] 컴퓨터활용능력, 필기&실기
+- [ ] [[file:itq.org][ITQ]], 실기 ( http://itq.or.kr )
 - [ ] [[file:mos.org][MOS]], 실기
 
 ** pc+
@@ -19,3 +19,28 @@
 - http://license.korcham.net
 - http://www.q-net.or.kr
 - http://www.examcollection.com/
+
+* 컴퓨터활용능력 2급, 엑셀
+
+** why
+
+엑셀 배우기
+
+** sch
+
+아무때나 원하면
+
+** 비용
+
+그렇게 비싸지 않다
+
+** 내용
+
+- 컴퓨터 그리고 엑셀
+- 필기와 실기로 구분
+
+** 절차
+
+- 필기 신청 보고 과목당 40점 이상 전과목 평균 60점 이상
+- 실기 신청 보고 70점 이상
+- 자격증 신청 및 수령

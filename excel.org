@@ -1,18 +1,109 @@
 * function
 
-- year
-- mid
 - &
-- sumif
-- max
-- round
-- average
-- vlookup
 
-* function more
+** statistics
 
-- dsum
-- countif
+AVERAGE
+AVERAGEA
+AVERAGEIF
+AVERAGEIFS
+MAX
+MAXA
+MIN
+COUNT
+COUNTA
+COUNTBLANK
+COUNTIF
+LARGE
+SMALL
+RANK
+VAR
+STDEV
+MEDIAN
+MODE
+
+** math
+
+SUM
+SUMIF
+SUMIFS
+ROUND
+ROUNDUP
+ROUNDDOWN
+ABS
+INT
+RAND
+MOD
+FACT
+SQRT
+PI
+EXP
+POWER
+TRUNC
+
+** text
+
+LEFT
+MID
+RIGHT
+LOWER
+UPPER
+PROPER
+TRIM
+FIND
+FINDB
+SEARCH
+SEARCHB
+
+** date & time
+
+YEAR
+MONTH
+HOUR
+MINUTE
+SECOND
+WEEKDAY
+DAYS360
+DATE
+NOW
+TIME
+DAY
+TODAY
+EDATE
+EMONTH
+WORKDAY
+YEARFRAC
+
+** logic
+
+IF
+IFERROR
+NOT
+AND
+OR
+FALSE
+TRUE
+
+** find & refer
+
+VLOOKUP
+HLOOKUP
+CHOOSE
+INDEX
+COLUMN
+COLUMNS
+ROW
+ROWS
+
+** database
+
+DSUM
+DAVERAGE
+DCOUNT
+DCOUNTA
+DMAX
+DMIN
 
 * table
 * filter
@@ -22,6 +113,7 @@ http://www.soongin.com/2012/10/pivot-table.html
 
 * graph, chart
 
+* macro
 * etc about filename
 
 http://www.extendoffice.com/documents/excel/1150-excel-insert-path-and-file-name.html
@@ -38,7 +130,6 @@ http://wdrizzle.tistory.com/entry/%EC%97%91%EC%85%80-%ED%99%94%EB%A9%B4%EC%97%90
 홈, 편집, 찾기 및 선택, 이동 옵션 : 화면에 보이는 셀만
 
 * problem
-
 ** 프로그램으로 명령을 전송하는 데 문제가 있습니다.
 
 http://support.microsoft.com/kb/211494/ko
