@@ -10,17 +10,18 @@ hp driver
 
 ** graphic 
 
-- [ ] amd radeon (tm) hd 6470m
-- [ ] intel(r) HD graphic family
+- [X] intel(r) HD graphic family by windows update
+- [ ] amd radeon (tm) hd 6470m, it's so hard to download
 
 ** audio
 
-- idt high definition audio codec
-- intel(r) display audio
+- [X] idt high definition audio codec
 
 ** one more thing
 
-- [ ] util > hp on-screen display utility
+- [X] util > hp on-screen display utility
+- [X] Intel Rapid Storage Technology driver
+- [X] Intel chipset driver
 
 http://download.cnet.com
 3dp
