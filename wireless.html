@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>wireless</title>
+<!-- 2014-10-22 수 13:54 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">wireless</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. OSI reference model</a>
+<ul>
+<li><a href="#sec-1-1">1.1. physical layer</a></li>
+</ul>
+</li>
+<li><a href="#sec-2">2. 802.11</a></li>
+<li><a href="#sec-3">3. BSS</a></li>
+<li><a href="#sec-4">4. ESS</a></li>
+<li><a href="#sec-5">5. frame</a>
+<ul>
+<li><a href="#sec-5-1">5.1. frame type</a>
+<ul>
+<li><a href="#sec-5-1-1">5.1.1. control</a></li>
+<li><a href="#sec-5-1-2">5.1.2. data</a></li>
+<li><a href="#sec-5-1-3">5.1.3. management</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#sec-6">6. beacon</a></li>
+<li><a href="#sec-7">7. passive connection</a></li>
+<li><a href="#sec-8">8. active connection</a></li>
+<li><a href="#sec-9">9. roaming</a></li>
+<li><a href="#sec-10">10. RTS, CTS, Data then ACK but has IFS ( Inter Frame Space )</a></li>
+<li><a href="#sec-11">11. rfc</a></li>
+<li><a href="#sec-12">12. tools</a></li>
+<li><a href="#sec-13">13. security</a></li>
+<li><a href="#sec-14">14. one more thing</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> OSI reference model</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> physical layer</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>802.3 Ethernet
+</li>
+<li>802.11 wireless network
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> 802.11</h2>
+<div class="outline-text-2" id="text-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="right" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">protocol</th>
+<th scope="col" class="right">year</th>
+<th scope="col" class="left">frequency</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">802.11a</td>
+<td class="right">1999</td>
+<td class="left">5 GHz</td>
+</tr>
+
+<tr>
+<td class="left">802.11b</td>
+<td class="right">1999</td>
+<td class="left">2.4 GHz</td>
+</tr>
+
+<tr>
+<td class="left">802.11g</td>
+<td class="right">2003</td>
+<td class="left">2.4 GHz</td>
+</tr>
+
+<tr>
+<td class="left">802.11n</td>
+<td class="right">2007</td>
+<td class="left">2.4 GHz or 5 GHz</td>
+</tr>
+
+<tr>
+<td class="left">802.11ac</td>
+<td class="right">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> BSS</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+one AP with station(s)
+BSSID ( Basic Service Set IDentifier ), 48bit AP's MAC Address
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> ESS</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+few AP share the same SSID
+ESSID aka SSID
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> frame</h2>
+<div class="outline-text-2" id="text-5">
+</div><div id="outline-container-sec-5-1" class="outline-3">
+<h3 id="sec-5-1"><span class="section-number-3">5.1</span> frame type</h3>
+<div class="outline-text-3" id="text-5-1">
+</div><div id="outline-container-sec-5-1-1" class="outline-4">
+<h4 id="sec-5-1-1"><span class="section-number-4">5.1.1</span> control</h4>
+<div class="outline-text-4" id="text-5-1-1">
+<p>
+RTS
+CTS
+ACK
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-5-1-2" class="outline-4">
+<h4 id="sec-5-1-2"><span class="section-number-4">5.1.2</span> data</h4>
+</div>
+<div id="outline-container-sec-5-1-3" class="outline-4">
+<h4 id="sec-5-1-3"><span class="section-number-4">5.1.3</span> management</h4>
+<div class="outline-text-4" id="text-5-1-3">
+<p>
+Beacon
+Probe requst &amp; response
+Authentication req &amp; resp
+Association req &amp; resp
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> beacon</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+AP cast
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7"><span class="section-number-2">7</span> passive connection</h2>
+<div class="outline-text-2" id="text-7">
+<ul class="org-ul">
+<li>beacon from AP to station
+</li>
+<li>auth req from station to AP
+</li>
+<li>auth resp from AP to station
+</li>
+<li>association req from station to AP
+</li>
+<li>association resp from AP to station
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-8" class="outline-2">
+<h2 id="sec-8"><span class="section-number-2">8</span> active connection</h2>
+<div class="outline-text-2" id="text-8">
+<ul class="org-ul">
+<li>probe req from station to AP
+</li>
+<li>probe resp from AP to station
+</li>
+<li>auth req from station to AP
+</li>
+<li>auth resp from AP to station
+</li>
+<li>association req from station to AP
+</li>
+<li>association resp from AP to station
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-9" class="outline-2">
+<h2 id="sec-9"><span class="section-number-2">9</span> roaming</h2>
+<div class="outline-text-2" id="text-9">
+<p>
+below 30%
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-10" class="outline-2">
+<h2 id="sec-10"><span class="section-number-2">10</span> RTS, CTS, Data then ACK but has IFS ( Inter Frame Space )</h2>
+<div class="outline-text-2" id="text-10">
+<ul class="org-ul">
+<li>RTS from station to AP
+</li>
+<li>CTS from AP to station
+</li>
+<li>Data from statino to AP
+</li>
+<li>ACk from AP to station
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-11" class="outline-2">
+<h2 id="sec-11"><span class="section-number-2">11</span> rfc</h2>
+</div>
+<div id="outline-container-sec-12" class="outline-2">
+<h2 id="sec-12"><span class="section-number-2">12</span> tools</h2>
+<div class="outline-text-2" id="text-12">
+<ul class="org-ul">
+<li>airbase-ng
+</li>
+<li>mdk3
+</li>
+<li>firesheep
+</li>
+<li>ippon
+</li>
+<li>aircrack-ng
+</li>
+<li>cowpatty
+</li>
+<li>scapy
+</li>
+<li>fuzzing
+</li>
+<li>file2air
+</li>
+<li>metasploit
+</li>
+<li>netstumbler
+</li>
+<li>kismet
+</li>
+<li>airsnort
+</li>
+<li>webcrack
+</li>
+<li>winsniffer
+</li>
+<li>airsnart
+</li>
+<li>hotspotter
+</li>
+<li>hostap
+</li>
+<li>smac
+</li>
+<li>airpwn
+</li>
+<li>webwedgie
+</li>
+<li>chopchop
+</li>
+<li>vippr
+</li>
+<li>irpass
+</li>
+<li>cdpsniffer
+</li>
+<li>airjack
+</li>
+<li>void11
+</li>
+<li>ike-crack
+</li>
+<li>wellenrighter
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-13" class="outline-2">
+<h2 id="sec-13"><span class="section-number-2">13</span> security</h2>
+<div class="outline-text-2" id="text-13">
+<ul class="org-ul">
+<li>rogue AP
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-14" class="outline-2">
+<h2 id="sec-14"><span class="section-number-2">14</span> one more thing</h2>
+<div class="outline-text-2" id="text-14">
+<ul class="org-ul">
+<li>virtual WIFI
+</li>
+<li>802.11 vulnerabilities
+</li>
+<li>wpa enterprise
+</li>
+<li>hidden node
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Created: 2014-10-22 수 13:54</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.3.1 (<a href="http://orgmode.org">Org</a> mode 8.2.9)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

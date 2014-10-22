@@ -1,0 +1,18 @@
+//
+// graphviz-dot-mode
+//
+// M-x compile
+// C-c p
+//
+
+digraph wireless {
+
+	edge[dir=none]
+	
+	ess -> bss1
+	bss1 -> station1[dir=back, color=red, label="CTS"]
+	bss1 -> station2
+	ess -> bss2
+	bss2 -> station3[dir=forward, color=blue, label="beacon"]
+
+}
