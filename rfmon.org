@@ -1,0 +1,13 @@
+* mode
+
+http://en.wikipedia.org/wiki/Promiscuous_mode
+http://en.wikipedia.org/wiki/Monitor_mode
+
+* possible?
+
+http://askubuntu.com/questions/304039/how-to-tell-a-wlan-card-supports-rfmon-mode
+http://www.aircrack-ng.org/doku.php?id=compatibility_drivers
+
+broadcom at windows will not
+broadcom at linux will work
+Centrino a/b/g at linux will work
