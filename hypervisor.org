@@ -1,0 +1,15 @@
+* aka virtual machine monitor ( VMM )
+
+* kinds
+
+- native
+- hosted
+
+* links
+
+http://en.wikipedia.org/wiki/Hypervisor
+
+* best visualizing
+
+http://www.vmware.com/files/images/thumbnails/vmw-dgrm-vsphere-most-secure-hypervisor-lg.gif
+

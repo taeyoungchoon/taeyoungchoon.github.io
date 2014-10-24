@@ -11,5 +11,26 @@
 | Solution | Install an EIO hard disk.         |
 
 * what I can do with it, the printer
+* recharge? refill ink, buy
+* one more thing
 
-* recharge?
+- color
+- 21 ppm
+- 1200 dpi
+- location?
+- driver
+- parallel port
+- share
+- spool
+- PCL6, PCL5, PS
+- A4, 210 x 297 mm
+- duplexer
+- memory
+- disk
+- mopier mode
+- 고급 인쇄
+- 인쇄 최적화
+- 장치 글꼴, 소프트 글꼴, 트룹파입 글꼴
+- Ret
+- 다듬기
+

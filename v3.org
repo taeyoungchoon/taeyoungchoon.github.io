@@ -25,7 +25,7 @@ o 영향 받는 OS 환경
 o 해결 방법
 - Windows 업데이트 파일 삭제
 
-** KB2949927
+** KB2949927 is
 
 *** notice
 
@@ -38,3 +38,11 @@ wusa /uninstall /KB:2949927
 *** news
 
 http://www.ddaily.co.kr/mobile/section_view.html?no=123520
+
+* v3quavw.exe
+
+c:\program files\ahnlab\v3is80\v3quavw.exe 
+/alert:0 
+/recover:v3b 
+/virus_name:"Trojan/Win32.Generic"
+/file_name:"DrmLogin.exe"

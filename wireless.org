@@ -121,3 +121,4 @@ below 30%
 * link
 
 http://www.technologyuk.net/telecommunications/networks/wireless_networks.shtmlhttp://www.technologyuk.net/telecommunications/networks/wireless_networks.shtml
+https://supportforums.cisco.com/document/101431/80211-sniffer-capture-analysis-management-frames-and-open-auth

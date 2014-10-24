@@ -2,6 +2,7 @@
 
 - [2014-10-08 수 11:48] C-u C-c ! to insert timestamp
 - [2014-10-08 수 11:49] 나름 오랜동안 사용했던 키보드가 고장났다 
+- [2014-10-23 목 11:10] 손가락이 아프다, 바꿔야 할까?
 
 * Using 'Microsoft Comfort Curve Keyboard 3000'
 
