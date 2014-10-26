@@ -8,3 +8,9 @@
 * track
 
 http://wezard4u.tistory.com/3078
+
+* ex
+
+utorrent > trackers?
+
+* rfc?

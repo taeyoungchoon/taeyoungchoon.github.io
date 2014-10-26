@@ -1,0 +1,33 @@
+* ever service
+* webhard aka file sharing service
+* openafs
+
+- vldb serve location
+- fs serve volume
+- cm aka cache manager
+
+* 600 server 60g network 2 data center, future management
+
+** Operating System on servers
+
+- windows
+- freebsd
+- linux
+
+*** linux but more
+
+- redhat
+- debian
+
+**** debian but more
+
+- woody
+- etch
+- sarge
+- lenny
+** 60g network
+
+- tree
+- 10g
+
+** two rack then two location, near vs far
