@@ -6,7 +6,7 @@ monitoring +web +way
 
 - nagvis (am not using)
 
-* 말
+* say so
 
 어디에 자리잡고 무슨 일을 할 때면 항상 사용하게 되는 툴이나 나에게도 그에게도 말이다 무언가를 지속적으로 본다는 것은 필요한 일이다
 

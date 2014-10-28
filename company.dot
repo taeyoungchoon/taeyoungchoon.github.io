@@ -1,0 +1,36 @@
+//
+// graphviz-dot-mode
+//
+// M-x compile
+// C-c p
+//
+
+digraph company {
+
+	edge[dir=none]
+	
+	g1 -> u1
+	g1 -> m1
+	m1 -> u1
+	
+	g2 -> u1
+	g2 -> m2
+	g2 -> m3
+	g2 -> m4
+	m2 -> u1
+	m3 -> u1
+	m4 -> u1
+	
+	subgraph cluster_g1 {
+		g1
+		m1
+	}
+	
+	subgraph cluster_g2 {
+		g2
+		m2
+		m3
+		m4
+	}
+	
+}

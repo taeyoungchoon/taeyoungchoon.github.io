@@ -1,6 +1,7 @@
 * links
 
 http://www.common-lisp.net/project/slime/
+http://yoo2080.wordpress.com/2013/08/18/how-to-install-common-lisp-and-slime-on-ms-windows/
 
 * config
 
