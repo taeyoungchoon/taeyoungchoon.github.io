@@ -11,7 +11,9 @@
 
 업데이트 실패: 프로세스를 끝내는 도중에 오류가 발생하였습니다.
 
-** 안랩 ( http://ahnlab.com ) 의 공지
+** 안랩의 공지
+
+http://ahnlab.com
 
 [공지] Windows 업데이트 삭제 권고
 
@@ -30,6 +32,7 @@ o 해결 방법
 *** notice
 
 http://support.microsoft.com/kb/2949927
+http://blogs.technet.com/b/securekorea/archive/2014/10/21/microsoft-2949927.aspx
 
 *** cli
 
