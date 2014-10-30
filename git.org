@@ -56,3 +56,7 @@ git push
 * suggest 
 
 - auto aka background
+  
+* recon
+
+almost init then type username then password
