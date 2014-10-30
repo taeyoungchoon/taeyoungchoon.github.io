@@ -1,0 +1,12 @@
+* shell
+* windows shell
+
+- nc
+- mdir
+
+* linux shell
+
+- bash
+- tcsh
+- zsh
+- mc
