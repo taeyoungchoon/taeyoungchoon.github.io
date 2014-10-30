@@ -3,8 +3,8 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<title>v3</title>
-<!-- 2014-10-29 수 15:24 -->
+<title>raid</title>
+<!-- 2014-10-29 수 14:47 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <style type="text/css">
@@ -133,171 +133,214 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
-<script type="text/javascript" src="http://orgmode.org/mathjax/MathJax.js"></script>
-<script type="text/javascript">
-<!--/*--><![CDATA[/*><!--*/
-    MathJax.Hub.Config({
-        // Only one of the two following lines, depending on user settings
-        // First allows browser-native MathML display, second forces HTML/CSS
-        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
-            jax: ["input/TeX", "output/HTML-CSS"],
-        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
-                     "TeX/noUndefined.js"],
-        tex2jax: {
-            inlineMath: [ ["\\(","\\)"] ],
-            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
-            skipTags: ["script","noscript","style","textarea","pre","code"],
-            ignoreClass: "tex2jax_ignore",
-            processEscapes: false,
-            processEnvironments: true,
-            preview: "TeX"
-        },
-        showProcessingMessages: true,
-        displayAlign: "center",
-        displayIndent: "2em",
-
-        "HTML-CSS": {
-             scale: 100,
-             availableFonts: ["STIX","TeX"],
-             preferredFont: "TeX",
-             webFont: "TeX",
-             imageFont: "TeX",
-             showMathMenu: true,
-        },
-        MMLorHTML: {
-             prefer: {
-                 MSIE:    "MML",
-                 Firefox: "MML",
-                 Opera:   "HTML",
-                 other:   "HTML"
-             }
-        }
-    });
-/*]]>*///-->
-</script>
 </head>
 <body>
 <div id="content">
-<h1 class="title">v3</h1>
+<h1 class="title">raid</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1. history</a></li>
-<li><a href="#sec-2">2. KB2949927</a>
-<ul>
-<li><a href="#sec-2-1">2.1. msg</a></li>
-<li><a href="#sec-2-2">2.2. 안랩의 공지</a></li>
-<li><a href="#sec-2-3">2.3. KB2949927 is</a>
-<ul>
-<li><a href="#sec-2-3-1">2.3.1. notice</a></li>
-<li><a href="#sec-2-3-2">2.3.2. cli</a></li>
-<li><a href="#sec-2-3-3">2.3.3. news</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#sec-3">3. v3quavw.exe</a></li>
+<li><a href="#sec-1">1. and I do not like 'two disk failure' from raid 5</a></li>
+<li><a href="#sec-2">2. kinds of</a></li>
+<li><a href="#sec-3">3. block not file</a></li>
+<li><a href="#sec-4">4. raid 0, stripe</a></li>
+<li><a href="#sec-5">5. raid 1, mirror</a></li>
+<li><a href="#sec-6">6. raid 5</a></li>
+<li><a href="#sec-7">7. links</a></li>
+<li><a href="#sec-8">8. video tutorial, what you see is what you get</a></li>
+<li><a href="#sec-9">9. size calculator</a></li>
 </ul>
 </div>
 </div>
 <div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> history</h2>
+<h2 id="sec-1"><span class="section-number-2">1</span> and I do not like 'two disk failure' from raid 5</h2>
 <div class="outline-text-2" id="text-1">
-<ul class="org-ul">
-<li>putty가 사라졌다
-</li>
-<li><span class="timestamp-wrapper"><span class="timestamp">&lt;2014-10-21 화&gt;</span></span> 이런 업데이트가 안된다, KB2949927를 제거하란다. W7
-</li>
-</ul>
+<p class="verse">
+하나 그리고 또 하나는 사람의 죄다<br  />
+그런데 두개의 디스크가 동시에 나간다면 그러데 동시에 나간다는 것이 가능한가?<br  />
+흠 이것 역시 사람의 죄인가?<br  />
+그래도 raid 구성 안쪽 개별 디스크의 smart를 확인하곤 했다<br  />
+smartmontools, smartctl<br  />
+성공! 없앨 수는 없지만 최소화 할 수는 있었다<br  />
+단점은 너무 많이 알아서, 발생할 수 있는 오류를<br  />
+너무 많은 디스크를 갈았다는 것이다<br  />
+</p>
 </div>
 </div>
 
 <div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> KB2949927</h2>
+<h2 id="sec-2"><span class="section-number-2">2</span> kinds of</h2>
 <div class="outline-text-2" id="text-2">
-</div><div id="outline-container-sec-2-1" class="outline-3">
-<h3 id="sec-2-1"><span class="section-number-3">2.1</span> msg</h3>
-<div class="outline-text-3" id="text-2-1">
-<p class="verse">
-자동 업데이트 유틸리티<br  />
-<br  />
-업데이트 실패: 프로세스를 끝내는 도중에 오류가 발생하였습니다.<br  />
-</p>
-</div>
-</div>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
-<div id="outline-container-sec-2-2" class="outline-3">
-<h3 id="sec-2-2"><span class="section-number-3">2.2</span> 안랩의 공지</h3>
-<div class="outline-text-3" id="text-2-2">
-<p>
-<a href="http://ahnlab.com">http://ahnlab.com</a>
-</p>
 
-<p class="verse">
-[공지] Windows 업데이트 삭제 권고<br  />
-<br  />
-지난 10월 15일(수) 발표된 Microsoft의 Windows 업데이트 설치 이후 안랩 일부 제품<br  />
-에서 업데이트 및 실행 오류 현상이 발생했습니다.<br  />
-이 문제의 해결을 위해서는 아래의 안내에 따라 'Windows 업데이트 항목 중<br  />
-KB2949927 파일'을 삭제하시기 바랍니다.<br  />
-<br  />
-o 영향 받는 OS 환경<br  />
-- OS: Windows 7, Windows Server 2008 R2<br  />
-o 해결 방법<br  />
-- Windows 업데이트 파일 삭제<br  />
-</p>
-</div>
-</div>
+<colgroup>
+<col  class="left" />
 
-<div id="outline-container-sec-2-3" class="outline-3">
-<h3 id="sec-2-3"><span class="section-number-3">2.3</span> KB2949927 is</h3>
-<div class="outline-text-3" id="text-2-3">
-</div><div id="outline-container-sec-2-3-1" class="outline-4">
-<h4 id="sec-2-3-1"><span class="section-number-4">2.3.1</span> notice</h4>
-<div class="outline-text-4" id="text-2-3-1">
-<p>
-<a href="http://support.microsoft.com/kb/2949927">http://support.microsoft.com/kb/2949927</a>
-<a href="http://blogs.technet.com/b/securekorea/archive/2014/10/21/microsoft-2949927.aspx">http://blogs.technet.com/b/securekorea/archive/2014/10/21/microsoft-2949927.aspx</a>
-</p>
-</div>
-</div>
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">type</th>
+<th scope="col" class="left">desc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">raid 0</td>
+<td class="left">stripe</td>
+</tr>
 
-<div id="outline-container-sec-2-3-2" class="outline-4">
-<h4 id="sec-2-3-2"><span class="section-number-4">2.3.2</span> cli</h4>
-<div class="outline-text-4" id="text-2-3-2">
-<p>
-wusa /uninstall /KB:2949927
-</p>
-</div>
-</div>
+<tr>
+<td class="left">raid 1</td>
+<td class="left">mirror</td>
+</tr>
 
-<div id="outline-container-sec-2-3-3" class="outline-4">
-<h4 id="sec-2-3-3"><span class="section-number-4">2.3.3</span> news</h4>
-<div class="outline-text-4" id="text-2-3-3">
-<p>
-<a href="http://www.ddaily.co.kr/mobile/section_view.html?no=123520">http://www.ddaily.co.kr/mobile/section_view.html?no=123520</a>
-</p>
-</div>
-</div>
+<tr>
+<td class="left">raid 5</td>
+<td class="left">at least three disks</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 
 <div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3"><span class="section-number-2">3</span> v3quavw.exe</h2>
-<div class="outline-text-2" id="text-3">
+<h2 id="sec-3"><span class="section-number-2">3</span> block not file</h2>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> raid 0, stripe</h2>
+<div class="outline-text-2" id="text-4">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">disk</th>
+<th scope="col" class="left">block</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">disk 1</td>
+<td class="left">a</td>
+</tr>
+
+<tr>
+<td class="left">disk 2</td>
+<td class="left">b</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> raid 1, mirror</h2>
+<div class="outline-text-2" id="text-5">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">disk</th>
+<th scope="col" class="left">block</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">disk 1</td>
+<td class="left">a,b</td>
+</tr>
+
+<tr>
+<td class="left">disk 2</td>
+<td class="left">a,b</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> raid 5</h2>
+<div class="outline-text-2" id="text-6">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">disk</th>
+<th scope="col" class="left">block</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">disk 1</td>
+<td class="left">a,c</td>
+</tr>
+
+<tr>
+<td class="left">disk 2</td>
+<td class="left">a,b</td>
+</tr>
+
+<tr>
+<td class="left">disk 3</td>
+<td class="left">b,c</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7"><span class="section-number-2">7</span> links</h2>
+<div class="outline-text-2" id="text-7">
 <p>
-c:\program files\ahnlab\v3is80\v3quavw.exe 
-/alert:0 
-/recover:v3b 
-/virus<sub>name</sub>:"Trojan/Win32.Generic"
-/file<sub>name</sub>:"DrmLogin.exe"
+<a href="http://en.wikipedia.org/wiki/Standard_RAID_levels">http://en.wikipedia.org/wiki/Standard_RAID_levels</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-8" class="outline-2">
+<h2 id="sec-8"><span class="section-number-2">8</span> video tutorial, what you see is what you get</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+<a href="http://www.youtube.com/watch?v=Y7vZ3ZWkNVA">http://www.youtube.com/watch?v=Y7vZ3ZWkNVA</a>
+<a href="http://www.youtube.com/watch?v=X1x9EMd5ywY">http://www.youtube.com/watch?v=X1x9EMd5ywY</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-9" class="outline-2">
+<h2 id="sec-9"><span class="section-number-2">9</span> size calculator</h2>
+<div class="outline-text-2" id="text-9">
+<p>
+<a href="https://www.icc-usa.com/raid-calculator/">https://www.icc-usa.com/raid-calculator/</a>
 </p>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2014-10-29 수 15:24</p>
+<p class="date">Created: 2014-10-29 수 14:47</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.3.1 (<a href="http://orgmode.org">Org</a> mode 8.2.9)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>

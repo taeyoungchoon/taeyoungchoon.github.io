@@ -1,5 +1,6 @@
-* and I do not like 'two disk failure'
+* and I do not like 'two disk failure' from raid 5
 
+#+BEGIN_VERSE
 하나 그리고 또 하나는 사람의 죄다
 그런데 두개의 디스크가 동시에 나간다면 그러데 동시에 나간다는 것이 가능한가?
 흠 이것 역시 사람의 죄인가?
@@ -8,6 +9,8 @@ smartmontools, smartctl
 성공! 없앨 수는 없지만 최소화 할 수는 있었다
 단점은 너무 많이 알아서, 발생할 수 있는 오류를
 너무 많은 디스크를 갈았다는 것이다
+#+END_VERSE
+
 * kinds of
 
 | type   | desc                 |
@@ -15,4 +18,41 @@ smartmontools, smartctl
 | raid 0 | stripe               |
 | raid 1 | mirror               |
 | raid 5 | at least three disks |
+
+* block not file
+
+* raid 0, stripe
+
+| disk   | block |
+|--------+-------|
+| disk 1 | a     |
+| disk 2 | b     |
+
+* raid 1, mirror
+
+| disk   | block |
+|--------+-------|
+| disk 1 | a,b   |
+| disk 2 | a,b   |
+
+* raid 5
+
+| disk   | block |
+|--------+-------|
+| disk 1 | a,c   |
+| disk 2 | a,b   |
+| disk 3 | b,c   |
+
+* links
+
+http://en.wikipedia.org/wiki/Standard_RAID_levels
+
+* video tutorial, what you see is what you get
+
+http://www.youtube.com/watch?v=Y7vZ3ZWkNVA
+http://www.youtube.com/watch?v=X1x9EMd5ywY
+
+* size calculator
+
+https://www.icc-usa.com/raid-calculator/
 

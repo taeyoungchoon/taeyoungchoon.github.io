@@ -7,14 +7,17 @@
 
 ** msg
 
+#+BEGIN_VERSE
 자동 업데이트 유틸리티
 
 업데이트 실패: 프로세스를 끝내는 도중에 오류가 발생하였습니다.
+#+END_VERSE
 
 ** 안랩의 공지
 
 http://ahnlab.com
 
+#+BEGIN_VERSE
 [공지] Windows 업데이트 삭제 권고
 
 지난 10월 15일(수) 발표된 Microsoft의 Windows 업데이트 설치 이후 안랩 일부 제품
@@ -26,6 +29,7 @@ o 영향 받는 OS 환경
 - OS: Windows 7, Windows Server 2008 R2
 o 해결 방법
 - Windows 업데이트 파일 삭제
+#+END_VERSE
 
 ** KB2949927 is
 
@@ -49,3 +53,7 @@ c:\program files\ahnlab\v3is80\v3quavw.exe
 /recover:v3b 
 /virus_name:"Trojan/Win32.Generic"
 /file_name:"DrmLogin.exe"
+* 업데이트 실패: 파일 '2swpe2a.scd'을(를) 백업할 수 없습니다.(23)
+
+- 업데이트 중, 백업하고 있습니다.
+- 자동 업데이트 유틸리티, 업데이트 실패, 2swpe2a.scd, 23

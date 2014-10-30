@@ -1,0 +1,14 @@
+* links
+
+http://en.wikipedia.org/wiki/ProLiant
+http://www8.hp.com/us/en/products/proliant-servers
+
+* POST error message
+
+http://h20565.www2.hp.com/portal/site/hpsc/template.PAGE/public/kb/docDisplay?docId=c01702138&ac.admitted=1414562152472.876444892.492883150#N136E2
+
+** 1779
+
+More drives failed (or were replaced) than the fault-tolerance level allows. 
+Unable to rebuild array. 
+If drives have not been replaced, this message indicates an intermittent drive failure.
