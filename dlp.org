@@ -2,3 +2,5 @@
 
 - network
 - host aka node
+
+* company and product

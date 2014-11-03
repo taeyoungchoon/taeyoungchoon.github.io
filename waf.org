@@ -1,1 +1,30 @@
 * waf aka web application firewall
+* company and product
+
+** in korea
+
+- piolink's webfront, http://www.piolink.co.kr/WEBFRONT/sec3/sec_01.asp
+- monitorapp's web insight, http://www.monitorapp.com/kr/products/webapp
+
+*** refer
+
+- pentasecurity's waples
+
+** not in korea
+
+- http://www.owasp.org/index.php/Web_Application_Firewall
+- F5
+- Citrix's NetScaler AppFirewall
+- barracuda web application firewall
+- Cisco ACE Web Application Firewall
+
+** open
+
+*** iis
+
+webknight
+
+*** apache
+
+modsecurity
+
