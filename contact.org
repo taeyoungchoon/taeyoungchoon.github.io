@@ -1,0 +1,40 @@
+* manage?
+
+** information fresh
+
+without image, copyright
+
+** information update, automatic?
+
+- static
+- dynamic, facebook
+
+** photo and resolution
+
+*** google 2 t
+
+crash image
+
+** information unbreakable
+
+*** sync
+
+- t 
+- naver
+
+*** backup
+
+****  google takeout
+
+file backup but without image
+
+** tools
+
+- google
+- t
+- naver
+- apple
+- ldap?
+** so policy
+
+stick to google contact
