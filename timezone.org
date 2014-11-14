@@ -1,0 +1,11 @@
+* article
+
+U can use tz* from linux called debian.. like
+ 
+tzconfig..
+ 
+tzselect.. and.. more.. bye..
+ 
+you can KST from system.. if you set correctly using tzconfig -> /etc/timezone
+ 
+bye.. good to see you..
