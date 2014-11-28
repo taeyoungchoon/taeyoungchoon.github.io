@@ -139,8 +139,10 @@ http://support.microsoft.com/kb/211494/ko
 ** 셀 서식이 너무 많습니다.
 
 http://jkm501.blogspot.kr/2013/04/blog-post.html
+http://hidka.tistory.com/entry/Excel-%EC%97%90%EB%9F%AC
+http://sergeig888.wordpress.com/2009/10/13/sharing-useful-utilities/
 
-수식, 이름관리자를 정리하면 위의 링크를 보니 이것말고도 다른 부분도 확인이 필요하군요
+수식, 이름관리자를 정리하면 위의 링크를 보니 이것말고도 다른 부분도 확인이 필요하군요. XLCleaner라 참 좋을 툴입니다.
 
 *** #REF! 
 

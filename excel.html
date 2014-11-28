@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>excel</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="title" content="excel"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2014-11-20T11:36+0900"/>
+<meta name="author" content=""/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  div.inlinetask {
+    padding:10px;
+    border:2px solid gray;
+    margin:10px;
+    background: #ffffcc;
+  }
+  textarea { overflow-x: auto; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+
+</head>
+<body>
+
+<div id="preamble">
+
+</div>
+
+<div id="content">
+<h1 class="title">excel</h1>
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1 function</a>
+<ul>
+<li><a href="#sec-1-1">1.1 statistics</a></li>
+<li><a href="#sec-1-2">1.2 math</a></li>
+<li><a href="#sec-1-3">1.3 text</a></li>
+<li><a href="#sec-1-4">1.4 date &amp; time</a></li>
+<li><a href="#sec-1-5">1.5 logic</a></li>
+<li><a href="#sec-1-6">1.6 find &amp; refer</a></li>
+<li><a href="#sec-1-7">1.7 database</a></li>
+</ul>
+</li>
+<li><a href="#sec-2">2 table</a></li>
+<li><a href="#sec-3">3 filter</a></li>
+<li><a href="#sec-4">4 pivot</a></li>
+<li><a href="#sec-5">5 graph, chart</a></li>
+<li><a href="#sec-6">6 macro</a></li>
+<li><a href="#sec-7">7 etc about filename</a></li>
+<li><a href="#sec-8">8 what you see is what you get</a></li>
+<li><a href="#sec-9">9 problem</a>
+<ul>
+<li><a href="#sec-9-1">9.1 프로그램으로 명령을 전송하는 데 문제가 있습니다.</a></li>
+<li><a href="#sec-9-2">9.2 셀 서식이 너무 많습니다.</a>
+<ul>
+<li><a href="#sec-9-2-1">9.2.1 #REF!</a></li>
+<li><a href="#sec-9-2-2">9.2.2 in english</a></li>
+<li><a href="#sec-9-2-3">9.2.3 more errors</a></li>
+<li><a href="#sec-9-2-4">9.2.4 tool</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> function</h2>
+<div class="outline-text-2" id="text-1">
+
+
+<ul>
+<li>&amp;
+</li>
+</ul>
+
+
+
+</div>
+
+<div id="outline-container-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> statistics</h3>
+<div class="outline-text-3" id="text-1-1">
+
+
+<p>
+AVERAGE
+AVERAGEA
+AVERAGEIF
+AVERAGEIFS
+MAX
+MAXA
+MIN
+COUNT
+COUNTA
+COUNTBLANK
+COUNTIF
+LARGE
+SMALL
+RANK
+VAR
+STDEV
+MEDIAN
+MODE
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> math</h3>
+<div class="outline-text-3" id="text-1-2">
+
+
+<p>
+SUM
+SUMIF
+SUMIFS
+ROUND
+ROUNDUP
+ROUNDDOWN
+ABS
+INT
+RAND
+MOD
+FACT
+SQRT
+PI
+EXP
+POWER
+TRUNC
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> text</h3>
+<div class="outline-text-3" id="text-1-3">
+
+
+<p>
+LEFT
+MID
+RIGHT
+LOWER
+UPPER
+PROPER
+TRIM
+FIND
+FINDB
+SEARCH
+SEARCHB
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-1-4" class="outline-3">
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> date &amp; time</h3>
+<div class="outline-text-3" id="text-1-4">
+
+
+<p>
+YEAR
+MONTH
+HOUR
+MINUTE
+SECOND
+WEEKDAY
+DAYS360
+DATE
+NOW
+TIME
+DAY
+TODAY
+EDATE
+EMONTH
+WORKDAY
+YEARFRAC
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-1-5" class="outline-3">
+<h3 id="sec-1-5"><span class="section-number-3">1.5</span> logic</h3>
+<div class="outline-text-3" id="text-1-5">
+
+
+<p>
+IF
+IFERROR
+NOT
+AND
+OR
+FALSE
+TRUE
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-1-6" class="outline-3">
+<h3 id="sec-1-6"><span class="section-number-3">1.6</span> find &amp; refer</h3>
+<div class="outline-text-3" id="text-1-6">
+
+
+<p>
+VLOOKUP
+HLOOKUP
+CHOOSE
+INDEX
+COLUMN
+COLUMNS
+ROW
+ROWS
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-1-7" class="outline-3">
+<h3 id="sec-1-7"><span class="section-number-3">1.7</span> database</h3>
+<div class="outline-text-3" id="text-1-7">
+
+
+<p>
+DSUM
+DAVERAGE
+DCOUNT
+DCOUNTA
+DMAX
+DMIN
+</p>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> table</h2>
+<div class="outline-text-2" id="text-2">
+
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> filter</h2>
+<div class="outline-text-2" id="text-3">
+
+</div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> pivot</h2>
+<div class="outline-text-2" id="text-4">
+
+
+<p>
+<a href="http://www.soongin.com/2012/10/pivot-table.html">http://www.soongin.com/2012/10/pivot-table.html</a>
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> graph, chart</h2>
+<div class="outline-text-2" id="text-5">
+
+
+</div>
+
+</div>
+
+<div id="outline-container-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> macro</h2>
+<div class="outline-text-2" id="text-6">
+
+</div>
+
+</div>
+
+<div id="outline-container-7" class="outline-2">
+<h2 id="sec-7"><span class="section-number-2">7</span> etc about filename</h2>
+<div class="outline-text-2" id="text-7">
+
+
+<p>
+<a href="http://www.extendoffice.com/documents/excel/1150-excel-insert-path-and-file-name.html">http://www.extendoffice.com/documents/excel/1150-excel-insert-path-and-file-name.html</a>
+</p>
+
+
+
+<pre class="example">=MID(CELL("filename"),SEARCH("[",CELL("filename"))+1, SEARCH("]",CELL("filename"))-SEARCH("[",CELL("filename"))-1)
+</pre>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-8" class="outline-2">
+<h2 id="sec-8"><span class="section-number-2">8</span> what you see is what you get</h2>
+<div class="outline-text-2" id="text-8">
+
+
+<p>
+<a href="http://wdrizzle.tistory.com/entry/엑셀-화면에-보이는-부분만-복사하는방법">http://wdrizzle.tistory.com/entry/%EC%97%91%EC%85%80-%ED%99%94%EB%A9%B4%EC%97%90-%EB%B3%B4%EC%9D%B4%EB%8A%94-%EB%B6%80%EB%B6%84%EB%A7%8C-%EB%B3%B5%EC%82%AC%ED%95%98%EB%8A%94%EB%B0%A9%EB%B2%95</a>
+</p>
+<p>
+범위 지정 후 
+홈, 편집, 찾기 및 선택, 이동 옵션 : 화면에 보이는 셀만
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-9" class="outline-2">
+<h2 id="sec-9"><span class="section-number-2">9</span> problem</h2>
+<div class="outline-text-2" id="text-9">
+
+
+</div>
+
+<div id="outline-container-9-1" class="outline-3">
+<h3 id="sec-9-1"><span class="section-number-3">9.1</span> 프로그램으로 명령을 전송하는 데 문제가 있습니다.</h3>
+<div class="outline-text-3" id="text-9-1">
+
+
+<p>
+<a href="http://support.microsoft.com/kb/211494/ko">http://support.microsoft.com/kb/211494/ko</a>
+</p>
+<p>
+ <span class="timestamp-wrapper"> <span class="timestamp">2014-10-15 수 11:34</span></span> Microsoft Fix it 50392을 수행하다, 그리고 대기
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-9-2" class="outline-3">
+<h3 id="sec-9-2"><span class="section-number-3">9.2</span> 셀 서식이 너무 많습니다.</h3>
+<div class="outline-text-3" id="text-9-2">
+
+
+<p>
+<a href="http://jkm501.blogspot.kr/2013/04/blog-post.html">http://jkm501.blogspot.kr/2013/04/blog-post.html</a>
+<a href="http://hidka.tistory.com/entry/Excel-에러">http://hidka.tistory.com/entry/Excel-%EC%97%90%EB%9F%AC</a>
+<a href="http://sergeig888.wordpress.com/2009/10/13/sharing-useful-utilities/">http://sergeig888.wordpress.com/2009/10/13/sharing-useful-utilities/</a>
+</p>
+<p>
+수식, 이름관리자를 정리하면 위의 링크를 보니 이것말고도 다른 부분도 확인이 필요하군요. XLCleaner라 참 좋을 툴입니다.
+</p>
+
+</div>
+
+<div id="outline-container-9-2-1" class="outline-4">
+<h4 id="sec-9-2-1"><span class="section-number-4">9.2.1</span> #REF!</h4>
+<div class="outline-text-4" id="text-9-2-1">
+
+
+<p>
+는 잘못된 셀 참조 오류를 나타낸다
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-9-2-2" class="outline-4">
+<h4 id="sec-9-2-2"><span class="section-number-4">9.2.2</span> in english</h4>
+<div class="outline-text-4" id="text-9-2-2">
+
+
+<p>
+#REF! - Invalid Cell Reference Errors
+Using Cell References in Excel Formulas
+Name Manager
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-9-2-3" class="outline-4">
+<h4 id="sec-9-2-3"><span class="section-number-4">9.2.3</span> more errors</h4>
+<div class="outline-text-4" id="text-9-2-3">
+
+
+<p>
+<a href="http://www.excel-easy.com/functions/formula-errors.html">http://www.excel-easy.com/functions/formula-errors.html</a>
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-9-2-4" class="outline-4">
+<h4 id="sec-9-2-4"><span class="section-number-4">9.2.4</span> tool</h4>
+<div class="outline-text-4" id="text-9-2-4">
+
+
+<p>
+<a href="http://excelfilecleaner.codeplex.com/">http://excelfilecleaner.codeplex.com/</a>
+</p>
+<p>
+Excel File Cleaner, 테스트는 아직
+</p></div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="postamble">
+<p class="date">Date: 2014-11-20T11:36+0900</p>
+<p class="author">Author: </p>
+<p class="creator"><a href="http://orgmode.org">Org</a> version 7.9.3f with <a href="http://www.gnu.org/software/emacs/">Emacs</a> version 24</p>
+<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
+
+</div>
+</body>
+</html>
