@@ -81,3 +81,9 @@ export all
 | key | done                       |
 |-----+----------------------------|
 | C-x | Page has 72 lines (72 + 1) |
+
+* steps
+
+- set home as
+- download init.el
+- start emacs
