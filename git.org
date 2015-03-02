@@ -41,7 +41,7 @@ git config --global push.default simple
 git config --global credential.helper store
 git push
 #+END_SRC
-
+  
 * daily
 
 #+BEGIN_SRC sh
@@ -54,7 +54,7 @@ git push
 #+END_SRC
 
 * suggest 
-
+  
 - auto aka background
   
 * recon
