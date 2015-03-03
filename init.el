@@ -38,6 +38,11 @@
 (set-selection-coding-system 'utf-8)
 (set-buffer-file-coding-system 'utf-8)
 
+(if (eq system-type 'windows-nt)
+  (set-file-name-coding-system 'euc-kr)
+  (set-w32-system-coding-system 'euc-kr)
+  )
+
 ; move around
 (global-set-key (kbd "C-x <up>") 'windmove-up)
 (global-set-key (kbd "C-x <down>") 'windmove-down)
