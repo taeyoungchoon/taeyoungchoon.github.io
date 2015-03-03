@@ -1,0 +1,21 @@
+* list of 
+
+- excel
+- emacs
+- git
+- github
+- firefox
+- pocket train
+- newsweek
+- coffee
+- tea
+- freemind
+- mindmap
+- concept map
+- twitter
+- call
+
+* word
+
+- walking working walking
+- 78, 71, 40

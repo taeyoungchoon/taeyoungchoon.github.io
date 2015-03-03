@@ -1,0 +1,9 @@
+* 참 좋은 것
+
+#+BEGIN_SRC emacs-lisp
+
+그래 시스템 관리자에게 말이다.
+그리고 또 누군가에게 말이다.
+sysinternals와 함께 참, 그래 물론 wireshark도 말이다.
+
+#+END_SRC
