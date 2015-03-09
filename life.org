@@ -1,2 +1,7 @@
 * simple, single, fun
 * not that much or 
+* image of life
+
+[[file:life.jpg]]
+
+
