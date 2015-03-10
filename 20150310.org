@@ -1,0 +1,8 @@
+* string attached
+
+- pantech, always
+- lisp, pseudo code
+  sleep?
+  loop & format
+- open profile, always
+- excel, one more thing
