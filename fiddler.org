@@ -1,0 +1,19 @@
+* remove X-Frame-Options using fiddler
+
+#+BEGIN_SRC emacs-lisp
+    static function OnBeforeResponse(oSession: Session) {
+	oSession.oResponse.headers.Remove("X-Frame-Options");
+        if (m_Hide304s && oSession.responseCode == 304) {
+            oSession["ui-hide"] = "true";
+        }
+    }
+#+END_SRC
+
+* others but not yet
+
+- webscarab
+- bluecoat?
+
+http://www.experts-exchange.com/Security/Encryption/Q_26838614.html
+
+
