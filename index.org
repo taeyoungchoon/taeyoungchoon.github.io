@@ -8,10 +8,6 @@
 - 쓸만한 패키지를 받고 이맥스에 반영한다.
 - 또
 
-* issue
-
-- [[file:shellshock.org][shellshock]]로 알려진 bash의 버그라니 그런데 과연 치명적일까?
-
 * linux and security
 
 - 1995년 리눅스를 시작으로 
@@ -20,5 +16,7 @@
 
 * hope
 
-- 프로그래머
-- 해커
+- 프로그래머 아니 그런 거창한 거 말고 (비트)코드를 쓰는 이, 널리 널리
+- 해커 ㅎㅎㅎ
+
+* and what about [[file:today.org][today]]
