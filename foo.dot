@@ -18,8 +18,10 @@ digraph mail {
 	}
 	
 	// as -> { storage, database }
+	// todo : small label
+	// todo : label to the circle
 	as -> storage
-	as -> database[dir=back, color=red]
+	as -> database[dir=back, color=red, label="back"]
 
 	{ rank = same; as mon}
 }
