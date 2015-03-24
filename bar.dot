@@ -1,0 +1,26 @@
+//
+// graphviz-dot-mode
+//
+// M-x compile
+// C-c p
+//
+
+digraph chk {
+
+fontsize="10";
+
+user -> internet -> webServer -> applicationServer -> databaseServer;
+
+subgraph cluster_aws {
+	
+subgraph cluster_1 {
+	label="dmz Farm";
+	webServer;
+	}
+subgraph cluster_2 {
+	label="server Farm";
+	applicationServer;
+	databaseServer;
+}
+}
+}

@@ -1,0 +1,50 @@
+//
+// graphviz-dot-mode
+//
+// M-x compile
+// C-c p
+//
+
+digraph aws {
+
+edge[dir=none]
+node[fontsize=12,margin=0,width=".2",height=".2"]
+nodesep=1.0
+graph[fontsize=12]
+ratio=compress
+size="16,10"
+
+user -> internet[dir=forward]
+internet -> internetGateway
+internetGateway -> publicSubnet
+publicSubnet -> privateSubnet
+publicSubnet -> virtualPrivateGateway
+privateSubnet -> virtualPrivateGateway
+virtualPrivateGateway -> corporateGateway[color=red, label="vpn"]
+corporateGateway -> administrator[dir=back]
+corporateGateway -> developer[dir=back]
+
+subgraph cluster_aws {
+	label="aws"
+	subgraph cluster_inter {
+		label="publicSubnet"
+		publicSubnet
+	}
+	privateSubnet
+}
+
+subgraph cluster_company {
+	label="company"
+	administrator
+	developer
+}
+
+// as -> { storage, database }
+// todo : small label
+// todo : label to the circle
+// as -> storage
+// as -> database[dir=back, color=red, label="back"]
+
+{ rank = same; administrator developer }
+
+}
