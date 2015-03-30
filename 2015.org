@@ -1,0 +1,34 @@
+* list of stuff
+
+** job
+
+- hacker?
+- security specialist?!
+
+** tools
+
+- lisp
+- emacs
+- linux
+
+** concept
+
+- hack?
+
+** pure body
+
+- can't be called as stuff but the thing
+
+** certified
+
+- how?
+
+** lingua franka
+
+- korean
+- english
+- and some more
+
+** scheduling
+
+- what about today?
