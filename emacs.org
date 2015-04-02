@@ -1,3 +1,8 @@
+* emacs
+
+- as myos?!
+- hmm, english only ^^;
+
 * emacsen but emacs
 
 - why? mode
