@@ -1,0 +1,13 @@
+* protocol
+
+- smtp
+- pop3
+- imap
+
+* flow
+
+how it works
+
+* one more thing
+
+read RFC?

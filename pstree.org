@@ -1,1 +1,5 @@
 * another tree
+* command
+
+pstree
+pstree -A

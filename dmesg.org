@@ -1,0 +1,4 @@
+* command
+
+dmesg
+dmesg -c
