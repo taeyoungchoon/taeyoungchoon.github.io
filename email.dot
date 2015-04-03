@@ -1,0 +1,39 @@
+//
+// graphviz-dot-mode
+//
+// M-x compile
+// C-c p
+//
+
+digraph email {
+
+	edge[fontsize=12,dir=none]
+	graph[fontsize=8]
+	node[fontsize=14]
+
+	nodesep=1.0
+	ratio=compress
+		
+	sender -> dns[dir=forward,color=red,label="mx"]
+	// dns -> sender[dir=forward,color=red]
+	sender -> spam1 -> mailServer
+	sender -> spam2 -> mailServer[dir=forward, color=red, label="smtp"]
+
+	subgraph cluster_spam {
+		label = "spam"
+		spam1
+		spam2
+	}
+
+	mailServer -> receiver[dir=forward, color=blue, label="pop3"]
+
+	mailServer[label="mail server",shape=box]
+	
+	// as -> { storage, database }
+	// todo : small label
+	// todo : label to the circle
+	// as -> storage
+	// as -> database[dir=back, color=red, label="back"]
+
+	{ rank = same; sender dns }
+}

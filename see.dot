@@ -1,0 +1,57 @@
+digraph {
+   node [shape = box, fontsize = 12];
+     subgraph cluster_main {
+       fontsize = 12;
+       shape    = box;
+       label    = "main";
+       subgraph cluster_main_common {
+         fontsize = 12;
+         shape    = box;
+         label    = "common";
+         subgraph cluster_main_common_source {
+           fontsize = 12;
+           shape    = box;
+           label    = "source"
+           subgraph cluster_file1 {
+             fontsize = 12;
+             shape    = box;
+             label    = "file1.c";
+             gSystem [label = "var1" URL = "\ref var1"];
+           }
+           subgraph cluster_file2 {
+             fontsize = 12;
+             shape    = box;
+             label    = "file2.c";
+             gCard [label = "var2" URL = "\ref var2"];
+           }
+           subgraph cluster_file3 {
+             fontsize = 12;
+             shape    = box;
+             label    = "file3.c";
+             gPwrSupply [label = "var3" URL = "\ref var3"];
+           }
+         }
+       }
+       subgraph cluster_main_docs {
+         fontsize = 12;
+         shape    = box;
+         label    = "docs";
+         subgraph cluster_main_docs_features {
+           fontsize = 12;
+           shape    = box;
+           label    = "features";
+           subgraph cluster_main_docs_features_source {
+             fontsize = 12;
+             shape    = box;
+             label    = "source"
+             subgraph cluster_file4 {
+               fontsize = 12;
+               shape    = box;
+               label    = "file4.c";
+               deviceInfo [label = "var4" URL = "\ref var4"];
+             }
+           }
+         }
+       }
+     }
+   }
