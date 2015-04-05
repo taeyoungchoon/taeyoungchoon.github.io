@@ -1,0 +1,69 @@
+//
+// graphviz-dot-mode
+//
+// M-x compile
+// C-c p
+//
+
+digraph aws {
+
+size="6,6" /* inch */
+edge[dir=none]
+nodesep=1.0
+
+i -> ig -> r
+// r -> {c; as; nat}
+r -> c
+r -> as
+r -> nat[style=dotted,weight=7,color=red]
+
+i[shape = ellipse, label = "Internet"]
+ig[shape = ellipse, label = "Internet Gateway"]
+r[shape = ellipse, label = "Router"]
+
+c[shape = box, label = "connector with EIP"]
+as[shape = box, label = "application server"]
+// node[shape=circle,style=filled,color=".7 .3 1.0"]
+nat[shape = box, label = "nat instance with EIP"]
+
+subgraph cluster_public_service {
+	label="Public Subnet"
+	c
+}
+
+subgraph cluster_private {
+	label="Private Subnet"
+	as
+}
+
+subgraph cluster_public_nat {
+	label="Public Subnet"
+	nat
+}
+
+
+
+// subgraph cluster_aws {
+// 	label="aws"
+// 	subgraph cluster_inter {
+// 		label="publicSubnet"
+// 		publicSubnet
+// 	}
+// 	privateSubnet
+// }
+
+// subgraph cluster_company {
+// 	label="company"
+// 	administrator
+// 	developer
+// }
+
+// as -> { storage, database }
+// todo : small label
+// todo : label to the circle
+// as -> storage
+// as -> database[dir=back, color=red, label="back"]
+
+// { rank = same; administrator developer }
+
+}

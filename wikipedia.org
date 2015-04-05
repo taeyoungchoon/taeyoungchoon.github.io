@@ -3,3 +3,15 @@
 but one
 
 * mobile app
+
+* bookmark?
+
+요즘 들어 계속 watch를 걸고 있다 주구장창
+
+정보는 블로그에 del.icio.us에 아니면 moinmoin에 github에 moleskine에 계속 다양한 방법을 시도하고 있다 포멧에 대해서도 신경을 쓰고 말이다 결국 org-mode로 기울기는 하게 된다
+
+하지만 그 관심의 무한 확대를 보강할 수 있는 것을 정보의 공유인가? wiki~pedia인가 
+
+- en.wikipedia
+- kr.wikipedia
+

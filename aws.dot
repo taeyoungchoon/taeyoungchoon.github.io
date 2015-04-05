@@ -6,15 +6,14 @@
 //
 
 digraph aws {
-
+	
 edge[dir=none]
-node[fontsize=12,margin=0,width=".2",height=".2"]
-nodesep=1.0
-graph[fontsize=12]
-ratio=compress
-size="16,10"
+// node[fontsize=12,margin=0,width=".2",height=".2"]
+// nodesep=1.0
+// graph[fontsize=12]
+// ratio=compress
+size="6,6"
 
-user -> internet[dir=forward]
 internet -> internetGateway
 internetGateway -> publicSubnet
 publicSubnet -> privateSubnet

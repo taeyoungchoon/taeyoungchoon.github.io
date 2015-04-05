@@ -13,3 +13,7 @@
 그래 뭐라도 돌려보려면 이게 좋다 참 좋다 12개월간의 무료 기간은 끝나지만 말이다
 
 매달 사용료가 몇 천원씩 나온 것으로 기억한다
+
+* vpn
+
+ig - r - (subnet (webServer eip) (appServer) (natServer eip))
