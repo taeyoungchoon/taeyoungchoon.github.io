@@ -10,6 +10,7 @@ digraph aws {
 size="6,6" /* inch */
 edge[dir=none]
 nodesep=1.0
+defaultdist="10"
 
 i -> ig -> r
 // r -> {c; as; nat}
@@ -33,6 +34,7 @@ subgraph cluster_public_service {
 
 subgraph cluster_private {
 	label="Private Subnet"
+	labelloc="topleft"
 	as
 }
 
