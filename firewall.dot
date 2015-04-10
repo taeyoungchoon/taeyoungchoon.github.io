@@ -1,0 +1,136 @@
+//
+// graphviz-dot-mode
+//
+// M-x compile
+// C-c p
+//
+
+digraph firewall {
+
+// size="6,6" /* inch */
+edge[dir=none]
+graph[fontsize=10]
+// rankdir = LR;
+// nodesep=0.7
+// defaultdist="10"
+
+r1 -> sw1 -> fw1 -> core1[weight=7]
+r2 -> sw2 -> fw2 -> core2[weight=7]
+r_edi -> sw2
+sw1 -> sw2[label="<<hsrp>>"]
+sw1 -> sw2
+fw1 -> fw2[label="<<ha>>"]
+core1 -> dist1
+core1 -> dist2
+core1 -> dist3
+core2 -> dist1
+core2 -> dist2
+core2 -> dist3
+
+subgraph cluster_firewall {
+	fw1
+	fw2
+}
+
+{ rank = same; r1 r2 r_edi; rankdir=LR;}
+{ rank = same; sw1 sw2 }
+{ rank = same; fw1 fw2 }
+{ rank = same; core1 core2 }
+
+// i[label="internet"]
+// r[label="router"]
+// vpn1[label="vpn",style=filled]
+// vpn2[label="vpn",style=filled]
+// rvpn[label="vpn",style=filled]
+// in[label="server"]
+
+// ri[label="internet"]
+// rr[label="router"]
+// rfw[label="fw"]
+// rin[label="server"]
+
+// subgraph cluster_public_subnet {
+// 	label = "Public Subnet"
+// 	labeljust = l
+// 	vpn1
+// }
+
+// subgraph cluster_vpn_subnet {
+// 	label = "VPN Subnet"
+// 	labeljust = l
+// 	vpn2
+// }
+
+// subgraph cluster_private_subnet {
+// 	label = "Private Subnet"
+// 	labeljust = l
+// 	in
+// }
+
+// subgraph cluster_rnd_public_subnet {
+// 	label = "RnD Public Subnet"
+// 	labeljust = l
+// 	rvpn
+// }
+
+// subgraph cluster_rnd_private_subnet {
+// 	label = "RnD Private Subnet"
+// 	labeljust = l
+// 	rin
+// }
+
+
+// r -> {c; as; nat}
+// r -> c
+// r -> as
+// r -> nat[style=dotted,weight=7,color=red]
+
+// i[shape = ellipse, label = "Internet"]
+// ig[shape = ellipse, label = "Internet Gateway"]
+// r[shape = ellipse, label = "Router"]
+
+// c[shape = box, label = "connector with EIP"]
+// as[shape = box, label = "application server"]
+// // node[shape=circle,style=filled,color=".7 .3 1.0"]
+// nat[shape = box, label = "nat instance with EIP"]
+
+// subgraph cluster_public_service {
+// 	label="Public Subnet"
+// 	c
+// }
+
+// subgraph cluster_private {
+// 	label="Private Subnet"
+// 	labelloc="topleft"
+// 	as
+// }
+
+// subgraph cluster_public_nat {
+// 	label="Public Subnet"
+// 	nat
+// }
+
+// subgraph cluster_aws {
+// 	label="aws"
+// 	subgraph cluster_inter {
+// 		label="publicSubnet"
+// 		publicSubnet
+// 	}
+// 	privateSubnet
+// }
+
+// subgraph cluster_company {
+// 	label="company"
+// 	administrator
+// 	developer
+// }
+
+// as -> { storage, database }
+// todo : small label
+// todo : label to the circle
+// as -> storage
+// as -> database[dir=back, color=red, label="back"]
+
+// { rank = same; administrator developer }
+
+}

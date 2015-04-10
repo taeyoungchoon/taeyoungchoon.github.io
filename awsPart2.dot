@@ -7,10 +7,10 @@
 
 digraph aws {
 
-size="6,6" /* inch */
+// size="6,6" /* inch */
 edge[dir=none]
-nodesep=1.0
-defaultdist="10"
+// nodesep=0.7
+// defaultdist="10"
 
 i -> ig -> r
 // r -> {c; as; nat}
