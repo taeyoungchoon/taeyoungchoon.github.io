@@ -1,0 +1,4 @@
+* name server benchmark program
+* note
+
+- google dns : 8.8.8.8
