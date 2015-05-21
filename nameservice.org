@@ -21,3 +21,11 @@ primary, secondary, caching name server
 ipconfig /displaydns
 ipconfig /flushdns
 host ( aka node, pc, client ) name caching agent
+
+* kr
+
+https://mirror.enha.kr/wiki/DNS
+* google
+
+- 8.8.8.8
+- 8.8.4.4
