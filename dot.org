@@ -1,10 +1,23 @@
-* dot
+* dot aka graphviz 
+
+그림은 손으로 그릴 수 있다.
+종이, 포토샵, Dia를 이용해서 말이다 .
+아니면 논리로 그릴 수 있다. dot은 이를 가능하게 한다.
+
+UML과는 조금 거리를 두어야 하는 것일까?
+
+* install dot
+
+** linux based on debian
 
 #+BEGIN_SRC sh
 yum install graphviz
 #+END_SRC
 
-* aka graphviz
+** windows
+
+   1. http://www.graphviz.org/Download_windows.php
+   2. C:\Program Files\Graphviz2.38\bin on Path System Variable
 
 * dot and emacs
 
@@ -17,8 +30,7 @@ graphviz-dot-mode
 | M-x compile | generate image |
 | C-c p       | view image     |
 
-
-* include dot
+* for example
 
 #+BEGIN_SRC dot
 digraph sample {

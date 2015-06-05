@@ -1,0 +1,7 @@
+digraph sample {
+
+	edge[dir=none]
+	
+	a -> b
+	a -> c
+}
