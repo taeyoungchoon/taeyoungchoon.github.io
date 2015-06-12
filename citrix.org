@@ -1,0 +1,5 @@
+* Citrix Access Gateway Enterprise Edition
+* nsroot
+* Access Gateway
+** Groups
+** Policies > Authorization (aka roles)

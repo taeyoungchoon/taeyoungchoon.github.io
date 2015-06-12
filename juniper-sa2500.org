@@ -1,0 +1,30 @@
+* juniper sa2500 aka sslvpn?
+* flow
+
+'admin' map 'group' to 'role'
+
+* admin
+** Auth Servers > Administrators > Users
+* group
+
+- Available Groups
+
+* role
+** User Realms > .. > Role Mapping
+** User Roles > SAM > WSAM Allowed servers
+
+* one more thing
+** SAM, Secure Application Manager
+** NC, Network Connect
+** Authencation Servers
+
+Local Authentication
+LDAP Server
+NIS
+ACE
+Radius
+Active Directory / Windows NT
+Anonymous
+SiteMinder
+Certificate 
+SAML
