@@ -1,0 +1,46 @@
+* 채용은 활활?
+
+http://www.boannews.com/media/view.asp?idx=46604
+
+메르스로 전국 꽁꽁, 보안인력 채용은 활활
+
+이라고 되어 있다
+
+과연
+
+- 정보보안 솔루션 구축 및 기술지원
+- [X] 정보보안 솔루션 운영(방화벽, VPN)
+- 정보보안 컨설팅, 보안 인증
+- 모의해킹, 취약점 점검
+- DB보안
+- 보안솔루션 개발, 모바일 보안 솔루션 개발
+- 악성 코드 분석, 리버스 엔지니어링, 버그 헌팅
+
+* 인력 이탈?
+
+http://www.boannews.com/media/view.asp?idx=46403&kind=2
+
+보안 코디네이터? K-쉴드 밀리터리(국방), K-쉴드 파이낸스(금융)
+정보보호가 기본이 되고 창조경제 먹거리 산업화를 위한 시큐리티 발전 전략
+
+https://academy.kisa.or.kr/intro/aca_info/aca_planning05.kisa
+http://www.boannews.com/media/view.asp?idx=40904
+
+- metaexploit
+- wireshark
+- xyz
+
+* BoB
+
+http://www.boannews.com/media/view.asp?idx=46597&page=1&kind=2&search=title&find=%B9%CE%BC%BC%BE%C6%B1%E2%C0%DA
+
+국방과학연구소 시정훈
+Beyond Security Aviram Jenik
+CD Networks 이경문
+라온시큐어 이정훈, 이종호
+하우리 최상명
+NBP 최창국
+삼성전자 강정인
+LG 전자 니콜라이
+고려대학교 이상진
+경찰사이버안전국 최원영
