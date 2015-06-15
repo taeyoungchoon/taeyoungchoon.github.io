@@ -1,0 +1,13 @@
+* list of tools
+
+- urlscan
+- iis lockdown tool
+
+* things
+
+- IUSR_ComputerName
+- control userpasswords2
+- system32/inetsrv/iis.msc
+- 익명 액세스
+- 인증된 액세스 > Windows 통합 인증
+- WebDav(Web Distributed Authoring and Versioning) on IIS 
