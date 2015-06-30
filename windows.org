@@ -1,3 +1,12 @@
+* distribution
+
+http://cappleblog.co.kr/238
+http://comta.kr/?p=9358
+
+- windows 7 : Starter < Home Basic < Home Premium < Professional < Enterprise < Ultimate
+- N : not include Windows Media Player, Center and such a like that
+- K : korean
+
 * dig
 ** boot manager
 ** kernel but boot
