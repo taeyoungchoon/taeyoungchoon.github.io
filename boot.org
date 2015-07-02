@@ -1,0 +1,29 @@
+* fix, boot failure
+
+http://trinityhome.org/Home/index.php?content=3.4_BOOTSECTOR_REPAIR_1&front_id=12&lang=en&locale=en
+using trk
+
+https://kb.acronis.com/content/1507
+general
+
+* and more
+
+https://technet.microsoft.com/en-us/library/ee460909.aspx
+using ERD Commander in MSDaRT
+
+https://technet.microsoft.com/en-us/windows/hh826071
+DaRT(Diagnostics and Recovery Toolset)
+
+DaRT 5.0 only supports Windows XP and Windows Server 2003 (no x64 support and no plans to add it either)
+
+https://en.wikipedia.org/wiki/Emergency_repair_disk
+ERD, Emergency Repair Disk
+
+SFC(System File Checker) Scan by sfc /scannow
+
+http://securityxploded.com/windows-password-recovery.php
+Article, long
+
+* case
+
+http://danbis.net/9967

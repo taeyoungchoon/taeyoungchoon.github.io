@@ -1,0 +1,40 @@
+* audit? 오디트?
+
+누가 파일을 언제 삭제하였는가에서 시작하였다
+https://whereismydata.wordpress.com/2009/05/02/forensics-what-happens-when-files-are-deleted/
+Forensics: What happens when files are deleted?
+
+and more like selinux and AppArmor
+
+* CIA(/IIA) then CISA(ISACA), not CISSP(/ISC)
+
+* kr, 감사연구원
+* database > oracle > auditing
+* operating system level
+* acct vs auditd
+* acct
+
+http://www.tecmint.com/how-to-monitor-user-activity-with-psacct-or-acct-tools/
+
+* auditd
+
+https://isc.sans.edu/diary/Auditd+is+your+friend/15163
+http://linoxide.com/how-tos/auditd-tool-security-auditing/
+http://askubuntu.com/questions/501965/why-isnt-auditd-logging-file-deletes
+http://www.linuxscrew.com/2012/07/04/track-file-changes-auditd/
+https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Security_Guide/chap-system_auditing.html
+
+* in bash, rmtrash?
+
+http://apple.stackexchange.com/questions/17622/how-can-i-make-rm-move-files-to-the-trash-can
+http://askubuntu.com/questions/391082/how-to-see-time-stamps-in-bash-history
+
+* inotify
+
+http://www.ibm.com/developerworks/library/l-ubuntu-inotify/
+http://inotify.aiken.cz/
+
+* inotify vs auditd
+
+http://serverfault.com/questions/433738/how-to-check-which-processes-are-deleting-files-without-using-inotify-or-auditd
+http://darizotas.blogspot.kr/2013/12/auditing-your-linux-system.html

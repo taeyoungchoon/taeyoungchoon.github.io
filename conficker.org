@@ -1,0 +1,32 @@
+* tools
+
+- edit hosts
+- gmer (http://www.gmer.net/)
+
+* patch
+
+https://technet.microsoft.com/library/security/ms08-067
+MS08-067
+
+* check
+
+https://technet.microsoft.com/ko-kr/security/cc184923
+MBSA 2.2 and more
+
+https://www.microsoft.com/en-us/download/details.aspx?id=19892
+MBSA 2.1.1 for windows 2000 server only
+
+https://msdn.microsoft.com/en-us/library/ff647642.aspx
+how to use it
+
+* read
+
+http://www.windowsecurity.com/articles-tutorials/authentication_and_encryption/Anonymous-Connections.html
+anonymous connection
+
+C:\WINDOWS>net use \\192.168.1.1\ipc$ "" /user:""
+
+C:\WINDOWS>net view \\192.168.1.1
+
+http://www.dummies.com/how-to/content/null-session-attacks-and-how-to-avoid-them.html
+litte deep
