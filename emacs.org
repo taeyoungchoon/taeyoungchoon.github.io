@@ -89,6 +89,6 @@ export all
 
 * steps
 
-- set home at windows 7
+- set home at windows 7 as like HOME to u:\apps\Documents
 - download init.el from github
 - start emacs
