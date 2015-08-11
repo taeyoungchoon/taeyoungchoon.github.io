@@ -1,5 +1,0 @@
-* links
-
-- [[http://www.wireshark.org/download.html]]
-
-* why and why not
