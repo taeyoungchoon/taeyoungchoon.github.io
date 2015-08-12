@@ -2,3 +2,45 @@
 
 - http://www.w3counter.com/globalstats.php
 - http://www.netmarketshare.com/
+
+* dig chrome
+
+chrome://about/
+chrome://dns/
+chrome://net-internals/#dns
+
+* dig chrome, log
+
+DNS_PROBE_FINISHED_NXDOMAIN
+error: -105 (ERR_NAME_NOT_RESOLVED)
+
+ERR_NAME_NOT_RESOLVED
+error: -105 (ERR_NAME_NOT_RESOLVED)
+
+* dig firefox
+
+about:config > network.dnsCacheExpiration > 0
+
+* name resolving
+
+** with operating system
+
+ipconfig /all
+ipconfig /displaydns
+ipconfig /flushdns
+
+nslookup -type=mx
+
+netsh interface show interface
+netsh interface ipv4 show dns "로컬 영역 연결"
+netsh interface ipv4 delete dnsservers "로컬 영역 연결" 8.8.8.8
+netsh interface ipv4 add dnsservers "로컬 영역 연결" 8.8.8.8
+
+* issue
+
+gethostbyname
+dns prefetch
+
+* perl
+
+man perlfaq9
