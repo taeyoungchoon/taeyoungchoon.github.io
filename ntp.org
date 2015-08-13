@@ -20,6 +20,7 @@
 - net start w32time
 - w32time /resync
 - w32time /query /configuration
+- w32time /query /status
 
 ** print 
 
