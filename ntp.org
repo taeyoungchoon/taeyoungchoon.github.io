@@ -1,3 +1,27 @@
 * time about time if not
 
 시간이 없다면 그리고 여기 지역적인 문제도 들어가야 한다. 한국이라면 KST가 좋다. 
+
+* just one
+
+- ntpdate -q time.bora.net
+
+* just but windows? or the other? and from the command line!
+
+** xp 
+
+- date /T
+- time /T
+- net time /querysntp
+
+** others, up
+
+- net stop w32time
+- net start w32time
+- w32time /resync
+- w32time /query /configuration
+
+** print 
+
+https://www.meinbergglobal.com/english/info/ntp-w32time.htm
+
