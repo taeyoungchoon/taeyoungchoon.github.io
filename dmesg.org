@@ -1,4 +1,0 @@
-* command
-
-dmesg
-dmesg -c
