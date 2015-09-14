@@ -2,21 +2,21 @@
 
 * go
 
-- 이맥스를 켜다.
-- 쉘을 수행하고 달력을 보고 글을 쓰고 저장하고 또 [[file:git.org][따로 저장]]하고
-- 그림은 [[file:dot.org][점]]으로 그린다 농담이다 어쨌거나 나는 아티스트일 수는 없는가?
-- 쓸만한 패키지를 받고 이맥스에 반영한다.
-- 또
+- touch emacs on
+- eshell, calender
+- write note and lisp
+- and [[file:dot.org][dot]]
+- that's all
 
 * linux and security
 
-- 1995년 리눅스를 시작으로 
-- 2개의 IDC, 60g의 네트워크 구성, 600대의 동작 중인 서버를 커피와 함께
-- 지금은 보안 관련 업무를 하고 있는데
+- since 1995
+- scale enough, 2 IDC, 60g Network, 600 or more active server with coffee break
+- and now sec a little
 
 * hope
 
-- 프로그래머 아니 그런 거창한 거 말고 (비트)코드를 쓰는 이, 널리 널리
-- 해커 ㅎㅎㅎ
+- bit code
+- but hack
 
-* and what about [[file:today.org][today]]
+* and what about today
