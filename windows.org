@@ -11,6 +11,55 @@ http://comta.kr/?p=9358
 ** boot manager
 ** kernel but boot
 ** repository
+*** Windows Registry
+autoruns
+regjump HKLM\Software\Microsoft\Windows
+**** Run, RunOnce and more
+*** Windows ActiveDirectory
 ** file
 ** process
+*** os process
+
+ntoskrnl
+wininit
+smss : session manager
+csrss : client server run
+conhost
+lsass : localhost security authority
+lsm : local session manager
+service
+svchost
+dllhost
+taskhost
+spoolsv
+winlogin
+userinit
+explorer
+
+*** user process
+
+wmiprvse
+wmpnetwk
+sppsvc
+mDNSResponder
+DSH_Service
+igfxsrvc
+ShieldStart
+jqs
+V3svc > V3PScan
+WinSvch
+HKCUWtr
+ctfmon
+conime
+rundll32
+BTTray
+DLG
+GWX
+MSSAgntSs
+MSSAgnt
+TPmsAgent
+MADRMAgent
+RTHDCPL
+hkcmd
+
 ** memory
