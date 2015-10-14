@@ -1,3 +1,1 @@
-(if nil
-    (list 'a 'b)
-    (list 'c 'd))
+(princ "hello, hack!")

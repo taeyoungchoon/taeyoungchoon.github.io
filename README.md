@@ -1,4 +1,3 @@
-taeyoungchoon.github.io
-=======================
+# myos
 
-this is my home
+and I am

@@ -1,3 +1,3 @@
-#!/usr/bin/perl
+#!/usr/bin/perl -w
 
-print "Hello, World\n";
+print "hello, hack!\n";

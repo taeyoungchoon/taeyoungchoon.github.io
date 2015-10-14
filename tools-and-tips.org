@@ -1,0 +1,19 @@
+* list of
+* on computer 
+* on walk
+freemind
+whiteboard
+moleskine
+git
+nagios
+dot
+firefox +yslow +firebug
+strace
+procexp
+procmon
+telnet
+pstree
+/proc
+emacs +org
+ls -ltr
+capistrano

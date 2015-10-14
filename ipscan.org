@@ -1,0 +1,10 @@
+* as
+- IPAM
+- IPMS
+* with
+- DHCP
+* alternative
+* one more thing
+- NAC
+- Identify
+- Windows 2012 Server
