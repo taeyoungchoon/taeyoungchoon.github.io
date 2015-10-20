@@ -1,0 +1,25 @@
+#!/bin/env expect
+#
+# DESC
+# show time on target cisco device
+#
+# TODO
+# DONE target as argument
+# conditional send like show module or show diag to check modules
+# log_file
+# timeout
+
+#set target 192.168.0.1
+set target [lindex $argv 0]
+set password PASSWORD
+
+spawn telnet $target
+expect "Password:"
+send "$password\n"
+expect ">"
+send "en\n"
+expect "Password:"
+send "$password\n"
+
+send "show clock\n"
+send "exit\n"

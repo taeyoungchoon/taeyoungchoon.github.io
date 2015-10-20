@@ -1,8 +1,3 @@
-* why? and what?
-
-그래 바다에 던졌는데 또 하나 건지려는가?
-
-* wanna use list
-
-- old
-- not so much recent one
+watch0 is just a watch
+watch1 watch -n 1
+watch2 watch -n 1 -d

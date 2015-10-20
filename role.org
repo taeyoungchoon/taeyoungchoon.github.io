@@ -1,0 +1,32 @@
+* role or do based
+
+** web but redmine using apache, mysql and more
+
+(web (site (foo.com)) (mysql local) (application custom))
+(web (site (localhost)) (postgresql local) (application redmine))
+(web (site (localhost)) (postgresql local) (application redmine))
+
+** web but virtual host
+
+(web (site (a.com))
+(web (site (b.com))
+(web (site (c.net))
+
+** mysql only
+
+(database (mysql remote))
+
+** zombie
+
+(unknown remote)
+
+** user-pc
+
+(messenger nateon twitter)
+
+* how
+
+- check process list
+- white process or black(unknown)
+- multiple roles, can it be
+- daemon with listen or local

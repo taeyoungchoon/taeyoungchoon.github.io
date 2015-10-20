@@ -1,0 +1,38 @@
+#!/usr/bin/expect
+
+set target [lindex $argv 0]
+set id [lindex $argv 1]
+set password [lindex $argv 2]
+
+spawn ssh $id@$target
+expect {
+	"Are you sure you want to continue connecting (yes/no)?" {
+		send "yes\n"
+		exp_continue
+	}
+	"Password:" {
+		send "$password\n"
+		#exp_continue
+	}
+}
+
+expect "#"
+send "export LANG=C\n"
+expect "#"
+send "export TERM=vt100\n"
+
+expect "#"
+send "clear\n"
+expect "#"
+send "uptime\n"
+expect "#"
+send "df -h\n"
+expect "#"
+send "df -i\n"
+expect "#"
+send "sudo dmesg | tail -1\n"
+
+#expect "#"
+#send "screen -r\n"
+
+interact

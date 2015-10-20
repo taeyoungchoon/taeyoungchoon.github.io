@@ -1,0 +1,11 @@
+role :domains, "localhost"
+set :user, "dareshare"
+set :password, "xxxx"
+
+task :uptime, :hosts => "localhost" do
+	run "uptime"
+end
+
+task :space, :hosts => "localhost" do
+	run "df -h"
+end

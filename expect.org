@@ -1,5 +1,8 @@
-* which expect
-
-* with perl? 
-
-참 어렵다. 어렵다. 그럼 펄과 함께면 괜찮을까? 아마도 말이다. tcl을 쓸 것 아니면 말이다.
+* can do many things with expect
+** login with some password called h_login.exp
+*** version 1
+login with target
+try 1,2,3
+login then interact
+*** version 2
+guess the ssh or telnet

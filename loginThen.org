@@ -1,0 +1,5 @@
+* login then press
+
+- uptime
+- df (-h|-i)
+- dmesg | tail -10

@@ -1,0 +1,155 @@
+* puppet 한번 사용해 볼까 한다
+
+** 소개글
+
+이거 참 좀비도 아니고 puppet 이라니 
+어쨌거나 사용할 수 있는(aka 읽을 수 있는) 설정 관리 툴이다
+읽을 수 있다니 참 다행이다
+
+** 정보?
+
+- date : 20150605
+- written by taeyoungchoon
+
+* 우선 무슨 일을 하던지 심볼에 대한 정리는 필요하다
+
+- master hostname : deb01, puppet
+- master ip : 192.168.0.57
+
+- client hostname : deb02
+- client ip : 192.168.0.58
+
+- domain name : t.com 
+
+* step
+** network configuration @master
+
+#+BEGIN_SRC sh
+root@deb01:~# cat /etc/resolv.conf
+search t.com
+nameserver 168.126.63.1
+root@deb01:~# cat /etc/hosts
+127.0.0.1       localhost
+192.168.0.57     deb01
+
+192.168.0.57 puppet
+192.168.0.57 deb01
+192.168.0.58 deb02
+
+root@deb01:~# cat /etc/resolv.conf
+search t.com
+nameserver 168.126.63.1
+root@deb01:~#
+#+END_SRC 
+
+** network configuration @client
+
+#+BEGIN_SRC sh
+root@deb02:~# cat /etc/resolv.conf
+search t.com
+nameserver 168.126.63.1
+root@deb02:~# cat /etc/hosts
+127.0.0.1       localhost
+192.168.0.58     deb02
+
+192.168.0.57 puppet
+192.168.0.57 deb01
+192.168.0.58 deb02
+
+root@deb02:~# cat /etc/resolv.conf
+search t.com
+nameserver 168.126.63.1
+root@deb02:~#
+#+END_SRC 
+
+** install puppet master app @master
+
+#+BEGIN_SRC sh
+root@deb01:~# apt-get install puppet-master
+root@deb01:~# puppet module install puppetlabs-stdlib
+#+END_SRC 
+
+** install puppet client app @client
+
+#+BEGIN_SRC sh
+root@deb02:~# apt-get install puppet
+#+END_SRC 
+
+** generate recipe @master
+
+#+BEGIN_SRC sh
+root@deb01:~# nano /etc/puppet/manifests/site.pp
+
+package { "ntp":
+    ensure => "installed"
+}
+#+END_SRC
+
+** check certificate list @master
+
+#+BEGIN_SRC sh
+root@deb01:~# puppet cert list --all
++ "deb01.t.com" (SHA256) 8C:D9:A2:73:25:F8:68:39:13:68:71 (alt names: "DNS:deb01.t.com", "DNS:puppet", "DNS:puppet.t.com")
+root@deb01:~#
+#+END_SRC 
+
+** request about cert @client
+#+BEGIN_SRC sh
+root@deb02:/var/lib/puppet# puppet agent -t
+Info: Creating a new SSL key for deb02.t.com
+Info: csr_attributes file loading from /etc/puppet/csr_attributes.yaml
+Info: Creating a new SSL certificate request for deb02.t.com
+Info: Certificate Request fingerprint (SHA256): 14:80:00:FA:F0:80:31:2D:AD:CF:07
+Exiting; no certificate found and waitforcert is disabled
+root@deb02:/var/lib/puppet#
+#+END_SRC 
+
+** accept cert @master
+
+#+BEGIN_SRC sh
+root@deb01:~# puppet cert list --all
+  "deb02.t.com" (SHA256) 14:80:00:FA:F0:80:31:2D:AD:CF:07
++ "deb01.t.com" (SHA256) 8C:D9:A2:73:25:F8:68:39:13:68:71 (alt names: "DNS:deb01.t.com", "DNS:puppet", "DNS:puppet.t.com")
+root@deb01:~#
+root@deb01:~# puppet cert sign deb02.t.com
+Notice: Signed certificate request for deb02.t.com
+Notice: Removing file Puppet::SSL::CertificateRequest deb02.t.com at '/var/lib/puppet/ssl/ca/requests/deb02.t.com.pem'
+root@deb01:~#
+root@deb01:~#
+root@deb01:~# puppet cert list --all
++ "deb01.t.com" (SHA256) 8C:D9:A2:73:25:F8:68:39:13:68:71 (alt names: "DNS:deb01.t.com", "DNS:puppet", "DNS:puppet.t.com")
++ "deb02.t.com" (SHA256) FD:AA:59:60:08:FA:5E:F3:B7:6D:9E:33:CC
+root@deb01:~#
+#+END_SRC 
+
+** apply recipe @client
+
+#+BEGIN_SRC sh
+root@deb02:/var/lib/puppet# puppet agent -t
+Info: Retrieving pluginfacts
+Info: Retrieving plugin
+Info: Caching catalog for deb02.t.com
+Info: Applying configuration version '1433492441'
+Notice: Finished catalog run in 0.04 seconds
+root@deb02:/var/lib/puppet# 
+#+END_SRC 
+
+** case : broken cert
+
+#+BEGIN_SRC sh
+root@deb02:/var/lib/puppet# puppet agent --test
+Info: Caching certificate for deb02.t.com
+Error: Could not request certificate: The certificate retrieved from the master does not match the agent's private key.
+Certificate fingerprint: C2:5E:74:A7:BC:8C:9E:AD:05:EA
+To fix this, remove the certificate from both the master and the agent and then start a puppet run, which will automatically regenerate a certficate.
+On the master:
+  puppet cert clean deb02.t.com
+On the agent:
+  1a. On most platforms: find /var/lib/puppet/ssl -name deb02.t.com.pem -delete
+  1b. On Windows: del "/var/lib/puppet/ssl/deb02.t.com.pem" /f
+  2. puppet agent -t
+#+END_SRC
+
+* one more thing
+
+cfengine

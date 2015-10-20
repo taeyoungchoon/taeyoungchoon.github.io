@@ -1,0 +1,27 @@
+* naming
+  
+- t-sys-*
+- t-
+- sys, net, sec, rep
+- mon, man, usr, adm
+- t : taeyoungchoon
+
+* lang
+
+- clisp, apt-get install clisp
+- perl, installed
+- bash, using
+
+* extension
+
+- .lisp
+- .pl
+- .sh
+- .do
+- .go
+
+* level
+  
+- green, yellow, red
+- 80%, 90%
+

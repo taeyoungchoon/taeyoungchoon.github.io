@@ -1,0 +1,8 @@
+#+TITLE: about emacs org-mode softly
+
+* read words about it
+  - http://orgmode.org/worg/org-quotes.html
+
+* command
+  - C-c C-e b : export to html file then open it from browser
+  - C-c a : type command for agenda view

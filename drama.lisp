@@ -1,0 +1,10 @@
+(defparameter drama-seen '((ALMOST-HUMAN S01E02)
+			   (ALIAS S01E03)
+			   (BELIEVE S01E02)
+			   (THE-100 S01E02)
+			   (ARROW S01E01)
+			   (NUMBE3RS NIL)))
+
+;;(loop for i in drama-seen do (format t "~a ~15t~a~&" (car i) (cadr i)))
+(loop for i in drama-seen do (format t "~30<~a~;~a~>~&" (car i) (cadr i)))
+;;(loop for i in drama-seen do (format t "~15:@<~a~> ~20:@<~a~> ~&" (car i) (cadr i)))

@@ -1,0 +1,7 @@
+role :domains, "localhost"
+set :user, "dareshare"
+set :password, "xxxx"
+
+task :list, :hosts => "localhost" do
+	run "ls"
+end

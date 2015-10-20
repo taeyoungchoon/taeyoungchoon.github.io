@@ -1,0 +1,14 @@
+#+TITLE: this is about capistrano gem
+
+* read some
+  - https://github.com/capistrano/capistrano/wiki/2.x-Getting-Started
+
+* download gen
+  - sudo gem install capistrano
+
+* cat capfile
+  - role :domains, "localhost", "remotehost"
+  - set :user, "jack"
+
+* cap shell
+

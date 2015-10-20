@@ -1,3 +1,4 @@
-# myos
+# t-shell
 
-and I am
+repo for code, something good
+
