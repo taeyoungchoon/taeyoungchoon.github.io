@@ -1,91 +1,36 @@
-* emacs
-
-- as myos?!
-- hmm, english only ^^;
-
-* emacsen but emacs
-
-- why? mode
-- 이맥스의 모드가 있다는 것은 나에게 참 그랬다 
-- 운영체제 안의 운영체제 라니 그것도 맞춤형이다, 생각나는 정도까지가 되려면 공수가 많이 들겠지만 말이다
-
 * configration called [[file:init.el][init.el]] ever called as
 
 - that I have to seperate
 - that I have to share
 
-* general
-* 한글 3벌식
-
-** 추가
-
-#+BEGIN_SRC emacs-lisp
-(custom-set-variables
-'(default-input-method "korean-hangul3f")
-)
-#+END_SRC
-
-*** 참조
-
-http://orgmode.org/manual/Literal-examples.html
-http://orgmode.org/manual/Working-With-Source-Code.html
-
-** 변환
-
-- C-\
-
-* move around
-* eshell
+* hangul but read init file
+* move around but read
+* eshell and nothing to read but I have to read some
 * org-mode
-
-- http://home.fnal.gov/~neilsen/notebook/orgExamples/org-examples.html
-
 ** then export
-
-*** key
 
 - C-c C-e h : export to html file
 - C-c C-e b : export to html file then open
-
-*** css
-
-*** note
-
-export all
 
 ** care about link
 
 - C-c C-l
 - C-c C-o
 
-*** links
-
-- http://orgmode.org/manual/Export-settings.html
-
 * package
+
 - list-packages
+
+** todo
+
+- update packages
+
 * emacs related links
 
 ** download
 
 - http://www.gnu.org/software/emacs/#Obtaining
 - http://emacsformacosx.com
-
-** known user
-
-- https://github.com/bbatsov/prelude
-
-** known page
-
-- http://www.emacswiki.org/emacs-ko
-- http://planet.emacsen.org
-- http://reddit.com/r/emacs
-
-* curious
-
-| key | done                       |
-|-----+----------------------------|
-| C-x | Page has 72 lines (72 + 1) |
 
 * steps
 

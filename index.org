@@ -1,14 +1,12 @@
+#+Title: piano is the plan in some
 #+OPTIONS: toc:nil
 
-* go
+* one more thing
 
-- touch emacs on
-- eshell, calender
-- write note and lisp
-- and [[file:dot.org][dot]]
-- that's all
+- [[file:emacs.org][emacs]]
+- programming
 
-* linux and security
+* history, linux and security
 
 - since 1995
 - scale enough, 2 IDC, 60g Network, 600 or more active server with coffee break
@@ -16,7 +14,6 @@
 
 * hope
 
-- bit code
-- but hack
+- hack the planet
 
-* and what about today
+
