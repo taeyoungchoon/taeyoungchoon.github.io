@@ -1,0 +1,13 @@
+* format or information
+
+** text and otheres
+
+*** text encoding issue
+
+**** utf-8 and euc-kr from korea
+
+** tools
+
+file -bi file
+iconv -l
+iconv -f EUC-KR -t UTF-8 file.in > file.out
