@@ -8,8 +8,8 @@
 (setq inhibit-splash-screen t)
 (display-time)
 (load-theme 'wombat)
-(setq default-directory "t:/")
-(eshell)
+(setq default-directory "t:/home")
+;(eshell)
 
 ; about backup & auto-save
 ; http://www.gnu.org/software/emacs/manual/html_node/elisp/Auto_002dSaving.html
@@ -31,17 +31,17 @@
 (setq default-input-method "korean-hangul3f")
 (global-set-key (kbd "S-SPC") 'toggle-input-method)
 
-(prefer-coding-system 'utf-8)
-(set-file-name-coding-system 'utf-8)
-(set-terminal-coding-system 'utf-8)
-(set-keyboard-coding-system 'utf-8)
-(set-selection-coding-system 'utf-8)
-(set-buffer-file-coding-system 'utf-8)
+;;(prefer-coding-system 'utf-8)
+;;(set-file-name-coding-system 'utf-8)
+;;(set-terminal-coding-system 'utf-8)
+;;(set-keyboard-coding-system 'utf-8)
+;;(set-selection-coding-system 'utf-8)
+;;(set-buffer-file-coding-system 'utf-8)
 
-(if (eq system-type 'windows-nt)
-  (set-file-name-coding-system 'euc-kr)
-  (set-w32-system-coding-system 'euc-kr)
-  )
+;;(if (eq system-type 'windows-nt)
+;;  (set-file-name-coding-system 'euc-kr)
+;;  (set-w32-system-coding-system 'euc-kr)
+;;  )
 
 ; move around
 (global-set-key (kbd "C-x <up>") 'windmove-up)
@@ -59,6 +59,9 @@
 (global-set-key (kbd "<C-S-right>")  'buf-move-right)
 
 ; swap window
+; C-u M-p to do so
+;(global-set-key (kbd "M-p") 'ace-window)
+(global-set-key (kbd "M-s") 'ace-swap-window)
 
 ; resizing window with windresize
 
@@ -77,6 +80,47 @@
 (define-key global-map "\C-ca" 'org-agenda)
 (setq org-log-done t)
 
-; printer
-; http://www.emacs.uniyar.ac.ru/doc/em24h/emacs018.htm
+;; printer
+;; http://www.emacs.uniyar.ac.ru/doc/em24h/emacs018.htm
 (setq printer-name "//127.0.0.1/Printer")
+;; http://www.emacswiki.org/emacs/PrintingFromEmacs#toc5
+(setenv "GS_LIB" "c:/Program Files/gs/gs9.18/lib;c:/Program Files/gs/gs9.18/fonts")
+(setq ps-lpr-command "c:/Program Files/gs/gs9.18/bin/gswin32c.exe")
+(setq ps-lpr-switches '("-q" "-dNOPAUSE" "-dBATCH" "-sDEVICE=mswinpr2"))
+(setq ps-printer-name t)
+
+; slime
+;(setq inferior-lisp-program "c:/Program Files/Steel Bank Common Lisp/1.2.11/sbcl.exe")
+;(setq slime-lisp-implementations '((sbcl ("C:\\Program Files\\Steel Bank Common Lisp\\1.2.11\\sbcl.exe" "--core" "C:\\Program Files\\Steel Bank Common Lisp\\1.2.11\\sbcl.core"))))
+;(setq slime-lisp-implementations '((sbcl ("C:\\Program Files\\Steel Bank Common Lisp\\1.2.11\\sbcl.exe"))))
+;(setq inferior-lisp-program "sbcl")
+(setq inferior-lisp-program "clisp")
+;(setq slime-contribs '(slime-fancy))
+(require 'slime)
+;(require 'slime-autoloads)
+(slime-setup '(slime-fancy))
+
+;; twitter
+(require 'twittering-mode)
+;;(setq twittering-use-master-password t)
+
+; recent open files
+(recentf-mode 1)
+        (global-set-key (kbd "<f7>") 'recentf-open-files)
+
+;; feed
+(global-set-key (kbd "C-x w") 'elfeed)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(elfeed-feeds
+   (quote
+    ("https://lwn.net/headlines/rss" "http://www.50ply.com/atom.xml" "http://nullprogram.com/feed/" "http://www.terminally-incoherent.com/blog/feed/"))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

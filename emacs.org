@@ -21,13 +21,13 @@
 
 - list-packages
 
-** todo
+* update packages
 
-- update packages
+1. list-packages
+2. U
+3. x
 
-* emacs related links
-
-** download
+* download
 
 - http://www.gnu.org/software/emacs/#Obtaining
 - http://emacsformacosx.com
