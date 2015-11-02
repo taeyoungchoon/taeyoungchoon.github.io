@@ -1,5 +1,10 @@
 * format or information
 
+** english vs korean or more
+
+한글은 어떠한가? then english
+
+
 ** text and otheres
 
 *** text encoding issue
@@ -7,7 +12,33 @@
 **** utf-8 and euc-kr from korea
 
 ** tools
+*** file
 
 file -bi file
+
+*** iconv
+
 iconv -l
 iconv -f EUC-KR -t UTF-8 file.in > file.out
+
+*** on emacs
+
+**** I can't read book.org with basic init.el configration
+
+1. file -bi book.org
+2. text/plain; charset=utf-8
+3. so
+4. add (prefer-coding-system 'utf-8) to init.el
+5. eval-buffer
+6. then I can see korean in there
+
+**** check encoding from emacs
+
+http://ergoemacs.org/emacs/emacs_encoding_decoding_faq.html
+
+revert-buffer-with-coding-system
+set-buffer-file-coding-system
+describe-variable > buffer-file-coding-system
+describe-coding-system
+(set-language-environment "UTF-8")
+list-coding-system
