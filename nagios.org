@@ -33,3 +33,7 @@ DNS OK: 0.180 seconds response time. linux.com returns 140.211.167.50,140.211.16
 * todo
 
 nagios then no more nagios? ^^
+
+* history
+
+[2015-11-03 Tue 20:58] 다른 곳으로 떠나간 장비를 관제에서 뺐다. cfg를 bak로 변경하고 그룹에서 뺐다. reload하고 끝
