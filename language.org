@@ -2,3 +2,7 @@
 
 - english
 - korean
+
+* one more thing
+
+생각처럼 될 수 있으면 좋으련만 아니 그런 생각을 하지 않아서 인가? 
