@@ -2,18 +2,12 @@
 
 (setf lotto nil)
 (setf pick nil)
-(setf lt (loop for num from 1 to 10 collect num))
+(setf lt (loop for num from 1 to 45 collect num))
 
-(setf pick (nth (random (length lt)) lt))
-(setf lt (remove pick lt))
-(push pick lotto)
-
-(setf pick (nth (random (length lt)) lt))
-(setf lt (remove pick lt))
-(push pick lotto)
-
-(setf pick (nth (random (length lt)) lt))
-(setf lt (remove pick lt))
-(push pick lotto)
+;;(loop for i from 1 to 3 do
+(loop repeat 6 do
+     (setf pick (nth (random (length lt)) lt))
+     (setf lt (remove pick lt))
+     (push pick lotto))
 
 (format t "~A~%" (sort lotto #'<))
