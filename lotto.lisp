@@ -1,28 +1,19 @@
-;;
-;; number list
-;; random
-;; pop push
-;; setf 
-;; sort
-;;
+(setf *random-state* (make-random-state t))
 
-#|
-(defun t-random (max)
-  (+ (random (- max 1)) 1))
+(setf lotto nil)
+(setf pick nil)
+(setf lt (loop for num from 1 to 10 collect num))
 
-(defun t-random-test (max)
-  (loop for i from 1 to 5
-    do (print (t-random (max)))))
+(setf pick (nth (random (length lt)) lt))
+(setf lt (remove pick lt))
+(push pick lotto)
 
-(let ((lt (loop for num from 1 to 60 collect num)))
-  (nth 10 lt))
-|#
+(setf pick (nth (random (length lt)) lt))
+(setf lt (remove pick lt))
+(push pick lotto)
 
-(setf lt nil)
+(setf pick (nth (random (length lt)) lt))
+(setf lt (remove pick lt))
+(push pick lotto)
 
-;;loop unil big enough
-(setf pick (+ (random 60) 1))
-(member pick lt)
-(push pick lt)
-(length lt)
-;;if lt is big enough, out
+(format t "~A~%" (sort lotto #'<))
