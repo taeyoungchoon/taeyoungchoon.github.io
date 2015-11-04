@@ -7,7 +7,11 @@
 - hmm, uml
 - whiteboard
 - A4
+- dot(graphviz)
 
 * not where
 
 * abstract enough, simple enough
+
+can't be more simple
+the most simple, ximple, yimple

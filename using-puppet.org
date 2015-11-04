@@ -152,4 +152,8 @@ On the agent:
 
 * one more thing
 
-cfengine
+cfengine, the old
+capistrano
+file editing
+replace file
+file repository

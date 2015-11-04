@@ -4,3 +4,7 @@
 - [[file:git.org][git]]
 - (old) cvs
 
+* time machine
+
+스티즈의 타임머신이 가장 시각적이었다
+현실적인가? 

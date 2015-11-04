@@ -6,3 +6,9 @@
 
 set incsearch
 set hlsearch
+
+* memo
+
+요즘에는 emacs를 사용하고 있다
+가끔 vim를 쓰다가 먹통이 되는 경우가 발생한다
+vim를 삭제해야 하나 아니면 vim.old를 이름을 바꿔야 하나
