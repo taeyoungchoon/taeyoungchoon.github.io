@@ -1,0 +1,13 @@
+* so
+
+if you grep -i repo then you may find some files related to this, repository
+
+* and so
+
+- 정보는 어떠한 형태로 있다 
+- 정보는 언어로 구성된다 
+
+** for example
+
+뭐 있겠지 그렇다고 그렇게 나열하고 싶은 마음은 없다는 사실
+

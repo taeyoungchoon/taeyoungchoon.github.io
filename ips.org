@@ -5,3 +5,7 @@
 
 * Signature
 * Snort
+* memo
+
+- deep inspection
+- digging
