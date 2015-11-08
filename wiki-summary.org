@@ -1,0 +1,11 @@
+* not working
+
+Opening TLS connection to `en.wikipedia.org'...
+Opening TLS connection with `gnutls-cli --insecure -p 443 en.wikipedia.org'...failed
+Opening TLS connection with `gnutls-cli --insecure -p 443 en.wikipedia.org --protocols ssl3'...failed
+Opening TLS connection with `openssl s_client -connect en.wikipedia.org:443 -no_ssl2 -ign_eof'...done
+Opening TLS connection to `en.wikipedia.org'...done
+error in process filter: json-read: JSON readtable error
+error in process filter: JSON readtable error
+Quit
+
