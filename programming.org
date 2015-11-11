@@ -1,10 +1,18 @@
+* so
+
+that is my ego and eagar to do so
+
+on the way programming on paper or in my memory bank
+
+pen and paper
+
 * lang
 
 - c
 - [[file:perl.org][perl]]
 - [[file:ruby.org][ruby]]
 - [[file:lisp.org][lisp]]
-
+  
 * that's it? or lots of more ^^;
 
 - network
@@ -12,6 +20,16 @@
 - web
 - (w)as include logic
 - mobile
+
+** not enough
+
+read2programming
+think2programming
+philosophy2program
+
+user and program / tron
+
+why?
 
 * logic
 

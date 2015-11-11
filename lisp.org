@@ -1,6 +1,6 @@
 * emacs lisp
 
-- Z그래 이걸로 모든 것을 할 수 있을까? 
+- 그래 이걸로 모든 것을 할 수 있을까? 
 
 ** and other lisp 
 
