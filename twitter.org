@@ -5,7 +5,7 @@ moleskine 만큼 편하다
 아무런 소통도 하지 않는 듯하다, 그런가?
 
 * twitter-mode
-
+  
 ** config
 
 ;; twitter
@@ -23,3 +23,7 @@ M-x twit
 g
 C-c C-q search
 C-c Enter retweet
+u, C-c C-s
+C-c C-u open your user-timeline
+
+

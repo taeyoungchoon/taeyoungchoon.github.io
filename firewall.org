@@ -1,3 +1,9 @@
+* effect range
+
+* versioning
+
+the past is possible? or not enough
+
 * list, gg:firewall market
 
 - palo alto next generation firewall
@@ -15,6 +21,7 @@
 ids or ips, ddos, waf, spam, network dlp
 
 * company and product
+
 * and about, kr
 
 - 방화벽 아시나요? 방 화 벽, 방화하는 벽, 방화, 불을 막는다, 불은 악당? 
@@ -22,4 +29,5 @@ ids or ips, ddos, waf, spam, network dlp
 - 결국 freemind를 꺼내고 있다, 아쉽게도 화이트보드는 더 이상 사용할 수 없다, 회사에서도 집에도 말이다, 아쉽다.
 - 눈이 아프다, 바탕이 하얗다, 검게 바꾸면 되나? 하하하
 - 회사에서는 해커의 공격을 막기 위해서 일차적으로 방화벽을 사용한다고 한다, 나쁜 해커 말이다.
-- 내 PC 우측 하단에 있는 v3도 방화벽 기능이 있다고 한다, 리눅스에도 말이다. iptables -nL, 그런데 맥에서는 어떻게 확인하지? pfctl 잘 안먹는다, 흠
+- 내 PC 우측 하단에 있는 v3도 방화벽 기능이 있다고 한다, 리눅스에도 말이다. iptables -nL
+- 그런데 맥에서는 어떻게 확인하지? pfctl 잘 안먹는다, 흠
