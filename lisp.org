@@ -1,3 +1,18 @@
+* lisp daily
+
+(cons t nil)
+(list 1 2 3)
+'(1 2 3)
+(getf (list :name "1" :ip (list "1.1.1.1" "2.2.2.2") :o 3) :ip)
+(mapcar #'car (list (cons "1.1.1.1" "mapping") (cons "2.2.2.2" "unknown")))
+
+(defun save-db (filename)
+  (with-open-file (out filename
+                   :direction :output
+                   :if-exists :supersede)
+    (with-standard-io-syntax
+      (print *db* out))))
+
 * emacs lisp
 
 - 그래 이걸로 모든 것을 할 수 있을까? 
