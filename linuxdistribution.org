@@ -1,6 +1,24 @@
 * slackware, redhat, debian
+
+- rhel이라 redhat이라 그 차이를 알다
+
 * ubuntu, mint
+
+1. installed 그래 설치했다
+2. ibus first : 한글을 위해서 한글을 입력하기 위해서 진행 중이다 이런 (ibus fcitx scim uim gcin)
+
 * fedora, centos
+
+- redhat 계열이다 라고 하면 될까? 
+
 * kali
+
+- 말만 들었다 아직이다
+
 * knoppix
+
+- 긴급 도구용이다 아마 이쪽으로는 trk이라 clonezilla로 들어갈 수 있지 않을까? 단순/목적
+
 * feather linux, slax
+
+- 작은 그것만으로 큰 차이를 만든다
