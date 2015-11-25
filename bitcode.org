@@ -1,0 +1,17 @@
+* say nop go
+
+bit > byte and with some meaning
+
+* project, meaning level
+
+- [ ] information repository using text and list
+
+** information repository
+
+- uuencode to
+- list
+- save then restore
+
+*** format
+
+(:id 1 :full-name "tae young choon" :email "taeyoungchoon@gmail.com")
