@@ -2,9 +2,9 @@
 
 - putty가 사라졌다
 - <2014-10-21 화> 이런 업데이트가 안된다, KB2949927를 제거하란다. W7
+- [2015-11-25 수 09:52] 강한 v3가 필요한가? 아니면
 
 * KB2949927
-
 ** msg
 
 #+BEGIN_VERSE
@@ -53,6 +53,7 @@ c:\program files\ahnlab\v3is80\v3quavw.exe
 /recover:v3b 
 /virus_name:"Trojan/Win32.Generic"
 /file_name:"DrmLogin.exe"
+
 * 업데이트 실패: 파일 '2swpe2a.scd'을(를) 백업할 수 없습니다.(23)
 
 - 업데이트 중, 백업하고 있습니다.
