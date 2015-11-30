@@ -1,3 +1,16 @@
 * note
 
 양식이라 한글 또는 영어도 양식의 차이로 본다
+
+* formatting
+
+x-y-z
+1.1.1
+major.minor.serial
+(1 1 1)
+(4 4 rc2)
+(4 2 6)
+(4 3 nil)
+(2 6 32 68)
+
+it's not so easy as what I think

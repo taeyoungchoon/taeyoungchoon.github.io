@@ -1,0 +1,2 @@
+$ cat foo.xml | xpath -q -e //a/b | sed -e 's!<m>!!' -e 's!<\/m>!!'
+$ cat foo.xml | xmllint --xpath //a/b - | sed -e 's!<m>!!' -e 's!<\/m>!!'
