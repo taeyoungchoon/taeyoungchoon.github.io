@@ -1,12 +1,49 @@
-* list
+* one more thing
 
-- procexp
-- procmon
-- tcpview
+synctools for sysinternals required!
 
-* not yet
+** in progress
 
-lots of
+SyncTools for Sysinternals. Copyright (c) 2013 Kenny Kerr
+
+70 files are up to date
+16 updates to download
+
+u ADInsight.chm
+u ADInsight.exe v1.20
+u procmon.chm
+  Procmon.exe  85%
+
+* essential 
+
+- [X] strings
+- [X] zoomit
+
+- [X] coreinfo
+- [X] psloggedon
+- [X] psinfo
+- [X] autoruns
+- [X] autorunsc
+- [X] winobj
+
+- [X] ntfsinfo
+- [X] du
+- [X] sync
+
+- [X] pslist
+- [X] pskill
+- [X] procexp
+- [X] procmon
+- [X] handle
+- [X] listdlls
+- [X] vmmap
+- [X] psservice
+
+- [X] psping
+- [X] tcpview
+- [X] tcpvcon
+- [X] whois
+
 * get it or use it
 
 - http://technet.microsoft.com/en-us/sysinternals
