@@ -1,0 +1,18 @@
+$ cat foo
+a
+b
+c
+d
+e
+
+$ cat foo | sed '/b.*/ {N; s/b.*c/1/g }'
+a
+1
+d
+e
+
+cat address.xml | sed -e '/entry.*/ {N; s/<entry name="//g }' -e '/">/ {N; s/">.*<ip-netmask>/!/g }' -e -e '/\/ip-netmask/ {N; s/<\/ip-netmask>.*<\/entry>/!/g }'
+cat address.xml | sed -e '/entry.*/ {N; s/<entry name="/HEAD/g }' -e '/">/ {N; s/">.*<ip-netmask>/MIDDLE/g }' -e '/<\/ip\-netmask/ {N; s/<\/ip\-netmask>.*<\/entry>/TAIL/g }' | \
+ sed -e '/entry.*/ {N; s/<entry name="/HEAD/g }' -e '/">/ {N; s/">.*<ip-netmask>/MIDDLE/g }' -e '/<\/ip\-netmask/ {N; s/<\/ip\-netmask>.*<\/entry>/TAIL/g }'
+
+not good

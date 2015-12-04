@@ -21,3 +21,22 @@
 
 ;;(format nil "this is fommat")
 
+(setq book3 (make-book
+(write book1)
+(terpri)
+(write book2)
+(setq book3( copy-book book1))
+(setf (book-book-id book3) 100) 
+(terpri)
+(write book3)
+
+;; so
+(defparameter *box-db* nil)
+(defstruct box name ip)
+(push (make-box :name "svr1" :ip "1.1.1.1") *box-db*)
+(push (make-box :name "svr2" :ip "1.1.1.2") *box-db*)
+(write *box-db*)
+
+;; list 
+;; defstruct
+;; hash
