@@ -1,3 +1,9 @@
+* kkhb
+
+아마도 autohotkey와 같은 프로그램의 도움이 필요할 것이다 
+삭제 이슈로 말이다 
+windows, emacs, linux, macosx, firefox and more and more
+
 * history
 
 - [2014-10-08 수 11:48] C-u C-c ! to insert timestamp
