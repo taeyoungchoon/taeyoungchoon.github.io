@@ -2,16 +2,8 @@
 ;;; hello-world as always
 ;;;
 
-(defparameter type-of-nubmers '((one two tree)
-				(uno duo tre)
-				(1 2 3)))
+(defmacro hello()
+  `(let ((hello "hello, world"))
+     (format t "~% ~a" hello)))
 
-(defun say-number ()
-  (let ((english '(one two tree))
-	(italian '(uno duo tre)))
-    (format t "~% ~a" english)
-    (format t "~% ~a" italian)))
-
-(loop for i in type-of-nubmers
-   do (princ i))
-
+(hello)
