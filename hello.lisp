@@ -1,9 +1,11 @@
-;;;
-;;; hello-world as always
-;;;
+;;; hello.lisp
 
-(defmacro hello()
+(defun hello-func ()
+  (format t "~% hello"))
+
+(defmacro hello-macro()
   `(let ((hello "hello, world"))
      (format t "~% ~a" hello)))
 
-(hello)
+;;(hello-macro)
+(hello-func)
