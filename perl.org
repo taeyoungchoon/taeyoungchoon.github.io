@@ -1,9 +1,20 @@
+* since 1995
+
+그러게 회사 일로 사용하기는 했는데
+
+* in the movie or drama
+
+** blindspot
+
+perl vs python
+
 * system administrator only?
 * lang
 * platform
 * perl 6
 
 - not yet
+- stil? but i can't be sure about this
 
 * cpan
 

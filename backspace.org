@@ -1,3 +1,12 @@
-* emacswiki
+* windows using autohotkey
+
+^h::
+   Send {Backspace}
+
+* emacs
 
 (global-set-key [(control h)] 'delete-backward-char)
+
+* hhkb lite 2
+
+dip switch 3 : On
