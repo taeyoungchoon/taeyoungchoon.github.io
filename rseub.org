@@ -1,0 +1,41 @@
+* rseub?
+
+** where
+
+IDC > wall
+
+** for what
+
+reboot linux system, hang situation
+
+** general word
+
+magic sysrq key
+
+** meaning
+
+| key | meaning   |
+|-----+-----------|
+| r   | raw       |
+| s   | sync      |
+| e   | terminate |
+| u   | umount    |
+| b   | boot      |
+
+** howto
+
+*** make it happen by keyboard, can't see, but for minimum effect
+
+Alt + SysRq + B
+
+*** make it happen by echo, reboot halt shutdown command hang situation
+
+echo b > /proc/sysrq-trigger
+
+*** just in case, enable
+
+echo 1 > /proc/sys/kernel/sysrq
+
+** more and more
+
+https://en.wikipedia.org/wiki/Magic_SysRq_key

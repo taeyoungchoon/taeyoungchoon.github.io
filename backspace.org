@@ -1,0 +1,3 @@
+* emacswiki
+
+(global-set-key [(control h)] 'delete-backward-char)

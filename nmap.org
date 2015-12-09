@@ -1,1 +1,6 @@
 * and zenmap GUI
+* cli
+
+- O : detect Operating system
+- 192.168.1.100-103 : range of ip
+- iL : target from file 

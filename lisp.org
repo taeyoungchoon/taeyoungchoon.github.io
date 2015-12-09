@@ -34,3 +34,20 @@
 * package
 
 - load using quicklisp
+
+* in-package
+
+CL-USER> (defpackage :net.t0spring.t-shell
+	   (:use :common-lisp))
+#<PACKAGE NET.T0SPRING.T-SHELL>
+CL-USER> *package*
+#<PACKAGE COMMON-LISP-USER>
+CL-USER> (in-package :net.t0spring.t-shell)
+#<PACKAGE NET.T0SPRING.T-SHELL>
+T-SHELL> *package*
+#<PACKAGE NET.T0SPRING.T-SHELL>
+T-SHELL> 
+
+T-SHELL> (defpackage :net.t0spring.t-shell
+	   (:use :common-lisp :cl-ppcre))
+#<PACKAGE NET.T0SPRING.T-SHELL>
