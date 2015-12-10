@@ -1,0 +1,17 @@
+* prefers using wireless connection over wired, hmm
+
+http://blog.yeshere.org/2011/06/forcing-windows-7-to-use-wired-when.html
+
+netsh int ip show config
+route print
+
+Gateway Metric and Interface Metiric
+
+ncpa.cpl
+
+** technical detail
+
+https://support.microsoft.com/ko-kr/kb/299540
+KB299540
+
+

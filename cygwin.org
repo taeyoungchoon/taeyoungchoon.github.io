@@ -7,3 +7,32 @@
 sysinternals와 함께 참, 그래 물론 wireshark도 말이다.
 
 #+END_SRC
+* up2date
+
+** standard
+
+setup-x86.exe -g -q -n -o
+
+** use below
+
+apt-cyg update
+* apt-get or apt-cyg
+
+https://github.com/transcode-open/apt-cyg
+code.google.com > github.com 
+
+** install
+
+lynx -source rawgit.com/transcode-open/apt-cyg/master/apt-cyg > apt-cyg
+install apt-cyg /bin
+
+** cli
+
+apt-cyg searchall wget
+apt-cyg show wget
+apt-cyg install wget
+apt-cyg search wget
+apt-cyg list wget
+apt-cyg listfiles wget
+
+* and setting for more such like korean
