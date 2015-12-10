@@ -1,8 +1,12 @@
+* note
+
+getting complicated more and more
+
 * linux
 
 - myos? why? what? will?
 
-* 역사 아닌 history, story
+* history, story
 
 - 1995년도 아니면 그 이전 제닉스
 - 리눅스 그 당시 슬랙웨어를 설치하는데 6개월의 시간 소요, 디스켓 불량
@@ -32,3 +36,4 @@
 - 리눅스의 배포판은 참 다양한 판을 생성한다. 한글판도 있다. 뭐 특수 목적의 다른 또는 범용적인
 - 그리고 이제는 그 이름이 기억나지 않는다 
 - 그래서 인지 거의 root에 해당하는 판만을 만진다 그리 나쁜 전략은 아닌 듯 
+  
