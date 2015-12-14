@@ -3,3 +3,101 @@
 
 pstree
 pstree -A
+
+* output on mint console, simply
+
+init-+-ModemManager---2*[{ModemManager}]
+     |-NetworkManager-+-dnsmasq
+     |                `-3*[{NetworkManager}]
+     |-acpid
+     |-avahi-daemon---avahi-daemon
+     |-bluetoothd
+     |-console-kit-dae---64*[{console-kit-dae}]
+     |-cron
+     |-cups-browsed
+     |-cupsd
+     |-2*[dbus-daemon]
+     |-dbus-launch
+     |-5*[getty]
+     |-irqbalance
+     |-kerneloops
+     |-login---bash---pstree
+     |-mdm---mdm-+-Xorg---2*[{Xorg}]
+     |           `-mdmwebkit---13*[{mdmwebkit}]
+     |-nmbd
+     |-polkitd---2*[{polkitd}]
+     |-rsyslogd---3*[{rsyslogd}]
+     |-smbd---smbd
+     |-syndaemon
+     |-systemd-logind
+     |-systemd-udevd
+     |-upstart-file-br
+     |-upstart-socket-
+     `-upstart-udev-br
+
+* output, too many and I don't like
+
+init-+-ModemManager---2*[{ModemManager}]
+     |-NetworkManager-+-dnsmasq
+     |                `-3*[{NetworkManager}]
+     |-accounts-daemon---2*[{accounts-daemon}]
+     |-acpid
+     |-at-spi-bus-laun-+-dbus-daemon
+     |                 `-3*[{at-spi-bus-laun}]
+     |-at-spi2-registr---{at-spi2-registr}
+     |-avahi-daemon---avahi-daemon
+     |-bluetoothd
+     |-colord---2*[{colord}]
+     |-console-kit-dae---64*[{console-kit-dae}]
+     |-cron
+     |-csd-printer---{csd-printer}
+     |-cups-browsed
+     |-cupsd
+     |-4*[dbus-daemon]
+     |-3*[dbus-launch]
+     |-dconf-service---2*[{dconf-service}]
+     |-gconfd-2
+     |-6*[getty]
+     |-gnome-keyring-d---6*[{gnome-keyring-d}]
+     |-gvfs-afc-volume---2*[{gvfs-afc-volume}]
+     |-gvfs-gphoto2-vo---{gvfs-gphoto2-vo}
+     |-gvfs-mtp-volume---{gvfs-mtp-volume}
+     |-gvfs-udisks2-vo---2*[{gvfs-udisks2-vo}]
+     |-gvfsd---{gvfsd}
+     |-gvfsd-fuse---4*[{gvfsd-fuse}]
+     |-gvfsd-metadata---{gvfsd-metadata}
+     |-ibus-daemon-+-ibus-dconf---3*[{ibus-dconf}]
+     |             |-ibus-engine-han---2*[{ibus-engine-han}]
+     |             |-ibus-engine-sim---2*[{ibus-engine-sim}]
+     |             |-ibus-ui-gtk3---3*[{ibus-ui-gtk3}]
+     |             `-2*[{ibus-daemon}]
+     |-ibus-x11---2*[{ibus-x11}]
+     |-irqbalance
+     |-kerneloops
+     |-mdm---mdm-+-Xorg---2*[{Xorg}]
+     |           `-cinnamon-sessio-+-applet.py---{applet.py}
+     |                             |-cinnamon-killer---2*[{cinnamon-killer}]
+     |                             |-cinnamon-launch-+-cinnamon-+-emacs24-+-pstree
+     |                             |                 |          |         `-2*[{emacs24}]
+     |                             |                 |          `-5*[{cinnamon}]
+     |                             |                 `-{cinnamon-launch}
+     |                             |-cinnamon-screen---3*[{cinnamon-screen}]
+     |                             |-cinnamon-settin---4*[{cinnamon-settin}]
+     |                             |-mintupdate-laun---sh---mintUpdate---3*[{mintUpdate}]
+     |                             |-nm-applet---2*[{nm-applet}]
+     |                             |-polkit-gnome-au---{polkit-gnome-au}
+     |                             |-ssh-agent
+     |                             `-3*[{cinnamon-sessio}]
+     |-nmbd
+     |-polkitd---2*[{polkitd}]
+     |-pulseaudio---2*[{pulseaudio}]
+     |-rsyslogd---3*[{rsyslogd}]
+     |-rtkit-daemon---2*[{rtkit-daemon}]
+     |-smbd---smbd
+     |-systemd-logind
+     |-systemd-udevd
+     |-udisksd---4*[{udisksd}]
+     |-upowerd---2*[{upowerd}]
+     |-upstart-file-br
+     |-upstart-socket-
+     `-upstart-udev-br
