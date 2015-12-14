@@ -1,12 +1,13 @@
-* 참 좋은 것
+* so good
 
 #+BEGIN_SRC emacs-lisp
 
-그래 시스템 관리자에게 말이다.
-그리고 또 누군가에게 말이다.
-sysinternals와 함께 참, 그래 물론 wireshark도 말이다.
+to the system administrator
+and to someone
+and then with the sysinternals and wireshark
 
 #+END_SRC
+
 * up2date
 
 ** standard
@@ -16,6 +17,7 @@ setup-x86.exe -g -q -n -o
 ** use below
 
 apt-cyg update
+
 * apt-get or apt-cyg
 
 https://github.com/transcode-open/apt-cyg
@@ -36,3 +38,5 @@ apt-cyg list wget
 apt-cyg listfiles wget
 
 * and setting for more such like korean
+
+nil
