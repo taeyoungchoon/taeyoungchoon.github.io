@@ -1,3 +1,18 @@
+* note
+
+browser or the surfer that I am using and doing
+surfing by emacsen that's all
+
+* OS and IE Browser
+
+| OS   | IE   |
+|------+------|
+| XP   | IE6  |
+| W7   | IE8  |
+| W8   | IE10 |
+| W8.1 | IE11 |
+| W10  | IE11 |
+
 * market share
 
 - http://www.w3counter.com/globalstats.php
