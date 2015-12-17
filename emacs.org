@@ -37,3 +37,8 @@
 - set home at windows 7 as like HOME to u:\apps\Documents
 - download init.el from github
 - start emacs
+
+* todo
+
+- box editing
+- tabler

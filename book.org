@@ -35,6 +35,30 @@ what about and go
 - [ ] 담론
 - [ ] 삶을 가꾸는 글쓰기 교육
 
+* list tbl or list and list
+
+안되겠다 다 깨진다 못보겠다 베이블로 정리는 조금 과연 한글 때문인가, 폰트?
+
+| titie         | writer              | publisher      | edition | comment |
+|---------------+---------------------+----------------+---------+---------|
+| Learning Ruby | Michael Fitzgerald  | O'Reilly Media | 1st     |         |
+| MAN OF STEEL  | Greg Cox            | Titan Books    | 1st     |         |
+| 그리드        | 앰브로즈,해리스     | 안그라픽스     | 1st     |         |
+| 1페이지기획서 | Shinichiro Takeshia |                |         |         |
+
+* list
+
+(title writer publisher edition comment)
+ 
+("Learning Ruby" "Michael Fitzgerald" "O'Reilly Media" 1 "")
+("MAN OF STEEL" "Greg Cox" "Titan Books" 1 "")
+("그리드" "앰브로즈,해리스" "안그라픽스" 1 "")
+("1페이지기획서" "Shinichiro Takeshia" "영진닷컴" 1 "")
+("최강팀장 플러스알파 심리술" "문학수첩" "하세가와 가즈히로" 1 "옮긴이 김정환")
+("연필 하나로 시작하는 스케치 연습장" "한빛미디어" "우모토 사치코" 1 "옮긴이 류현정")
+
+참 번역이라니 이거 참, 영문인데 한글로 그리고 번역자 그리고 orignal publisher라니
+
 * 성균관 유생들의 나날, 규장각 각신들의 나날
 * 또 한권의 책
 
