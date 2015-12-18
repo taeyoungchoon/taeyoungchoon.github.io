@@ -40,5 +40,12 @@
 
 * todo
 
-- box editing
-- tabler
+** box editing
+
+C-x SPC
+M-w
+M-y
+
+** tabler
+
+
