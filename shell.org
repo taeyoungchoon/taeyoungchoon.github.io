@@ -1,12 +1,23 @@
 * shell
+
+can say
+can talk with shell to the kernel
+
 * windows shell
 
-- nc
-- mdir
+- command
+- cmd
 
 * linux shell
 
 - bash
 - tcsh
 - zsh
+
+** one more
+
+- nc
 - mc
+- mdir
+- spotlight
+- executor
