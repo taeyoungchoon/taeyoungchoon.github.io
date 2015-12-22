@@ -19,6 +19,13 @@ M-x slime-compile-region
 
 C-M-x
 
+** so
+
+M-x slime
+M-x slime-restart-inferior-lisp
+C-c C-c : eval form
+C-c C-k : eval buffer
+
 * config
 
 ** linux

@@ -89,3 +89,5 @@
 (defun hello-again ()
   (let ((name "jack"))
     (format t "hello ~A" name)))
+
+(hello-again)
