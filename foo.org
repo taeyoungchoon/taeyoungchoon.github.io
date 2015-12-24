@@ -1,4 +1,56 @@
+* cd collection
+  :PROPERTIES:
+  :ndisks_ALL: 1 2 3 4
+  :END:
+** classic
+*** goldberg variations
+    :PROPERTIES:
+    :title:    goldenberg variations
+    :composer: j.s. bach
+    :ndisks:   2
+    :END:      
+
+* os
+** linux
+*** debian
+    :PROPERTIES:
+    :base:     debian
+    :pkg:      deb
+    :END:
+*** redhat
+    :PROPERTIES:
+    :base:     redhat
+    :pkg:      rpm
+    :END:
+*** centos
+    :PROPERTIES:
+    :base:     redhat
+    :pkg:      rpm
+    :END:
+*** ubuntu
+    :PROPERTIES:
+    :base:     debian
+    :pkg:      deb
+    :END:
+*** slackware
+    :PROPERTIES:
+    :base:     slackware
+    :END:
+** windows
+*** 3.1
+*** 95
+*** 98
+*** xp
+*** vista
+*** 7
+*** 8
+*** 8.1
+*** 10
+*** 2000
+*** 2003
 * this is the foo
+<2015-12-23 Wed 20:20>
+
 as always
 
 이건 꿈에 대한 기록이 아니다 꿈에 대한 자신감이다 나를 아프게 한 자신감이다 아니면 무엇이었을까
