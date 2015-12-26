@@ -1,7 +1,12 @@
 (require "~/quicklisp/setup.lisp")
 (ql:quickload :cl-ppcre)
-
-(with-open-stream (st (run-program "uptime" :arguments nil :output :stream))
+(use-package :cl-ppcre)
+;; (in-package :cl-ppcre :cl-lib)
+;; (with-open-stream (st (run-program "uptime" :arguments nil :output :stream))
+;; (with-open-stream (st (run-shell-command "uptime | awk '{ print $1 }'" :output :stream))
+(with-open-stream (st (run-shell-command "uptime" :output :stream))
   (let ((s (read-line st nil nil)))
-    (let ((lst (cl-ppcre:split "\\s+" s)))
+    ;; (let ((lst (cl-ppcre:split "\\s+" s)))
+    (let ((lst (split "\\s+" s)))
       (print (nth (- (length lst) 3) lst)))))
+
