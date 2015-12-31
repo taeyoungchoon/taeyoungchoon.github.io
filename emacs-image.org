@@ -1,0 +1,46 @@
+* download library
+
+http://sourceforge.net/projects/ezwinports/files/?source=navbar
+jpeg-v9a-w32-bin.zip
+libpng-1.6.12-w32-bin.zip
+
+* copy png related ones
+
+cd libpng-1.6.12-w32-bin\bin\
+cp libpng16-16.dll zlib1.dll emacs-24.5-bin-i686-mingw32\bin\
+
+* copy jpeg related ones
+
+cd jpeg-v9a-w32-bin\bin\
+cp libjpeg-9.dll emacs-24.5-bin-i686-mingw32\bin\
+
+* configure init.el
+
+(setq dynamic-library-alist
+      '((png "libpng16-16.dll")
+        (jpeg "libjpeg-9.dll")))
+
+** vs 
+
+http://www.gnu.org/software/emacs/manual/html_node/elisp/Dynamic-Libraries.html#Dynamic-Libraries
+
+(setq dynamic-library-alist
+      '((xpm "libxpm.dll" "xpm4.dll" "libXpm-nox4.dll")
+        (png "libpng12d.dll" "libpng12.dll" "libpng.dll"
+             "libpng13d.dll" "libpng13.dll")
+        (jpeg "jpeg62.dll" "libjpeg.dll" "jpeg-62.dll"
+              "jpeg.dll")
+        (tiff "libtiff3.dll" "libtiff.dll")
+        (gif "giflib4.dll" "libungif4.dll" "libungif.dll")
+        (svg "librsvg-2-2.dll")
+        (gdk-pixbuf "libgdk_pixbuf-2.0-0.dll")
+        (glib "libglib-2.0-0.dll")
+	(gobject "libgobject-2.0-0.dll")))
+
+* restart emacs
+* testing
+
+~/taeyoungchoon.github.io $ (image-type-available-p 'png)
+t
+~/taeyoungchoon.github.io $ (image-type-available-p 'jpeg)
+t
