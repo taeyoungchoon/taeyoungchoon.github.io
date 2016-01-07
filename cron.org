@@ -4,8 +4,44 @@ check out the wikipedia
 
 * execute failure
 
-check PATH of 
+- check PATH of 
+- cat /etc/crontab
+- read mail using mail command or you like or are using
 
 * 600 server at 4am
 
 kill some 'one' 
+
+** using sleep and $RANDOM
+
+*** chk
+
+$ time sleep $(expr $RANDOM % 3)
+
+real    0m0.004s
+user    0m0.001s
+sys     0m0.002s
+$ time sleep $(expr $RANDOM % 3)
+
+real    0m2.003s
+user    0m0.000s
+sys     0m0.002s
+$ time sleep $(expr $RANDOM % 3)
+
+real    0m2.004s
+user    0m0.000s
+sys     0m0.003s
+$ time sleep $(expr $RANDOM % 3)
+
+real    0m1.003s
+user    0m0.000s
+sys     0m0.003s
+
+*** real one, add 10m (60s * 10)
+
+10 4 * * * sleep $(expr $RANDOM \% 600); ~/bin/batch_job
+
+*** site
+
+- http://www.askbjoernhansen.com/2007/11/19/space_out_cronjobs.html
+
