@@ -1,0 +1,5 @@
+* steps
+
+1. truecrypt to mount x.tc file to s: the secure drive
+2. mount remote drives using script on secure drive
+3. C-z ([[file:executor.org][executor]]) then putty and firefox

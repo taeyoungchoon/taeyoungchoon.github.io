@@ -1,3 +1,12 @@
 * aka shell
 
 windows spotlight
+
+* site
+
+http://www.executor.dk/
+
+* config(ure)
+
+- with sysinternals
+- with portableapps
