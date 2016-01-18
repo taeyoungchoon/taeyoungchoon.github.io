@@ -3,7 +3,7 @@
 - using powerpoint?
 - or using keynote from mac
 - mindmap using freemind
-- or concept map using cmaptools
+- or concept map using [[file:cmaptools.org][cmaptools]]
 - hmm, uml
 - whiteboard
 - A4
