@@ -1,0 +1,19 @@
+* remote desktop like that 
+
+- I call it as remoting
+
+* for example
+
+** windows only
+
+- Remote Desktop Services(RDS)
+- ever called Terminal Services
+- gg : Restarting Terminal Services Service
+
+*** restart just in case
+
+- tasklist /svc /fi "imagename eq svchost.exe" | findstr /i TermService
+- then kill it using taskkill or other
+- then restart it from services.msc or somewhere else (sc)
+
+** vnc
