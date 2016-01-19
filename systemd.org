@@ -1,1 +1,2 @@
 * not yet
+* alternative of init
