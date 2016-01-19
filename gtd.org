@@ -1,18 +1,46 @@
+* example
+
+http://www.toryanderson.com/tech/upgrading-emacs-built-org-mode-4-easy-steps
+
 * list
-- [ ] know about isis
-- [ ] learn italian
-- [ ] read korean books, scandal
-- [ ] read english books, tom first?!
-- [ ] open profile, real one
-- [ ] edit wikipedia
-- [ ] lisper with short code, day by day
-- [ ] care eye
+  
+  - [ ] know about isis
+  - [ ] learn italian
+  - [ ] read korean books, scandal
+  - [ ] read english books, tom first?!
+  - [ ] open profile, real one
+  - [ ] edit wikipedia
+  - [ ] lisper with short code, day by day
+  - [ ] care eye
+  - [ ] Bose AE2 Around-Ear Audio Headphones, Black 
 
 * long term
-- [ ] english dictionary?
-- [ ] italian dictionary?
-- [ ] learn italian with book, now?!
+  
+  - [ ] english dictionary?
+  - [ ] italian dictionary?
+  - [ ] learn italian with book, now?!
  
 * pebble
-- [ ] email backup
-- [ ] taxing
+  
+  - [ ] email backup
+  - [ ] taxing
+
+* books
+
+  - [ ] Connecticut Yankee at King Arthur's Court 
+  - [ ] Alice's Adventures in Wonderland
+  - [ ] The Adventures of Tom Sawyer
+  - [ ] The Last Days of Socrates 
+  - [ ] Walden and Civil Disobedience 
+  - [ ] Around the World in Eighty Days
+  - [ ] The Adventures of Sherlock Holmes
+  - [ ] The Communist Manifesto (Penguin Classics Deluxe Edition)
+  - [ ] The Adventures of Huckleberry Finn (Penguin Classics Deluxe Edition)
+  - [ ] The Odyssey: Design by Coralie Bickford-Smith
+  - [ ] Robinson Crusoe: Design by Coralie Bickford-Smith
+  - [ ] Black Beauty: Penguin Threads (Penguin Classics Deluxe Edition)
+
+* TODO and more
+
+  - [ ] so
+  - [ ] and so
