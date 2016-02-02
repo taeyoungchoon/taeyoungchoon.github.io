@@ -3,33 +3,55 @@
 browser or the surfer that I am using and doing
 surfing by emacsen that's all
 
+* war against
+
+전쟁이 있었다
+전쟁은 계속 되었다
+
+모자이크와 네비게이터
+네비게이터와 IE
+IE와 파이어폭스, 크롬, 오페라
+
+* standard issue
+
+html
+java
+xhtml
+html5
+activex
+flash, flex
+javascript
+
+* and bit
+
 * OS and IE Browser
 
-| OS   | IE   |
-|------+------|
-| XP   | IE6  |
-| W7   | IE8  |
-| W8   | IE10 |
-| W8.1 | IE11 |
-| W10  | IE11 |
+| OS   | Default IE  | Memo      |
+|------+-------------+-----------|
+| XP   | IE6         |           |
+| W7   | IE8(2009~)  | I'm using |
+| W8   | IE10(2012~) |           |
+| W8.1 | IE11(2013~) |           |
+| W10  | Edge(2015~) |           |
 
 * market share
 
 - http://www.w3counter.com/globalstats.php
 - http://www.netmarketshare.com/
 
-* dig chrome
+* dig
+** dig chrome
 
 - chrome://about/
 - chrome://dns/
 - chrome://net-internals/#dns
 
-* dig chrome, log
+** dig chrome, log
 
 - DNS_PROBE_FINISHED_NXDOMAIN, error: -105 (ERR_NAME_NOT_RESOLVED)
 - ERR_NAME_NOT_RESOLVED, error: -105 (ERR_NAME_NOT_RESOLVED)
 
-* dig firefox
+** dig firefox
 
 - about:config > network.dnsCacheExpiration > 0
 
@@ -48,11 +70,8 @@ surfing by emacsen that's all
 - netsh interface ipv4 delete dnsservers "로컬 영역 연결" 8.8.8.8
 - netsh interface ipv4 add dnsservers "로컬 영역 연결" 8.8.8.8
 
-* issue
+** issue
 
 - gethostbyname
 - dns prefetch
 
-* perl
-
-- man perlfaq9
