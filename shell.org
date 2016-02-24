@@ -19,5 +19,12 @@ can talk with shell to the kernel
 - nc
 - mc
 - mdir
+- NexusFile
 - spotlight
 - executor
+
+** or more
+
+- PortableApps > install Firefox
+- executor > exec Firefox
+- emacs > (eshell org calendar)

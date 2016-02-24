@@ -33,6 +33,11 @@ DNS OK: 0.180 seconds response time. linux.com returns 140.211.167.50,140.211.16
 
 #+END_SRC
 
+* nsclient++ with file
+
+- nagios > check_nt
+- nsclient++ > FILEAGE, failed with nagios-plugins-1.4.15 and nsclient++ 0.3.9.327(buggy?)
+
 * todo
 
 - nagios then no more nagios? ^^
