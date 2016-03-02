@@ -118,12 +118,16 @@ below 30%
 - 802.11 vulnerabilities
 - wpa enterprise
 - hidden node
+
 * link
 
 http://www.technologyuk.net/telecommunications/networks/wireless_networks.shtmlhttp://www.technologyuk.net/telecommunications/networks/wireless_networks.shtml
 https://supportforums.cisco.com/document/101431/80211-sniffer-capture-analysis-management-frames-and-open-auth
-* memo
 
-볼게 너무 많다
-이를 어쩌지
-뭐 어쩌기는 하나씩 그리고 전체로 보면 되지 언제나 하듯이 말이다
+* word
+
+wcdma
+hspa
+lte
+cdma
+lte m2m router

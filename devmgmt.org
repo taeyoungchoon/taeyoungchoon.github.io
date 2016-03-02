@@ -1,4 +1,83 @@
 * call by devmgmt.msc
 * what about cli
 
-- devcon.exe
+** devcon.exe
+
+devcon hwids =net
+devcon enable *DVD-ROM*
+devcon enable =printer
+devcon enable PCIVEN_14E4&DEV_4320&CC_0280
+devcon enable *DEV_0085*
+
+*** real
+
+C:\Program Files\Windows Kits\10\Tools\x86>devcon status *DEV_0085*
+PCI\VEN_8086&DEV_0085&SUBSYS_13118086&REV_34\4&21D0068D&0&00E1
+    Name: Intel(R) Centrino(R) Advanced-N 6205
+    Driver is running.
+1 matching device(s) found.
+
+C:\Program Files\Windows Kits\10\Tools\x86>devcon disable *DEV_0085*
+PCI\VEN_8086&DEV_0085&SUBSYS_13118086&REV_34\4&21D0068D&0&00E1: Disabled
+1 device(s) disabled.
+
+C:\Program Files\Windows Kits\10\Tools\x86>devcon status *DEV_0085*
+PCI\VEN_8086&DEV_0085&SUBSYS_13118086&REV_34\4&21D0068D&0&00E1
+    Name: Intel(R) Centrino(R) Advanced-N 6205
+    Device is disabled.
+1 matching device(s) found.
+
+C:\Program Files\Windows Kits\10\Tools\x86>devcon enable *DEV_0085*
+PCI\VEN_8086&DEV_0085&SUBSYS_13118086&REV_34\4&21D0068D&0&00E1: Enabled
+1 device(s) are enabled.
+
+C:\Program Files\Windows Kits\10\Tools\x86>devcon status *DEV_0085*
+PCI\VEN_8086&DEV_0085&SUBSYS_13118086&REV_34\4&21D0068D&0&00E1
+    Name: Intel(R) Centrino(R) Advanced-N 6205
+    Driver is running.
+1 matching device(s) found.
+
+C:\Program Files\Windows Kits\10\Tools\x86>
+
+*** docs
+
+https://msdn.microsoft.com/en-us/library/windows/hardware/ff544741%28v=vs.85%29.aspx
+http://social.technet.microsoft.com/wiki/contents/articles/182.how-to-obtain-the-current-version-of-device-console-utility-devcon-exe.aspx
+https://software.intel.com/en-us/forums/mobile-software-development/topic/305529
+http://wlanbook.com/enable-disable-wireless-card-command-line/
+
+*** one more thing
+
+netsh interface show interface
+netsh interface set interface "Wireless Network Connection" Enable
+
+*** three things or more
+
+1. 무선 라디오 컨트롤 : 하드웨어 무선 라디오 스위치는 무선 라디오 켜기에 위치해 있어야 합니다.
+
+   - 확인 : Fn + F5 (dep : thinkpad hotkey feature intergration)
+   - 스위치가 끄기에 있어도 장치관리자에서 장치가 활성화 상태일 수 있다.
+   - 스위치가 끄기에 있어도 인터페이스 목록에 무선 네트워크 연결의 관리 상태가 사용으로 보일 수 있다.
+   - T420 모델의 경우 스위치가 노트북 오른쪽에 있다.
+   - T420 모델의 경우 T420 라벨 왼쪽 무선 아이콘으로 상태를 확인할 수 있다. 
+
+2. OSD에서 '802.11 무선 라디오' 활성화
+   - 활성화 : Fn + F5 (dep : thinkpad hotkey feature intergration)
+   - 활성화 되어 있지 않아도 장치관리자에서 장치가 활성화 상태일 수 있다.
+   - 활성화 되어 있지 않아도 인터페이스 목록에 무선 네트워크 연결의 관리 상태가 사용으로 보일 수 있다.
+   - T420 모델의 경우 T420 라벨 왼쪽 무선 아이콘으로 상태를 확인할 수 있다. 
+
+3. 장치가 활성화되어 있어야 한다.
+   - 활성화 되어 있지 않으면 인터페이스 목록에 무선 네트워크 연결이 사용 안 함으로 변경된다.
+   - 활성화 되어 있지 않으면 인터페이스 목록에 무선 네트워크 연결 중 Miniport는 보이지 않는다.
+
+4. 인터페이스의 관리 상태를 사용으로 두어야 한다.
+   - 무선 네트워크 연결의 관리 상태가 사용 안 함인 경우 무선 네트워크 연결이 사용 안 함으로 변경된다.
+   - 무선 네트워크 연결의 관리 상태가 사용 안 함인 경우 무선 네트워크 연결 중 Miniport는 보이지 않는다. 
+
+5. 우측하단 트레이의 네트워크를 눌러 무선 네트워크 연결을 확인한 뒤 연결한다.
+
+6. 메모
+   - 장치의 활성화와 인터페이스 활성화는 한쪽을 활성화/비활성화 하면 다른쪽도 활성화/비활성화된다.
+   - 그럼 (무선-스위치 녹색-무선-아이콘 무선-인터페이스) 면 되는데 
+   - 혹여 (무선-스위치 녹색-무선-아이콘 무선-장치 무선-인터페이스) 4 step를 권고한다. 

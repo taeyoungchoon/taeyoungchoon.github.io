@@ -1,0 +1,13 @@
+* files at
+
+- My Document\Outlook Files
+- C:\Users\username\AppData\Local\Microsoft\Outlook (aka %localappdata%\Microsoft\Outlook)
+- C:\Users\username\AppData\Roaming\Microsoft\Outlook (aka %appdata%\Microsoft\Outlook)
+
+* file, PST(Personal Storage Table) and OST(Old? nop Offline)
+
+http://www.howto-outlook.com/faq/aboutpst.htm
+
+* so
+
+care OST, cached exchange mode, Offline, Storage Table

@@ -40,3 +40,12 @@ https://wiki.wireshark.org/NTP
 
 https://www.meinbergglobal.com/english/info/ntp-w32time.htm
 
+* just tools
+
+UTCk
+NetTime from http://timesynctool.com
+
+* and about time
+
+http://time.ewha.or.kr/
+
