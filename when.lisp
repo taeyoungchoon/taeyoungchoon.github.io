@@ -1,3 +1,5 @@
-(when (evenp 4)
-  'this-is-even
-  'and-say-to-you)
+(defun chk ()
+  (when (evenp 4)
+    (print 'this-is-even)))
+
+(chk)
