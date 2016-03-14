@@ -48,3 +48,16 @@
 * reference card
 
 http://orgmode.org/orgcard.pdf
+* table
+
+** convert the active region to a table
+
+C-c |
+
+** not work well with korean
+
+broken table layout
+
+** remove column
+
+

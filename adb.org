@@ -1,0 +1,26 @@
+* adb shell 
+
+| pc                        | android       | action            | desc          |
+|---------------------------+---------------+-------------------+---------------|
+|                           | usb debugging |                   |               |
+|                           |               | connect usb cable |               |
+| adb shell                 |               |                   |               |
+
+* adb over a network connection
+
+http://developer.android.com/guide/topics/connectivity/usb/index.html
+http://stackoverflow.com/questions/14357705/adb-over-wireless?lq=1
+
+| pc                        | android       | action            | desc          |
+|---------------------------+---------------+-------------------+---------------|
+| enable wifi               |               |                   |               |
+|                           | enable wifi   |                   |               |
+|                           | check wifi ip |                   |               |
+|                           | usb debugging |                   |               |
+|                           |               | connect usb cable |               |
+| adb tcpip 5555            |               |                   |               |
+|                           |               | eject usb cable   |               |
+| adb connect 192.168.1.133 |               |                   |               |
+| adb shell                 |               |                   |               |
+| adb usb                   |               |                   | listen on usb |
+

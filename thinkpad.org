@@ -1,0 +1,32 @@
+* and I love it
+* then model and serial number
+
+** Thinkpad 500, X20, T420
+
+- [X] Product Name
+
+** 4280-R63
+
+- [X] Product Number
+
+C:\Users\see>c:\windows\system32\wbem\wmic.exe csproduct get name
+Name
+4180R63
+
+*** 4280
+
+- [X] Machine Type
+
+*** R63
+
+- [X] Model
+
+** serial number
+
+C:\Users\see>c:\windows\system32\wbem\wmic.exe csproduct get identifyingnumber
+IdentifyingNumber
+R8YR9M9
+** read
+
+https://forums.lenovo.com/t5/ThinkPad-T400-T500-and-newer-T/Product-number-or-machine-type-and-model-identification/ta-p/453835
+

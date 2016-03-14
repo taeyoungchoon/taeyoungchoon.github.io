@@ -1,7 +1,7 @@
 * call by devmgmt.msc
 * what about cli
 
-** devcon.exe
+** devcon.exe at Windows Driver Kit (WDK)
 
 devcon hwids =net
 devcon enable *DVD-ROM*
