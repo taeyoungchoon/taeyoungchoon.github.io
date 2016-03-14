@@ -1,19 +1,26 @@
-#+Title: piano is the plan in some
+#+Title: foo
 #+OPTIONS: toc:nil
+#+OPTIONS: author:nil email:nil creator:nil timestamp:nil
+#+OPTIONS: html-postamble:nil
+#+OPTIONS: num:nil
 
-* one more thing
+* emacs
 
-- [[file:emacs.org][emacs]]
-- programming
+- eshell
+- org
+- slime
+- tramp
 
-* history, linux and security
+* one more thing but not just one
 
-- since 1995
-- scale enough, 2 IDC, 60g Network, 600 or more active server with coffee break
-- and now sec a little
-
-* hope
-
-- hack the planet
-
-
+- lisp
+- book
+- linux
+- t-shell
+- body
+- cook
+- poet
+- korean
+- english
+- history
+- [[file:russian.org][russian]]
