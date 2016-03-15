@@ -6,7 +6,7 @@
 
 * emacs
 
-- eshell
+- (eshell ls)
 - org
 - slime
 - tramp
@@ -17,10 +17,10 @@
 - book
 - linux
 - t-shell
-- body
+- (body walk)
 - cook
 - poet
 - korean
 - english
 - history
-- [[file:russian.org][russian]]
+- russian
