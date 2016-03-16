@@ -7,14 +7,14 @@
 * emacs
 
 - (eshell ls)
-- org
+- (org org-export-dispatch)
 - slime
 - tramp
 
 * one more thing but not just one
 
-- lisp
-- book
+- lisp 
+- (book walden)
 - linux
 - t-shell
 - (body walk)
@@ -22,5 +22,10 @@
 - poet
 - korean
 - english
-- history
-- russian
+- (history world korea)
+- (russian read)
+- email
+- (usb usb-to-serial (mode host) rndis CDC-ECM)
+- serial
+- modem
+- (security layer))
