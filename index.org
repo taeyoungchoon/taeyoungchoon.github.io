@@ -1,5 +1,4 @@
 #+Title: foo
-#+OPTIONS: toc:nil
 #+OPTIONS: author:nil email:nil creator:nil timestamp:nil
 #+OPTIONS: html-postamble:nil
 #+OPTIONS: num:nil
