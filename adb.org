@@ -1,4 +1,18 @@
-* adb shell 
+* adb shell, req
+
+http://pantechservice.co.kr/main.sky
+USB Driver
+
+http://adbshell.com/downloads
+adb kits
+
+http://developer.android.com/tools/help/adb.html
+Developer options > USB debugging
+
+http://developer.android.com/sdk/index.html
+Android Studio > Monitor
+
+* adb shell, step by step
 
 | pc                        | android       | action            | desc          |
 |---------------------------+---------------+-------------------+---------------|
@@ -6,7 +20,7 @@
 |                           |               | connect usb cable |               |
 | adb shell                 |               |                   |               |
 
-* adb over a network connection
+* adb over a network connection, step by step
 
 http://developer.android.com/guide/topics/connectivity/usb/index.html
 http://stackoverflow.com/questions/14357705/adb-over-wireless?lq=1

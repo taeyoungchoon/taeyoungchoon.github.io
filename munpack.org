@@ -8,3 +8,4 @@ aaa.pdf.1 (application/pdf)
 bbb.pdf.2 (application/pdf)
 ccc.pdf.3 (application/pdf)
 $
+* what about procmail
