@@ -1,3 +1,34 @@
 * note
 
 Can I have a chance to read it and it has it's worth? or worse?
+
+* on emacs
+
+abcdefghijklmnopqrstuvwxyz
+фисвуапршолдьтщзйкыегмцчня
+
+ф f
+и i
+в v
+п p
+ш sh
+л l(L)
+д d
+ь b
+т t
+щ shch
+з e
+к k
+г g
+м m
+ц ts
+ч ch
+н h
+я ja
+х kh
+ъ "
+ж zh
+э e 
+ю ju
+ё e"
+ 
