@@ -1,30 +1,142 @@
 #+Title: foo
-#+OPTIONS: author:nil email:nil creator:nil timestamp:nil
-#+OPTIONS: html-postamble:nil
-#+OPTIONS: num:nil
 
-* emacs
+* thingk
 
-- (eshell ls)
-- (org org-export-dispatch)
-- slime
-- tramp
+** single page
+** delay, moleskin first
+* env
 
+** lang
+
+*** korean
+*** english
+*** russian
+*** french
+*** deutsch
+
+** history
+
+*** global
+*** national
+*** universal
+* human
+
+** body
+** cook
+** work
+** walk
+* book
+
+** walden
+* writing
+** poem, poetry, poet
+** on slideshare
+* editor > emacs or mode
+
+** (eshell ls)
+** (org org-export-dispatch)
+** slime
+** tramp
+* hardware
+** serial
+** modem
+** usb
+*** usb2serial
+*** host
+*** nic
+**** rndis
+**** CDC-ECM
+* programming
+** lisp
+** perl
+* security
+
+** layer
+
+* operating system
+
+** linux
+** windows
+
+* shell
+** t-shell
+** agent
+* infra
+** email fly
+* malware
+** exploit
+*** exploit kit
+** ransomware
+
+http://www.rancert.com/prevent.php
+http://www.ahnlab.com/kr/site/securityinfo/ransomware/index.do
+
+*** Locky
+
+http://slic.tistory.com/896
+http://securityfactory.tistory.com/338
+
+- using office macro, wscript
+- by email
+- .locky
+- _Locky_recover_instructions.txt
+- encrypted with RSA-2048 and AES-128 ciphers
+
+*** TeslaCrypt 3.0
+
+- RECOVERRmhwqb.txt
+- RSA4096
+- https://www.microsoft.com/security/portal/threat/encyclopedia/Entry.aspx?Name=Win32%2fTescrypt
+
+**** msg 
+
+#+BEGIN_SRC
+
+NOT YOUR LANGUAGE? USE https://translate.google.com
+What's the matter with your files?
+Your data was secured using a strong encryption with RSA4096.
+
+#+END_SRC
+
+*** CryptoLocker
+    
+*** Linux.Encoder.1 / Dr. Web
+
+- https://www.grahamcluley.com/2015/11/website-files-encrypted-linux-encoder-1-ransomware-free-fix/ , using a flaw in Magento
+- https://labs.bitdefender.com/2015/11/linux-ransomware-debut-fails-on-predictable-encryption-key/ , No need to crack RSA when you can guess the key
+- http://www.boannews.com/media/view.asp?idx=48518, kr
+
+** windows script host, wsh, jscript, vbs
+
+http://www.thewindowsclub.com/windows-script-host-access-is-disabled-on-this-machine
+
+#+BEGIN_SRC
+
+C:\>reg query "HKLM\Software\Microsoft\Windows Script Host\Settings"
+
+HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Script Host\Settings
+    DisplayLogo    REG_SZ    1
+    ActiveDebugging    REG_SZ    1
+    SilentTerminate    REG_SZ    0
+    UseWINSAFER    REG_SZ    1
+
+C:\tmp>REG ADD "HKLM\Software\Microsoft\Windows Script Host\Settings" /v Enabled /t REG_SZ /d 0
+
+C:\Users\see>reg query "HKLM\Software\Microsoft\Windows Script Host\Settings" | findstr Enabled
+    Enabled    REG_SZ    0
+
+C:\tmp>cscript foo.vbs
+Windows Script Host access is disabled on this machine. Contact your administrator for details.
+
+#+END_SRC
+
+** policy, whilte
+** vaccine
+*** v3
+*** Windows Defender for Windows 10 and Windows 8.1
+*** Microsoft Security Essentials for Windows7 and Windows Vista
+*** Microsoft Safety Scanner, just one time 
+** packer, unpacker, compressor, obfuscation
+** tool
+*** gmer
 * one more thing but not just one
-
-- lisp 
-- (book walden)
-- linux
-- t-shell
-- (body walk)
-- cook
-- poet
-- korean
-- english
-- (history world korea)
-- (russian read)
-- email
-- (usb usb-to-serial (mode host) rndis CDC-ECM)
-- serial
-- modem
-- (security layer))
