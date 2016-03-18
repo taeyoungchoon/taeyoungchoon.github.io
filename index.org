@@ -1,38 +1,37 @@
 #+Title: foo
 
 * thingk
-
 ** single page
 ** delay, moleskin first
 * env
-
 ** lang
-
 *** korean
 *** english
 *** russian
+- about read!
 *** french
+- about read?
 *** deutsch
-
 ** history
-
 *** global
 *** national
 *** universal
 * human
-
 ** body
+*** part
 ** cook
 ** work
 ** walk
 * book
-
-** walden
+** walden type
+** long but interesting
+** vs poetry
+** vs cinema
+** or more
 * writing
 ** poem, poetry, poet
 ** on slideshare
 * editor > emacs or mode
-
 ** (eshell ls)
 ** (org org-export-dispatch)
 ** slime
@@ -46,23 +45,78 @@
 *** nic
 **** rndis
 **** CDC-ECM
+** bios?
+** memory
+** cpu
+** disk, storage
 * programming
-** lisp
-** perl
+** lisp on emacs or clisp
+*** list
+*** when?
+*** sample
+#+BEGIN_SRC
+
+(cons t nil)
+(if 1 2 3)
+(when 1 2 3)
+(cond (1 2) (3 4))
+(loop for i from 1 to 10 collect i)
+(defun foo () (format t "this is foo"))
+(random 10)
+
+#+END_SRC
+** perl or shell script(bash or more)
+*** string
+*** cpan
+*** sample
+#+BEGIN_SRC
+
+foreach $line (<>) {
+  $line ~= s/\r//g;
+  $line ~= s/\n//g;
+  print $line . "\n";q
+}
+
+#+END_SRC
+** what else?
+*** powershell
+**** sample
+#+BEGIN_SRC
+while (1) { date; sleep 3 }
+#+END_SRC
+*** ruby
+** for what?
 * security
-
 ** layer
-
+*** tree
+**** cisco
+*** leaf
 * operating system
-
 ** linux
+*** kali
+*** debian
+*** android
 ** windows
-
+** deep
+*** process
+*** file system
+** lots of
+*** capistrano
 * shell
 ** t-shell
+*** semi agent
 ** agent
+*** do as what x do? or did? or will do as what y want!
 * infra
 ** email fly
+** proxy
+** spof
+** tree
+** amazon
+*** ec2
+** monitoring, knowing
+*** nagios
+*** mon
 * malware
 ** exploit
 *** exploit kit
@@ -140,3 +194,32 @@ Windows Script Host access is disabled on this machine. Contact your administrat
 ** tool
 *** gmer
 * one more thing but not just one
+** memo
+*** moleskine
+** share
+** cinema
+*** why?
+*** list and lots of
+** compute
+*** not computer
+*** robot
+*** HAL, 2001
+** key tech
+*** for free, for free
+- telegram messenger
+- TLS, Transport Layer Security
+*** for money
+**** ransomware, cryptoware
+- Tip of the week: How to protect yourself from cryptoware
+** network
+*** router
+**** BGP
+*** switch
+*** trunk, etherchannel, bonding
+** versioning
+*** git
+**** github
+*** svn, cvs
+** configration management
+*** puppet
+*** cfengine
