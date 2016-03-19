@@ -12,10 +12,12 @@
 *** french
 - about read?
 *** deutsch
+*** why?
 ** history
 *** global
 *** national
 *** universal
+*** why?
 * human
 ** body
 *** part
@@ -223,3 +225,11 @@ Windows Script Host access is disabled on this machine. Contact your administrat
 ** configration management
 *** puppet
 *** cfengine
+** reversing
+*** reversing.kr
+*** ALZ
+*** vs locky ransomware
+
+- http://heavyrainslab.tistory.com/87
+- http://blog.naver.com/PostView.nhn?blogId=koromoon&logNo=220603850410&categoryNo=0&parentCategoryNo=37&viewDate=&currentPage=1&postListTopCurrentPage=1&from=postView
+** robot
