@@ -34,10 +34,14 @@
 ** poem, poetry, poet
 ** on slideshare
 * editor > emacs or mode
+
+- list-package
+
 ** (eshell ls)
 ** (org org-export-dispatch)
 ** slime
 ** tramp
+** ace-swap-window
 * hardware
 ** serial
 ** modem
@@ -99,6 +103,15 @@ while (1) { date; sleep 3 }
 *** debian
 *** android
 ** windows
+*** registry
+**** at
+
+- https://msdn.microsoft.com/en-us/library/ms724877%28v=vs.85%29.aspx
+
+**** with
+
+- reg, regedit
+
 ** deep
 *** process
 *** file system
@@ -233,3 +246,14 @@ Windows Script Host access is disabled on this machine. Contact your administrat
 - http://heavyrainslab.tistory.com/87
 - http://blog.naver.com/PostView.nhn?blogId=koromoon&logNo=220603850410&categoryNo=0&parentCategoryNo=37&viewDate=&currentPage=1&postListTopCurrentPage=1&from=postView
 ** robot
+** up2date
+
+- java
+- adobe flash
+- hangul
+- windows
+- vaccine
+
+** backup
+
+
