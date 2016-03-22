@@ -98,10 +98,12 @@ while (1) { date; sleep 3 }
 **** cisco
 *** leaf
 * operating system
-** linux
+** kinds of
+*** linux
 *** kali
 *** debian
 *** android
+<<<<<<< HEAD
 ** windows
 *** registry
 **** at
@@ -112,6 +114,9 @@ while (1) { date; sleep 3 }
 
 - reg, regedit
 
+=======
+*** windows
+>>>>>>> 5311295f84e2bcb460340ca66e0115eb16bb1df1
 ** deep
 *** process
 *** file system
@@ -246,6 +251,7 @@ Windows Script Host access is disabled on this machine. Contact your administrat
 - http://heavyrainslab.tistory.com/87
 - http://blog.naver.com/PostView.nhn?blogId=koromoon&logNo=220603850410&categoryNo=0&parentCategoryNo=37&viewDate=&currentPage=1&postListTopCurrentPage=1&from=postView
 ** robot
+<<<<<<< HEAD
 ** up2date
 
 - java
@@ -257,3 +263,11 @@ Windows Script Host access is disabled on this machine. Contact your administrat
 ** backup
 
 
+=======
+** digital forensics
+*** ls -ltr
+*** FTK
+*** lots of more
+
+- Top 20 Free Digital Forensic Investigation Tools for SysAdmins
+>>>>>>> 5311295f84e2bcb460340ca66e0115eb16bb1df1
