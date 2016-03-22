@@ -42,6 +42,11 @@
 ** slime
 ** tramp
 ** ace-swap-window
+** one more on emacs
+*** remove CR
+
+- M-x delete-trailing-whitespace
+
 * hardware
 ** serial
 ** modem
@@ -114,9 +119,7 @@ while (1) { date; sleep 3 }
 
 - reg, regedit
 
-=======
 *** windows
->>>>>>> 5311295f84e2bcb460340ca66e0115eb16bb1df1
 ** deep
 *** process
 *** file system
@@ -162,7 +165,7 @@ http://securityfactory.tistory.com/338
 - RSA4096
 - https://www.microsoft.com/security/portal/threat/encyclopedia/Entry.aspx?Name=Win32%2fTescrypt
 
-**** msg 
+**** msg
 
 #+BEGIN_SRC
 
@@ -173,7 +176,7 @@ Your data was secured using a strong encryption with RSA4096.
 #+END_SRC
 
 *** CryptoLocker
-    
+
 *** Linux.Encoder.1 / Dr. Web
 
 - https://www.grahamcluley.com/2015/11/website-files-encrypted-linux-encoder-1-ransomware-free-fix/ , using a flaw in Magento
@@ -209,7 +212,7 @@ Windows Script Host access is disabled on this machine. Contact your administrat
 *** v3
 *** Windows Defender for Windows 10 and Windows 8.1
 *** Microsoft Security Essentials for Windows7 and Windows Vista
-*** Microsoft Safety Scanner, just one time 
+*** Microsoft Safety Scanner, just one time
 ** packer, unpacker, compressor, obfuscation
 ** tool
 *** gmer
@@ -251,7 +254,7 @@ Windows Script Host access is disabled on this machine. Contact your administrat
 - http://heavyrainslab.tistory.com/87
 - http://blog.naver.com/PostView.nhn?blogId=koromoon&logNo=220603850410&categoryNo=0&parentCategoryNo=37&viewDate=&currentPage=1&postListTopCurrentPage=1&from=postView
 ** robot
-<<<<<<< HEAD
+
 ** up2date
 
 - java
@@ -262,12 +265,9 @@ Windows Script Host access is disabled on this machine. Contact your administrat
 
 ** backup
 
-
-=======
 ** digital forensics
 *** ls -ltr
 *** FTK
 *** lots of more
 
 - Top 20 Free Digital Forensic Investigation Tools for SysAdmins
->>>>>>> 5311295f84e2bcb460340ca66e0115eb16bb1df1
