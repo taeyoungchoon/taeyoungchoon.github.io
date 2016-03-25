@@ -108,8 +108,7 @@ while (1) { date; sleep 3 }
 *** kali
 *** debian
 *** android
-<<<<<<< HEAD
-** windows
+o** windows
 *** registry
 **** at
 
@@ -141,47 +140,40 @@ while (1) { date; sleep 3 }
 *** nagios
 *** mon
 * malware
-** exploit
-*** exploit kit
-** ransomware
+** pentesting tool
+
+- Exploit pack
+- Metasploit, Armitage(GUI)
+
+** exploit kit
+*** Angler
+*** Neutrino
+** DONE ransomware
 
 http://www.rancert.com/prevent.php
 http://www.ahnlab.com/kr/site/securityinfo/ransomware/index.do
 
 *** Locky
 
-http://slic.tistory.com/896
-http://securityfactory.tistory.com/338
-
-- using office macro, wscript
-- by email
-- .locky
+- by email, attachment file using office macro then javascript 
+- drive-by-download, Neutrino EK
+- tail : .locky
 - _Locky_recover_instructions.txt
-- encrypted with RSA-2048 and AES-128 ciphers
+- Command: vssadmin.exe Delete Shadows /All /Quiet
 
 *** TeslaCrypt 3.0
 
+- tail : .mp3
 - RECOVERRmhwqb.txt
-- RSA4096
-- https://www.microsoft.com/security/portal/threat/encyclopedia/Entry.aspx?Name=Win32%2fTescrypt
 
-**** msg
+*** CryptoWall
 
-#+BEGIN_SRC
-
-NOT YOUR LANGUAGE? USE https://translate.google.com
-What's the matter with your files?
-Your data was secured using a strong encryption with RSA4096.
-
-#+END_SRC
-
-*** CryptoLocker
+- tail : .vvv
 
 *** Linux.Encoder.1 / Dr. Web
 
-- https://www.grahamcluley.com/2015/11/website-files-encrypted-linux-encoder-1-ransomware-free-fix/ , using a flaw in Magento
-- https://labs.bitdefender.com/2015/11/linux-ransomware-debut-fails-on-predictable-encryption-key/ , No need to crack RSA when you can guess the key
-- http://www.boannews.com/media/view.asp?idx=48518, kr
+- tail : .encrypted
+- [[https://labs.bitdefender.com/2015/11/linux-ransomware-debut-fails-on-predictable-encryption-key/][No need to crack RSA when you can guess the key]]
 
 ** windows script host, wsh, jscript, vbs
 
@@ -213,9 +205,27 @@ Windows Script Host access is disabled on this machine. Contact your administrat
 *** Windows Defender for Windows 10 and Windows 8.1
 *** Microsoft Security Essentials for Windows7 and Windows Vista
 *** Microsoft Safety Scanner, just one time
+** defense
+*** Shadow Volume Copies then ShadowExplorer
+*** Backup
+*** inotify
+
+- Linux Malware Detect
+
 ** packer, unpacker, compressor, obfuscation
 ** tool
 *** gmer
+*** pestudio
+*** virustotal
+*** officecat
+*** offvis
+*** http://jsbeautifier.org/
+*** sigcheck -v
+
+- using virustotal
+
+*** sysinternals
+
 * one more thing but not just one
 ** memo
 *** moleskine
