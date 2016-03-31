@@ -1,8 +1,8 @@
 #+Title: foo
 
 * thingk
-** single page
 ** delay, moleskin first
+** single page
 * env
 ** lang
 *** korean
@@ -252,47 +252,45 @@ Windows Script Host access is disabled on this machine. Contact your administrat
 - using virustotal
 
 *** sysinternals
-
-* one more thing but not just one
-** memo
-*** moleskine
+* memo
+** moleskine
 ** share
-** cinema
-*** why?
-*** list and lots of
-** compute
-*** not computer
-*** robot
-*** HAL, 2001
-** key tech
-*** for free, for free
+* cinema
+** why?
+** list and lots of
+* compute
+** not computer
+** robot
+** HAL, 2001
+* key tech
+** for free, for free
 - telegram messenger
 - TLS, Transport Layer Security
-*** for money
-**** ransomware, cryptoware
+** for money
+*** ransomware, cryptoware
 - Tip of the week: How to protect yourself from cryptoware
-** network
-*** router
-**** BGP
-*** switch
-*** trunk, etherchannel, bonding
-** versioning
-*** git
-**** github
-*** svn, cvs
-** configration management
+* network
+** router
+*** BGP
+** switch
+** trunk, etherchannel, bonding
+* versioning
+** git
+*** github
+** svn, cvs
+* configration management
 *** puppet
 *** cfengine
-** reversing
+* reversing
 *** reversing.kr
 *** ALZ
 *** vs locky ransomware
 
 - http://heavyrainslab.tistory.com/87
 - http://blog.naver.com/PostView.nhn?blogId=koromoon&logNo=220603850410&categoryNo=0&parentCategoryNo=37&viewDate=&currentPage=1&postListTopCurrentPage=1&from=postView
-** robot
+* robot
 
-** up2date
+* up2date
 
 - java
 - adobe flash
@@ -300,15 +298,15 @@ Windows Script Host access is disabled on this machine. Contact your administrat
 - windows
 - vaccine
 
-** backup
+* backup
 
-** digital forensics
+* digital forensics
 *** ls -ltr
 *** FTK
 *** lots of more
 
 - Top 20 Free Digital Forensic Investigation Tools for SysAdmins
-** v3 Process Listing
+* v3 Process Listing
 
 *** Pure V3 Process List
 
@@ -325,8 +323,11 @@ Windows Script Host access is disabled on this machine. Contact your administrat
 | V3Svc.exe       | V3 Service Process      |
 | V3SP.exe        | V3 Tray Process         |
 | ShieldStart.exe | PA Proctection Process  |
-** ipv6
+* ipv6
 
 - https://vsix.kr using ggClient (IPv6 over IPv4 tunneling) and kr
 - http://blog.sungki.com/?p=18 using D-Link DIR815 with HE and kr
+- http://en.linuxreviews.org/Free_IPv4_to_IPv6_Tunnel_Brokers HE only?!
+- https://www.youtube.com/watch?v=cC6lu2hfNGI MicroNugget,IPv6 Tunnel Broker
 
+* one more thing but not just one
