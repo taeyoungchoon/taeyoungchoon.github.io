@@ -175,6 +175,33 @@ http://www.ahnlab.com/kr/site/securityinfo/ransomware/index.do
 - tail : .encrypted
 - [[https://labs.bitdefender.com/2015/11/linux-ransomware-debut-fails-on-predictable-encryption-key/][No need to crack RSA when you can guess the key]]
 
+*** dig
+**** office macro
+**** pdf
+
+- adobe specific javascript API
+
+**** javascript
+
+- obfuscation
+
+**** ransomware
+
+***** shellcode do something
+
+***** care shadow copy
+
+- wmic shadowcopy delete
+- vssadmin delete shadows /all /quiet
+
+**** sdelete
+
+- delete key file
+
+**** GnuPG
+
+- encryption
+
 ** windows script host, wsh, jscript, vbs
 
 http://www.thewindowsclub.com/windows-script-host-access-is-disabled-on-this-machine
@@ -281,3 +308,25 @@ Windows Script Host access is disabled on this machine. Contact your administrat
 *** lots of more
 
 - Top 20 Free Digital Forensic Investigation Tools for SysAdmins
+** v3 Process Listing
+
+*** Pure V3 Process List
+
+| Process name    | Description             |
+|-----------------+-------------------------|
+| V3Svc.exe       | V3 Service Process      |
+| V3SP.exe        | V3 Tray Process         |
+
+*** PA Based V3 Process list
+
+| Process name    | Description             |
+|-----------------+-------------------------|
+| PaSvc.exe       | V3 Policy Agent Process |
+| V3Svc.exe       | V3 Service Process      |
+| V3SP.exe        | V3 Tray Process         |
+| ShieldStart.exe | PA Proctection Process  |
+** ipv6
+
+- https://vsix.kr using ggClient (IPv6 over IPv4 tunneling) and kr
+- http://blog.sungki.com/?p=18 using D-Link DIR815 with HE and kr
+
