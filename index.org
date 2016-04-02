@@ -1,4 +1,5 @@
 #+Title: foo
+#+Options: H:1 num:t toc:t @:t ::t |:t
 
 * thingk
 ** delay, moleskin first
@@ -37,11 +38,31 @@
 
 - list-package
 
+** macro
 ** (eshell ls)
 ** (org org-export-dispatch)
+
+*** refer
+
+- https://emacsclub.github.io/html/org_tutorial.html
+
+*** table
+**** with korean
+*** exports 
+**** option
+
+- #+Title
+- #+Options: H:2 num:t toc:t
+
+**** lots
+
 ** slime
 ** tramp
 ** ace-swap-window
+** select all
+
+- C-x h
+
 ** one more on emacs
 *** remove CR
 
@@ -87,6 +108,26 @@ foreach $line (<>) {
   $line ~= s/\n//g;
   print $line . "\n";q
 }
+
+#+END_SRC
+** c
+*** sample
+#+BEGIN_SRC
+
+#include <stdio.h>
+
+int main()
+{
+  printf("hello, world\n");
+  return 0;
+}
+
+#+END_SRC
+** sed -f
+*** sample
+#+BEGIN_SRC
+
+s/\\x61/a/g
 
 #+END_SRC
 ** what else?
@@ -176,18 +217,30 @@ http://www.ahnlab.com/kr/site/securityinfo/ransomware/index.do
 - [[https://labs.bitdefender.com/2015/11/linux-ransomware-debut-fails-on-predictable-encryption-key/][No need to crack RSA when you can guess the key]]
 
 *** dig
+**** even image or more
 **** office macro
 **** pdf
 
 - adobe specific javascript API
-
+  
+**** flash, java, silverlight
 **** javascript
 
-- obfuscation
+***** obfuscation
+
+- have to know about javascript itself
+- use sed for \x61 (a)
+
+****** lispy way
+
+1. (eval func)
+2. (cond (string eval))
 
 **** ransomware
 
 ***** shellcode do something
+
+- call Crypto API
 
 ***** care shadow copy
 
@@ -201,6 +254,7 @@ http://www.ahnlab.com/kr/site/securityinfo/ransomware/index.do
 **** GnuPG
 
 - encryption
+- or openssl
 
 ** windows script host, wsh, jscript, vbs
 
@@ -306,6 +360,7 @@ Windows Script Host access is disabled on this machine. Contact your administrat
 *** lots of more
 
 - Top 20 Free Digital Forensic Investigation Tools for SysAdmins
+
 * v3 Process Listing
 
 *** Pure V3 Process List
@@ -330,4 +385,20 @@ Windows Script Host access is disabled on this machine. Contact your administrat
 - http://en.linuxreviews.org/Free_IPv4_to_IPv6_Tunnel_Brokers HE only?!
 - https://www.youtube.com/watch?v=cC6lu2hfNGI MicroNugget,IPv6 Tunnel Broker
 
+** enabled network device, router and switch
+** enabled application include operating system
+** rfc
+
 * one more thing but not just one
+* compute
+** programming
+*** framework, library
+*** purpose
+**** malware vs anti
+**** mail server and client then spam and more
+**** repository
+***** versioning
+***** filesystem
+** platform
+*** operating system on hard part
+*** infra
