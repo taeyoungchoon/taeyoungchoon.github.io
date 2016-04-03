@@ -4,6 +4,68 @@
 * thingk
 ** delay, moleskin first
 ** single page
+* open profile
+** profiling
+* tools & tips defines me
+** english
+** google
+
+- site:foo.domain something
+- image.google.com
+
+** slideshare
+** freemind
+** firefox +firebug +yslow
+** fping -g 192.168.0.100 192.168.0.120
+** nmap -O
+
+- -O
+- -p 22,80
+- --script ssl-cert
+- 192.168.0.100-120
+
+** lsof | grep apache
+** strace -e open ls
+** dmesg -c
+** od -x foo.text
+** ls -ltr | tail -10
+** netstat -ano
+** procexp, procmon, tcpview, sigcheck -vr
+** virustotal
+** ipconfig | findstr /i 
+** ipconfig.co.kr
+** net stats svr
+** nbtstat, net share, net use
+** arp
+** nagios
+** capistrano
+
+-  cap shell
+
+** expect
+** ssh foo.com date
+** telnet foo.domain 25
+
+*** sample
+
+#+BEGIN_SRC
+
+helo localhost
+mail from: jack@foo.domain
+rcpt to: raul@bar.domain
+data
+.
+quit
+
+#+END_SRC
+
+** df -h, df -i
+** du -hs
+** rsync -e ssh
+** cp -a, cp -dpR
+** rm -i, \rm
+** sar -f
+** dot
 * env
 ** lang
 *** korean
@@ -41,6 +103,8 @@
 ** macro
 ** (eshell ls)
 ** (org org-export-dispatch)
+
+- C-c C-e
 
 *** refer
 
@@ -145,11 +209,11 @@ while (1) { date; sleep 3 }
 *** leaf
 * operating system
 ** kinds of
-*** linux
-*** kali
-*** debian
-*** android
-o** windows
+** linux
+**** kali
+**** debian
+**** android
+** windows
 *** registry
 **** at
 
@@ -159,7 +223,6 @@ o** windows
 
 - reg, regedit
 
-*** windows
 ** deep
 *** process
 *** file system
@@ -390,15 +453,37 @@ Windows Script Host access is disabled on this machine. Contact your administrat
 ** rfc
 
 * one more thing but not just one
-* compute
-** programming
-*** framework, library
-*** purpose
-**** malware vs anti
-**** mail server and client then spam and more
-**** repository
-***** versioning
-***** filesystem
-** platform
-*** operating system on hard part
-*** infra
+** in compute
+*** programming
+**** framework, library
+**** purpose
+***** malware vs anti
+***** mail server and client then spam and more
+***** repository
+****** versioning
+****** filesystem
+*** platform
+**** operating system on hard part
+**** infra
+** certificate
+*** kr
+**** 한국사능력검정시험
+**** 세계사능력검점시험?
+**** 컴퓨터활용능력
+*** network
+**** 네트워크관리사 1급/2급
+**** CCNA
+*** security
+**** CISSP
+**** 정보보안기사/산업기사
+* korean
+** 말하기
+** 듣기
+** 쓰기
+** 생각하기
+* game
+** pixel dungeon
+** pocket trains
+** world of warcraft
+** ultima5
+** doom & quake
