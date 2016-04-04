@@ -441,6 +441,7 @@ Windows Script Host access is disabled on this machine. Contact your administrat
 | V3Svc.exe       | V3 Service Process      |
 | V3SP.exe        | V3 Tray Process         |
 | ShieldStart.exe | PA Proctection Process  |
+
 * ipv6
 
 - https://vsix.kr using ggClient (IPv6 over IPv4 tunneling) and kr
@@ -486,4 +487,7 @@ Windows Script Host access is disabled on this machine. Contact your administrat
 ** pocket trains
 ** world of warcraft
 ** ultima5
+
+- role
+
 ** doom & quake
