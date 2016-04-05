@@ -99,8 +99,23 @@ quit
 * editor > emacs or mode
 
 - list-package
+- 왜? 모드?
 
 ** macro
+
+| key   | desc    | alternative |
+|-------+---------+-------------|
+| C-x ( | start   |             |
+| C-x ) | end     |             |
+| C-x e | execute | f4          |
+
+*** name it then again
+
+- M-x call-last-kdb-macro
+- M-x name-last-kdb-macro
+- M-x insert-kbd-macro
+- M-x name-of-macro
+
 ** (eshell ls)
 ** (org org-export-dispatch)
 
@@ -123,6 +138,7 @@ quit
 ** slime
 ** tramp
 ** ace-swap-window
+** resize-window
 ** select all
 
 - C-x h
@@ -229,6 +245,11 @@ while (1) { date; sleep 3 }
 ** lots of
 *** capistrano
 * shell
+
+- 나는 껍질을 통해서 대화한다
+- 인터페이스하다
+- 나의 껍질은 나는
+
 ** t-shell
 *** semi agent
 ** agent
@@ -375,6 +396,11 @@ Windows Script Host access is disabled on this machine. Contact your administrat
 * cinema
 ** why?
 ** list and lots of
+** trailers
+
+- http://imdb.com
+- http://trailers.apple.com
+
 * compute
 ** not computer
 ** robot
