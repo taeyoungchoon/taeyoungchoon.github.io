@@ -14,7 +14,7 @@
 - image.google.com
 
 ** slideshare
-** freemind
+** freemind on any
 ** firefox +firebug +yslow
 ** fping -g 192.168.0.100 192.168.0.120
 ** nmap -O
@@ -30,8 +30,13 @@
 ** od -x foo.text
 ** ls -ltr | tail -10
 ** netstat -ano
+** loop
+*** watch --differences=cumulative date
+** snmp with getif
+** disk with smart then smartmontools
 ** procexp, procmon, tcpview, sigcheck -vr
 ** virustotal
+** redmine
 ** ipconfig | findstr /i 
 ** ipconfig.co.kr
 ** net stats svr
@@ -43,6 +48,7 @@
 -  cap shell
 
 ** expect
+** ps aux | wc -l vs ls /proc | grep ^[0-9] | wc -l
 ** ssh foo.com date
 ** telnet foo.domain 25
 
@@ -62,9 +68,25 @@ quit
 ** df -h, df -i
 ** du -hs
 ** rsync -e ssh
+
+| option | desc                            | more         |
+|--------+---------------------------------+--------------|
+| v      | verbose                         |              |
+| z      | compressor                      |              |
+| r      | recursive                       |              |
+| P      | progress                        |              |
+| h      | human                           |              |
+| e      | specify the remote shell to use | man rsync(1) |
+
+#+BEGIN_SRC
+rsync -vrz rsync-src/ /cygdrive/o/rsync-dst
+rsync -hPrz rsync-src/ /cygdrive/o/rsync-dst
+#+END_SRC
+
+** pstree
 ** cp -a, cp -dpR
 ** rm -i, \rm
-** sar -f
+** cal then sar -f /var/log/sa/sa29
 ** dot
 * env
 ** lang
@@ -89,17 +111,24 @@ quit
 ** walk
 * book
 ** walden type
+
+- 월든
+- 논어
+
 ** long but interesting
 ** vs poetry
 ** vs cinema
 ** or more
+
+- 21세기 자본론
+
 * writing
 ** poem, poetry, poet
 ** on slideshare
 * editor > emacs or mode
 
 - list-package
-- 왜? 모드?
+- 왜? 모드? major, minor
 
 ** macro
 
@@ -108,8 +137,6 @@ quit
 | C-x ( | start   |             |
 | C-x ) | end     |             |
 | C-x e | execute | f4          |
-
-*** name it then again
 
 - M-x call-last-kdb-macro
 - M-x name-last-kdb-macro
@@ -395,6 +422,9 @@ Windows Script Host access is disabled on this machine. Contact your administrat
 ** share
 * cinema
 ** why?
+
+- (미국 (신화 스타워즈 스타트랙)(신 슈퍼맨))
+
 ** list and lots of
 ** trailers
 
