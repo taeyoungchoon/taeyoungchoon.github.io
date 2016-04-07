@@ -1,21 +1,130 @@
 #+Title: foo
 #+Options: H:1 num:t toc:t
 
-* thingk
-** delay, moleskin first
-** single page
+* compute
+** think about
 
-- with tree, branch
+- not computer
+- robot
+- HAL, 2001
 
-** or lots of files
+** interface
 
-* open profile
-** profiling
-** site?
+- shell
 
-- http://taeyoungchoon.github.io
-- http://about.me/taeyoungchoon
+** infra
+*** spof
+*** proxy
+*** amazon ec2 and more
+*** monitoring
+
+- nagios
+- mon
+
+*** configration management
+
+- puppet
+- cfengine
+
+*** versioning
+
+- git vs github
+- svn
+- cvs
+
+** network
+
+- trunk, etherchannel, bonding
+- IPv6 Tunnel Broker
+
+** virus or more
+*** up2date
+
+- java
+- adobe flash
+- vaccine
+- windows
+*** vaccine
+
+**** AhnLab V3 Internet Security Process Listing
+
+***** Pure Process List
+
+| Process name | Description |
+|--------------+-------------|
+| V3Svc.exe    | Service     |
+| V3SP.exe     | Tray        |
+
+***** PA Based Process list
+
+| Process name | Description  |
+|--------------+--------------|
+| PaSvc.exe    | Policy Agent |
+| V3Svc.exe    | Service      |
+| V3SP.exe     | Tray         |
+
+*** forensics
+
+- Forensic Toolkit (FTK)
+
+*** reversing
+
+- ALZ?!
+- http://reversing.kr
+- [[http://heavyrainslab.tistory.com][악성코드와 하율파파]]
+* memo
+
+- moleskine
+- planner
+
+* cinema
+
+** pre
+
+- http://imdb.com
+- http://trailers.apple.com
+* emacs
+
+- major, minor
+
+** dot
+** list-package
   
+** macro
+
+| key   | desc    | alternative |
+|-------+---------+-------------|
+| C-x ( | start   |             |
+| C-x ) | end     |             |
+| C-x e | execute | f4          |
+
+** eshell
+** org
+
+- C-c C-e
+
+** slime
+** tramp
+** ace-swap-window
+** resize-window
+** select all
+
+- C-x h
+
+** remove CR
+   
+- M-x delete-trailing-whitespace
+* book
+
+- 월든
+- 논어
+- 21세기 자본론
+* certificate
+- 한국사능력검정시험
+- 컴퓨터활용능력
+- 네트워크관리사
+- 정보보안기사,산업기사
+* = sep =
 * tools & tips defines me
 ** swatch
 ** Executor
@@ -161,93 +270,7 @@ rsync -hPrz rsync-src/ /cygdrive/o/rsync-dst
 ** rm -i, \rm
 ** cal then sar -f /var/log/sa/sa29
 ** dot
-* env
-** lang
-*** korean
-*** english
-*** russian
-- about read!
-*** french
-- about read?
-*** deutsch
-*** why?
-** history
-*** global
-*** national
-*** universal
-*** why?
-* human
-** body
-*** part
-** cook
-** work
-** walk
-* book
-** walden type
-
-- 월든
-- 논어
-
-** long but interesting
-** vs poetry
-** vs cinema
-** or more
-
-- 21세기 자본론
-
-* writing
-** poem, poetry, poet
-** on slideshare
-* editor > emacs or mode
-
-- list-package
-- 왜? 모드? major, minor
-
-** macro
-
-| key   | desc    | alternative |
-|-------+---------+-------------|
-| C-x ( | start   |             |
-| C-x ) | end     |             |
-| C-x e | execute | f4          |
-
-- M-x call-last-kdb-macro
-- M-x name-last-kdb-macro
-- M-x insert-kbd-macro
-- M-x name-of-macro
-
-** (eshell ls)
-** (org org-export-dispatch)
-
-- C-c C-e
-
-*** refer
-
-- https://emacsclub.github.io/html/org_tutorial.html
-
-*** table
-**** with korean
-*** exports 
-**** option
-
-- #+Title
-- #+Options: H:1 num:t toc:t @:t ::t |:t
-
-**** lots
-
-** slime
-** tramp
-** ace-swap-window
-** resize-window
-** select all
-
-- C-x h
-
-** one more on emacs
-*** remove CR
-
-- M-x delete-trailing-whitespace
-
+* in compute
 * hardware
 ** serial
 ** modem
@@ -344,26 +367,6 @@ while (1) { date; sleep 3 }
 *** file system
 ** lots of
 *** capistrano
-* shell
-
-- 나는 껍질을 통해서 대화한다
-- 인터페이스하다
-- 나의 껍질은 나는
-
-** t-shell
-*** semi agent
-** agent
-*** do as what x do? or did? or will do as what y want!
-* infra
-** email fly
-** proxy
-** spof
-** tree
-** amazon
-*** ec2
-** monitoring, knowing
-*** nagios
-*** mon
 * malware
 ** pentesting tool
 
@@ -490,24 +493,6 @@ Windows Script Host access is disabled on this machine. Contact your administrat
 - using virustotal
 
 *** sysinternals
-* memo
-** moleskine
-** share
-* cinema
-** why?
-
-- (미국 (신화 스타워즈 스타트랙)(신 슈퍼맨))
-
-** list and lots of
-** trailers
-
-- http://imdb.com
-- http://trailers.apple.com
-
-* compute
-** not computer
-** robot
-** HAL, 2001
 * key tech
 ** for free, for free
 - telegram messenger
@@ -515,108 +500,3 @@ Windows Script Host access is disabled on this machine. Contact your administrat
 ** for money
 *** ransomware, cryptoware
 - Tip of the week: How to protect yourself from cryptoware
-* network
-** router
-*** BGP
-** switch
-** trunk, etherchannel, bonding
-* versioning
-** git
-*** github
-** svn, cvs
-* configration management
-*** puppet
-*** cfengine
-* reversing
-*** reversing.kr
-*** ALZ
-*** vs locky ransomware
-
-- http://heavyrainslab.tistory.com/87
-- http://blog.naver.com/PostView.nhn?blogId=koromoon&logNo=220603850410&categoryNo=0&parentCategoryNo=37&viewDate=&currentPage=1&postListTopCurrentPage=1&from=postView
-* robot
-
-* up2date
-
-- java
-- adobe flash
-- hangul
-- windows
-- vaccine
-
-* backup
-
-* digital forensics
-*** ls -ltr
-*** FTK
-*** lots of more
-
-- Top 20 Free Digital Forensic Investigation Tools for SysAdmins
-
-* v3 Process Listing
-
-*** Pure V3 Process List
-
-| Process name    | Description             |
-|-----------------+-------------------------|
-| V3Svc.exe       | V3 Service Process      |
-| V3SP.exe        | V3 Tray Process         |
-
-*** PA Based V3 Process list
-
-| Process name    | Description             |
-|-----------------+-------------------------|
-| PaSvc.exe       | V3 Policy Agent Process |
-| V3Svc.exe       | V3 Service Process      |
-| V3SP.exe        | V3 Tray Process         |
-| ShieldStart.exe | PA Proctection Process  |
-
-* ipv6
-
-- https://vsix.kr using ggClient (IPv6 over IPv4 tunneling) and kr
-- http://blog.sungki.com/?p=18 using D-Link DIR815 with HE and kr
-- http://en.linuxreviews.org/Free_IPv4_to_IPv6_Tunnel_Brokers HE only?!
-- https://www.youtube.com/watch?v=cC6lu2hfNGI MicroNugget,IPv6 Tunnel Broker
-
-** enabled network device, router and switch
-** enabled application include operating system
-** rfc
-
-* one more thing but not just one
-** in compute
-*** programming
-**** framework, library
-**** purpose
-***** malware vs anti
-***** mail server and client then spam and more
-***** repository
-****** versioning
-****** filesystem
-*** platform
-**** operating system on hard part
-**** infra
-** certificate
-*** kr
-**** 한국사능력검정시험
-**** 세계사능력검점시험?
-**** 컴퓨터활용능력
-*** network
-**** 네트워크관리사 1급/2급
-**** CCNA
-*** security
-**** CISSP
-**** 정보보안기사/산업기사
-* korean
-** 말하기
-** 듣기
-** 쓰기
-** 생각하기
-* game
-** pixel dungeon
-** pocket trains
-** world of warcraft
-** ultima5
-
-- role
-
-** doom & quake
