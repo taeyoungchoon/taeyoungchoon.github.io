@@ -7,6 +7,31 @@
 * open profile
 ** profiling
 * tools & tips defines me
+** swatch
+** Executor
+
+- http://www.executor.dk
+- General > Hotkey : Windows + Z
+- Indexing & cache > t:\sysinternals, index depth 0
+- Indexing & cache > t:\portableapps, index depth 2, extensions exe
+
+** AutoHotkey
+*** sample
+
+- filename : backspace.ahk
+
+#+BEGIN_SRC
+#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
+; #Warn ; Enable warnings to assist with detecting common errors.
+SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
+SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
+
+^h::
+   Send {Backspace}
+
+Capslock::Ctrl
+#+END_SRC
+
 ** english
 ** google
 
@@ -18,6 +43,7 @@
 
 *** about key command
 
+#+ATTR_HTML: :border 1 :rules all :frame border
 | key | desc    | more |
 |-----+---------+------|
 | r   | Raw     | ?    |
