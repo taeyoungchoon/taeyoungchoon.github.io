@@ -4,8 +4,18 @@
 * thingk
 ** delay, moleskin first
 ** single page
+
+- with tree, branch
+
+** or lots of files
+
 * open profile
 ** profiling
+** site?
+
+- http://taeyoungchoon.github.io
+- http://about.me/taeyoungchoon
+  
 * tools & tips defines me
 ** swatch
 ** Executor
