@@ -125,151 +125,6 @@
 - 네트워크관리사
 - 정보보안기사,산업기사
 * = sep =
-* tools & tips defines me
-** swatch
-** Executor
-
-- http://www.executor.dk
-- General > Hotkey : Windows + Z
-- Indexing & cache > t:\sysinternals, index depth 0
-- Indexing & cache > t:\portableapps, index depth 2, extensions exe
-
-** AutoHotkey
-*** sample
-
-- filename : backspace.ahk
-
-#+BEGIN_SRC
-#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
-; #Warn ; Enable warnings to assist with detecting common errors.
-SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
-SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
-
-^h::
-   Send {Backspace}
-
-Capslock::Ctrl
-#+END_SRC
-
-** english
-** google
-
-- site:foo.domain something
-- image.google.com
-
-** slideshare
-** Magic SysRq Key, RSEUB > REISUB
-
-*** about key command
-
-#+ATTR_HTML: :border 1 :rules all :frame border
-| key | desc    | more |
-|-----+---------+------|
-| r   | Raw     | ?    |
-| e   | sigtErm |      |
-| i   | sigkIll |      |
-| s   | Sync    |      |
-| u   | Umount  |      |
-| b   | Boot    |      |
-
-*** enable
-
-**** shell
-
-- echo 1 > /proc/sys/kernel/sysrq
-
-**** /etc/sysctl.conf
-
-- kernel.sysrq = 1
-
-*** pre, Ctrl + Alt + F1
-
-- virtual console first
-
-*** do it
-
-**** way 1
-
-- Alt + SysRq + Key
-
-**** way 2
-
-- echo b > /proc/sysrq-trigger
-
-** freemind on any
-** firefox +firebug +yslow
-** fping -g 192.168.0.100 192.168.0.120
-** nmap -O
-
-- -O
-- -p 22,80
-- --script ssl-cert
-- 192.168.0.100-120
-
-** lsof | grep apache
-** strace -e open ls
-** dmesg -c
-** od -x foo.text
-** ls -ltr | tail -10
-** netstat -ano
-** loop
-*** watch --differences=cumulative date
-** snmp with getif
-** disk with smart then smartmontools
-** procexp, procmon, tcpview, sigcheck -vr
-** virustotal
-** redmine
-** ipconfig | findstr /i 
-** ipconfig.co.kr
-** net stats svr
-** nbtstat, net share, net use
-** arp
-** nagios
-** capistrano
-
--  cap shell
-
-** expect
-** ps aux | wc -l vs ls /proc | grep ^[0-9] | wc -l
-** ssh foo.com date
-** telnet foo.domain 25
-
-*** sample
-
-#+BEGIN_SRC
-
-helo localhost
-mail from: jack@foo.domain
-rcpt to: raul@bar.domain
-data
-.
-quit
-
-#+END_SRC
-
-** df -h, df -i
-** du -hs
-** rsync -e ssh
-
-| option | desc                            | more         |
-|--------+---------------------------------+--------------|
-| v      | verbose                         |              |
-| z      | compressor                      |              |
-| r      | recursive                       |              |
-| P      | progress                        |              |
-| h      | human                           |              |
-| e      | specify the remote shell to use | man rsync(1) |
-
-#+BEGIN_SRC
-rsync -vrz rsync-src/ /cygdrive/o/rsync-dst
-rsync -hPrz rsync-src/ /cygdrive/o/rsync-dst
-#+END_SRC
-
-** pstree
-** cp -a, cp -dpR
-** rm -i, \rm
-** cal then sar -f /var/log/sa/sa29
-** dot
 * in compute
 * hardware
 ** serial
@@ -500,3 +355,139 @@ Windows Script Host access is disabled on this machine. Contact your administrat
 ** for money
 *** ransomware, cryptoware
 - Tip of the week: How to protect yourself from cryptoware
+* tools & tips defines me
+
+** tool
+
+| some               | desc                                                       | more                         |
+|--------------------+------------------------------------------------------------+------------------------------|
+| smartmontools      |                                                            |                              |
+| UTC3.1             |                                                            |                              |
+| AutoHotkey         | Capslock::Ctrl, ^h::Send {Backspace}                       |                              |
+| Executor           | Windows + Z, Indexing & cache > index depth, extensions    | http://www.executor.dk       |
+| ScreenPrint32      |                                                            | SnippingTool.exe             |
+| freemind           |                                                            |                              |
+| CmapTools          |                                                            |                              |
+| firefox            | with firebug and yslow                                     |                              |
+| Excel File Cleaner |                                                            |                              |
+| PortableApps       |                                                            |                              |
+| putty              |                                                            | MTPuTTY                      |
+| dot                |                                                            | graphviz                     |
+| getif              | snmp                                                       |                              |
+| redmine            |                                                            |                              |
+| nagios             |                                                            |                              |
+| capistrano         | cap shell                                                  |                              |
+| swatch             |                                                            |                              |
+| Magic SysRq Key    | Alt + SysRq + REISUB, Raw sigtErm sigkIll Sync Umount Boot | echo b > /proc/sysrq-trigger |
+| cygwin             |                                                            |                              |
+| sysinternals       | procexp, procmon, tcpview, sigcheck -vr                    | http://live.sysinternals.com |
+| TrueCrypt          |                                                            |                              |
+| RDCMan             | Remote Desktop Connection Manager                          |                              |
+| Recuva             | 7.1a                                                       |                              |
+
+** site
+
+| some       | desc                      | more |
+|------------+---------------------------+------|
+| google     | site:foo.domain something |      |
+| slideshare |                           |      |
+| virustotal |                           |      |
+
+** cli for sys
+
+#+BEGIN_SRC
+ps aux | wc -l vs ls /proc | grep ^[0-9] | wc -l
+df -h, df -i
+du -hs
+lsof PIPE grep apache                                                                                                   
+strace -e open ls                                                                                                       
+dmesg -c                                                                                                                
+od -x foo.text                                                                                                          
+ls -ltr | tail -10
+watch --differences=cumulative date
+pstree
+cp -a, cp -dpR
+rm -i, \rm
+cal then sar -f /var/log/sa/sa29
+#+END_SRC
+
+** cli for net
+
+#+BEGIN_SRC
+fping -g 1.1.1.10 1.1.1.15                                                                                              
+nmap -O                                                                                                                 
+nmap -p 80,22                                                                                                           
+nmap --script ssl-cert                                                                                                  
+nmap 192.168.0.100-120                                                                                                  
+netstat -ano
+ipconfig | findstr /i 
+ipconfig.co.kr
+net stats svr
+nbtstat, net share, net use
+arp
+ssh foo.com date
+rsync -e ssh
+rsync -vrz rsync-src/ /cygdrive/o/rsync-dst
+rsync -hPrz rsync-src/ /cygdrive/o/rsync-dst
+#+END_SRC
+
+** smtp
+
+#+BEGIN_SRC
+telnet foo.domain 25
+helo localhost
+mail from: jack@foo.domain
+rcpt to: raul@bar.domain
+data
+.
+quit
+#+END_SRC
+
+** cisco
+
+- terminal length 0
+- show version
+- show clock
+- show processes cpu
+- show processes cpu history
+- show processes memory
+- show memory
+- show startup-config
+- show running-config
+- show logging
+
+- show ip interface brief
+- show interface status
+- show interface | i Giga|rate
+- show mac-address-table
+- show arp
+
+- show vlan
+- show spanning-tree
+- show spanning-tree summary
+- show spanning-tree blockedports
+
+- show cdp neighbors
+- show cdp en *
+
+- show interfaces counters
+
+- clear arp-cache
+- show tech-support
+
+- show inv
+- show env
+- show module
+
+- show ip route
+- show ip eigrp neighbors
+- show ip eigrp topology
+
+- show standby br
+
+- show ip bgp summary
+- show ip bgp neighbors
+- show ip bgp filter-list 1
+- show ip bgp paths
+- show ip bgp all
+- show route-map
