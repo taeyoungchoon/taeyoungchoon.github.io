@@ -356,7 +356,6 @@ Windows Script Host access is disabled on this machine. Contact your administrat
 *** ransomware, cryptoware
 - Tip of the week: How to protect yourself from cryptoware
 * tools & tips defines me
-  
 ** tool
 
 | some               | desc                                                       | more                         |
@@ -445,6 +444,8 @@ quit
 
 ** cisco
 
+*** level 1
+
 #+BEGIN_SRC
 terminal length 0
 show version
@@ -463,6 +464,11 @@ show interface | i Giga|rate
 show mac-address-table
 show arp
 
+#+END_SRC
+
+*** level 2
+
+#+BEGIN_SRC
 show vlan
 show spanning-tree
 show spanning-tree summary
@@ -492,4 +498,25 @@ show ip bgp filter-list 1
 show ip bgp paths
 show ip bgp all
 show route-map
+#+END_SRC
+** wsh
+
+*** disable
+
+#+BEGIN_SRC
+REG ADD "HKLM\Software\Microsoft\Windows Script Host\Settings" /v Enabled /t REG_SZ /d 0
+pause
+
+reg query "HKLM\Software\Microsoft\Windows Script Host\Settings" | findstr Enabled
+pause
+#+END_SRC
+
+*** enable
+
+#+BEGIN_SRC
+REG ADD "HKLM\Software\Microsoft\Windows Script Host\Settings" /v Enabled /t REG_SZ /d 1
+pause
+
+reg query "HKLM\Software\Microsoft\Windows Script Host\Settings" | findstr Enabled
+pause
 #+END_SRC
