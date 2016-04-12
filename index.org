@@ -1,95 +1,37 @@
 #+Title: foo
 #+Options: H:1 num:t toc:t
 
-* compute
-** think about
-
-- not computer
-- robot
-- HAL, 2001
-
-** interface
-
-- shell
-
-** infra
-*** spof
-*** proxy
-*** amazon ec2 and more
-*** monitoring
-
-- nagios
-- mon
-
-*** configration management
-
-- puppet
-- cfengine
-
-*** versioning
-
-- git vs github
-- svn
-- cvs
-
-** network
-
-- trunk, etherchannel, bonding
-- IPv6 Tunnel Broker
-
-** virus or more
-*** up2date
-
-- java
-- adobe flash
-- vaccine
-- windows
-*** vaccine
-
-**** AhnLab V3 Internet Security Process Listing
-
-***** Pure Process List
-
-| Process name | Description |
-|--------------+-------------|
-| V3Svc.exe    | Service     |
-| V3SP.exe     | Tray        |
-
-***** PA Based Process list
-
-| Process name | Description  |
-|--------------+--------------|
-| PaSvc.exe    | Policy Agent |
-| V3Svc.exe    | Service      |
-| V3SP.exe     | Tray         |
-
-*** forensics
-
-- Forensic Toolkit (FTK)
-
-*** reversing
-
-- ALZ?!
-- http://reversing.kr
-- [[http://heavyrainslab.tistory.com][악성코드와 하율파파]]
-* memo
-
-- moleskine
-- planner
-
-* cinema
-
-** pre
-
-- http://imdb.com
-- http://trailers.apple.com
 * emacs
+** basic
+** DONE korean
 
-- major, minor
+#+BEGIN_SRC
+;; language
+(set-language-environment "Korean")
+(prefer-coding-system 'utf-8)
+(setq default-input-method "korean-hangul3f")
+(global-set-key (kbd "S-SPC") 'toggle-input-method)
 
-** dot
-** list-package
-  
+;;(set-file-name-coding-system 'utf-8)
+;;(set-terminal-coding-system 'utf-8)
+;;(set-keyboard-coding-system 'utf-8)
+;;(set-selection-coding-system 'utf-8)
+;;(set-buffer-file-coding-system 'utf-8)
+
+;;(if (eq system-type 'windows-nt)
+;;  (set-file-name-coding-system 'euc-kr)
+;;  (set-w32-system-coding-system 'euc-kr)
+;;  )
+#+END_SRC
+
+** package
+
+- list-package then 'U'
+
+** org
+
+- C-c C-e
+
 ** macro
 
 | key   | desc    | alternative |
@@ -98,51 +40,119 @@
 | C-x ) | end     |             |
 | C-x e | execute | f4          |
 
-** eshell
-** org
+** graphviz-dot-mode
+** paredit
+** twittering-mode
 
-- C-c C-e
+*** init.el
+
+#+BEGIN_SRC
+(require 'twittering-mode)
+(setq twittering-use-master-password t)
+(setq twittering-timer-interval 300)
+(setq twittering-display-remaining t)
+#+END_SRC
+
+** DONE recentf-mode
+
+#+BEGIN_SRC
+;; recent open files
+(recentf-mode 1)
+        (global-set-key (kbd "<f7>") 'recentf-open-files)
+#+END_SRC
+
+** web-beautify
+** xkcd
+** xah-find
+** dictionary
+** archivements
+** undo-tree
+** DONE swap window
+   
+#+BEGIN_SRC
+(require 'ace-window)
+(global-set-key (kbd "M-s") 'ace-swap-window)
+#+END_SRC
+
+** DONE eshell
+
+#+BEGIN_SRC
+;; eshell
+(defun eshell/clear ()
+  "04Dec2001 - sailor, to clear the eshell buffer."
+  (interactive)
+  (let ((inhibit-read-only t))
+    (erase-buffer)))
+#+END_SRC
 
 ** slime
 ** tramp
-** ace-swap-window
-** resize-window
+
+#+BEGIN_SRC
+;;; tramp stuff
+(require 'tramp)
+(setq tramp-default-method "plink")
+(setq tramp-debug-buffer t)
+(setq tramp-verbose 10)
+#+END_SRC
+
+** DONE resize-window
+** DONE restart-emacs
+** elfeed
+** company
 ** select all
 
 - C-x h
 
 ** remove CR
-   
-- M-x delete-trailing-whitespace
-* book
 
-- 월든
-- 논어
+- M-x delete-trailing-whitespace
+
+* one more thing
+** music, guitar
+** cooking
+** man crypt
+** memo
+
+- moleskine
+- planner
+
+** cinema
+
+*** pre
+
+- http://imdb.com
+- http://trailers.apple.com
+
+** book
+
+- 책은 서점에서 구할 수 있다, 사야 한다, 책은 사야 하는가? 사서 옆에 두어야 하는가? 레고?
+- 도서관에 가면 새책을 볼 수 있다, 시 그리고 원서
+- 온라인에서도 디지털 폼으로도 볼 수 있다, 다소 눈이 아플뿐이다, 과연 그 정도까지?
+
+*** list
+
+- 월든 또는 walden, 거의 가방안에
+- 논어 그리고 중국어, walden 아니면 이 책이 가방안에
+- 어린왕자 그리고 프랑스어, 프랑스어 어린왕자는 집에 있다, 장식용으로 생을 마감할 것인가?
 - 21세기 자본론
-* certificate
+
+** certificate
+
 - 한국사능력검정시험
 - 컴퓨터활용능력
 - 네트워크관리사
 - 정보보안기사,산업기사
-* = sep =
-* in compute
-* hardware
-** serial
-** modem
-** usb
-*** usb2serial
-*** host
-*** nic
-**** rndis
-**** CDC-ECM
-** bios?
-** memory
-** cpu
-** disk, storage
+
+*** about language
+
+** gate
+
+- music
+- book
+- cinema
 * programming
 ** lisp on emacs or clisp
-*** list
-*** when?
 *** sample
 #+BEGIN_SRC
 
@@ -156,8 +166,6 @@
 
 #+END_SRC
 ** perl or shell script(bash or more)
-*** string
-*** cpan
 *** sample
 #+BEGIN_SRC
 
@@ -188,173 +196,11 @@ int main()
 s/\\x61/a/g
 
 #+END_SRC
-** what else?
-*** powershell
-**** sample
+** powershell
+*** sample
 #+BEGIN_SRC
 while (1) { date; sleep 3 }
 #+END_SRC
-*** ruby
-** for what?
-* security
-** layer
-*** tree
-**** cisco
-*** leaf
-* operating system
-** kinds of
-** linux
-**** kali
-**** debian
-**** android
-** windows
-*** registry
-**** at
-
-- https://msdn.microsoft.com/en-us/library/ms724877%28v=vs.85%29.aspx
-
-**** with
-
-- reg, regedit
-
-** deep
-*** process
-*** file system
-** lots of
-*** capistrano
-* malware
-** pentesting tool
-
-- Exploit pack
-- Metasploit, Armitage(GUI)
-
-** exploit kit
-*** Angler
-*** Neutrino
-** DONE ransomware
-
-http://www.rancert.com/prevent.php
-http://www.ahnlab.com/kr/site/securityinfo/ransomware/index.do
-
-*** Locky
-
-- by email, attachment file using office macro then javascript 
-- drive-by-download, Neutrino EK
-- tail : .locky
-- _Locky_recover_instructions.txt
-- Command: vssadmin.exe Delete Shadows /All /Quiet
-
-*** TeslaCrypt 3.0
-
-- tail : .mp3
-- RECOVERRmhwqb.txt
-
-*** CryptoWall
-
-- tail : .vvv
-
-*** Linux.Encoder.1 / Dr. Web
-
-- tail : .encrypted
-- [[https://labs.bitdefender.com/2015/11/linux-ransomware-debut-fails-on-predictable-encryption-key/][No need to crack RSA when you can guess the key]]
-
-*** dig
-**** even image or more
-**** office macro
-**** pdf
-
-- adobe specific javascript API
-  
-**** flash, java, silverlight
-**** javascript
-
-***** obfuscation
-
-- have to know about javascript itself
-- use sed for \x61 (a)
-
-****** lispy way
-
-1. (eval func)
-2. (cond (string eval))
-
-**** ransomware
-
-***** shellcode do something
-
-- call Crypto API
-
-***** care shadow copy
-
-- wmic shadowcopy delete
-- vssadmin delete shadows /all /quiet
-
-**** sdelete
-
-- delete key file
-
-**** GnuPG
-
-- encryption
-- or openssl
-
-** windows script host, wsh, jscript, vbs
-
-http://www.thewindowsclub.com/windows-script-host-access-is-disabled-on-this-machine
-
-#+BEGIN_SRC
-
-C:\>reg query "HKLM\Software\Microsoft\Windows Script Host\Settings"
-
-HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Script Host\Settings
-    DisplayLogo    REG_SZ    1
-    ActiveDebugging    REG_SZ    1
-    SilentTerminate    REG_SZ    0
-    UseWINSAFER    REG_SZ    1
-
-C:\tmp>REG ADD "HKLM\Software\Microsoft\Windows Script Host\Settings" /v Enabled /t REG_SZ /d 0
-
-C:\Users\see>reg query "HKLM\Software\Microsoft\Windows Script Host\Settings" | findstr Enabled
-    Enabled    REG_SZ    0
-
-C:\tmp>cscript foo.vbs
-Windows Script Host access is disabled on this machine. Contact your administrator for details.
-
-#+END_SRC
-
-** policy, whilte
-** vaccine
-*** v3
-*** Windows Defender for Windows 10 and Windows 8.1
-*** Microsoft Security Essentials for Windows7 and Windows Vista
-*** Microsoft Safety Scanner, just one time
-** defense
-*** Shadow Volume Copies then ShadowExplorer
-*** Backup
-*** inotify
-
-- Linux Malware Detect
-
-** packer, unpacker, compressor, obfuscation
-** tool
-*** gmer
-*** pestudio
-*** virustotal
-*** officecat
-*** offvis
-*** http://jsbeautifier.org/
-*** sigcheck -v
-
-- using virustotal
-
-*** sysinternals
-* key tech
-** for free, for free
-- telegram messenger
-- TLS, Transport Layer Security
-** for money
-*** ransomware, cryptoware
-- Tip of the week: How to protect yourself from cryptoware
 * tools & tips defines me
 ** tool
 
@@ -398,29 +244,32 @@ Windows Script Host access is disabled on this machine. Contact your administrat
 ps aux | wc -l vs ls /proc | grep ^[0-9] | wc -l
 df -h, df -i
 du -hs
-lsof PIPE grep apache                                                                                                   
-strace -e open ls                                                                                                       
-dmesg -c                                                                                                                
-od -x foo.text                                                                                                          
+lsof PIPE grep apache
+strace -e open ls
+dmesg -c
+od -x foo.text
 ls -ltr | tail -10
 watch --differences=cumulative date
 pstree
 cp -a, cp -dpR
 rm -i, \rm
 cal then sar -f /var/log/sa/sa29
+ntp, ntpdate
+sysstat, sar
 #+END_SRC
 
 ** cli for net
 
 #+BEGIN_SRC
-fping -g 1.1.1.10 1.1.1.15                                                                                              
-nmap -O                                                                                                                 
-nmap -p 80,22                                                                                                           
-nmap --script ssl-cert                                                                                                  
-nmap 192.168.0.100-120                                                                                                  
+fping -g 1.1.1.10 1.1.1.15
+nmap -O
+nmap -p 80,22
+nmap --script ssl-cert
+nmap 192.168.0.100-120
 netstat -ano
-ipconfig | findstr /i 
-ipconfig.co.kr
+netstat -rn
+ipconfig | findstr /i ip
+http://ipconfig.co.kr
 net stats svr
 nbtstat, net share, net use
 arp
@@ -520,3 +369,163 @@ pause
 reg query "HKLM\Software\Microsoft\Windows Script Host\Settings" | findstr Enabled
 pause
 #+END_SRC
+** anti malware
+
+#+BEGIN_SRC
+gmer
+pestudio
+officecat
+offvis
+http://jsbeautifier.org for javascript obfuscation
+Shadow Volume Copies, ShadowExplorer
+Linux Malware Detect using inotify
+Metasploit then Armitage
+#+END_SRC
+
+* compute
+** think about
+
+- not computer
+- robot
+- HAL, 2001
+
+** interface
+
+- shell
+
+** infra
+*** spof
+*** proxy
+*** amazon ec2 and more
+*** monitoring
+
+- nagios
+- mon
+
+*** configration management
+
+- puppet
+- cfengine
+
+*** versioning
+
+- git vs github
+- svn
+- cvs
+
+** network
+
+- trunk, etherchannel, bonding
+- IPv6 Tunnel Broker
+
+** virus or more
+*** up2date
+
+- java
+- adobe flash
+- vaccine
+- windows
+
+*** vaccine
+
+**** AhnLab V3 Internet Security
+
+***** Pure Process List
+
+| Process name | Description |
+|--------------+-------------|
+| V3Svc.exe    | Service     |
+| V3SP.exe     | Tray        |
+
+***** PA Based Process list
+
+| Process name | Description  |
+|--------------+--------------|
+| PaSvc.exe    | Policy Agent |
+| V3Svc.exe    | Service      |
+| V3SP.exe     | Tray         |
+
+**** Windows Defender for Windows 10 and Windows 8.1
+**** Microsoft Security Essentials for Windows7 and Windows Vista
+**** Microsoft Safety Scanner, just one time
+
+*** forensics
+
+- Forensic Toolkit (FTK)
+
+*** reversing
+
+- ALZ?!
+- http://reversing.kr
+- [[http://heavyrainslab.tistory.com][악성코드와 하율파파]]
+* ransomware general
+
+http://www.rancert.com/prevent.php
+http://www.ahnlab.com/kr/site/securityinfo/ransomware/index.do
+* kinds of ransomware
+
+** Locky
+
+- by email, attachment file using office macro then javascript
+- drive-by-download, Neutrino EK
+- tail : .locky
+- _Locky_recover_instructions.txt
+- Command: vssadmin.exe Delete Shadows /All /Quiet
+
+** TeslaCrypt 3.0
+
+- tail : .mp3
+- RECOVERRmhwqb.txt
+
+** CryptoWall
+
+- tail : .vvv
+
+** Linux.Encoder.1 / Dr. Web
+
+- tail : .encrypted
+- [[https://labs.bitdefender.com/2015/11/linux-ransomware-debut-fails-on-predictable-encryption-key/][No need to crack RSA when you can guess the key]]
+* ransomware how it works
+
+** conn
+*** even image or more
+
+*** office macro
+
+*** pdf
+
+- adobe specific javascript API
+
+*** flash, java, silverlight
+
+*** javascript
+
+**** obfuscation
+
+- have to know about javascript itself
+- use sed for \x61 (a)
+
+***** lispy way
+
+1. (eval func)
+2. (cond (string eval))
+
+** ware
+
+*** shellcode do something
+
+- call Crypto API
+
+*** care shadow copy
+
+- wmic shadowcopy delete
+- vssadmin delete shadows /all /quiet
+
+** sdelete
+
+- delete key file
+
+** GnuPG
+
+- encryption
+- or openssl
