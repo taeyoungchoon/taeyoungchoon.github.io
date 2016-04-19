@@ -559,3 +559,14 @@ https://www.youtube.com/watch?v=mVcjF5M_mKc
 - ticket
 - spof
 - pyramid
+
+* firewall > checkpoint > rule > export
+
+- using 'web visualization tool' (sk30765, sk64501)
+
+#+BEGIN_SRC
+t:
+cd t:\cpdb2web_B983000003_1
+cpdb2html.bat t:\cpdb2web_B983000003_1 output localhost ID PASSWORD -o policy-20160419_1.html
+explorer t:\cpdb2web_B983000003_1\output
+#+END_SRC
