@@ -570,3 +570,31 @@ cd t:\cpdb2web_B983000003_1
 cpdb2html.bat t:\cpdb2web_B983000003_1 output localhost ID PASSWORD -o policy-20160419_1.html
 explorer t:\cpdb2web_B983000003_1\output
 #+END_SRC
+
+* firewall > paloalto > rule > export
+
+- install xmllint
+- Device > Setup > Operations > Export : Export configration version
+- save as all.xml
+- seperate all.xml using xmllint
+
+#+BEGIN_SRC
+xmllint --xpath //config/devices/entry/vsys/entry/rulebase/security all.xml | sed -e 's!<member>!!' -e 's!<\/member>!!'  > security.xml
+
+xmllint --xpath //config/devices/entry/vsys/entry/address all.xml > address.xml
+xmllint --xpath //config/devices/entry/vsys/entry/address-group all.xml | sed -e 's!<member>!!' -e 's!<\/member>!!'  > address-group.xml
+
+xmllint --xpath //config/devices/entry/vsys/entry/service all.xml | sed -e 's!<member>!!' -e 's!<\/member>!!'  > service.xml
+xmllint --xpath //config/devices/entry/vsys/entry/service-group all.xml | sed -e 's!<member>!!' -e 's!<\/member>!!'  > service-group.xml
+
+xmllint --xpath //config/devices/entry/vsys/entry/application all.xml | sed -e 's!<member>!!' -e 's!<\/member>!!'  > application.xml
+xmllint --xpath //config/devices/entry/vsys/entry/application-group all.xml | sed -e 's!<member>!!' -e 's!<\/member>!!'  > application-group.xml
+#+END_SRC
+
+- xml to excel
+- replace space with blank
+- cell format to general
+
+** refer
+
+http://www.indeni.com/community/how-to-export-palo-alto-networks-firewalls
