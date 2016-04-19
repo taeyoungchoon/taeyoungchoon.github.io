@@ -107,50 +107,6 @@
 ** remove CR
 
 - M-x delete-trailing-whitespace
-
-* one more thing
-** music, guitar
-** cooking
-** man crypt
-** memo
-
-- moleskine
-- planner
-
-** cinema
-
-*** pre
-
-- http://imdb.com
-- http://trailers.apple.com
-
-** book
-
-- 책은 서점에서 구할 수 있다, 사야 한다, 책은 사야 하는가? 사서 옆에 두어야 하는가? 레고?
-- 도서관에 가면 새책을 볼 수 있다, 시 그리고 원서
-- 온라인에서도 디지털 폼으로도 볼 수 있다, 다소 눈이 아플뿐이다, 과연 그 정도까지?
-
-*** list
-
-- 월든 또는 walden, 거의 가방안에
-- 논어 그리고 중국어, walden 아니면 이 책이 가방안에
-- 어린왕자 그리고 프랑스어, 프랑스어 어린왕자는 집에 있다, 장식용으로 생을 마감할 것인가?
-- 21세기 자본론
-
-** certificate
-
-- 한국사능력검정시험
-- 컴퓨터활용능력
-- 네트워크관리사
-- 정보보안기사,산업기사
-
-*** about language
-
-** gate
-
-- music
-- book
-- cinema
 * programming
 ** lisp on emacs or clisp
 *** sample
@@ -381,7 +337,6 @@ Shadow Volume Copies, ShadowExplorer
 Linux Malware Detect using inotify
 Metasploit then Armitage
 #+END_SRC
-
 * compute
 ** think about
 
@@ -529,3 +484,78 @@ http://www.ahnlab.com/kr/site/securityinfo/ransomware/index.do
 
 - encryption
 - or openssl
+* one more thing
+** music, guitar
+** cooking
+** man crypt
+** memo
+
+- moleskine
+- planner
+
+** cinema
+
+*** pre
+
+- http://imdb.com
+- http://trailers.apple.com
+
+** book
+
+- 책은 서점에서 구할 수 있다, 사야 한다, 책은 사야 하는가? 사서 옆에 두어야 하는가? 레고?
+- 도서관에 가면 새책을 볼 수 있다, 시 그리고 원서
+- 온라인에서도 디지털 폼으로도 볼 수 있다, 다소 눈이 아플뿐이다, 과연 그 정도까지?
+
+*** list
+
+- 월든 또는 walden, 거의 가방안에
+- 논어 그리고 중국어, walden 아니면 이 책이 가방안에
+- 어린왕자 그리고 프랑스어, 프랑스어 어린왕자는 집에 있다, 장식용으로 생을 마감할 것인가?
+- 21세기 자본론
+
+** certificate
+
+- 한국사능력검정시험
+- 컴퓨터활용능력
+- 네트워크관리사
+- 정보보안기사,산업기사
+
+*** about language
+
+** gate
+
+- music
+- book
+- cinema
+
+** Windows XP Mode
+
+http://windows.microsoft.com/ko-kr/windows7/install-and-use-windows-xp-mode-in-windows-7
+
+1. Hardware-Assisted Virtualization Detection
+2. Download XP Mode
+3. Download Virtual PC
+** writing
+
+** SDN
+
+https://www.youtube.com/watch?v=mVcjF5M_mKc
+
+** backup
+
+- using cp, cp -dpR
+- using rsync
+- using git, github
+- nil
+
+* des
+
+- https://www.youtube.com/watch?v=kPBJIhpcZgE
+- wikipedia
+
+* kerberos
+
+- klog, kinit
+- ticket
+- spof
+- pyramid
