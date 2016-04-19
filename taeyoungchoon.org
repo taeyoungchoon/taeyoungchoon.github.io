@@ -17,3 +17,24 @@ south korea
 * life
 
 a life in one verse
+
+* symbol
+
+#+BEGIN_SRC
+두통 눈 근력 치아
+책 쓰기
+생각
+consing
+요리
+음악 기타
+컴퓨트 운영체제
+프로그래밍 리스프 C
+영화 게임 종교
+경제 정치
+걷다 walking working
+cosmos chaos
+비움
+언어 벽
+미래 과거 현재
+에이전트 이맥스 인터페이스
+#+END_SRC
