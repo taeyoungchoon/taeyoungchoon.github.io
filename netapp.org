@@ -1,0 +1,4 @@
+* netapp, netapp
+
+1. share big as enough slice
+2. then map it to the svr, two as one, raid 0

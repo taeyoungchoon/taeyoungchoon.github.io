@@ -30,3 +30,15 @@
 - vmean, vcount, vsum, vmax
 - C-c ' : new buffer
 - C-c { : debug
+
+** link
+
+- C-c C-l : create link
+- C-c C-o : open link
+
+[[shell:ls%20-ltr%20|%20grep%20foo][this is the date]]  execute shell script in here
+[[file:wiki.org][wiki]] simply
+[[elisp:(princ%20(%2B%203%203))][sum]] can run lisp code on it, elisp
+
+* is the future of the text format?!
+

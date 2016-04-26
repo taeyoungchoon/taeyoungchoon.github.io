@@ -2,3 +2,7 @@
 
 - not only body
 - body
+
+* life, a life
+
+[[file:life.org][life]]
