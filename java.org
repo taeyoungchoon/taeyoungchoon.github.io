@@ -13,3 +13,8 @@ Java HotSpot(TM) Client VM (build 20.8-b03, mixed mode, sharing)
 C:\Users\foo>
 
 #+END_VERSE
+
+* old java, get
+
+http://uni-smr.ac.ru/archive/dev/java/SDKs/sun/j2se/6/
+

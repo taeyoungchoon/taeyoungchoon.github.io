@@ -530,11 +530,12 @@ http://www.ahnlab.com/kr/site/securityinfo/ransomware/index.do
 
 ** Windows XP Mode
 
-http://windows.microsoft.com/ko-kr/windows7/install-and-use-windows-xp-mode-in-windows-7
+   http://windows.microsoft.com/ko-kr/windows7/install-and-use-windows-xp-mode-in-windows-7
 
 1. Hardware-Assisted Virtualization Detection
 2. Download XP Mode
 3. Download Virtual PC
+
 ** writing
 
 ** SDN
@@ -547,7 +548,7 @@ https://www.youtube.com/watch?v=mVcjF5M_mKc
 - using rsync
 - using git, github
 - nil
-
+  
 * des
 
 - https://www.youtube.com/watch?v=kPBJIhpcZgE

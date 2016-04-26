@@ -1,0 +1,9 @@
+* ex
+
+#+BEGIN_SRC
+   94  dnscmd ns2.t0spring.net /zoneinfo t0spring.net
+   95  dnscmd ns2.t0spring.net /zonedelete t0spring.net /f
+   97  dnscmd ns2.t0spring.net /zoneinfo t0spring.net
+   98  dnscmd ns2.t0spring.net /zoneadd t0spring.net /Secondary x.x.x.x
+   99  dnscmd ns2.t0spring.net /zoneinfo t0spring.net
+#+END_SRC
