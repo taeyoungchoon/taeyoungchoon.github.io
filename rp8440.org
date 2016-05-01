@@ -1,0 +1,14 @@
+* cpu fan fault > replace
+* npar, vpar
+
+- HP Hard Partitioning
+- Cells (a unit of processors/IO/memory) make up nPar partitions.
+
+** cli
+
+- vparstatus
+
+* is 
+
+- HP 9000 is a line of workstation and server computer systems produced by the Hewlett-Packard Company (HP). The native operating system for almost all HP 9000 systems is HP-UX, which is based on UNIX System V.
+- The R-class is simply a D-class machine packaged in a rack-mount chassis. Unlike the D-class systems, it does not support hot-plug disks.

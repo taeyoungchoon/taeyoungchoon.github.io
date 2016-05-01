@@ -1,0 +1,3 @@
+* is
+
+The HP Storageworks XP is an enterprise storage disk array sold by Hewlett-Packard using Hitachi hardware and adding their own software to it.

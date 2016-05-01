@@ -1,0 +1,6 @@
+* is
+
+- HP Storage (formerly HP StorageWorks)
+- HP StorageWorks 8400 Enterprise Virtual Array (EVA8400)
+
+* disk failure
