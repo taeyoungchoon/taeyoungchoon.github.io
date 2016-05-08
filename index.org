@@ -36,3 +36,9 @@
 * one more thing
 
 - [2016-05-01 Sun 23:30] hack the planet
+
+** list
+
+- view, emacs view the world with mode
+- list, on lisp
+- operating system, God, all in
