@@ -4,7 +4,7 @@
 - sw.co.kr , 기술자 신고, 출근일, 퇴사일, 팩스
   
 * not yet but I am
-
+  
 * Certifications
 
 - 정보처리기사 , 2003.12.8
@@ -18,6 +18,7 @@
 - IServe > folderplus
 - NWS (Next World System)
 - J2T2 > pantech
+- YLIT > pantech
 
 * I did and do as
 
@@ -82,7 +83,7 @@
 - 개발 프로젝트 진행
 
 ** 2011.11 - 2012.5 (6m) ios dev
-** 2012.5.7 - 2016.4.27 (4y) j2t2 > pantech
+** 2012.5.7 - 2016.4.30 (4y) j2t2 > pantech
 
 - 제이투이
 - 팬택계열 인프라 OS 사업
@@ -94,6 +95,20 @@
 *** 2012.9 - 2016.4.27 (3y 8m) security
 
 팬택 보안담당 , 과장
+
+- 보안 장비에 대한 운용 , 보안 솔루션 운영 (방화벽, VPN, 스팸, Network DLP, IPAM, 백신, EndPoint DLP)
+- 보안 정책 수립과 보안 대책 구현
+- 침해 사고 분석 및 대응
+
+  
+
+** 2016.5.2 - ylit > pantech , server but even secure
+
+- YLIT
+
+*** 팬택 서버담당 , 과장
+
+*** 팬택 보안담당 , 과장
 
 - 보안 장비에 대한 운용 , 보안 솔루션 운영 (방화벽, VPN, 스팸, Network DLP, IPAM, 백신, EndPoint DLP)
 - 보안 정책 수립과 보안 대책 구현
