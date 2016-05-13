@@ -3,3 +3,12 @@
 - spamsniper
 - from ms exchange
 - Fortinet's
+
+* lookup 
+
+http://mxtoolbox.com/SuperTool.aspx
+http://whatismyipaddress.com/blacklist-check
+http://korea.services.net/
+http://psky.me/check/
+http://ipconfig.co.kr/
+http://www.abuseat.org/lookup.cgi?ip=61.111.129.235
