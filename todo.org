@@ -1,0 +1,10 @@
+* todo? what then
+
+- oracle, not yet but
+- hp-ux > shell
+- aix > shell
+- storage
+- backup
+- centos
+- ms office
+- ignite

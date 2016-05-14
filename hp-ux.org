@@ -1,0 +1,14 @@
+* cli
+* shell
+
+- ksh, not bash, can it be?
+- .profile?
+- stty erase ^h
+- export EDITOR=emacs
+
+* filesystem
+* diff with linux
+* service control
+* ip address
+
+- [ ] ifconfig

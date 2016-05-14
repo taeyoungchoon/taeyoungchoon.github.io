@@ -1,0 +1,9 @@
+* kinds of
+
+hp-ux
+aix
+freebsd
+mac os x
+debian
+redhat
+centos
