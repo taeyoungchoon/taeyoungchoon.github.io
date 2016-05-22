@@ -28,3 +28,7 @@ can talk with shell to the kernel
 - PortableApps > install Firefox
 - executor > exec Firefox
 - emacs > (eshell org calendar)
+
+* or the other shell
+
+모든 것을 쉘에 담을 수는 없다, 아닌가, 모두인가? 모두 담을 수 있는가? 모든 블랙박스인가?!
