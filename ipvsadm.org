@@ -1,0 +1,4 @@
+* and more
+
+- ipvsadm, ipvs, lvs, ha, cluster? 이건 아닌데 뭐 그럴수도 뭐 그럴수도 이다
+- linux 기반 lb에서 이 툴을 사용하였다. 기억나는 말은 이거나 죽으려면 확~!

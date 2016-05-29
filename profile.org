@@ -22,6 +22,8 @@
 
 * I did and do as
 
+- perl programmer
+- system engineer
 - system administrator
 - security administrator
 
@@ -54,6 +56,9 @@
 - 30여개 회사의 문제해결 수행
 
 ** 2003.11.1? - 2010.12.10? (7y 2m) iserve
+
+- 아이서브
+
 *** 2003.11 - 2009.10 folderplus.com , infra
 
 - 인프라 운영 팀장 , 시스템 운영 팀장, 과장
@@ -62,21 +67,18 @@
 
 **** obj
 
-- over 600 servers mostly debian
-- 60g network uplink
-- 2 DIC
-- openafs based distributed storage
-- 두개 IDC에 총 600여대의 리눅스 서버 운영
+- 두개 IDC에 총 1200여대의 서버 운영, 대부분 리눅스 데비안 기반
 - 60g 업링크 구성 관리
+- OpenAFS 기반 분산 파일시스템 운용
 
 *** 2009.11 - 2010.12 tv.co.kr , service
 
 - 서비스 운영 팀장 , 사업2팀 팀장, 과장
 
 ** 2010.12 - 2011.2 (3m) personal
-
 ** 2011.3.2 - 2011.11.16 (9m) nws , dev
 
+- NWS (Next World System)
 - 웹에이전시
 - 개발팀장 대행 , 차장
 - 인력 관리
@@ -101,17 +103,11 @@
 - 침해 사고 분석 및 대응
 
   
-
 ** 2016.5.2 - ylit > pantech , server but even secure
 
 - YLIT
+- 팬택 서버담당 , 과장
 
-*** 팬택 서버담당 , 과장
 
-*** 팬택 보안담당 , 과장
-
-- 보안 장비에 대한 운용 , 보안 솔루션 운영 (방화벽, VPN, 스팸, Network DLP, IPAM, 백신, EndPoint DLP)
-- 보안 정책 수립과 보안 대책 구현
-- 침해 사고 분석 및 대응
 
   

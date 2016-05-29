@@ -1,0 +1,9 @@
+* 쓸만하다, 호 온라인에서
+* what about linux and aix and windows
+
+| os      | online os backup tool |
+|---------+-----------------------|
+| linux   |                       |
+| aix     |                       |
+| windows |                       |
+| hp-ux   | ignite                |

@@ -1,7 +1,15 @@
-* xen is not a xen too much custom
+* xen at amazon
 
-역시 무슨 말인지 모르겠다. 그리고 지금 쓰지도 않는다. 나는 말이다. 
+아마존에서 xen를 사용하는 것으로 알고 있다. 이것만? 아니면 또 무엇을!
 
-* alternative qeme and more
+* xen at citrix
 
-qemu도 말이다. 요즘 사용하는 것은 [[file:virtualbox.org][virtualbox]] 이다
+citrix는 회사다 그리고 xen x를 인수했다 지금도 그러한가?
+
+* xen alternative
+
+많다. 많다. docker도 쳐야 하나? chroot는?
+
+- qemu
+- vmware x
+- [[file:virtualbox.org][virtualbox]]

@@ -1,3 +1,9 @@
 * links
 
 https://wiki.archlinux.org/index.php/Access_Control_Lists
+
+* hmm
+
+- acl이라 cisco에서만 이야기 되는 줄
+- 아니 openafs에서만
+- 이제는 리눅스에서 기본으로? 제공은 하지만 사용율은?

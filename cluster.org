@@ -1,12 +1,40 @@
-* cluster aka utility, cloud, matrix
-* one for all and all for one
-  
-왜 일까? 이 말이 생각나는 이유는? 클론, 생명 짝짓기와의 차이는?  
-* clustered computing
+* cluster is the super computer with pvm and mpi like
 
-- free linux cluster
-- commercial cluster, on tru64 or the others ms, ..
+- 클러스터는 슈퍼컴퓨터 대용으로 사용하는 것이다
+- 기상청이나 뭐 이런 곳에서
+- 이것도 빌려쓸 수 있다는 이제는 말이죠
 
-* linuxone cluster team
+* cloud, commercial, technically utility computing, XaaY
+
+- 클라우드는 컴퓨터 자원을 빌려서 사용하는 것이다
+- 무엇을 빌려서 사용할 것이가, 컴퓨터의 무엇을 아니면 컴퓨터에 올려진 솔루션을
+- 컴퓨터를 빌려서 사용하는 개념은 아마존 ec2가 가장 대표적인라고 할 수 있다
+- 솔루션 자체를 빌려 쓰는 것은 아마존 ec2에 솔루션까지 올려서 제공하는 경우다 bitnami에 한번 가보기를
+- 참고로 저는 아마존 ec2에서 debian 깔고 회사 인프라를 스캔(nmap)하나거나 서비스 관제할 때 사용하고 했습니다
+- dropbox는 스토리지에 백업 솔루션까지 함께 제공한다고 봐야
+
+* ha is the other, tru64, sun, ms
+
+- HA는 고가용성을 위한 구성이다
+- oracle RAC도
+- 리눅스의 lvs는
+- 큰 업체마다 하나씩은 있다는
+
+* ever at the linuxone cluster team
 
 - not the HA
+- but the super computer
+
+* so, arch
+
+- 모두 저장 공간이 필요합니다. 아래 분산 파일시스템을 붙이는 것으로
+- 운영체제를 올려야 하는데 운영체제 차원부터 쪼개기 위해서 vm을 
+- 딱 여기까지면 돌려는 것까지다
+- 인프라에 대한 관리는 예술이 된다
+
+* SPSS는 딱 여기에 맞는다 
+
+- stable
+- performance
+- scale
+- secure
