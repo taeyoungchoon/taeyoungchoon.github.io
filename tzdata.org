@@ -1,0 +1,10 @@
+* cli
+
+dpkg-reconfigure tzdata
+
+* result, output
+
+root@deb01:/etc# grep -ir seoul *
+timezone:Asia/Seoul
+
+

@@ -7,3 +7,19 @@ Microsoft: Connection problems by opening iLO/iLO2 using Internet Explorer 8
 * one more thing
 
 dcv.cab ilo
+
+* cli
+
+hpilo>
+
+* version
+
+https://en.wikipedia.org/wiki/HP_Integrated_Lights-Out
+
+* IML
+
+- Access the server's IML (Integrated Management Log)
+
+* snmp trap
+
+* collect log using syslog

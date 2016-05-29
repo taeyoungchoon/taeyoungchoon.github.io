@@ -1,3 +1,8 @@
+* cli
+
 snmpget -v 1 -c public x.x.x.x sysUpTime.0
 snmpwalk -v 1 -c public x.x.x.x
 
+* trap
+
+* with ilo/IML
