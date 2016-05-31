@@ -19,6 +19,7 @@ http://bereanstechnology.com/index.php?q=node/42
 - PATH
 
 ** then
+
 - sqlplus scott/tiger@orcl
 
 ** one more thing, not just one maybe
@@ -41,6 +42,3 @@ http://bereanstechnology.com/index.php?q=node/42
 connect / as sysdba
 shutdown immediate
 startup
-* plsql? or sql
-* tools or without
-* diff with mysql or mssql or the others
