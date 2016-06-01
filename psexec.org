@@ -1,0 +1,39 @@
+* how to make it works
+
+http://stackoverflow.com/questions/828432/psexec-access-denied-errors
+http://serverfault.com/questions/8805/psexec-access-is-denied
+http://www.brandonmartinez.com/2013/04/24/resolve-access-is-denied-using-psexec-with-a-local-admin-account/
+
+reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\system /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1 /f
+
+* about share?
+
+To allow administrative share access in a workgroup for Windows
+net use \\remote\ADMIN$ /user:\userName *
+
+https://support.microsoft.com/en-us/kb/947232
+
+UAC
+File and Printer sharing
+
+* syntax
+
+psexec \\remote -u domain\user -p password ipconfig /all
+
+-i interactive 
+-s run as SYSTEM user account
+
+* psexecsvc
+
+sc.exec \\remote delete psexecsvc
+
+* accepteula
+
+psexec -accepteula -i -s \\remote -u username cmd -accepteula
+
+* to read
+
+https://en.wikipedia.org/wiki/Administrative_share
+http://www.intelliadmin.com/index.php/2007/10/the-admin-share-explained/
+http://www.wintips.org/how-to-enable-admin-shares-windows-7/
+
