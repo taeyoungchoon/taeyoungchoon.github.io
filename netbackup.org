@@ -1,0 +1,13 @@
+* status code : 800
+
+https://www.veritas.com/support/en_US/article.TECH43214
+
+NetBackup Policy Execution Manager (nbpem) 
+was unable to get the required resources from the 
+Enterprise Media Manager (EMM)
+
+/usr/openv/volmgr/bin/tpconfig -d
+
+netbackup administration console
+device monitor
+down : up drive
