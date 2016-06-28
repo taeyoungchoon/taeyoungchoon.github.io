@@ -91,3 +91,5 @@
     (format t "hello ~A" name)))
 
 (hello-again)
+
+(+ 3 3)

@@ -97,3 +97,62 @@ date
 <2014-10-16 목>
 [2014-10-16 목 18:33]--[2014-10-16 목 18:33]
 [2014-10-16 목]
+* code
+
+#+BEGIN_SRC emacs-lisp
+
+  (defun hello()
+    (print 'hello))
+
+#+END_SRC
+
+#+RESULTS:
+: hello
+
+#+BEGIN_EXAMPLE
+
+  '<e' then <TAB>
+  '<s' then <TAB>
+
+#+END_EXAMPLE
+
+
+#+BEGIN_SRC emacs-lisp
+
+(+ 3 3)
+
+#+END_SRC
+
+#+RESULTS:
+: 6
+
+#+BEGIN_SRC c
+
+  main()
+  {
+    printf("hello\n");
+  }
+
+#+END_SRC
+
+* DONE service 
+
+#+BEGIN_SRC emacs-lisp
+  '(company
+    (service)
+    (infra
+     ((conn
+       balancer
+       web-server)
+      (app
+       source
+       xm)
+      (repository
+       record
+       file)))
+    (member))
+#+END_SRC
+
+#+RESULTS:
+| company | (service) | (infra ((conn balancer web-server) (app source xm) (repository record file))) | (member) |
+
