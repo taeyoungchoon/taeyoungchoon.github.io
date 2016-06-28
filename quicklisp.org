@@ -1,23 +1,21 @@
-* site
+* cli
 
-- https://www.quicklisp.org/beta/
-- https://www.quicklisp.org/beta/faq.html
-- http://cliki.net/Quicklisp%20tutorial
--http://xach.livejournal.com/278047.html
+#+BEGIN_EXAMPLE
+  curl -O https://beta.quicklisp.org/quicklisp.lisp
+  sbcl --load quicklisp.lisp
+#+END_EXAMPLE
 
-* command
+#+BEGIN_SRC emacs-lisp
+  (quicklisp-quickstart:install)
 
-curl -O https://beta.quicklisp.org/quicklisp.lisp
-sbcl --load quicklisp.lisp
-(quicklisp-quickstart:install)
+  (ql:system-apropos "vecto")
+  (ql:quickload "vecto")
+  (ql:uninstall "vecto")
 
-(ql:system-apropos "vecto")
-(ql:quickload "vecto")
-(ql:uninstall "vecto")
+  (ql:add-to-init-file)
+  (ql:quickload "quicklisp-slime-helper")
+  (ql:update-all-dists)
+  (ql:update-client)
 
-(ql:add-to-init-file)
-(ql:quickload "quicklisp-slime-helper")
-(ql:update-all-dists)
-(ql:update-client)
-
-(ql:who-depends-on "usocket)
+  (ql:who-depends-on "usocket)
+#+END_SRC

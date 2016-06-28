@@ -1,1 +1,0 @@
-* clisp is the common lisp?

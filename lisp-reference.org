@@ -1,4 +1,0 @@
-* code
-
-http://jtra.cz/stuff/lisp/sclr/index.html
-

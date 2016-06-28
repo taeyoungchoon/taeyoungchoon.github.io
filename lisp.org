@@ -1,53 +1,31 @@
-* lisp daily
+* word
 
-(cons t nil)
-(list 1 2 3)
-'(1 2 3)
-(getf (list :name "1" :ip (list "1.1.1.1" "2.2.2.2") :o 3) :ip)
-(mapcar #'car (list (cons "1.1.1.1" "mapping") (cons "2.2.2.2" "unknown")))
+- lisp vs perl
+- emacs lisp, sbcl, clisp
+- [[file:quicklisp.org][quicklisp]], lisp's cpan
+- on emacs+slime but emacs+ielm
 
-(defun save-db (filename)
-  (with-open-file (out filename
-                   :direction :output
-                   :if-exists :supersede)
-    (with-standard-io-syntax
-      (print *db* out))))
+* have to talk
 
-* emacs lisp
+** namespace issue
 
-- 그래 이걸로 모든 것을 할 수 있을까? 
+#+BEGIN_SRC emacs-lisp
+  (defpackage :net.t0spring.t-shell (:use :common-lisp :cl-ppcre))
+  (in-package :net.t0spring.t-shell)
+#+END_SRC
+   
+* lisp snippet
 
-** and other lisp 
+#+BEGIN_SRC emacs-lisp
+  (setf w1-server '(dl360g2 ((eth0 1.1)(eth1 1.2))))
 
-- sbcl
-- clisp on "land of lisp"
+  (defun interfaces (host)
+    (mapcar #'car (nth 1 host)))
 
-* lisp why?
+  (interfaces w1-server)
+#+END_SRC
 
-- and cool syntax, haha
-- old as like perl
+#+RESULTS:
+| eth0 | eth1 |
 
-* list
 
-- cons, list
-
-* package
-
-- load using quicklisp
-
-* in-package
-
-CL-USER> (defpackage :net.t0spring.t-shell
-	   (:use :common-lisp))
-#<PACKAGE NET.T0SPRING.T-SHELL>
-CL-USER> *package*
-#<PACKAGE COMMON-LISP-USER>
-CL-USER> (in-package :net.t0spring.t-shell)
-#<PACKAGE NET.T0SPRING.T-SHELL>
-T-SHELL> *package*
-#<PACKAGE NET.T0SPRING.T-SHELL>
-T-SHELL> 
-
-T-SHELL> (defpackage :net.t0spring.t-shell
-	   (:use :common-lisp :cl-ppcre))
-#<PACKAGE NET.T0SPRING.T-SHELL>
