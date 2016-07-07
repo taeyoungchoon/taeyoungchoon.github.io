@@ -3,6 +3,7 @@
 #+BEGIN_EXAMPLE
   curl -O https://beta.quicklisp.org/quicklisp.lisp
   sbcl --load quicklisp.lisp
+  clisp -i quicklisp.lisp
 #+END_EXAMPLE
 
 #+BEGIN_SRC emacs-lisp
