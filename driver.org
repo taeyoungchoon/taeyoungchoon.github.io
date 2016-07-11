@@ -29,3 +29,7 @@ http://download.cnet.com
 * thinkpad but now lenovo
 
 gg : thinkpad x420 driver matrix
+
+* pack
+
+- 3dp
