@@ -1,3 +1,5 @@
+#+SETUPFILE: theme-readtheorg.setup
+
 * human-life
 
 #+BEGIN_SRC emacs-lisp
