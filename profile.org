@@ -102,12 +102,7 @@
 - 보안 정책 수립과 보안 대책 구현
 - 침해 사고 분석 및 대응
 
-  
 ** 2016.5.2 - ylit > pantech , server but even secure
 
 - YLIT
 - 팬택 서버담당 , 과장
-
-
-
-  
