@@ -1,0 +1,20 @@
+* list
+
+- nagios
+- monit
+- mon
+- swatch
+- cacti
+- openview
+- tivoli
+- solarwind
+- prtg
+- munin
+- opennms
+- zabbix
+
+* care about
+
+- notification of false alarm
+- easy to use
+- network, server, application such as oracle, weblogic
