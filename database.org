@@ -1,0 +1,17 @@
+* oracle database and the others even nosql type
+* oracle related one
+
+** alert.log
+
+- with syslog
+- with tail
+- with tail
+- with swatch
+** oracle internal
+
+버전은 막 나름 막 올라가는데 변화도 있을텐데 말이다 asm 뭐 그리고 뭐 말이다
+
+** adrci
+
+- since 11g
+- Automatic Diagnostic Repository Command Interpreter
