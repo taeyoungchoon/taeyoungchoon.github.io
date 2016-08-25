@@ -1,3 +1,21 @@
 * kinds of
 
 [[file:das.org][das]], [[file:san.org][san]], [[file:nas.org][nas]]
+
+* but cli
+
+- lun show -m
+- cifs shares
+- exportfs
+
+- igroup show
+
+* on linux
+
+- cat /proc/scsi/scsi
+- iscsiadm -m node
+- cat /proc/iscsi/initialname.iscsi
+
+* NetApp
+
+- Data ONtAP

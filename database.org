@@ -7,11 +7,39 @@
 - with tail
 - with tail
 - with swatch
-** oracle internal
-
-버전은 막 나름 막 올라가는데 변화도 있을텐데 말이다 asm 뭐 그리고 뭐 말이다
 
 ** adrci
 
 - since 11g
 - Automatic Diagnostic Repository Command Interpreter
+
+** lang > character set, national?
+
+https://docs.oracle.com/cd/B10500_01/server.920/a96529/ch10.htm
+
+#+BEGIN_EXAMPLE
+
+STARTUP MOUNT;
+ALTER SYSTEM ENABLE RESTRICTED SESSION;
+ALTER SYSTEM SET JOB_QUEUE_PROCESSES=0;
+ALTER SYSTEM SET AQ_TM_PROCESSES=0;
+ALTER DATABASE OPEN;
+ALTER DATABASE CHARACTER SET new_character_set;
+SHUTDOWN IMMEDIATE; -- or SHUTDOWN NORMAL; 
+STARTUP;
+
+#+END_EXAMPLE
+
+- US7ASCII
+- KO16MSWIN949
+- KO16MSWIN949
+- UTF8
+- AL32UTF8
+
+** SID
+
+** process
+
+- ps -ef |  grep pmon | grep -v grep | wc -l
+
+** oracle internal
