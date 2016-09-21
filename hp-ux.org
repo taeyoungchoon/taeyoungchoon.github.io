@@ -12,3 +12,29 @@
 * ip address
 
 - [ ] ifconfig
+
+* /var/adm/syslog/syslog.log
+
+** vmunix: Dead gateway detection can't ping the last remaining default gateway at 0xc0a80001 .See ndd -h ip_ire_gw_probe for more info
+
+# ndd -get /dev/ip ip_ire_gw_probe
+1
+# ndd -get /dev/ip ip_ire_gw_probe_interval
+180000
+# bc
+180/60
+3
+
+# ping 192.168.0.1                                                                                                                                          
+PING 192.168.0.1: 64 byte packets
+64 bytes from 192.168.0.1: icmp_seq=0. time=0. ms
+64 bytes from 192.168.0.1: icmp_seq=1. time=0. ms
+64 bytes from 192.168.0.1: icmp_seq=2. time=0. ms
+64 bytes from 192.168.0.1: icmp_seq=4. time=0. ms
+64 bytes from 192.168.0.1: icmp_seq=7. time=0. ms
+
+----192.168.0.1 PING Statistics----
+8 packets transmitted, 5 packets received, 37% packet loss
+round-trip (ms)  min/avg/max = 0/0/0
+# 
+

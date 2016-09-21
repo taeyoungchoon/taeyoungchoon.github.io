@@ -11,3 +11,42 @@ Enterprise Media Manager (EMM)
 netbackup administration console
 device monitor
 down : up drive
+
+* stop
+
+aix02:/usr/openv/netbackup/bin/goodies ]./netbackup stop
+stopping the NetBackup Service Monitor
+stopping the NetBackup Service Layer
+stopping the NetBackup compatibility daemon
+stopping the Media Manager device daemon
+stopping the Media Manager volume daemon
+stopping the NetBackup Notification Service
+
+* start
+
+aix02:/usr/openv/netbackup/bin/goodies ]./netbackup start  
+NetBackup Database Server started.
+NetBackup Notification Service started.
+NetBackup Enterprise Media Manager started.
+NetBackup Resource Broker started.
+Media Manager daemons started.
+NetBackup request daemon started.
+NetBackup compatibility daemon started.
+NetBackup Job Manager started.
+NetBackup Policy Execution Manager started.
+NetBackup Service Layer started.
+NetBackup is not configured for clustering.
+NetBackup Service Monitor started.
+
+* log
+
+/opt/openv/netbackup/logs
+/opt/openv/netbackup/logs/bpbkar
+
+* (conf verbose)
+
+/opt/openv/netbackup/bp.conf
+VERBOSE = 5
+
+
+

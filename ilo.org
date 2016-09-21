@@ -3,10 +3,14 @@
 http://blog.vmpros.nl/2009/11/17/microsoft-connection-problems-by-opening-iloilo2-using-internet-explorer-8/
 
 Microsoft: Connection problems by opening iLO/iLO2 using Internet Explorer 8
+여기서는 IP만 넣는 것이다 이것만 해서 되는 경우도 있었다 그러데
 
 * one more thing
 
 dcv.cab ilo
++ Needs to mark enable option for Active-X controls without sign
+위의 경우만으로 되지 않은 경우 사인되지 않는 active-x를 허용시켰다
+사실은 사인은 되었는데 만료되 경우다
 
 * cli
 
