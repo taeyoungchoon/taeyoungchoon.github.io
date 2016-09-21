@@ -1,0 +1,29 @@
+* using agent, puppet or cfengine?
+* infra state
+
+** level 1/2
+
+- info(disk failure)
+- warn, 80, 1h
+- error, 90, 3h(offline support)
+- critical(board failure)
+
+** ha
+
+- dual power
+- raid, storage
+
+** singler
+
+- no replica
+- no L4
+- single vpn connection
+
+** unsupported
+
+- windows 2000
+- windows 2003
+
+** monitring and trending
+
+관제가 되면 장애 시간은 줄어든다, 고객의 불평이 접수되면 그때 확인하여 장애를 접수할 것인가?
