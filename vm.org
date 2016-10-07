@@ -1,0 +1,56 @@
+* virtual machine, virtual
+
+- chroot, rescue mode, 여기서부터 시작이다, 격리 그리고 docker로 점프인가? 나머지는 기교스럽다. SDN처럼되다. code가 되다. code가 code로 control하다.
+- xen
+- qemu, interesting project
+- kvm
+- vmware
+- hyper-v
+- virtual pc
+- parallels desktop for machine
+- virtualbox, using it
+- freebsd jail
+- unknown
+- mame, Multiple Arcade Machine Emulator, emulation
+- dosbox, using it using boxer on max os x
+- docker
+- aws
+
+* full, para-(near, abnormal ex. paradox, parachute = para + chute, fall)
+* oracle virtualbox but more
+
+말없이 할 수 있는 무언가가 있다는 그리고 vagrant 그리고 openstack, cloudstack like that
+
+- [ ] VBoxManage
+- [ ] VBoxHeadless
+
+* TODO qemu but more about network
+
+qemu 그 이상이라는 느낌이다 이런 모든 것의 베이스가 되다
+cli or using virt-manager(prefer at first step or two)
+
+#+BEGIN_SRC 
+http://cdimage.debian.org/debian-cd/8.6.0/i386/iso-cd/
+try aria2 or curl -C - -L -o URL
+
+qemu-img create -f vdi deb01.vmdk 4g
+qemu-system-i386 -m 512 -cdrom debian-8.6.0-i386-netinstall.iso deb01.vmdk
+qemu-system-i386 -m 512 deb01.vmdk
+
+virsh nodeinfo
+virsh -c qemu:///system list
+virsh -c qemu:///system dominfo debian8
+virsh -c qemu:///system net-list
+virsh -c qemu:///system net-dumpxml default
+virsh -c qemu:///system dumpxml debian8
+virsh -c qemu:///system iface-list
+virsh -c qemu:///system nodedev-list
+virsh -c qemu:///system pool-list
+virsh -c qemu:///system console
+virsh -c qemu:///system pool-list
+virsh -c qemu:///system vol-list default
+virsh -c qemu:///system domstate debian8
+
+#+END_SRC
+
+
