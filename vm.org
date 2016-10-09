@@ -1,3 +1,8 @@
+* helper
+
+- vagrant
+- vagrant alternative
+
 * virtual machine, virtual
 
 - chroot, rescue mode, 여기서부터 시작이다, 격리 그리고 docker로 점프인가? 나머지는 기교스럽다. SDN처럼되다. code가 되다. code가 code로 control하다.
