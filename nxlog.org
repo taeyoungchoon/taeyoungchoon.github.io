@@ -9,3 +9,7 @@
 #+END_SRC
 
 * more using nslog.conf
+* syslog.log
+
+Oct 10 16:09:24 192.168.1.76 2016-10-10 16:09:24 cove WARNING 1 Power supply 2 has failed.
+Oct 10 16:09:24 192.168.1.76 2016-10-10 16:09:24 cove WARNING 5 The power subsystem is now in a non-redundant state.
