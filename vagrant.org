@@ -324,7 +324,6 @@ vagrant@vagrant-debian-wheezy-x64:~$ logout
 Connection to 127.0.0.1 closed.
 $ 
 
-
 * plugin
 
 $ vagrant plugin install
@@ -342,7 +341,6 @@ Usage: vagrant plugin install <name>... [-h]
                                      Install a specific version of the plugin
         --verbose                    Enable verbose output for plugin installation
     -h, --help                       Print this help
-
 
 * package
 
