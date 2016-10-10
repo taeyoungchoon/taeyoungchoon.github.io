@@ -1,0 +1,11 @@
+* simple
+
+#+BEGIN_SRC 
+<Output out>
+    Module      om_udp
+    Host        192.168.1.100
+    Port        514
+</Output>
+#+END_SRC
+
+* more using nslog.conf
