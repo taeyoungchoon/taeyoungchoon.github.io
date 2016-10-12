@@ -4,3 +4,15 @@
 2. then map it to the svr, two as one, raid 0
 
 * kinds of
+
+* and memo
+
+* NetApp filer aka NetApp Fabric-Attached Storage(FAS)
+
+- network storage appliance
+- NVRAM
+- two filers
+- Data ONTAP operating system based on FreeBSD
+- FC, iSCSI, NFS, CIFS
+- WAFL File System for NFS, CIFS
+- RAID-DP even two disk failure(28 data disks +2 parity disks)
