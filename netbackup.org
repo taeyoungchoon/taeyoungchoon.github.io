@@ -50,3 +50,22 @@ VERBOSE = 5
 
 
 
+* cli
+
+bpmedia -unfreeze -m A00001
+bpexpdate -m A00001 -d 0
+available_media
+
+tpconfig -d
+vmoprcmd
+vmoprcmd -up 0
+
+robtest
+ss
+m d1 s1
+m p1 s2
+
+bpps -a
+bpdbjobs
+bpmedialist
+
