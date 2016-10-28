@@ -1,11 +1,21 @@
+* console, putty, Xshell like that
+
+stty erase ^H (Ctrl-v then Backspace key)
+
+* emacs
+
+set to .emacs or .emacs.d/init.el
+
+(global-set-key [(control h)] 'delete-backward-char)
+
+or 
+
+(global-set-key "\C-h" 'delete-backward-char)
+
 * windows using autohotkey
 
 ^h::
    Send {Backspace}
-
-* emacs
-
-(global-set-key [(control h)] 'delete-backward-char)
 
 * hhkb lite 2
 

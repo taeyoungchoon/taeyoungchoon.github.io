@@ -1,0 +1,53 @@
+* shell env
+
+alias jcfg='cd /opt/jeus/config/`hostname`
+alias jbin='cd /opt/jeus/bin'
+alias jlog='cd /logs/jeus'
+
+* config
+
+$JEUS_HOME/bin ?
+$JEUS_HOME/config/`hostname`
+JEUSMAIN.xml
+WEBMain.xml
+EJBMain.xml
+
+* start
+
+cd /logs/jeus
+nohup jeus -xml -Uadministrator -Pxxxxx &
+jboot_pantechservice
+
+* stop
+
+jeusadmin `hostname` -Uadministrator -Pxxxxx jeusexit
+
+* jeusadmin
+
+jeusadmin `hostname`
+Login name>administrator
+Password>
+
+ja
+help
+
+allenglist
+pidlist
+downcon x_container1
+startcon x_container1
+st
+st -s
+st -m
+st -t
+st -r
+st -i 1 -k 100
+ti
+dsinfo
+
+* log
+
+$JEUS_HOME/logs/<node name>/jeusserver.log
+$JEUS_HOME/logs/<node name>/<container name>/container1.log
+$JEUS_HOME/logs/<node name>/<container name>/servlet/errorlog/error.log
+$JEUS_HOME/logs/JeusSystem/<container name>/std.log
+

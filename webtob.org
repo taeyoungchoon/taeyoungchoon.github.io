@@ -1,0 +1,37 @@
+* config
+
+at $WEBTOBDIR/config/http.m
+service type = HTML, JSV and more
+
+NODE > JSVPORT = 9900
+SVRGROUP
+SERVER
+URI
+EXT
+
+* compile config
+
+wscfl -i http.m
+ls wsconfig
+
+* start
+
+wsboot -f wsconfig
+wsboot
+
+* stop
+
+'wsdown -i' to force
+wsdown -f wsconfig
+wsdown
+
+* wsadmin
+
+ci -s
+ci
+si
+st -p
+st -s
+repeat -i -k 2 ci -s 
+$ echo ci -s | wsadmin
+$ wsadmin -C "ci -s"
