@@ -1,3 +1,12 @@
+* (kr)
+
+.login_conf
+#+BEGIN_SRC 
+me:\
+        :charset=UTF-8:\
+        :lang=ko_KR.UTF-8:
+#+END_SRC
+
 * (user)
 
 pw user mod jack -G wheel
