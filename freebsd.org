@@ -1,0 +1,51 @@
+* (user)
+
+pw user mod jack -G wheel
+groups jack
+grep wheel /etc/pam.d/su
+$ su -
+
+* (pkg init)
+
+portsnap fetch
+portsnap extract
+cd /usr/ports
+portsnap fetch update
+
+* (pkg :using pkg)
+
+pkg search lynx
+pkg install lynx
+pkg remove lynx
+
+* (pkg :using make)
+
+cd /usr/ports/sysutils/lsof
+make install clean
+make install clean BATCH=yes
+make deinstall
+
+* (network)
+
+ifconfig
+netstat -rn
+/etc/rc.conf
+ifconfig_em0="inet 192.168.0.101 netmask 255.255.255.0"
+defaultrouter="192.168.0.1"
+service netif stop/start
+service routing stop/start
+
+* (cli repo)
+
+/var/run/dmesg.boot
+gpart create -s GPT ada1
+gpart add -t freebsd-ufs -a 1M -s 1G ada1
+gpart add -t freebsd-ufs -a 1M -s 500M ada1
+gpart show ada1
+newfs -U /dev/ada1p1
+mkdir /data
+/etc/fstab
+/dev/ada1p1 /data ufs rw 2 2
+mount /data
+gpart delete -i 2 /dev/ada1
+
