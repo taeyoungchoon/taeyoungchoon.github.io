@@ -1,0 +1,38 @@
+* cli
+
+omnistat -session
+omnidb -session 2016/11/01-1 -report
+omnimm -show_pools
+omnimm -show_pools -detail
+omnimm -show_pools -detail | findstr Poor
+omnidbutil -show_cell_name
+/var/opt/omni/HealthCheck.log
+<Data_Protector_home>\log\Healthcheck.log
+omnimm -list_pools
+omnisv -status
+omnib -restart 2001/08/04-3
+omnib -abort 2001/08/04-3
+omnitrlg -stop
+omnitrlg -start
+omnisv -stop
+omnisv -start
+omnidbcheck -quick
+omnidbcheck -extended
+omnicc -check_licenses -detail
+
+* log
+
+C:\Program Files\OmniBack\log
+/var/opt/omni/
+
+* case 
+
+Faulting application rds.exe, version 6.0.653.0, faulting module libob2ecmn.DLL, version 6.20.400.0, fault address 0x00034645.
+오류 있는 응용 프로그램 rds.exe, 버전 6.0.653.0, 오류 있는 모듈 libob2ecmn.DLL, 버전 6.20.406.0, 오류 주소 0x000346c5.
+
+* memo about Velocis Daemon(RDS)
+
+- Raima Database Server
+- Velocis
+- RDM Server
+

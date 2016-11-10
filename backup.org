@@ -2,3 +2,9 @@
 * 필요한 것일까
 
 신도 백업을 할까? 선악 기준 정보를 모아둔 repository를 가지고 있을까? logrotate를 할까?
+
+* using
+
+- veritas netbackup
+- data protector
+- rsync
