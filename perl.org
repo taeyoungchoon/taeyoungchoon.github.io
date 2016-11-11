@@ -22,3 +22,7 @@ the collection of module
 
 - network
 - language
+
+* memo
+
+- [2016-11-10 Thu 21:53] 뭐 필요한 것일까? 이걸로 무엇을 할 수 있지? 해킹이라 해커라 바보라 차라리 책을 볼까? 
