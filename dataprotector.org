@@ -10,29 +10,88 @@ omnidbutil -show_cell_name
 <Data_Protector_home>\log\Healthcheck.log
 omnimm -list_pools
 omnisv -status
+
+#+BEGIN_SRC 
+C:\Documents and Settings\Administrator>omnisv -status
+    ProcName  Status  [PID]
+===============================
+    rds     : Active  [4200]
+    crs     : Active  [1572]
+    mmd     : Active  [1996]
+    kms     : Active  [2036]
+    uiproxy : Active  [1864]
+    omniinet: Active  [1692]
+    Sending of traps disabled.
+===============================
+Status: All Data Protector relevant processes/services up and running.
+#+END_SRC
+
 omnib -restart 2001/08/04-3
 omnib -abort 2001/08/04-3
 omnitrlg -stop
 omnitrlg -start
+<Data_Protector_home>\db40
 omnisv -stop
 omnisv -start
 omnidbcheck -quick
 omnidbcheck -extended
 omnicc -check_licenses -detail
 
+#+BEGIN_SRC 
+C:\Documents and Settings\Administrator>omnidbcheck -quick
+Check Level             Mode            Status
+==================================================
+Core                    -core           OK
+Filenames               -filenames      OK
+DCBF(presence and size) -bf             OK
+DONE!
+#+END_SRC
+
 * log
 
 C:\Program Files\OmniBack\log
+C:\Program Files\OmniBack\log\debug.log
+C:\Program Files\OmniBack\log\server\HealthCheck.log
 /var/opt/omni/
 
-* case 
+* case
 
 Faulting application rds.exe, version 6.0.653.0, faulting module libob2ecmn.DLL, version 6.20.400.0, fault address 0x00034645.
 오류 있는 응용 프로그램 rds.exe, 버전 6.0.653.0, 오류 있는 모듈 libob2ecmn.DLL, 버전 6.20.406.0, 오류 주소 0x000346c5.
 
-* memo about Velocis Daemon(RDS)
+DBSM.5880.5016 ["/db/vel_cls_spec.c $Rev: 1981 $ $Date:: 2009-09-11 22:41:14":134] A.06.20 b406
+VELOCIS DB ERROR [65535] internal error [-2005] Server unavailable (i.e., doesn't exist) (S_SVRUNAVAIL)
+
+GUICORE.7596.6904 ["/NewGUI/Core/omniback.cpp $Rev: 29569 $ $Date:: 2012-03-13 17:02:33":2215] A.06.20 b406
+[OB2::DbComplex] CsaWrite failed [err=1011]!
+
+MMD.1996.2000 ["/db/vel_cls_spec.c $Rev: 1981 $ $Date:: 2009-09-11 22:41:14":617] A.06.20 b406
+VELOCIS DB ERROR [3] internal error [-2009] The session is disconnected (S_SESDISCON)
+
+* case 2
+
+Error occurred while communicating with Media Management Daemon:
+Unknown internal error.
+
+Corruption in the "Catalog Database" part of the Data Protector Internal Database has been detected
+Detail Catalog Database Internal Error.
+
+* memo about Velocis Daemon
 
 - Raima Database Server
+- RDS
 - Velocis
 - RDM Server
 
+* memo about mmd
+
+- Media Manager Daemon
+
+* Internal Database
+
+- IDB
+- IDB Consistency Check
+- "Managing the Database Protector Internal Database" in the HP Data Protector Administrator's Guide
+
+* Media Management Database
+* Catalog Database

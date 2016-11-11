@@ -1,0 +1,128 @@
+* general
+
+lsps -a
+bootinfo -K
+bootinfo -r
+bootinfo -b
+bootinfo -s hdisk0
+getconf DISK_SIZE /dev/hdisk0
+
+* fs
+
+df -Pk
+df -g
+mount
+lslv hd1
+lslv -l hd1
+lsvg
+lsvg rootvg
+lsvg -l rootvg | grep hd1
+lsvg -p rootvg
+lspv
+lspv hdisk1
+lspv -l hdisk1
+lspv -p hdisk1
+
+* disk
+
+lsdev -Cc disk
+getconf DISK_SIZE /dev/hdisk1
+
+* fs extend
+
+chfs -a size=+256M -p rw /data
+
+* fs disk
+
+lspv 
+cfgmgr
+lspv
+mkvg -y newvg hdisk1
+lspv
+lsvg
+mklv -t jfs2log newlvlog newvg1
+lsvg -l newvg
+mklv -t jfs -y newlv1 newvg 69760M
+lsvg newvg
+lsvg -l newvg
+
+mkfs -o log=/dev/newlvlog -V jfs2 /dev/newlv1
+mount -o log=/dev/newlvlog -V jfs2 /dev/newlv1 /mnt
+
+rmlv newlv1
+lsvg -l newvg
+reducevg newvg hdisk1
+rmdev -h hdisk1 -d
+
+* fs mirror
+
+cfgmgr
+lspv
+extendvg rootvg hdisk1
+lspv
+mirror -m rootvg hdisk1
+lsvg -l rootvg
+bosboot -ad /dev/hdisk1
+chvg -Q n rootvg
+lsvg rootvg
+bootlist -m normal -o
+bootlist -m normal hdisk0 hdisk1
+bootlist -m normal -o
+
+unmirrorvg rootvg hdisk1
+lsvg -l rootvg
+lsvg rootvg
+reducevg rootvg hdisk1
+lspv
+rmdev -l hdisk1 -d
+lspv
+
+mklvcopy hd5 2 hdisk1
+lsvg -l rootvg
+lslv -m hd8
+lsvg -l rootvg
+syncvg -v rootvg
+
+chpv -va hdisk0
+migratepv -l datav hdisk0 hdisk1
+mklv -t sysdump -c 1 -y lg_dumplv rootvg 20
+bosboot -a
+synclvodm -Pv rootvg
+
+* net
+
+lsdev | grep -i ethernet
+entstat -d en2
+netstat -in
+netstat -rn
+
+* svc
+
+lssrc -a
+stopsrc -s sendmail
+startsrc -s sendmail
+lssrc -ls inetd | grep ftp
+cat /etc/inetd.conf | grep -v ^\#
+refresh -s inetd
+
+* dmesg
+
+alog -L
+alog -o -t boot
+alog -o -t console
+/var/adm/ras
+
+* log
+
+errpt
+/var/adm/ras/errolog
+errclear 0
+errclear 2
+
+* cfgmgr
+* hmc
+* refer
+
+http://blog.boxcorea.com/wp/archives/1234
+https://www.ibm.com/developerworks/community/blogs/powermeup/entry/aix_quick_sheet?lang=en
+http://www.unixmantra.com/2013/09/aix-listing-cpu-memory-ram-harddisks-ip-address.html

@@ -1,0 +1,52 @@
+* cli on AIX
+
+lsdev -Cc tape
+lscfg -vl rmt*
+lscfg -vpl rmt6
+mt -f /dev/rmt6 rewind
+mt -f /dev/rmt6 offline
+
+tctl -f /dev/rmt6 erase
+
+$ ls a b 
+a  b
+$ tar cvf /dev/rmt6 a
+a a 0 blocks.
+$ tar tvf /dev/rmt6
+-rw-r--r--   0 0        0 Nov 11 17:17:33 2016 a
+$ tar rvf /dev/rmt6 b
+a b 0 blocks.
+$ tar tvf /dev/rmt6
+-rw-r--r--   0 0        0 Nov 11 17:17:33 2016 a
+-rw-r--r--   0 0        0 Nov 11 17:17:42 2016 b
+
+* pax
+
+pax -w -f /dev/rmt6 a b
+pax -f /dev/rmt6
+
+* cpio
+
+ls | cpio -oc > /dev/rmt6
+cpio -civt < /dev/rmt6
+
+* backup
+
+find . -print | backup -ivf /dev/rmt6
+restore -Tvf /dev/rmt6
+restore -rvf /dev/rmt6 /somewhere
+
+* mksysb 
+
+mksysb -i /dev/rmt6
+
+* case
+
+$ mt fsf 1
+/dev/rmt0.1: The device is not ready for operation.
+
+* refer
+
+http://egloos.zum.com/sangu12/v/2764095
+https://docs.oracle.com/cd/E26925_01/html/E25882/bkupsavefiles-30.html
+http://www.unixmantra.com/2013/04/backup-commands-in-aix.html
