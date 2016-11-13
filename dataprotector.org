@@ -95,3 +95,6 @@ Detail Catalog Database Internal Error.
 
 * Media Management Database
 * Catalog Database
+* note
+
+기존에는 뭐 omni 뭐 이런 지금은 dp 뭐 이런 건가요? veritas netbackup과 구성의 차이는 amanda나 bacula도 유사한 구조를 가져갈까?

@@ -50,3 +50,6 @@ $ mt fsf 1
 http://egloos.zum.com/sangu12/v/2764095
 https://docs.oracle.com/cd/E26925_01/html/E25882/bkupsavefiles-30.html
 http://www.unixmantra.com/2013/04/backup-commands-in-aix.html
+* note
+
+[2016-11-13 Sun 13:40] 내가 태입 장치를 쓸 있이 있을까? 생각했는데 요즘은 자주 사용하고 있군요 어떻게 보면 매일 그리고 24시간에 가깝게 말입니다. 이제 테입 그 자체에 대한 이해도 필요한 느낌이군요 테입에도 파일시스템이 있을까? 백업 소프트를 이용한 사용이라 너무 감추어진 느낌입니다. mt 그리고 tar와 함께 사용하며 조금은 너 가깝게 격어볼까 합니다. 'tar cvf /dev/rmt0 data/', 'mt -f /dev/rmt0 offline' 뭐 이런 식으로 말이죠.
