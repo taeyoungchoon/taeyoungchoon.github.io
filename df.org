@@ -1,4 +1,0 @@
-* command
-
-df -h
-df -i

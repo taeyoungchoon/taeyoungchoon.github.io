@@ -1,5 +1,0 @@
-* lucy 
-
-  http://www.lucymovieintl.com/ww/
-
-* cell, consing
