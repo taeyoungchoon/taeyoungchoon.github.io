@@ -1,4 +1,0 @@
-* mc and more
-
-- mdir
-- nexusfile

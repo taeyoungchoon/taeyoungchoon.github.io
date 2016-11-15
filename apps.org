@@ -1,8 +1,0 @@
-* list
-
-firefox
-7zip
-emacs
-portableapps
-putty
-

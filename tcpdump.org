@@ -1,5 +1,0 @@
-* command
-
-#+BEGIN_SRC sh
-sudo tcpdump -i eth0 -c 3
-#+END_SRC

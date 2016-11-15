@@ -1,3 +1,0 @@
-* mmts 
-
-massive mail transfer system
