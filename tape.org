@@ -23,18 +23,20 @@ $ tar tvf /dev/rmt6
 * pax
 
 pax -w -f /dev/rmt6 a b
-pax -f /dev/rmt6
+pax -f /dev/rmt6 
 
-* cpio
+이런 tar로 볼 수도 있고 풀 수도 있군요
+뭐 반대로도 되구요
 
-ls | cpio -oc > /dev/rmt6
-cpio -civt < /dev/rmt6
+* cpio (fail)
+
+http://www.unixmantra.com/2013/04/backup-commands-in-aix.html
 
 * backup
 
 find . -print | backup -ivf /dev/rmt6
 restore -Tvf /dev/rmt6
-restore -rvf /dev/rmt6 /somewhere
+restore -rvf /dev/rmt6
 
 * mksysb 
 
