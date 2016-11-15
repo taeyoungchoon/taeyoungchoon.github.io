@@ -1,6 +1,0 @@
-* WLAN ( Wireless Local Area Network)
-* optimal using wituners?!
-* todo
-
-http://www.securedgenetworks.com/secure-edge-networks-blog/bid/84453/5-Things-You-Should-Be-Monitoring-On-Your-WLAN
-
