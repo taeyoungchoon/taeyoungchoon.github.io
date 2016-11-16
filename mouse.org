@@ -1,8 +1,0 @@
-* bad
-
-이건
-아니다 싶다
-
-* alternative
-
-[[file:trackball.org][trackball]]

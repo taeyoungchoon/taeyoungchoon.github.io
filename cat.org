@@ -1,5 +1,0 @@
-* copy
-
-cat a > b
-cat /dev/sda > /dev/sdb
-

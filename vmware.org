@@ -1,5 +1,0 @@
-* list
-
-vmware ESXi
-vmware workstation
-vmware player

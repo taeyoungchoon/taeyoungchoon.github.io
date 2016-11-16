@@ -1,9 +1,0 @@
-* buy? or free
-
-https://www.microsoft.com/en-us/windows/windows-10-upgrade
-Upgrade now
-
-** C:\$Windows.~WS\Sources
-
-big ESD extension file, Electronic Software Delivery
-include WIM(Windows IMaging)
