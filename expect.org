@@ -1,8 +1,0 @@
-* can do many things with expect
-** login with some password called h_login.exp
-*** version 1
-login with target
-try 1,2,3
-login then interact
-*** version 2
-guess the ssh or telnet
