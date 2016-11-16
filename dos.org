@@ -1,0 +1,8 @@
+* programming bat
+
+> type in.txt
+123
+
+> set /p rev=<in.txt
+> echo %rev%
+123

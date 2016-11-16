@@ -1,0 +1,7 @@
+* log include syslog and more
+* syslog
+* windows log called event log can be seen with eventvwr but more
+
+- (cons windows-log remote-syslogd :using (nxlog :charge 0))
+
+* swatch
