@@ -5,3 +5,11 @@ still used
 git로 사용하는데 이를 어쩌지
 그나마 cvs는 많이 건드리지는 않았다
 이제 보니 migration은 쉽겠죠
+
+* cli
+
+svnadmin dump myrepos > myrepos.dump
+svnadmin dump myrepos | gzip > myrepos.dump.gz
+myrepos/db/current
+svnadmin dump myrepos -r 2626 > myrepos.dump
+
