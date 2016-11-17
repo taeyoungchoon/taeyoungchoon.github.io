@@ -54,4 +54,11 @@ startup
 
 >ls -tlr $ORACLE_HOME/admin/$ORACLE_SID/bdump | tail -10
 
->tail -10 $ORACLE_HOME/admin/$ORACLE_SID/bdump/alert_$ORACLE_SID.log
+# >tail -10 $ORACLE_HOME/admin/$ORACLE_SID/bdump/alert_$ORACLE_SID.log
+>tail -10 $ORACLE_BASE/admin/$ORACLE_SID/bdump/alert_$ORACLE_SID.log
+# ALERTLOG="/oracle/PTP/saptrace/background/alert_${SERVER}.log"
+
+SQL> select value from v$parameter where name='background_dump_dest';
+SQL> show parameter background_dump_dest
+
+
