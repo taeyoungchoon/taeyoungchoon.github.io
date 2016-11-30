@@ -1,3 +1,7 @@
+* nagios and writing?
+
+what the slide? then share? called slideshare?
+
 * nagios the beginning
 
 설치하고 아마도 apt-get이나 yum으로 하게 되겠지요
