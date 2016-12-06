@@ -11,4 +11,31 @@
 * fc
 * cifs
 * nfs
+* 디스크의 죽음과 항상 함께하는 기업
 
+디스크는 크게 헤더와 플래터로 구성되어 있다.
+이 장치는 일반의 기계 장치와 마찬가지 시간이 지나면 고장이 난다.
+
+제조사에서도 제품을 출시할 때 이를 밝히고 있다.
+http://www.seagate.com/www-content/product-content/ironwolf/en-us/docs/100804010a.pdf
+
+원활하게 동작할 수 있는 온도/습도/전력을 제공하였을 때 
+어느 정도의 부하로 어느 기간 정도로 사용할 수 있다로 기술하고 있다.
+
+따라서 기업에서는 정보를 단일 디스크에 저장하지 않고
+유실될 수 있는 위험성을 감소시키기 위한 전문 업체의 솔루션/제품을 사용한다.
+
+서버의 경우는 몇 개의 디스크를 모아서 구성하는 RAID(운영체제 부분은 RAID1, 데이타 부분은 RAID5)를
+데이타베이스는 전용 스토리지(NetApp, EVA)를 구성하여 사용한다.
+
+참고
+
+http://smsinfo.tistory.com/434
+https://en.wikipedia.org/wiki/Hard_disk_drive_failure
+디스크 고장 사례 모음
+
+http://smsinfo.tistory.com/433
+디스크의 구조
+
+https://en.wikipedia.org/wiki/S.M.A.R.T.
+SMART, 디스크의 자체 모니터링 시스템

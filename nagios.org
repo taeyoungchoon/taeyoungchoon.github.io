@@ -1,6 +1,25 @@
 * nagios and writing?
 
 what the slide? then share? called slideshare?
+무엇에 대해서 기술할 수 있을까? 간단한 소개, 그리고 실 사용, 미약하겠지만 말입니다 또 실습 정도인가요
+실습은 virtualbox를 아니면 vagrant로 그리고 스크립트는 github에 올릴까? 뭐 좋은 생각이다.
+사용하지 않는 망구성 한개 그리고 구성된 두대의 가상 머신, 한대는 master 그리고 한대는 관제 대상 정도이다.
+192.168.100.101
+192.168.100.102
+192.168.100.103
+이런 형태다
+
+ping 192.168.100.1 그리고 192.168.100.254에 답변이 없으면 이 망을 구성한다.
+centos를 사용한다. 아니면 말이다. ubuntu인가? freebsd인가? 아니 centos이다. redhat 계열이다.
+master에는 nagios 관련을 yum으로 설치하고, 관제 대상도 마찬가지다.
+zeus 그리고 raul 정도로
+puppet를 사용할까? 아니면 말이다
+코드는 github에 둔다
+사실 모두다
+ping, vagrant, puppet, nagios 모두 말이다
+nrpe를 한다
+그리고 ssh도 해볼까
+netflow나 뭐 그런것도 
 
 * nagios the beginning
 
