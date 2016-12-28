@@ -10,35 +10,21 @@ https://en.wikipedia.org/wiki/Universal_Storage_Platform
 
 The Hitachi Storage Command Suite (formerly the HiCommand Storage Management Suite) provides
 
-* and cli? or the other
-* HDDR06-1B info
+* process
 
-Device Type
-DKS2D-K146FC
-
-Group
--- Spare --
-Group 2-11 (RAID5(3D1P))
-
-Device Status
-Failed
-Normal
-
-Port Status
-Normal
-
-DC-DC Converter
-
-* HDDR06-1B menu
-
-- [X] Close
-- [X] Replace
-- [X] Replace(INLINE)
-- [ ] Restore
-- [ ] Blockade
-- [X] Spare Disk
-- [ ] Restore Data
-- [X] Correction Copy
-- [X] Drive Interrupt
-- [ ] LDEV Detail
-- [X] Renewal
+1. 육안점검
+2. SVP > Modify Mode
+3. Device Status of blinking HDDR00-00 : Failed
+4. click 'Replace'
+5. Are you sure you want to replace the physical device? 'Yes'
+6. The LED of some other disk might be on.
+   Please check the location of the disk drive that you want to replace.
+   After that, please replace the disk drive and then select OK.
+   (HDDR00-00)
+7. 디스크 교체
+8. 'OK'
+9. Please insert a floppy disk for dumping information and select [OK] 'No'
+10. Are you sure want to copy data in spare device to the physical device? 'Yes'
+11. Copying data in spare device to the physical device has been started. 'OK'
+12. Replace finished. 'OK'
+13. Device Status of blinking HDDR00-00 : Copying Back(2.0%) from HDDR00-0F

@@ -1,0 +1,62 @@
+* whois 168.126.63.1
+
+$ whois 61.111.128.199
+[Querying whois.apnic.net]
+[Redirected to whois.nic.or.kr]
+[Querying whois.nic.or.kr]
+[whois.nic.or.kr]
+query : 61.111.128.199
+
+[pz2659@edu ~]$ strace -e open whois 61.111.128.199 2>&1 | grep open
+open("/etc/jwhois.conf", O_RDONLY) 
+
+$ cat /etc/jwhois.conf  | grep -v ^\# | grep 61
+        "61.0.0.0/8" = "whois.apnic.net";
+        "161.110.0.0/15" = "whois.ripe.net";
+
+-n --no-redirect
+-s --no-whoisservers , whois-server.net
+-v --verbose
+-h HOST
+-a --raw
+
+$ whois -h whois.arin.net 61.111.128.199
+[Querying whois.arin.net]
+[Redirected to whois.apnic.net]
+[Querying whois.apnic.net]
+[Redirected to whois.nic.or.kr]
+[Querying whois.nic.or.kr]
+
+$ whois -h whois.arin.net 8.8.8.8
+[Querying whois.arin.net]
+[whois.arin.net]
+
+* using perl
+
+$ perl whois.pl 168.126.63.1
+
+#
+# The following results may also be obtained via:
+# https://whois.arin.net/rest/nets;q=168.126.63.1?showDetails=true&showARIN=false&showNonArinTopLevelNet=false&ext=netref2
+
+ResourceLink:  whois.apnic.net
+ReferralServer:  whois://whois.apnic.net
+
+* dig
+
+- jwhois since 1999 and support Redirection from v2.3
+- nc -v whois.nic.or.kr 43
+
+* RIR , Regional Internet Registry
+
+- African Network Information Center (AFRINIC) , new
+- American Registry for Internet Numbers (ARIN)
+- Asia-Pacific Network Information Centre (APNIC)
+- Latin America and Caribbean Network Information Centre (LACNIC) , new
+- Réseaux IP Européens Network Coordination Centre (RIPE NCC)
+
+* LIR , Local Internet Registry
+
+- whois.nic.or.kr
+- whois.nic.uk
+- whois.nic.fr

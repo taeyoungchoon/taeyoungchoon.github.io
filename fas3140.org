@@ -1,0 +1,8 @@
+* fas3140 불량 디스크 교체 절차, spare 디스크가 나간 경우?
+
+1. 육안점검
+2. sysconfig -r
+3. 디스크교체
+4. disk show -n
+5. disk assign all
+6. sysconfig -r

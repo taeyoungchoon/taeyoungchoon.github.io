@@ -1,0 +1,108 @@
+* hp-ux's mc or hp box's mc
+
+#+BEGIN_EXAMPLE
+
+         CO: Console
+        VFP: Virtual Front Panel
+         CM: Command Menu
+      SMCLP: Server Management Command Line Protocol
+         CL: Console Log
+         SL: Show Event Logs
+         HE: Main Help Menu
+          X: Exit Connection
+
+#+END_EXAMPLE
+
+** gather hardware information using
+
+1. MP> cm
+2. MP:CM> DF -NC -ALL
+
+#+BEGIN_EXAMPLE
+
+FRU NAME: Power Supply 0 ID:0003
+
+CHASSIS INFO:
+
+BOARD INFO:
+ Product Name       : BULK POWER SUPPLY
+ S/N                : AA0000000W
+ Part Number        : 0000-1111
+
+#+END_EXAMPLE
+
+** gather PSU information using 
+
+1. MP> cm
+2. MP:CM> DF
+3. S - Specific FRU
+
+#+BEGIN_EXAMPLE
+
+      FRU IDs:
+      --------
+0000-Core I/O Board   0001-Mem Extender 0   0003-Power Supply 0
+0004-Power Supply 1   0005-I/O Assembly     0006-Display Board
+0007-Disk Backplane 0 0008-Disk Backplane 1 0009-ProcessorCarrier
+0010-Interconnect Bd  0011-Hot-Plug Board   0015-I/O Power Module
+0032-Processor 0      0033-Processor 1      0036-Processor 0 RAM
+0037-Processor 1 RAM  0128-MemExt0 DIMM0A   0129-MemExt0 DIMM1A
+0130-MemExt0 DIMM2A   0131-MemExt0 DIMM3A   0136-MemExt0 DIMM0B
+0137-MemExt0 DIMM1B   0138-MemExt0 DIMM2B   0139-MemExt0 DIMM3B
+0144-MemExt0 DIMM0C   0145-MemExt0 DIMM1C   0146-MemExt0 DIMM2C
+0147-MemExt0 DIMM3C   0152-MemExt0 DIMM0D   0153-MemExt0 DIMM1D
+0154-MemExt0 DIMM2D   0155-MemExt0 DIMM3D
+
+#+END_EXAMPLE
+
+4. Select FRU ID
+
+** system log using SL: System Event Logs
+
+1. MP> sl
+2. E - System Event
+3. T - View mode configuration - Text
+4. L - Last entry
+5. <CR>
+6. <CR>
+7. <CR>
+8. Ctrl-B to Quit
+
+** front panel using VFP: Virtual Front Panel
+
+1. MP> vfp
+2. Ctrl-B to Quit
+
+#+BEGIN_EXAMPLE
+
+LEDs    | LOCATOR     | SYSTEM      | INT. HEALTH | EXT. HEALTH | POWER
+-------------------------------------------------------------------------------
+        | ON BLUE     | FLASH AMBER | ON GREEN    | ON GREEN    | ON GREEN
+-----------------------------------------------------------------------------
+
+LEDs    | LOCATOR     | SYSTEM      | INT. HEALTH | EXT. HEALTH | POWER
+-------------------------------------------------------------------------------
+        | ON BLUE     | ON GREEN    | ON GREEN    | ON GREEN    | ON GREEN
+-----------------------------------------------------------------------------
+
+LEDs    | LOCATOR     | SYSTEM      | INT. HEALTH | EXT. HEALTH | POWER
+-------------------------------------------------------------------------------
+        | OFF         | ON GREEN    | ON GREEN    | ON GREEN    | ON GREEN
+-----------------------------------------------------------------------------
+Status  | POW:System Power on
+        | INT:Internal parts, including CPUs and Memory, and internal fans okay
+        | EXT:External fans and power supplies okay
+        | SYS:Warning or Critical Fault: Check logs for details
+-----------------------------------------------------------------------------
+
+#+END_EXAMPLE
+
+** led on and off
+
+1. MP> cm
+2. MP:CM> loc
+
+* mc, midnight commander, nc clone
+
+- alternatives such as
+- nc, mdir, emacs's dired, NexusFile, Total Commander
