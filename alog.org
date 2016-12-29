@@ -1,0 +1,5 @@
+* about aix alog
+
+alog -L
+alog -t boot -o
+alog -t console -o

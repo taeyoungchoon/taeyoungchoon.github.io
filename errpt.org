@@ -1,0 +1,24 @@
+* cli
+
+errpt
+errpt -a
+errpt -a -j 3074FEB7
+errpt -N hdisk3
+errclear 5
+errclear 0
+Usage: errlogger message
+
+* related files
+
+/dev/error
+/var/adm/ras/errlog
+
+* cli, more
+
+/usr/lib/errstop
+/usr/lib/errdemon -l
+/usr/lib/errdemon –s “2000000”
+
+* more and more using man
+
+man errdemon

@@ -53,9 +53,9 @@ http://time.ewha.or.kr/
 
 #+BEGIN_EXAMPLE
 >netstat -ano | findstr 123
-  TCP    61.111.129.238:1238    61.111.129.237:25      TIME_WAIT       0
-  TCP    61.111.129.238:3150    61.111.129.237:1235    ESTABLISHED     5456
-  UDP    61.111.129.238:123     *:*                                    1580
+  TCP    192.168.129.238:1238    192.168.129.237:25      TIME_WAIT       0
+  TCP    192.168.129.238:3150    192.168.129.237:1235    ESTABLISHED     5456
+  UDP    192.168.129.238:123     *:*                                    1580
   UDP    127.0.0.1:123          *:*                                    1580
 
 >w32tm /config /syncfromflags:manual /manualpeerlist:time.bora.net /update

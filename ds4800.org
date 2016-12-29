@@ -1,0 +1,13 @@
+* cli
+
+DS Storage Manager 11 Client on windows 7
+
+launch cygwin
+cd /cygdrive/c/Program\ Files/IBM_DS/client/
+
+./SMcli 192.168.127.36 192.168.127.37 -c 'save storageSubsystem allEvents file="event.log";'
+./SMcli 192.168.127.36 192.168.127.37 -c "show alldrives;"
+./SMcli 192.168.127.36 192.168.127.37 -c "show alllogicaldrives;"
+./SMcli 192.168.127.36 192.168.127.37 -c "show storagesubsystem healthstatus;"
+./SMcli 192.168.127.36 192.168.127.37 -c "show storagesubsystem summary;"
+
