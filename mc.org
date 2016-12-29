@@ -102,6 +102,11 @@ Status  | POW:System Power on
 1. MP> cm
 2. MP:CM> loc
 
+** power control
+
+1. MP> cm
+2. MP:CM> pe
+
 * mc, midnight commander, nc clone
 
 - alternatives such as

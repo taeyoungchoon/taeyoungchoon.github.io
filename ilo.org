@@ -19,6 +19,7 @@ hpilo>
 * version
 
 https://en.wikipedia.org/wiki/HP_Integrated_Lights-Out
+2,3,4
 
 * IML
 
