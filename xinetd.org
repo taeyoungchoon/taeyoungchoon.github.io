@@ -1,0 +1,24 @@
+* inetd > xinetd
+* /etc/xinetd.d/krb5telnet
+
+#+BEGIN_EXAMPLE
+service telnet
+{
+        flags           = REUSE
+        socket_type     = stream
+        wait            = no
+        user            = root
+        server          = /usr/kerberos/sbin/telnetd
+        log_on_failure  += USERID
+        disable         = yes
+}
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+        server          = /usr/bin/rsync
+        server          = /bin/false
+        server_args     = -e -5
+        server_args     = --daemon
+        socket_type     = dgram
+        port            = 623
+#+END_EXAMPLE

@@ -1,0 +1,6 @@
+* alias to send 'help' mail to all or them
+
+/etc/aliases
+help: custom, manage, tech
+newaliases
+
