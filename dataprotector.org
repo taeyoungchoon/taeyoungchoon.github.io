@@ -56,6 +56,8 @@ C:\Program Files\OmniBack\log\server\HealthCheck.log
 
 * case
 
+** log
+
 Faulting application rds.exe, version 6.0.653.0, faulting module libob2ecmn.DLL, version 6.20.400.0, fault address 0x00034645.
 오류 있는 응용 프로그램 rds.exe, 버전 6.0.653.0, 오류 있는 모듈 libob2ecmn.DLL, 버전 6.20.406.0, 오류 주소 0x000346c5.
 
@@ -67,6 +69,25 @@ GUICORE.7596.6904 ["/NewGUI/Core/omniback.cpp $Rev: 29569 $ $Date:: 2012-03-13 1
 
 MMD.1996.2000 ["/db/vel_cls_spec.c $Rev: 1981 $ $Date:: 2009-09-11 22:41:14":617] A.06.20 b406
 VELOCIS DB ERROR [3] internal error [-2009] The session is disconnected (S_SESDISCON)
+
+** app
+
+>omnidb -session 2016/11/22-7 -report
+Velocis daemon error - the daemon is probably not running.
+
+** solution
+
+omnisv -status
+
+#+BEGIN_EXAMPLE
+
+#+END_EXAMPLE
+
+omnisv -stop
+omnisv -start
+
+SERVICE_NAME: Velocis (ob2_40)
+DISPLAY_NAME: Data Protector RDS
 
 * case 2
 

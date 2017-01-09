@@ -48,8 +48,6 @@ NetBackup Service Monitor started.
 /opt/openv/netbackup/bp.conf
 VERBOSE = 5
 
-
-
 * cli
 
 bpmedia -unfreeze -m A00001
