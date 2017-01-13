@@ -1,0 +1,16 @@
+* and then coffee again
+
+커피 그리고 오늘이다 언제나 처럼 하루의 구성 요소는 커피를 가지고 있다 커피 그리고 moleskine이다 나는 이렇게 명상을 한다 이 명상이 있다 하루가 있다
+
+* shell but ksh or 
+
+(aix bash)
+(hp-ux bash)
+(nagios server storage)
+(xp12000 snmp syslog)
+(email spam exchage malware mx)
+(host-dlp network-dlp vpn ipam)
+(fas3120 snmp syslog)
+(apm apache php mysql)
+(tomcat)
+(daily)

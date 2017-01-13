@@ -1,0 +1,12 @@
+* then again
+
+- cough after cold
+- linux with selinux, systemd
+- tomcat?
+- php
+- webtatic
+- enterprise storage, netapp
+- oracle database, sql? internal!
+- vm, virtualbox with vagrant
+- unix-like, AIX, HP-UX
+- lisp and perl

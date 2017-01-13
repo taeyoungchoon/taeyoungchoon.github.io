@@ -1,0 +1,41 @@
+* note
+
+어느 덧이다
+어느 덧이다
+2015년 그리고 이제 12월이다
+시간의 개념 속에 많은 것이 함께 녹아 들어간다
+
+* list of stuff
+
+** job
+
+- hacker?
+- security specialist?!
+
+** tools
+
+- lisp
+- emacs
+- linux
+
+** concept
+
+- hack?
+
+** pure body
+
+- can't be called as stuff but the thing
+
+** certified
+
+- how?
+
+** lingua franka
+
+- korean
+- english
+- and some more
+
+** scheduling
+
+- what about today?
