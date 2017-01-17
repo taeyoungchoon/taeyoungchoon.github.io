@@ -89,6 +89,8 @@ omnisv -start
 SERVICE_NAME: Velocis (ob2_40)
 DISPLAY_NAME: Data Protector RDS
 
+services.msc > Data Protector RDS : start
+
 * case 2
 
 Error occurred while communicating with Media Management Daemon:

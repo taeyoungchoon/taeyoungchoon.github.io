@@ -1,0 +1,4 @@
+* my ip, 169.254.0.1 ~ 169.254.255.254
+
+- fail to set static address
+- fail to obtain address from DHCP server
