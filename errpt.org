@@ -7,6 +7,9 @@ errpt -N hdisk3
 errclear 5
 errclear 0
 Usage: errlogger message
+errpt -c
+errpt > /tmp/errpt.YYYYMMDD
+errpt -a > /tmp/errpt-a.YYYYMMDD
 
 * related files
 
