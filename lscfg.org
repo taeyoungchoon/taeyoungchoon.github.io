@@ -2,3 +2,4 @@
 
 lscfg -pv | grep -p PAN
 lscfg -pv | grep -p P2-C4
+

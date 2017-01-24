@@ -1,0 +1,19 @@
+* hardware management console
+
+** service focal point 
+
+- manage serviceable events
+- service utilities > launch ASM Menu > admin / admin
+- install/add/remove hardware
+- exchage parts
+
+* case, exchange control panel
+
+1. service utilities > launch ASM Menu > admin / admin
+2. concurrent maintenance > control panel > action : remove
+
+* case, care event
+
+1. manage serviceable events
+2. last reported time
+3. repair
