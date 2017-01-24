@@ -1,6 +1,20 @@
+* simply
+
+su - tmax
+wsdown
+wsboot
+
+* real
+
+>alias | grep WEBTOBDIR
+alias wbin='cd $WEBTOBDIR/bin'
+alias wcfg='cd $WEBTOBDIR/config'
+alias wlic='cd $WEBTOBDIR/license'
+alias wlog='cd $WEBTOBDIR/log'
+
 * config
 
-at $WEBTOBDIR/config/http.m
+cat $WEBTOBDIR/config/http.m
 service type = HTML, JSV and more
 
 NODE > JSVPORT = 9900

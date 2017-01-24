@@ -1,3 +1,28 @@
+* simply
+
+su - tmax
+jdown
+jboot
+
+* real
+
+>cat jboot
+jeus -Uadministrator -Pjeusadmin &
+
+>cat jdown
+jeusadmin `hostname` -Uadministrator -Pjeusadmin jeusexit
+
+>cat ja
+jeusadmin `hostname` -Uadministrator -Pjeusadmin
+
+>alias | grep JEUS_HOME
+alias c1log='tail -f $JEUS_HOME/logs/`hostname`/`hostname`_container1/`hostname`_container1_`date +%Y%m%d`.log'
+alias jbin='cd $JEUS_HOME/bin'
+alias jcfg='cd $JEUS_HOME/config/`hostname`'
+alias jlic='cd $JEUS_HOME/license'
+alias jlog='cd $JEUS_HOME/logs/`hostname`'
+alias tlog='tail -f $JEUS_HOME/logs/`hostname`/JeusServer_`date +%Y%m%d`.log'
+
 * shell env
 
 alias jcfg='cd /opt/jeus/config/`hostname`
@@ -16,7 +41,7 @@ EJBMain.xml
 
 cd /logs/jeus
 nohup jeus -xml -Uadministrator -Pxxxxx &
-jboot_pantechservice
+jboot_xxxservice
 
 * stop
 
@@ -50,4 +75,3 @@ $JEUS_HOME/logs/<node name>/jeusserver.log
 $JEUS_HOME/logs/<node name>/<container name>/container1.log
 $JEUS_HOME/logs/<node name>/<container name>/servlet/errorlog/error.log
 $JEUS_HOME/logs/JeusSystem/<container name>/std.log
-

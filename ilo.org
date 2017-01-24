@@ -14,7 +14,28 @@ dcv.cab ilo
 
 * cli
 
-hpilo>
+</>hpiLO->
+</>hpiLO-> cd /system1/log1
+</system1/log1>hpiLO-> show
+
+show /system1/log1 — Displays system event log.
+show /map1/log1 — Displays the iLO 2 event log.
+show /system1/log1/recordn
+show /map1/log1/recordn
+
+delete /system1/log1
+Integrated Management Log (SEL) cleared.
+
+delete /map1/log1
+iLO 2 event log cleared.
+
+from 
+
+HP Integrated Lights-Out Management Processor
+Scripting and Command Line Resource Guide
+for HP Integrated Lights-Out 2 version 2.00 
+
+* cli with expect
 
 * version
 
