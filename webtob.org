@@ -43,9 +43,10 @@ wsdown
 
 ci -s
 ci
-si
-st -p
-st -s
+si : service info
+st -p : process
+st -s : service
 repeat -i -k 2 ci -s 
 $ echo ci -s | wsadmin
 $ wsadmin -C "ci -s"
+ps -ef | egrep "hth|wsm|htl"

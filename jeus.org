@@ -64,9 +64,9 @@ st
 st -s
 st -m
 st -t
-st -r
+st -r : request
 st -i 1 -k 100
-ti
+ti : thread info
 dsinfo
 
 * log

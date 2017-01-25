@@ -1,0 +1,4 @@
+* term
+
+- scsi terminator
+- scsi id

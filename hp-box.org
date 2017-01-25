@@ -1,0 +1,14 @@
+* term
+
+- power supply
+- PS1, PS2
+- over temp
+- DIMMS
+- PROC
+- AMP status
+- FANS
+- mirror
+- online spare
+- ppm
+- interlock
+- system event log
