@@ -1,6 +1,0 @@
-* hangul
-
-한글 파일명이라
-
-(set-file-name-coding-system 'cp949-dos)
-
