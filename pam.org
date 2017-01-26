@@ -1,0 +1,12 @@
+* pam? Pluggable Authentication Module
+
+그런데 그 시작은 UNIX?!
+사실 모든 것이 말이다
+모든 것이
+이제는 모든 것은 아니게 되었지만
+씨앗과도 같다
+
+* cli?
+
+어떻게 사용하지
+매일 사용하지만 ^^;

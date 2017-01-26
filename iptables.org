@@ -1,0 +1,13 @@
+* history
+
+- ipfwadm
+- ipchains since 2.2
+- iptables since 2.4
+- nftables since 3.13 (19 January 2014)
+
+* cli
+
+iptables -nL
+
+-n, --numeric
+-L, --list
