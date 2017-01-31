@@ -1,0 +1,22 @@
+* so
+
+설이다 구정이라고 한다
+4번, 눈,
+
+(setf this-year 2017)
+(setf f (1+ (- this-year 1976)))
+(setf s (+ (- this-year 2000) 1))
+(setf m (+ f 1))
+(setf gm (+ m 30))
+(setf gf (+ gm 7))
+
+(with-open-stream (st (run-program "date" :arguments '("+%Y") :output :stream))
+	   (let* ((this-year (read st))
+		  (f (1+ (- this-year 1976)))
+		  (s (1+ (- this-year 2000)))
+		  (m (1+ f))
+		  (gm (+ m 30))
+		  (gf (+ gm 7)))
+	     (format nil "~a ~a ~a ~a ~a" gf gm f m s)))
+
+"80 73 42 43 18"
