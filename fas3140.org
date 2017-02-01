@@ -6,3 +6,15 @@
 4. disk show -n
 5. disk assign all
 6. sysconfig -r
+
+* takeover and giveback
+
+rdfile /etc/messages
+partner
+cf giveback
+cf status
+
+* word
+
+- HA pair
+- takeover and giveback

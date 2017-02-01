@@ -12,3 +12,13 @@
 - ppm
 - interlock
 - system event log
+
+* raid
+
+** hpacucli
+
+ctrl all show config
+ctrl all show status
+controller all show status
+
+
