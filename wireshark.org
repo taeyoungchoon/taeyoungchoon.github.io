@@ -1,0 +1,8 @@
+* capture filter is not display filter
+* with lua?!
+* sample captures
+
+https://wiki.wireshark.org/SampleCaptures
+teardrop
+
+and more but not enough
