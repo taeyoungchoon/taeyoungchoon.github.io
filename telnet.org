@@ -1,0 +1,10 @@
+* cli 
+
+** install 
+
+pkgmgr /iu:"TelnetClient"
+
+** uninstall
+
+pkgmgr /uu:"TelnetClient"
+

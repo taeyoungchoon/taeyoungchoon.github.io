@@ -1,0 +1,21 @@
+* cli
+
+#+BEGIN_EXAMPLE
+
+$ umask; umask -S
+0000
+u=rwx,g=rwx,o=rwx
+$ mkdir d1 d2 d3; touch f1 f2 f3
+$ ls -l
+total 12
+drwxrwxrwx 2 sysman sysman 4096 Feb  1 17:31 d1
+drwxrwxrwx 2 sysman sysman 4096 Feb  1 17:31 d2
+drwxrwxrwx 2 sysman sysman 4096 Feb  1 17:31 d3
+-rw-rw-rw- 1 sysman sysman    0 Feb  1 17:31 f1
+-rw-rw-rw- 1 sysman sysman    0 Feb  1 17:31 f2
+-rw-rw-rw- 1 sysman sysman    0 Feb  1 17:31 f3
+$
+
+#+END_EXAMPLE
+
+파일은 x(executable, 실행 속성)은 제거되고 만들어 진다.
