@@ -1,0 +1,9 @@
+* list
+
+ciphertext only attack, COA
+known plaintext attack, KPA
+chosen plaintext attack, CPA
+chosen ciphertext attack, CCA
+
+https://en.wikipedia.org/wiki/Attack_model
+

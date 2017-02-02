@@ -1,0 +1,20 @@
+* file format
+
+#+BEGIN_EXAMPLE
+
+wheel:*:0:root
+daemon:*:1:root
+kmem:*:2:root
+sys:*:3:root
+tty:*:4:root
+operator:*:5:root
+procview:*:8:root
+procmod:*:9:root
+staff:*:20:root
+certusers:*:29:root,_jabber,_postfix,_cyrus,_calendar,_dovecot
+admin:*:80:root
+daemon:*:1:root
+
+#+END_EXAMPLE
+
+group:password:gid:member
