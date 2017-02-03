@@ -1,0 +1,6 @@
+* list of
+
+- solaris
+- freebsd
+- hp-ux
+- aix

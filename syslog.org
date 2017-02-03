@@ -1,0 +1,6 @@
+* files
+
+- /etc/syslog.conf
+- /var/log/syslog.log
+
+* configure?

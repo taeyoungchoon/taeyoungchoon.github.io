@@ -1,0 +1,11 @@
+* list
+
+secure
+wtmp
+btmp
+maillog
+messages
+
+* list but unix
+
+sulog

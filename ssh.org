@@ -1,0 +1,60 @@
+* list
+
+- /etc/ssh/sshd_config
+- /etc/ssh/ssh_config
+
+- ~/.ssh/known_hosts
+- ~/.ssh/authorized_keys
+
+* ssh-keygen
+
+- $HOME/.ssh/id_rsa
+- $HOME/.ssh/id_rsa.pub
+- $HOME/.ssh/id_dsa
+- $HOME/.ssh/id_dsa.pub
+
+* ssh-copy-id
+
+#+BEGIN_EXAMPLE
+
+$ ssh-copy-id user@192.168.0.101
+
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+
+$ cat ~/.ssh/id_rsa.pub | ssh user@192.168.0.100 "mkdir -p ~/.ssh && cat >>  ~/.ssh/authorized_keys"
+
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+
+$ scp ~/.ssh/id_dsa.pub user@192.168.0.100:.ssh/id_dsa.pub
+
+#+END_EXAMPLE
+
+* authorized_keys vs authorized_keys2
+
+* ssh-agent
+
+#+BEGIN_EXAMPLE
+
+$ eval "$(ssh-agent -s)"
+$ ssh-add ~/.ssh/id_rsa
+
+#+END_EXAMPLE
+
+* ssh -i
+
+#+BEGIN_EXAMPLE
+
+$ ssh -i ~/.ssh/id_rsa user@192.168.0.101
+
+#+END_EXAMPLE
+
+* configure
+
+Port 29
+PermitRootLogin no
+AllowUsers jack raul
+AllowGroupss wheel

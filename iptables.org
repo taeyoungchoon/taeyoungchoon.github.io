@@ -11,3 +11,9 @@ iptables -nL
 
 -n, --numeric
 -L, --list
+
+#+BEGIN_EXAMPLE
+
+$ iptables 
+
+#+END_EXAMPLE
