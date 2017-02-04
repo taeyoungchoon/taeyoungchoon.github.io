@@ -8,3 +8,7 @@
 
 set uid
 set gid
+
+chmod u+s foo
+chmod g+s bar
+chmod o+t see

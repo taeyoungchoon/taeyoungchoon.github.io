@@ -1,0 +1,4 @@
+* NTFS, New Technology File System
+
+- File Allocation Table (FAT) 
+

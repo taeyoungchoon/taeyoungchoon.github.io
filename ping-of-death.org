@@ -1,0 +1,11 @@
+* why
+
+A correctly-formed ping packet is typically 56 bytes in size, 
+or 64 bytes when the Internet Protocol header is considered. 
+However, any IPv4 packet (including pings) may be as large as 65,535 bytes. 
+
+* ping of death > (ping-flood smurf fraggle)
+
+ping-of-death : ping but big payload
+smurf : icmp, victim's spoofed source IP are broadcast to a computer network using an IP broadcast address
+fraggle : smurf way but using udp ports 7 (echo) and 19 (chargen) 

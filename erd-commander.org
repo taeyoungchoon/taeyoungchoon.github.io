@@ -1,0 +1,6 @@
+* ERD Commander in MSDaRT
+
+- Microsoft Diagnostics and Recovery Toolset (MSDaRT) 
+- Emergency Repair Disk (ERD)
+- The Locksmith wizard can be used to list the local user accounts and change passwords.
+

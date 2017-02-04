@@ -1,0 +1,2 @@
+* Nikto Web Scanner is a Web server scanner that tests Web servers
+

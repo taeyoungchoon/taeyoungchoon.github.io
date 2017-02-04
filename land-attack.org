@@ -1,0 +1,35 @@
+* LAND Attack
+
+In a DoS land (Local Area Network Denial) attack, 
+the attacker sends a TCP SYN spoofed packet 
+where source and destination IPs and ports are set to be identical. 
+
+When the target machine tries to reply, 
+it enters a loop, repeatedly sending replies to itself 
+which eventually causes the victim machine to crash.
+
+https://www.imperva.com/Resources/Glossary?term=land_attacks
+
+http://www.cert.org/historical/advisories/CA-1997-28.cfm
+
+IP Denial-of-Service Attacks
+
+Original issue date: December 16, 1997
+
+Any remote user that can send spoofed packets to a host can crash or "hang" that host.
+
+http://www.securityfocus.com/archive/1/392354
+
+Windows Server 2003 and XP SP2 LAND attack vulnerability Mar 05 2005 06:17PM
+
+Results:
+Sending single LAND packet to file server 
+causes Windows explorer freezing on all workstations currently connected to the server. 
+CPU on server goes 100%. 
+Network monitor on the victim server sometimes can not even sniff malicious packet. 
+Using tcpreplay to script this attack results in total collapse of the network.
+
+
+* simulate
+
+http://security.stackexchange.com/questions/91170/how-to-simulate-network-attacks-and-use-wireshark-to-detect-them

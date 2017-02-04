@@ -1,0 +1,10 @@
+http://imgcomputer.blogspot.kr/2012/08/network-hacking-and-security.html
+
+mscan (1998 released in June) and sscan (1999 announced in January)
+
+- Mscan
+By scanning the entire domain within its domain wingate, test-cgi, NFS exports, statd, named, ipopd, imapd, etc. which is widely used recent major vulnerability is a hacking tool that can be scanned at once.
+
+- Sscan
+mscan compared to a very powerful network security vulnerability assessment capabilities, and vulnerability to attack may be set to perform hacking script.
+
