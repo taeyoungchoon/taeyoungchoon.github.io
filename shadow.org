@@ -1,15 +1,8 @@
-* name chage
+* for example
 
-(cons change age)
-
-* man chage
-* cli, list
-
-chage -l
-
-** force a user to change password at the next login
-
-chage -d 0 jack
+root:!:15597:0:99999:7:::
+daemon:*:15597:0:99999:7:::
+vagrant:cIVTa55l0:15597:0:99999:7:::
 
 * syntax
 
@@ -31,11 +24,14 @@ vagrant:$6$aqzOtgCM$OxgoMP4JoqMJ1U1F3MZPo2iBefDRnRCXSfgIM36E5cfMNcE7GcNtH1P/tTC2
 
 #+END_EXAMPLE
 
-| opt | desc     |     more |
-|-----+----------+----------|
-| -m  | min      |          |
-| -M  | max      |          |
-| -W  | warn     |          |
-| -E  | expire   | 2027-1-1 |
-| -I  | inactive |          |
-| -d  | date     | 2017-1-1 |
+vagrant : ciScIVTa55l0 : 17167 : 0 : 90 : 7 : 30 : 20819 :
+
+vagrant : user name
+ciScIVTa55l0 : (crypt password)
+17167 : last day of password change, 2017-1-1
+0 : min
+90 : max, will be 2017-4-1
+7 : warning, will be 2017-3-23
+30 : inactive, will be 2017-5-1
+20819 : expiration date will be 2027-1-1
+

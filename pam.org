@@ -1,12 +1,16 @@
 * pam? Pluggable Authentication Module
+* conf, /etc/pam.d/login and others
 
-그런데 그 시작은 UNIX?!
-사실 모든 것이 말이다
-모든 것이
-이제는 모든 것은 아니게 되었지만
-씨앗과도 같다
+# Sets up user limits according to /etc/security/limits.conf
+# (Replaces the use of /etc/limits in old login)
+session    required   pam_limits.so
 
-* cli?
+# Prints the last login info upon succesful login
+# (Replaces the `LASTLOG_ENAB' option from login.defs)
+session    optional   pam_lastlog.so
 
-어떻게 사용하지
-매일 사용하지만 ^^;
+# Prints the motd upon succesful login
+# (Replaces the `MOTD_FILE' option in login.defs)
+session    optional   pam_motd.so
+
+* man pam_motd > /etc/update-modtd.d/*

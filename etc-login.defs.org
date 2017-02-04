@@ -1,0 +1,65 @@
+* /etc/login.defs - Configuration control definitions for the login package.
+
+/etc/login.defs > /etc/pam.d/login
+
+# Prints the motd upon succesful login
+# (Replaces the `MOTD_FILE' option in login.defs)
+
+# Outputs an issue file prior to each login prompt (Replaces the
+# ISSUE_FILE option from login.defs). Uncomment for use
+# auth       required   pam_issue.so issue=/etc/issue
+
+# Disallows root logins except on tty's listed in /etc/securetty
+# (Replaces the `CONSOLE' setting from login.defs)
+
+* rel
+
+$ dpkg -S /etc/login.defs  
+login: /etc/login.defs
+
+$ dpkg -L login | grep bin
+/bin
+/bin/login
+/bin/su
+/usr/sbin
+/usr/sbin/nologin
+/usr/bin
+/usr/bin/faillog
+/usr/bin/lastlog
+/usr/bin/newgrp
+/usr/bin/sg
+
+$ dpkg -L login | grep etc
+/etc
+/etc/pam.d
+/etc/pam.d/login
+/etc/pam.d/su
+/etc/login.defs
+/etc/securetty
+
+* conf
+
+MAIL_DIR        /var/mail
+FTMP_FILE	/var/log/btmp
+ENV_PATH	PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
+UMASK		022
+PASS_MAX_DAYS	99999
+PASS_MIN_DAYS	0
+PASS_WARN_AGE	7
+LOGIN_RETRIES		5
+LOGIN_TIMEOUT		60
+ENCRYPT_METHOD SHA512
+
+* strace
+
+$ strace -e open login  
+open("/lib/x86_64-linux-gnu/libpam.so.0", O_RDONLY|O_CLOEXEC) = 3
+open("/var/run/utmp", O_RDONLY|O_CLOEXEC) = 3
+open("/etc/login.defs", O_RDONLY)       = 3
+open("/etc/pam.d/login", O_RDONLY)      = 3
+open("/etc/pam.d/common-auth", O_RDONLY) = 
+open("/etc/pam.d/common-account", O_RDONLY) = 4
+open("/etc/pam.d/common-session", O_RDONLY) = 4
+open("/etc/pam.d/common-password", O_RDONLY) = 4
+open("/etc/pam.d/common-session", O_RDONLY) = 4
+precise64 login: 
