@@ -1,0 +1,59 @@
+* cli
+
+sudo apt-get update
+sudo apt-get install tripwire
+
+passphrase?! 
+
+sudo twadmin --create-polfile /etc/tripwire/twpol.txt
+sudo tripwire --init
+sudo tripwire --check
+
+twadmin --print-polfile > /tmp/twpol.txt
+jmacs /tmp/twpol.txt
+sudo twadmin --create-polfile -S /etc/tripwire/site.key /tmp/twpol.txt
+sudo tripwire --init
+sudo tripwire --check
+
+* note
+
+twpol.txt have to be modified based on your (env (os (debian redhat)))
+
+* config
+
+#+BEGIN_EXAMPLE
+
+(
+  rulename = "Root config files",
+  severity = 100
+)
+{
+        /root                           -> $(SEC_CRIT) ; # Catch all additions to /root
+        /root/.bashrc                   -> $(SEC_CONFIG) ;
+        /root/.bash_logout              -> $(SEC_CONFIG) ;
+        /root/.bash_history             -> $(SEC_CONFIG) ;
+}
+
+#+END_EXAMPLE
+
+* output
+
+#+BEGIN_EXAMPLE
+
+===============================================================================
+Object Summary: 
+===============================================================================
+
+-------------------------------------------------------------------------------
+# Section: Unix File System
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+Rule Name: Root config files (/root/.bash_logout)
+Severity Level: 100
+-------------------------------------------------------------------------------
+
+Added:
+"/root/.bash_logout"
+
+#+END_EXAMPLE

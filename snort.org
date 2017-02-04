@@ -1,0 +1,47 @@
+* naming? snort? but intrusion detection system
+* config, /etc/snort.conf /etc/snort/rules/icmp.rules
+
+#+BEGIN_EXAMPLE
+
+alert icmp $EXTERNAL_NET any -> $HOME_NET any 
+(
+msg:"ICMP Broadscan Smurf Scanner"; 
+dsize:4; 
+icmp_id:0; 
+icmp_seq:0; 
+itype:8; 
+classtype:attempted-recon; 
+sid:478; 
+rev:3;
+)
+
+#+END_EXAMPLE
+
+* /var/log/snort/alert
+
+#+BEGIN_EXAMPLE
+
+$ ls -tlr
+total 16
+-rw-r-----. 1 snort adm 2180 Feb  4 07:20 tcpdump.log.1486183943
+-rw-r-----. 1 snort adm  628 Feb  4 08:08 tcpdump.log.1486195078
+-rw-r--r--. 1 root  adm 4169 Feb  4 08:08 alert
+
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+
+[**] [1:527:8] BAD-TRAFFIC same SRC/DST [**]
+[Classification: Potentially Bad Traffic] [Priority: 2] 
+02/04-07:58:02.294023 0.0.0.0:68 -> 255.255.255.255:67
+UDP TTL:128 TOS:0x10 ID:0 IpLen:20 DgmLen:328
+Len: 300
+[Xref => http://www.cert.org/advisories/CA-1997-28.html][Xref => http://cve.mitre.org/cgi-bin/cvename.cgi?name=1999-0016][Xref => http://www.securityfocus.com/bid/2666]
+
+[**] [1:100000160:2] COMMUNITY SIP TCP/IP message flooding directed to SIP proxy [**]
+[Classification: Attempted Denial of Service] [Priority: 2] 
+02/04-08:00:09.885489 10.0.2.2:51032 -> 10.0.2.15:22
+TCP TTL:64 TOS:0x0 ID:4050 IpLen:20 DgmLen:40
+***A**** Seq: 0x3E3FA227  Ack: 0x3ACE2887  Win: 0xFFFF  TcpLen: 20
+
+#+END_EXAMPLE
