@@ -1,0 +1,3 @@
+* web beacon, web bug, tracking bug, tag, page tag
+* tracking pixel, pixel tag, 1x1 gif, clear gif
+* javascript tag

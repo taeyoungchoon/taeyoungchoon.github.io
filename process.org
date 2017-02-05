@@ -1,0 +1,10 @@
+* layer
+
+| layer | desc                  |
+|-------+-----------------------|
+| stack | automatic variables   |
+| heap  | malloc, realloc, free |
+| data  |                       |
+| text  | code                  |
+
+http://www.geeksforgeeks.org/memory-layout-of-c-program/

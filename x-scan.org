@@ -1,0 +1,4 @@
+* is, network vulnerability scanner
+
+x-scan is a general network vulnerabilities scanner for scanning network vulnerabilities for specific IP address scope or stand-alone computer by multi-threading method. Plug-ins are supportable and GUI or CUI programs are separately provided.
+

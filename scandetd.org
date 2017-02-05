@@ -1,0 +1,3 @@
+* is 
+
+Scandetd do not listen to specific port - it uses raw socket. Scandetd's aim is to inform via syslog or email - it will never block any IP via tcpwrapper or firewall rules. IMHO such behaviour can lead to DOS attacks 

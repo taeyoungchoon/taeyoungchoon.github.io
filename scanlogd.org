@@ -1,0 +1,3 @@
+* is
+
+scanlogd is a TCP port scan detection tool, originally designed to illustrate various attacks an IDS developer has to deal with, for a Phrack Magazine article. Thus, unlike some of the other port scan detection tools out there, scanlogd is designed to be totally safe to use.
