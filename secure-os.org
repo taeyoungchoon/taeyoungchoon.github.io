@@ -1,0 +1,16 @@
+* is
+* trusted os
+* reference monitor
+* company
+
+- RedGate/레드게이드 > RedCastle
+  http://www.realsecu.net/new/02_business/RedCastle.php
+  http://blogger.pe.kr/405
+- 시큐브(Secuve) > TOS
+- 티에스온넷 > RedOwl
+- 시큐브레인/안철수연구소 > SecureOS
+
+http://blogger.pe.kr/507
+
+- Qubes
+

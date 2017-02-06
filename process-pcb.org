@@ -1,0 +1,11 @@
+* Process Control Block 
+
+| include            | desc                                        |
+|--------------------+---------------------------------------------|
+| process state      | new, ready, running, waiting, terminated    |
+| program counter    | address of the next instruction to executed |
+| cpu register       |                                             |
+| memory allocation  |                                             |
+| process number     |                                             |
+| list of open files |                                             |
+

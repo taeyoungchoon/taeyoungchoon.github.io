@@ -1,0 +1,18 @@
+* smb, SMB, Server Message Block, CIFS, Common Internet File System
+
+- Directly over TCP, port 445
+- On UDP ports 137, 138 & TCP ports 137, 139 (NetBIOS over TCP/IP)
+- Microsoft merged the SMB protocol with the LAN Manager product
+- The Samba project originated with the aim of reverse engineering
+
+* Administrative share
+
+https://en.wikipedia.org/wiki/Administrative_share
+
+- Disk volumes : C$, D$
+- OS folder : admin$
+- IPC shares : ipc$
+
+* UNC, Uniform Naming Convention, network path
+
+\\ComputerName\SharedFolder\Resource

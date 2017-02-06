@@ -1,0 +1,33 @@
+* grub, GRand Unified Bootloader
+* ver 2, 3
+* cli, not yet
+* config
+
+/etc/defaut/grub
+
+#+BEGIN_EXAMPLE
+
+GRUB_DEFAULT=0
+
+GRUB_HIDDEN_TIMEOUT=0
+GRUB_HIDDEN_TIMEOUT_QUIET=true
+GRUB_TIMEOUT=10
+
+#+END_EXAMPLE
+
+update-grub
+
+#+BEGIN_EXAMPLE
+
+Generating grub.cfg ...
+Found linux image: /boot/vmlinuz-3.2.0-23-generic
+Found initrd image: /boot/initrd.img-3.2.0-23-generic
+Found memtest86+ image: /memtest86+.bin
+done
+
+#+END_EXAMPLE
+
+/boot/grub/grub.cfg
+
+* chain loader?
+

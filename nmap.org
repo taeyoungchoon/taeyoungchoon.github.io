@@ -1,6 +1,32 @@
 * and zenmap GUI
 * cli
 
-- O : detect Operating system
 - 192.168.1.100-103 : range of ip
 - iL : target from file 
+
+| opt | desc                | note      |
+|-----+---------------------+-----------|
+| -sT | TCP connect         |           |
+| -sU | UDP                 |           |
+| -sN | TCP NULL            | wait long |
+| -sF | FIN                 |           |
+| -sX | Xmas                |           |
+| -sA | TCP ACK             |           |
+| -sW | TCP Window          |           |
+| -sR | RPC                 |           |
+| -O  | Enable OS detection |           |
+
+* output
+
+#+BEGIN_EXAMPLE
+
+$ sudo nmap localhost -p 22
+
+PORT   STATE SERVICE
+22/tcp open  ssh
+
+$ sudo nmap localhost -p 22 -O
+
+Running (JUST GUESSING) : Linux 2.6.X|2.4.X (95%), Gemtek embedded (90%), Siemens embedded (90%).
+
+#+END_EXAMPLE

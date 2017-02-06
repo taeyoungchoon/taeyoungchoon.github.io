@@ -1,0 +1,3 @@
+* is the vulnerablity scanner
+
+The Computer Oracle and Password System (COPS) was the first vulnerability scanner for Unix operating systems to achieve widespread use. It was created by Dan Farmer while he was a student at Purdue University. Gene Spafford helped Farmer start the project in 1989.

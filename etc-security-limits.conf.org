@@ -1,0 +1,68 @@
+* limits.conf, who use it, '(login, su, sshd, cron)
+
+#+BEGIN_EXAMPLE
+
+root@precise64:/etc/pam.d# grep limits *
+
+cron:# Sets up user limits, please define limits for cron tasks
+cron:# through /etc/security/limits.conf
+cron:session    required   pam_limits.so
+
+login:# Sets up user limits according to /etc/security/limits.conf
+login:session    required   pam_limits.so
+
+sshd:# access limits that are hard to express in sshd_config.
+sshd:# Set up user limits from /etc/security/limits.conf.
+sshd:session    required     pam_limits.so
+
+su:# Sets up user limits, please uncomment and read /etc/security/limits.conf
+
+#+END_EXAMPLE
+* syntax of /etc/security/limits.conf
+
+#+BEGIN_EXAMPLE
+
+#<domain>      <type>  <item>         <value>
+#
+
+#*               soft    core            0
+#root            hard    core            100000
+#*               hard    rss             10000
+#@student        hard    nproc           20
+#@faculty        soft    nproc           20
+#@faculty        hard    nproc           50
+#ftp             hard    nproc           0
+#ftp             -       chroot          /ftp
+#@student        -       maxlogins       4
+
+#+END_EXAMPLE
+
+* cli, ulimit, ulimit -a
+
+#+BEGIN_EXAMPLE
+
+root@precise64:/etc/security# ulimit 
+unlimited
+
+root@precise64:/etc/security# ulimit -a
+core file size          (blocks, -c) 0
+data seg size           (kbytes, -d) unlimited
+scheduling priority             (-e) 0
+file size               (blocks, -f) unlimited
+pending signals                 (-i) 2782
+max locked memory       (kbytes, -l) 64
+max memory size         (kbytes, -m) unlimited
+open files                      (-n) 1024
+pipe size            (512 bytes, -p) 8
+POSIX message queues     (bytes, -q) 819200
+real-time priority              (-r) 0
+stack size              (kbytes, -s) 8192
+cpu time               (seconds, -t) unlimited
+max user processes              (-u) 2782
+virtual memory          (kbytes, -v) unlimited
+file locks                      (-x) unlimited
+
+root@precise64:/etc/security# ulimit -n
+1024
+
+#+END_EXAMPLE

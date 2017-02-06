@@ -5,9 +5,47 @@
 - iptables since 2.4
 - nftables since 3.13 (19 January 2014)
 
+* dig
+
+#+BEGIN_SRC lisp
+
+  (table
+   (filter (INPUT OUTPUT FORWARD))
+   (nat)
+   (mangle)
+   (raw))
+
+#+END_SRC
+
 * cli
 
 iptables -nL
 
 -n, --numeric
 -L, --list
+
+#+BEGIN_EXAMPLE
+
+$ sudo iptables -nL
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination         
+
+$ sudo iptables -A OUTPUT -p icmp -d 8.8.8.8 -j DROP
+
+$ sudo iptables -nL
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination         
+DROP       icmp --  0.0.0.0/0            8.8.8.8
+
+$ ping -c 3 8.8.8.8 -W 3
+$ sudo iptables -F
+$ ping -c 3 8.8.8.8
+
+#+END_EXAMPLE

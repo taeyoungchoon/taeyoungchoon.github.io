@@ -1,0 +1,6 @@
+* icesword
+
+- Advanced rootkit remover and protector
+- IceSword has a Windows Explorer-like interface 
+- but displays hidden processes and resources 
+- rel : gmer

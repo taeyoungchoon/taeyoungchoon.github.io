@@ -1,0 +1,15 @@
+* list
+
+| method  | desc                        |
+|---------+-----------------------------|
+| GET     |                             |
+| HEAD    |                             |
+| POST    |                             |
+| PUT     |                             |
+| DELETE  |                             |
+| CONNECT | establishes a tunnel        |
+| OPTIONS |                             |
+| TRACE   | path to the target resource |
+| PATCH   | ?                           |
+
+

@@ -1,0 +1,23 @@
+http://www-arc.com/sara/
+
+SARA
+
+The Security Auditor's Research Assistant (SARA) is a third generation network security analysis tool that that has been available and actively updated for over 10 years. Sadly, all good things have to come to an end and so it goes for SARA. SARA 7.9.1 is our last release.(1 May 2009) Actually, SARA-7.9.2a is the final release (1 August 2009).
+
+SARA:
+
+Operates under Unix, Linux, MAC OS/X or Windows (through coLinux) OS'.
+Integrates the National Vulnerability Database (NVD).
+Performs SQL injection tests.
+Performs exhaustive XSS tests
+Can adapt to many firewalled environments.
+Support remote self scan and API facilities.
+Used for CIS benchmark initiatives
+Plug-in facility for third party apps
+CVE standards support
+Enterprise search module
+Standalone or daemon mode
+Free-use open SATAN oriented license
+
+The first generation assistant, the Security Administrator's Tool for Analyzing Networks (SATAN) was developed in early 1995. It became the benchmark for network security analysis for several years. However, few updates were provided and the tool slowly became obsolete in the growing threat environment.
+

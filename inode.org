@@ -1,0 +1,20 @@
+* has some information
+
+root@precise64:~# ls -i .profile 
+131074 .profile
+
+root@precise64:~# find . -inum 131074
+./.profile
+
+root@precise64:~# stat .profile
+  File: `.profile'
+  Size: 140       	Blocks: 8          IO Block: 4096   regular file
+Device: fc00h/64512d	Inode: 131074      Links: 1
+Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
+Context: unconfined_u:object_r:user_home_t:s0
+Access: 2017-02-04 07:59:21.942094557 +0000
+Modify: 2012-04-19 09:15:14.000000000 +0000
+Change: 2017-02-04 07:57:03.223738025 +0000
+ Birth: -
+
+

@@ -1,0 +1,120 @@
+* system?
+* system > '(box os app)
+** box
+
+- cpu, memory, disk + network
+
+** os
+
+*** list
+
+- U, L, W with reg
+- secure os ( aka trusted os)
+
+*** arch
+
+- kernel > shell? > application such as gcc
+
+*** install
+
+- disk > partition
+- using parted, fdisk
+- ext3 use journal
+
+*** boot(strap)
+
+- 1,2
+- bios do post
+- lilo, grub
+
+*** process
+
+- with scheduling alg 
+- and mem, cache, fs(disk) too 
+
+** app, not in here
+* being secure
+** base on server
+*** user
+
+- useradd, userdel, chage
+- /etc/passwd
+- /etc/shadow
+- /etc/group
+- w, who
+- last, latb
+- pam
+
+*** file permission
+
+- MAC, DAC, RBAC
+- selinux
+- chmod
+
+*** log
+
+- syslogd
+- wtmp, utmp, btmp, secure, dmesg, messages, xferlog
+
+*** network with firewall
+
+- iptables -A INPUT -s 1.1.1.1 -j DROP
+- snort use tcpdump
+- tcp wrapper
+
+** base on pc
+*** SAM (Security Account Manager)
+*** ie
+*** outlook with pgp?
+*** SMB
+
+- ipc$, Null session
+- c$, d$, e$
+- admin$
+- 137/tcp/udp(NetBIOS name), 138/udp(NetBIOS datagram), 139/tcp(NetBIOS session)
+- NetBIOS over TCP/IP
+- 445/tcp
+- Directly over TCP
+
+** shield
+*** check
+
+**** local
+
+- chkrootkit
+
+**** network
+
+- nessus
+- nmap ( -sT -sU -sS -sP -sA -sW -sR -F )
+
+*** real
+**** local
+
+- tripwire
+- aide
+- fcheck
+- john the ripper
+- chkwtmp
+
+**** network
+
+- portsentry
+- ngrep
+
+** spear
+*** network
+
+- nessus and nmap can be?! 
+- mostly to the web application, xss using burp or paros
+- ping of death : ping bug big payload
+- smurf attack : icmp, broadcast but to
+- fraggle attack : udp smurf
+- LAND attack : LAN, same src/dst ip, loop
+- arp spoofing using cain and abel or ethercap
+
+*** local
+
+- malware (from network)
+- ransomware
+- keylogger

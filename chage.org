@@ -3,7 +3,39 @@
 (cons change age)
 
 * man chage
-* cli
+* cli, list
 
 chage -l
 
+** force a user to change password at the next login
+
+chage -d 0 jack
+
+* syntax
+
+#+BEGIN_EXAMPLE
+
+vagrant@precise64:~$ sudo chage -m 0 -M 90 -W 7 -E 2027-1-1 -I 30 -d 2017-1-1 vagrant
+
+vagrant@precise64:~$ sudo chage -l vagrant
+Last password change					: Jan 01, 2017
+Password expires					: Apr 01, 2017
+Password inactive					: May 01, 2017
+Account expires						: Jan 01, 2027
+Minimum number of days between password change		: 0
+Maximum number of days between password change		: 90
+Number of days of warning before password expires	: 7
+
+vagrant@precise64:~$ sudo cat /etc/shadow | grep va
+vagrant:$6$aqzOtgCM$OxgoMP4JoqMJ1U1F3MZPo2iBefDRnRCXSfgIM36E5cfMNcE7GcNtH1P/tTC2QY3sX3BxxJ7r/9ciScIVTa55l0:17167:0:90:7:30:20819:
+
+#+END_EXAMPLE
+
+| opt | desc     |     more |
+|-----+----------+----------|
+| -m  | min      |          |
+| -M  | max      |          |
+| -W  | warn     |          |
+| -E  | expire   | 2027-1-1 |
+| -I  | inactive |          |
+| -d  | date     | 2017-1-1 |

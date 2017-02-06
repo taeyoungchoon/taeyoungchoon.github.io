@@ -1,0 +1,20 @@
+* cli
+
+#+BEGIN_EXAMPLE
+
+$ sysctl -p /etc/sysctl.conf
+$ sysctl -a
+
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+
+$ sysctl kernel.sysrq=1
+
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+
+$ echo "1" > /proc/sys/kernel/sysrq
+
+#+END_EXAMPLE

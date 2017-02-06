@@ -1,0 +1,11 @@
+* list
+
+| name   | desc                      |
+|--------+---------------------------|
+| FCFS   | first come first servce   |
+| SSTF   | shortest seek time first  |
+| SCAN   | elevator                  |
+| CSCAN  | circular scan             |
+| C-LOOK | enhanced version of CSCAN |
+
+http://www.cs.iit.edu/~cs561/cs450/disksched/disksched.html

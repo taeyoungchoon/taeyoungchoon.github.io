@@ -1,0 +1,8 @@
+* IFS, Internal field separator
+
+IFS typically includes the space, tab, and the newline.
+
+IFS was usable as an exploit in some versions of Unix. A program with root permissions could be fooled into executing user-supplied code if it ran (for instance) system("/bin/mail") and was called with $IFS set to "/", in which case it would run the program "bin" (in the current directory and thus writable by the user) with root permissions.[1] This has been fixed by making the shells not inherit the IFS variable.
+
+https://en.wikipedia.org/wiki/Internal_field_separator
+

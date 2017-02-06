@@ -1,0 +1,3 @@
+* is
+
+chkwtmp examins the file /var/adm/wtmp for entries with no information (containing only null-bytes). If such entries are found the program prints the time window for the original entry. This is done by displaying the timestamps of the wtmp-entry before and after the deleted entry.

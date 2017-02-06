@@ -1,0 +1,35 @@
+* files
+
+- /etc/syslog.conf
+- /var/log/syslog.log
+
+* port udp/514
+* syslog-ng
+* configure? facility and severity level
+
+** facility
+
+| code | Keyword  | Description                     |
+|------+----------+---------------------------------|
+|    0 | kern     | kernel messages                 |
+|    1 | user     | user-level messages             |
+|    2 | mail     | mail system                     |
+|    3 | daemon   | system daemons                  |
+|    4 | auth     | security/authorization messages |
+|   10 | authpriv | security/authorization messages |
+|   15 | cron     | scheduling daemon               |
+|   16 | local0   | local use 0 (local0)            |
+|   17 | local1   | local use 1 (local1)            |
+
+** severity
+
+| severity      | keyword |
+|---------------+---------|
+| emergency     | emerg   |
+| alert         | alert   |
+| critical      | crit    |
+| error         | err     |
+| warning       | warn    |
+| notice        | notice  |
+| informational | info    |
+| debug         | debug   |

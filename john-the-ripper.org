@@ -1,0 +1,18 @@
+* John the Ripper
+
+John the Ripper is a free password cracking software tool.
+
+# cat pass.txt
+user:AZl.zWwxIh15Q
+
+# john -w:password.lst pass.txt
+Loaded 1 password hash (Traditional DES [24/32 4K])
+example         (user)
+guesses: 1  time: 0:00:00:00 100%  c/s: 752  trying: 12345 - pookie
+
+https://en.wikipedia.org/wiki/Crack_(password_software)
+
+L0phtCrack is a password auditing and recovery application 
+originally produced by Mudge from L0pht Heavy Industries. 
+
+Cain and Abel (often abbreviated to Cain) is a password recovery tool for Microsoft Windows.

@@ -1,1 +1,92 @@
-* another not yet
+* config, /etc/selinux/config
+
+SELINUX=enforcing
+SELINUX=permissive
+SELINUX=enforcing
+
+* sestatus
+
+#+BEGIN_EXAMPLE
+
+$ sestatus 
+SELinux status:                 enabled
+SELinuxfs mount:                /selinux
+Current mode:                   permissive
+Mode from config file:          permissive
+Policy version:                 26
+Policy from config file:        ubuntu
+
+#+END_EXAMPLE
+
+* cli to do enable/disable
+
+getenforce
+setenforce 1
+getenforce
+
+* cli to do allow
+
+audit2allow -a
+
+#+BEGIN_EXAMPLE
+
+#============= crond_t ==============
+allow crond_t file_t:lnk_file read;
+allow crond_t init_t:dir search;
+allow crond_t self:capability audit_control;
+
+#============= crontab_t ==============
+allow crontab_t auditd_log_t:dir getattr;
+allow crontab_t file_t:lnk_file read;
+allow crontab_t tmp_t:dir { create rmdir };
+allow crontab_t tmpfs_t:dir search;
+allow crontab_t user_home_dir_t:dir { write add_name };
+allow crontab_t user_home_dir_t:file create;
+allow crontab_t var_lib_t:dir search;
+allow crontab_t var_lib_t:lnk_file read;
+allow crontab_t var_log_t:dir search;
+
+#+END_EXAMPLE
+
+audit2allow -a -w
+crontab -e
+audit2allow -a -M EnableCrontabByRoot
+
+#+BEGIN_EXAMPLE
+
+$ file EnableCrontabByRoot.*
+EnableCrontabByRoot.pp: SE Linux modular policy version 1, 1 sections, mod version 13, MLS, module name EnableCrontabByRoot\003
+EnableCrontabByRoot.te: ASCII C++ program text
+
+#+END_EXAMPLE
+
+semodule -i EnableCrontabByRoot.pp
+
+* syslog and kern.log
+
+#+BEGIN_EXAMPLE
+
+Feb  4 08:41:13 precise64 kernel: [ 2635.254462] type=1400 audit(1486197673.355:201): avc:  denied  { unlink } for  
+pid=24432 comm="rm" name="fcheck.out" dev=tmpfs ino=11766 
+scontext=system_u:system_r:cronjob_t:s0-s0:c0.c255 
+tcontext=system_u:object_r:tmpfs_t:s0 
+tclass=file
+
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+
+Feb  4 09:21:12 precise64 kernel: [ 5033.966498] type=1400 audit(1486200072.071:217): avc:  denied  { read } for  
+pid=31488 comm="crontab" name="run" dev=dm-0 ino=3801112 
+scontext=unconfined_u:unconfined_r:crontab_t:s0-s0:c0.c255 
+tcontext=system_u:object_r:file_t:s0 
+tclass=lnk_file
+
+Feb  4 09:21:12 precise64 kernel: [ 5033.994137] type=1400 audit(1486200072.099:218): avc:  denied  { create } for  
+pid=31488 comm="crontab" name="crontab.dZll0N" 
+scontext=unconfined_u:unconfined_r:crontab_t:s0-s0:c0.c255 
+tcontext=unconfined_u:object_r:tmp_t:s0 
+tclass=dir
+
+#+END_EXAMPLE
+

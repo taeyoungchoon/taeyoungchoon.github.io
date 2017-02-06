@@ -1,0 +1,14 @@
+* -rwxrwxrwx, 755, permission
+
+- r : read
+- w : write
+- x : execute
+
+* setuid, setgid, sticky bit
+
+set uid
+set gid
+
+chmod u+s foo
+chmod g+s bar
+chmod o+t see

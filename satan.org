@@ -1,0 +1,9 @@
+https://en.wikipedia.org/wiki/Security_Administrator_Tool_for_Analyzing_Networks
+
+Security Administrator Tool for Analyzing Networks
+
+SATAN
+
+vulnerability scanner for analyzing networked computers
+
+

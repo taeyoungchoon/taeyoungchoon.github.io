@@ -1,0 +1,18 @@
+* conf, /etc/fcheck/fcheck.cfg
+* cli
+
+1. build, fcheck -ac
+2. scan, fcheck -a
+
+#+BEGIN_EXAMPLE
+
+PROGRESS: validating integrity of /
+STATUS:
+	ADDITION: [precise64] /hi
+	Inode	Permissons	Size	Created On
+	2405	-rw-r--r--	0	Feb 04 04:15 2017
+
+PROGRESS: validating integrity of /etc/
+STATUS:passed...
+
+#+END_EXAMPLE

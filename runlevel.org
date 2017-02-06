@@ -1,0 +1,10 @@
+* so
+
+| level | desc                            |
+|-------+---------------------------------|
+|     0 | init 0, halt, shutdown -h now   |
+|     1 | init 1, single, root            |
+|     3 | init 3, multi-user mode         |
+|     5 | x-window?                       |
+|     6 | init 6, reboot, shutdown -r now |
+

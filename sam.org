@@ -1,0 +1,11 @@
+* on windows, SAM, Seurity Account Manager
+
+https://en.wikipedia.org/wiki/Security_Account_Manager
+
+- The user passwords are stored in a hashed format in a registry hive 
+- either as a LM hash or as a NTLM hash
+- file can be found in %SystemRoot%/system32/config/SAM
+- mounted on HKLM/SAM
+- SAM can be dumped using various techniques (including pwdump)
+- making the password hashes available for offline brute-force attack
+

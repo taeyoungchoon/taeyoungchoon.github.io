@@ -1,0 +1,33 @@
+* general syntax
+
+daemon_list : client_list [ : shell_command ]
+
+* hosts.allow, hosts.deny
+
+#+BEGIN_EXAMPLE
+
+$ cat /etc/hosts.allow  | grep :
+# /etc/hosts.allow: list of hosts that are allowed to access the system.
+# Example:    ALL: LOCAL @some_netgroup
+#             ALL: .foobar.edu EXCEPT terminalserver.foobar.edu
+
+$ cat /etc/hosts.deny  | grep :
+# /etc/hosts.deny: list of hosts that are _not_ allowed to access the system.
+# Example:    ALL: some.host.name, .some.domain
+#             ALL EXCEPT in.fingerd: other.host.name, .other.domain
+# ALL: PARANOID
+
+#+END_EXAMPLE
+
+* vs iptables
+
+layer
+
+* tcp wrapper?
+
+#+BEGIN_EXAMPLE
+
+$ dpkg -S hosts.allow 
+libwrap0: /usr/share/man/man5/hosts.allow.5.gz
+
+#+END_EXAMPLE

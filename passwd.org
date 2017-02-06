@@ -9,3 +9,10 @@ daemon:*:1:1:System Services:/var/root:/usr/bin/false
 
 name:password:uid:gid:home_dir:shell
 
+* cli, lock account
+
+#+BEGIN_EXAMPLE
+
+passwd -l jack
+
+#+END_EXAMPLE

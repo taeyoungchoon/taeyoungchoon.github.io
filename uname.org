@@ -1,0 +1,10 @@
+* cli
+
+#+BEGIN_EXAMPLE
+
+$ uname
+Darwin
+$ uname -a
+Darwin tyc-MacBook-Air.local 16.4.0 Darwin Kernel Version 16.4.0: Thu Dec 22 22:53:21 PST 2016; root:xnu-3789.41.3~3/RELEASE_X86_64 x86_64
+
+#+END_EXAMPLE

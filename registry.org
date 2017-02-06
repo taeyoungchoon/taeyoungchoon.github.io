@@ -1,0 +1,11 @@
+* INI > windows registry
+
+* hive?
+
+https://msdn.microsoft.com/en-us/library/ms724877.aspx
+
+* and
+
+HKEY_LOCAL_MACHINE or HKLM
+HKEY_CURRENT_USER or HKCU
+HKEY_CURRENT_CONFIG or HKCC
