@@ -1,11 +1,10 @@
-<<<<<<< HEAD
 * utmp
 
 - linux에도 unix에도 없다
-=======
+
 * strace, so used by who, w
 
 $ strace -e open who  
 open("/var/run/utmp", O_RDONLY|O_CLOEXEC) = 3
 vagrant  pts/1        2017-02-04 10:23 (10.0.2.2)
->>>>>>> bda6119001eba3ed9f0991ce7171395fe6e08556
+
