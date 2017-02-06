@@ -1,0 +1,7 @@
+* ECC, Elliptic Curve Cryptography
+
+- vs RSA, 짧은 키를 가지고도
+- y2=x3+ax+b
+- y2=x3-9x-1
+- 타원곡선 이산대수 문제
+- http://kowon.dongseo.ac.kr/~lbg/web_lecture/it/lec5/lec5.htm

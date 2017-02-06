@@ -1,0 +1,10 @@
+* cli
+
+#+BEGIN_EXAMPLE
+
+$ last | head -10
+
+$ strace -e open last 1>/dev/null
+open("/var/log/wtmp", O_RDONLY)         = 3
+
+#+END_EXAMPLE

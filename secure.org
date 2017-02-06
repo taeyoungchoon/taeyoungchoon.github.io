@@ -1,0 +1,4 @@
+* /var/log/secure
+
+- linux only
+- ssh, sudo, su 기록이 쌓인다

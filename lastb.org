@@ -1,0 +1,10 @@
+* cli
+
+#+BEGIN_EXAMPLE
+
+$ sudo lastb | head -10
+
+$ strace -e open lastb 1>/dev/null
+open("/var/log/btmp", O_RDONLY)         = 3
+
+#+END_EXAMPLE

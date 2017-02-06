@@ -1,0 +1,7 @@
+* list
+
+** ECB, Electronic Code Book
+** CBC, Cipher Block Chaining
+** CFB, Cipher Feedback
+** OFB, Output Feedback
+** CTR, Counter

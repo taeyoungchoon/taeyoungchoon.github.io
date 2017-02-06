@@ -1,0 +1,17 @@
+* status code
+
+| num | indicate      |
+|-----+---------------|
+| 1xx | Informational |
+| 2xx | Successful    |
+| 3xx | Redirection   |
+| 4xx | Client Error  |
+| 5xx | Server Error  |
+
+| num | indicate              |
+|-----+-----------------------|
+| 200 | OK                    |
+| 301 | Moved Permanently     |
+| 403 | Forbidden             |
+| 404 | Not Found             |
+| 500 | Internal Server Error |

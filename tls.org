@@ -1,0 +1,41 @@
+* history
+
+- SSL 1.0, 2.0 and 3.0
+- SSL은 모두 insecure
+- TLS 1.0, 1.1, 1.2, 1.3
+- TLS 1.3은 Draft
+
+* handshake type
+
+- basic TLS handshake
+- client-authenticated TLS handshake
+- Resumed TLS handshake
+
+* handshake step
+
+| sender                  | receiver                        | desc                             |
+|-------------------------+---------------------------------+----------------------------------|
+| SYN                     |                                 |                                  |
+|                         | SYC ACK                         |                                  |
+| ACK                     |                                 |                                  |
+|-------------------------+---------------------------------+----------------------------------|
+| Client Hello            |                                 |                                  |
+|-------------------------+---------------------------------+----------------------------------|
+|                         | Server Hello                    |                                  |
+|                         | Server Certificate              |                                  |
+|                         | Server Key Exchange             |                                  |
+|                         | (opt)Client Certificate Request |                                  |
+|                         | Server Hello Done               |                                  |
+|-------------------------+---------------------------------+----------------------------------|
+| (opt)Client Certificate |                                 |                                  |
+| Client Key Exchange     |                                 | encrypt with server's public key |
+| (opt)Certificate Verify |                                 | with digital signature           |
+| Change Cipher Spec      |                                 |                                  |
+| Client Finished Message |                                 | encrypted with symmetric key     |
+|-------------------------+---------------------------------+----------------------------------|
+|                         | Change Cipher Spec              |                                  |
+|                         | Server Finished Message         | encrypted with symmetric key     |
+|-------------------------+---------------------------------+----------------------------------|
+| Application Data        |                                 |                                  |
+|                         | Application Data                |                                  |
+

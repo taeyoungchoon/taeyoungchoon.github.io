@@ -1,0 +1,3 @@
+* utmp
+
+- linux에도 unix에도 없다

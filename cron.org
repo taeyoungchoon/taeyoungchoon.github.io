@@ -2,6 +2,8 @@
 
 check out the wikipedia
 
+* /var/log/cron
+* /var/spool/cron/ 
 * execute failure
 
 - check PATH of 

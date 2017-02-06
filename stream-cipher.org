@@ -1,0 +1,6 @@
+* list but RC4 only?
+
+- https://en.wikipedia.org/wiki/Stream_cipher
+- 다른 이름은 모두 친숙하지 않다는
+
+

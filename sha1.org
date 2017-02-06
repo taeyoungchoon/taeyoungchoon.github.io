@@ -1,0 +1,25 @@
+* sha, secure hash algorithm 1
+
+- browsers will stop accepting SHA-1 SSL certificates by 2017
+- 2017년부터 쓰기 힘들 듯
+
+#+BEGIN_EXAMPLE
+
+$ echo "hi" | sha1sum
+55ca6286e3e4f4fba5d0448333fa99fc5a404a73  -
+
+#+END_EXAMPLE
+
+https://en.wikipedia.org/wiki/SHA-1
+
+sha2
+sha3
+
+sha1sum
+Print or check SHA1 (160-bit) checksums.
+
+sha256sum
+Print or check SHA256 (256-bit) checksums.
+
+sha512sum
+Print or check SHA512 (512-bit) checksums.
