@@ -1,0 +1,16 @@
+* cli
+
+lsdev -P -H 
+lsdev -P -c tape
+lsdev -P -CF "name status physloc location description"
+lsdev -H -C
+
+* dig
+
+- cfgmgr
+- smit devices
+- lscfg -v
+- getconf -a
+
+* location code for PCI devices
+* location code for scsi

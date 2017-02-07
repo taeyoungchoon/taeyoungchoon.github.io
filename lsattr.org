@@ -1,0 +1,5 @@
+* cli
+
+lsattr -EH -l sys0
+lsattr -E -l sys0
+lsattr -E -l sys0 -a realmem
