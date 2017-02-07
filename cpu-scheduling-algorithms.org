@@ -1,0 +1,26 @@
+* list
+
+http://www.studytonight.com/operating-system/cpu-scheduling
+https://en.wikipedia.org/wiki/Scheduling_(computing)
+
+- First Come First Serve(FCFS) Scheduling
+- Shortest Job First(SJF) Scheduling aka Shortest remaining time first
+- Priority Scheduling Scheduling
+- Round Robin(RR) Scheduling
+- Multilevel Queue Scheduling
+
+* pre-emptive and non-preemptive
+
+- pre + empty
+- none + pre + empty : until the completion
+
+* but, more
+
+- on linux? or all the modern? pre-emptive
+- old DOS, Windows 3.1x and class Mac OS pre-9, non-preemptive
+
+* and called as
+
+- O(1) scheduler 2.6.0-2.6.23
+- Completely Fair Scheduler since 2.6.23
+- Multilevel feedback queue
