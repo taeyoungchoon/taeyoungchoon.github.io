@@ -1,0 +1,6 @@
+* to burn iso to usb drive such as
+
+- trk
+- clonezilla
+- debian-live
+- kali-linux

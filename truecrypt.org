@@ -17,3 +17,16 @@ http://todaki.tistory.com/2924
 * result
 
 just use it as ever 
+
+* my
+
+| property                      | value           |
+|-------------------------------+-----------------|
+| Encryption Algorithm          | AES             |
+| Primary Key Size              | 256 bits        |
+| Secondary Key Size (XTS Mode) | 256 bits        |
+| Block Size                    | 128 bits        |
+| Mode of Operation             | XTS             |
+| PKCS-5 PRF                    | HMAC-RIPEMD-160 |
+| Volume Format Version         | 2               |
+| Embedded Backup Header        | Yes             |

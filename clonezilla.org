@@ -20,6 +20,7 @@ systemimager와 fai도 이야기 한다, torrent와 함께 말이다.
 - mbr
 - linux
 - mac?
+
 * so
 
 부족하다

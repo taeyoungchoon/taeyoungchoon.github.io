@@ -1,3 +1,12 @@
 * command
 
 tshark -D
+tshark -i 3 
+tshark -i 3 -c 3
+tshark -i 3 -c 3 -f "icmp"
+
+* aka wall paper
+
+* ref
+
+http://linoxide.com/linux-how-to/network-sniffing-tshark/
