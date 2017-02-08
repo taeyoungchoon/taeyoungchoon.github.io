@@ -1,0 +1,4 @@
+* /etc/nologin with pam
+
+account required pam_nologin.so
+

@@ -7,4 +7,6 @@ $ last | head -10
 $ strace -e open last 1>/dev/null
 open("/var/log/wtmp", O_RDONLY)         = 3
 
+$ last -f /var/log/wtmp.1
+
 #+END_EXAMPLE

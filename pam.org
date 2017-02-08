@@ -1,6 +1,6 @@
 * pam? Pluggable Authentication Module
 * conf, /etc/pam.d/login and others
-
+  
 # Sets up user limits according to /etc/security/limits.conf
 # (Replaces the use of /etc/limits in old login)
 session    required   pam_limits.so
@@ -14,3 +14,16 @@ session    optional   pam_lastlog.so
 session    optional   pam_motd.so
 
 * man pam_motd > /etc/update-modtd.d/*
+* module type
+
+- auth , 인증
+- account , 관리?
+- password
+- session , 인증 이후
+
+* opt
+
+- require
+- requsite , app에 알린다?
+- sufficient , 이거면 충분
+- optional , 최후의 보류?

@@ -1,0 +1,7 @@
+* cli
+
+chkconfig --list atd
+chkconfig --del atd
+chkconfig --add atd
+
+* vs ntsysv

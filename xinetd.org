@@ -1,3 +1,7 @@
+* cli
+
+grep disable /etc/xinetd.d/ -R
+
 * inetd > xinetd
 * /etc/xinetd.d/krb5telnet
 

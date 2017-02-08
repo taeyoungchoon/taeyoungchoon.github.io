@@ -1,0 +1,5 @@
+* lastlog?
+
+lastlog
+lastlog -t 2
+lastlog -u jack

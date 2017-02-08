@@ -1,0 +1,8 @@
+* conf
+
+/etc/security/limits.conf
+
+* refer
+
+https://wiki.archlinux.org/index.php/Limits.conf
+https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/5/html/Tuning_and_Optimizing_Red_Hat_Enterprise_Linux_for_Oracle_9i_and_10g_Databases/chap-Oracle_9i_and_10g_Tuning_Guide-Setting_Shell_Limits_for_the_Oracle_User.html

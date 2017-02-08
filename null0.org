@@ -1,0 +1,9 @@
+* cli
+
+#+BEGIN_EXAMPLE
+
+interface null0
+no ip unreachable
+ip route 192.168.0.100 255.255.255.0 null0
+
+#+END_EXAMPLE

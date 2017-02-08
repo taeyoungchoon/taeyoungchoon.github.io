@@ -29,5 +29,14 @@ done
 
 /boot/grub/grub.cfg
 
+* secure
+
+grub> md5crypt
+password: 1234
+Encrypted: xxxx
+
+grub.conf
+password -md5 xxxx
+
 * chain loader?
 

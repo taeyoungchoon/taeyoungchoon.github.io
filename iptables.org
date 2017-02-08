@@ -49,3 +49,5 @@ $ sudo iptables -F
 $ ping -c 3 8.8.8.8
 
 #+END_EXAMPLE
+
+* iptables vs cisco way, access-list
