@@ -39,3 +39,32 @@
 | Application Data        |                                 |                                  |
 |                         | Application Data                |                                  |
 
+* protocol
+
+- Handshake protocol
+- Alert protocol
+- ChangeCipherSpec protocol
+- Application protocol
+
+* name-based virtual servers
+
+- TLS Extensions allow clients to include a Server Name Indication extension (SNI) 
+  in the extended ClientHello (RFC 4366)
+
+* heartbleed bug on openssl 1.0.1 to 1.0.1f
+* POODLE attack (SSL 3.0)
+
+- vulnerability in the design of SSL 3.0, which makes CBC mode of operation
+- POODLE (Padding Oracle On Downgraded Legacy Encryption)
+- man-in-the-middle attackers to obtain cleartext data via a padding-oracle attack
+- Mozilla has disabled SSL 3.0
+- 최초의 푸들
+- CVE-2014-3566
+
+* POODLE attack against TLS
+
+- flaws of CBC encryption mode in the TLS 1.0 - 1.2
+- so?!
+- 푸들 TLS
+- 좀비 푸들
+- CVE-2014-8730

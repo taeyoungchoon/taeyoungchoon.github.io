@@ -1,0 +1,11 @@
+* update from googleupdate.exe
+
+schtasks | findstr /i google
+
+taskschd.msc /s
+taskschd.msc
+control schedtasks
+
+* site
+
+https://technet.microsoft.com/en-us/library/cc766428(v=ws.11).aspx

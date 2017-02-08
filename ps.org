@@ -1,0 +1,10 @@
+* on hp-ux
+
+UNIX95= ps -eo 'vsz pid args' |sort -nr |head -20
+UNIX95= ps -e -o "user,pcpu,cpu,vsz,pid,ppid,args" | sort -rnk4
+
+* on hp-ux and my
+
+UNIX95= ps -eo 'vsz pid args' | sort -kn
+
+* dig UNIX95

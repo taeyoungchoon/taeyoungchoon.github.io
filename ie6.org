@@ -1,0 +1,11 @@
+* ie6 vs google.com but about tls maybe and openapi.naver.com too
+
+Because IE 6 SP1 does not support the applicable SSL/TLS versions that the webservers you are accessing support. 
+
+* Internet Explorer 6 > Internet Options > Security : Use TLS 1.0
+
+fail to work with https://google.com
+
+- [X] Use SSL 2.0
+- [X] Use SSL 3.0
+- [X] Use TLS 1.0

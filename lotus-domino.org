@@ -1,0 +1,26 @@
+* word, lotus, domino, notes
+
+Lotus Domino was previously called Lotus Notes Server
+
+* Lotus Domino Server (LotusDominodata)
+
+#+BEGIN_EXAMPLE
+
+Mail Router shutdown
+Event Monitor shutdown
+Starting Server shutdown
+HTTP Server: Shutdown
+Database Replicator shutdown
+SMTP Server: All tasks have shutdown
+POP3 Server: All tasks have shutdown
+SMTP Server: Shutdown
+POP3 Server: Shutdown
+
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+
+nserver.exe
+nservice.exe
+
+#+END_EXAMPLE

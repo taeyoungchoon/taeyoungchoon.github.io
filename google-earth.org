@@ -1,0 +1,4 @@
+* update from googleupdate.exe
+
+schtasks | findstr /i google
+
