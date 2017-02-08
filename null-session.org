@@ -1,0 +1,8 @@
+* cli
+
+net use \\192.168.0.100\ipc$ "" /user: ""
+net use \\192.168.0.100\info qwe123 /user: jack
+
+* problem
+
+

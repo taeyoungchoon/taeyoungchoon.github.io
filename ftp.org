@@ -4,3 +4,12 @@
 
 - ftp://ftp.apple.asimov.net/pub/apple_II/images/games/rpg/ultima/
 - IE > 보기 > Windows 탐색기에서 FTP 사이트 열기(O)
+
+* active mode , SVR -> C:xxxx
+
+- port xxxx
+
+* passive mode , C -> SVR:xxxx
+
+- pasv
+- xxxx

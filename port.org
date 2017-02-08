@@ -1,0 +1,7 @@
+* list
+
+| num | service |
+|-----+---------|
+| 69  | TFTP    |
+| 111 | RPC     |
+| 161 | SNMP    |

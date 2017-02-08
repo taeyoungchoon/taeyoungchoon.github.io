@@ -30,3 +30,32 @@ $ sudo nmap localhost -p 22 -O
 Running (JUST GUESSING) : Linux 2.6.X|2.4.X (95%), Gemtek embedded (90%), Siemens embedded (90%).
 
 #+END_EXAMPLE
+* cli vs
+
+#+BEGIN_SRC lisp
+
+  (udp-scan
+   (open '(UDP nil))
+   (close '(UDP icmp-unreachable)))
+
+  (tcp-open-scan
+   (open '(SYN SYN+ACK ACK))
+   (close '(SYN RST+ACK)))
+
+  (tcp-half-scan
+   (open '(SYN SYN+ACK RST))
+   (close '(SYN RST+ACK)))
+
+  (FIN-scan
+   (open '(FIN nil))
+   (close '(FIN RST)))
+
+  (xmas-scan
+   (open '((FIN RST URG) nil))
+   (close '((FIN RST URG) RST)))
+
+  (null-scan
+   (open '(NULL nil))
+   (close '(NULL RST)))
+
+#+END_SRC

@@ -1,0 +1,13 @@
+* query type
+
+- recursive query
+- iterative query
+
+* record
+
+- A
+- CNAME
+- PTR, pointer
+- SOA
+- MX
+- NS

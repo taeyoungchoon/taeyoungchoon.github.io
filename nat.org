@@ -1,0 +1,6 @@
+* network address translation
+* list
+
+- normal nat
+- reverse nat
+- and more
