@@ -1,0 +1,5 @@
+* cli
+
+ipconfig /all
+ipconfig /displaydns
+ipconfig /flushdns

@@ -46,3 +46,7 @@ fatal: pathspec '?쒓?.org' did not match any files
 - 한자는 어떻게 되지?
 - 참조를 많이 사용?
 
+* lecture 
+
+http://faculty.olympic.edu/ejung/
+

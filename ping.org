@@ -1,0 +1,36 @@
+* windows ping
+
+ping -l 1000
+ping -l 1472 -f
+ping -l 1473 -f
+ping -l 65500
+ping -l 65500 -f
+ping -n 10
+ping -t
+
+ping -n 5 8.8.8.8 -l 1
+
+ICMP Echo (ping) request
+ICMP Echo (ping) reply
+
+** go
+
+C:\Users\see>ping -n 2 8.8.8.8 -l 1
+
+Ping 8.8.8.8 1바이트 데이터 사용:
+8.8.8.8의 응답: 바이트=1 시간=74ms TTL=39
+8.8.8.8의 응답: 바이트=1 시간=77ms TTL=39
+
+8.8.8.8에 대한 Ping 통계:
+    패킷: 보냄 = 2, 받음 = 2, 손실 = 0 (0% 손실),
+왕복 시간(밀리초):
+    최소 = 74ms, 최대 = 77ms, 평균 = 75ms
+
+** tshark
+
+C:\Program Files\Wireshark>tshark -i 3 -f "icmp"
+
+361 460.118413  172.20.6.48 → 8.8.8.8      ICMP 43 Echo (ping) request  id=0x0001, seq=108/27648, ttl=128
+362 460.195606      8.8.8.8 → 172.20.6.48  ICMP 60 Echo (ping) reply    id=0x0001, seq=108/27648, ttl=39 (request in 361)
+
+* rfc 792
