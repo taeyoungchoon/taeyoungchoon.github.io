@@ -1,7 +1,39 @@
 * word
 
 - SPI (Security Parameter Index)
-- AH header
-- ESP header
-- SA
-- mode?
+- AH header (Authentication)
+- ESP header (Encapsulatating Seucrity Payloads)
+- SA (Security Association)
+- IKE (Internet Key Exchange)
+
+* site
+
+https://en.wikipedia.org/wiki/IPsec
+
+* AH
+
+Authentication Headers (AH) provide 
+connectionless data integrity and data origin authentication for IP datagrams 
+and provides protection against replay attacks.
+
+* ESP
+
+Encapsulating Security Payloads (ESP) provide 
+confidentiality, data-origin authentication, connectionless integrity, an 
+anti-replay service (a form of partial sequence integrity), 
+and limited traffic-flow confidentiality.
+
+* SA
+
+Security Associations (SA) provide 
+the bundle of algorithms and data that provide the parameters necessary for AH and/or ESP operations. 
+The Internet Security Association and Key Management Protocol (ISAKMP) provides 
+a framework for authentication and key exchange, 
+with actual authenticated keying material 
+provided either by manual configuration with pre-shared keys, 
+Internet Key Exchange (IKE and IKEv2), Kerberized Internet Negotiation of Keys (KINK), or IPSECKEY DNS records.
+
+* modes of operations
+
+- transport mode
+- tunnel mode

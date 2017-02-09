@@ -3,3 +3,5 @@
 http://faculty.olympic.edu/kblackwell/docs/cmptr173/PowerPoint/
 
 pdf and ppt
+
+* tcp/ip state diagram
