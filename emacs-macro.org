@@ -1,0 +1,11 @@
+* key
+
+| key         | desc    |
+|-------------+---------|
+| C-x ( or f3 | start   |
+| C-x ) or f4 | stop    |
+| C-x e or f4 | execute |
+
+* site
+
+https://www.emacswiki.org/emacs/KeyboardMacros

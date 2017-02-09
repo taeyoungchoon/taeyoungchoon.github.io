@@ -1,0 +1,14 @@
+* site
+
+https://en.wikipedia.org/wiki/Session_hijacking
+https://www.owasp.org/index.php/Session_hijacking_attack
+
+* word
+
+* different ways
+
+- Predictable session token;
+- Session Sniffing;
+- Client-side attacks (XSS, malicious JavaScript Codes, Trojans, etc);
+- Man-in-the-middle attack
+- Man-in-the-browser attack

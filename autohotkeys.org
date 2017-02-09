@@ -1,0 +1,20 @@
+* site
+
+http://hardcarry.tistory.com/entry/AutoHotKey%EC%98%A4%ED%86%A0%ED%95%AB%ED%82%A4%EB%9E%80-%EC%98%A4%ED%86%A0%ED%95%AB%ED%82%A4-%EC%82%AC%EC%9D%B4%ED%8A%B8-%EB%AA%A8%EC%9D%8C
+
+* ex, backspace.ahk
+
+#+BEGIN_EXAMPLE
+
+^h::
+   Send {Backspace}
+
+Capslock::Ctrl
+
+#+END_EXAMPLE
+
+* refer 
+
+- imacro from firefox
+- selenium
+- http://www.autohotkey.co.kr/

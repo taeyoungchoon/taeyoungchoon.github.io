@@ -21,4 +21,35 @@ ctrl all show config
 ctrl all show status
 controller all show status
 
+#+BEGIN_EXAMPLE
+
+
+=> controller all show config
+
+Smart Array P400 in Slot 1                (sn: XXXX)
+
+   array A (SAS, Unused Space: 0 MB)
+
+
+      logicaldrive 1 (50.0 GB, RAID 1, OK)
+      logicaldrive 2 (86.7 GB, RAID 1, Recovering, 25% complete)
+
+      physicaldrive 2I:1:1 (port 2I:box 1:bay 1, SAS, 146 GB, Rebuilding)
+      physicaldrive 2I:1:2 (port 2I:box 1:bay 2, SAS, 146 GB, OK)
+
+=> controller all show config
+
+Smart Array P400 in Slot 1                (sn: XXXX)
+
+   array A (SAS, Unused Space: 0 MB)
+
+
+      logicaldrive 1 (50.0 GB, RAID 1, OK)
+      logicaldrive 2 (86.7 GB, RAID 1, OK)
+
+      physicaldrive 2I:1:1 (port 2I:box 1:bay 1, SAS, 146 GB, OK)
+      physicaldrive 2I:1:2 (port 2I:box 1:bay 2, SAS, 146 GB, OK)
+
+#+END_EXAMPLE
+
 

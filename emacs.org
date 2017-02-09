@@ -47,5 +47,3 @@ M-w
 M-y
 
 ** tabler
-
-

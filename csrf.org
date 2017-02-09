@@ -1,1 +1,3 @@
-* CSRF , Cross Site Request Forgery
+* CSRF (pronounced sea-surf) , Cross Site Request Forgery pr XSRF
+- also known as one-click attack or session riding
+- a user that the website trusts
