@@ -1,0 +1,6 @@
+* Advanced Encryption Standard, AES
+
+- also known by its original name Rijndael
+- AES is a subset of the Rijndael cipher
+- two Belgian cryptographers, Joan Daemen and Vincent Rijmen
+- It supersedes the Data Encryption Standard (DES), which was published in 1977.

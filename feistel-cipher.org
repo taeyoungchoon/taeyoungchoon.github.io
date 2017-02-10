@@ -1,0 +1,4 @@
+* feistel cipher
+
+- cryptographer Horst Feistel
+- symmetric structure used in the construction of block ciphers, includeing DES

@@ -1,0 +1,27 @@
+* TKIP (the basis of WPA)
+
+Temporal Key Integrity Protocol or TKIP /tiːˈkɪp/ was a stopgap security protocol 
+used in the IEEE 802.11 wireless networking standard. 
+TKIP was designed by the IEEE 802.11i task group and the Wi-Fi Alliance as an interim solution 
+to replace WEP without requiring the replacement of legacy hardware.
+
+TKIP itself is no longer considered secure, 
+and was deprecated in the 2012 revision of the 802.11 standard.
+
+TKIP implements a 64-bit Message Integrity Check (MIC)
+
+* wpa2
+
+The IEEE endorsed the final version of TKIP, 
+along with more robust solutions such as 802.1X and the AES based CCMP, 
+when they published IEEE 802.11i-2004 on 23 July 2004.
+
+The Wi-Fi Alliance soon afterwards adopted the full specification under the marketing name WPA2.
+
+* CCMP
+
+- CCM mode Protocl
+- CCM mode : Counter with CBC-MAC 
+- Counter Mode Cipher Block Chaining Message Authentication Code Protocol
+- Counter Mode CBC-MAC Protocol
+- based upon COunter Mode CBC-MAC(CCM) of the AES standard

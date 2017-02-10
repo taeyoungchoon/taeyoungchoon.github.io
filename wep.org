@@ -1,0 +1,15 @@
+* WEP, Wired Equivalent Privacy
+
+In 2003 the Wi-Fi Alliance announced that WEP had been superseded by Wi-Fi Protected Access (WPA). 
+In 2004, with the ratification of the full 802.11i standard (i.e. WPA2), 
+the IEEE declared that both WEP-40 and WEP-104 have been deprecated
+
+* WEP is a security algorithm for IEEE 802.11 wireless networks.
+
+- stream cipher RC4 for confidentiality
+- CRC-32 checksum for integrity
+
+* aircrack-ng to crack any WEP key in minutes.
+* 802.11i (WPA and WPA2)
+
+ WPA was an intermediate solution for hardware that could not support WPA2. 

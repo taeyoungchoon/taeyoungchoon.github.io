@@ -18,3 +18,9 @@ Capslock::Ctrl
 - imacro from firefox
 - selenium
 - http://www.autohotkey.co.kr/
+- http://www.autohotkey.co.kr/cgi/board.php?bo_table=tip&wr_id=361
+
+* with macro creator
+
+http://www.macrocreator.com/help/
+
