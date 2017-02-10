@@ -5,6 +5,14 @@
 
 * using
 
-- veritas netbackup
-- data protector
+- veritas netbackup, data protector
+- cp, tar, dd, cpio
+- cp, rcp, scp
+- svn, git
 - rsync
+
+* src
+
+- email but webmail
+- files, lots of files
+- images aka picture

@@ -1,3 +1,8 @@
+* smb, so
+
+- [ ] port
+- [ ] ipc$ admin$ c$ d$
+
 * smb, SMB, Server Message Block, CIFS, Common Internet File System
 
 - Directly over TCP, port 445
@@ -16,3 +21,26 @@ https://en.wikipedia.org/wiki/Administrative_share
 * UNC, Uniform Naming Convention, network path
 
 \\ComputerName\SharedFolder\Resource
+
+* real, protocol analysis with wireshark or more
+
+445 only?
+138!
+
+NETWORK PROGRAM 1.0
+LANMAN1.0
+Windows for Workgroups 3.1a
+LANMAN2.1
+
+NTLMSSP
+Negotiate Protocol Request
+Session Setup AndX Reqest (0x73)
+NTLMSSP_NEGOTIATE
+NTLMSSP_CHALLENGE
+NTLMSSP_AUTH
+
+Tree Connect AndX Reqest (0x75)
+IPC$
+Tree2 Request
+QUERY_PATH_INFO, Query File Basic Info
+QUERY_PATH_INFO, Query File Standard Info
