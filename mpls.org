@@ -1,3 +1,20 @@
 * routing?
 * multi protocol label switching
 * vpn?
+* site
+
+http://m.blog.naver.com/hilineisp/10159755638
+http://kensei.co.kr/61
+
+http://cafe.naver.com/neteg
+네전따
+
+* word
+
+- 각 지역마다 ISP의 MPLS 라우터가 있고
+- 보안을 위한 사설망 구성 가격은 전용선 > MPLS VPN > IPSEC VPN
+
+* ex
+
+http://www.cisco.com/c/ko_kr/solutions/local-case-study/lgcns.html
+LG CNI 'MPLS VPN 백본망'

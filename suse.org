@@ -1,0 +1,3 @@
+* SuSE Linux, still?
+
+- Software und System Entwicking ( software and systems development )

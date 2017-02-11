@@ -1,0 +1,5 @@
+* if you are in closed network
+
+- using WSUS ( Windows Server Update Service )
+  WSUSUtil command
+- using Portable Update

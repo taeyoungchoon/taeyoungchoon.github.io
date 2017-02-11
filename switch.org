@@ -1,0 +1,12 @@
+* so
+
+- 라우터 > 백본스위치/L3스위치 > L2스위치 > 서버
+- L2스위치, 워크그룹 스위치
+
+* list
+
+- Cisco Small Business 110 Series Unmanaged Switches
+  Easy-to-use switches with zero configuration
+
+- lots of 
+  http://cisco.com/c/en/us/products/switches

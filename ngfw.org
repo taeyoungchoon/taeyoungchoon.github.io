@@ -1,0 +1,11 @@
+* ngfw and box
+
+- Check Point
+- Dell Sonicwall
+- Palo Alto
+- Cisco
+- Fortinet
+- HP TippingPoint
+- McAfee
+- Barracuda
+- Juniper SRX

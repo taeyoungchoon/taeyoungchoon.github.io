@@ -1,0 +1,5 @@
+* list
+
+- Desktop as a Service
+- Local desktop virtualization
+  Parallels Desktop for Mac, VMware Fusion, Virtual PC, VirtualBox

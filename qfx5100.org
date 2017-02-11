@@ -1,0 +1,6 @@
+* QFX5100
+
+- Products & Services > Products > Switches > QFX Series > QFX5100
+- Very low latency, high-performance, 10GbE/40GbE data center switch
+- software?
+

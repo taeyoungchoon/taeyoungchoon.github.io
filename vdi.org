@@ -1,0 +1,3 @@
+* vs Local desktop virtualization
+- Desktop as a Service
+- one of Desktop virtualization

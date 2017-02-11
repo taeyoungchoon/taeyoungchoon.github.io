@@ -1,0 +1,14 @@
+* SBC, Server Based Computing
+* list
+
+- Microsoft Windows Terminal Server (Windows NT/2000)
+- Microsoft Windows Terminal Services (Windows 2003)
+- Microsoft Windows Remote Desktop Services (Windows 2008 R2)
+- Citrix Presentation Server
+- Citrix XenApp Server
+- AppliDis Fusion
+- 2X Application Server
+- HOBlink
+- Propalms TSE (voorheen Tarantella)
+- Jetro CockpIT
+- Graphon GO-Global
