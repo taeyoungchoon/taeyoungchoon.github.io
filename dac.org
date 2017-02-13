@@ -1,1 +1,3 @@
-* ex, linux
+* DAC
+
+- unix permission

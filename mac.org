@@ -1,1 +1,6 @@
-* ex, selinux
+* MAC
+
+- selinux
+- 접근통제행렬과 AC
+  
+* other mac about msg
