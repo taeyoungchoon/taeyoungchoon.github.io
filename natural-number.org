@@ -1,0 +1,3 @@
+* natürliche Zahl
+* 0 ?
+

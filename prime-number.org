@@ -1,0 +1,7 @@
+* vs composite number
+
+- 4, 6, 8, 9, 10, 12
+
+* prime number
+
+- 1, 2, 3, 5, 7, 11, 13

@@ -1,2 +1,31 @@
 * Diffie-Hellman vs RSA
 * D-H use on IPSEC > IKE
+* from The discrete logarithm problem
+
+https://www.khanacademy.org/computing/computer-science/cryptography/modern-crypt/v/discrete-logarithm-problem
+
+* test
+
+prime > generator, generator is primitive root of prime
+
+generator G = 7
+prime P = 11
+
+jack private key = 2
+raul private key = 3
+
+public key = generator ^ private key % prime
+
+5 = 7^2%11
+2 = 7^3%11
+
+secret key = public key & private key % prime
+
+4 = 2^2%11
+4 = 5^3%11
+
+* huk
+
+generator, prime을 보았고 또한 주고 받은 public key를 보았지만
+jack도 raul도 private key는 보내지 않았다, 누구도 보지 못했다.
+하여 앞으로 사용할 secret key는 jack과 raul만 알고 있다.
