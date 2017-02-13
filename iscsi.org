@@ -1,0 +1,18 @@
+* conf
+
+/etc/iscsi/initiatorname.iscsi
+
+* cli
+
+/etc/init.d/open-iscsi restart
+
+ls /dev/disk/by-path/
+
+iscsiadm -m session
+iscsiadm -m session -P 3
+
+* refer
+
+https://library.netapp.com/ecmdocs/ECMP1217221/html/GUID-8EC685B4-8CB6-40D8-A8D5-031A3899BCDC.html
+
+* iscsi with lvm and multipath
