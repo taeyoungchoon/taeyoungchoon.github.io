@@ -1,0 +1,6 @@
+* list
+
+- emacs macro
+- c macro
+- gmacro
+- autohotkeys

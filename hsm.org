@@ -1,0 +1,11 @@
+* Hardware Security Module
+
+- Common Criteria EAL4+
+- NIST FIPS 140-2
+
+* list
+
+- Thales HSM 8000
+- Luna SA aka SafeNet Network HSM
+- AWS CloudHSM
+
