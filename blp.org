@@ -1,0 +1,4 @@
+* Bell-Lapadula model
+
+- David Elliott Bell
+- Leonard J. Lapadula

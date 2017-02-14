@@ -1,0 +1,9 @@
+* cli
+
+netsh interface ip dump
+nslookup empas.com
+
+* cli, later
+
+netsh interface ip show config name="로컬 영역 연결"
+netsh interface ip show config name="Local Area Connection"

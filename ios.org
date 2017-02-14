@@ -1,0 +1,40 @@
+* enable
+
+#+BEGIN_EXAMPLE
+
+$ telnet 192.168.0.254
+Trying 192.168.0.254...
+Connected to 192.168.0.254 (192.168.0.254).
+Escape character is '^]'.
+
+User Access Verification
+
+Password:
+3F-2560-A>enable
+Password:
+3F-2560-A#
+
+#+END_EXAMPLE
+
+* configure terminal
+
+#+BEGIN_EXAMPLE
+
+3F-2560-A#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+3F-2560-A(config)#exit
+3F-2560-A#
+
+#+END_EXAMPLE
+
+* hostname
+
+#+BEGIN_EXAMPLE
+
+foo#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+foo(config)#hostname bar
+bar(config)#exit
+bar#
+
+#+END_EXAMPLE

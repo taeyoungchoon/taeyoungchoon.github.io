@@ -1,0 +1,5 @@
+* sc query
+* refer
+
+https://technet.microsoft.com/en-us/library/cc754599(v=ws.11).aspx
+

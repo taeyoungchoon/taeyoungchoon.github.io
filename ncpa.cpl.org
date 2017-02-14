@@ -1,0 +1,8 @@
+* ncpa.cpl
+
+- 제어판 > 네트워크 연결
+
+* more
+
+http://mikerodionov.com/2012/10/list-of-windows-mmc-snap-ins-and-control-panel-applets/
+List of Windows MMC Snap-ins and Control Panel Applets
