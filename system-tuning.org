@@ -1,0 +1,3 @@
+* using proc? or more
+
+- 시스템 최적화

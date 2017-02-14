@@ -1,0 +1,5 @@
+* Domain Name System Security Extensions (DNSSEC)
+* ref
+
+https://www.cloudflare.com/dns/dnssec/how-dnssec-works/
+

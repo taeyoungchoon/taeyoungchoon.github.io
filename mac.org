@@ -3,4 +3,7 @@
 - selinux
 - 접근통제행렬과 AC
   
-* other mac about msg
+* other mac about msg, Message authentication code
+
+https://en.wikipedia.org/wiki/Message_authentication_code
+
