@@ -9,7 +9,7 @@
 
 * TODO list
 
-- 정보보안기사
+- [[file:engineer-information-security.org][정보보안기사]]
 
 * queue
 
