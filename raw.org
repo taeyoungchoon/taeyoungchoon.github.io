@@ -1,0 +1,27 @@
+* ref about raw device?
+
+http://f1angel.tistory.com/152
+http://www.dba-oracle.com/real_application_clusters_rac_grid/raw_devices_linux.html
+http://cafe.naver.com/gseducation/348
+
+- pvcreate
+- vgcreate
+- lvcreate
+
+* raw
+
+- /usr/bin/raw?
+- /etc/sysconfig/rawdevices
+- service rawdevices restart
+- /etc/udev/rules.d/60-raw.rules
+
+Raw character devices must be bound to block devices each time a member boots.
+The rawdevices service can only initialize devices named according to the /dev/raw/rawN format. 
+
+it will write directly to /dev/sdz bypassing the OS block buffer cache
+unix buffered file system
+
+http://tfindelkind.com/2015/08/10/fio-flexible-io-tester-part5-direct-io-or-buffered-page-cache-or-raw-performance/
+
+https://en.wikipedia.org/wiki/Raw_device
+bypassing the operating system's caches and buffers

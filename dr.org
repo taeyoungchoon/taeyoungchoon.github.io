@@ -1,0 +1,22 @@
+* DR, Disaster Recovery
+
+- DRP, Disaster Recovery Plan
+- recovery point objective (RPO)
+  - backward view
+- recovery time objective (RTO)
+  - forward view
+- BC, Business Continuity
+- DR site
+  - hot, warm, cold
+
+* real
+
+- DRDB, Distributed Replicated Block Device
+
+* history
+
+- 삼성SDS의 과천 인터넷데이터센터(IDC) 화재 
+  - 미래창고과학부?
+  - 오프라인 DR
+- 9/11
+  
