@@ -10,6 +10,7 @@ omnidbutil -show_cell_name
 <Data_Protector_home>\log\Healthcheck.log
 omnimm -list_pools
 omnisv -status
+omnimnt -version
 
 #+BEGIN_SRC 
 C:\Documents and Settings\Administrator>omnisv -status
