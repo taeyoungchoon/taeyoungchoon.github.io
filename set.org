@@ -1,1 +1,46 @@
 * Secure Electronic Transaction
+* word
+
+- cardholder, 카드 소지자, 구매자, 소비자
+- merchant, 온라인 상점, 상인, 쇼핑몰
+- payment gateway
+- issuer, 카드 발급사
+- acquire, 매입사, 판매자의 계좌가 개설된 기관
+- payment network, 지급정보 중계기관
+- internet
+- ca, certificate authority, 인증기관
+
+* dual signature
+
+- order info's hash
+- payment info's hash
+- using cardholder's private key
+- to merchant
+- to payment gateway
+
+* blind signature?
+
+* process
+
+1. 상인은 계좌를 계설한다
+2. 소비자는 카드를 발급 받았다
+3. 소비자는 상인의 온라인 상점에서 물품을 구매하려 한다
+4. 물품을 고르고
+5. 카드정보를 입력하였다
+6. 구매 정보와 카드 정보가 소비자의 개인키로 암호화되어 상인에게 전달되고
+7. 상인은 소비자의 공개키로 암호를 해제하여 구매정보를 확인하고
+8. PG사는 소비자의 공개키로 암호를 해제하여 카드정보를 확인한다
+9. 이 후에 몇 단계의 절차를 걸쳐 구매가 완료되고
+10. 소비는 물품이 오기를 기다린다
+
+* PG사
+
+- KSNET, KCP, 이니시스, LG U+, 삼성 올엣카드
+- 보증보험
+- 정산주기
+- 수수료
+- 신용카드, 계좌이체, 가상계좌
+
+* PG사 > 이니시스
+
+https://www.inicis.com/pg-hosting?cd=hostinglanding&product=4&settlement=N
