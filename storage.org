@@ -19,3 +19,11 @@
 * NetApp
 
 - Data ONtAP
+
+* word
+
+- Device mapper as /dev/mapper and used by LVM2, DM Multipath
+- WWN, WWID
+- DM Multipath, /etc/multipath.conf
+- LUN, Logical Unit Number
+

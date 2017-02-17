@@ -1,0 +1,7 @@
+* using twittering-mode
+
+| key     | desc    |
+|---------+---------|
+| g       | refresh |
+| C-c C-q | query   |
+
