@@ -4,3 +4,8 @@ apt-get install gnupg pgpgpg
 
 * deep
 
+* so
+
+- PGP, PEM, S/MIME
+- PGP와 S/MIME은 유지, PEM은 패기 단, .pem 만이 남았다는
+- PGP와 S/MIME의 차이는? 그리고 사용하려면? 그것도 gmail과 함께 아니 아닌가!
