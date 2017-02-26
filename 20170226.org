@@ -1,0 +1,24 @@
+* day one
+
+그리고 이디야에서 남긴 메모다, 아 마이너리그를 보았다, 다 보았다.
+
+#+BEGIN_SRC lisp
+  (life (언어 한글 영어 러시아어 중국어 라틴어 아랍어 프랑스어 독일어)
+        (pl perl lisp)
+        (자격/증명 linux 15y)
+        (인간의-육체 근력 눈)
+        (home 요리 여행)
+        (일 서버 보안)
+        (자격증? 정보처리기사 lpic tru64unix 보안기사 감리사 기술사)
+        (백업 비움 git dropbox gdrive)
+        (email gmail kr)
+        (편집기 emacs)
+        (툴 dot)
+        (책 논어 삼국지 (마이너리그 nil))
+        (생각 삶 우주 정반합)
+        (읽기 신문 뉴스위크)
+        (이력 lisp linkedin jobkorea)
+        (재미 게임 수학))
+  (삶은 실천이다)
+  (흐르는 삶에서 진리를 찾아서)
+#+END_SRC
