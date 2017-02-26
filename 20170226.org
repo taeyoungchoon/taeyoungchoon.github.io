@@ -1,6 +1,8 @@
 * day one
 
-그리고 이디야에서 남긴 메모다, 아 마이너리그를 보았다, 다 보았다.
+그리고 이디야에서 남긴 메모다, 아 '마이너리그'를 보았다, 다 보았다. 
+조명에 맘에 들지는 않지만 어쨌거나 주말 저녁이면 그 곳에 발을 옮긴다. 무언가 개선 방안이 필요하다. 집의 조명도 마찬가지 인데.
+출근이다. 오늘 아침 출근이다 이제 잠에 들 시간이다. 자자.
 
 #+BEGIN_SRC lisp
   (life (언어 한글 영어 러시아어 중국어 라틴어 아랍어 프랑스어 독일어)
@@ -22,3 +24,10 @@
   (삶은 실천이다)
   (흐르는 삶에서 진리를 찾아서)
 #+END_SRC
+
+(emacs org-mode major minor 한글 emacs-lisp)
+(보안기사 필기 실기 how-deep?)
+(storage disk (filesystem (ntfs permission)) nfs samba openafs hci raid storage dr san das nas iscsi fc sas scsi FCoE aws-ebs aws-s3 3par ibrix)
+(kerberos (vpn ipsec) ssl/tls sha1 md5 ISMS PIMS CIA+ RSA public-key selinux (cisco cli) nmap tcp/ip snort crontab risk (mysql my.cnf))
+(snmp who last lastcomm lastb w PDCA)
+(sql-injection arp-spoofing dnssec)
