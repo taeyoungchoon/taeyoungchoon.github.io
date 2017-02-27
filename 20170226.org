@@ -11,10 +11,10 @@
         (인간의-육체 근력 눈)
         (home 요리 여행)
         (일 서버 보안)
-        (자격증? 정보처리기사 lpic tru64unix 보안기사 감리사 기술사)
+        (자격증? 정보처리기사 lpic tru64unix (보안기사 필기 실기 how-deep) 감리사 기술사)
         (백업 비움 git dropbox gdrive)
         (email gmail kr)
-        (편집기 emacs)
+        (편집기 (emacs major minor with-korean emacs-lisp org-mode))
         (툴 dot)
         (책 논어 삼국지 (마이너리그 nil))
         (생각 삶 우주 정반합)
@@ -25,8 +25,6 @@
   (흐르는 삶에서 진리를 찾아서)
 #+END_SRC
 
-(emacs org-mode major minor 한글 emacs-lisp)
-(보안기사 필기 실기 how-deep?)
 (storage disk (filesystem (ntfs permission)) nfs samba openafs hci raid storage dr san das nas iscsi fc sas scsi FCoE aws-ebs aws-s3 3par ibrix)
 (kerberos (vpn ipsec) ssl/tls sha1 md5 ISMS PIMS CIA+ RSA public-key selinux (cisco cli) nmap tcp/ip snort crontab risk (mysql my.cnf))
 (snmp who last lastcomm lastb w PDCA)
