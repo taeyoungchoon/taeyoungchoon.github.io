@@ -90,3 +90,8 @@ tclass=dir
 
 #+END_EXAMPLE
 
+* so
+
+- avc : cache, access vector cache
+
+* /etc/selinux/POLICYTYPE/*
