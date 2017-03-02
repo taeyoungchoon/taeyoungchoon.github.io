@@ -5,11 +5,26 @@
 - ftp://ftp.apple.asimov.net/pub/apple_II/images/games/rpg/ultima/
 - IE > 보기 > Windows 탐색기에서 FTP 사이트 열기(O)
 
-* active mode , SVR -> C:xxxx
+* active mode , S -> C
 
-- port xxxx
+** ftp bounce attack
 
-* passive mode , C -> SVR:xxxx
+port x,x,x,x,0,21
+500 Illegal PORT command.
 
-- pasv
-- xxxx
+* passive mode , C -> S
+
+pasv
+227 Entering Passive Mode (x,x,x,x,59,172)
+list
+425 Failed to establish connection
+
+# bc -q
+59*256+172
+15276
+
+# lsof | grep 15276
+COMMAND     PID       USER   FD      TYPE             DEVICE  SIZE/OFF       NODE NAME
+vsftpd    29253     nobody    7u     IPv4          958464239       0t0        TCP x.x.x.x:15276 (LISTEN)
+
+

@@ -1,0 +1,10 @@
+* why cbs.log file size
+
+- cbs : component based servicing
+- vs TrustedInstaller.exe (Windows Module Installer)
+- and sfc.exe (system file checker)
+
+* refer
+
+http://superuser.com/questions/803842/why-is-cbs-log-file-size-20-gb
+https://blogs.technet.microsoft.com/askperf/2008/04/23/understanding-component-based-servicing/

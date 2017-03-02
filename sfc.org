@@ -1,0 +1,72 @@
+* sfc? scan file checker, chkdsk?
+
+https://www.sevenforums.com/performance-maintenance/325080-sfc-scannow-chkdsk-whats-diff.html
+
+* do
+
+C:\Users\see>sfc /scannow
+
+시스템 검색을 시작합니다. 이 프로세스를 수행하는 데에는 약간의 시간이 소요됩니다.
+
+시스템 검색의 확인 단계를 시작하고 있습니다.
+100% 확인 완료
+Windows 리소스 보호가 손상된 파일을 발견했지만 일부 파일을 복구할 수 없습니다.
+자세한 내용은 CBS.log(windir\Logs\CBS\CBS.log)를 참조하십시오.
+예: C:\Windows\Logs\CBS\CBS.log
+
+C:\Users\see>
+
+* cbs folder
+
+C:\Windows\Logs\CBS>ls -l
+total 30828
+-rw-rw----+ 1 SYSTEM SYSTEM 5112964 Feb 28 10:58 CBS.log
+-rwxr-x---+ 1 SYSTEM SYSTEM 8253198 Dec 15 09:12 CbsPersist_20161215002042.cab
+-rwxr-x---+ 1 SYSTEM SYSTEM 3366436 Jan 11 09:24 CbsPersist_20170111010048.cab
+-rwxr-x---+ 1 SYSTEM SYSTEM 5693900 Jan 11 14:54 CbsPersist_20170112000917.cab
+-rwxr-x---+ 1 SYSTEM SYSTEM 3157276 Jan 25 17:29 CbsPersist_20170125150059.cab
+-rwxr-x---+ 1 SYSTEM SYSTEM 5975648 Feb 14 09:06 CbsPersist_20170214002426.cab
+
+* cbs.log
+
+2017-02-28 08:58:15, Info                  CBS    Starting TrustedInstaller finalization.
+
+POQ 113 starts:
+ 
+POQ 113 ends.
+2017-02-28 10:48:01, Info                  CSI    0000022e [SR] Verify complete
+2017-02-28 10:48:01, Info                  CSI    0000022f [SR] Repairing 2 components
+2017-02-28 10:48:01, Info                  CSI    00000230 [SR] Beginning Verify and Repair transaction
+2017-02-28 10:48:01, Info                  CSI    00000231 Hashes for file member \??\C:\Windows\Help\mui\0412\diskmgt.CHM do not match actual file [l:22{11}]"diskmgt.CHM" :
+  Found: {l:32 b:7p7OZUdbxPsCbhqayDK3QS1dGjMJXqe22r6AU3rl9Tc=} Expected: {l:32 b:eusjxV6TY3NghT0FM7rdWmGpKNq3riRRqTBe61Ua4Pg=}
+2017-02-28 10:48:01, Info                  CSI    00000232 [SR] Repairing corrupted file [ml:520{260},l:56{28}]"\??\C:\Windows\Help\mui\0412"\[l:22{11}]"diskmgt.CHM" from store
+2017-02-28 10:48:01, Info                  CSI    00000233 WARNING: File [l:22{11}]"diskmgt.CHM" in [l:56{28}]"\??\C:\Windows\Help\mui\0412" switching ownership
+    Old: Server-Help-CHM.diskmgt.Resources, Version = 6.1.7600.16385, pA = PROCESSOR_ARCHITECTURE_INTEL (0), Culture = [l:10{5}]"ko-KR", VersionScope = 1 nonSxS, PublicKeyToken = {l:8 b:31bf3856ad364e35}, Type neutral, TypeName neutral, PublicKey neutral
+    New: Server-Help-CHM.diskm_v.Resources, Version = 6.1.7600.16385, pA = PROCESSOR_ARCHITECTURE_INTEL (0), Culture = [l:10{5}]"ko-KR", VersionScope = 1 nonSxS, PublicKeyToken = {l:8 b:31bf3856ad364e35}, Type neutral, TypeName neutral, PublicKey neutral
+2017-02-28 10:48:01, Info                  CSI    00000234 Repair results created:
+
+POQ 114 starts:
+     0: Move File: Source = [l:192{96}]"\SystemRoot\WinSxS\Temp\PendingRenames\0498b3b16491d201f9300000d412f818._0000000000000000.cdf-ms", Destination = [l:104{52}]"\SystemRoot\WinSxS\FileMaps\_0000000000000000.cdf-ms"
+    1: Move File: Source = [l:162{81}]"\SystemRoot\WinSxS\Temp\PendingRenames\0498b3b16491d201fa300000d412f818.$$.cdf-ms", Destination = [l:74{37}]"\SystemRoot\WinSxS\FileMaps\$$.cdf-ms"
+    2: Move File: Source = [l:224{112}]"\SystemRoot\WinSxS\Temp\PendingRenames\64f9b5b16491d201fb300000d412f818.$$_help_mui_0412_c7942096fabea641.cdf-ms", Destination = [l:136{68}]"\SystemRoot\WinSxS\FileMaps\$$_help_mui_0412_c7942096fabea641.cdf-ms"
+    3: Hard Link File: Source = [l:246{123}]"\SystemRoot\WinSxS\x86_server-help-chm.diskm_v.resources_31bf3856ad364e35_6.1.7600.16385_ko-kr_4d84df0c556adacc\diskmgt.CHM", Destination = [l:80{40}]"\??\C:\Windows\Help\mui\0412\diskmgt.CHM"
+
+POQ 114 ends.
+
+* help
+
+/SCANFILE       참조된 파일의 무결성을 검색하고 문제가 확인되면 파일을
+                복구합니다. 전체 경로 <파일>을 지정합니다.
+/VERIFYFILE     전체 경로 <파일>의 파일에 대한 무결성을 확인하지만
+                복구하지는 않습니다.
+
+C:\Users\see>sfc /verifyfile=c:\Windows\help\mui\0412\diskmgt.CHM
+
+Windows 리소스 보호에서 무결성 위반을 발견하지 못했습니다.
+
+C:\Users\see>sfc /scanfile=c:\Windows\help\mui\0412\diskmgt.CHM
+
+Windows 리소스 보호에서 무결성 위반을 발견하지 못했습니다.
+
+C:\Users\see>
+
