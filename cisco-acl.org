@@ -1,0 +1,10 @@
+* numbers
+
+- basic : 1-99
+- extended : 100-199
+
+* cli
+
+- show ip access-lists
+
+* commonly used acl
