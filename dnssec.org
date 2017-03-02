@@ -3,3 +3,26 @@
 
 https://www.cloudflare.com/dns/dnssec/how-dnssec-works/
 
+* 체험관?
+
+http://www.krnic.kr/jsp/business/operate/main.jsp
+
+* record
+
+- DS
+- DNSKEY
+- RRSIG
+- NSEC
+
+* DNSSEC enabled site
+
+- icann.org
+- dnsviz.net
+
+* test
+
+https://dnssec-debugger.verisignlabs.com/
+
+* cli
+
+dig +dnssec +multi @203.255.210.54 gg.dnssec.safedns.kr DS
