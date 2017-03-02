@@ -1,7 +1,12 @@
 * MAC
-
+  
 - selinux
 - 접근통제행렬과 AC
+
+** concept
+
+- bell-lapadula
+- biba
   
 * other mac about msg, Message authentication code
 

@@ -1,0 +1,14 @@
+* PDCA
+
+정보보호 관리체계의 4단계
+
+#+BEGIN_SRC lisp
+
+  (ISMS
+   (PDCA
+    (Plan  "수립")
+    (Do    "구현 및 운영")
+    (Check "모니터링 및 점검")
+    (Act   "유지관리 및 개선")))
+
+#+END_SRC

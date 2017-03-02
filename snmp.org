@@ -6,3 +6,17 @@ snmpwalk -v 1 -c public x.x.x.x
 * trap
 
 * with ilo/IML
+
+* req
+
+- GetRequest
+- GetNextRequest
+- GetBulkRequest
+- SetRequest
+- GetResponse
+- Trap
+
+* roles
+
+- manager at client
+- agent at server

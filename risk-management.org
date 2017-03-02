@@ -1,0 +1,16 @@
+* 위험, risk 분석
+
+#+BEGIN_SRC lisp
+
+  ((자산 Asset)
+   (취약성 vulnerability)
+   (위협 threat))
+
+#+END_SRC
+
+* 대응 전략
+
+- 수용
+- 감소
+- 회피
+- 전이

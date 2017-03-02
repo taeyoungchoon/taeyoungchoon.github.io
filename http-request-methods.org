@@ -3,13 +3,13 @@
 | method  | desc                        |
 |---------+-----------------------------|
 | GET     |                             |
-| HEAD    |                             |
 | POST    |                             |
+| HEAD    |                             |
 | PUT     |                             |
 | DELETE  |                             |
-| CONNECT | establishes a tunnel        |
 | OPTIONS |                             |
 | TRACE   | path to the target resource |
+| CONNECT | establishes a tunnel        |
 | PATCH   | ?                           |
 
 

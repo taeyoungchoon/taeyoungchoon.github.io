@@ -4,4 +4,4 @@
 ** CBC, Cipher Block Chaining
 ** CFB, Cipher Feedback
 ** OFB, Output Feedback
-** CTR, Counter
+** CTR, CounTeR

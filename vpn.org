@@ -25,3 +25,8 @@ queue-limit 30 ! Optional: Anti-Replay Tuning
 
 http://www.ahnlab.com/kr/site/securityinfo/secunews/secuNewsView.do?seq=15547
 
+* list
+
+- L2 : PPTP, L2F, L2TP
+- L3 : IPsec
+- SSL

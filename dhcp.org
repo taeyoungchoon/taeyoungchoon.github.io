@@ -1,0 +1,7 @@
+* dynamic host configuration protocol
+* steps
+
+1. discover
+2. offer
+3. request
+4. ack

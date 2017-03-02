@@ -1,5 +1,5 @@
 * cia, CIA
 
-- Confidentiality
-- Integrity
-- Availability
+- Confidentiality 기밀성 암호화
+- Integrity 무결성 해쉬 hash
+- Availability 가용성 HA/AC

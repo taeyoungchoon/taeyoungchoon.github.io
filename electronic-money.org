@@ -1,0 +1,43 @@
+* 전자화폐, electronic money
+
+** 성격
+
+- [X] 오프라인성
+- [X] 독립성, 완전 정보화
+- [X] 익명성
+- [X] 익명성 취소 기능
+- [X] 복사 및 위조 방지
+- [X] 양도성
+- [X] 분할성
+
+* e-commerce credit card payment system , SET(Secure Electronic Protocol)?
+
+** 성격, 확인 요함
+
+- 무결성
+- 기밀성
+- 상호인증
+- privacy
+- 부인방지
+- 위조불가
+- 재사용불가
+
+** 흐름
+
+https://en.wikipedia.org/wiki/E-commerce_credit_card_payment_system
+http://cafe.naver.com/itpe4you/book5074373/13291
+
+- 이중서명 , dual signature
+- buyer
+- merchant
+- payment gateway , PSP , https://en.wikipedia.org/wiki/Payment_gateway
+- acquirer , https://en.wikipedia.org/wiki/Acquiring_bank
+- credit card company
+- issuer
+- 은닉서명, bind signature 는 왜 필요한지 모르겠다는
+
+** acquirer?
+
+미국과 유럽에서는 카드발급 업무와 카드매입 업무를 구분한다
+카드매입 업무를 하는 사업자를 acquirer라고 한다
+* 비트코인 , 블록체인
