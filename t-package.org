@@ -1,0 +1,43 @@
+* t-package is the package managing script
+* cli
+
+- update?, nop
+- [ ] search
+- [ ] install
+- [ ] remove
+- query? rpm -qf
+- list
+- show, not info
+
+* package mamager
+
+- rpm, yum
+- pacman, msys2 using
+  https://www.lifewire.com/using-the-pacman-package-manager-4018823
+- dpkg, apt-get, apt-cache
+
+* rpm, yum
+
+- search
+  yum search
+- install 
+  yum install
+- remove
+  yum remove
+
+* dpkg, apt-get, apt-cache
+
+- search
+  apt-cache search 
+- install
+  apt-get install
+- remove
+  apt-get remove
+
+* operating system? uname!
+
+- redhat type
+- debian
+- slackware
+- windows?
+- mac os x, darwin
