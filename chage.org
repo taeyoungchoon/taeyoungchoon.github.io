@@ -2,7 +2,7 @@
 
 (cons change age)
 
-* man chage
+* man chage, man shadow, man 5 shadow
 * cli, list
 
 chage -l
@@ -15,9 +15,10 @@ chage -d 0 jack
 
 #+BEGIN_EXAMPLE
 
-vagrant@precise64:~$ sudo chage -m 0 -M 90 -W 7 -E 2027-1-1 -I 30 -d 2017-1-1 vagrant
+$ sudo chage -d 2017-1-1 vagrant
+$ sudo chage -m 0 -M 90 -W 7 -I 30 -E 2027-1-1 vagrant
 
-vagrant@precise64:~$ sudo chage -l vagrant
+$ sudo chage -l vagrant
 Last password change					: Jan 01, 2017
 Password expires					: Apr 01, 2017
 Password inactive					: May 01, 2017
@@ -26,16 +27,45 @@ Minimum number of days between password change		: 0
 Maximum number of days between password change		: 90
 Number of days of warning before password expires	: 7
 
-vagrant@precise64:~$ sudo cat /etc/shadow | grep va
-vagrant:$6$aqzOtgCM$OxgoMP4JoqMJ1U1F3MZPo2iBefDRnRCXSfgIM36E5cfMNcE7GcNtH1P/tTC2QY3sX3BxxJ7r/9ciScIVTa55l0:17167:0:90:7:30:20819:
+$ sudo cat /etc/shadow | grep va
+vagrant:9ciScIVTa55l0:17167:0:90:7:30:20819:
 
 #+END_EXAMPLE
 
-| opt | desc     |     more |
-|-----+----------+----------|
-| -m  | min      |          |
-| -M  | max      |          |
-| -W  | warn     |          |
-| -E  | expire   | 2027-1-1 |
-| -I  | inactive |          |
-| -d  | date     | 2017-1-1 |
+| opt | opt desc |      set | value | detail               | know? |
+|-----+----------+----------+-------+----------------------+-------|
+| -d  | date     | 2017-1-1 |       | last password change | v     |
+| -m  | min      |        0 |     0 |                      | v     |
+| -W  | Warn     |        7 |     7 | 2017-3-24            | v     |
+| -M  | Max      |       90 |    90 | 2017-4-1             | v     |
+| -I  | Inactive |       30 |    30 | 2017-5-1             | v     |
+| -E  | Expire   | 2027-1-1 |       | account expires      | v     |
+
+* flow
+
+- last-change date - min - warn - max - inactive - expire
+
+* in shadow
+
+- username, (crypt password), last-change, min, max, warn, inact, expire
+
+* story
+
+* msg
+
+- Warning: your password will expire in 7 days
+- You are required to change your password immediately (password aged)
+  Changing password for foo
+  (current) UNIX password:
+- Your account has expired; please contact your system administrator
+
+* msg, special
+
+$ chage -d 0 foo
+
+$ sudo chage -l foo
+Last password change                                    : password must be changed
+
+- You are required to change your password immediately (root enforced)
+  Changing password for foo
+  (current) UNIX password:

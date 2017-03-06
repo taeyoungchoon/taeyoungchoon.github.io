@@ -1,0 +1,16 @@
+* steps
+
+1. (backup :using (google cmbackup?))
+2. (reset :level factory)
+3. (lang kr)
+4. (wireless on)
+5. (google on :using (app password))
+6. (app download)
+7. (setting soft)
+   - [X] disble gps, v touch
+   - [X] sound control
+8. (lang en)
+9. (restore :using (google cmbackup?))
+10. (setting hard)
+    - [ ] cert
+    - [ ] password
