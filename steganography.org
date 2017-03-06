@@ -1,0 +1,14 @@
+* text stegranography
+
+- cipher text by german spy in world war 2
+- taking second letter in each word
+
+* refer
+
+https://en.wikipedia.org/wiki/Steganography
+
+* three days of condor?
+
+* image steganography and it works
+
+- http://incoherency.co.uk/image-steganography/

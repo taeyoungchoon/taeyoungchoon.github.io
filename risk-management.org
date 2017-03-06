@@ -10,7 +10,11 @@
 
 * 대응 전략
 
-- 수용
-- 감소
-- 회피
-- 전이
+http://www.ahnlab.com/kr/site/securityinfo/secunews/secuNewsView.do?seq=23402
+
+- 수용, accept the risk
+- 감소, 우산, 교통지도, mitigate the risk
+- 회피, 피크닉 취소, avoid the risk
+- 전가, 보험, transfer the risk
+
+
