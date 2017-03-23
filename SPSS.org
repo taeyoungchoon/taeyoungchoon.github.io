@@ -1,18 +1,22 @@
 * SPSS is
-
-* Stable
+** Stable
 
 - related to [[file:aging.org][aging]]
 
-* Performance
+** Performance
 
 - is knowing
 - but normally don't
 
-* Scale
+** Scale
 
 - is design
 
-* Secure
+** Secure
 
 - deep space
+- not just knowing but understanding
+
+* memo
+
+내가 정립하고 내가 사용한다 좋다
