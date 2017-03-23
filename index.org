@@ -1,4 +1,5 @@
 #+SETUPFILE: theme-readtheorg.setup
+#+OPTIONS: html-postamble:nil
 
 * think about lisp
 
@@ -15,7 +16,7 @@
 #+RESULTS:
 | t |
 
-* think about perl
+* think about perl then dot
 
 - no org-babel-execute function for perl!
 
@@ -35,3 +36,8 @@
 - eclipse with java/jsp
 - powershell > get-filehash -algorithm sha512 foo.iso | format-list
 - python, perl, lisp, c, ruby, scala, go, java, jsp and why
+
+* remove footer from
+
+- (setq org-export-html-postamble nil)
+- #+OPTIONS: html-postamble:nil
