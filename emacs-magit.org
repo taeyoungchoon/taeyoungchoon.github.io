@@ -1,1 +1,11 @@
 * pressing
+
+- M-x magit-status
+- s
+- c c
+- C-c C-c
+- P u
+
+* more pressing
+
+- F u
