@@ -1,11 +1,16 @@
 * pressing
 
-- M-x magit-status
-- s
-- c c
-- C-c C-c
-- P u
+1. M-x magit-status
+2. s
+3. c c
+4. C-c C-c
+5. P u
+6. q
 
 * more pressing
 
 - F u
+
+* refer
+
+https://www.emacswiki.org/emacs/Magit
