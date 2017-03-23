@@ -1,7 +1,10 @@
 * list
+
 - 정보보안기사/산업기사(post SIS)
 - 네트워크관리사
+
 * but
+
 - CISSP
 - CISA, 정보시스템강사사
 - CISM, 정보보안관리자
@@ -15,7 +18,9 @@
 - Security+
 - CCPG(개인정보관리사)
 - ISE(산업보안관리사)
+
 * link
+
 - http://www.boannews.com/media/view.asp?idx=37595
 - http://www.wiseroad.co.kr/menu/04010200.php
 - http://tip.daum.net/question/70224910
