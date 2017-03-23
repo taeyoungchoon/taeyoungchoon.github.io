@@ -1,49 +1,37 @@
 #+SETUPFILE: theme-readtheorg.setup
 
-* human-life
+* think about lisp
+
+- C-'
+- C-c C-c
+- code block evalution complete
 
 #+BEGIN_SRC emacs-lisp
 
-    '(t-life
-      (t-loop
-       (t-body 
-        t-income
-        t-stack
-        t-lang
-        (t-tool (emacs (perl lisp)))
-        t-cook
-        t-book
-        t-think)))
+  (cons t nil)
 
 #+END_SRC
 
-* compute-yet
+#+RESULTS:
+| t |
 
-#+BEGIN_SRC emacs-lisp
+* think about perl
 
-  ' (t-compute
-     (t-env
-      (t-os
-       (t-cpu :opt type)
-       (t-memory :opt usage)
-       (t-repo :type (das san nas))
-       (t-kernel-log :aka t-dmesg)
-       t-common-log
-       (t-nameservice :aka t-ns)
-       (t-network :aka t-ip)
-       t-process)
-      (t-state :aka t-manifest :opt status))) 
+- no org-babel-execute function for perl!
+
+#+BEGIN_SRC perl
+
+  print "hi";
 
 #+END_SRC
 
-* infra
+* word then C-c C-e h o
 
-#+BEGIN_SRC emacs-lisp
-
-  '(infra
-    ((conn w1 w2 w3)
-     (as as1 as2)
-     (repo db1))
-
-#+END_SRC
-
+- snort aka tcpdump/wireshark on pcap
+- (ISMS Information Security Management System) and it's about system
+- risk with (SARA Share Accept Reduce Avoid)
+- risk on delphi
+- book, 논어뿐인가? 아니면 말이다
+- eclipse with java/jsp
+- powershell > get-filehash -algorithm sha512 foo.iso | format-list
+- python, perl, lisp, c, ruby, scala, go, java, jsp and why
