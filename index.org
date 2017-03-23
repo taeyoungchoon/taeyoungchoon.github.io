@@ -1,7 +1,7 @@
 #+SETUPFILE: theme-readtheorg.setup
 #+OPTIONS: html-postamble:nil
 
-* think about lisp
+* COMMENT think about lisp
 
 - C-'
 - C-c C-c
@@ -16,7 +16,7 @@
 #+RESULTS:
 | t |
 
-* think about perl then dot
+* COMMENT think about perl then dot
 
 - no org-babel-execute function for perl!
 
@@ -26,6 +26,11 @@
 
 #+END_SRC
 
+* COMMENT remove footer from
+
+- (setq org-export-html-postamble nil)
+- #+OPTIONS: html-postamble:nil
+
 * word then C-c C-e h o
 
 - snort aka tcpdump/wireshark on pcap
@@ -33,11 +38,6 @@
 - risk with (SARA Share Accept Reduce Avoid)
 - risk on delphi
 - book, 논어뿐인가? 아니면 말이다
-- eclipse with java/jsp
+- eclipse with java/jsp > 
 - powershell > get-filehash -algorithm sha512 foo.iso | format-list
 - python, perl, lisp, c, ruby, scala, go, java, jsp and why
-
-* remove footer from
-
-- (setq org-export-html-postamble nil)
-- #+OPTIONS: html-postamble:nil

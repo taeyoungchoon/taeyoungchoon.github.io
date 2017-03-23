@@ -1,0 +1,13 @@
+* made by ibm?
+
+** with galileo on windows 7
+
+- eclipse.ini
+
+#+BEGIN_EXAMPLE
+
+-Xmx256m
+
+#+END_EXAMPLE
+
+* but more about twilight saga > eclipse(2010)
