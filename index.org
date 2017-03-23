@@ -38,6 +38,7 @@
 - risk with (SARA Share Accept Reduce Avoid)
 - risk on delphi
 - book, 논어뿐인가? 아니면 말이다
-- eclipse with java/jsp > 
+- eclipse with java/jsp
 - powershell > get-filehash -algorithm sha512 foo.iso | format-list
 - python, perl, lisp, c, ruby, scala, go, java, jsp and why
+- mathematics > math
