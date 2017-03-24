@@ -1,4 +1,4 @@
-* using twittering-mode
+* using twittering-mode aka twmode
 
 | key     | desc    |
 |---------+---------|

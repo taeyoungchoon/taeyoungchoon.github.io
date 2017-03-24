@@ -38,16 +38,30 @@
 - (setq org-export-html-postamble nil)
 - #+OPTIONS: html-postamble:nil
 
-* word then C-c C-e h o
+* word then C-c C-e h o but cert
 
-- [ ] snort aka tcpdump/wireshark on pcap
 - [ ] (ISMS Information Security Management System) and it's about system
 - [ ] risk with (SARA Share Accept Reduce Avoid)
 - [ ] risk on delphi
-- [ ] book, 論語
-- [ ] eclipse with java/jsp
-- [ ] powershell > get-filehash -algorithm sha512 foo.iso | format-list
-- [ ] python, perl, lisp, c, ruby, scala, go, java, jsp and why
-- [ ] mathematics > math
-- [ ] emacs's macro
+- [ ] risk with baseline?
+- [ ] snort aka tcpdump/wireshark on pcap
+
+* lisp, lisp, lisp
+
 - [ ] lisp, clisp, emacs-lisp
+
+* then emacs, emacs, emacs-lisp
+
+- [ ] emacs's macro
+
+* java/jsp?
+
+- [ ] eclipse with java/jsp
+
+* book
+
+- [ ] book, 論語
+
+* one more thing
+
+- [ ] mathematics > math
