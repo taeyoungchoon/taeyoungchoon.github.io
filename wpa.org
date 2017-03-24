@@ -10,14 +10,6 @@ and was deprecated in the 2012 revision of the 802.11 standard.
 
 TKIP implements a 64-bit Message Integrity Check (MIC)
 
-* wpa2
-
-The IEEE endorsed the final version of TKIP, 
-along with more robust solutions such as 802.1X and the AES based CCMP, 
-when they published IEEE 802.11i-2004 on 23 July 2004.
-
-The Wi-Fi Alliance soon afterwards adopted the full specification under the marketing name WPA2.
-
 * CCMP
 
 - CCM mode Protocl
@@ -25,3 +17,12 @@ The Wi-Fi Alliance soon afterwards adopted the full specification under the mark
 - Counter Mode Cipher Block Chaining Message Authentication Code Protocol
 - Counter Mode CBC-MAC Protocol
 - based upon COunter Mode CBC-MAC(CCM) of the AES standard
+
+* wpa2
+
+The IEEE endorsed the final version of TKIP, 
+along with more robust solutions such as 802.1X and the AES based CCMP, 
+when they published IEEE 802.11i-2004 on 23 July 2004.
+
+The Wi-Fi Alliance soon afterwards adopted the full specification under the marketing name WPA2.
+  

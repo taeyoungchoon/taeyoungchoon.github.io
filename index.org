@@ -53,6 +53,8 @@
 * then emacs, emacs, emacs-lisp
 
 - [ ] emacs's macro
+- [X] new emacs, 25.1-2
+  뭐 문제없이 돌기만 해도 다행이지 않을까라는 생각이다
 
 * java/jsp?
 

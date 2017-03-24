@@ -1,13 +1,17 @@
-* protocol
+* protocol and port
 
-- smtp
-- pop3
-- imap
+- smtp, 25
+- pop3, 110
+- imap, 143
 
 * flow
 
-how it works
+#+BEGIN_EXAMPLE
 
-* one more thing
+user - client - smtp - smtp - <imap> - client - user
+user - client - webmail - smtp - smtp - webmail - client - user
+user - client - webmail - smtp - smtp - spam - <pop3> - client - user
 
-read RFC?
+#+END_EXAMPLE
+
+

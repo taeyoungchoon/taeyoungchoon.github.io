@@ -13,3 +13,4 @@ the IEEE declared that both WEP-40 and WEP-104 have been deprecated
 * 802.11i (WPA and WPA2)
 
  WPA was an intermediate solution for hardware that could not support WPA2. 
+
