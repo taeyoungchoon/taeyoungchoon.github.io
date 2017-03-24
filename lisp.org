@@ -4,7 +4,7 @@
 - emacs lisp, sbcl, clisp
 - [[file:quicklisp.org][quicklisp]], lisp's cpan
 - on emacs+slime but emacs+ielm
-
+  
 * have to talk
 
 ** namespace issue
@@ -19,13 +19,18 @@
 #+BEGIN_SRC emacs-lisp
   (setf w1-server '(dl360g2 ((eth0 1.1)(eth1 1.2))))
 
-  (defun interfaces (host)
+  (defun interface (host)
     (mapcar #'car (nth 1 host)))
 
-  (interfaces w1-server)
+  (defun ip (host)
+    (mapcar #'cadr (nth 1 host)))
+
+  (progn
+    (interface w1-server)
+    (ip w1-server))
 #+END_SRC
 
 #+RESULTS:
-| eth0 | eth1 |
+| 1.1 | 1.2 |
 
 
