@@ -1,5 +1,12 @@
-#+SETUPFILE: theme-readtheorg.setup
 #+OPTIONS: html-postamble:nil
+
+* COMMENT wrapping with theme
+
+#+BEGIN_EXAMPLE
+
+#+SETUPFILE: theme-readtheorg.setup
+
+#+END_EXAMPLE
 
 * COMMENT think about lisp
 
@@ -33,12 +40,14 @@
 
 * word then C-c C-e h o
 
-- snort aka tcpdump/wireshark on pcap
-- (ISMS Information Security Management System) and it's about system
-- risk with (SARA Share Accept Reduce Avoid)
-- risk on delphi
-- book, 논어뿐인가? 아니면 말이다
-- eclipse with java/jsp
-- powershell > get-filehash -algorithm sha512 foo.iso | format-list
-- python, perl, lisp, c, ruby, scala, go, java, jsp and why
-- mathematics > math
+- [ ] snort aka tcpdump/wireshark on pcap
+- [ ] (ISMS Information Security Management System) and it's about system
+- [ ] risk with (SARA Share Accept Reduce Avoid)
+- [ ] risk on delphi
+- [ ] book, 論語
+- [ ] eclipse with java/jsp
+- [ ] powershell > get-filehash -algorithm sha512 foo.iso | format-list
+- [ ] python, perl, lisp, c, ruby, scala, go, java, jsp and why
+- [ ] mathematics > math
+- [ ] emacs's macro
+- [ ] lisp, clisp, emacs-lisp
