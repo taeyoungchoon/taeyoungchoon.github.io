@@ -1,0 +1,63 @@
+* org-mode
+* org-mode with artist, so text
+
+#+BEGIN_SRC emacs-lisp
+
+;
+;   +---------+	  +---------+
+;   |         |	  |         |
+;   |         |---+         |----+
+;   |         |	  |         |    |
+;   |         |	  |         |    |
+;   +---------+	  +---------+    |
+;	 |		         |
+;      	 +-----------------------+
+;
+
+#+END_SRC
+
+* org-mode with code
+
+- emacs-lisp
+- lisp
+
+- sql
+- dot
+- R
+- java
+- js
+
+- sh
+- perl
+- ruby
+- python
+
+* template
+
+#+BEGIN_SRC sh
+#+END_SRC 
+
+* timestamp
+
+| typing    | seen                   | prefer | desc                        |
+|-----------+------------------------+--------+-----------------------------|
+| C-c .     | <2014-10-17 금>        |        | insert date and time format |
+| C-c !     | [2014-10-17 금]       |        | make stamp inactive (?)     |
+| C-u C-c ! | [2014-09-28 Sun 20:43] | V      |                             |
+
+* reference card
+
+http://orgmode.org/orgcard.pdf
+* table
+
+** convert the active region to a table
+
+C-c |
+
+** not work well with korean
+
+broken table layout
+
+** remove column
+
+

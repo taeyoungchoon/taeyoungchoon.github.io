@@ -1,0 +1,5 @@
+* r install
+* rodbc
+** pre, oracle
+* r studio
+* r studio server

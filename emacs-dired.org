@@ -1,0 +1,3 @@
+* req root priv
+
+C-x C-f /sudo::/etc/resolv.conf

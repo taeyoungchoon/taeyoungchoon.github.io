@@ -1,0 +1,28 @@
+* links
+
+https://wiki.kldp.org/wiki.php/EmacsChangeFonts
+
+* cond system
+
+http://ergoemacs.org/emacs/emacs_list_and_set_font.html
+
+* case and wish
+
+네이버의 폰트
+운영체제별, 윈도우즈, 맥, 리눅스
+그리고 콘솔이냐 아니면 어플
+
+* 맥 그리고 어플인 경우
+
+** config
+
+#+BEGIN_SRC elisp
+;; about font
+(set-face-font 'default "-outline-Courier New-normal-normal-normal-mono-14-*-*-*-c-*-iso10646-1")
+(set-fontset-font "fontset-default" '(#x1100 . #xffdc)  '("NanumGothic" . "unicode-bmp"))
+(set-fontset-font "fontset-default" '(#xe0bc . #xf66e)  '("NanumGothic" . "unicode-bmp"))
+#+END_SRC
+
+*** things inside
+
+face, default, fontset, fontset-default, Courier New, NanumGothic, x1100, xffdc, xe0bc, xf66e, unicode-bmp
