@@ -33,10 +33,6 @@
 
 #+END_SRC
 
-* COMMENT remove footer from
-
-- (setq org-export-html-postamble nil)
-- #+OPTIONS: html-postamble:nil
 
 * word then C-c C-e h o but cert
 
@@ -67,3 +63,7 @@
 * one more thing
 
 - [ ] mathematics > math
+
+* diary
+
+여기에 적는 것은 다이어리가 아니다 그 시점에 모두 태울 그 것은 여기에 있지 않다 여기는 기억된 곳이다
