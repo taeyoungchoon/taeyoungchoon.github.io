@@ -9,7 +9,54 @@
 - 정보보안 일반
 - 정보보안관리 및 법규
 
-실기, 사실은 필기 이게 어렵다는, 15문제, 서술형 포함
+** 실기, 사실은 필기 이게 어렵다는, 15문제, 서술형 포함
+
+어떻게 준비할까나? 지금처럼 언제나처럼인가, ㅎ
+
+- [ ] 출제 기준 확인
+- [ ] 기존 문제 확인
+- [ ] day by day, 하나씩 하루에 하나씩이다
+
+*** one by one
+
+- [ ] ipsec, esp, ah, pre shared key
+- [ ] vpn
+- [ ] nmap, fin/null/xmas
+- [ ] blind sql injection
+- [ ] 정보통신망법의 관리, 기술, 물리적 조치
+- [ ] snort
+- [ ] d-h
+- [ ] sync flooding
+- [ ] dac / mac / rbac
+- [ ] 정보보호 5단계, 범위설정 > 조직구성 > 위험분석 > 관리 > 사후관리
+- [ ] 위험 관리
+- [ ] cache-control
+- [ ] http get flooding with cc
+- [ ] 재난복구서비스
+- [ ] slow http read dos attack
+- [ ] 개인정보영향평가의 대상이 되는 개인정보파일
+- [ ] 정성적 위험분석 방법론
+- [ ] tfp / anonymous ftp / ftp bounce attack
+- [ ] 정보보호정책
+- [ ] tcpwrapper, /etc/hosts.allow, /etc/hosts.deny
+- [ ] 보안의 3요소, 기물성, 무결성, 가용성
+- [ ] smurf
+- [ ] 위험 평가 요수, 자산, 위헙, 취약성
+- [ ] 소프트웨어 개발 보안 취약점 7가지 유형
+- [ ] 위험분석 > 정보자산 그룹핑, 장점
+- [ ] wep, crc 계산법
+- [ ] sql inject log analysis, 대책
+- [ ] 베이스라인 접근법, 비정형 접근법, 상세위험분석, 복합접근법
+- [ ] proxy
+- [ ] ids, false positive(오탐), false negative(미탐)
+- [ ] strlen(argv[1]) >= sizeof(buffer)
+- [ ] OPTIONS
+- [ ] transport mode, tunnel mode
+- [ ] 하트블리드, openssl 1.0 이하, ssl
+- [ ] syn flooding
+- [ ] ISMS
+- [ ] tiny fragment / teardrop attack
+- [ ] mac address filtering
 
 * 시스템 보안
 * 네트워크 보안

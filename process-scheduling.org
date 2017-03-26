@@ -1,0 +1,17 @@
+* context swithching in need
+** pre-emptive
+
+- round robin
+- srt, shortest remaing time first
+- multi-level queue
+- multi-level feedback queue
+
+** non pre-emptive
+
+- fcfs, first come first serve
+- sjf, shortest job first
+  sjn, shortest job next
+  spn, shortest process next
+
+
+

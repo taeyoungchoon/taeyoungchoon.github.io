@@ -40,7 +40,7 @@ Running (JUST GUESSING) : Linux 2.6.X|2.4.X (95%), Gemtek embedded (90%), Siemen
 
   (tcp-open-scan
    (open '(SYN SYN+ACK ACK))
-   (close '(SYN RST+ACK)))
+   (close '(SYN RST+ACK)))ㄱ
 
   (tcp-half-scan
    (open '(SYN SYN+ACK RST))
