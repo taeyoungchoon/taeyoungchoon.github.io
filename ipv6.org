@@ -1,0 +1,12 @@
+* address bit
+
+- ipv4는 32bit, ipv6는 128bit address
+
+* and ipsec
+
+- Authentication header – part of IPsec
+- Encapsulated security payload – IPsec 
+
+* refer
+
+http://www.ipv6now.com.au/primers/IPv6PacketSecurity.php

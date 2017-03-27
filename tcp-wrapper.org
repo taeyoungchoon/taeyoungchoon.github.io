@@ -1,33 +1,65 @@
-* general syntax
+* wrap network service
 
-daemon_list : client_list [ : shell_command ]
+- 이런 알고보니 랩이 이거였군요. (예를 들면 랩으로 감싸서 채소칸에 보관하다)
 
-* hosts.allow, hosts.deny
+#+BEGIN_SRC emacs-lisp
+  (internet
+   (iptables
+    (tcp-wraper
+     network-service)))
+
+#+END_SRC
+
+* two files, hosts.allow then hosts.deny
+
+- The search stops at the first match
+
+* syntax
+
+- daemon : client
+- daemon as ALL, vsftpd, in.telnetd
+- client as ALL, foo.com, .bar.com, 61.111., 172.20.6.0/255.255.255.0, /etc/telnet.hosts
+
+* syntax but EXCEPT
+
+- ALL: .foo.com EXCEPT raul.foo.com
+- ALL EXCEPT in.telnetd: 192.168.0.
+
+* compiled to do so
 
 #+BEGIN_EXAMPLE
-
-$ cat /etc/hosts.allow  | grep :
-# /etc/hosts.allow: list of hosts that are allowed to access the system.
-# Example:    ALL: LOCAL @some_netgroup
-#             ALL: .foobar.edu EXCEPT terminalserver.foobar.edu
-
-$ cat /etc/hosts.deny  | grep :
-# /etc/hosts.deny: list of hosts that are _not_ allowed to access the system.
-# Example:    ALL: some.host.name, .some.domain
-#             ALL EXCEPT in.fingerd: other.host.name, .other.domain
-# ALL: PARANOID
-
+$ ldd /usr/sbin/sshd  | grep libwrap
+        libwrap.so.0 => /lib64/libwrap.so.0 (0x00002b3b8549c000
+# ldd /usr/sbin/vsftpd | grep -i wrap
+        libwrap.so.0 => /lib64/libwrap.so.0 (0x00002adbba933000)
 #+END_EXAMPLE
 
-* vs iptables
+* tcp-wrapper or tcp-wrappers
 
-layer
-
-* tcp wrapper?
+tcp-wrapper가 더 많이 나온다는
 
 #+BEGIN_EXAMPLE
-
-$ dpkg -S hosts.allow 
-libwrap0: /usr/share/man/man5/hosts.allow.5.gz
-
+# rpm -qa | grep -i wrap
+tcp_wrappers-7.6-40.7.el5
 #+END_EXAMPLE
+
+그리고 코드를 작성한 Wietse Venema의 쓴 초안에서도 tcp wrapper(1997)를 사용합니다. 
+패키지명을 tcp_wrappers로 하였군요.
+이 분이 Postfix(1997)도 개발하셨군요. 
+* so /etc/hosts.allow
+
+#+BEGIN_EXAMPLE
+sshd: 172.20.6.0/255.255.255.0
+httpd: 172.20.6.0/255.255.255.0
+#+END_EXAMPLE
+
+httpd(aka apache)는 httpd.conf를 사용하는 것도 좋다. rel : [[file:apache.org][apache]]
+아닌가 설정을 여러 곳에 하는 것은 말이다. 
+그럼 이것도 아닌가. 다 iptables에 하는 것은 어떠한가?
+
+* so /etc/hosts.deny
+
+#+BEGIN_EXAMPLE
+ALL: ALL
+#+END_EXAMPLE
+

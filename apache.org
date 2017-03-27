@@ -3,7 +3,21 @@
 지금도 사용하나
 IIS는 지금도 사용하나
 
+https://news.netcraft.com/archives/2016/06/22/june-2016-web-server-survey.html
+June 2016 Web Server Survey
+
+apache, iis, nginx
+
 * conf
+
+#+BEGIN_EXAMPLE
+Order deny,allow
+Deny from all
+Allow from 172.20.6.0/24
+#+END_EXAMPLE
+
+Allow from의 각 address는 space로 구분한다.
+
 * cli
 * apache centric
 
