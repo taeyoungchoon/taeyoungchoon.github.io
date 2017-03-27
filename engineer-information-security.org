@@ -9,7 +9,7 @@
 - 정보보안 일반
 - 정보보안관리 및 법규
 
-** 실기, 사실은 필기 이게 어렵다는, 15문제, 서술형 포함
+* TODO 실기, 사실은 필기 이게 어렵다는, 15문제, 서술형 포함
 
 어떻게 준비할까나? 지금처럼 언제나처럼인가, ㅎ
 
@@ -17,7 +17,7 @@
 - [ ] 기존 문제 확인
 - [ ] day by day, 하나씩 하루에 하나씩이다
 
-*** one by one but network
+** one by one but network
 
 - [ ] ipsec, esp, ah, pre shared key
 - [ ] vpn
@@ -42,7 +42,7 @@
 - [X] tcpwrapper, /etc/hosts.allow, /etc/hosts.deny
 - [X] tcp ip, ip fragmentation process
 
-*** one by one but local
+** one by one but local
 
 - [ ] strlen(argv[1]) >= sizeof(buffer)
 - [ ] d-h(Diffie-Hellman)
@@ -52,14 +52,14 @@
 - [ ] 이산대수, ElGamel, DSA, ECC
 - [ ] wap, wae, wsl, wtls
 
-*** one by one but read
+** one by one but read
 
 - [ ] 보안의 3요소, 기물성, 무결성, 가용성
 - [ ] 재난복구서비스
 - [ ] 정성적 위험분석 방법론
 - [ ] 베이스라인 접근법, 비정형 접근법, 상세위험분석, 복합접근법
 
-*** one by one but law related
+** one by one but law related
 
 - [ ] 정보통신망법의 관리, 기술, 물리적 조치
 - [ ] ISMS
@@ -70,7 +70,7 @@
 - [ ] 위험 평가 요수, 자산, 위헙, 취약성
 - [ ] 개인정보영향평가의 대상이 되는 개인정보파일
 
-*** one by one but misc
+** one by one but misc
 
 - [ ] 소프트웨어 개발 보안 취약점 7가지 유형
 
