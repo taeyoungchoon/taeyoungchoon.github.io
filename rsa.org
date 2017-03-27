@@ -1,3 +1,14 @@
 * note
 
 소인수분해라
+
+* RSA, Ron Rivest, Adi Shamir, Leonard Adleman
+
+* purpse
+
+- 키교환
+- 공개키 암호화
+
+* ref
+
+- http://reinliebe.tistory.com/79

@@ -1,7 +1,50 @@
-* vs composite number
+* prime number, 소수
+
+- 2, 3, 5, 7, 11
+- 13, 17, 19, 23, 29, 31, 41, 43, 47, 53
+- 991, 997
+
+* (정수 자연수 음수), Z
+
+- integer, 정수
+- natural numbers, 자연수
+- negative integers, 음수
+
+* vs composite number, 합성수
 
 - 4, 6, 8, 9, 10, 12
 
-* prime number
+* divisor, 약수
 
-- 1, 2, 3, 5, 7, 11, 13
+- multiple, 배수
+
+* greatest common divisor, 최대공약수
+
+- gcd(a,b)
+
+* least common multiple, 최소공배수
+
+* factorization, 인수분해 > prime factorization, 소인수분해
+
+expansion, 전개
+
+#+BEGIN_EXAMPLE
+x^2 + 7x + 12 
+
+(x * 3)(x * 4)
+#+END_EXAMPLE
+
+* coprime, disjoint, relatively prime, 서로소
+
+1. m, n integer
+2. gcd(m,n) = 1
+
+* Euclidean algorithm, 유클리드 호제법
+
+* RSA
+
+1. choose two distinct prime number p and q
+
+* Rabin, Michael O. Rabin
+
+1. choose two distinct prime number p and q

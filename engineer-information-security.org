@@ -24,30 +24,33 @@
 - [ ] nmap, fin/null/xmas
 - [ ] blind sql injection
 - [ ] snort
-- [ ] sync flooding
-- [ ] cache-control
+- [ ] syn flooding
 - [ ] http get flooding with cc
 - [ ] slow http read dos attack
-- [ ] tfp / anonymous ftp / ftp bounce attack
-- [ ] tcpwrapper, /etc/hosts.allow, /etc/hosts.deny
+- [ ] tftp / anonymous ftp / ftp bounce attack
 - [ ] smurf
 - [ ] sql inject log analysis, 대책
 - [ ] proxy
 - [ ] ids, false positive(오탐), false negative(미탐)
-- [ ] OPTIONS
 - [ ] transport mode, tunnel mode
 - [ ] 하트블리드, openssl 1.0 이하, ssl
-- [ ] syn flooding
 - [ ] tiny fragment / teardrop attack
 - [ ] mac address filtering
 - [ ] wep, crc 계산법
-- [ ] tcp ip, ip fragmentation process
+- [X] cache-control
+- [X] OPTIONS
+- [X] tcpwrapper, /etc/hosts.allow, /etc/hosts.deny
+- [X] tcp ip, ip fragmentation process
 
 *** one by one but local
 
 - [ ] strlen(argv[1]) >= sizeof(buffer)
-- [ ] d-h
-- [ ] dac / mac / rbac
+- [ ] d-h(Diffie-Hellman)
+- [ ] RSA
+- [X] dac / mac / rbac
+- [ ] 소인수분해, prime number, 합성수, prime factorization, RSA and Rabin
+- [ ] 이산대수, ElGamel, DSA, ECC
+- [ ] wap, wae, wsl, wtls
 
 *** one by one but read
 

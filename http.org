@@ -1,5 +1,7 @@
 * status code
 
+general
+
 | num | indicate      |
 |-----+---------------|
 | 1xx | Informational |
@@ -8,6 +10,8 @@
 | 4xx | Client Error  |
 | 5xx | Server Error  |
 
+specific
+
 | num | indicate              |
 |-----+-----------------------|
 | 200 | OK                    |
@@ -15,3 +19,33 @@
 | 403 | Forbidden             |
 | 404 | Not Found             |
 | 500 | Internal Server Error |
+
+* OPTIONS method
+
+#+BEGIN_EXAMPLE
+OPTIONS / HTTP/1.1
+Host: www.daum.net 
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+Allow: GET, HEAD, POST, PUT, DELETE, TRACE, OPTIONS
+#+END_EXAMPLE
+
+* Cache-Control header, HTTP caching
+
+#+BEGIN_EXAMPLE
+Cache-control: no-cache 
+Cache-control: no-store
+Cache-control: must-revalidate
+Cache-control: max-age=0
+#+END_EXAMPLE
+
+http://www.sersc.org/journals/JSE/vol13_no6_2016/6.pdf
+
+and then more Expires and Pragma headers then more such as Age
+
+#+BEGIN_EXAMPLE
+Expires: <http-date>
+Pragma: no-cache
+Age: 24
+#+END_EXAMPLE

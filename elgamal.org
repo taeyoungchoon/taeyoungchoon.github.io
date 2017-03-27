@@ -1,0 +1,14 @@
+* note
+
+- RSA는 소인수분해의 어려움 기반한다
+- Elgamel은 이산대수 문제의 어려움에 기반한다
+- RSA에 비해 더 안전하다?! 
+
+* 이산대수
+
+- g, x, p
+- y = g^x mod p
+
+* ref
+
+- http://reinliebe.tistory.com/26

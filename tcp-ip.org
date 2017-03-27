@@ -5,3 +5,24 @@ http://faculty.olympic.edu/kblackwell/docs/cmptr173/PowerPoint/
 pdf and ppt
 
 * tcp/ip state diagram
+
+* fragmentation with Offset and MF
+
+- Offset, length that is a multiple of 8
+- 1500, MTU, (cons (header 40) payload)
+- 1460, MSS, payload
+- 20 bytes, ip header
+- 20 bytes, tcp header
+- 8 bytes, udp header
+
+#+BEGIN_SRC emacs-lisp
+
+  (let* ((data 1461)
+         (offset (- data 1460)))
+    offset)
+
+#+END_SRC
+
+#+RESULTS:
+: 1
+

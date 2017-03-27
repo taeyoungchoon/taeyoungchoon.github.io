@@ -1,4 +1,15 @@
+* d-h is?
+
+- p is prime
+- 키교환, 안전한 비밀키 교환을 위해서만 사용한다! RSA와는 다르게!
+- d-h key agreement
+- Ya = g^Xa mod P
+
 * Diffie-Hellman vs RSA
+
+- 키교환, 안전한 비밀키 교환을 위해서만 사용한다! RSA와는 다르게!
+- RSA는 키을 전송하기 위해서 사용하고 또한
+
 * D-H use on IPSEC > IKE
 * from The discrete logarithm problem
 
