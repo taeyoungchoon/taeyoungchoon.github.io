@@ -3,6 +3,8 @@
 - RSA는 소인수분해의 어려움 기반한다
 - Elgamel은 이산대수 문제의 어려움에 기반한다
 - RSA에 비해 더 안전하다?! 
+- Taher Elgamal in 1985
+- used for GPG, GNU Privacy Guard
 
 * 이산대수
 

@@ -1,6 +1,7 @@
 * note
 
-소인수분해라
+- 소인수분해라
+- 지수합동에 근거한다?
 
 * RSA, Ron Rivest, Adi Shamir, Leonard Adleman
 

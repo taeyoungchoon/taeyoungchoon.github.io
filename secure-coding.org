@@ -1,0 +1,28 @@
+* 소프트웨어 개발 보안 또는 시큐어 코딩(Secure Coding)
+
+- 2012년 12월부터 'SW 개발보안'
+- 소프트웨어 개발 보안 가이드?
+- java, c, android's java
+- 소프트웨어 보안약점 진단가이드
+- 행정기관 및 공공기관 정보시스템 구축·운영 지침
+- 소프트웨어 보안약점 기준(제52조 관련)
+
+* misc
+
+- 미국 국토안보부 산하 SW 보안평가기관 마이터(MITRE)
+- 수석엔지니어 로버트 마틴(Robert A. Martin)
+- 고려대 정보보호대학원의 고품질융합SW연구센터장인 최진영 교수
+- 시큐어 SW 개발방법론(Secure Software Development Life Cycle, S-SDLC)
+- 행정자치부의 SW 개발보안제도
+- 행정자치부 이인재 전자정부국장
+- SW 보안약점 진단원 자격증을 국가 자격으로 격상
+- 카이스트(KAIST) 차상길 교수
+- KAIST 정보보호대학원
+- 보안 분야 세계 최고의 학회인 미국 컴퓨터협회 컴퓨터&커뮤니케이션 시큐리티(ACM CCS)
+- 데프콘(DEFCON)에서 정보보호대학원 학생을 주축으로 한 KaisHack GoN팀
+- 소프트웨어 개발보안 경진대회
+
+* ref
+
+http://www.moi.go.kr/frt/bbs/type001/commonSelectBoardArticle.do?bbsId=BBSMSTR_000000000015&nttId=57473
+안전한 SW 개발을 위한 [소프트웨어 개발보안 가이드] 개정본입니다(2017.1월)

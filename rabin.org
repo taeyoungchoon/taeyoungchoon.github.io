@@ -1,0 +1,6 @@
+* Rabin cryptosystem, say
+
+- another RSA? (공개키 암호화)
+- Michael O. Rabin
+- 1979
+- 2차합동에 근거한다?

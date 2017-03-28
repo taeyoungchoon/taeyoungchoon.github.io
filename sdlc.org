@@ -1,0 +1,23 @@
+* Systems development life cycle
+
+- initiation, idea
+- system concept development
+- planning
+- requirement analysis
+- design
+- development
+- integration and test
+- implementation
+- operation and maintenance
+- disposition, end-of-system
+
+* and so
+
+- idea만 가지고 개발할 수 있다?
+- 기획이라
+
+* security
+
+- [[file:secure-coding.org][보안코딩]] since 2012년 12월, say 'SW 개발보안'
+
+
