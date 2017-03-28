@@ -2,9 +2,30 @@
 
 #+BEGIN_EXAMPLE
 
-$ uname
-Darwin
 $ uname -a
-Darwin tyc-MacBook-Air.local 16.4.0 Darwin Kernel Version 16.4.0: Thu Dec 22 22:53:21 PST 2016; root:xnu-3789.41.3~3/RELEASE_X86_64 x86_64
+Darwin jack 16.4.0 Darwin Kernel Version 16.4.0: Thu Dec 22 22:53:21 PST 2016; root:xnu-3789.41.3~3/RELEASE_X86_64 x86_64
 
+$ uname -a
+Linux raul 2.6.18-308.4.1.el5 #1 SMP Tue Apr 17 17:08:00 EDT 2012 x86_64 x86_64 x86_64 GNU/Linux
+
+# uname -a
+# uname -s -n -r -v -m -i -l
+HP-UX foo01 B.11.31 U ia64 3141785299 unlimited-user license
+HP-UX foo02 B.11.11 U 9000/800 2364543838 unlimited-user license
+
+# uname -a
+# uname -s -n -r -v -m
+AIX bar01 2 5 00C806BE4200
 #+END_EXAMPLE
+
+* cli, so
+
+| opt | desc                      | in short      |
+|-----+---------------------------+---------------|
+| -s  | brand name? kernel name?  | s-ystem name |
+| -n  | host name, node name!     | n-ode name    |
+| -r  | revision? kernel release! | r-elease      |
+| -v  | version                   | v-ersion      |
+| -m  | machine type              | m-achine      |
+
+

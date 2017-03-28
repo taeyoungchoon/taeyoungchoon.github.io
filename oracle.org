@@ -61,4 +61,26 @@ startup
 SQL> select value from v$parameter where name='background_dump_dest';
 SQL> show parameter background_dump_dest
 
+* ORA-
 
+WARNING: inbound connection timeout(ORA-3136)
+
+ORA-3217 signalled during:    alter tablespace TEMP begin backup...
+ORA-3217 signalled during:    alter tablespace TEMP end backup...
+
+ORA-12012: error on auto execute of job 11689
+ORA-06502: PL/SQL: numeric or value error
+ORA-06512: at "DBSNMP.BSLN_INTERNAL", line 2073
+ORA-06512: at line 1
+
+ORA-00600: 내부 오류 코드, 인수 : [17113], [0x000000000], [], [], [], [], [], []
+
+ORA-00020: maximum number of processes (1000) exceeded
+
+ORA-01555 caused by SQL statement below (SQL ID: 9jvkaryh341kc, Query Duration=0 sec, SCN: 0x0dcf.6f9c0b4d):
+
+ORA-39002: 부적합한 작업
+ORA-39070: 로그 파일을 열 수 없습니다.
+ORA-29283: 부적합한 파일 작업
+ORA-06512: "SYS.UTL_FILE",  536행
+ORA-29283: 부적합한 파일 작업
