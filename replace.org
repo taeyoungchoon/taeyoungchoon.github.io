@@ -1,0 +1,4 @@
+* emacs
+* textmate
+* sed
+* notepad

@@ -26,4 +26,29 @@ C-c Enter retweet
 u, C-c C-s
 C-c C-u open your user-timeline
 
+** more
 
+C-c D 'twittering-delete-status'
+
+ (add-hook 'twittering-mode-hook
+           (lambda ()
+             (mapc (lambda (pair)
+                     (let ((key (car pair))
+                           (func (cdr pair)))
+                       (define-key twittering-mode-map
+                         (read-kbd-macro key) func)))
+                   '("X" . twittering-delete-status))
+
+* clean
+
+- http://cleaner.twtm.kr/ 트윗청소기
+- http://twitwipe.com/, twitwipe
+
+* so
+
+그렇게 모든 것이 지원지고 나면 facebook만 남을까? 아니면 이메일만 아니면 moleskine만 아니면 planner만 뼈만 가루만 아니 아무
+것도 남지 않을까 영혼은 어디로 영혼이라 과학이라 종교로 모두에게 극한을 주면 그렇게 다르지 않을텐데
+
+어쨌거나 지금은 청소중이다 많은 계정이 정리되었고 트위터도 청소중이다
+
+[2017-03-29 수 14:01] 4077
