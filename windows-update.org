@@ -3,3 +3,10 @@
 - using WSUS ( Windows Server Update Service )
   WSUSUtil command
 - using Portable Update
+
+* 제어판 홈 > 프로그램 제거 > 시스템 관리자가 [설치된 업데이트]를 사용할 수 없도록 설정했습니다.
+
+1. gpedit.msc
+2. 사용자 구성 > 관리 템플릿 > 제어판 > 프로그램
+3. "설치된 업데이트" 페이지 숨기기 > 상태 : 사용
+

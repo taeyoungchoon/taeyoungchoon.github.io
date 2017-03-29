@@ -1,0 +1,3 @@
+* gpedit.msc, group policy editor
+
+- vs secpol.msc is at gpedit.msc > 컴퓨터 구성 > Windows 구성 > 보안 설정

@@ -1,0 +1,59 @@
+* Windows 7
+
+- Internet Explorer 8
+- Internet Explorer 9, 2011
+- Internet Explorer 10, 2012
+- Internet Explorer 11, 2013
+
+* me
+** 제어판 홈 > Windows 기능 사용/사용 안함
+
+- [X] Internet Explorer 8
+
+** 제어판 > 모든 제어판 항목 > Windows Update > 설정 변경
+
+- 중요 업데이트 : 업데이트를 다운로드하지만 설치 여부는 직접 선택
+
+** 제어판 > 모든 제어판 항목 > Windows Update > 설정 변경 > 숨겨진 업데이트 복원
+
+- [ ] Windows7용 Internet Explorer 10, 42.9MB
+- [ ] Windows7을 위한 Internet Explorer 11, 31.5MB
+
+** 제어판 > 모든 제어판 항목 > Windows Update > 업데이트 기록 보기
+
+- Windows7용 Windows Internet Explorer 9, 2015-10-26
+
+** cli using Windows Update Agent Log File
+
+C:\Windows>type WindowsUpdate.log | findstr /i explorer
+2017-03-15      09:05:32:211    4340    1154    Misc      = Process: C:\Windows\Explorer.EXE
+2017-03-15      09:22:05:040    4340    14c4    Misc      = Process: C:\Windows\Explorer.EXE
+2017-03-28      15:45:46:020    1200    1630    Misc      = Process: C:\Windows\Explorer.EXE
+
+윈도우즈 보안 업데이트 기록이군요. 로그 파일 사이즈가 너무 작군요.
+
+** eventvwr > Windows 로그 > 응용 프로그램, 시스템, Setup
+
+- 시스템, 1MB
+- Setup, 20MB
+- 응용 프로그램, 20MB
+
+C:\Windows>wevtutil el | findstr /i setup
+Setup
+
+** what about CBS but small at, but can be extract
+
+- c:\Windows\logs\CBS
+- CBS.log
+- CBSPersist_20170112000917.cab
+
+C:\Windows\Logs\CBS>ls -tlr
+total 26420
+-rwxr-x---+ 1 SYSTEM SYSTEM 5693900 Jan 11 14:54 CbsPersist_20170112000917.cab
+-rwxr-x---+ 1 SYSTEM SYSTEM 3157276 Jan 25 17:29 CbsPersist_20170125150059.cab
+-rwxr-x---+ 1 SYSTEM SYSTEM 5975648 Feb 14 09:06 CbsPersist_20170214002426.cab
+-rwxr-x---+ 1 SYSTEM SYSTEM 6290927 Mar 15 09:53 CbsPersist_20170315032511.cab
+-rwxr-x---+ 1 SYSTEM SYSTEM 3448794 Mar 23 11:23 CbsPersist_20170323060712.cab
+-rw-rw----+ 1 SYSTEM SYSTEM 2481244 Mar 29 11:08 CBS.log
+
+4M > 140MB then grep it later but can do
