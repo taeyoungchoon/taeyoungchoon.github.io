@@ -8,3 +8,12 @@
 - centos
 - ms office
 - ignite
+- blade, hp then cisco
+
+* some more thing
+
+- [[file:mathematics.org][math]]
+
+* q
+
+- 독학사
