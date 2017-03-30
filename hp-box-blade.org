@@ -1,0 +1,26 @@
+* hp > box > blade
+
+#+BEGIN_SRC emacs-lisp
+  (cons 'hp-box
+        (cons 'hp-box 'switch))
+#+END_SRC
+
+#+RESULTS:
+: (hp-box hp-box . switch)
+
+* so
+
+상자안에 박스를 넣고 
+상자를 높이 아니 적정 높이까지 쌓고
+옆으로 죽늘여 놓았다
+또 앞뒤로 적정(여기도 적정이라는 용어가 과연 적정이라는 용어의 의미는) 간격을 두고 
+그 박스는 대화를 한다
+옆박스와 아니면 위쪽의 박스와
+아니면 앞앞의 옆옆의 위위의 박스와 
+여기는 창고다 아마도 컨테이너인가
+문은
+
+
+* vs cisco-box-blade
+* vs ibm-box-blade
+* hp virtual connect
