@@ -1,3 +1,4 @@
 * aka automount, automountd, autofs
 
 - in need
+- to [[file:autofs.org][autofs]]
