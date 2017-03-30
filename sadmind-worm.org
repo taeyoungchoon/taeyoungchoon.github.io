@@ -1,0 +1,5 @@
+* is the worm
+
+- It exploited vulnerabilities in both Solaris and IIS
+- IIS 4.0/5.0 > MS00-078 : Web Server Folder Traversal
+- Solaris 2.3/2.4

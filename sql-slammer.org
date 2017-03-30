@@ -1,0 +1,5 @@
+* worm
+
+- that caused a denial of service
+- buffer overflow bug in SQL Server and Desktop Engine database product
+- MS02-039, Could Enable Code Execution

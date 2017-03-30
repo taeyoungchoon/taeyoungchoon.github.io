@@ -1,0 +1,4 @@
+* Robert Tappan Morris
+
+- exploit known vulerablities in unix sendmail, finger and rsh/rexec 
+- as well as weak password

@@ -1,0 +1,13 @@
+* is
+
+- computer worm
+- reverse spelling of "admin"
+- Windows 95, 98, NT, 2000 or XP
+
+* using various
+
+- email
+- network shares
+- browsing
+- IIS 4.0/5.0 directory traversal vulnerabilities
+- back door left behind "Code Red II" and "sandmin/IIS"

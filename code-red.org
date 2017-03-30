@@ -1,0 +1,13 @@
+* was
+
+- computer worm
+- against Microsoft's IIS web server
+- Microsoft Security Bulletin MS01-033
+- Unchecked Buffer in Index Server ISAPI Extension
+- buffer overflow
+- using a long string of the repeated letter 'N' to overflow a buffer
+- vulnerable host interprets this string as computer instructions
+
+* Code Red II
+
+- using 'X'

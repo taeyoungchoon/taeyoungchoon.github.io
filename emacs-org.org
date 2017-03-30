@@ -32,6 +32,31 @@
 - ruby
 - python
 
+* org-mode with emacs-lisp
+
+- C-'
+- C-c C-c
+- code block evalution complete
+
+#+BEGIN_SRC emacs-lisp
+
+  (cons t nil)
+
+#+END_SRC
+
+#+RESULTS:
+| t |
+
+* org-mode with perl then dot
+
+- no org-babel-execute function for perl!
+
+#+BEGIN_SRC perl
+
+  print "hi";
+
+#+END_SRC
+
 * template
 
 #+BEGIN_SRC sh

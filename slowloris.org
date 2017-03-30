@@ -1,0 +1,3 @@
+* type of denial of service attack
+
+- keep many connections to the target web server open and hold them 

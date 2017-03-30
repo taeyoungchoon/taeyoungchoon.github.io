@@ -1,0 +1,10 @@
+* CIH, Chernobyle
+
+- Author, Chen Ing-hau (CIH)
+- Microsoft Windows 9x computer virus
+- overwriting critical information on infected system drives
+- destroying the system BIOS
+- spacefiller
+
+* Chernobyl accident which happened in the Soviet Union on April 26, 1986
+

@@ -32,3 +32,9 @@ abcdefghijklmnopqrstuvwxyz
 ю ju
 ё e"
  
+* say
+
+- да
+- Нет
+- Привет
+- Спасибо

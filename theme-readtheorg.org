@@ -1,0 +1,9 @@
+#+OPTIONS: html-postamble:nil
+
+* wrapping with theme
+
+#+BEGIN_EXAMPLE
+
+#+SETUPFILE: theme-readtheorg.setup
+
+#+END_EXAMPLE

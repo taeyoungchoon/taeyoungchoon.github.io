@@ -1,0 +1,5 @@
+* Cryptographic Module Validation Program (CMVP) at NIST
+
+- the National Institute of Standards and Technology
+- validates cryptographic modules 
+- to Federal Information Processing Standards (FIPS)140-1 Security Requirements

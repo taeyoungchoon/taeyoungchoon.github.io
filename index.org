@@ -1,71 +1,36 @@
+#+SETUPFILE: theme-readtheorg.setup
 #+OPTIONS: html-postamble:nil
 
-* COMMENT wrapping with theme
+* (cons t nil)
 
-#+BEGIN_EXAMPLE
-
-#+SETUPFILE: theme-readtheorg.setup
-
-#+END_EXAMPLE
-
-* COMMENT think about lisp
-
-- C-'
-- C-c C-c
-- code block evalution complete
-
-#+BEGIN_SRC emacs-lisp
-
-  (cons t nil)
-
-#+END_SRC
-
-#+RESULTS:
-| t |
-
-* COMMENT think about perl then dot
-
-- no org-babel-execute function for perl!
-
-#+BEGIN_SRC perl
-
-  print "hi";
-
-#+END_SRC
-
-
-* word then C-c C-e h o but cert
-
-- [ ] (ISMS Information Security Management System) and it's about system
-- [ ] risk with (SARA Share Accept Reduce Avoid)
-- [ ] risk on delphi
-- [ ] risk with baseline?
-- [ ] snort aka tcpdump/wireshark on pcap
+- C-c C-e h o
+- [[http://goo.gl/mTMLmr][네이버 맞춤법 검사기]]
+- https://twitter.com/search-home
 
 * lisp, lisp, lisp
 
-- [ ] lisp, clisp, emacs-lisp
+- lisp, clisp, emacs-lisp
+- slime, SLIME 2.19
+- quicklisp, (ql:update-all-dists)
 
 * then emacs, emacs, emacs-lisp
 
-- [ ] emacs's macro
-- [X] new emacs, 25.1-2
-  뭐 문제없이 돌기만 해도 다행이지 않을까라는 생각이다
-
-* java/jsp?
-
-- [ ] eclipse with java/jsp
+- emacs's macro
+- new emacs, GNU Emacs 25.1.1
+- dunnet
 
 * book
 
-- [ ] book, 論語
+- book, 論語
 
-* one more thing
+#+BEGIN_SRC
+책이라 요즘 공부한다고 
+지식 공부라고 해야 할까 
+요즘 지식 공부를 한다고 책을 멀리하였다 
+여기서 책은 지식 공부용 책과는 다르다 
+지식 공부는 그 양식에서 책과 인쇄물 그리고 인터넷의 정보를 가리지 않는다 
+책은 책은 말이다
+#+END_SRC
 
-- [ ] mathematics > math
 
-* diary
 
-여기에 적는 것은 다이어리가 아니다 그 시점에 모두 태울 그 것은 여기에 있지 않다 여기는 기억된 곳이다
-
-* strncpy
