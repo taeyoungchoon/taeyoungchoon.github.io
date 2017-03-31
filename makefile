@@ -1,0 +1,2 @@
+clean:
+	rm *.fas *.lib
