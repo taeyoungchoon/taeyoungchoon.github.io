@@ -1,0 +1,7 @@
+* so
+
+#+BEGIN_SRC 
+$PSVersionTable
+Get-ChildItem | Format-Wide
+Get-Acl | Format-List
+#+END_SRC

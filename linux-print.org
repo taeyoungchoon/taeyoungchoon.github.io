@@ -21,16 +21,9 @@ apt-get install cups-client
 
 #+BEGIN_SRC 
 $ lpinfo -v
-network ipp
 network smb
 network lpd
-network ipps
 network socket
-network https
-network ipp14
-network http
-network beh
-network dnssd
 
 $ lpinfo -m
 $ /usr/lib/cups/backend/snmp 172.20.7.21

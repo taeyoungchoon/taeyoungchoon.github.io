@@ -1,0 +1,4 @@
+* with Converged network adapter
+
+- HP claims that their BL460c G7 was the first blade-server that offers FCoE via a LOM (Lan on Motherboard) instead of using a PCI-slot or mezzanine-card.
+- Cisco Systems offered Fibre Channel over Ethernet in their Unified Computing System product line via Virtual Interface Cards (VICs). These cards make it possible to create multiple virtual HBAs or NICs within each physical VIC.

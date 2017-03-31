@@ -12,3 +12,13 @@
 - RSA
 - ECC
 - 정수론
+
+* pure
+
+- curve
+- number
+- triangle, sine cosine tangent, trigonometic functions, circular functions
+- (trigonometry (trigōnon triangle) (metron measure))
+- Hipparchus of Nicaea, the founder of trignometry
+- circle
+- matrix

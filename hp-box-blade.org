@@ -20,7 +20,13 @@
 여기는 창고다 아마도 컨테이너인가
 문은
 
-
 * vs cisco-box-blade
 * vs ibm-box-blade
 * hp virtual connect
+* PCI Mezzanine Card
+* case one two three
+* Enclosure state DEGRADED : Some modules & servers not OK
+
+- http://infoages.tistory.com/1248
+  Virtual Connect/VC Flex-10 has incompatible status
+- http://h20564.www2.hpe.com/hpsc/doc/public/display?docId=emr_na-c02606976&sp4ts.oid=1844065
