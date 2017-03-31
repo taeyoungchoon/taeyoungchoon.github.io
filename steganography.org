@@ -12,3 +12,10 @@ https://en.wikipedia.org/wiki/Steganography
 * image steganography and it works
 
 - http://incoherency.co.uk/image-steganography/
+
+* lang
+
+- steganography
+- ((steganos covered) (graphie writing))
+
+* Cryptography vs Steganography

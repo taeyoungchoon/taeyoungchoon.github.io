@@ -16,3 +16,10 @@ IKE builds upon the Oakley protocol and ISAKMP
 https://en.wikipedia.org/wiki/Internet_Security_Association_and_Key_Management_Protocol
 
 * isakmpd, ISAKMP/Oakley a.k.a. IKEv1 key management daemon
+
+* so
+
+- rfc 2409
+- 인터넷 표준 암호키 교환 프로토콜
+- using D-H or RSA
+- 키 교환 프로토콜

@@ -1,5 +1,12 @@
 * aka Elliptic Curve Cryptography
 
-- 유한체 위에서 정의된 타원곡선 군에서의, 이산대수(discrete logarithm problem)
+- 유한체 위에서 정의된 타원곡선 군에서의, 이산대수(discrete logarithm problem)의 어려움
+- 타원곡선 상에서 이산대수의 어려움
 - b^k = g
-- 공개키 암호화
+- 공개키 알고리즘
+- 1985
+- N. Kobitz and V.S. Miller
+- 키의 길이가 제한적인 환경이나 
+- 짧은 키를 가지고
+
+

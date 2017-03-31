@@ -1,0 +1,7 @@
+* flow
+
+- Application > RA > CA
+
+* RA, Registration Authority
+
+- ex. 은행, 증권사

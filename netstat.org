@@ -1,0 +1,7 @@
+* cli
+
+#+BEGIN_SRC 
+netstat -rn
+ifconfig lan900
+#+END_SRC
+

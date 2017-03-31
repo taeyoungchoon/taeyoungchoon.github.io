@@ -10,13 +10,13 @@
 
 https://en.wikipedia.org/wiki/IPsec
 
-* AH
+* AH, about Header
 
 Authentication Headers (AH) provide 
 connectionless data integrity and data origin authentication for IP datagrams 
 and provides protection against replay attacks.
 
-* ESP
+* ESP, about Payload
 
 Encapsulating Security Payloads (ESP) provide 
 confidentiality, data-origin authentication, connectionless integrity, an 
@@ -37,3 +37,8 @@ Internet Key Exchange (IKE and IKEv2), Kerberized Internet Negotiation of Keys (
 
 - transport mode
 - tunnel mode
+
+* so
+
+- 가상적인 전용회선을 제공
+- IPsec, Internet Protocol Security

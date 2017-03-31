@@ -1,0 +1,4 @@
+* lang
+
+- cryptography
+- ((κρυπτός kryptós hidden) (γράφειν graphein writing))

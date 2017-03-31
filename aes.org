@@ -4,3 +4,7 @@
 - AES is a subset of the Rijndael cipher
 - two Belgian cryptographers, Joan Daemen and Vincent Rijmen
 - It supersedes the Data Encryption Standard (DES), which was published in 1977.
+
+* so
+
+- DES > 3DES > AES
