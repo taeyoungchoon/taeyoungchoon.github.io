@@ -1,0 +1,45 @@
+* lpr, cups
+
+printcap이라 뭐 지금도 이걸 편집해서 프린터를 잡을까 아니면 말이다
+[2017-03-31 금 14:23] 결국 a2ps까지 했다 1995년인가 19960년인가 그 시절에 사용했던 지금도인가
+
+* word
+
+- OpenPrintring
+- CUPS
+- lpr
+
+* debian type
+
+#+BEGIN_SRC 
+apt-get install cups
+apt-get install cups-client
+#+END_SRC
+
+* tools like lpinfo, lpadmin, lpstat
+* so
+
+#+BEGIN_SRC 
+$ lpinfo -v
+network ipp
+network smb
+network lpd
+network ipps
+network socket
+network https
+network ipp14
+network http
+network beh
+network dnssd
+
+$ lpinfo -m
+$ /usr/lib/cups/backend/snmp 172.20.7.21
+network socket://172.20.7.21 "HP LaserJet 4200" "hp LaserJet 4200" "MFG:Hewlett-Packard;CMD:PJL,MLC,POSTSCRIPT,PJL,PCLXL,PCL;1284.4DL:4d,4e,1;MDL:hp LaserJet 4200;CLS:PRINTER;DES:Hewlett-Packard LaserJet 4200;" ""
+
+$ lpadmin -p jet1 -E -v socket:://172.20.7.21
+
+$ lpstat -v
+$ lpadmin -d jet1
+$ lp /etc/motd
+$ a2ps /etc/motd
+#+END_SRC
