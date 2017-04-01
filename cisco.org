@@ -1,14 +1,17 @@
 * not command but purpose
 
 * all
+
 - show tech-support
 - show module
 
 * mac address
+
 - show arp
 - show mac-address-table
 
 * misc
+
 - show interfaces description
 - show ip interface brief
 - show ver
@@ -16,6 +19,7 @@
 - terminal length 0
 
 * one more thing
+
 - expect
 - tcl
 - snmp

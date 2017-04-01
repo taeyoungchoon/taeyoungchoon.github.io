@@ -42,3 +42,4 @@ Internet Key Exchange (IKE and IKEv2), Kerberized Internet Negotiation of Keys (
 
 - 가상적인 전용회선을 제공
 - IPsec, Internet Protocol Security
+- AH vs ESP

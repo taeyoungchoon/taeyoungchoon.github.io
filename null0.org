@@ -1,3 +1,4 @@
+* blackhole filtering
 * cli
 
 #+BEGIN_EXAMPLE
@@ -7,3 +8,10 @@ no ip unreachable
 ip route 192.168.0.100 255.255.255.0 null0
 
 #+END_EXAMPLE
+
+* no ip unreachable
+
+#+BEGIN_SRC emacs-lisp
+  (when blackhole-filtering
+    (send :msg (icmp unreachable) :to source-ip))
+#+END_SRC
