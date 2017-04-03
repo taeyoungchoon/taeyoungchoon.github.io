@@ -1,0 +1,10 @@
+* OSI model, Open System Interconnection model
+
+- L7 : Application, HTTP, FTP, DNS, SIP, SMTP, BGP, FCIP, SMB
+- L6 : Presentation, MPEG, ASCII, MIME
+- L5 : Session, SOCKS, NetBIOS, RPC
+- L4 : Transport, tcp/udp, NBF
+- L3 : Network, ip, OSPF, RIP, IPSec
+- L2 : Data Link, ethernet, PPP, ARP, FDDI
+- L1 : Physical, RJ45, RS-232
+

@@ -1,0 +1,12 @@
+* PPTP
+
+- PPP(Point to Point Protocol) 기술을 확장
+- PPP는 전화 통신 기반의 터널링 프로토콜
+- PPTP는 IP기반 네트워크의 터널링 프로토콜
+- MPPE라는 인증 프로토콜, MS-CHAP
+
+#+BEGIN_SRC emacs-lisp
+  (ip (tcp (data)))
+  (ip (gre (ppp 
+            (ip (tcp (data))))))
+#+END_SRC

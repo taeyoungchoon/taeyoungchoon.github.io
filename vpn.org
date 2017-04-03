@@ -36,3 +36,53 @@ http://www.ahnlab.com/kr/site/securityinfo/secunews/secuNewsView.do?seq=15547
 - firewall based
 - router based VPN
 - dedicated VPN
+
+* so
+
+- vpn, pn, 사설망
+
+* with android
+
+- PPTP
+- L2TP/IPSec PSK
+- L2TP/IPSec RSA
+- IPSec Xauth PSK
+- IPSec Xauth RSA
+- IPSec Hybrid PSK
+
+* with IOS
+
+- L2TP, VPN Using PPTP May Not Be Secure
+- PPTP
+- IPSec
+
+* PPTP
+
+- PPP(Point to Point Protocol) 기술을 확장
+- PPP는 전화 통신 기반의 터널링 프로토콜
+- PPTP는 IP기반 네트워크의 터널링 프로토콜
+- MPPE라는 인증 프로토콜, MS-CHAP
+
+* L2TP
+
+- (consing L2F PPTP)
+- L2TP는 터널만 생성하며 이후 암호화는 IPSec(IKE, ESP)를 사용
+
+* OpenVPN
+
+- L2TP에 기반한다
+
+* SSTP
+
+- Secure Socket Tunneling Protocol
+
+* L2F
+
+- 는 사용하지 않는 듯이 보인다
+- made by CISCO
+
+* refs
+
+[[http://chaos82.tistory.com/28]]
+
+* socks, ?

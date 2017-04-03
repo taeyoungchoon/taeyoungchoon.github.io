@@ -1,0 +1,17 @@
+* information security management system
+
+- 정보보호관리체계
+- 한국에는 있는 체계일까 아니면
+- ITSM, ITIL
+- ITIL security management based on the ISO 27001
+- and PIMS, CPPG(개인정보관리사), CPPF(개인정보취급사)
+- K-ISMS, G-ISMS
+- KISA ISMS vs ISO 27001, 인증심사원
+- ISO27001(ISMS)
+- 안전교육 전문가?
+
+* ISO/IEC 27001 family - Information security management system
+
+- https://www.iso.org/isoiec-27001-information-security.html
+- https://www.iso.org/management-system-standards.html
+

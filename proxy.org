@@ -13,3 +13,7 @@ browsec
 http://free-proxy-list.net/
 vpnbook.com
 filterbypass.me
+
+* socks proxy and http proxy
+* squid
+* tor

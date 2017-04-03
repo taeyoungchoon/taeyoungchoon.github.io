@@ -1,0 +1,8 @@
+* rel
+
+http://www.kurooters.net/siteagent/hummingbird.tistory.com/6263
+
+* ns1, 82.163.143.176
+
+- ipconfig.co.kr에서 확인해 보니 israel로 나오는군요.
+- .il is the internet country code top-level domain of Israel

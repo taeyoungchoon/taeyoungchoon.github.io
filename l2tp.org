@@ -1,0 +1,16 @@
+* L2TP
+
+- (consing L2F PPTP)
+- L2TP는 터널만 생성하며 이후 암호화는 IPSec(IKE, ESP)를 사용
+- 1999
+- RFC 2661
+- L2TPv3 as RFC 3931
+
+* header
+
+#+BEGIN_SRC emacs-lisp
+  (ip (tcp (data)))
+  (ip (udp
+       (l2tp (ppp
+              (ethernet (ip (tcp (data))))))))
+#+END_SRC
