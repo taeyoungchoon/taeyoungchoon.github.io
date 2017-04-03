@@ -1,17 +1,37 @@
-* information security management system
+* information security management system, 정보보호관리체계
 
-- 정보보호관리체계
-- 한국에는 있는 체계일까 아니면
-- ITSM, ITIL
-- ITIL security management based on the ISO 27001
-- and PIMS, CPPG(개인정보관리사), CPPF(개인정보취급사)
+- KISA ISMS vs ISO 27001
 - K-ISMS, G-ISMS
-- KISA ISMS vs ISO 27001, 인증심사원
-- ISO27001(ISMS)
-- 안전교육 전문가?
+- ITSM, ITIL
+- ((KISA ISMS) t)
+- G의 정보보호 관리체계에 대한 수준을 확인
+- 정보통신망법에 근거한다
+- 의무대상자, 자율신청기업
+- 가산점 부여, 요금할인 등의 해택
+- 미래창조과학부 >KISA(인증기관) > 인증위원회 > 인증심사원
+- 최초심사 - 사후심사(1y) - 갱신심사(3y)
+- 인증심사 수수료 / 엔지니어링산업 진흥법, SW사업 대가 산정가이드
 
-* ISO/IEC 27001 family - Information security management system
+* 정보보호 관리, 12개 통제사항
 
-- https://www.iso.org/isoiec-27001-information-security.html
-- https://www.iso.org/management-system-standards.html
+- 정보보호정책 수립 및 범위설정
+- 경영진의 책임과 조직 구성
+- 위험관리
+- 정보보호 대책 구현
+- 사후관리
 
+* 정보보호 대책, 13개 분야 92개 통제사항
+
+- 정보보호 대책
+- 정보보호 조직
+- 외부자 보안
+- 정보자산 분류
+- 정보보호 교육
+- 인적 보안
+- 물리적 보안
+- 시스템개발 보안
+- 암호 통제
+- 접근 통제
+- 운영 보안
+- 침해사고 보안
+- IT 재해복구
