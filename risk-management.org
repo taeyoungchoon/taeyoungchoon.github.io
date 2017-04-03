@@ -1,3 +1,13 @@
+* grouping asset, 정보자산 그룹핑
+* 위험분석 수행
+
+http://jeongchul.tistory.com/442
+
+- baseline approch
+- informal approch
+- detailed risk analysis
+- combined approch
+
 * 위험, risk 분석
 
 #+BEGIN_SRC lisp
@@ -8,6 +18,11 @@
 
 #+END_SRC
 
+* 취약점과 위험 분석
+* 기존 보호 대책 분석
+* 위험도 산정
+* 위험도 평가, risk assessment
+* 위험 처리 방안 결정
 * 대응 전략
 
 http://www.ahnlab.com/kr/site/securityinfo/secunews/secuNewsView.do?seq=23402
@@ -16,5 +31,3 @@ http://www.ahnlab.com/kr/site/securityinfo/secunews/secuNewsView.do?seq=23402
 - 감소, 우산, 교통지도, mitigate the risk
 - 회피, 피크닉 취소, avoid the risk
 - 전가, 보험, transfer the risk
-
-

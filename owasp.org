@@ -28,3 +28,10 @@
 
 ** Using Known Vulnerable Components
 ** Unvalidated Redirects and Forwards
+* using 
+
+- Paros
+- owasp zap
+- burp
+- nikto
+- w3af

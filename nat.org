@@ -4,3 +4,20 @@
 - normal nat
 - reverse nat
 - and more
+
+* on ipv6
+* software
+
+- ICS
+- Routing and Remote Acess Service
+- Netfiler, the Linux packet filter
+
+* so
+
+- IP masquerading
+- SNAT and DNAT
+- Static NAT
+- Dynamic NAT
+- NAT Overload, NAPT(Network Address Port Translation), PAT(Port Address Translation)
+- NAT Load Distribution
+- NAT Overlapping Network
