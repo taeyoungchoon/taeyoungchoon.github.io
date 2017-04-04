@@ -1,19 +1,9 @@
 * but
 
-- 기간을 정한다
-- 가볍게 시작한다, 기본에서 부터
+- 가볍게 시작한다, 기본에서 부터, \processor(_Total)\% Processor Time
+- 기간을 정한다. 오늘 하루
 
-* so
+* vs WPA, Windows Performance Analyzer
+* but
 
-- 카운터 추가
-- 새 로그 설정
-
-http://www.sharedit.co.kr/forummssql/forummssql/%EC%9C%88%EB%8F%84%EC%9A%B0-%EC%84%9C%EB%B2%84%EC%9D%98-%EC%84%B1%EB%8A%A5%EC%9D%84-%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81-%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95
-
-* go
-
-- 카운터 추가, cpu (\Processor(_Total)\*) /15s, 15초는 뭐 ok 그런데 *가 맘에 걸린다. 
-  인스턴스가 4개라, cpu-z로 확인하니 cores가 2개 이고 threads가 4개군요
-  듀얼 코어에 하이퍼스레딩(HT) 동작해서 한개의 core를 두개인듯 그래서 4개
-  intel core i5 2540M, sandy bridge / Socket 988B rPGA, 32nm
-- 기간, 정하지 않음
+- "데이터를 수집하능 중..."

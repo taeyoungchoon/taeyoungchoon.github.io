@@ -1,23 +1,12 @@
 * one more thing
 
-synctools for sysinternals required!
-
-** in progress
-
-SyncTools for Sysinternals. Copyright (c) 2013 Kenny Kerr
-
-70 files are up to date
-16 updates to download
-
-u ADInsight.chm
-u ADInsight.exe v1.20
-u procmon.chm
-  Procmon.exe  85%
+synctools(by Kenny Kerr) for sysinternals required!
 
 * essential 
 
 - [X] strings
 - [X] zoomit
+- [X] desktops
 
 - [X] coreinfo
 - [X] psloggedon
@@ -25,6 +14,8 @@ u procmon.chm
 - [X] autoruns
 - [X] autorunsc
 - [X] winobj
+- [X] psloglist
+- [X] regjump
 
 - [X] ntfsinfo
 - [X] du
