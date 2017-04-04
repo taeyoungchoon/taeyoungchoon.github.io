@@ -1,0 +1,21 @@
+* case, blower failure
+
+- General > Condition/State
+  ! Attention
+- View Event > Management Server Event Log
+  SC Event Code: 0d478311 - A drive enclosure blower is not operating properly.
+  SC Event Code: 0d4b8211 - A drive enclosure blower is improperly installed or missing.
+- Hardware > Rack > Disk Enclosure > Cooling > Blower1
+  Operational state: Not installed
+  Actual Speed: Stopped
+- Hardware > Rack > Disk Enclosure > Cooling > Blower2
+  Operational state: Good
+  Actual Speed: Highest
+- Hardware > Rack > Disk Enclosure > Cooling > Power Supply 1
+  Operational state: Good
+
+** detail
+
+http://h10032.www1.hp.com/ctg/Manual/c01038038.pdf
+http://h20564.www2.hpe.com/hpsc/doc/public/display?docId=emr_na-c00374750
+HP StorageWorks Disk enclosure power supply/blower replacement instructions
