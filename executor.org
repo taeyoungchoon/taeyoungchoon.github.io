@@ -10,3 +10,4 @@ http://www.executor.dk/
 
 - with sysinternals
 - with portableapps
+- Win-z to launch

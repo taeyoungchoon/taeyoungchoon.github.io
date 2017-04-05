@@ -1,0 +1,13 @@
+* ls
+
+#+BEGIN_SRC 
+ls -ltr | tail -3
+#+END_SRC
+
+#+BEGIN_SRC 
+ls에 tail 기능도 넣으면이라
+ls는 ls라는 목적에 충실하다
+tail은 tail이라는 목적에 충실하다
+다들 그랬다 
+unix다
+#+END_SRC

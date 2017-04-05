@@ -1,0 +1,16 @@
+* page, single, 1 page in brain
+
+#+BEGIN_SRC 
+페이지가 넘어간다면
+그건 아니다
+물론 이해의 과정 중이라면
+이해했다고 하는데 페이지가 넘어간다면
+딱 한 페이지
+딱 한 장
+물론 몇 줄이라면 더욱 좋고
+이미지보다는 이미지가 떠오르는 몇 줄이라면
+#+END_SRC
+
+#+BEGIN_SRC
+ls -lSr *.org | tail -3
+#+END_SRC

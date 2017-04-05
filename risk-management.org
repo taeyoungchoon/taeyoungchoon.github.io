@@ -1,5 +1,5 @@
 * grouping asset, 정보자산 그룹핑
-* 위험분석 수행
+* 위험분석 수행, risk analysis aka risk assessment
 
 http://jeongchul.tistory.com/442
 
@@ -7,6 +7,18 @@ http://jeongchul.tistory.com/442
 - informal approch
 - detailed risk analysis
 - combined approch
+
+risk analysis
+aka security risk assessment, assessment 평가, assess : assesser, assessare, assessus, 
+assidere ad(to, toward) sedeō(sit, settle down)
+I sit in an official seat
+judge, measure, analyse
+
+http://www.epsos.eu/technical-background/security-aspects/risk-analysis.html
+
+With reference to the ISO/IEC TR 13335-3 (ISO/IEC 27005) guidance, the decision was made to apply a “combined approach” to the Risk Analysis: 
+an “informal approach” carried out by security experts at a higher level, to evaluate the risk of the epSOS LSP and to define  its security  requirements. 
+A “baseline approach” (ref. to vulnerabilities and threats ISO/IEC 27005 catalogue) to evaluate the risk of each proposed Security Service, in order to select the best solution and also, if applicable, to identify specific security constraints of the selected solution.
 
 * 위험, risk 분석
 

@@ -1,6 +1,10 @@
 * list of
 
+- bsd > freebsd, netbsd, openbsd
 - solaris
-- freebsd
 - hp-ux
 - aix
+- linux?
+- linux > android?
+- windows?
+- ms-dos?

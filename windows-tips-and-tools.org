@@ -1,0 +1,41 @@
+* list
+
+- executor
+- truecrypt 7.1a
+- portableapps
+- screenprint32
+- emacs
+- cygwin
+- putty with Pageant
+- firefox
+- remote desktop connection manager
+- sysinternals
+
+* not using that much
+
+- wireshark
+- freemind
+- mtputty
+- windirstat
+- winscp
+- filezilla
+- everything
+- dia
+- xnview
+- ant renamer
+- execl file cleaner by David E. Craig
+- mbsa, x baseline x x
+- angry ip scanner
+- 7zip
+- autohotkey
+- cmaptools
+- graphviz aka dot
+- ghostscript
+- gpg4win
+- utc
+- virtualbox and vagrant
+- recuva
+- ccleaner
+- cisco packet tracer student
+- eclipse
+- wincdemu
