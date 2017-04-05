@@ -1,0 +1,6 @@
+* jquery hoverintent, easing, lightview
+* jquery mobile
+* js/jwplayer.js
+* js/diapo.js
+
+- Diapo | a free jQuery slideshow by Pixedelic

@@ -11,3 +11,26 @@
 - SOA
 - MX
 - NS
+
+* secure using
+
+http://www.onlamp.com/pub/a/onlamp/2004/10/14/dnssec.html
+https://www.freeipa.org/page/Howto/DNS_updates_and_zone_transfers_with_TSIG
+
+- tsig, Transaction Signature
+- dnssec
+
+* appliance or application
+
+- 좋다 그런데 기존 인프라와 융합할 수 있어야 한다 그리고 cli도
+- appliance의 경우 dhcp 서버 기능도 하는데 
+
+
+** kinds of
+
+- ms
+- bind
+- infoblox
+- S2DNS at inimax.co.kr, ipkeeper
+
+

@@ -1,7 +1,3 @@
-* another lang 
-
-- and to me, basis
-
 * also
 
 - listen
@@ -10,3 +6,7 @@
 - read
 - write
 - share?
+
+* syntax or more
+
+네이버 맞춤법 검사기, http://goo.gl/mTMLmr
