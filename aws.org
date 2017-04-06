@@ -5,6 +5,8 @@
 * aws > ec2 ( vm )
 
 웹 띠우는데 걸리는 시간은 10 ~ 15 분이다
+예기치 않은 비용이 발생할 수 있을까? 꺼두었는데, 
+인스턴스를 중지하면 나중에 다시 시작할 수 있으나 스토리지 비용이 청구될 수 있습니다 라는 군요. 역시나 이지만
 
 * web only, pure text ( html ) based then taeyoungchoon.github.io, free?
 

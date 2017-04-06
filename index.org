@@ -15,8 +15,7 @@
 
 * then emacs, emacs, emacs-lisp
 
-- emacs's macro
-- new emacs, GNU Emacs 25.1.1
+- macro
 - dunnet
 
 * book
@@ -31,3 +30,6 @@
 지식 공부는 그 양식에서 책과 인쇄물 그리고 인터넷의 정보를 가리지 않는다 
 책은 책은 말이다
 #+END_SRC
+
+- 읽지 않는 책 또 다른 말은 쓰지 않는 글이다
+
