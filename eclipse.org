@@ -11,3 +11,6 @@
 #+END_EXAMPLE
 
 * but more about twilight saga > eclipse(2010)
+* eclipse installer by Oomph on mac os x
+
+- eclipse for android developers
