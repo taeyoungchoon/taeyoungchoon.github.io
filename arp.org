@@ -1,6 +1,7 @@
 * arp
 
 - and [[file:garp.org][garp]] (aka gratiutous arp)
+- and rarp
 
 * arp request
 

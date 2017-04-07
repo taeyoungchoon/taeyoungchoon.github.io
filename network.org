@@ -1,0 +1,19 @@
+* dev
+
+브리지, 스위치, 라우터, L4 뭐 이런 L2/L3/L4 리피터
+L2 스위치, L3 라워터라고 했는데
+L3 스위치가 나오고
+classical router, layer 3 switch
+L4 switch, L7 switch
+허브, 리피터
+세그먼트
+brouter
+L2는 MAC주소
+L3는 IP주소
+L4는 세션
+
+* company
+
+알카텔
+시스코
+F5
