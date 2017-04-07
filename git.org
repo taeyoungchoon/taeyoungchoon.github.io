@@ -60,3 +60,8 @@ git push
 * recon
 
 almost init then type username then password
+
+* case, warning: LF will be replaced by CRLF in abc.pl.
+
+warning: LF will be replaced by CRLF in abc.pl.
+The file will have its original line endings in your working directory.
