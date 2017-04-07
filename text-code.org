@@ -1,0 +1,4 @@
+* text/code, mime type?
+
+여기에는 text가 있다 
+code는 t-shell로 분리해야 하는가? 아니면 이대로 유지하는가 하나의 pot에 말이다

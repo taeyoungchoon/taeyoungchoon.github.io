@@ -24,3 +24,7 @@
 
 - nagios
 - capistrano
+
+* not command?
+
+- Magic SysRq

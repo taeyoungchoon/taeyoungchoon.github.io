@@ -1,6 +1,6 @@
 * seperation of space
 
-- work space
+- [[file:work-space.org][work space]]
 - home space
 - my space
 

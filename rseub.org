@@ -10,7 +10,7 @@ reboot linux system, hang situation
 
 ** general word
 
-magic sysrq key
+   magic sysrq key
 
 ** meaning
 

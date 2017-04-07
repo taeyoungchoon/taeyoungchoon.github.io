@@ -1,0 +1,68 @@
+* process
+
+- 하단부터
+- fs
+- fs table
+- boot using bootloader
+
+* dm- 
+
+mount -t ext3 /dev/hda5 /foo
+mount -t ext3 /dev/mapper/VolGroup00-LogVol02 /foo
+fdisk -l
+list-harddrives
+parted and fdisk
+joe
+pvdisplay
+vgdisplay
+lvdisplay
+
+* chroot /mnt/sysimage
+
+* grub
+
+grub-install /dev/sda
+
+* grub part2
+
+/usr/sbin/grub-install bootpart
+/boot/grub/grub.conf
+ls
+ls (hd0
+
+* grub part3, grub-install
+
+grub-install --root-directory=/ /dev/sda --check
+grub-install --root-directory=/mnt /dev/sda 
+
+grub-install /dev/sda
+
+sda1 /boot
+sda2 swap
+sda3 /
+sda4 /home
+
+/boot/grub/device.map
+
+* grub part4, manual
+
+/sbin/grub
+grub> root (hd0,1)
+grub> setup (hd0)
+grub> quit
+
+* dig
+
+- lvm
+- dm
+- grub
+- dracut, https://fedoraproject.org/wiki/How_to_debug_Dracut_problems
+
+* dracut
+
+- ls /lib/dracut/modules.d/
+- dracut -M test.img $(uname -r)
+- mkinitrd > dracut
+- boot & initrd , https://www.youtube.com/watch?v=gWXK__mMasY
+  at stage2 initrd is copied into ram, temporal
+  https://01.org/linuxgraphics/gfx-docs/drm/admin-guide/initrd.html
