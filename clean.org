@@ -1,0 +1,12 @@
+* how, using
+
+on operating system?
+
+- cmd, command
+- shell, bash, 
+- makefile, make clean
+- lisp
+
+* why
+
+to make 'git push' happy but there is the other way such way exception
