@@ -1,0 +1,14 @@
+* name it
+
+- live usb
+- live cd
+- bootable pen drive
+
+* list
+
+- yumi(default)
+
+* ref
+
+http://www.sysberto.com/2013/07/best-9-tools-to-make-pendrive-bootable-for-windowslinux-os/
+http://alternativeto.net/software/multibootisos/

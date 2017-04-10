@@ -1,0 +1,41 @@
+* new initramfs and the name from town or city
+
+- Dracut, Massachusetts
+- the dracut initramfs generator and framework
+- event-driven?
+
+* conf at /etc/dracut.conf
+
+#+BEGIN_SRC 
+
+# install local /etc/mdadm.conf
+mdadmconf="yes"
+# install local /etc/lvm/lvm.conf
+lvmconf="yes"
+
+#+END_SRC
+
+* cli
+
+lsinitrd
+dracut --list-modules
+dracut --print-cmdline
+ls -l /dev/disk/by-uuid
+ls -l /dev/disk/by-label
+
+* shell
+
+remove rhgb and quiet
+rd.shell
+
+* debug
+
+parted /dev/sda -s p
+lvm vgscan
+lvm vgchange -ay
+blkid
+
+* refer
+
+http://people.redhat.com/harald/dracut.html
+

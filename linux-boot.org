@@ -1,0 +1,16 @@
+* list
+
+- loadlin > lilo > grub(2)
+- initramfs, temporal root filesystem aka dracut with drivers so called lvm and more
+- init
+
+* one more thing
+
+- selinux
+- lvm
+- grub's rhgb, quiet
+
+* case
+
+- stage 1
+- "dracut: switching root" and hang

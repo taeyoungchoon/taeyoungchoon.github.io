@@ -2,3 +2,8 @@
 
 * so
 
+* cli
+
+vgscan
+vgchange -a y
+mount /dev/volumegroup/logicalvolume /mnt/somewhere

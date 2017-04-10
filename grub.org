@@ -1,30 +1,30 @@
 * grub, GRand Unified Bootloader
 * ver 2, 3
 * cli, not yet
+
+grub-install --root-directory=/mnt/sysimage /dev/sda
+
 * config
 
 /etc/defaut/grub
+/etc/grub.conf
 
 #+BEGIN_EXAMPLE
-
 GRUB_DEFAULT=0
 
 GRUB_HIDDEN_TIMEOUT=0
 GRUB_HIDDEN_TIMEOUT_QUIET=true
 GRUB_TIMEOUT=10
-
 #+END_EXAMPLE
 
 update-grub
 
 #+BEGIN_EXAMPLE
-
 Generating grub.cfg ...
 Found linux image: /boot/vmlinuz-3.2.0-23-generic
 Found initrd image: /boot/initrd.img-3.2.0-23-generic
 Found memtest86+ image: /memtest86+.bin
 done
-
 #+END_EXAMPLE
 
 /boot/grub/grub.cfg
@@ -40,3 +40,13 @@ password -md5 xxxx
 
 * chain loader?
 
+* rhgb and quiet
+
+- quiet : before rhgb
+- rhgb : redhat graphical boot
+
+* and disable selinux
+
+#+BEGIN_SRC 
+selinux=0
+#+END_SRC
