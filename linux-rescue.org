@@ -1,3 +1,18 @@
+* so
+
+- step
+  https://www.if-not-true-then-false.com/2010/red-hat-6-installation-guide-rhel-6-install-screenshots/
+- grub
+- initrd, initramfs, temporal root filesystem, cpio
+- dracut, https://fedoraproject.org/wiki/How_to_debug_Dracut_problems
+- lvm
+- device mapper then (lvm soft-raid dm-crypt multipath)
+- /etc/multipath.conf
+- selinux
+- soft raid?
+- wiki:Linux startup process
+- Next, it initializes virtual devices related to the file system, such as LVM or software RAID before unmounting the initrd disk image
+
 * process
 
 - 하단부터
@@ -51,18 +66,34 @@ grub> root (hd0,1)
 grub> setup (hd0)
 grub> quit
 
-* dig
 
-- lvm
-- dm
-- grub
-- dracut, https://fedoraproject.org/wiki/How_to_debug_Dracut_problems
+* dracut and udev
 
-* dracut
-
-- ls /lib/dracut/modules.d/
+- ls /lib/dracut/modules.d/, /usr/lib/dracut/modules.d
 - dracut -M test.img $(uname -r)
 - mkinitrd > dracut
 - boot & initrd , https://www.youtube.com/watch?v=gWXK__mMasY
   at stage2 initrd is copied into ram, temporal
   https://01.org/linuxgraphics/gfx-docs/drm/admin-guide/initrd.html
+
+* selinux? then initfs(initramfs)
+
+selinux=0
+enforcing=0
+/etc/sysconfig/selinux
+SELINUX=permissive
+SELINUX=disabled(not recommended)
+/etc/selinux/config
+
+
+* fstab
+
+/dev/mapper/VolGroup00-LogVol00 on / type ext3 (rw)
+
+* grub entry
+
+title Fedora Core (2.6.11-1.1369_FC4)
+	root (hd0,1)
+	kernel /vmlinuz-2.6.11-1.1369_FC4 ro root=/dev/VolGroup00/LogVol00 rhgb quiet nodma
+	initrd /initrd-2.6.11-1.1369_FC4.img
+

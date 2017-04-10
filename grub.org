@@ -1,33 +1,26 @@
 * grub, GRand Unified Bootloader
-* ver 2, 3
 * cli, not yet
 
 grub-install --root-directory=/mnt/sysimage /dev/sda
+update-grub
+
+* options 
+
+- quiet : before rhgb
+- rhgb : redhat graphical boot
+- selinux=0
+
+* config at
+
+/boot/grub/grub.cfg
+/etc/grub.conf
 
 * config
 
-/etc/defaut/grub
-/etc/grub.conf
-
-#+BEGIN_EXAMPLE
 GRUB_DEFAULT=0
-
 GRUB_HIDDEN_TIMEOUT=0
 GRUB_HIDDEN_TIMEOUT_QUIET=true
 GRUB_TIMEOUT=10
-#+END_EXAMPLE
-
-update-grub
-
-#+BEGIN_EXAMPLE
-Generating grub.cfg ...
-Found linux image: /boot/vmlinuz-3.2.0-23-generic
-Found initrd image: /boot/initrd.img-3.2.0-23-generic
-Found memtest86+ image: /memtest86+.bin
-done
-#+END_EXAMPLE
-
-/boot/grub/grub.cfg
 
 * secure
 
@@ -37,16 +30,19 @@ Encrypted: xxxx
 
 grub.conf
 password -md5 xxxx
+* grub rescue>
 
-* chain loader?
+set
 
-* rhgb and quiet
+ls
+ls (hd0,2)/boot
 
-- quiet : before rhgb
-- rhgb : redhat graphical boot
+set prefix=(hd0,msdos5)/boot/grub
+set root=(hd0,msdos5)
+insmod normal
+normal
 
-* and disable selinux
+https://www.gnu.org/software/grub/manual/html_node/GRUB-only-offers-a-rescue-shell.html
+27.1 GRUB only offers a rescue shell
 
-#+BEGIN_SRC 
-selinux=0
-#+END_SRC
+https://help.ubuntu.com/community/Grub2/Troubleshooting
