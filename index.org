@@ -36,3 +36,10 @@
 - 사피엔스에서 (사실 아직 보는 중이다) 다시 논어로
 
 * I love you
+* soft raid then lvm
+
+https://www.centos.org/docs/5/html/Deployment_Guide-en-US/s1-raid-config.html
+4.5. Configuring Software RAID
+
+http://blog.helperchoi.com/56
+
