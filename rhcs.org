@@ -1,0 +1,5 @@
+* using 
+
+- Pacemaker
+- Corosync Cluster Engine
+- Linux-HA heartbeat

@@ -1,13 +1,14 @@
 * say
 
 실력, 자격, 인정
+뭐 그런가 종종 이야기하던 자격증시대 뭐 그런
 
-* DONE list 
+* list 
 
 - 정보처리기사
 - 운전면허증
 
-* TODO list
+* list
 
 - [[file:engineer-information-security.org][정보보안기사]]
 
@@ -17,6 +18,4 @@
 - 네트워크관리사 2급
 - 감리사
 - 기술사
-
-
-
+- 컴활
