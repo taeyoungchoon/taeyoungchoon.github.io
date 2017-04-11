@@ -32,10 +32,25 @@ synctools(by Kenny Kerr) for sysinternals required!
 
 - [X] psping
 - [X] tcpview
-- [X] tcpvcon
+- [X] tcpvcon -a -c
 - [X] whois
 
 * get it or use it
 
 - http://technet.microsoft.com/en-us/sysinternals
 - http://live.sysinternals.com
+
+* others called NirSoft
+
+cports/stext
+urlprotocolview /stext
+cprocess
+dllexp
+injeteddll
+openfilesview
+wul
+
+* others called ntsecurity.nu
+
+gplist
+promiscdetect

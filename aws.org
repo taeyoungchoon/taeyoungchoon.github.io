@@ -19,6 +19,7 @@
 * vpn
 
 ig - r - (subnet (webServer eip) (appServer) (natServer eip))
+vpc subnet - router - virtual private gateway  -[vpn connection]- customer gateway - customer network
 
 * so
 

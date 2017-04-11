@@ -1,0 +1,25 @@
+* soft raid? and with lvm?
+
+/etc/mdadm/mdadm.conf
+mdadm --examine /dev/sdb1
+update-initramfs -u -k all
+update-initramfs -u
+cat /proc/mdstat
+ls -l /dev/md*
+mdadm --detail --scan
+mdadm --detail /dev/md127
+dmesg | grep md
+
+sudo mdadm --create --verbose /dev/md1 --level=mirror --raid-devices=2 /dev/sdb1 /dev/sdc1
+sudo mdadm --create --verbose /dev/md2 --level=mirror --raid-devices=2 /dev/sdb2 /dev/sdc2
+sudo mdadm --detail --scan
+
+* refer
+
+http://www.solanara.net/solanara/lvm
+Linux RAID, LVM - 윈디하나의 솔라나라
+
+https://www.centos.org/docs/5/html/Deployment_Guide-en-US/s1-raid-config.html
+4.5. Configuring Software RAID
+
+with LVM

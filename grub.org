@@ -10,12 +10,7 @@ update-grub
 - rhgb : redhat graphical boot
 - selinux=0
 
-* config at
-
-/boot/grub/grub.cfg
-/etc/grub.conf
-
-* config
+* config at /boot/grub/grub.conf
 
 GRUB_DEFAULT=0
 GRUB_HIDDEN_TIMEOUT=0

@@ -1,7 +1,6 @@
 (cons t nil)
 (setf *lt* (list 1 2 3))
 
-;;(jack raul ((1.1.1.1 mapping) (2.2.2.2 service)) 20151119)
 (setf *db* '(:name "jack"
 	     :aka "raul"
 	     :ip '((cons "1.1" "mapping")
@@ -12,8 +11,14 @@
 		     :direction :output
 		     :if-exists :supersede)
   (print *db* out))
-;;  (with-standard-io-syntax (print *db* out)))
 
+(with-open-file (in "foo.lisp")
+  (format t "~a~%" (read-line in)))
+
+(with-open-file (in "foo.lisp")
+  (format t "~a~%" (file-length in)))
+
+;;  (with-standard-io-syntax (print *db* out)))
 
 ;;(print "this is print")
 ;;(princ "this is princ")

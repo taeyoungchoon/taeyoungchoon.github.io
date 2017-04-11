@@ -34,3 +34,7 @@
 | 1.1 | 1.2 |
 
 
+* site
+
+http://www.gigamonkeys.com/book/
+practical common lisp

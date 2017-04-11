@@ -4,13 +4,13 @@
 * (cons t nil)
 
 - C-c C-e h o
-- [[http://goo.gl/mTMLmr][네이버 맞춤법 검사기]]
-- https://twitter.com/search-home
+- [[http://goo.gl/mTMLmr][네이버 맞춤법 검사기]] , 세상과 소통하기 아니 https://translate.google.com 이 필요한 것은 아닐까?
+- https://twitter.com/search-home , 세상을 보는 창
 
 * lisp, lisp, lisp
 
 - lisp, clisp, emacs-lisp
-- slime, SLIME 2.19
+- emacs with slime
 - quicklisp, (ql:update-all-dists)
 
 * then emacs, emacs, emacs-lisp
@@ -32,4 +32,14 @@
 #+END_SRC
 
 - 읽지 않는 책 또 다른 말은 쓰지 않는 글이다
+- podcast도 책이라고 할 수 있을까? 오디오북은?
+- 사피엔스에서 (사실 아직 보는 중이다) 다시 논어로
+
+* I love you
+* soft raid then lvm
+
+https://www.centos.org/docs/5/html/Deployment_Guide-en-US/s1-raid-config.html
+4.5. Configuring Software RAID
+
+http://blog.helperchoi.com/56
 
