@@ -66,7 +66,6 @@ grub> root (hd0,1)
 grub> setup (hd0)
 grub> quit
 
-
 * dracut and udev
 
 - ls /lib/dracut/modules.d/, /usr/lib/dracut/modules.d
@@ -85,7 +84,6 @@ SELINUX=permissive
 SELINUX=disabled(not recommended)
 /etc/selinux/config
 
-
 * fstab
 
 /dev/mapper/VolGroup00-LogVol00 on / type ext3 (rw)
@@ -97,3 +95,17 @@ title Fedora Core (2.6.11-1.1369_FC4)
 	kernel /vmlinuz-2.6.11-1.1369_FC4 ro root=/dev/VolGroup00/LogVol00 rhgb quiet nodma
 	initrd /initrd-2.6.11-1.1369_FC4.img
 
+* file system
+
+- testdisk
+- photorec
+- debugfs
+
+* debugfs
+
+- lsdel
+- logdump -i <123>
+- ls -l
+- cat
+- dump
+- rdump
