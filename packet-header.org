@@ -1,0 +1,5 @@
+* packet header
+
+* start
+
+rfc가 좋을까? 아니면 wireshark? A4에 인쇄해서 볼까?

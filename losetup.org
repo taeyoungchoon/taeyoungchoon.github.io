@@ -1,0 +1,15 @@
+* old loop
+
+dd if=/dev/zero of=test.img bs=1024 count=1000
+mkfs.ext3 test.img
+mount -o loop test.img /mnt
+umount /mnt
+
+* new loop
+
+dd if=/dev/zero of=test.img bs=1024 count=1000
+losetup /dev/loop0 test.img
+mkfs.ext3 test.img
+mount /dev/loop0 /mnt
+umount /mnt
+losetup -d /dev/loop0
