@@ -2,8 +2,9 @@
 
 - 가볍게 시작한다, 기본에서 부터, \processor(_Total)\% Processor Time
 - 기간을 정한다. 오늘 하루
+- 그런데 메모리는, 흠
 
 * vs WPA, Windows Performance Analyzer
 * but
 
-- "데이터를 수집하능 중..."
+- "데이터를 수집하는 중..."
