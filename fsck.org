@@ -15,3 +15,29 @@ https://www.cs.duke.edu/csl/docs/sysadmin_course/sysadm-86.html
 * understanding filesystem architecture
 
 https://www.cyberciti.biz/tips/understanding-unixlinux-filesystem-inodes.html
+* real
+
+root@foo:~# fsck.ext4  -b 229376 /dev/loop0
+e2fsck 1.42 (29-Nov-2011)
+One or more block group descriptor checksums are invalid.  Fix<y>? yes
+
+Group descriptor 0 checksum is invalid.  FIXED.
+Group descriptor 1 checksum is invalid.  FIXED.
+Group descriptor 2 checksum is invalid.  FIXED.
+Group descriptor 3 checksum is invalid.  FIXED.
+Group descriptor 4 checksum is invalid.  FIXED.
+Group descriptor 5 checksum is invalid.  FIXED.
+Group descriptor 6 checksum is invalid.  FIXED.
+Group descriptor 7 checksum is invalid.  FIXED.
+/dev/loop0 contains a file system with errors, check forced.
+Pass 1: Checking inodes, blocks, and sizes
+Pass 2: Checking directory structure
+Pass 3: Checking directory connectivity
+Pass 4: Checking reference counts
+Pass 5: Checking group summary information
+
+/dev/loop0: ***** FILE SYSTEM WAS MODIFIED *****
+/dev/loop0: 11/65536 files (0.0% non-contiguous), 8539/261888 blocks
+root@foo:~# 
+
+* lost+found

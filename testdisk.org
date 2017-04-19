@@ -3,4 +3,18 @@
 이 녀석 또는 이 분의 능력은 알 수 없다
 아직은 말이다
 
+* steps
 
+* case, partition overwrite
+
+1. start engine
+2. analyse
+3. list files
+4. write partition table
+
+* case, undelete
+
+1. start engine
+2. analyse
+3. list files
+4. copy

@@ -1,0 +1,7 @@
+* forensic file recovery
+
+
+
+* cli
+
+foremost -t all -i sdb.img -o tmp/

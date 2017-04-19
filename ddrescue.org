@@ -1,0 +1,95 @@
+* ddrescue and then dd_rescue
+
+apt-get install gddrescue
+
+* ex and dd_rescue win
+
+root@foo:~# ddrescue /dev/sdb1 sdb1.img
+
+
+Press Ctrl-C to interrupt
+rescued:     1072 MB,  errsize:       0 B,  current rate:   95813 kB/s
+   ipos:     1072 MB,   errors:       0,    average rate:   54505 kB/s
+   opos:     1072 MB,     time from last successful read:       0 s
+Finished
+
+root@foo:~# time dd_rescue /dev/sdb1 sdb1-using-dd_rescue.img
+dd_rescue: (info) expect to copy 1047552kB from /dev/sdb1
+dd_rescue: (info): ipos:   1047552.0k, opos:   1047552.0k, xferd:   1047552.0k
+                   errs:      0, errxfer:         0.0k, succxfer:   1047552.0k
+             +curr.rate:   253779kB/s, avg.rate:    99947kB/s, avg.load: 28.3%
+             >----------------------------------------.<  99%  ETA:  0:00:00
+dd_rescue: (info): read /dev/sdb1 (1047552.0k): EOF
+dd_rescue: (info): Summary for /dev/sdb1 -> sdb1-using-dd_rescue.img:
+dd_rescue: (info): ipos:   1047552.0k, opos:   1047552.0k, xferd:   1047552.0k
+                   errs:      0, errxfer:         0.0k, succxfer:   1047552.0k
+             +curr.rate:        0kB/s, avg.rate:    99635kB/s, avg.load: 28.4%
+             >----------------------------------------.<  99%  ETA:  0:00:00
+
+real    0m10.576s
+user    0m0.016s
+sys     0m2.992s
+root@foo:~# time cat /dev/sdb1 > sdb1-using-cat.img
+
+real    0m20.590s
+user    0m0.008s
+sys     0m3.400s
+root@foo:~# time ddrescue /dev/sdb1 sdb1-using-ddrescue.img
+
+
+Press Ctrl-C to interrupt
+rescued:     1072 MB,  errsize:       0 B,  current rate:   74711 kB/s
+   ipos:     1072 MB,   errors:       0,    average rate:   92793 kB/s
+   opos:     1072 MB,     time from last successful read:       0 s
+Finished
+
+real    0m11.389s
+user    0m0.032s
+sys     0m3.736s
+root@foo:~# time dd if=/dev/sdb1 of=sdb1-using-dd.img
+2095104+0 records in
+2095104+0 records out
+1072693248 bytes (1.1 GB) copied, 14.6394 s, 73.3 MB/s
+
+real    0m14.715s
+user    0m0.180s
+sys     0m7.032s
+
+root@foo:~# time dd if=/dev/sdb1 of=sdb1-using-dd-bs-1024.img bs=1024
+1047552+0 records in
+1047552+0 records out
+1072693248 bytes (1.1 GB) copied, 12.8412 s, 83.5 MB/s
+
+real    0m13.176s
+user    0m0.084s
+sys     0m5.348s
+root@foo:~# time dd if=/dev/sdb1 of=sdb1-using-dd-bs-4096.img bs=4096
+261888+0 records in
+261888+0 records out
+1072693248 bytes (1.1 GB) copied, 11.6385 s, 92.2 MB/s
+
+real    0m11.860s
+user    0m0.036s
+sys     0m3.272s
+root@foo:~# bc -q
+4096*2
+8192
+quit
+root@foo:~# time dd if=/dev/sdb1 of=sdb1-using-dd-bs-8192.img bs=8192
+130944+0 records in
+130944+0 records out
+1072693248 bytes (1.1 GB) copied, 11.3591 s, 94.4 MB/s
+
+real    0m11.665s
+user    0m0.016s
+sys     0m3.196s
+
+root@foo:~# md5sum *.img
+59629a78b029165c7dcdb875549f0afb  sdb1.img
+59629a78b029165c7dcdb875549f0afb  sdb1-using-cat.img
+59629a78b029165c7dcdb875549f0afb  sdb1-using-dd.img
+59629a78b029165c7dcdb875549f0afb  sdb1-using-ddrescue.img
+59629a78b029165c7dcdb875549f0afb  sdb1-using-dd_rescue.im
+59629a78b029165c7dcdb875549f0afb  sdb1-using-dd-bs-1024.img
+59629a78b029165c7dcdb875549f0afb  sdb1-using-dd-bs-4096.img
+59629a78b029165c7dcdb875549f0afb  sdb1-using-dd-bs-8192.img

@@ -13,3 +13,21 @@ mkfs.ext3 test.img
 mount /dev/loop0 /mnt
 umount /mnt
 losetup -d /dev/loop0
+
+* one more thing
+
+fdisk -lu sdb.img
+
+losetup /dev/loop0 sdb.img -o $((2048 * 512))
+mount /dev/loop0 /mnt
+
+mount -o loop,offset=$((2048 * 512)) sdb.img /mnt
+
+* cli
+
+losetup -a
+losetup -d /dev/loop0
+
+* ref
+
+http://madduck.net/blog/2006.10.20:loop-mounting-partitions-from-a-disk-image/
