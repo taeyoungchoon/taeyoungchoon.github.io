@@ -1,0 +1,17 @@
+* what the
+* on windows, chkdsk?
+* meaning
+* ref
+
+https://ext4.wiki.kernel.org/index.php/Ext4_Disk_Layout
+https://wiki.archlinux.org/index.php/fsck
+
+* ref, phases
+
+http://www.adminschoice.com/repairing-unix-file-system-fsck
+http://docs.oracle.com/cd/E19253-01/817-0403/tsfsck-23717/index.html
+https://www.cs.duke.edu/csl/docs/sysadmin_course/sysadm-86.html
+
+* understanding filesystem architecture
+
+https://www.cyberciti.biz/tips/understanding-unixlinux-filesystem-inodes.html

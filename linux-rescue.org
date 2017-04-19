@@ -15,7 +15,7 @@
 
 * process
 
-- 하단부터
+- bios
 - fs
 - fs table
 - boot using bootloader

@@ -17,4 +17,90 @@ Modify: 2012-04-19 09:15:14.000000000 +0000
 Change: 2017-02-04 07:57:03.223738025 +0000
  Birth: -
 
+# dd if=/dev/zero of=test.img bs=1024 count=1000
+1000+0 records in
+1000+0 records out
+1024000 bytes (1.0 MB) copied, 0.007259 seconds, 141 MB/s
 
+# debugfs -R "stat test.img" /dev/cciss/c0d0p1
+debugfs 1.39 (29-May-2006)
+Inode: 6033   Type: regular    Mode:  0644   Flags: 0x0   Generation: 1186867401
+User:     0   Group:     0   Size: 1024000
+File ACL: 0    Directory ACL: 0
+Links: 1   Blockcount: 2010
+Fragment:  Address: 0    Number: 0    Size: 0
+ctime: 0x58f6c058 -- Wed Apr 19 10:41:44 2017
+atime: 0x58f6bfe8 -- Wed Apr 19 10:39:52 2017
+mtime: 0x58f6c058 -- Wed Apr 19 10:41:44 2017
+BLOCKS:
+(0-11):36538-36549, (IND):36550, (12-267):36551-36806, (DIND):36807, (IND):36808, (268-523):36809-37064, (IND):37065
+, (524-779):37066-37321, (IND):37322, (780-999):37323-37542
+TOTAL: 1005
+
+# debugfs -R "stats" /dev/cciss/c0d0p1
+debugfs 1.39 (29-May-2006)
+Filesystem volume name:   /boot
+Last mounted on:          <not available>
+Filesystem UUID:          743697ae-179c-452d-95df-0cc3c3b18557
+Filesystem magic number:  0xEF53
+Filesystem revision #:    1 (dynamic)
+Filesystem features:      has_journal ext_attr resize_inode dir_index filetype needs_recovery sparse_super
+Default mount options:    user_xattr acl
+Filesystem state:         clean
+Errors behavior:          Continue
+Filesystem OS type:       Linux
+Inode count:              26104
+Block count:              104388
+Reserved block count:     5219
+Free blocks:              73937
+Free inodes:              26011
+First block:              1
+Block size:               1024
+Fragment size:            1024
+Reserved GDT blocks:      256
+Blocks per group:         8192
+Fragments per group:      8192
+Inodes per group:         2008
+Inode blocks per group:   251
+Filesystem created:       Tue Apr  3 23:19:57 2012
+Last mount time:          Mon Jan 18 08:49:00 2016
+Last write time:          Mon Jan 18 08:49:00 2016
+Mount count:              11
+Maximum mount count:      -1
+Last checked:             Tue Apr  3 23:19:57 2012
+Check interval:           0 (<none>)
+Reserved blocks uid:      0 (user root)
+Reserved blocks gid:      0 (group root)
+First inode:              11
+Inode size:               128
+Journal inode:            8
+Default directory hash:   tea
+Directory Hash Seed:      b27c87b8-3d91-4f32-a324-3ea388e33648
+Journal backup:           inode blocks
+Directories:              4
+ Group  0: block bitmap at 259, inode bitmap at 260, inode table at 261
+           0 free blocks, 1984 free inodes, 2 used directories
+ Group  1: block bitmap at 8451, inode bitmap at 8452, inode table at 8453
+           6 free blocks, 1991 free inodes, 1 used directory
+ Group  2: block bitmap at 16385, inode bitmap at 16386, inode table at 16387
+           6587 free blocks, 2008 free inodes, 0 used directories
+ Group  3: block bitmap at 24835, inode bitmap at 24836, inode table at 24837
+           3585 free blocks, 1999 free inodes, 0 used directories
+ Group  4: block bitmap at 32769, inode bitmap at 32770, inode table at 32771
+           3418 free blocks, 2008 free inodes, 0 used directories
+ Group  5: block bitmap at 41219, inode bitmap at 41220, inode table at 41221
+           7681 free blocks, 2008 free inodes, 0 used directories
+ Group  6: block bitmap at 49153, inode bitmap at 49154, inode table at 49155
+           6646 free blocks, 1964 free inodes, 1 used directory
+ Group  7: block bitmap at 57603, inode bitmap at 57604, inode table at 57605
+           7681 free blocks, 2008 free inodes, 0 used directories
+ Group  8: block bitmap at 65537, inode bitmap at 65538, inode table at 65539
+           7939 free blocks, 2008 free inodes, 0 used directories
+ Group  9: block bitmap at 73987, inode bitmap at 73988, inode table at 73989
+           7681 free blocks, 2008 free inodes, 0 used directories
+ Group 10: block bitmap at 81921, inode bitmap at 81922, inode table at 81923
+           7939 free blocks, 2008 free inodes, 0 used directories
+ Group 11: block bitmap at 90113, inode bitmap at 90114, inode table at 90115
+           7939 free blocks, 2008 free inodes, 0 used directories
+ Group 12: block bitmap at 98305, inode bitmap at 98306, inode table at 98307
+           5830 free blocks, 2008 free inodes, 0 used directories
