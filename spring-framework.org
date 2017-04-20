@@ -1,0 +1,29 @@
+* spring, web application framework
+
+봄이 그 봄이 아니다
+혹시 그 통통 튕기는 그 스프링인가 
+도대체 어원이 어떻게 되는 것이지
+
+Roderick B. Johnson
+
+대한민국 공공기관의 웹 서비스 개발 시 사용을 권장하고 있는 
+전자정부 표준프레임워크의 기반 기술로서 쓰이고 있다
+
+전자정부 표준프레임워크는 
+대한민국의 공공부문 정보화 사업 시 
+플랫폼별 표준화된 개발 프레임워크를 말한다.
+
+전자정부 표준프레임워크, 외국이도 있나? 이런 유사한? 다소 신기한?
+
+* sprint boot
+
+* alternative
+
+https://www.g2crowd.com/products/spring/competitors/alternatives
+
+- grail
+- play
+- apache wicket
+- apache tapestry
+
+http://vschart.com/compare/apache-tapestry/vs/spring-framework

@@ -1,0 +1,10 @@
+* stop x11 from listening
+
+startx -- -nolisten tcp
+
+/etc/gdm/gdm.conf
+DisallowTCP=false
+
+* xhost +
+
+* port : 6000+
