@@ -11,3 +11,7 @@ cd /cygdrive/c/Program\ Files/IBM_DS/client/
 ./SMcli 192.168.127.36 192.168.127.37 -c "show storagesubsystem healthstatus;"
 ./SMcli 192.168.127.36 192.168.127.37 -c "show storagesubsystem summary;"
 
+* cli but real case
+
+./SMcli 192.168.127.36 192.168.127.37 -c "show alldrives;" | egrep "Drive at|Status"
+./SMcli 192.168.127.36 192.168.127.37 -c "show alldrives;" | egrep "Drive at|Mode"

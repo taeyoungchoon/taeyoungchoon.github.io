@@ -1,3 +1,9 @@
+** part 0
+
+cat t-sec/i-nac-adm-guide.org | sed -n '/* header/,/^* /p' | sed '$d' 
+
+** part 1
+
 $ cat foo
 a
 b
