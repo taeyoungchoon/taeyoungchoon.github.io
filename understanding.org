@@ -1,0 +1,11 @@
+* understanding 이라고 쓰고
+
+나는 보안 
+나는 해킹이라고 읽는다
+그리고 깊은 이해라고 적는다
+
+* 다른 이
+
+- (setf understanding (cons thinking feeling))
+- understanding chain?
+

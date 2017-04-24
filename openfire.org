@@ -1,0 +1,3 @@
+* with spark
+* XMPP server
+* jabber
