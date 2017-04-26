@@ -5,7 +5,6 @@ Lotus Domino was previously called Lotus Notes Server
 * Lotus Domino Server (LotusDominodata)
 
 #+BEGIN_EXAMPLE
-
 Mail Router shutdown
 Event Monitor shutdown
 Starting Server shutdown
@@ -15,12 +14,11 @@ SMTP Server: All tasks have shutdown
 POP3 Server: All tasks have shutdown
 SMTP Server: Shutdown
 POP3 Server: Shutdown
-
 #+END_EXAMPLE
 
 #+BEGIN_EXAMPLE
-
 nserver.exe
 nservice.exe
-
 #+END_EXAMPLE
+
+- 서비스 > 서비스 제어 > 로컬 컴퓨터에서 다음 서비스를 중지하려고 시도하는 중...

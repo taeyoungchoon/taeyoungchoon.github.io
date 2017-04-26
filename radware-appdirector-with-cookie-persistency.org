@@ -1,0 +1,13 @@
+* Application Servers Statistics Summary
+
+- Farm
+- Farm/Serer
+- Refresh Interval[sec]
+
+* Layer 4 Policy Table
+
+- Virtual IP
+- L4 Protocol
+- L4 Port
+- L4 Policy Name
+- Farm Name

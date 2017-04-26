@@ -1,0 +1,6 @@
+* case
+
+- hardware > rack1 > disk enclosure 9 > bay 12 > oprerational state : failed
+- disk groups > ungrouped disks > disk 117
+- disk groups > disk drive failure protection
+- disk groups > condition/state > operational state : attention, transition state : leveling

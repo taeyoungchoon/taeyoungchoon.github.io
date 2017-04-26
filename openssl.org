@@ -1,1 +1,9 @@
 * ever has [[file:heartbleed.org][heartbleed]] on it
+* case
+
+javax.net.ssl.SSLKeyException: FATAL Alert: BAD_CERTIFICATE - A corrupt or unuseable ceritifcate was received
+
+* naver
+
+- API키를 이용한 API호출은 더 이상 이용하실 수 없습니다
+- 아직 클라이언트 아이디 방식 호출로 변경하지 않으신 분들께서는 그 전에 클라이언트 아이디를 발급 받아 호출 방식을 변경하시길 바랍니다.

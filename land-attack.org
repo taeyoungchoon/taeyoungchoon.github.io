@@ -1,3 +1,11 @@
+* so lisp
+
+#+BEGIN_SRC lisp
+  (packet
+   (state
+    (equal source-ip destination-ip)))
+#+END_SRC
+
 * LAND Attack
 
 In a DoS land (Local Area Network Denial) attack, 
@@ -28,7 +36,6 @@ causes Windows explorer freezing on all workstations currently connected to the 
 CPU on server goes 100%. 
 Network monitor on the victim server sometimes can not even sniff malicious packet. 
 Using tcpreplay to script this attack results in total collapse of the network.
-
 
 * simulate
 

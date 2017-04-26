@@ -17,3 +17,9 @@
 1. manage serviceable events
 2. last reported time
 3. repair
+
+* ref
+
+- accessing the asmi(Advanced System Management Interface) using hmc
+- removing a part using the hardware management console
+- removing the model 9116-561 or 570 voltage regulator assembly with power on

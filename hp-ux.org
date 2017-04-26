@@ -38,3 +38,8 @@ PING 192.168.0.1: 64 byte packets
 round-trip (ms)  min/avg/max = 0/0/0
 # 
 
+* lvm, unknown
+
+- lvlnboot -R
+- lvlnboot -v
+- Volume Group configuration for /dev/vg01 has been saved in /etc/lvmconf/vg01.conf
