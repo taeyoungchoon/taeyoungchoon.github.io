@@ -1,4 +1,4 @@
-* Application Servers Statistics Summary
+* performance > servers > Application Servers Statistics
 
 - Farm
 - Farm/Serer

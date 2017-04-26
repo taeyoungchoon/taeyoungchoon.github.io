@@ -1,0 +1,13 @@
+* cli
+
+fabric os (tm) release v3.2.1c
+login: admin
+Password:
+
+FC16A_down:admin> fanshow
+
+* product
+
+- HP StorageWorks 2/16 san switch : 2g 16 port
+- HP StorageWorks 8/24 san switch
+- HP StorageWorks 4/64 san switch
