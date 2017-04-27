@@ -18,3 +18,13 @@ cf status
 
 - HA pair
 - takeover and giveback
+
+* email notification
+
+filer> options autosupport
+filer> options autosupport.partner.to bar@foo.com
+filer> options autosupport.doit now                            
+
+at 7-mode not c-mode
+
+
