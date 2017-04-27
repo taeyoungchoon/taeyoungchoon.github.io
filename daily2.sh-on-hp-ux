@@ -1,0 +1,25 @@
+set -o emacs
+
+echo "cpu idle (higher is good)"; echo "----"; 
+vmstat 1 4 | tail -3 | awk '{ print $18 }'; 
+echo " "
+
+echo "mem used (lower is good)"; echo "--------"; 
+/usr/sbin/swapinfo -m | egrep "(Mb|TYPE|memory)" | grep memory | awk '{ print $5 }'; 
+echo " "
+
+echo "warn, disk usage"; echo "--------"; 
+df -Pk | egrep "(9[0-9]|100)%"
+echo " "
+
+echo "warn, oracle tablespace usage"; echo "--------"; 
+perl t-chk-oracle.pl | egrep "(9[0-9]|100).[0-9][0-9]$"
+echo " "
+
+echo "notice, log in this month"; echo "--------"; 
+cat /var/adm/syslog/syslog.log  | egrep -v "cimserver|xntpd|sshd|ftpd|nfsd|inetd|su|repeats|VERITAS" | tail -5 | grep `date +%b`
+echo " "
+
+echo "note"; echo "--------"; 
+if [ -f .daily.note ]; then cat .daily.note; fi
+echo " "
