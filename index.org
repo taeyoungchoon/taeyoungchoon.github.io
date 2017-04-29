@@ -7,16 +7,25 @@
 - [[http://goo.gl/mTMLmr][네이버 맞춤법 검사기]] , 세상과 소통하기 아니 https://translate.google.com 이 필요한 것은 아닐까?
 - https://twitter.com/search-home , 세상을 보는 창
 
-* lisp, lisp, lisp
+* programming > lisp
 
 - lisp, clisp, emacs-lisp
 - emacs with slime
 - quicklisp, (ql:update-all-dists)
 
+#+BEGIN_SRC emacs-lisp
+  (cons t nil)
+#+END_SRC
+
+#+RESULTS:
+| t |
+
 * then emacs, emacs, emacs-lisp
 
 - macro
+- org-mode > agenda
 - dunnet
+- with dropbox or what? git?
 
 * book
 
@@ -32,9 +41,10 @@
 #+END_SRC
 
 - 읽지 않는 책 또 다른 말은 쓰지 않는 글이다
-- podcast도 책이라고 할 수 있을까? 오디오북은?
+- podcast도 책이라고 할 수 있을까? 오디오북은? 지하철에서는 좋지 않다
 - 사피엔스에서 (사실 아직 보는 중이다) 다시 논어로
-- 달빛조각사, 사조영웅전, 신조협려, 의천도룡기, 삼국지
+- 달빛조각사, 사조영웅전, 삼국지
+- 신조협려, 의천도룡기
 
 * I love you, lang
 
@@ -62,3 +72,4 @@ fsck but about file system and layered
 1. fsck, e2fsck
 2. testdisk
 3. foremost
+   
