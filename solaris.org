@@ -1,0 +1,13 @@
+* docs
+
+http://docs.oracle.com/en/operating-systems/solaris.html
+
+* ver
+  
+(eq (solaris 8) (sunos 5.8)) ;; on
+(eq (solaris 9) (sunos 5.9))
+(eq (solaris 10) (sunos 5.10))
+(eq (solaris 11) (sunos 5.11))
+* download
+
+solaris or the other like OpenSXCE
