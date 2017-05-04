@@ -1,0 +1,25 @@
+* cli
+
+pr
+prstat
+
+* more pr to prt
+
+prtconf
+prtdiag
+
+* print
+
+printenv
+
+* func
+
+printf
+sprintf
+snprintf
+
+NAME
+     printf, fprintf, sprintf, snprintf, asprintf, dprintf, vprintf, vfprintf,
+     vsprintf, vsnprintf, vasprintf, vdprintf -- formatted output conversion
+
+

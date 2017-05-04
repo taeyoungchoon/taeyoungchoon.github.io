@@ -1,0 +1,7 @@
+* clear and cls
+
+cls : clear screen
+
+참 이름이라 이름이라 이름은 중요하다 이름만큼 중요하다 작명이라 naming이라
+
+pr도 clear도 
