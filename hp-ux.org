@@ -43,3 +43,41 @@ round-trip (ms)  min/avg/max = 0/0/0
 - lvlnboot -R
 - lvlnboot -v
 - Volume Group configuration for /dev/vg01 has been saved in /etc/lvmconf/vg01.conf
+
+* trusted system mode and not trusted
+
+https://docstore.mik.ua/manuals/hp-ux/en/5992-3387/apas01.html
+Turns on the audit flag for all existing users.
+
+https://docstore.mik.ua/manuals/hp-ux/en/5992-3387/ch10s02.html?btnNext=next%A0%BB
+Guidelines for Administering the Auditing System
+
+https://docstore.mik.ua/manuals/hp-ux/en/5992-3387/apa.html?btnNext=next%A0%BB
+Appendix A trusted systems
+
+/etc/default/security
+
+tsconvert -r
+
+/etc/passwd with * but
+/tcb
+/tcb/files/auth/system
+/tcb/files/auth/[a-z]
+
+/usr/lbin/getprdef -r
+System is not trusted.
+
+#+BEGIN_SRC 
+SU_ROOT_GROUP=wheel
+PASSWORD_MAXDAYS=5
+PASSWORD_MINDAYS=1
+PASSWORD_MIN_SPECIAL_CHARS=1
+PASSWORD_MIN_UPPER_CASE_CHARS=1
+PASSWORD_MIN_DIGIT_CHARS=2
+MIN_PASSWORD_LENGTH=9
+#+END_SRC
+
+* (shadow (11.23 default))
+
+/etc/shadow
+
