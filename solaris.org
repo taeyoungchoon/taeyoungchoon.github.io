@@ -15,6 +15,19 @@ solaris or the other like OpenSXCE
 
 * volume
 
+FreeBSD Vinum volume manager
+Linux mdadm
+
+1. Solstice DiskSuite, 1991
+2. Solaris Volume Manager (SVM), 2000
+3. ZFS, Solaris 10 6/06
+
+** links
+
 https://docs.oracle.com/cd/E19455-01/806-3205/6jccc20r7/index.html
 https://docs.oracle.com/cd/E19683-01/817-2530/6mi6gg896/index.html
 Solaris Volume Manager Administration Guide > How to Expand a RAID 5 Volume
+
+** slice
+
+** soft partition
