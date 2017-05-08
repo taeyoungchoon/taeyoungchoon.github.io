@@ -1,0 +1,55 @@
+* XSCF, eXtended System Control Facility
+
+- SPARC Enterprise series servers 
+- DRAC on Dell servers
+- HP Insight Manager
+
+http://bikashkumar2.blogspot.kr/2013/03/step-by-step-configuration-of-xscf.html
+
+* get in
+
+- From the login prompt on the OS, type #. (Pound dot) then enter.
+
+#+BEGIN_SRC 
+XSCF> console -d domain_id 
+#+END_SRC
+
+#+BEGIN_SRC 
+% #.
+XSCF> 
+#+END_SRC
+  
+* cli
+
+https://docs.oracle.com/cd/E19580-01/821-2797-10/21ch5p.html
+
+showdomainstatus -a
+showdomainstatus -d 00
+console -d 00
+console -d 0 -y
+showenvironment
+showenvironment FAN
+showenvironment temp
+showstatus
+reset -d 00 por
+reset -d 00 xir
+reset -d 00 panic
+poweron -a
+poweroff -a
+rebootxscf
+showuser -a
+shownetwork -a
+setntp -c del 192.168.1.10
+showhardconf
+showhardconf -M
+showdevices
+showlogs -v
+showlogs error
+showlogs power
+showlogs -r event -M
+showlogs -r error -M
+exit
+fmdump -v
+showhostname -a
+version -c xcp
+

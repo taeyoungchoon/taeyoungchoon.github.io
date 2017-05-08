@@ -1,0 +1,21 @@
+* do not support macOS Sierra Version 10.12.4
+
+- so use the shared network printer in windows
+
+* try and try
+
+http://iprinterdrivers.com/download-driver-canon-ir1024-printer.html
+Link download (Link down software) driver Canon iR1024 for Mac OS X 10.9
+
+not working on sierra 10.12.4
+
+http://www.supportcanon.com/canon-ir1024if-driver-download/
+http://www.canon-europe.com/support/products/imagerunner/ir1024if.aspx?type=drivers&language=EN&os=macOS%2010.12%20(Sierra)
+Download Canon iR1024iF printer driver MAC OS X 10.11
+
+- [ ] try, fail
+
+The following items will be installed:
+
+- UFR II/UFRII LT Printer Driver
+- Printer Driver Utilities
