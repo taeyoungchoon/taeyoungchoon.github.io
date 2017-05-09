@@ -31,3 +31,55 @@ Solaris Volume Manager Administration Guide > How to Expand a RAID 5 Volume
 ** slice
 
 ** soft partition
+
+** cli basic
+
+shutdown -g0 -i5 -y
+format
+newfs /dev/dsk/c0t3d0s7
+fsck /dev/dsk/c0t3d0s7
+mkdir /add
+mount -o logging,nosuid /dev/dsk/c0t3d0s7 /add
+
+** cli but meta
+
+metadb -afc 3 c1t1d0s0 c2t0d0s0 c2t2d0s0
+metaset
+metastat | grep %
+metaparam -r geometric d20
+metastat d20 | grep -i read
+metaparam -w parallel d20
+metastat d20 | grep -i write
+metaparam -p 0 d20
+metastat d20 | grep -i pass
+metainit d5 -r c1t1d0s0 c2t0d0s0 c2t2d0s0 -i 32k
+metainit d6 2 1 c6t1d0s0 1 c6t34d0s0
+metainit d9 -p c2t0d0s7 10m
+metarecover
+metaclear -r d10
+metareplace
+metattach d10 ct10d0s4
+metadetach -f d1 d20
+metaoffline d20 d2
+metaonline d20 d2
+metaroot
+
+** cli and then
+
+newfs
+glowfs
+mount
+sync +9
+devfsadm
+drvconfig;disks
+format
+prtvtoc /dev/rdsk/c1t0d0s2 | fmthard -s - /dev/rdsk/c1t1d0s2
+
+** files
+
+/etc/lvm/md.tab
+/etc/vfstab
+/etc/system
+
+** ufs
+** rdsk and dsk

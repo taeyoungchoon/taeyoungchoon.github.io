@@ -1,10 +1,22 @@
-* files
+* memo and 
+
+뭐가 중할까? 
+(env (os config output))
+(os linux aix hp-ux solaris freebsd)
+#+BEGIN_SRC emacs-lisp
+  (config (linux /etc/syslog.log)
+          (hp-ux))
+#+END_SRC
+
+* split syslog
+* remote syslog
+* files but linux only not others
 
 - /etc/syslog.conf
 - /var/log/syslog.log
 
 * port udp/514
-* syslog-ng
+* syslog-ng, rsyslog
 * configure? facility and severity level
 
 ** facility

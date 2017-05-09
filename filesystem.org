@@ -1,0 +1,13 @@
+* memo and come from syslog.org
+
+#+BEGIN_SRC emacs-lisp
+  (general (raw (volume-manager optional) partitoin/slice filesystem))
+  (freebsd (dmesg gpart newfs))
+
+  (volume-manager (linux madam)
+                  (solaris (solaris-volume-manager zfs))
+                  (hp-ux lvm))
+
+  (filesystem (linux ext)
+              (freebsd ufs))
+#+END_SRC
