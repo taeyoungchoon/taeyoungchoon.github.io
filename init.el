@@ -1,15 +1,12 @@
-; package
 (require 'package)
 (add-to-list 'package-archives
   '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
 
-; init
 (setq inhibit-splash-screen t)
 (display-time)
 (load-theme 'wombat)
 (setq default-directory "t:/home")
-;(eshell)
 
 ; about backup & auto-save
 ; http://www.gnu.org/software/emacs/manual/html_node/elisp/Auto_002dSaving.html
@@ -49,8 +46,8 @@
 (global-set-key (kbd "C-x <right>") 'windmove-right)
 (global-set-key (kbd "C-x <left>") 'windmove-left)
 
-(require 'ace-jump-mode)
-(define-key global-map (kbd "C-x j") 'ace-jump-mode)
+;;(require 'ace-jump-mode)
+;;(define-key global-map (kbd "C-x j") 'ace-jump-mode)
 
 ; buffer move
 (global-set-key (kbd "<C-S-up>")     'buf-move-up)
@@ -101,7 +98,7 @@
 (slime-setup '(slime-fancy))
 
 ;; twitter
-(require 'twittering-mode)
+;;(require 'twittering-mode)
 ;;(setq twittering-use-master-password t)
 
 ; recent open files
