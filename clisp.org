@@ -1,3 +1,9 @@
+* windows
+
+https://sourceforge.net/projects/clisp/files/clisp/2.49/
+
+* mac
+
 http://macappstore.org/clisp/
 
   260  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null 2> /dev/null

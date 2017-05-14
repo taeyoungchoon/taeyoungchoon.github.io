@@ -7,3 +7,5 @@
 
 http://chulhankim.github.io/blog/2013/07/29/setting-file-name-coding-system-on-windows.html
 
+https://www.gnu.org/software/emacs/download.html
+pacman -S mingw-w64-x86_64-emacs
