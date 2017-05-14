@@ -1,0 +1,10 @@
+* pre, lun
+
+systool -fc_host -v
+sg3_utils
+rescan_scsi_disk.sh
+
+* cli
+
+ls /sys/class/fc_host/host
+echo "---" > /sys/class/scsi_host/host0/scan

@@ -1,0 +1,6 @@
+* cli
+
+ioscan -fun -C tape
+ioscan -fun -C fc
+ioscan -fun -C lan
+

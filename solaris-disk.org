@@ -1,0 +1,22 @@
+* pre
+
+luxadm probe
+luxadm display
+fcinfo hba_port -l
+fcinfo remote_port -ls -p
+mpathadm list lu
+mpathadm show lu
+cfgadm -o force_config -c configure 
+
+* cli
+
+devfsadm -Cv
+cfgadm -al
+format
+
+* post
+
+format
+newfs
+mount
+

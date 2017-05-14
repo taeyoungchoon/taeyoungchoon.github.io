@@ -1,1 +1,7 @@
 * with san switch
+* word
+
+wwn
+node
+port
+initiator

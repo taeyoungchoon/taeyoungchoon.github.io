@@ -1,0 +1,9 @@
+* cli
+
+vxdctl enable
+vxdisk scandisks
+vxdisk list
+vxdisksetup -i
+vxdg -g 
+vxassist -g
+vxresize
