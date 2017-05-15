@@ -81,3 +81,7 @@ MIN_PASSWORD_LENGTH=9
 
 /etc/shadow
 
+* refer
+
+http://heewon0117.blog.me/120112989798
+
