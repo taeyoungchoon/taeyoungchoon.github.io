@@ -3,3 +3,13 @@
 insf -e
 insf -C disk
 ioscan -fun -C disk
+
+* more
+
+ioscan -fn -C fc
+fcmsutil /dev/fcd0
+ioscan -fn -C disk
+
+* refer
+
+http://blog.naver.com/hidcliff/60124997434

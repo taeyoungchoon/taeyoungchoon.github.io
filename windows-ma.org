@@ -1,0 +1,58 @@
+* cli
+
+winver
+taskmgr
+msinfo32
+diskmgmt.msc
+eventvwr
+windows key + e
+windows key + r
+https://coderwall.com/p/3awvka/a-list-of-run-commands-for-windows-7
+perfmon
+control
+firewall.cpl
+systeminfo
+
+* update
+
+wuauclt /detectnow
+wuauclt /detectnow /updatenow
+wuapp
+wusa
+https://superuser.com/questions/462425/can-i-invoke-windows-update-from-the-command-line
+
+* target
+
+windows 2003
+windows 2008
+
+* more
+
+mstsc /v:192.168.1.100
+telnet 192.168.1.100 3389
+net share
+net use
+wmic
+netsh
+net
+netdom
+powershell
+cscript
+wsh, windows script host
+
+* swap
+
+Get-Counter '\Paging File(*)\% Usage'
+Get-Counter '\Process(_total)\Page File Bytes'
+
+** gui
+
+1. Performance Monitor (perfmon)
+2. Add Counters (The button with the "+" icon, 8th over, left of the X") 
+3. Paging File 
+4. % Usage and/or % Usage Peak
+
+* refer
+
+http://people.virginia.edu/~rtg2t/winadmin/wmic.html
+

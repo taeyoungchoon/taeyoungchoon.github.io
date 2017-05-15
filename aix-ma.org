@@ -1,0 +1,16 @@
+* ma
+
+oslevel -r
+(topas ((cpu memory) usage))
+df -k | sort -k4
+prtconf
+
+* more
+
+prtconf -s
+prtconf -m
+
+* refer
+
+http://ps-2.kev009.com/AIXtip/prtconf.htm
+http://www.unixmantra.com/2013/09/aix-listing-cpu-memory-ram-harddisks-ip-address.html

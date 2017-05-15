@@ -1,0 +1,57 @@
+* cli
+
+hostname
+print_manifest
+machinfo
+
+uname -r
+top
+swapinfo -a
+dmesg
+bdf
+
+glance
+
+lanscan
+ifconfig lan0
+arp -a
+netstat -rn
+
+getconf KERNEL_BITS
+osinfo
+cstm
+model
+
+diskinfo /dev/rdisk/disk6
+insf -e
+insf -e -C disk
+
+* cli but ioscan
+
+ioscan
+ioscan -kf -C processor
+ioscan -k | grep -n processor | wc -l
+ioscan -fc -C disk
+ioscan -H 0/1/1/1
+
+http://kin.naver.com/qna/detail.nhn?d1id=1&dirId=10302&docId=73695558&qb=aW9zY2FuIGhwLXV4&enc=utf8&section=kin&rank=1&search_sort=0&spq=0&pid=TeEO5dpySowssbRWIf8ssssssm8-385982&sid=FC4RMOx3A%2BUNTcOaYzVdIQ%3D%3D
+
+ioscan -fun -C fc
+ioscan -fn -C fc
+ioscan -fnk -C fc
+
+f, full
+u, kernel
+k, kernel
+C, Class
+
+* about
+
+cpu usage
+memory usage
+disk type and usage
+os
+
+* refer
+
+http://blog.naver.com/hidcliff/60124997434

@@ -126,6 +126,7 @@ errclear 2
 http://blog.boxcorea.com/wp/archives/1234
 https://www.ibm.com/developerworks/community/blogs/powermeup/entry/aix_quick_sheet?lang=en
 http://www.unixmantra.com/2013/09/aix-listing-cpu-memory-ram-harddisks-ip-address.html
+
 * note
 
 [2016-11-13 Sun 13:38] 잘 구성되어 있다 리눅스의 다채로움 조금은 난잡함은 보이지 않는다 구식이지만 classic이라는 말이 맞는 듯하다 노팅힐에서 classic이라는 용어의 사용시의 느낌 말이다
