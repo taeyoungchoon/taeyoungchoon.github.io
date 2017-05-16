@@ -49,3 +49,6 @@ Copyright c 2011, 2015 Oracle and/or its affliates. All rights reserved.
 /var/adm/sam-log
 /var/opt/SUNWsamfs/archiver.log
 /var/opt/SUNWsamfs/stager.log
+* cli
+
+samfsinfo backup
