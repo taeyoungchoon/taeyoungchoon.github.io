@@ -1,3 +1,27 @@
+* lisp
+
+#+BEGIN_SRC emacs-lisp
+  (log (syslog
+        (implementation (syslog rsyslog syslog-ng))
+        (pipe   (logrotate linux hp-ux)
+                (newysslog freebsd)
+                (logadm solaris-10)
+                (/usr/lib/newsyslog solaris-old)
+                (script t))))
+
+  (script (cp syslog.log syslog.$(date +%Y%m%d))
+          (>syslog.log))
+
+  (crontab (0 0 1 * * /t-shell/t-logrotate.sh)) ;; the first of every month
+  (crontab (0 0 1 1 * /t-shell/t-clearlog.sh)) ;; the first of every year
+
+  (script (YY=`date +%Y`)
+          (ST=$(($YY - 2)))
+          (rm syslog.$ST*))
+
+  (script (find /var/log/syslog -name "syslog.*" -mtime +365 -exec rm {} \;))
+#+END_SRC
+
 * memo and 
 
 뭐가 중할까? 

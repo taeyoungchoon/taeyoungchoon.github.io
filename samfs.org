@@ -1,0 +1,51 @@
+* samfs aka Sun StorageTek SAMFS related to StorEdge QFS so called SAM-FS, SAM-QFS
+
+- put onto Tape when older than 1d
+
+* step, add devices to mounted file system
+
+1. vi /etc/opt/SUNWsamfs/mcf
+2. sam-fsd
+3. sam config
+4. samcmd f
+5. samcmd add 103
+6. samcmd f
+
+* step, add devices to unmounted file system, not good
+
+1. idel archiving and staging operations first
+2. umount samqfs1
+3. vi /etc/opt/SUNWsamfs/mcf
+4. sam-fsd
+5. samd config
+6. samgrowfs samqfs1
+7. mount /samqfs1
+8. samd start
+
+* controlling archiving and staging operations
+
+1. samcmd aridle
+2. samcmd stidle
+3. samcmd a
+4. samcmd u
+5. samcmd 801 idle
+6. samcmd 802 idle
+7. samcmd r
+8. samd stop
+
+* restart  archiving and staging processes
+
+1. samd start
+
+* refer
+
+StorageTek Storage Archive Manager and StorageTek QFS Software Maintenance and Administration Guide Release 5.4
+3 Managing SAM-QFS File Systems
+
+Copyright c 2011, 2015 Oracle and/or its affliates. All rights reserved.
+
+* log
+
+/var/adm/sam-log
+/var/opt/SUNWsamfs/archiver.log
+/var/opt/SUNWsamfs/stager.log

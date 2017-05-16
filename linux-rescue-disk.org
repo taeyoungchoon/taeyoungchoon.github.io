@@ -1,0 +1,24 @@
+* truth be told, can you do it?
+
+명 정보통신, 데이타복구 080-777-9119 (콜센터)
+
+#+BEGIN_SRC emacs-lisp
+  (proc (call engineer))
+
+  (if militrary t)
+  (if lvm t)
+  (if raid raid)
+  (if (and milirary raid) nil)
+#+END_SRC
+
+1. 디스크 장착
+2. boot from systemrecuecd or
+3. 복구 대상 이미지 뜨기
+4. 이미지의 복사본 생성
+5. 복사본에 대해서 복구 시도
+   - (opt)smartctl -a /dev/sda
+   - (opt)vgchange -y
+   - (opt)losetup /dev/loop0 foo.img
+   - fsck
+   - testdisk
+   - debugfs

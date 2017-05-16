@@ -1,0 +1,61 @@
+* A Trusted Systems
+
+HP-UX System Administrator's Guide: Security Management: HP-UX 11i Version 3 
+> Appendix A Trusted Systems
+
+https://docstore.mik.ua/manuals/hp-ux/en/5992-3387/apa.html?btnNext=next%A0%BB
+
+tsconvert로 Trusted mode로 변경 가능하다
+하다가 실패하면 문제가 발생한다 창 하나 더 열어 놓고 작업하라고 한다
+물론 백업은 말하지 않아도 필수다
+
+tsconvert -r로 원복가능하다고 한다
+말처럼 쉽게 복원이 가능할까
+
+변경하고 나면 눈에 보이는 차이는 
+/etc/passwd 파일의 두번째 컬럼이 *으로 바뀌고
+/tcb 디렉토리가 생성된다고 한다
+
+** Setting up a trusted system
+
+- Creates a new, protected password database in /tcb/files/auth/.
+
+- Moves encrypted passwords from the /etc/passwd file to the protected password database and replaces the password field in /etc/passwd with an asterisk (*).
+
+- Forces all users to use passwords.
+여기까지는 패스워드에 대한 이야기다, 알겠다
+
+- Creates an audit ID number for each user. The audit ID remains unchanged throughout a user's history. It uniquely identifies a user. Note that audit ID is getting deprecated along with Trusted System in HP-UX 11i v3, and is being replaced by audit tag that is dynamically assigned each time a user successfully starts a new login session. See Chapter 10 for more information about audit tags.
+
+사용자마다 audit id number를 생성해 준다고 한다. 
+
+- _Turns on the audit flag for all existing users._
+trusted mode 변경하면 바로 auditing이 활성화되는지 여부는 업체 확인 요함, 아마 켜는 것은 수동으로 해야 할 것으로 보임
+trusted mode로 변경 후 auditing이 바로 활성화되면 모든 사용자에 대해서 auditing 시작됨
+auditing 정보를 수집하기 위해서 로드 증가
+
+- _Converts the at, batch, and crontab input files to use the submitter's audit ID._
+기존 cron job이 있다면 정상적으로 수행되는지 확인 요함, 바로 영향 받을 것으로 보임
+
+이 기능할 사용할 시스템과 동일한 시스템의 여유 시스템에서 작업하고 이상없다고 확인되면 그 때 활성화 진행을 권고 함
+
+** Auditing a trusted system 
+
+add audit user using audusr not userdbset
+audsys Starts and stops auditing; sets and displays audit file or directory information.
+
+** Managing trusted passwords and system access
+
+패스워드 운용 방식이 기존과는 다르다? 확인 요함
+어쨌거나 trusted mode로 변경 후 바로 적용되는 것으로 보입니다
+
+/etc/default/security
+authentication failure on account "jack"
+userdbset -d -u jack auth_failures
+modprpw -k jack
+
+** Guidelines for trusted backup and recovery 
+
+use only fbackup and frecover, which preserve and restore access control lists (ACLs)
+기존의 방식대로 백업하면 trusted mode를 활성화하면서 생성된 어떠한 내용이 백업되지 않을 수 있다
+백업 프로세스 확인 요함, 복제 포함
