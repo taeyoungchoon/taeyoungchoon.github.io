@@ -1,21 +1,17 @@
 * cli
 
-hostname
 print_manifest
-machinfo
 
 uname -r
-top
+(vs (glance top) cli)
+(vs glance top)
 swapinfo -a
 dmesg
-bdf
-
-glance
+(vs bdf (df -Pk))
 
 lanscan
 ifconfig lan0
 arp -a
-netstat -rn
 
 getconf KERNEL_BITS
 osinfo
