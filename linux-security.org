@@ -1,0 +1,58 @@
+[root@localhost pam.d]# diff ~/system-auth system-auth
+3a4
+> auth        required      pam_tally2.so file=/var/log/tallylog deny=3
+8a10
+> account     required      pam_tally2.so
+
+[root@localhost pam.d]# cat system-auth
+#%PAM-1.0
+# This file is auto-generated.
+# User changes will be destroyed the next time authconfig is run.
+auth        required      pam_tally2.so file=/var/log/tallylog deny=3
+auth        required      pam_env.so
+auth        sufficient    pam_unix.so nullok try_first_pass
+auth        requisite     pam_succeed_if.so uid >= 500 quiet
+auth        required      pam_deny.so
+
+account     required      pam_tally2.so
+account     required      pam_unix.so
+account     sufficient    pam_succeed_if.so uid < 500 quiet
+account     required      pam_permit.so
+
+password    requisite     pam_cracklib.so try_first_pass retry=3
+password    sufficient    pam_unix.so md5 shadow nullok try_first_pass use_authtok
+password    required      pam_deny.so
+
+session     optional      pam_keyinit.so revoke
+session     required      pam_limits.so
+session     [success=1 default=ignore] pam_succeed_if.so service in crond quiet use_uid
+session     required      pam_unix.so
+
+[root@localhost pam.d]# pam_tally2 --user jack
+Login           Failures Latest failure     From
+jack                9    05/22/17 22:59:43  localhost.localdomain
+[root@localhost pam.d]#
+
+[root@localhost pam.d]# ssh jack@localhost
+jack@localhost's password:
+Permission denied, please try again.
+jack@localhost's password:
+Permission denied, please try again.
+jack@localhost's password:
+Permission denied (publickey,gssapi-with-mic,password).
+[root@localhost pam.d]#
+
+[root@localhost pam.d]# pam_tally2 --user jack
+Login           Failures Latest failure     From
+jack               11    05/22/17 23:00:52  localhost.localdomain
+[root@localhost pam.d]# pam_tally2 --user jack  --reset
+Login           Failures Latest failure     From
+jack               11    05/22/17 23:00:52  localhost.localdomain
+[root@localhost pam.d]# pam_tally2 --user jack
+Login           Failures Latest failure     From
+jack                0
+
+[root@localhost pam.d]# ssh jack@localhost
+jack@localhost's password:
+Last login: Mon May 22 22:54:48 2017 from localhost.localdomain
+[jack@localhost ~]$

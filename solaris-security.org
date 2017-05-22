@@ -1,0 +1,98 @@
+* how to set account locking for regular users
+
+https://docs.oracle.com/cd/E36784_01/html/E36837/acct-lock-1.html
+
+** lisp, result
+
+#+BEGIN_SRC emacs-lisp
+
+  (console-failure (user lock) (root t))
+  (remote-failure-by-telnet (user lock) (root t))
+  (remote-failure-by-ssh (user lock) (root t))
+
+#+END_SRC
+
+| case           | status |
+|----------------+--------|
+| user / console | lock   |
+| user / remote  | lock   |
+| root / console | t      |
+| root / remote  | t      |
+
+** config
+
+/etc/securiy/policy.conf
+LOCK_AFTER_RETRIES=YES
+
+/etc/default/login
+RETRIES=5
+
+** unlock user howto
+
+passwd -s jack
+jack LK
+
+passwd -u jack
+passwd: passowrd information changed for jack
+
+passwd -s jack
+jack PS
+
+** enable root login using ssh
+
+/etc/ssh/sshd.conf
+PermitRootLogin yes
+
+** restart the ssh service
+
+svcs -v ssh
+svcadm restart svc:/network/ssh:default
+
+** configure telnet for root login
+
+/etc/default/login
+#CONSOLE=/dev/login
+
+** enable telnet service
+
+svcadm enable network/telnet
+
+** test telnet using user account
+
+login: jack
+Password:
+May 22 21:14:01 unknown login: Excessive (3) login failure for jack: locking account.
+Login incorrect
+
+** test telnet using user account
+
+login: root
+Password:
+Login incorrect
+
+Connection to unknown closed by foreign host.
+
+** test ssh using user account
+
+ssh jack@localhost
+Password:
+May 22 21:21:40 unknown sshd[2172]: Excessive (3) login failures for jack: locking account.
+
+** test ssh using root account
+
+ssh root@localhost
+Password:
+
+** test console using user account
+
+unknown console login: jack
+Password:
+May 22 21:31:02 unknown login: Excessive (3) login failure for jack: locking account.
+
+** test console using root account
+
+unknown console login: root
+Password:
+
+Login incorrect
+May 22 21:32:54 unknown login: REPEATED LOGIN FAILURES ON /dev/console, root
