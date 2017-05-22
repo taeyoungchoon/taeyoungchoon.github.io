@@ -1,3 +1,5 @@
+* script
+
 [root@localhost pam.d]# diff ~/system-auth system-auth
 3a4
 > auth        required      pam_tally2.so file=/var/log/tallylog deny=3
@@ -56,3 +58,17 @@ jack                0
 jack@localhost's password:
 Last login: Mon May 22 22:54:48 2017 from localhost.localdomain
 [jack@localhost ~]$
+
+* so
+
+localhost login: jack
+Your account is locked. Maximum amount of failed attempts was reached.
+Password:
+
+* warning
+
+auth        required      pam_tally2.so file=/var/log/tallylog deny=3 even_deny_root_account
+
+localhost login: root
+Your account is locked. Maximum amount of failed attempts was reached.
+Password:
