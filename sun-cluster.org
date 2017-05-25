@@ -1,0 +1,58 @@
+* docs 
+
+- Sun Cluster Concepts Guide for Solaris OS
+
+* ver
+
+http://docs.oracle.com/en/operating-systems/cluster.html
+
+Oracle Solaris Cluster 4.3
+Oracle Solaris Cluster 4.2
+Oracle Solaris Cluster 4.1
+Oracle Solaris Cluster 4.0
+Oracle Solaris Cluster 3.3 <- this much?
+Oracle Solaris Cluster 3.2
+Sun Cluster 3.1
+Sun Cluster 3.0
+
+* with
+
+http://docs.oracle.com/cd/E19050-01/sun.cluster31/index.html
+Sun Cluster 3.0 - 3.1 with StorageTek Fibre Channel RAID Arrays Manual for Solaris OS
+Sun Cluster 3.0-3.1 With Fibre Channel JBOD Storage Device Manual
+
+* version
+
+clnode show-rev
+clnode show-rev -v
+https://docs.oracle.com/cd/E19787-01/820-4679/chddhbjf/index.html
+
+* Sun Cluster System Administration Guide for Solaris OS
+
+https://docs.oracle.com/cd/E19787-01/820-4679/index.html
+
+* not so simple about DID device
+
+https://docs.oracle.com/cd/E19787-01/820-4679/z4000072997776/index.html
+
+* but simply!?
+
+scgdevs
+scdidadm -l
+http://docs.oracle.com/cd/E19050-01/sun.cluster31/817-5683/addfcdiskdrive/index.html
+
+* Configuring Sun StorEdge QFS in a Sun Cluster Environment
+
+https://docs.oracle.com/cd/E19348-01/819-2758-10/chapter6.html
+
+* Using Sun QFS and Sun Storage Archive Manager With Oracle Solaris Cluster 
+
+https://docs.oracle.com/cd/E22586_01/html/E22573/gldcs.html
+
+Oracle Solaris Cluster Data Service for Oracle Real Application Clusters
+
+* Oracle Solaris Cluster 3.3 5/11 on Oracle Solaris 10 operating systems
+
+https://docs.oracle.com/cd/E22586_01/html/E22573/glbij.html#scrolltoc
+
+HA-QFS or SC-RAC
