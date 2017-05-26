@@ -1,5 +1,7 @@
 * A Trusted Systems
 
+** general
+
 HP-UX System Administrator's Guide: Security Management: HP-UX 11i Version 3 
 > Appendix A Trusted Systems
 
@@ -59,3 +61,5 @@ modprpw -k jack
 use only fbackup and frecover, which preserve and restore access control lists (ACLs)
 기존의 방식대로 백업하면 trusted mode를 활성화하면서 생성된 어떠한 내용이 백업되지 않을 수 있다
 백업 프로세스 확인 요함, 복제 포함
+* activate
+
