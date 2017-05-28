@@ -2,7 +2,9 @@
   
 - HP-UX는 기본적으로 Standard Mode에서 운용된다.
 - Trusted System으로 변경 과정을 거쳐 Trusted Mode로 운용된다.
-- 패스워드 정책 기능과 감사 기능을 제공한다.
+- 확장된 패스워드 정책 기능과 감사 기능을 제공한다.
+- 기본적인 패스워드 정책 기능은 SMSE(Standard Mode Security Extensions)으로 가능하다.
+- 감사 기능은 개별적으로 활성화 가능하다.  
 
 * Trusted System으로 변경 방법
 
@@ -11,7 +13,7 @@
 
 ** 주의
 
-*** 변경 작업하면 시스템으로 로그인 불가합니다.
+*** 변경 작업시 실패하면 시스템으로 로그인 불가합니다.
 
 - 별도의 창에서 로그인을 해두고 작업을 하기를 권고합니다.
 
@@ -24,7 +26,9 @@
 
 - /usr/lbin/tsconvert -r
 
-* memo (Appendix A Trusted Systems)
+* 이슈 (Appendix A Trusted Systems)
+
+Trusted System으로 변경 작업 이 후의 이슈 사항을 정리하였습니다.
 
 ** 개별 계정에 대해서 audit ID를 추가로 생성한다.
 
@@ -37,23 +41,32 @@
 
 *** 주의
 
-- 시스템의 특성에 따라서 시스템 부하 증가합니다.
+**** 시스템의 특성에 따라서 시스템 부하 증가합니다.
 
 **** audit file은 root 파일시스템에 저장되면 안됩니다.
 
 - root 파일시스템이 가득차는 경우 프로세스 수행 실패 및 hang이 발생합니다.
 
-** 관리자의 패스워드 저장소 관리 방법 변경
+** 관리자의 패스워드 저장소 관리 지점 변경
 
 - 변경전에는 /etc/passwd 그리고 추가적으로 /etc/shadow를 관리하였다.
-- /tcb/files/auth에 각 디렉토리에 계정정보가 저장된다.
+- /tcb/files/auth의 개별 디렉토리에 계정정보가 저장된다.
 
 ** backup 및 restore 정상 여부 확인
 
-- trusted system의 소개 부분에 fbackup과 frecover를 사용하기를 권고합니다.
+***  fbackup과 frecover를 사용하기를 권고합니다.
+
 - 운용중인 백업 소프트웨어가 trusted mode에서 정상 운용가능한지 확인이 필요합니다.
 
 * 참고문서
 
-https://docstore.mik.ua/manuals/hp-ux/en/5992-3387/apa.html
-HP-UX System Administration Guide: Security Management, HP-UX 11i Version 3
+- HP-UX System Administration Guide: Security Management, HP-UX 11i Version 3
+- https://docstore.mik.ua/manuals/hp-ux/en/5992-3387/apa.html
+
+-- 
+(주)와이엘아이티 태영춘 과장
+서울특별시 영등포구 선유로 88 701호(양평동1가, 윤당제1빌딩) (우)07291
+TEL : 070-8702-3205
+FAX : 02-862-3205
+Mobile : 010-8638-0950
+E-mail : yctae@ylit.co.kr, taeyoungchoon@gmail.com
