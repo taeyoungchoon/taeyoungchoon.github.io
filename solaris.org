@@ -83,3 +83,25 @@ prtvtoc /dev/rdsk/c1t0d0s2 | fmthard -s - /dev/rdsk/c1t1d0s2
 
 ** ufs
 ** rdsk and dsk
+* to understand
+
+ctfs contract
+objfs
+sharefs
+sneep
+policy.conf
+/export
+/export/home
+/rpool
+legacy
+nfs
+stty erase ^h
+solaris disk aka and more slice
+WatchAllAgent
+sadc
+swap -s
+prstat
+prtdiag
+prtconf
+psrinfo
+iostat -En

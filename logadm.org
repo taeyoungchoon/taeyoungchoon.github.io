@@ -1,0 +1,8 @@
+logadmin -p now apache
+
+logadm -w apache
+-p 1m
+-C 24
+-t '/usr/apache/old_logs/$basename.%Y-%m'
+-a '/usr/apache/bin/apachectl graceful'
+/var/apache/logs/{access,error}_log

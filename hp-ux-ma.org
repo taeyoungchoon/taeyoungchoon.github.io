@@ -1,3 +1,4 @@
+* TODO without glance
 * cli
 
 print_manifest
@@ -21,6 +22,28 @@ model
 diskinfo /dev/rdisk/disk6
 insf -e
 insf -e -C disk
+
+* cli more
+
+getconf KERNEL_BITS
+lsdev
+kmadmin
+model
+swapinfo -tm
+getmem
+sam?
+diskinfo
+pvdisplay -v
+ioscan -fun -C disk
+ndd -get
+lanscan
+lanadmin
+landiag
+cat /etc/xtab
+nfsstat
+showmount -e localhost
+who -r
+logins
 
 * cli but ioscan
 

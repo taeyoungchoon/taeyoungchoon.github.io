@@ -1,0 +1,7 @@
+* cli
+
+zpool 
+zpool status -l rpool
+zpool status -v
+zfs list -t filesystem
+zfs list -t volume

@@ -1,0 +1,9 @@
+* and logadm on solaris then old but named as newsyslog
+
+whatever.csv {
+dateext
+dateformat .%Y%m%d
+extension .csv
+}
+
+whatever.20170527.csv
