@@ -1,13 +1,15 @@
+#+OPTIONS: toc:2
 * Trusted System 소개
   
 - HP-UX는 기본적으로 Standard Mode에서 운용된다.
 - Trusted System으로 변경 과정을 거쳐 Trusted Mode로 운용된다.
 - 확장된 패스워드 정책 기능과 감사 기능을 제공한다.
-- 기본적인 패스워드 정책 기능은 SMSE(Standard Mode Security Extensions)으로 가능하다.
+- 기본적인 패스워드 정책 기능은 SMSE(Standard Mode Security Extensions)로 가능하다. (HP-UX 11i v3에서 기본 제공)
 - 감사 기능은 개별적으로 활성화 가능하다.  
 
 * Trusted System으로 변경 방법
 
+- SAM > Auditing and Security > System Security Policies > Y
 - HP SMH > System Security Policies > Convert to trusted system > Y
 - /usr/lbin/tsconvert
 
@@ -22,6 +24,21 @@
 1. 별도의 계정을 통해서 시스템을 정상적으로 재기동
 2. 싱글유저 모드에서 root 계정 초기화 시도
 
+*** shadow password를 사용하면 Trusted Mode로 변경이 불가할 수 있다.
+
+1. pwunconv
+2. tsconvert
+
+*** cli로 변경시 주의
+
+- command로 적용시 모든 유저 패스워드가 자동으로 expire됩니다.
+- SAM으로 적용시 expire되지 않습니다.
+
+*** 적용 절차
+
+1. 테스트 장비 적용 및 확인
+2. 운영계 장비에 적용
+
 * Standard System으로 변경 방법
 
 - /usr/lbin/tsconvert -r
@@ -33,7 +50,7 @@ Trusted System으로 변경 작업 이 후의 이슈 사항을 정리하였습�
 ** 개별 계정에 대해서 audit ID를 추가로 생성한다.
 
 - at, batch, crontab에 영향을 끼치는 것으로 되어 있다.
-- Trusted Mode로 변경 이후 배치 작업 수행여부 확인이 필요합니다.
+- Trusted Mode로 변경 이후 배치 작업 정상 수행여부 확인이 필요합니다.
 
 ** audit flag를 활성화 한다.
 
@@ -41,16 +58,13 @@ Trusted System으로 변경 작업 이 후의 이슈 사항을 정리하였습�
 
 *** 주의
 
-**** 시스템의 특성에 따라서 시스템 부하 증가합니다.
-
-**** audit file은 root 파일시스템에 저장되면 안됩니다.
-
-- root 파일시스템이 가득차는 경우 프로세스 수행 실패 및 hang이 발생합니다.
+- auditing 기능이 활성화되면 시스템 부하가 증가합니다. 그 폭은 시스템의 특성에 따라 다릅니다.
+- audit file은 root 파일시스템에 저장되면 안됩니다. root 파일시스템이 가득차는 경우 프로세스 수행 실패 및 hang이 발생합니다.
 
 ** 관리자의 패스워드 저장소 관리 지점 변경
 
-- 변경전에는 /etc/passwd 그리고 추가적으로 /etc/shadow를 관리하였다.
-- /tcb/files/auth의 개별 디렉토리에 계정정보가 저장된다.
+- 변경 전에는 /etc/passwd 그리고 추가적으로 /etc/shadow를 관리하였다.
+- 변경 후에는 /tcb/files/auth의 개별 디렉토리에 계정정보가 저장된다.
 
 ** backup 및 restore 정상 여부 확인
 
@@ -63,10 +77,4 @@ Trusted System으로 변경 작업 이 후의 이슈 사항을 정리하였습�
 - HP-UX System Administration Guide: Security Management, HP-UX 11i Version 3
 - https://docstore.mik.ua/manuals/hp-ux/en/5992-3387/apa.html
 
--- 
-(주)와이엘아이티 태영춘 과장
-서울특별시 영등포구 선유로 88 701호(양평동1가, 윤당제1빌딩) (우)07291
-TEL : 070-8702-3205
-FAX : 02-862-3205
-Mobile : 010-8638-0950
-E-mail : yctae@ylit.co.kr, taeyoungchoon@gmail.com
+

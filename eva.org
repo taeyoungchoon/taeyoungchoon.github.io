@@ -1,0 +1,7 @@
+* say so
+
+| Array                                                 | controller enclosure | disk enclosures |
+|-------------------------------------------------------+----------------------+-----------------|
+| HP StorgeWorks 4400 Enterprise Virtual Array(EVA4400) | HSV300               | M6412, M6412A   |
+| HP StorgeWorks 6400 Enterprise Virtual Array(EVA6400) | HSV400               | M6412A          |
+| HP StorgeWorks 8400 Enterprise Virtual Array(EVA6400) | HSV450               | M6412A          |

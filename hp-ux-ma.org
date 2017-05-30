@@ -25,6 +25,7 @@ insf -e -C disk
 
 * cli more
 
+getprdef -r ;System is not trusted
 getconf KERNEL_BITS
 lsdev
 kmadmin
