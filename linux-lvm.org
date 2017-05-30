@@ -1,0 +1,18 @@
+* cli
+
+fdisk : Linux LVM (8e)
+pvcreate /dev/sdb1
+pvdisplay
+vgdisplay
+vgextend VolGroup00 /dev/sdb1
+(opt) vgchange -a y VolGroup00
+lvextend -l 2235 /dev/mapper/VolGroup00-LogVol01
+(or) lvextend -L +80g /dev/VolGroup/lv_root
+vgdisplay
+lvdisplay
+resize2fs /dev/mapper/VolGroup00-LogVol01
+df -Pk
+
+* vgchange?
+
+-a : active
