@@ -1,0 +1,11 @@
+* support by OpneCSW
+
+#+BEGIN_SRC 
+pkgadd -d http://get.opencsw.org/now
+/opt/csw/bin/pkgutil -U
+/opt/csw/bin/pkgutil -a vim
+/opt/csw/bin/pkgutil -y -i vim
+/opt/csw/bin/vim
+#+END_SRC
+
+* the you can use snmpget

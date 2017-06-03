@@ -1,0 +1,25 @@
+* two
+
+- old Solstice Enterprise Agent developed by Sun
+- new System Management Agent based on Net-SNMP
+
+* chk
+
+svcs -a | grep sma
+svcs -a | grep snmp
+netstat -an | grep 161
+cd /opt/csw/bin
+./pkgutil -y -i netsnmp
+./snmpwalk -v 2c -c public localhost system
+
+* more
+
+svcadm enable svc:/application/management/sma:default
+svcs -xv svc:/application/management/sma:default
+vi /etc/sma/snmp/snmpd.conf
+svcadm restart svc:/application/management/sma:default
+
+* refer
+
+https://lucamerello.wordpress.com/2014/07/07/solaris-10-how-to-enable-the-snmp-master-agent/
+
