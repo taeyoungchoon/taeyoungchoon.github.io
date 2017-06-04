@@ -1,3 +1,15 @@
+* so
+
+리눅스의 경우는 원격지에서 패키지를 가져다 설차하는 것이 일상화되어 있다
+debian 기반이든 아니면 redhat 기반이던지 말이다.
+
+freebsd도 겠지.
+
+hp-ux, solaris는 어떻지? 
+
+solaris는 OpenCSW와 같은 외부 패키지를 가져다 설치할 수 있고(since 2017.6.4)
+hp-ux는 depothelper을 사용했다.(since 2016)
+
 * support by OpneCSW
 
 #+BEGIN_SRC 
