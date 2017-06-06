@@ -44,6 +44,19 @@ wsh, windows script host
 
 Get-Counter '\Paging File(*)\% Usage'
 Get-Counter '\Process(_total)\Page File Bytes'
+perfmon
+taskmgr > total paging file size for all drivers
+msinfo32 /categories +systemsummary
+typeperf -qx "\Memory"
+
+* uptime
+
+systeminfo | find Time
+wmic os get lastbootuptime
+Get-WinEvent -ProviderName eventlog
+Event ID 6005
+net stats workstation / svr
+taskmgr > perf > up time
 
 ** gui
 

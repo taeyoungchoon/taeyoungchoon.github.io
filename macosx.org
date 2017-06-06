@@ -1,0 +1,14 @@
+* cli
+
+uname -a
+uptime
+df -Pk
+mount
+netstat -rn
+ifconfig en0
+arp -a
+ps -ef
+ps aux
+fdisk /dev/rdisk0
+top
+systemstats

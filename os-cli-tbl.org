@@ -1,0 +1,27 @@
+* tbl
+
+| req      | linux         | hp-ux         | solaris     | windows    |
+|----------+---------------+---------------+-------------+------------|
+| uname    |               |               |             |            |
+| uptime   |               |               |             |            |
+| dmesg    |               |               |             |            |
+| log      |               | /var/adm      |             | eventvwr   |
+| df       |               |               |             |            |
+| fdisk    |               |               | format      |            |
+| lvm      | lvs           | lvdisplay     |             |            |
+|          | vgscan        | /etc/lvmtab   |             |            |
+|          | vgchange -a y |               |             |            |
+| ifconfig | ifconfig      | lanscan       | dladm       |            |
+|          | ethtool       | lanadmin      | ndd         |            |
+|          |               | set_parms     |             |            |
+| memory   | free -m       | swapinfo -atm | swap -s     | perfmon    |
+|          |               |               |             | taskmgr    |
+| proc     | /proc         |               | prstat      |            |
+| cpu      |               |               | psrinfo -pv |            |
+| info     | dmidecode     | ioscan        | prtdiag -v  | msinfo32   |
+|          |               |               | iostat -En  | systeminfo |
+|          |               |               |             |            |
+
+* (cond windows)
+
+[[file:windows-ma.org][windows ma]] : almost cli
