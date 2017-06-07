@@ -1,0 +1,21 @@
+* df
+
+| Filesystem                     | Mounted on        | note    |
+|--------------------------------+-------------------+---------|
+| rpool/ROOT/s10_1-13            | /                 | zfs     |
+| /devices                       | /devices          | devfs   |
+| mnttab                         | /etc/mnttab       | mntfs   |
+| proc                           | /proc             | proc    |
+| ctfs                           | /system/contract  | ctfs    |
+| objfs                          | /system/object    | objfs   |
+| sharefs                        | /etc/dfs/sharetab | sharefs |
+| /usr/lib/libc/libc_hwcapl.so.1 | /lib/libc.so.1    | lofs    |
+| fd                             | /dev/fd           | fd      |
+| swap                           | /tmp/             | tmpfs   |
+| swap                           | /var/run          | tmpfs   |
+| swap                           | /etc/svc/volatile | tmpfs   |
+| rpool/export                   | /export           | zfs     |
+| rpool/export/home              | /export/home      | zfs     |
+| rpool                          | /rpool            | zfs     |
+
+* df -n

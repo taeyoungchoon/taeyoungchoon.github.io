@@ -51,7 +51,8 @@ typeperf -qx "\Memory"
 
 * uptime
 
-systeminfo | find Time
+chcp 437
+systeminfo | findstr /i time
 wmic os get lastbootuptime
 Get-WinEvent -ProviderName eventlog
 Event ID 6005
@@ -69,3 +70,25 @@ taskmgr > perf > up time
 
 http://people.virginia.edu/~rtg2t/winadmin/wmic.html
 
+* disk
+
+diskpart
+select disk 1
+list disk
+detail disk
+list partition
+detail partition
+list volume
+detail volume
+diskmgmt.msc
+wmic diskdrive list brief /format:list
+wmic logicaldisk get caption,description,drivetype,providername,volumename
+wmic logicaldisk get size,freespace,caption
+
+* event
+
+Wevtutil qe system /count:2 /rd:true /format:text
+PowerShell: Get-WinEvent - Get event log data (Vista+)
+Powershell: Get-Eventlog - Get event log data (XP/2003)
+wmic nteventlog
+Get-EventLog -LogName security -newest 1000 | where {$_.entryType -match "Failure"}

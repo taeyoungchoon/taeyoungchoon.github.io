@@ -1,9 +1,10 @@
 * keyboard shortcut for windows
 
-| command           | key     |
+| req               | key     |
 |-------------------+---------|
+| Run               | W-r     |
+| Windows Explorer  | W-e     |
 | taskmgr           | C-S-ESC |
 | start             | C-ESC   |
-| Windows Explorer  | W-e     |
-| System Properties | W-break |
 | Control Panel     | W-c     |
+| System Properties | W-break |

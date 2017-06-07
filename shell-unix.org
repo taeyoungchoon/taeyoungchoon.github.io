@@ -1,0 +1,14 @@
+* word
+
+- legacy Bourne shell, Bourne shell since 1976, sh, /bin/sh, stephen bourne
+- ksh88
+- ksh93
+
+* solaris
+
+- /bin/sh
+- 'set -o emacs' not working, so
+
+* hp-ux 
+
+- set -o emacs
