@@ -1,0 +1,72 @@
+* device mapper, dm used for 
+
+- LVM
+- Device-Mapper multipath
+- dmraid
+
+* cli
+
+dmsetup ls
+dmsetup info
+
+#+BEGIN_SRC 
+# dmsetup ls
+vg_cent6-lv_swap        (253:1)
+vg_cent6-lv_root        (253:0)
+#+END_SRC
+
+* dmesg
+
+#+BEGIN_SRC 
+Linux version 2.6.32-696.3.1.el6.x86_64
+Command line: ro root=/dev/mapper/vg_cent6-lv_root rd_LVM_LV=vg_cent6/lv_swap rd_LVM_LV=vg_cent6/lv_root 
+
+sd 2:0:0:0: [sda] 16777216 512-byte logical blocks: (8.58 GB/8.00 GiB)
+ sda: sda1 sda2
+sd 2:0:0:0: [sda] Attached SCSI disk
+dracut: Scanning devices sda2  for LVM logical volumes vg_cent6/lv_swap vg_cent6/lv_root
+dracut: inactive '/dev/vg_cent6/lv_root' [6.71 GiB] inherit
+dracut: inactive '/dev/vg_cent6/lv_swap' [816.00 MiB] inherit
+dracut: Mounted root filesystem /dev/mapper/vg_cent6-lv_root
+Adding 835580k swap on /dev/mapper/vg_cent6-lv_swap.  Priority:-1 extents:1 across:835580k
+#+END_SRC
+
+* df
+
+#+BEGIN_SRC 
+# df -Ph | sort -k 5 -r
+Filesystem                    Size  Used Avail Use% Mounted on
+/dev/mapper/vg_cent6-lv_root  6.5G  2.0G  4.2G  32% /
+/dev/sda1                     477M   56M  396M  13% /boot
+tmpfs                         499M     0  499M   0% /dev/shm
+#+END_SRC
+
+* blkid then lsblk
+
+#+BEGIN_SRC 
+# blkid
+/dev/sda1: UUID="aee89ccf-6d11-442e-ac44-b980a9826dc9" TYPE="ext4"
+/dev/sda2: UUID="nNabbB-OmZn-s9ZO-lRxI-IvnV-iSH6-pA9JvL" TYPE="LVM2_member"
+/dev/mapper/vg_cent6-lv_root: UUID="e43cba03-bb73-43fb-bd37-1b52cd9192d5" TYPE="ext4"
+/dev/mapper/vg_cent6-lv_swap: UUID="ced33d28-f4bd-4289-904c-56814099f0ee" TYPE="swap"
+
+# lsblk
+NAME                        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sr0                          11:0    1 1024M  0 rom
+sda                           8:0    0    8G  0 disk
+├─sda1                        8:1    0  500M  0 part /boot
+└─sda2                        8:2    0  7.5G  0 part
+  ├─vg_cent6-lv_root (dm-0) 253:0    0  6.7G  0 lvm  /
+  └─vg_cent6-lv_swap (dm-1) 253:1    0  816M  0 lvm  [SWAP]
+#+END_SRC
+
+* try
+
+dd if=/dev/zero of=/tmp/disk1.dsk bs=512 count=20000
+losetup /dev/loop6 /tmp/disk1.dsk
+losetup -a
+echo 0 20000 linear /dev/loop6 0|dmsetup create dm_test
+dmsetup ls
+dmsetup remove dm_test
+
+* dm-
