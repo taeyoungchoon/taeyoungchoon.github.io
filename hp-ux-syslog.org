@@ -1,0 +1,5 @@
+* start
+
+/sbin/init.d/syslogd start
+/sbin/init.d/syslogd stop
+tail /var/adm/syslog.log
