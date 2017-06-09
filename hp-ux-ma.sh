@@ -1,30 +1,32 @@
+clear
+
 ## general
 date
 hostname
-machinfo | grep model
-machinfo | grep release
-machinfo | grep serial
-# ifconfig en0
+machinfo | egrep -i ‘model|serial|release’
 
 ## cpu (Itanum 2 9100)
-machinfo | grep proc
+machinfo | grep -i proc
 # glance
 
 ## memory (79% / 8GB)
 # glance
 machinfo | grep ^Mem
 # glance
-# swapinfo
+swapinfo -atm
 
 ## disk
 df -Pk | grep /$
 df -Pk | sort -k5
+strings /etc/lvmtab
+lvdisplay -v /dev/vg00 lvol1
+ioscan -funC fc
 
 ## net
 # ifconfig en0
+ioscan -funC lan
 netstat -rn
-# netstat -an
-# ethtool
+netstat -an
 
 ## proc
 ps -ef | wc -l
@@ -36,4 +38,5 @@ uptime
 w
 
 ## log
-cat /var/adm/syslog/syslog.log | egrep "warn|erro|crit"
+cat /var/adm/syslog/syslog.log | egrep "warn|erro|crit" | wc -l
+cat /var/adm/syslog/syslog.log | egrep "warn|erro|crit" | tail -5
