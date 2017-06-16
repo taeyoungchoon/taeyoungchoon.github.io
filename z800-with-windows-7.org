@@ -1,15 +1,110 @@
 * z800 with windows 7
 
-** BIOS
+** steps
+
+1. (opt)read 'BIOS setting'
+2. read 'Driver download to thumb drive'
+3. insert windows 7 cd then start installation
+   
+** BIOS setting
 
 1. F10 > BIOS
 2. Storage > Storage Options : 'RAID+AHCI'
 3. Advanced > Device Options : 'SATA RAID Option ROM Download'
 
-** Driver
+** Driver download to thumb drive
 
 https://support.hp.com/in-en/drivers/selfservice/hp-z800-workstation/3718645
 HP Z800 Workstation > Windows 7(64-bit) > Driver-Storage
 
 - Intel Rapid Storage Technology Utlity and Driver 
   for Microsoft Windows 7(64-bit Editions)
+
+*** msg
+
+TITLE: Intel Rapid Storage Technology Utility and Driver for Microsoft Windows
+
+VERSION: 11.5.4.1001 Rev. A
+DESCRIPTION:
+This package contains the Intel Rapid Storage Technology Enterprise Software, Utilities and Drivers for serial ATA (SATA) and SATA RAID drives in supported workstation models that are running a supported operating system. 
+
+PURPOSE: Recommended
+SOFTPAQ NUMBER: SP65105
+CATEGORY: Driver - Storage
+SSM SUPPORTED: Yes
+
+ENHANCEMENTS: 
+The following enhancement has been made in version 11.5.4.1001:
+- Resolves a Windows Vista hang on shutdown with the security policy in place.
+
+The following enhancement has been made in version 9.6.0.1014:
+- Adds SSM support.
+- Adds support for the Microsoft Windows 7 Ultimate Edition Operating System (32-bit).
+- Provides an updated driver and utility release from Intel.
+
+PREREQUISITES: 
+None
+
+INSTALLATION INSTRUCTIONS: 
+TO INSTALL OR UPDATE THE INTEL RAPID STORAGE TECHNOLOGY UTILITY AND DRIVER ON EXISTING OPERATING SYSTEM INSTALLATIONS:
+
+1. Download the file by clicking the "Download" or "Obtain Software" button and saving the file to a folder on your hard drive (make a note of the folder where the downloaded file is saved).
+
+2. Double-click the downloaded file and follow the on-screen instructions.
+
+3. The Intel Rapid Storage Technology installation utility starts automatically. Follow on-screen instructions to complete the installation.
+
+TO USE THE INTEL RAPID STORAGE TECHNOLOGY DRIVER DURING A NEW OPERATING SYSTEM INSTALLATION:
+
+1. Download the file by clicking the "Download" or "Obtain Software" button and saving the file to a folder on your hard drive (make a note of the folder where the downloaded file is saved).
+
+2. Double-click the downloaded file and follow the on-screen instructions.
+
+3. Navigate to C:\SWSETUP\SP65105 and unzip "f6flpy-x86.zip" to a diskette (floppy) or USB key for a 32-bit installation, or unzip "f6flpy-x64.zip" to a diskette (floppy) or USB key for a 64-bit installation.
+
+4. Use the newly created driver installation media during operating system setup to install the drivers.
+
+
+Copyright (c) 2014 Hewlett-Packard Development Company, L.P.
+
+*** dir
+
+#+BEGIN_SRC 
+C:\SWSETUP\SP65105>dir
+ C 드라이브의 볼륨에는 이름이 없습니다.
+ 볼륨 일련 번호: E083-B4D4
+
+ C:\SWSETUP\SP65105 디렉터리
+
+2017-06-16  오후 03:25    <DIR>          .
+2017-06-16  오후 03:25    <DIR>          ..
+2012-10-26  오전 07:18           356,512 f6flpy-x64.zip
+2012-10-26  오전 07:18           315,483 f6flpy-x86.zip
+2012-10-26  오전 07:18        12,987,328 RST_11.5.4.1001_PV_Install.exe
+2014-01-21  오전 10:35             4,653 sp65105.cva
+               4개 파일          13,663,976 바이트
+               2개 디렉터리  68,441,022,464 바이트 남음
+#+END_SRC
+
+*** dir > sub
+
+#+BEGIN_SRC 
+C:\SWSETUP\SP65105\f6flpy-x64>dir
+ C 드라이브의 볼륨에는 이름이 없습니다.
+ 볼륨 일련 번호: E083-B4D4
+
+ C:\SWSETUP\SP65105\f6flpy-x64 디렉터리
+
+2017-06-16  오후 04:02    <DIR>          .
+2017-06-16  오후 04:02    <DIR>          ..
+2012-08-22  오전 03:41             9,017 iaAHCIC.cat
+2012-08-16  오후 01:33            11,089 iaAHCIC.inf
+2012-08-16  오후 01:33           645,952 iaStorA.sys
+2012-08-22  오전 03:41             8,233 iaStorAC.cat
+2012-08-16  오후 01:33             7,316 iaStorAC.inf
+2012-08-16  오후 01:33            27,456 iaStorF.sys
+               6개 파일             709,063 바이트
+               2개 디렉터리  68,440,281,088 바이트 남음
+
+C:\SWSETUP\SP65105\f6flpy-x64>
+#+END_SRC
