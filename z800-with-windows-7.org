@@ -14,14 +14,13 @@
 
 ** Driver download to thumb drive
 
-https://support.hp.com/in-en/drivers/selfservice/hp-z800-workstation/3718645
-HP Z800 Workstation > Windows 7(64-bit) > Driver-Storage
-
-- Intel Rapid Storage Technology Utlity and Driver 
-  for Microsoft Windows 7(64-bit Editions)
+1. https://support.hp.com/in-en/drivers/selfservice/hp-z800-workstation/3718645
+2. HP Z800 Workstation > Windows 7(64-bit) > Driver-Storage
+3. Intel Rapid Storage Technology Utlity and Driver 
+   for Microsoft Windows 7(64-bit Editions)
 
 *** msg
-
+#+BEGIN_SRC 
 TITLE: Intel Rapid Storage Technology Utility and Driver for Microsoft Windows
 
 VERSION: 11.5.4.1001 Rev. A
@@ -66,6 +65,7 @@ TO USE THE INTEL RAPID STORAGE TECHNOLOGY DRIVER DURING A NEW OPERATING SYSTEM I
 
 
 Copyright (c) 2014 Hewlett-Packard Development Company, L.P.
+#+END_SRC
 
 *** dir
 
