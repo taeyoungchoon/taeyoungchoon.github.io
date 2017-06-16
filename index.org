@@ -48,28 +48,4 @@
 
 * I love you, lang
 
-* soft raid then lvm
 
-https://www.centos.org/docs/5/html/Deployment_Guide-en-US/s1-raid-config.html
-4.5. Configuring Software RAID
-
-http://blog.helperchoi.com/56
-
-* recovery about repo
-
-fsck but about file system and layered
-
-1. ls
-2. df -k, mount, lsblk, blkid
-3. fdisk -lu
-4. lvm, pvs, vgs, lvs then vgscan, vgchange -ay
-5. md, mdadm, cat /proc/mdstat
-6. dmesg first
-7. hw raid if tw_cli or megacli
-
-* recovery using
-
-1. fsck, e2fsck
-2. testdisk
-3. foremost
-   
