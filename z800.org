@@ -1,0 +1,74 @@
+* z800 with windows 7
+
+** BIOS
+
+1. F10 > BIOS
+2. Storage > Storage Options : 'RAID+AHCI'
+3. Advanced > Device Options : 'SATA RAID Option ROM Download'
+
+** Driver
+
+https://support.hp.com/in-en/drivers/selfservice/hp-z800-workstation/3718645
+HP Z800 Workstation > Windows 7(64-bit) > Driver-Storage
+
+- Intel Rapid Storage Technology Utlity and Driver 
+  for Microsoft Windows 7(64-bit Editions)
+
+* driver
+
+https://support.hp.com/in-en/drivers/selfservice/hp-z800-workstation/3718645
+HP Z800 Workstation > Windows 7(64-bit) > Driver-Storage
+
+gg: z800 driver
+
+- Intel Rapid Storage Technology Utlity and Driver for Microsoft Windows
+- LSI MegaRAID SAS 9260-8i Driver for Microsoft Windows
+- LSI MegaRAID SAS 9270-8i Driver for Microsoft Windows
+- LightScribe Driver
+
+* RAID+AHCI (or SATA emulation)
+
+legacy(IDE emulation mode) > AHCI > RAID(include AHCI normally)
+
+SATA RAID(Intel Matrix)
+https://support.hp.com/th-en/document/c01722374
+
+1. F10
+2. BIOS setup
+3. Storage > Storage Options
+4. RAID+AHCI (or SATA emulation)
+5. Advanced > Device Options
+6. SATA RAID Option ROM Download
+
+* SATA RAID(Intel Matrix) or SAS(LSI RAID)
+* RAID arrays are managed using the Intel Matrix Storage Manager(IMSM)
+
+http://h20331.www2.hp.com/hpsub/downloads/mwp_riversraid_3-13-2009.pdf
+
+* AHCI, Advanced Host Controller Interface
+* kr
+
+http://www.allserver.co.kr/scripts/blog_view.asp?idx=44&lKey=12&mKey=&sKey=&mKR=&sKR=&GotoPage=5&search=&search_content=
+using restore cd 
+
+https://www.2cpu.co.kr/QnA/523436?&sst=wr_hit&sop=and&page=756
+dvd로 별 문제없이 잘되었습니다..!! 
+usb로 인텔 raid 드라이버만 지정해주니깐 잘 설치되었습니다..!! 
+
+* en, star on it
+
+https://www.experts-exchange.com/questions/28948087/Windows-7-installation-issues-with-an-HP-Z800-Workstation.html
+
+* manual
+
+http://www.biocenter.helsinki.fi/bi/lmu/images/z800
+
+* final
+
+https://support.hp.com/us-en/product/hp-z800-workstation/3718645/document/c01862038
+
+Installing Windows 7 > Custom Install (erases all files before installing)
+
+* windows8
+
+http://www8.hp.com/us/en/pdf/WKSEN_tcm_245_1350415.pdf

@@ -1,0 +1,15 @@
+* z800 with windows 7
+
+** BIOS
+
+1. F10 > BIOS
+2. Storage > Storage Options : 'RAID+AHCI'
+3. Advanced > Device Options : 'SATA RAID Option ROM Download'
+
+** Driver
+
+https://support.hp.com/in-en/drivers/selfservice/hp-z800-workstation/3718645
+HP Z800 Workstation > Windows 7(64-bit) > Driver-Storage
+
+- Intel Rapid Storage Technology Utlity and Driver 
+  for Microsoft Windows 7(64-bit Editions)
