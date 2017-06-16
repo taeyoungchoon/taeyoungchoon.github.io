@@ -1,0 +1,9 @@
+* script
+
+#+BEGIN_SRC 
+yum grouplist | grep -i devel
+yum groupinstall "Development Tools"
+yum search ncurses | grep devel
+yum install ncurses-devel
+./configure;make;make install
+ #+END_SRC
