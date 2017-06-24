@@ -1,0 +1,5 @@
+* say 
+
+- Alog : used for console, boot, NIM and other applications log
+- Errlog : used for system, hardware, kernel and other applications log
+- Syslog : used for internet daemons and other applications log

@@ -1,0 +1,22 @@
+* kb4022719
+
+- msg
+
+#+BEGIN_SRC 
+configuring windows update fialed,
+reverting changes
+do not turn off computer
+#+END_SRC
+  
+- w7, windows 2008 r2 > software update readiness tool 
+
+** software update readiness tool 
+
+- CheckSUR.log
+
+*** rel: CBS.log (Component Based Servicing)
+
+- c:\windows\log\cbs\cbs.log
+- Windows Modules installer
+- TrustedInstaller.exe
+- DISM

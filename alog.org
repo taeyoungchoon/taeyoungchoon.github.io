@@ -1,5 +1,10 @@
 * about aix alog
 
+/var/adm/ras/
+/var/adm/ras/conslog
+
+#+BEGIN_SRC 
 alog -L
 alog -t boot -o
 alog -t console -o
+#+END_SRC
