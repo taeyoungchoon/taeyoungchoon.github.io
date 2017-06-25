@@ -1,49 +1,48 @@
+#-
 export PS1="# "
-clear
 date
 
-echo "os"
-dmcdecode --type 1 | grep Product
-dmidecode --type 1 | egrep –i ‘product|serial’
-dmidecode --type 4 | grep –i version
+#-
+dmcdecode --type 1 | egrep -i product
+dmidecode --type 4 | egrep –i version
 lsb_release –a
 cat /etc/redhat-release
 hostname
+dmidecode --type 1 | egrep –i serial
 
-echo "cpu"
-dmcdecode --type 4 | grep Version | uniq
-dmcdecode --type 4 | grep Version | wc -l
-cat /proc/cp* | grep ‘el n’
-cat /proc/cp* | grep ‘el n’ | wc -l
+#-
+cat /proc/cp* | grep ‘model n’ | uniq
+cat /proc/cp* | grep ‘model n’ | wc -l
 top -n 1 | grep ^Cpu
 vmstat 3 5
-sar –u 3 5
+#sar –u 3 5
 
-echo "mem"
-free -m
-free -g
+#-
 free -m | grep buffers/c | awk '{ print $3*100/($3+$4) }'
 free -m | grep Mem
 free -m | grep Swap | awk '{ print $3*100/($3+$4) }'
+#free -m | perl -alne '/Swap/ && print $F[3]*100/($F[3]+$F[4])'
 
-echo "dsk"
+#-
 df -h | head -1
 df -h | grep /$
 df -h | column -t | sort -k5
-hpacucli then ctrl all show config
-hpacucli then ctrl all show status
+#hpacucli then ctrl all show config | grep logical | grep -v ok
+#hpacucli then ctrl all show status
+#dmsetup table
+#lvs vgs pvs
+#blkid lsblk
+#cat /proc/mdstat
 
-echo "net"
-netstat -rn
-netstat --inet -an
-ifconfig bond0
-ifconfig eth0
+#-
+netstat -f inet -rn
+netstat -f inet -rn | perl -alne '/UG/ && system "ifconfig $F[-1]"'
+netstat -f inet -rn | perl -alne '/UG/ && system "ping $F[1]"'
 
-echo "proc"
+#-
 ps -ef | wc -l
 uptime
-w
 
-echo "log"
+#-
 cat /var/log/messages | egrep "warn|erro|crit" | wc -l
 cat /var/log/messages | egrep "warn|erro|crit" | tail -5

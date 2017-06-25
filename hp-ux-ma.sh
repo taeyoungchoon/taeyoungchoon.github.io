@@ -1,42 +1,43 @@
-clear
+#-
+set -o emacs
+export PS1="# "
 
-## general
+#-
 date
+machinfo | egrep -i ‘model'
+machinfo | egrep -i ‘release'
 hostname
-machinfo | egrep -i ‘model|serial|release’
+machinfo | egrep -i ‘serial'
+#netstat -f inet -rn | perl -alne '/UG/ && system "ifconfig $F[-1]"' | egrep "inet "
 
-## cpu (Itanum 2 9100)
-machinfo | grep -i proc
-# glance
+#-
+machinfo | egrep -i proc
+vmstat 3 3
 
-## memory (79% / 8GB)
-# glance
+#-
+swapinfo -atm | grep mem
 machinfo | grep ^Mem
-# glance
-swapinfo -atm
+swapinfo -atm | grep dev
 
-## disk
+#-
 df -Pk | grep /$
-df -Pk | sort -k5
-strings /etc/lvmtab
-lvdisplay -v /dev/vg00 lvol1
-ioscan -funC fc
+df -Pk | sed 's/%//' | sort -k 5
+#df -Pk | perl -alne 'print "@{[map { $_ =~ /^\d+$/ ? int $_/1024/1024 : $_ } @F]}"'
 
-## net
-# ifconfig en0
-ioscan -funC lan
-netstat -rn
-netstat -an
+#-
+netstat -f inet -rn
+netstat -f inet -rn | grep UG | awk '{ print "ifconfig " $6 }' | sh
+#netstat -f inet -rn | perl -alne '/UG/ && system "ifconfig $F[-1]"'
+netstat -f inet -rn | grep UG | awk '{ print "ping " $2 }' | sh
+#netstat -f inet -rn | perl -alne '/UG/ && system "ping $F[1]"'
 
-## proc
+#-
 ps -ef | wc -l
-
-## uptime
 uptime
 
-## user
-w
-
-## log
+#-
 cat /var/adm/syslog/syslog.log | egrep "warn|erro|crit" | wc -l
 cat /var/adm/syslog/syslog.log | egrep "warn|erro|crit" | tail -5
+
+#- 
+#swinfo lvdisplay lanscan ioscan
