@@ -1,0 +1,35 @@
+* ma with
+
+유지보수 업무라 사이트를 방문하고
+점검을 위한 명령을 내리고
+시트를 채운다
+
+* command
+
+ip를 확인하기 위해서 
+그리고 gw로 ping을 때리기 위해서 
+
+#+BEGIN_SRC 
+netstat -rn
+ifconfig bond0 or eth0
+ping GW
+#+END_SRC
+
+또는 free -m 명령어를 치고 메모리 사용률, 메모리 크기 그리고 스왑 사용률 확인 및 계산하기
+
+* to perl one liner
+
+#+BEGIN_SRC 
+free -m | grep 's/c' | awk '{ print $3*100/($3+$4) }'
+free -m | grep ^M
+free -m | grep 'Swap' | awk '{ print $3*100/($3+$4) }'
+#+END_SRC
+
+* or on the interpreter perl or python
+
+#+BEGIN_SRC 
+rlwrap perl -d -e 0
+rlwrap perl -d -e 1
+rlwrap perl -d
+perl -d
+#+END_SRC
