@@ -1,0 +1,13 @@
+* hponcfg, name it as the ONline
+
+HP Lights-Out Online Configuration Utility for Linux (AMD64/EM64T)
+
+* cli
+
+http://h20564.www2.hpe.com/hpsc/swd/public/detail?swItemId=MTX_5ab6295f49964f16a699064f29#tab2
+
+hponcfg /w config.xml
+
+hponcfg /f add_user.xml /l log.txt
+
+/get_hostinfo

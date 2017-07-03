@@ -1,0 +1,22 @@
+* what is and then using
+
+* cpu
+
+** site to compuare
+
+http://www.cpu-monkey.com
+then 'Passmark CPU Mark'
+
+ex. 
+
+http://www.cpu-monkey.com/en/compare_cpu-intel_xeon_e5_2697_v4-632-vs-intel_xeon_e5_2680_v4-628
+Intel Xeon E5-2697 v4 vs. Intel Xeon E5-2680 v4
+100 vs 75
+
+http://cpuboss.com/cpus/Intel-E5-2697V4-vs-Intel-E5-2680V4
+only the detail
+
+* memory
+* io
+
+- iozone
