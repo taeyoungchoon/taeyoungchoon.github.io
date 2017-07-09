@@ -1,47 +1,8 @@
-* since 1995
+* launching
 
-그러게 회사 일로 사용하기는 했는데
+rlwrap perl -d -e 0
 
-* in the movie or drama
-
-** blindspot
-
-perl vs python
+smart-compile on emacs
 
 * system administrator only?
-* lang
-* platform
-* perl 6
-
-- not yet
-- stil? but i can't be sure about this
-
-* cpan
-
-the collection of module
-
-- network
-- language
-
-* memo
-
-- [2016-11-10 Thu 21:53] 뭐 필요한 것일까? 이걸로 무엇을 할 수 있지? 해킹이라 해커라 바보라 차라리 책을 볼까? 
-- [2016-11-13 Sun 13:46] (perl learn use merge-with-life)
-
-* ver
-
-Perl 5.8.0
-
-This is perl, v5.8.0 built for aix-thread-multi
-
-This is perl, v5.8.3 built for PA-RISC1.1-thread-multi
-
-This is perl, v5.8.8 built for PA-RISC1.1-thread-multi
-This is perl, v5.8.8 built for IA64.ARCHREV_0-thread-multi
-
-This is perl, v5.8.8 built for x86_64-linux-thread-multi
-
-This is perl 5, version 22, subversion 0 (v5.22.0) built for MSWin32-x86-multi-thread-64int
-
-
-
+* with cpan or without

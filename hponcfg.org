@@ -11,3 +11,12 @@ hponcfg /w config.xml
 hponcfg /f add_user.xml /l log.txt
 
 /get_hostinfo
+
+* question
+
+- [ ] download hponcfg
+- [ ] install hponcfg
+- [ ] gather the network information using it
+- [ ] gather the account info
+- [ ] gather the account's password, possibly?
+* and others
