@@ -1,4 +1,17 @@
+* name it, UCS, Unified Computing System since 2009
 * list
 
 - c460
 - c220
+
+* firmware upgrade with youtube
+
+- hostUpgrade_v1_3_2i.iso
+- KVM Console > Tools > Launch Virtual Media : Add Image
+- Cisco UCS Host Upgrade Utility then with micro nuggets
+- CIMC, BIOS, LOM, LSI, (VIC vNICs vHBAs)
+- Activate Firmware
+  Warning : The management controller will be rebooted immediately to complete the activation. Communication with the controller will be temporarily lost and you will have to login again.
+
+* CIMC, Cisco Integrated Management Console
+* LOM, Lan On Motherboard
