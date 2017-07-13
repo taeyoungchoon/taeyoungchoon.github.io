@@ -1,0 +1,9 @@
+* cbs.log
+
+2017-02-28 08:58:15, Info                  CBS    Starting TrustedInstaller finalization
+
+* services.msc > Windows Modules Installer
+
+- 서비스 이름 : TrustedInstaller
+- 표시 이름 : Windows Modules Installer
+- 실행 파일 경로 : C:\WINDOWS\servicing\TrustedInstaller.exe
