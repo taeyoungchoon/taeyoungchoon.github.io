@@ -1,0 +1,4 @@
+* cli
+
+smartctl -a /dev/sda
+smartctl -t short /dev/sda

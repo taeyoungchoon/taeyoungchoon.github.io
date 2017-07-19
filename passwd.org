@@ -16,3 +16,7 @@ name:password:uid:gid:home_dir:shell
 passwd -l jack
 
 #+END_EXAMPLE
+
+* unlock
+
+passwd -u jack

@@ -1,0 +1,7 @@
+* syslog.conf
+
+#+BEGIN_SRC 
+*.err;kernel.debug;daemon.notice;mail.crit /var/adm/messages
+*.alert root
+*.emerg *
+#+END_SRC

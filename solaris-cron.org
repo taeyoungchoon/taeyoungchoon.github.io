@@ -1,0 +1,21 @@
+* conf
+
+export EDITOR=vi
+
+* files
+
+/etc/default/cron
+/var/spool/cron/cronjobs/root
+/etc/cron.d/cron.deny
+/var/cron/log
+
+* PATH to /etc/default/cron on solaris 10
+
+PATH=/usr/bin:/usr/ucb:/usr/sbin
+
+** you can't find ucb(uc berkeley) on solaris 11
+
+* cmd
+
+svcs | grep cron
+svcadm restart cron

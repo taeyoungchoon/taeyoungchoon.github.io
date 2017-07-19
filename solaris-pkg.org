@@ -7,7 +7,7 @@ freebsd도 겠지.
 
 hp-ux, solaris는 어떻지? 
 
-solaris는 OpenCSW와 같은 외부 패키지를 가져다 설치할 수 있고(since 2017.6.4)
+solaris 10는 OpenCSW와 같은 외부 패키지를 가져다 설치할 수 있고(since 2017.6.4)
 hp-ux는 depothelper을 사용했다.(since 2016)
 
 * support by OpneCSW
@@ -21,3 +21,14 @@ pkgadd -d http://get.opencsw.org/now
 #+END_SRC
 
 * the you can use snmpget
+* basic but solaris 11
+
+pkg search /usr/sbin/mlocate
+pkg list | grep locate
+pkg info mlocate
+pkg contents mlocate
+
+* basic but solaris 10, no pkg
+
+pkginfo | grep -i ssh
+pkgchk -v SUNWsshr

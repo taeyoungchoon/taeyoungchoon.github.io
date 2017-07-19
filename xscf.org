@@ -1,13 +1,11 @@
 * XSCF, eXtended System Control Facility
 
 - SPARC Enterprise series servers 
-- DRAC on Dell servers
-- HP Insight Manager
 
-http://bikashkumar2.blogspot.kr/2013/03/step-by-step-configuration-of-xscf.html
+* get in with physical key on M5000?
 
-* get in
-
+- login: default
+- panel mode
 - From the login prompt on the OS, type #. (Pound dot) then enter.
 
 #+BEGIN_SRC 
@@ -25,31 +23,15 @@ https://docs.oracle.com/cd/E19580-01/821-2797-10/21ch5p.html
 
 showdomainstatus -a
 showdomainstatus -d 00
-console -d 00
 console -d 0 -y
-showenvironment
-showenvironment FAN
-showenvironment temp
-showstatus
-reset -d 00 por
-reset -d 00 xir
-reset -d 00 panic
-poweron -a
-poweroff -a
-rebootxscf
-showuser -a
-shownetwork -a
-setntp -c del 192.168.1.10
-showhardconf
-showhardconf -M
-showdevices
-showlogs -v
-showlogs error
-showlogs power
-showlogs -r event -M
-showlogs -r error -M
-exit
-fmdump -v
-showhostname -a
-version -c xcp
+poweron -d 0
+poweroff -d 0
+sendbreak -d 0 -y
+setdomainmode -y -d 0 -m autoboot=off
+setdomainmode -y -d 0 -m autoboot=on
+showdomainmode -d 0
 
+* word
+
+- service controller level
+- domain level, ok, Open Boot PROM(OBP)

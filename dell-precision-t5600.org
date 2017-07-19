@@ -1,0 +1,14 @@
+* cert on rhel 6.3-6.x
+* raid or no raid
+* fail to install rhel 6.5, 6.8
+
+** so slow at loading initrd.img
+** stop after "probing EDD(edd=off to disable)... ok" on rhel 6.8
+** stop after panic on rhel 6.5
+
+#+BEGIN_SRC 
+RAMDISK: Coundn't find valid RAM disk image starting at 0,
+VFS: Coundn't open root device "(null)" or unknown-block(8.5)
+root=
+panic
+#+END_SRC

@@ -7,3 +7,15 @@ Maintenance Port
 192.168.0.17/255.255.255.0
 
 default gw : 0.0.0.0
+
+* web 1/2, 2/2(127.0.0.1)
+* TODO word
+
+- RAID1+0(2D+2D)
+- RAID Level : RAID1+0
+- combination : 2D+2D
+
+* spare at Unit-1/HDU-12,13
+* logic
+
+disk(900g, sas/10k) x36 > vol(100g) x140 > map

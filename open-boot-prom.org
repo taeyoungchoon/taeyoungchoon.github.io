@@ -1,0 +1,13 @@
+* in with STOP-A
+* ok, Open Boot PROM, OBP
+
+ok> boot
+ok> boot cdrom -s
+
+* not yet
+
+ok> boot -s
+ok> boot -a
+ok> boot net -s
+ok> boot failsafe
+

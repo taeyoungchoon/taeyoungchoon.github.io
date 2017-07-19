@@ -24,7 +24,6 @@
 
 * memo and 
 
-뭐가 중할까? 
 (env (os config output))
 (os linux aix hp-ux solaris freebsd)
 #+BEGIN_SRC emacs-lisp
