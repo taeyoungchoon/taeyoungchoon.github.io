@@ -1,26 +1,18 @@
 * TODO tab?
-* syslog.conf from solaris 10
-
-#+BEGIN_SRC 
-*.err;kernel.debug;daemon.notice;mail.crit /var/adm/messages rotate files 6 time 1m
-*.alert root
-*.emerg *
-#+END_SRC
-
-* PATH
-
-- /var/adm/messages
-- /var/adm/syslog
-- /var/log/syslog.log
-- /var/adm/ras/syslog
-
-* one more
-
-- touch
-
 * format
 
 facility-level destination rotate size s files n time t compress archive path
+
+* syslog.conf sample
+
+#+BEGIN_SRC 
+*.err;kernel.debug;daemon.notice;mail.crit /var/adm/messages rotate files 6 time 1m
+#+END_SRC
+
+* one more
+
+- touch /var/adm/messages
+- or using logger
 
 * cmd
 
@@ -33,26 +25,7 @@ stopsrc -s syslogd
 startsrc -s syslogd
 #+END_SRC
 
-* chk
-
-logger
-
-* the more?
-
-pssp
-smit spsyslog
-smit spsyslrpt
-psyslrpt -a -r ftp
-smit spsyslclr
-psyslclr -a -y 30
-
-* errpt here
-
-errpt
-/var/adm/ras/errlog (binary)
-
 * m4
 
 ifdef
-
 

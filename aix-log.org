@@ -3,3 +3,22 @@
 - Alog : used for console, boot, NIM and other applications log
 - Errlog : used for system, hardware, kernel and other applications log
 - Syslog : used for internet daemons and other applications log
+
+* smit then seek log then
+
+- Error log
+- alog
+
+* sample
+
+/var/adm/ras/errlog
+/var/adm/cron/log
+/var/adm/sulog
+/var/adm/wtmp
+/var/log/
+
+* so
+
+내가 무엇인가 로그를 남긴다면 그 위치는 어디가 될까? 아마도 /var/adm/
+aix에게 syslog란 어떠한 의미를 가질까?
+aix에서는 어플리케이션 로그도 Errlog에 남길까? 그럴까 나는 syslog가 좋은데
