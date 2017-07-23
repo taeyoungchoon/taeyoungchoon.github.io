@@ -1,0 +1,23 @@
+* samba but smb
+
+* log entry
+
+#+BEGIN_SRC 
+smbd[2556]: lib/util_sock.c:536(read_fd_with_timeout)
+smbd[2556]: lib/util_sock.c:1509(get_peer_addr_internal)
+smbd[2556]: getpeername failed. Error was invalid argument
+smbd[2556]: read_fd_with_timeout: client 0.0.0.0 read error = invalid argument
+#+END_SRC
+
+- security = user
+- security = share
+- smb ports = 445 139
+- smb ports = 139
+
+* smbclient
+* testparm -s
+* debug samba
+
+testparm -s
+net usershare info
+
