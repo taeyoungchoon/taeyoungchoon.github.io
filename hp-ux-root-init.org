@@ -1,0 +1,19 @@
+* from (rp pa-rics) to (rx itanium)
+* MP first
+
+MP login: Admin
+MP password: Admin
+co
+Ctrl-b
+rs
+
+* rx type, EFI
+
+HPUX> boot vmunix -is
+/sbin/passwd root
+shutdown -ry 0
+
+* ref
+
+http://wiki-ux.info/wiki/How_to_reset_the_root_password
+https://docstore.mik.ua/manuals/hp-ux/en/5991-1247B/ch05s19.html
