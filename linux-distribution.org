@@ -1,0 +1,10 @@
+* lots of 
+
+- brand linux such as redhat then centos, debian then ubuntu and slackware
+- custom linux
+
+* who knows
+
+uname -a
+lsb_release -a
+cat /etc/redhat-release

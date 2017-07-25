@@ -1,0 +1,9 @@
+* cli
+
+chkconfig iptables off
+iptables -nL
+service iptables stop
+iptables -nL
+
+* rhel 7 then centos 7
+
