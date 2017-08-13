@@ -8,3 +8,25 @@ DisallowTCP=false
 * xhost +
 
 * port : 6000+
+* install
+
+yum groupinstall "X Window System"
+
+* startx failure
+
+#+BEGIN_SRC o
+Xconfigurator
+xf86cfg
+xf86config
+/etc/X11/XF86Config
+/etc/X11/xorg.conf
+Xorg -configure
+cp xorg.conf.new /etc/X11/xorg.conf
+xinit
+makedev -d /dev/fb
+X -configure
+system-config-display
+xinitrc
+openbox
+#+END_SRC
+
