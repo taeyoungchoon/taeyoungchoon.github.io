@@ -21,15 +21,15 @@ XSCF>
 
 https://docs.oracle.com/cd/E19580-01/821-2797-10/21ch5p.html
 
-showdomainstatus -a
-showdomainstatus -d 00
-console -d 0 -y
-poweron -d 0
-poweroff -d 0
-sendbreak -d 0 -y
-setdomainmode -y -d 0 -m autoboot=off
-setdomainmode -y -d 0 -m autoboot=on
-showdomainmode -d 0
+- showdomainstatus -a
+- showdomainstatus -d 00
+- console -d 0 -y
+- poweron -d 0
+- poweroff -d 0
+- sendbreak -d 0 -y
+- setdomainmode -y -d 0 -m autoboot=off
+- setdomainmode -y -d 0 -m autoboot=on
+- showdomainmode -d 0
 
 * word
 
