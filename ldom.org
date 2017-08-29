@@ -1,0 +1,52 @@
+* cli
+
+http://thegeekdiary.com/ldoms-ovm-for-sparc-command-line-reference-cheat-sheet/
+http://wiki.creatica.org/cgi-bin/wiki.pl/Solaris_LDoms
+
+ldm list
+ls -l /var/log/vntsd/*/*
+
+ldm list -l guest01
+
+ldm list -o console
+
+netstat -a | egrep ".50[0-90-9]"
+
+* root password recovery on a sparc ldom
+
+http://unixetc.co.uk/2011/10/09/root-password-recovery-on-a-sparc-ldom/
+
+ldm stop ldom1
+ldm stop-domain -f ldom1
+ldm list-variable auto-boot? ldom1
+ldm set-variable "auto-boot?=false" ldom1
+ldm start ldom1
+ok show-disks
+
+* mount physical domain's cdrom to ldom
+
+https://dbhk.wordpress.com/2011/01/13/add-dvd-or-cdrom-into-ldom-guest-domain-for-os-installation/
+
+cdrw -l
+ldm add-vdsdev /dev/rdsk/c0t0d0s2 cdrom@primary-vds0
+ldm list-services
+ldom add-vdisk cdrom cdrom@primary-vds0 ldom1
+ldom start ldom1
+telnet localhost 5002
+ok devalias
+ok boot cdrom
+
+* without cdrom, cool
+
+ok> boot -F failsafe
+
+https://docs.oracle.com/cd/E18752_01/html/817-0403/tsgeneral-18.html
+http://docs.oracle.com/cd/E19253-01/817-1985/6mhm8o5vf/index.html
+
+** what the, boot archive
+
+Update the boot archive as below proceeding with the reboot
+
+# bootadm update-archive –R /a
+
+- The boot archive is a cache of files used during boot

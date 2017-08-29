@@ -1,0 +1,32 @@
+* oracle machine
+
+#+BEGIN_SRC emacs-lisp
+
+  (setf pm 'physical-domain)
+  (setf vm 'logical-domain)
+  (setf res 'zone)
+
+  (setf m-1 (list pm))
+  (setf m-2 (list pm vm))
+  (setf m-3 (list pm res))
+  (setf m-4 (list pm vm res))
+
+  (let ((m-1 (list pm))
+        (m-2 (list pm vm))
+        (m-3 (list pm res))
+        (m-4 (list pm vm res)))
+    m-2)
+
+#+END_SRC
+
+#+RESULTS:
+| physical-domain | logical-domain |
+
+* linux? machine
+
+- docker
+- xen
+- qemu
+- kvm
+- chroot
+- virtualbox
