@@ -1,4 +1,4 @@
-* file format
+* file format of passwd then shadow
 
 #+BEGIN_EXAMPLE
 
@@ -20,3 +20,24 @@ passwd -l jack
 * unlock
 
 passwd -u jack
+
+* more cli on solaris
+
+** status
+
+passwd -s ACCOUNT
+
+** The max field contains the number of days that the password is valid for name.
+
+passwd -x -1 ACCOUNT
+
+* more cfg on solaris
+
+- su: Password for user 'root' has expired - use passwd(1) to update it
+
+/etc/default/passwd
+
+MAXWEEKS=9
+MINWEEKS=1
+WARNWEEKS=2
+PASSLENGTH=6

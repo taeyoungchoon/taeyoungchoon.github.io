@@ -1,0 +1,27 @@
+* cfg
+
+** /etc/auto_home
+
+#+BEGIN_SRC 
+jdoe orem:/sotre/home/jdoe
+#+END_SRC
+
+** /etc/auto_direct
+
+#+BEGIN_SRC 
+/usr/doc orem:/internal/httpd/htdocs
+#+END_SRC
+
+** /etc/auto_master
+
+#+BEGIN_SRC 
+/home auto_home
+/-    auto_direct
+#+END_SRC
+
+* cli
+
+/etc/init.d/autofs start
+ps -ef | grep automountd
+df -k -F nfs
+cat /etc/mnttab

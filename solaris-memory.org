@@ -1,0 +1,28 @@
+* swap on
+
+mkfile 4097072 /u1/swap
+mkfile 4097072 /u2/swap
+swap -a /u1/swap
+swap -a /u2/swap
+swap -l
+swap -s
+total: ? k bytes allocated + ? k reserved = ? k used, ? available
+
+swap -a /dev/dsk/c1t1d2s1
+
+/etc/vfstab
+/dev/dsk/c1t1d2s1 swap no -
+
+swap -d /u1/swap
+swap -d /u2/swap
+swap -d /dev/dsk/c1t1d2s1
+
+* sar
+
+sar -r 1 1
+06:21:07 freemem freeswap
+06:21:08 1084541 45261177
+
+* getconf
+
+getconf PAGE_SIZE
