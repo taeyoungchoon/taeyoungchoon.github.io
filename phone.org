@@ -1,0 +1,11 @@
+* backup
+
+- kakao talk
+- phone call record & sms using 'sms backup & restore'
+
+  
+* init
+  
+- ubikey
+- mobile isp    
+
