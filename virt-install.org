@@ -1,0 +1,30 @@
+* dir
+
+- /var/lib/libvirt/images
+- /etc/libvirt/qemu
+
+* log on virtualbox
+
+virt-install 
+--name bar \
+--memory 1024 \ 
+--disk path=/var/lib/libvirt/images/bar.img,size=2 \
+--location http://ftp.kr.deian.org/debian/dists/stable/main/installer-amd64
+
+WARNING KVM acceleration not available, using 'qemu'
+WARNING No operating system detected, VM performance may suffer. Specify an OS with --os-variant for optimal result.
+WARNING Unable to connect to graphical console: virt-viewer not installed. Please install the 'virt-viewer' package.
+WARNING No console to launch for the guest, defaulting to --wait -1
+
+Starting install...
+Retrieving file linux...
+Retrieving file initrd.gz...
+Allocating 'bar.img'
+Creating domain...
+Domain installation still in progress. Waiting for installation to complete.
+
+* cli
+
+- virsh console foo
+
+--cdrom /root/Download/foo.iso

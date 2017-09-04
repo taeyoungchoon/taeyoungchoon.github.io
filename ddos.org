@@ -14,3 +14,4 @@ dos는 ms-dos 류가 아니라 denial of service의 약어이다
 
 를 생산하는 것이 ddos가 아니다
 가 되는 것을 막는 것은 백신의 영역이라고 해야 하나
+
