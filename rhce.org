@@ -1,3 +1,5 @@
 * by EX200 & EX300
 
 280,000 won
+
+* target operating system, rhel 7

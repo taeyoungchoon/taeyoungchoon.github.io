@@ -1,0 +1,37 @@
+* make ibm account
+* step one two three
+
+http://www-01.ibm.com/support/docview.wss?uid=isg3T1022693
+
+#+BEGIN_SRC 
+mkdir -p /tmp/java_install
+cd /tmp/java_install
+ls *.tar
+tar -xvf Java6_64.sdk.6.0.0.650.tar
+ls Java6_64.sdk
+installp -agXYD . Java6_64.sdk 2>&1 | tee installp.log
+(opt) smitty install_all
+lslpp -l "Java*" | grep Java7
+/usr/java6_64/jre/bin/java -version
+#+END_SRC
+
+* download java6_64.sdk.6.0.0.650.tar
+
+https://www-01.ibm.com/marketing/iwm/iwm/web/reg/download.do?source=dka&S_PKG=aix64j6b&S_TACT=105AGX05&S_CMP=JDK&lang=en_US&cp=UTF-8&dlmethod=http#14
+
+* install using smit
+
+http://www.pakzilla.com/2013/01/23/how-to-install-java-6-java6_64-sdk-on-aix-6-1/
+
+inutoc .
+smitty installp
+SOFTWARE to insatll './'
+ACCEPT new license agreements? yes
+
+* someone who fail but finally work
+
+https://m.blog.naver.com/PostView.nhn?blogId=dae0park&logNo=140194653364&proxyReferer=https%3A%2F%2Fwww.google.co.kr%2F
+
+base level fileset?
+
+
