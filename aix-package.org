@@ -1,0 +1,16 @@
+* cli
+
+#+BEGIN_SRC 
+lslpp -l
+installp -acXYd PKG
+#+END_SRC
+
+* installp
+
+| opt | desc                          |
+|-----+-------------------------------|
+| -a  | apply                         |
+| -c  | commit                        |
+| -X  | expand filesystems, if needed |
+| -Y  | accept license agreement      |
+| -d  | device or directory           |

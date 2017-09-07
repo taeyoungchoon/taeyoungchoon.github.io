@@ -1,4 +1,4 @@
-* pre cfg, enable v1
+* pre, enable v1
 
 #+BEGIN_SRC 
 snmpv3_ssw -1
@@ -8,8 +8,11 @@ ls -l /usr/sbin/snmpd
 snmpdv1
 snmpdv3ne, no encryption
 
-* stopsrc -s
-* one line, start
+* stop
+
+using stopsrc -s
+
+* start
 
 startsrc -s snmpd && sleep 60
 startsrc -s dpid2 -a "-c public -d 128" && sleep 60
@@ -17,25 +20,28 @@ startsrc -s aixmibd -a "-c public -d 128"
 startsrc -s hostmibd -a "-c public -d 128"
 startsrc -s snmpmibd -a "-c public -d 128"
 
-* cfg, start all the time using /etc/rc.tcpip
+* cfg
 
+cat /etc/rc.tcpip
 start /usr/sbin/snmpd "$src_running"
 start /usr/sbin/aixmibd "$src_running" "-c public"
 
-* chk using cli and then
+* chk
 
 snmpinfo -v -m dump -c public hrProcessorLoad
 snmpinfo -m dump -c public -v
 snmpwalk -v 1 -c public x.x.x.x 1.3.6.1.4.1.2.6.191
-BPSNMPMon
 clsnmp get sysName.0
 
-* no -o udpsendspace=65535
+* tuning
+
+no -o udpsendspace=65535
+
 * with nagios
 
 check_snmp_load.pl -H x.x.x.x -C public -T stand -w 75 -c 90
 
-* tree
+* snmpd related process tree
 
 - smux : snmp multiplexing protocol(RFC 1227)
 - dpi : Distributed Protocl Interface

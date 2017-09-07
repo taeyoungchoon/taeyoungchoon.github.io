@@ -1,0 +1,24 @@
+* cli
+
+#+BEGIN_SRC 
+lspv
+smit lvm
+mkvg -y datavg -s 32 hdisk1
+lspv
+mklv -y datalv -t jfs2 datavg 20
+lsvg -l datalv
+crfs -v jfs2 -d datalv -m /datafs -A yes
+lsvg -l datavg
+mount /datafs
+lsvg -l datavg
+#+END_SRC
+
+* mklv
+
+#+BEGIN_SRC 
+mklv -y datalv -t jfs2 datavg 200G
+smit lv
+smit fs
+smit jfs2
+#+END_SRC
+
