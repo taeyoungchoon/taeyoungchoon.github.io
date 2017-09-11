@@ -3,7 +3,23 @@
 #+BEGIN_SRC 
 lslpp -l
 installp -acXYd PKG
+insfix
 #+END_SRC
+
+* path
+
+/lpp
+/usr/lpp
+
+* word
+
+installation package
+fileset update
+update package
+Object Data Manager (ODM) object classes
+Software Vital Product Data (SWVPD) database
+fileset extensions like .fnt .adt(application development tookit)
+
 
 * installp
 
