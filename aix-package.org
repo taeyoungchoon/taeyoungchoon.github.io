@@ -2,8 +2,12 @@
 
 #+BEGIN_SRC 
 lslpp -l
-installp -acXYd PKG
-insfix
+lslpp -w /usr/sbin/installp
+lslpp -L cdrecord
+installp -agXYd PKG
+insfix -i
+smit list_installed
+lppchk -v
 #+END_SRC
 
 * path
@@ -13,6 +17,16 @@ insfix
 
 * word
 
+ODM, /etc/objrepos
+ML > TL, oslevel -r
+SP, oslevel -s
+fix(APAR)
+package
+fileset
+bos.net : package
+bos.net.ntfs.client : fileset
+bundle
+lpp : licensed programming product
 installation package
 fileset update
 update package
@@ -20,13 +34,16 @@ Object Data Manager (ODM) object classes
 Software Vital Product Data (SWVPD) database
 fileset extensions like .fnt .adt(application development tookit)
 
-
 * installp
+
+https://www.ibm.com/support/knowledgecenter/en/ssw_aix_72/com.ibm.aix.cmds3/installp.htm
+https://www.ibm.com/support/knowledgecenter/SSGH2K_13.1.0/com.ibm.xlc131.aix.doc/install/default_install_installp.html
 
 | opt | desc                          |
 |-----+-------------------------------|
 | -a  | apply                         |
-| -c  | commit                        |
+| -g  |                               |
 | -X  | expand filesystems, if needed |
 | -Y  | accept license agreement      |
 | -d  | device or directory           |
+

@@ -1,0 +1,7 @@
+* word
+
+x-window
+x-windows?
+kde
+gnome, 요즘(2017)은 이쪽으로?, solaris까지도 인가? freebsd는?
+

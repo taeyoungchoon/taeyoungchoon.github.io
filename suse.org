@@ -1,3 +1,38 @@
 * SuSE Linux, still?
 
 - Software und System Entwicking ( software and systems development )
+
+* opensuse
+
+http://mirrors.vbi.vt.edu/linux/opensuse/discontinued/distribution/10.3/iso/cd./
+
+* 20170911_1
+
+시작인가? 흠
+(sr 11.3)
+(apt 10.3?)
+
+* wellknown yast, Yet Another Setup Tool
+
+* old repo
+
+https://old-en.opensuse.org/Mirrors_discontinued_releases
+
+openSUSE 10.3
+http://ftp5.gwdg.de/pub/opensuse/discontinued/distribution/10.3/
+
+zypper ar http://download.videolan.org/pub/vlc/SuSE/11.1 vlc
+zypper ar http://ftp5.gwdg.de/pub/opensuse/discontinued/distribution/10.3/repo/oss old-oss
+zypper ar http://ftp5.gwdg.de/pub/opensuse/discontinued/distribution/10.3/repo/non-oss old-non-oss
+
+* zypper
+
+https://en.opensuse.org/SDB:Zypper_usage#Listing_defined_repositories
+
+zypper lr
+zypper search lynx
+zypper install lynx
+yast -i emacs-nox
+* firewall
+
+/sbin/SuSEfirewall2 off

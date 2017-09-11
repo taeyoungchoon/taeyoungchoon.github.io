@@ -9,7 +9,7 @@ cd /tmp/java_install
 ls *.tar
 tar -xvf Java6_64.sdk.6.0.0.650.tar
 ls Java6_64.sdk
-installp -agXYD . Java6_64.sdk 2>&1 | tee installp.log
+installp -agXYd . Java6_64.sdk 2>&1 | tee installp.log
 (opt) smitty install_all
 lslpp -l "Java*" | grep Java7
 /usr/java6_64/jre/bin/java -version

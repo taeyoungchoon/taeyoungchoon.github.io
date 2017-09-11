@@ -1,0 +1,25 @@
+* ACPI (Advanced Configuration and Power Interface)
+
+to discover and configure computer hardware components
+to perform power management by (for example) putting unused components to sleep
+to perform status monitoring
+
+since 1996
+to replace APM(Advanced Power Management) > ACPI, since 1992
+then UEFI since? 2013
+
+* APM
+
+APM Driver
+APM Bios
+
+* word
+
+ACPI v3.0
+ACPI APIC support
+
+ACPI driver
+ACPI Register
+ACPI BIOS
+ACPI tables
+

@@ -1,0 +1,14 @@
+* oslevel 
+
+https://www.ibm.com/support/knowledgecenter/ssw_aix_61/com.ibm.aix.cmds4/oslevel.htm
+
+* oslevel -s
+
+https://www.ibm.com/developerworks/community/blogs/AIXDownUnder/entry/understanding_aix_levels6?lang=en
+
+“oslevel -s” command reports 6100-02-06-0943, 
+then you know you’re on AIX 6.1, 
+running TL 2, 
+with SP 6. 
+The “0943” tells you that Service Pack came out in week 43 of 2009. It’s time to update your system.
+
