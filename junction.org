@@ -1,0 +1,3 @@
+* on windows
+
+https://docs.microsoft.com/ko-kr/sysinternals/downloads/junction

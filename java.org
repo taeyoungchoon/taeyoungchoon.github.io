@@ -18,3 +18,37 @@ C:\Users\foo>
 
 http://uni-smr.ac.ru/archive/dev/java/SDKs/sun/j2se/6/
 
+* multiple java and JAVA_HOME
+* cli
+
+http://www-01.ibm.com/support/docview.wss?uid=isg3T1024496
+IBM Java for AIX FAQ: Identifying the Java versions and Java installation locations for an AIX system
+
+java -version
+java -fullversion
+ps avwwwg | egrep "java"
+
+* env
+
+PATH
+CLASSPATH
+JAVA_HOME
+JAVA6HOME
+
+* path
+
+/usr/java8_64/jre/bin/java
+/usr/java71_64 (IBM Java 1.7.1)
+/usr/java7
+/usr/java7_64
+/usr/java6_64
+
+* pack
+
+lslpp -l
+
+* history
+
+Java 6 goes out of support Sept 2017. Prepare now!
+Java 5 is out of support and should be removed per the Java 5 Uninstall web page.
+Java 1.4 is out of support and should be removed per the Java Uninstall web page.
