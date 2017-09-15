@@ -1,0 +1,49 @@
+* kinds of
+
+- vi
+- nano
+- emacs
+- joe, jmacs
+- sed
+- ed
+
+* vi
+
+gg: vi cheat sheet filetype:pdf
+
+vi foo.txt
+i
+hello, world
+ESC
+ESC
+ESC
+:w
+:q
+
+* nano
+
+nano foo.txt
+hello, world
+^O
+^X
+
+* emacs 
+
+emacs foo.txt
+hello, world
+C-x C-s
+C-x C-c
+
+* jmacs
+
+same as emacs but fast
+
+* ed
+
+touch foo.txt
+ed foo.txt
+a
+hello, world
+.
+w
+q

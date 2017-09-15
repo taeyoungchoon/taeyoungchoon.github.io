@@ -6,7 +6,7 @@
 
 * list
 
-- yumi(default)
+- yumi(default) not others
 
 * ref
 

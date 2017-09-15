@@ -1,0 +1,83 @@
+* time about time if not
+
+시간이 없다면 그리고 여기 지역적인 문제도 들어가야 한다. 한국이라면 KST가 좋다. 
+
+* just one
+
+- ntpdate -q time.bora.net
+
+* just but windows? or the other? and from the command line!
+
+** xp 
+
+- date /T
+- time /T
+- net time /querysntp
+
+** others, up
+
+- net stop w32time
+- net start w32time
+- w32time /resync
+- w32time /query /configuration
+- w32time /query /status
+
+** time server
+
+http://time.ewha.or.kr/domestic.html
+http://www.pool.ntp.org/zone/kr
+
+server 3.kr.pool.ntp.org
+server 3.asia.pool.ntp.org
+server 2.asia.pool.ntp.org
+
+** packet
+
+https://www.meinbergglobal.com/english/info/ntp-packet.htm
+https://wiki.wireshark.org/NTP
+
+** print 
+
+https://www.meinbergglobal.com/english/info/ntp-w32time.htm
+
+* just tools
+
+UTCk
+NetTime from http://timesynctool.com
+
+* and about time
+
+http://time.ewha.or.kr/
+
+* from windows 2003 server
+
+#+BEGIN_EXAMPLE
+>netstat -ano | findstr 123
+  TCP    192.168.129.238:1238    192.168.129.237:25      TIME_WAIT       0
+  TCP    192.168.129.238:3150    192.168.129.237:1235    ESTABLISHED     5456
+  UDP    192.168.129.238:123     *:*                                    1580
+  UDP    127.0.0.1:123          *:*                                    1580
+
+>w32tm /config /syncfromflags:manual /manualpeerlist:time.bora.net /update
+>w32tm /config /syncfromflags:manual /manualpeerlist:time.windows.com /update
+>w32tm /config /manualpeerlist:ntpserver.contoso.com,clock.adatum.com /syncfromflags:manual /update
+
+>w32tm /dumpreg /subkey:Parameters | findstr /i ntp
+
+NtpServer       REG_SZ              time.bora.net
+Type            REG_SZ              NTP
+
+>net stop w32time
+
+>net start w32time
+
+>w32tm /resync /soft
+
+>w32tm /stripchart /dataonly /computer:time.bora.net
+Tracking time.bora.net [203.248.240.140].
+The current time is 2016-04-19 오전 10:39:43 (local time).
+10:39:43, -00.0006049s
+10:39:45, -00.0006913s
+^C
+>
+#+END_EXAMPLE
