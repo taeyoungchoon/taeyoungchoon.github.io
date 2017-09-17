@@ -1,0 +1,7 @@
+* cli
+
+#+BEGIN_SRC 
+dmesg | tail -10
+df -h
+uptime
+#+END_SRC
