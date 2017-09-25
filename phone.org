@@ -3,9 +3,20 @@
 - kakao talk
 - phone call record & sms using 'sms backup & restore'
 
-  
 * init
   
 - ubikey
 - mobile isp    
 
+* 출고가
+
+* 단통법, 단말기 유통구조 개선법
+
+- 이동통신단말장치 유통구조 개선에 관한 법률
+- 법정보조금, 핸드폰 보조금
+
+* 선택약정할인제도
+
+** 가입조건
+
+- 보조금을 받지 않았거나, 보조금을 받은지 24개월이 지난 단말기
