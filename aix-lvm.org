@@ -1,3 +1,29 @@
+* note, process
+
+cfgmgr
+lspv
+mkvg
+mklv
+crfs
+mount
+
+* note, smit
+
+mkvg
+lvm
+
+* note, mkvg
+
+mkvg nil/-B/-S/-B/
+mkvg -s
+
+* note, view
+
+lsdev
+lspv
+lsvg -p newvg
+lsvg -l newvg
+
 * cli
 
 #+BEGIN_SRC 
