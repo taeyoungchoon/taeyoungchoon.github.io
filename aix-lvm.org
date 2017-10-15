@@ -17,6 +17,13 @@ lvm
 mkvg nil/-B/-S/-B/
 mkvg -s
 
+mkvg -y newvg hdisk5 hdisk6
+reducevg newvg hdisk5
+reducevg newvg hdisk6
+mkvg -y newvg hdisk5 hdisk6
+extendvg newvg hdisk7
+extendvg newvg hdisk8
+
 * note, view
 
 lsdev
