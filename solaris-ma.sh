@@ -1,10 +1,11 @@
 #-
 export PS1="# "
 date
-prtdiag -v
+prtdiag -v | grep ^System
 uname -a
 hostname
 showrev
+#hostid
 prtdiag -v
 
 #-
@@ -14,7 +15,7 @@ sar –u 1 3
 prstat –Z
 
 #-
-prtconf
+prtconf | grep ^Mem
 swap –s
 swap –l
 df –h 
@@ -35,7 +36,7 @@ ifconfig -a
 ping
 
 #-
-prstat
+prtat
 #prstat -s cpu -n 10
 uptime
 
@@ -43,5 +44,9 @@ uptime
 cat /var/adm/messages.log | egrep "warn|erro|crit" | wc -l
 cat /var/adm/messages.log | egrep "warn|erro|crit" | tail -5
 
-#-
-#
+#------------------------------------------------------------------------------
+#prstat -Z
+#echo ::memstat | mdb -k
+#top -n 1
+#svcs | grep cron
+#svcadmin restart cron

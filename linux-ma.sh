@@ -46,3 +46,8 @@ uptime
 #-
 cat /var/log/messages | egrep "warn|erro|crit" | wc -l
 cat /var/log/messages | egrep "warn|erro|crit" | tail -5
+
+#---------------------------------------------------------
+#dmidecode --type 4 | grep Version
+#dmidecode --type 4 | grep "Core Count"
+#dmidecode --type 4 | grep "HT"

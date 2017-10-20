@@ -1,13 +1,14 @@
 #-
 set -o emacs
+exprot TMOUT=0
 export PS1="# "
 
 #-
 date
-machinfo | egrep -i ‘model'
-machinfo | egrep -i ‘release'
+machinfo | egrep -i 'model'
+machinfo | egrep -i 'release'
 hostname
-machinfo | egrep -i ‘serial'
+machinfo | egrep -i 'serial'
 #netstat -f inet -rn | perl -alne '/UG/ && system "ifconfig $F[-1]"' | egrep "inet "
 
 #-
@@ -38,6 +39,9 @@ uptime
 #-
 cat /var/adm/syslog/syslog.log | egrep "warn|erro|crit" | wc -l
 cat /var/adm/syslog/syslog.log | egrep "warn|erro|crit" | tail -5
+cat /var/adm/syslog/syslog.log | perl -pe '/warn|erro|crit/'
 
-#- 
+#------------------------------------------- 
 #swinfo lvdisplay lanscan ioscan
+#ps -ef | perl -ne 'END { print $. }'
+#userdbset -d -u initial auth_failure
