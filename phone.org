@@ -1,12 +1,14 @@
 * backup
 
 - kakao talk
-- phone call record & sms using 'sms backup & restore'
+- phone call record & sms 
+  - using 'sms backup & restore' 
+  - migrate to ios using move to ios
 
 * init
   
-- ubikey
-- mobile isp    
+- ubikey, 휴대폰 인증서
+- mobile isp, ISP/페이북
 
 * 출고가
 
