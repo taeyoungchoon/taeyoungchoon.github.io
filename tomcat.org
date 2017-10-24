@@ -1,0 +1,16 @@
+* tomcat on centos6, pure
+
+tomcat 정말 쉽게 설치하기
+
+** install
+
+yum install tomcat6 tomcat6-webapps
+
+** chk
+
+http://localhost:8080
+
+** refer
+
+https://serverfault.com/questions/481259/tomcat-always-returns-status-code-400
+
