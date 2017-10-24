@@ -14,3 +14,19 @@ http://localhost:8080
 
 https://serverfault.com/questions/481259/tomcat-always-returns-status-code-400
 
+* tomcat on somewhere, so hard way
+
+1. 무슨 java 그리고 무슨 tomcat을 설치해야 하는가 확인한다.
+   - https://tomcat.apache.org/whichversion.html
+   - tomcat 7
+   - java 1.7
+1. java를 받는다. 설치한다. 구성한다. 확인한다.
+   - http://blog.miyam.net/5
+   - 받지 않고 openjdk를 사용해도 될까?
+     https://eftakhairul.com/install-apache-tomcat-server-with-open-jdk-on-ubuntu/
+2. tomcat를 받는다. 
+   https://tomcat.apache.org/download-70.cgi
+3. 설치한다. 사실 이동/복사가 맞는 말이다.
+4. 구성한다. 
+5. tomcat을 구동한다.
+6. tomcat 동작여부를 확인한다.
