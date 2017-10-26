@@ -23,3 +23,28 @@
 - accessing the asmi(Advanced System Management Interface) using hmc
 - removing a part using the hardware management console
 - removing the model 9116-561 or 570 voltage regulator assembly with power on
+
+* manual
+
+- IBM Power Systems Hardware Management Console: Version 8 Release 8.1.0 Enhancements
+  An IBM Redbooks publication
+  Published 23 10월 2014
+- IBM Redbooks Mobile Appxs
+
+* close java console(Terminal Window)
+
+** env
+
+- Version: 8
+- Release: 8.1.0
+- Service Pack: 1
+- Build Level: 20140901.2
+
+** sol
+
+- HMC Management > Administrations > Manage Users and Tasks
+- kill the proc in the hang state
+
+** about hmc v8
+
+- for POWER6, POWER7 and POWER8
