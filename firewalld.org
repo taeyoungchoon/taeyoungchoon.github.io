@@ -1,0 +1,14 @@
+* cli
+
+firewall-cmd --help
+firewall-cmd --list-all
+firewall-cmd --list-service
+firewall-cmd --add-service=http
+firewall-cmd --get-default-zone
+firewall-cmd --state
+firewall-cmd --reload
+firewall-cmd --runtime-to-permanent
+
+* iptables
+
+iptables -nL

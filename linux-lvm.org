@@ -16,3 +16,11 @@ df -Pk
 * vgchange?
 
 -a : active
+
+* word
+
+Physical Volume
+Volume Group
+Physical Extent
+Logical Volume
+Logical Extent

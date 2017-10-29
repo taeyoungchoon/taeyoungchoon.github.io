@@ -3,3 +3,7 @@
 http://jodies.de/ipcalc
 
 * vs ipv6 ever called ipng what about next ipv?
+
+* ip cli
+
+ip addr

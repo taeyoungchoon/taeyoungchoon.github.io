@@ -1,35 +1,30 @@
+* swap current mode online
+
+- enforcing and permissiave
+
+#+BEGIN_SRC 
+getenforce
+sestatus
+
+setenforce 0 or setenforce Permissive
+getenforce
+sestatus
+
+setenforce 1 or setenforce Enforcing
+getenforce
+sestatus
+#+END_SRC
+
 * config, /etc/selinux/config
 
 SELINUX=enforcing
 SELINUX=permissive
-SELINUX=enforcing
-
-* sestatus
-
-#+BEGIN_EXAMPLE
-
-$ sestatus 
-SELinux status:                 enabled
-SELinuxfs mount:                /selinux
-Current mode:                   permissive
-Mode from config file:          permissive
-Policy version:                 26
-Policy from config file:        ubuntu
-
-#+END_EXAMPLE
-
-* cli to do enable/disable
-
-getenforce
-setenforce 1
-getenforce
 
 * cli to do allow
 
 audit2allow -a
 
 #+BEGIN_EXAMPLE
-
 #============= crond_t ==============
 allow crond_t file_t:lnk_file read;
 allow crond_t init_t:dir search;
@@ -45,7 +40,6 @@ allow crontab_t user_home_dir_t:file create;
 allow crontab_t var_lib_t:dir search;
 allow crontab_t var_lib_t:lnk_file read;
 allow crontab_t var_log_t:dir search;
-
 #+END_EXAMPLE
 
 audit2allow -a -w
@@ -53,16 +47,14 @@ crontab -e
 audit2allow -a -M EnableCrontabByRoot
 
 #+BEGIN_EXAMPLE
-
 $ file EnableCrontabByRoot.*
 EnableCrontabByRoot.pp: SE Linux modular policy version 1, 1 sections, mod version 13, MLS, module name EnableCrontabByRoot\003
 EnableCrontabByRoot.te: ASCII C++ program text
-
 #+END_EXAMPLE
 
 semodule -i EnableCrontabByRoot.pp
 
-* syslog and kern.log
+* TODO syslog and kern.log
 
 #+BEGIN_EXAMPLE
 
@@ -90,8 +82,8 @@ tclass=dir
 
 #+END_EXAMPLE
 
-* so
+* TODO so
 
 - avc : cache, access vector cache
 
-* /etc/selinux/POLICYTYPE/*
+* TODO /etc/selinux/POLICYTYPE/*

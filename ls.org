@@ -11,3 +11,8 @@ tail은 tail이라는 목적에 충실하다
 다들 그랬다 
 unix다
 #+END_SRC
+
+* selinux
+
+ls -l
+ls -lZ

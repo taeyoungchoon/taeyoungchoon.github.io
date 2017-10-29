@@ -1,1 +1,20 @@
-* hmm
+* cli
+
+systemctl
+systemctl get-default
+systemctl poweroff
+journalctl
+journalctl -r
+
+* unit, target, service
+
+target, level
+multi-user.target
+graphical.target
+systemctl get-default
+systemctl set-default graphical.target
+
+* files
+
+/etc/systemd/system/default.target
+/usr/lib/systemd/system/graphical.target

@@ -1,0 +1,4 @@
+* MBR vs GPT
+* old fdisk?
+* MBR partitioning with parted
+* GPT Partitioning with gdisk

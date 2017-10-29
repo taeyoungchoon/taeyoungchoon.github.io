@@ -1,21 +1,20 @@
-* so
-
-리눅스도 부팅하고 윈도우즈도 유닉스도 나는?
-
+* windows, unix, linux all boot so
 * list
 
-1. loadlin > lilo > grub(2)
-2. initramfs, temporal root filesystem aka dracut with drivers so called lvm and more
-3. init
+1. firmware : bios > uefi
+2. loadlin > lilo > grub the grub2
+3. initramfs, temporal root filesystem aka dracut with drivers so called lvm and more
+4. init : old > upstart > systemd
 
-* one more thing
+* boot with
 
 - selinux
 - lvm
-- grub's rhgb, quiet
 
-* case
+* case 1
 
 - stage 1
 - "dracut: switching root" and hang
   https://fedoraproject.org/wiki/How_to_debug_Dracut_problems
+
+
