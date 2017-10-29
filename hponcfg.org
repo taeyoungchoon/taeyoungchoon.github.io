@@ -19,4 +19,5 @@ hponcfg /f add_user.xml /l log.txt
 - [ ] gather the network information using it
 - [ ] gather the account info
 - [ ] gather the account's password, possibly?
+
 * and others
