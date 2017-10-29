@@ -1,0 +1,35 @@
+* r230 and more
+
+- https://www.youtube.com/watch?v=SKimN4vhtzg
+- PowerEdge R230
+- [ ] iDRAC8
+- 1U
+- CPU & Memory
+- [ ] raid?
+  https://www.youtube.com/watch?v=c-N08aU1h50&list=PLCBbXnJ0r0KqVHjFLUWpPhniqfk1flw51&index=10
+
+- RAID Controllers, PERC9 so PERC S130, PERC H330, PERC H730, PERC H830
+  https://www.dell.com/learn/us/en/19/shared-content~data-sheets~en/documents~dell_poweredge_r230_specsheet_final.pdf
+
+- more about dell raid controller
+  http://www.dell.com/learn/us/en/555/campaigns/dell-raid-controllers
+
+- youtube
+  https://www.youtube.com/watch?v=CAU48CrYqw4
+
+* TODO perc9, F2
+
+- https://www.youtube.com/watch?v=sC3hhoj-huo
+
+* rack mount
+
+- https://www.youtube.com/watch?v=g8gTTFiOh84
+
+* TODO install windows 2016
+* install centos 6
+* TODO pre/chk
+
+- partition, care about app
+- hostname
+- ip
+- network cable
