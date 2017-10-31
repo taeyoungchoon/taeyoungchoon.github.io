@@ -1,5 +1,5 @@
 * swap current mode online
-
+  
 - enforcing and permissiave
 
 #+BEGIN_SRC 
@@ -19,6 +19,10 @@ sestatus
 
 SELINUX=enforcing
 SELINUX=permissive
+
+* so have to use it or
+
+selinux 예전에 관련하여 책도 구매한 기억이 있다. 그런데 머리속에는 아무 것도 남지 않았다.
 
 * cli to do allow
 
