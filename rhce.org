@@ -3,3 +3,17 @@
 280,000 won
 
 * target operating system, rhel 7
+
+* list
+
+- date and time using
+- [[file:ip.org][ip]] [[file:ss.org][ss]]
+- [[file:yum.org][yum]]
+- lvm
+- acl
+- [[file:selinux.org][selinux]]
+- [[file:kerberos.org][kerberos]]
+- [[file:apache.org][apache]]
+- samba
+- postfix
+

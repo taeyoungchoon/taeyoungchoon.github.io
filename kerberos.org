@@ -13,3 +13,7 @@
 
 http://computing.help.inf.ed.ac.uk/kerberos-windows
 + windows
+
+* with linux
+
+

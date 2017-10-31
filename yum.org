@@ -1,0 +1,15 @@
+* came from
+
+- yellow dog update manager
+- update manager of linux distribution called yellow dog
+
+* general
+
+- yum search lynx
+- yum update
+- yum upgrade
+- yum install lynx
+
+* TODO group
+
+* TODO config
