@@ -1,0 +1,56 @@
+* note
+
+32비트
+
+* windows general
+
+diskmgmt.msc
+devmgmt.msc
+eventvwr
+http://live.sysinternals.com > desktops.exe procexp.exe
+
+* cmd
+
+ipconfig
+arp -a
+arp -d
+
+* network
+
+Internet Protocol Version 4 (TCP/IP4) 속성 
+
+* windows 7
+
+제어판 홈 > 컴퓨터에 대한 기본 정보 보기
+Windows 정품 인증
+
+* windows 10
+
+Curitel_Packet_Service, 수정한 날짜, 2005-08-02
+Windows Defender SmartScreen에서 인식할 수 없는 앱의 시작을 차단했습니다.
+이 앱을 실행하면 PC가 위험에 노출될 수 있습니다.
+
+* ms office 2016 > serial
+
+파일 > 계정
+
+* ms office 2010 > serial
+
+복수 정품 인증 키의 한도까지 인증을 받았기 때문에 설치한 프로그램을 인증할 수 없습니다.
+제품 인증 필요
+이 제품은 29일 후에 라이센스가 취소됩니다. 이 제품의 라이센스를 확인하려면 인증이 필요합니다.
+파일 > 도움말 > 제품 키 변경
+
+* printer > canon > ip
+* printer > canon > driver
+* printer > canon > scan
+
+Color Network ScanGear 2 Tool
+
+* projector
+* screen
+* MTP
+
+USB 장치 인식 실패
+이 컴퓨터에 마지막으로 연결한 USB 장치가 오작동해으며 Windows에서 장치를 인식할 수 없습니다.
+devmgmt.msc > USB 대용량 저장 장치 속성 > 이벤트 > 장치가 마이그레이션되지 않았습니다.

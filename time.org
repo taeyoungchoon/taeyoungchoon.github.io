@@ -8,3 +8,30 @@
 카이로스, 특별한 의미가 부여된 기회
 
 나는 minute과 moment로 구분하다
+
+* compute time
+
+** hwclock
+
+hwclock --systohc
+hwclock --hctosys
+
+** date
+** time protocol 
+
+rdate
+
+** ntp protocol using ntpd, ntpdate
+
+ntpq -p
+ntpdate -q time.bora.net
+
+** ntp protocol using chronyc
+
+https://www.thegeekdiary.com/centos-rhel-7-configuring-ntp-using-chrony/
+https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/sect-using_chrony
+
+chronyc tracking
+chronyc sources
+chronyc sourcestats
+chronyc makestep
