@@ -7,9 +7,3 @@
 - CLT-M403S
 - CLT-Y403S
 
-* history
-
-- [2016-05-10 Tue] purchasing SL-C436 (186,620) from gmarket
-- [2016-05-21 Sat] purchasing CLT-K403S (36,880) from gmarket
-- [2017-03-31 Fri] purchasing CLT-K403S (32,840) from gmarket
-
