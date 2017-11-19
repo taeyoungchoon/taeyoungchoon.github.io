@@ -30,6 +30,10 @@
 - hostnamectl
 - vi /etc/selinux/config
 
+- useradd -u -s /usr/sbin/nologin
+- groupadd
+- usermod -aG
+
 - systemctl isolate graphical.target
 - systemctl get-default
 - systemctl set-default graphical.target
