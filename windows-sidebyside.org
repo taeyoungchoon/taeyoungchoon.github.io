@@ -1,0 +1,12 @@
+* mean
+
+https://msdn.microsoft.com/ko-kr/library/s80xxs7s(v=vs.90).aspx
+
+* case
+
+https://knowledge.autodesk.com/ko/support/3ds-max/troubleshooting/caas/sfdcarticles/sfdcarticles/KOR/The-application-has-failed-to-start-because-its-side-by-side-configuration-is-incorrect.html
+
+* rel
+
+Short for Windows Side By Side, WinSxS is a folder in Windows XP, Vista, 7, and 8 that stores different copies of DLL and system files. 
+

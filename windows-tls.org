@@ -1,0 +1,7 @@
+* tweak using gpedit then 
+
+http://www.bauer-power.net/2014/06/how-to-enabled-tls-11-and-tls-12-in.html#.WhTcdjdx1PY
+
+- gpedit
+- Computer Configuration > Administrative Templates > Windows Components > Internet Explorer > Internet Explorer Control Panel > Advanced Page > Turn Off Encryption Support
+- gpupdate /force

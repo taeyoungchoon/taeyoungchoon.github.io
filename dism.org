@@ -1,0 +1,9 @@
+* hmm
+
+https://www.itechtics.com/easily-enable-group-policy-editor-gpedit-msc-in-windows-10-home-edition/
+use dism to enable gpedit on windows10 home edition
+
+https://msdn.microsoft.com/ko-kr/library/dn251565.aspx
+cleaning WinSxS folder
+
+
