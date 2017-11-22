@@ -1,19 +1,62 @@
-* by EX200 & EX300
+* redhat rhce, 2017-12-?
 
-280,000 won
+- [ ] 이제 시험신청이 필요하다.
 
-* target operating system, rhel 7
+* steps, 금일 시험 수행 절차
 
-* list
+1. 대기
+2. 입실, 가방은 앞쪽에
+3. 자리에는 종이 한장이 있다. 낙서용이다. 물론 시험보고 놓고 나가야 한다.
+4. 안내에 따라 부팅된 컴퓨터에 몇가지 정보를 입력한다. 이메일, 이름 뭐 이런 것이다.
+5. 시작
+6. 로그인된 화면 바탕화면에 아이콘이 두개가 있다. 빨간모자와 가상머신이다.
+7. 빨간모자를 누르면 브라우저(using firefox)가 열리고 호스트 네임과 네트워크 구성 정보가 나온다. 우측에 붙인다.
+8. 가상머신을 켜고 복구 모드(rd.break)로 들어가서 패스워드를 설정한다. 친숙하지 않다. 경험이 필요하다.
+9. 네트워크 정보를 설정한다.
+10. 브라우저에서 문제를 확인한다. 체크박스가 제공되어 해결된 문제를 표시할 수 있다. 
+11. 호스트 장비에서 콘솔을 열고 원격으로 접속하여 문제 풀기를 진행한다.
+12. 작업 중 계속 리붓을 진행하며 확인한다.
+13. 사실 한번에 안되는 경우도 있다. 그러면 다시 처음부터 물론 시스템 초기화는 빼고 진행한다.
+14. 문제 풀이는 꼭 해야 하는 것(root 계정 복구 및 네트워크 구성) 부터 그리고 간단한 문제(find, tar)를 풀었다.
+15. 다음으로 복합적인 문제(swap, resize, lvm, autofs) 그리고 이해가 잘 안되는 문제(acl) 순으로 진행했다.
 
-- date and time using
-- [[file:ip.org][ip]] [[file:ss.org][ss]]
-- [[file:yum.org][yum]]
-- lvm
-- acl
-- [[file:selinux.org][selinux]]
-- [[file:kerberos.org][kerberos]]
-- [[file:apache.org][apache]]
-- samba
-- postfix
+* problem, rhcsa 예상 문제 낙서+
+
+- rd.break, mount -o remount,rw /sysroot, chroot, passwd root, touch /.autorelabel
+- nmtui, nmcli
+- hostnamectl
+- vi /etc/selinux/config
+
+- useradd -u -s /usr/sbin/nologin (natasha, harry, susan)
+- groupadd
+- usermod -aG
+
+- systemctl isolate graphical.target
+- systemctl get-default
+- systemctl set-default graphical.target
+
+- systemctl is-enabled chronyd
+- systemctl enable chronyd
+- ^enable^status^
+- ^status^start^
+- ^start^status^
+- systemctl list-units -all | grep chronyd
+- systemctl list-unit-files | grep chronyd
+
+- authconfig-gtk, ldap only, getent passwd ldapuser12
+- autofs with nfsv3(nfsvers=3)
+
+- chmod +s
+- setfacl 
+
+- fdisk
+- mkswap, swapon -s, swapon -a
+- pvcreate, vgcreate -s, lvcreate -l 
+- fsck.ext3 -f, resize2fs, lvresize
+
+- chronyd with server
+- find / -user jack -exec cp {} ~/d2 \;
+- tar cvfzj foo.tar.bz2 foo
+- grep pattern word > pattern.lst
+
 
