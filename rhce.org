@@ -1,3 +1,7 @@
+* hot link
+
+http://akjahid.blogspot.com/2016/02/rhce-exam-preparation-version-7.html
+
 * redhat rhce, 2017-12-?
 
 - [ ] 이제 시험신청이 필요하다.
