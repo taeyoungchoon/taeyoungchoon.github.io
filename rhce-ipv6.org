@@ -1,0 +1,14 @@
+* using nmtui from server9.t0spring.net
+
+1. IPv6 CONFIGURATION
+2. Addresses : fd12:3456:789a:199::2/64
+
+* using nmtui from desktop9.t0spring.net
+
+1. IPv6 CONFIGURATION
+2. Addresses : fd12:3456:789a:199::3/64
+
+#+BEGIN_SRC 
+[root@desktop9 network-scripts]# cat ifcfg-eth0 | grep IPV6ADDR
+IPV6ADDR=fd12:3456:789a:199::3/64
+#+END_SRC

@@ -1,0 +1,37 @@
+* config at server9.t0spring.net
+
+#+BEGIN_SRC 
+[root@server9 unbound]# pwd
+/etc/unbound
+
+[root@server9 unbound]# diff unbound.conf.orig unbound.conf
+42a43
+>   interface: 192.168.199.200
+183a185
+>   access-control: 192.168.199.0/24 allow
+557a560,562
+>   forward-zone:
+>       name: "."
+>       forward-addr: 8.8.8.8
+#+END_SRC
+
+* config at desktop9.t0spring.net
+
+#+BEGIN_SRC 
+[root@desktop9 ~]# cat /etc/resolv.conf | grep 192.168.199.200
+nameserver 192.168.199.200
+#+END_SRC
+
+* check at desktop9.t0spring.net
+
+#+BEGIN_SRC 
+[root@desktop9 ~]# dig google.com | grep SERVER
+;; SERVER: 192.168.199.200#53(192.168.199.200)
+[root@desktop9 ~]# ping -c 1 google.com
+PING google.com (216.58.221.238) 56(84) bytes of data.
+64 bytes from hkg07s21-in-f238.1e100.net (216.58.221.238): icmp_seq=1 ttl=48 time=53.1 ms
+
+--- google.com ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 53.134/53.134/53.134/0.000 ms
+#+END_SRC

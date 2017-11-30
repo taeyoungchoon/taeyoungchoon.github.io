@@ -1,3 +1,11 @@
+* say
+
+생각처럼 어려울 수도 있다
+아니면 생각처럼 쉬울 수도 있다.
+내가 어떤 생각을 가지고 이 시험을 바라보는 가에 달려있다.
+
+그런데 등록은?
+
 * hot link
 
 http://akjahid.blogspot.com/2016/02/rhce-exam-preparation-version-7.html

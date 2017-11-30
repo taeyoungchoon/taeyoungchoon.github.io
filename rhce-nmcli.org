@@ -1,0 +1,25 @@
+* list
+
+- nmcli device
+- nmcli connection
+
+* device though virtual such team0
+
+- eth0, eth1, eth2, team0, lo
+- nmcli device
+- nmcli deivce monitor
+- nmcli device disconnect eth2
+- nmcli device connect eth2
+- nmcli device show
+
+* connection aka profile
+
+- eth0, team0, team0-slave1, team0-slave2, Wired connection 1, Wired connection 2
+- nmcli connection
+- nmcli connection monitor
+- nmcli connection down eth2
+- nmcli connection up eth2
+
+* comment
+
+- yum install bash-completion -y
