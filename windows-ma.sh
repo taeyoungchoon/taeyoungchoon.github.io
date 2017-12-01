@@ -20,7 +20,7 @@ diskmgmt.msc
 #diskpart list volume
 
 #-
-netstat -rn
+netstat -rn | findstr 0.0.0.0
 ipconfig
 ping
 

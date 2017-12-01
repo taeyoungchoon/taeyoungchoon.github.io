@@ -45,3 +45,6 @@ cat /var/adm/syslog/syslog.log | perl -pe '/warn|erro|crit/'
 #swinfo lvdisplay lanscan ioscan
 #ps -ef | perl -ne 'END { print $. }'
 #userdbset -d -u initial auth_failure
+
+#machinfo | perl -pe '/proc/i'
+#ps -ef | perl -ne 'END { print $. }'

@@ -29,3 +29,33 @@ errpt
 #prtconf -m
 #oslevel -r
 #oslevel -s
+
+# svmon -G | grep ^memory | awk '{ print ($4+$6)*100/$2 }'
+# svmon -G | grep ^pg | awk '{ print $4*100/$2 }'
+
+# svmon -O summary=basic,unit=auto
+# df -Pg | sort -k5n | tail -2
+
+# bindprocessor -q
+# lsdev -Cc processsor
+# lsdev -Cc disk
+# lsdev -Cc if
+# lsdev -Cc adapter
+
+# resize?
+# uname -amMI
+# uname -L
+# ifconfig -l
+# lscfg -v
+
+# df -k
+# du -sk *
+# sar 1 5
+# sar -P ALL 1 5
+# vmstat 1 5
+# sar -q 1 5
+# ps aux
+# svmon -G
+# iostat
+# netstat -v?
+# netstat -m
