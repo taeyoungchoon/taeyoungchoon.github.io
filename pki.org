@@ -5,3 +5,18 @@
 * RA, Registration Authority
 
 - ex. 은행, 증권사
+
+* Application such vestsign and ksigncase
+
+- 공인인증서를 사용 가능하게 하는 모듈 상당수를 보안업체가 개발하는데
+- 공인인증서를 이용한 사용자 전자서명, 인증을 위한 솔루션입니다.
+- 웹 표준 기술을 이용하여 개발되어 Non-ActiveX를 지원합니다.
+- KISA "웹 표준 기반 공인인증 서비스 도입 및 구현 기술안내서" 준용
+- 인증서 유효성 검증을 위한 CRL, OCSP 모듈 제공
+- 신원 확인을 위한 VID, UCPID 생성 및 검증 기능
+
+** links
+
+- http://www.yettiesoft.com
+- http://www.ksign.com
+
