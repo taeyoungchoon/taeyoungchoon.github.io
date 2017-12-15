@@ -1,0 +1,45 @@
+* Core/Thread/Socket, C8T4S1=L32
+
+* if lscpu
+
+- Thread(s) per Core
+- Core(s) per Socket
+- CPU Socket(s)
+
+* if lscpu then example
+
+| word               | count |
+|--------------------+-------|
+| Thread(s) per Core |     4 |
+| Core(s) per Socket |     1 |
+| CPU Socket(s)      |    16 | 
+
+* cli
+
+** S, to know about phyiscal cpu count
+
+- prtconf | grep "Number Of Processors"
+- lsdev -Cc processor
+- pmcycles
+
+** L, to know about logical cpu count
+
+- bindprocessor -q
+- lparstat then lcpu
+
+** T, to know about thread
+
+- lsattr -El proc0 | grep smt_threads
+- smtctl
+
+* cli, not yet
+
+- lscfg -vp | grep proc
+- lsattr -El proc0
+- mpstat
+- sar 1 1
+- lsattr -El sys0 -a modelname
+- lparstat -i|grep ^Active\ Phys
+- lscfg -vp|grep WAY
+- lscfg -vp|grep proc
+

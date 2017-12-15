@@ -36,6 +36,7 @@ errpt
 # svmon -O summary=basic,unit=auto
 # df -Pg | sort -k5n | tail -2
 
+# smtctl
 # bindprocessor -q
 # lsdev -Cc processsor
 # lsdev -Cc disk
@@ -59,3 +60,4 @@ errpt
 # iostat
 # netstat -v?
 # netstat -m
+
