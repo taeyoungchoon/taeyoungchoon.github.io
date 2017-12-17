@@ -1,0 +1,6 @@
+* steps
+
+1. screen
+2. emacs
+3. C-a d
+4. screen -r
