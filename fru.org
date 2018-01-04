@@ -1,2 +1,0 @@
-* Field Replacement Unit (FRU)
-

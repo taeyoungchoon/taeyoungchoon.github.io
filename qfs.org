@@ -1,2 +1,0 @@
-* related to samfs 
-* looks like gfs

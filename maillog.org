@@ -1,3 +1,0 @@
-* /var/log/maillog
-
-- linux only
