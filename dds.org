@@ -1,6 +1,0 @@
-* dds, data distribution service
-
-http://stonycho.blog.me/50091546579
-https://en.wikipedia.org/wiki/Data_Distribution_Service
-
-- 실시간 데이타 분배 미들웨어
