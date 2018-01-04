@@ -1,3 +1,0 @@
-* ibm
-
-- then 3DES

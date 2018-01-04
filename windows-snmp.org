@@ -1,1 +1,0 @@
-* or using snmp informant?
