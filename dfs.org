@@ -1,0 +1,24 @@
+* fs then
+
+#+BEGIN_SRC emacs-lisp
+'(fs dfs lfs das san nas)
+#+END_SRC
+
+#+RESULTS:
+| fs | dfs | lfs | das | san | nas |
+
+* fs는 f를 관리하는 s다 system이다
+* dfs는 distributed 되고
+* lfs는 fs다
+* das는 뭐 scsi를 바로 붙인다고 봐야 하나
+* san는 광케이블로 아니 거대한 네트워크가 될 수 도 있는 하지만 작은게 좋다
+* nas라 이거다, iscsi도? dfs도? nfs, samba 뭐 이런 것도?
+* then
+
+#+BEGIN_SRC emacs-lisp
+'(fs lfs (dfs :aka nas)) ;; no das and no san
+#+END_SRC
+
+#+RESULTS:
+| fs | lfs | (dfs :aka nas) |
+
