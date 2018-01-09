@@ -1,0 +1,14 @@
+* list, lisp, list processing
+* h
+
+#+BEGIN_SRC emacs-lisp
+
+  '(human (body
+           (mind logos heart)
+           soul))
+
+#+END_SRC
+
+#+RESULTS:
+| human | (body (mind logos heart) soul) |
+

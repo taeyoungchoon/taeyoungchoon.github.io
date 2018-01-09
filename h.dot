@@ -1,0 +1,17 @@
+//
+// graphviz-dot-mode
+//
+// M-x compile
+// C-c p
+//
+
+digraph human {
+
+user -> internet -> webServer -> applicationServer -> databaseServer;
+human -> body -> t;
+human -> mind;
+mind -> logos;
+mind -> heart;
+human -> soul -> nil;
+
+}
