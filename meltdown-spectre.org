@@ -1,0 +1,77 @@
+* cpu bug
+
+알게 되기까지 오랜 시간이 걸렸다
+다른 말로 이미 충분히 사용되었다는 말이다
+또 다른 이는 없을까 openssl처럼 말이다
+
+* bypass
+
+cpu는 운영체제에서 사용한다 
+운영체제에서 조절이 가능하다, 윈도우즈 업데이트, operating system patch
+cpu에 직접 비활성하는 작업도 가능하다. firmware update, microcode로 기능 비활성화
+메인보드에서는 할 수 없을까
+
+* effect
+
+잘 쓰고 있었던 또는 많이 사용하던 프로그램은 영향을 받는다. 최대 30%까지
+때론 멈춘다, amd
+패치라고 하자 패치를 제공해 주는 경우와 제공하지 않는 경우가 있을 수 있다
+vs antivirus > BSOD
+
+* list of all, ibm
+
+ibm power7+, 8, 9 firmware patch > January 9
+ibm linux operating system patch > January 9
+ibm AIX > February 12
+
+This vulerability doesn't allow an external unauthorized party to gain access to a machine, 
+but it cound allow a party that has access to the system to access unauthorized data.
+
+dig deep, google project zero blog
+
+* list of all, windows
+
+windows server 2016, 2012 R2, 2008 R2 > avaiable now
+windows server 2012, 2008 > not avaiable? have to update to R2!
+what about windows server legend such 2003
+그리고 네트워크가 안되다면 오프라인 업데이트인가?
+리부팅은 필수?
+이거 해야 하나?
+
+* list of all, linux not appliance
+
+- redhat 5, 6, 7 > 7.4, 6.9, 5.11 / August 1, 2017
+- Extended Life-cycle Support (ELS)
+
+Patches for CentOS 7 were released and pushed to the mirror network at around 11:00 UTC today.
+Patches for CentOS 6 were released and pushed to the mirror network at around 21:00 UTC today.
+CentOS 5 died in March 2017 - migrate NOW!
+
+* microcode update from linux
+
+https://www.pcsuggest.com/update-cpu-microcode-in-linux/
+https://www.cyberciti.biz/faq/patch-meltdown-cpu-vulnerability-cve-2017-5754-linux/
+
+- OpenSuse Linux based upon SUSE 12/11
+https://www.suse.com/security/cve/CVE-2017-5753/
+
+SUSE Linux Enterprise server 11 SP3, kernel: 3.0.101-0.47.71-default
+~2019-03-31, General Ends
+
+* linux dig, check the status of mitigation
+
+https://access.redhat.com/articles/3311301
+
+    # echo 0 > /sys/kernel/debug/x86/pti_enabled
+    # echo 0 > /sys/kernel/debug/x86/ibpb_enabled
+    # echo 0 > /sys/kernel/debug/x86/ibrs_enabled
+
+  mount -t debugfs nodev /sys/kernel/debug
+
+https://www.cyberciti.biz/faq/check-linux-server-for-spectre-meltdown-vulnerability/
+wget https://raw.githubusercontent.com/speed47/spectre-meltdown-checker/master/spectre-meltdown-checker.sh
+
+* scan using tenable 
+
+https://www.tenable.com/blog/the-first-major-security-logos-of-2018-spectre-and-meltdown-vulnerabilities
+
