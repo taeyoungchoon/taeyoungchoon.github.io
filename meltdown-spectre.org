@@ -77,3 +77,21 @@
 
 - https://www.tenable.com/blog/the-first-major-security-logos-of-2018-spectre-and-meltdown-vulnerabilities
 
+* list of all, mac os x
+
+https://support.apple.com/en-us/HT201222
+Apple security updates
+
+https://support.apple.com/en-us/HT208397
+macOS High Sierra 10.13.2 Supplemental Update
+Released January 8, 2018
+
+Description: macOS High Sierra 10.13.2 Supplemental Update includes security improvements to Safari and WebKit to mitigate the effects of Spectre (CVE-2017-5753 and CVE-2017-5715).
+
+https://support.apple.com/en-us/HT208403
+About the security content of Safari 11.0.2
+Released January 8, 2018
+
+Available for: OS X El Capitan 10.11.6 and macOS Sierra 10.12.6
+Description: Safari 11.0.2 includes security improvements to mitigate the effects of Spectre (CVE-2017-5753 and CVE-2017-5715).
+
