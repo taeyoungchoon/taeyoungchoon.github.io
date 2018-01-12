@@ -72,3 +72,9 @@ http://akjahid.blogspot.com/2016/02/rhce-exam-preparation-version-7.html
 - grep pattern word > pattern.lst
 
 
+* as time goes by, rhcsa 300
+
+300이라 어쨌거나 통과하였다 하여 rhcsa라고 부를 수 있다
+또 다른 시험을 어떠한 과정을 통해서 신청해야 한다 그 전에 준비를 해야 하고 신청 후에도 준비를 해야 하고 이후에 시험을 봐야 한다
+참 재미진 시험인데 
+
