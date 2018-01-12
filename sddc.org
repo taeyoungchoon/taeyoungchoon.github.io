@@ -1,0 +1,14 @@
+* dc or sddc
+
+#+BEGIN_SRC emacs-lisp
+(dc hard) ;; common
+(dc soft) ;; 2018 but not yet
+#+END_SRC
+
+* word about
+
+| stack | desc                            |
+|-------+---------------------------------|
+| sdn   | network                         |
+| sdc   | compute, computer, server, node |
+| sds   | storage, disk/disc, repository  |

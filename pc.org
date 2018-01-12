@@ -1,7 +1,3 @@
-* note
-
-32비트
-
 * windows general
 
 - diskmgmt.msc
