@@ -65,6 +65,23 @@ Released January 8, 2018
 Available for: OS X El Capitan 10.11.6 and macOS Sierra 10.12.6
 Description: Safari 11.0.2 includes security improvements to mitigate the effects of Spectre (CVE-2017-5753 and CVE-2017-5715).
 
+* list of all but cisco ucs
+
+- https://tools.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-20180104-cpusidechannel
+
+- https://quickview.cloudapps.cisco.com/quickview/bug/CSCvg97965 , C-Series M3
+- https://quickview.cloudapps.cisco.com/quickview/bug/CSCvg97979 , C-Series M4
+- https://quickview.cloudapps.cisco.com/quickview/bug/CSCvg98015 , C460 M4
+
+
+Known Affected Releases
+2.2(0.6)B
+
+이게 무슨 말인지? 사실 유지보수 안쪽에 있는 모든 firmware 버전에 대해서 제공하는 것도 힘들기는 할 것이다.
+그냥 안정버전에 대해서만 내놓는 것도 좋을 것 같은데 말이다.
+
+ucs server에서 사용 중인 cpu의 microcode는 또 어떻게 올리나?
+
 * microcode update from linux
 
 - https://www.pcsuggest.com/update-cpu-microcode-in-linux/
@@ -96,5 +113,8 @@ Description: Safari 11.0.2 includes security improvements to mitigate the effect
 - https://www.tenable.com/blog/the-first-major-security-logos-of-2018-spectre-and-meltdown-vulnerabilities
 
 * simply mad
+* cve
 
-
+CVE-2017-5715 - Branch Target Injection Side-Channel Information Disclosure Vulnerability (aka Spectre) > surfer
+CVE-2017-5753 - Bounds Check Bypass Side-Channel Information Disclosure Vulnerability (aka Spectre) > surfer
+CVE-2017-5754 - Rogue Data Cache Load Side-Channel Information Disclosure Vulnerability (aka Meltdown) > vm

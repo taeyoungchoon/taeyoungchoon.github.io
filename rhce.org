@@ -8,11 +8,15 @@
 
 * hot link
 
-http://akjahid.blogspot.com/2016/02/rhce-exam-preparation-version-7.html
+- http://akjahid.blogspot.com/2016/02/rhce-exam-preparation-version-7.html
 
 * redhat rhce, 2017-12-?
 
-- [ ] 이제 시험신청이 필요하다.
+- [ ] 이제 시험신청이 필요하다. 2018년 2월 23일이라
+  https://www.redhat.com/ko/services/training/ex300-red-hat-certified-engineer-rhce-exam
+  https://training-lms.redhat.com/lmt/clmscatalogsummary.prmain?in_sessionid=&in_portid=1&in_language_logged_out=ko&in_courseName=EX300&in_courseType=EX&in_region=kr&sc_cid=7016000000126ybAAA
+- [ ] money at
+  http://www.flane.co.kr/
 
 * steps, 금일 시험 수행 절차
 
@@ -70,7 +74,6 @@ http://akjahid.blogspot.com/2016/02/rhce-exam-preparation-version-7.html
 - find / -user jack -exec cp {} ~/d2 \;
 - tar cvfzj foo.tar.bz2 foo
 - grep pattern word > pattern.lst
-
 
 * as time goes by, rhcsa 300
 
