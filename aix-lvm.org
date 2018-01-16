@@ -55,3 +55,9 @@ smit fs
 smit jfs2
 #+END_SRC
 
+* moving mounts
+
+#+BEGIN_SRC 
+chfs -m /new /old
+#+END_SRC
+
