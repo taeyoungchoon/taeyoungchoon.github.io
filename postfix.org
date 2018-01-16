@@ -1,0 +1,73 @@
+* tree but pstree
+
+#+BEGIN_SRC 
+
+        |-master-+-pickup
+        |        `-qmgr
+
+#+END_SRC
+
+* status
+
+#+BEGIN_SRC 
+
+# systemctl status postfix
+● postfix.service - Postfix Mail Transport Agent
+   Loaded: loaded (/usr/lib/systemd/system/postfix.service; enabled; vendor preset: disabled)
+   Active: active (running) since Tue 2018-01-16 09:23:26 KST; 7h ago
+  Process: 1209 ExecStart=/usr/sbin/postfix start (code=exited, status=0/SUCCESS)
+  Process: 1200 ExecStartPre=/usr/libexec/postfix/chroot-update (code=exited, status=0/SUCCESS)
+  Process: 1108 ExecStartPre=/usr/libexec/postfix/aliasesdb (code=exited, status=0/SUCCESS)
+ Main PID: 1365 (master)
+   CGroup: /system.slice/postfix.service
+           ├─ 1365 /usr/libexec/postfix/master -w
+           ├─ 1379 qmgr -l -t unix -u
+           └─22450 pickup -l -t unix -u
+
+Jan 16 09:23:20 c7_1 systemd[1]: Starting Postfix Mail Transport Agent...
+Jan 16 09:23:25 c7_1 postfix/postfix-script[1362]: starting the Postfix mail system
+Jan 16 09:23:26 c7_1 postfix/master[1365]: daemon started -- version 2.10.1, configuration /etc/postfix
+Jan 16 09:23:26 c7_1 systemd[1]: Started Postfix Mail Transport Agent.
+#
+
+#+END_SRC
+
+* Postfix on a null client
+
+- http://www.postfix.org/STANDARD_CONFIGURATION_README.html#null_client
+- A null client is a machine that can only send mail.
+- It receives no mail from the network, and it does not deliver any mail locally.
+- A null client typically uses POP, IMAP or NFS for mailbox access. 
+
+#+BEGIN_SRC 
+1 /etc/postfix/main.cf:
+2     myhostname = hostname.example.com
+3     myorigin = $mydomain
+4     relayhost = $mydomain
+5     inet_interfaces = loopback-only
+6     mydestination =
+#+END_SRC
+
+* Postfix on a null client, ex300, postconf cmd then to /etc/postfix/main.conf
+
+#+BEGIN_SRC 
+postconf -e "inet_interfaces=loopback-only"
+postconf -e "mynetworks=127.0.0.1/8 [::1]/128"
+postconf -e "mydestination="
+postconf -e "relayhost=[smtp.foo.com]"
+postconf -e "myorigin=foo.com"
+#+END_SRC
+
+* restart
+
+systemctl restart postfix
+
+* my
+
+#+BEGIN_SRC 
+postconf -e "inet_interfaces=loopback-only"
+postconf -e "mynetworks=127.0.0.0/8 [::1]/128"
+postconf -e "mydestination="
+postconf -e "relayhost=[station.network0.example.com]
+postconf -e "myorigin=example.com"
+#+END_SRC
