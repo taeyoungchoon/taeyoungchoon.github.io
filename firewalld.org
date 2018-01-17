@@ -1,14 +1,41 @@
+* pre cli
+
+#+BEGIN_SRC 
+systemctl list-unit-files | grep tables
+systemctl mask iptables
+systemctl mask ip6tables
+systemctl mask ebtables
+systemctl list-unit-files | grep tables
+#+END_SRC
+
 * cli
 
+#+BEGIN_SRC 
 firewall-cmd --help
-firewall-cmd --list-all
-firewall-cmd --list-service
-firewall-cmd --add-service=http
-firewall-cmd --get-default-zone
 firewall-cmd --state
+firewall-cmd --get-zones
+firewall-cmd --list-all
+firewall-cmd --list-services
+firewall-cmd --list-ports
+firewall-cmd --list-rich-rules
+firewall-cmd --permanent --add-service=http
+firewall-cmd --permanent --add-service=https
+firewall-cmd --permanent --add-service=mysql
+firewall-cmd --permanent --add-service=nfs
+firewall-cmd --permanent --add-service=samba
+firewall-cmd --permanent --add-service=kerberos
+firewall-cmd --permanent --add-port=3260/tcp
+firewall-cmd --permanent --add-rich-rule='rule family=ipv4 source address=175.126.34.0 forward-port port=2222 protocol=tcp to-port=22'
+firewall-cmd --get-default-zone
+firewall-cmd --get-active-zones
+firewall-cmd --permanent --add-source=175.126.33.0/24 --zone=block
 firewall-cmd --reload
 firewall-cmd --runtime-to-permanent
+#+END_SRC
 
-* iptables
+* debug using iptables
 
+#+BEGIN_SRC 
 iptables -nL
+iptables -S
+#+END_SRC

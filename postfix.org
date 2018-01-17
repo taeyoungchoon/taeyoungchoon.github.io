@@ -7,30 +7,16 @@
 
 #+END_SRC
 
-* status
+* cli
 
-#+BEGIN_SRC 
-
-# systemctl status postfix
-● postfix.service - Postfix Mail Transport Agent
-   Loaded: loaded (/usr/lib/systemd/system/postfix.service; enabled; vendor preset: disabled)
-   Active: active (running) since Tue 2018-01-16 09:23:26 KST; 7h ago
-  Process: 1209 ExecStart=/usr/sbin/postfix start (code=exited, status=0/SUCCESS)
-  Process: 1200 ExecStartPre=/usr/libexec/postfix/chroot-update (code=exited, status=0/SUCCESS)
-  Process: 1108 ExecStartPre=/usr/libexec/postfix/aliasesdb (code=exited, status=0/SUCCESS)
- Main PID: 1365 (master)
-   CGroup: /system.slice/postfix.service
-           ├─ 1365 /usr/libexec/postfix/master -w
-           ├─ 1379 qmgr -l -t unix -u
-           └─22450 pickup -l -t unix -u
-
-Jan 16 09:23:20 c7_1 systemd[1]: Starting Postfix Mail Transport Agent...
-Jan 16 09:23:25 c7_1 postfix/postfix-script[1362]: starting the Postfix mail system
-Jan 16 09:23:26 c7_1 postfix/master[1365]: daemon started -- version 2.10.1, configuration /etc/postfix
-Jan 16 09:23:26 c7_1 systemd[1]: Started Postfix Mail Transport Agent.
-#
-
-#+END_SRC
+| cmd                          | des                  |
+|------------------------------+----------------------|
+| postconf -d                  | print default config |
+| postconf -e "mydestination=" | edit config          |
+| systemctl restart postfix    |                      |
+| postqueue -p                 | mailq                |
+| postfix flush                | force delivery       |
+| postsuper -d ALL             | delete               |
 
 * Postfix on a null client
 
@@ -57,17 +43,31 @@ postconf -e "mydestination="
 postconf -e "relayhost=[smtp.foo.com]"
 postconf -e "myorigin=foo.com"
 #+END_SRC
-
-* restart
-
-systemctl restart postfix
-
+  
 * my
 
 #+BEGIN_SRC 
 postconf -e "inet_interfaces=loopback-only"
 postconf -e "mynetworks=127.0.0.0/8 [::1]/128"
 postconf -e "mydestination="
-postconf -e "relayhost=[station.network0.example.com]
 postconf -e "myorigin=example.com"
+postconf -e "relayhost=[station.network0.example.com]
+#+END_SRC
+
+* so diff to see what happened
+
+#+BEGIN_SRC 
+# diff main.cf.rpmsave main.cf
+116c116
+< inet_interfaces = loopback-only
+---
+> inet_interfaces = localhost
+164c164
+< mydestination =
+---
+> mydestination = $myhostname, localhost.$mydomain, localhost
+680,682d679
+< relayhost = [smtp.t0spring.net]
+< myorigin = t0spring.net
+< mynetworks = 127.0.0.0/8 [::1]/128
 #+END_SRC
