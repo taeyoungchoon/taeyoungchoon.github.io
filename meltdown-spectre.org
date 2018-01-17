@@ -20,9 +20,12 @@
 
 * list of all, ibm
 
-- ibm power7+, 8, 9 firmware patch > January 9
-- ibm linux operating system patch > January 9
-- ibm AIX > February 12
+https://www.ibm.com/blogs/psirt/potential-impact-processors-power-family/
+
+- ibm power7+, 8, 9 firmware patch > January 9 > now
+- [ ] ibm power7 firmware patch > February 7, yet
+- [ ] ibm AIX > February 12, yet
+- ibm linux operating system patch > January 9 > Red Hat, SUSE and Canonical
 
 - This vulerability doesn't allow an external unauthorized party to gain access to a machine, 
 - but it cound allow a party that has access to the system to access unauthorized data.

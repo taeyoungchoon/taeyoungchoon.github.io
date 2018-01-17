@@ -61,3 +61,17 @@ smit jfs2
 chfs -m /new /old
 #+END_SRC
 
+* attach storage
+
+- [2018-01-11 목] 인천캠퍼스 전산실 p2 스토리지 공간 정리 완료
+
+bootinfo -s 
+
+cfgmgr
+lsdev -Cc disk
+
+lsvg -l datavg
+df -g
+smitty lv
+smitty jfs2
+mount
