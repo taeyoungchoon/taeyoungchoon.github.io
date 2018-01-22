@@ -7,10 +7,13 @@
 
 digraph human {
 
-user -> internet -> webServer -> applicationServer -> databaseServer;
 human -> body -> t;
 human -> mind;
 mind -> logos;
 mind -> heart;
 human -> soul -> nil;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6b73d37aa7a67712e757f277cb8b782f58ffc625
 }
