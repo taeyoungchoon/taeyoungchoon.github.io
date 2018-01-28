@@ -9,6 +9,16 @@
 
 * calc or spreadsheet
 
+#+BEGIN_SRC 
+(setq org-html-table-default-attributes
+      '(:border "2" :cellspacing "0" :cellpadding "6" :rules "all" :frame "border"))
+;;      '(:border "2" :cellspacing "0" :cellpadding "6" :rules "none" :frame "none"))
+#+END_SRC
+
+#+BEGIN_SRC 
+#+ATTR_HTML: :border 2 :rules all :frame border
+#+END_SRC
+
 | x | y | z | sum using vsum |
 |---+---+---+----------------|
 | 1 | 1 | 1 |              3 |
