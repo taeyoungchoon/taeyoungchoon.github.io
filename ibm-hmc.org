@@ -48,3 +48,8 @@
 ** about hmc v8
 
 - for POWER6, POWER7 and POWER8
+* power off
+* cli, hmcshutdown, hscroot
+
+- hmcshutdown -t now
+- hmcshutdown -t now -r ;; reboot

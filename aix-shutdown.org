@@ -1,0 +1,13 @@
+* cli
+
+shutdown -v
+shutdown -v +0
+shutdown -F
+
+* after, power off
+
+https://www.ibm.com/support/knowledgecenter/en/SSH2TE_1.1.0/com.ibm.7700.r2.user.doc/doc/t00000309.html
+
+* power on
+
+* then boot how
