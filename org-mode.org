@@ -1,5 +1,14 @@
 #+TITLE: about emacs org-mode softly
 
+* font
+
+#+BEGIN_SRC 
+(face-attribute 'default :font)
+(set-frame-font "나눔고딕코딩-14:normal" t t)
+C-x C-=
+C-x C--
+#+END_SRC
+
 * read words about it
   - http://orgmode.org/worg/org-quotes.html
 
