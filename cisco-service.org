@@ -1,0 +1,38 @@
+* cisco product handling by cisco tac
+
+1. show tech, screenshot
+2. CASEOPEN mail
+3. Case # x has been successfully created
+4. mail from Cisco Korea TAC
+   - Any changes in the network at that time (H/W, S/W)?
+   - Problem Description in detail  (Korean would be OK!)
+   - Business impact this issue has on your operations?
+   - Any other error messages or indications that this is a problem? (CIMC or other)
+
+   To replace the Hardware with an RMA I will need the following pieces of information:
+
+   - Company name
+   - Full shipping address (in english)
+   - Town/City
+   - Point of contact (Person, Number, Email)
+   - Post Code
+
+5. mail to Cisco Korea TAC about details and urgency
+
+* RMA, receive
+
+1. 주문 확인 - RMA#
+2. 배송 확인 - RMA#
+3. 주문 배송 - RMA#
+
+* RMA, send
+
+1. (opt) Cisco 어카운트 생성
+2. arrange a pickkup using POWR Tool (Product Online Web Returns Tool)
+3. packaging
+4. attach RMA number sticker
+5. attach shipping label
+
+** 참고
+
+lg nsys tac을 통하는 경우는 최초 case open을 lg nsys tac에서 진행한다.

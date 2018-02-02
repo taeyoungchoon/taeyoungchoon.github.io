@@ -13,43 +13,32 @@
 - interlock
 - system event log
 
-* raid
+* raid > hpacucli, ACU(Array Configuration Utility)
 
-** hpacucli
+- ctrl all show config
+- ctrl all show status
 
-ctrl all show config
-ctrl all show status
-controller all show status
+* log
 
-#+BEGIN_EXAMPLE
+- ILO(Integrated Lights-Out)
+- IML(Integrated Management Log)
+- AHS(Active Health System)
 
+* iLO, Integrated Lights-Out)
 
-=> controller all show config
+- lights out management(LOM), out-of-band management
+- Dell DRAC
+- Sun/Oracle's LOM port
+- IBM Remote Supervisor Adapter
+- Cisco CIMC
+- Intelligent Platform Management Interface (a server out-of-band management standard protocol)
+- Intel Active Management Technology (Intel's out-of-band management technology)
+- Management Component Transport Protocol (MCTP, a low-level protocol used for controlling hardware components)
 
-Smart Array P400 in Slot 1                (sn: XXXX)
+* term > Systems Insight Display (SID)
 
-   array A (SAS, Unused Space: 0 MB)
+- Open the SID display to see if any other components are bad.
+- https://support.hpe.com/hpsc/doc/public/display?docId=mmr_kc-0109933
+  If there is no information in IML logs, then check the SID. If the hot-plug fan LED is red then it is possible that either two or more fans are removed or have failed. The respective fan LEDs on the SID helps in identifying the fan having the issue. When two fans have failed, the server is shutdown to avoid damage due to over temperature.
 
-
-      logicaldrive 1 (50.0 GB, RAID 1, OK)
-      logicaldrive 2 (86.7 GB, RAID 1, Recovering, 25% complete)
-
-      physicaldrive 2I:1:1 (port 2I:box 1:bay 1, SAS, 146 GB, Rebuilding)
-      physicaldrive 2I:1:2 (port 2I:box 1:bay 2, SAS, 146 GB, OK)
-
-=> controller all show config
-
-Smart Array P400 in Slot 1                (sn: XXXX)
-
-   array A (SAS, Unused Space: 0 MB)
-
-
-      logicaldrive 1 (50.0 GB, RAID 1, OK)
-      logicaldrive 2 (86.7 GB, RAID 1, OK)
-
-      physicaldrive 2I:1:1 (port 2I:box 1:bay 1, SAS, 146 GB, OK)
-      physicaldrive 2I:1:2 (port 2I:box 1:bay 2, SAS, 146 GB, OK)
-
-#+END_EXAMPLE
-
-
+* case 1, Hot-Plug Fan Module failure
