@@ -1,14 +1,22 @@
 * list, lisp, list processing
 * h
 
+- 인간의 감정은 생각에 따른 것인가, 호르몬은 무슨 역할을 하는가? 조합형인가? 언제나처럼 말이다. 뭐 하나 단순한 것 없다는 말이다.
+- 영혼의 존재를 빼면 너무 적적하지 않은가? 너무 감성적인가? 
+- 여타 동물과의 차이는 때론 보다 진보한 사고와 감정 체계를 가진 이가 본다면 우리는 또 어떠한 처우를 받게 될까? 여타의 동물로인가? 간츠
+
 #+BEGIN_SRC emacs-lisp
 
   '(human (body
            (mind logos heart)
            soul))
 
+  '(human (body
+           think
+           soul))
+   
 #+END_SRC
 
 #+RESULTS:
-| human | (body (mind logos heart) soul) |
+| human | (body think soul) |
 

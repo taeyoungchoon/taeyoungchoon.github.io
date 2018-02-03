@@ -9,3 +9,5 @@ http://macappstore.org/clisp/
   260  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null 2> /dev/null
   261  brew -v install clisp
   262  clisp
+
+* then on emacs

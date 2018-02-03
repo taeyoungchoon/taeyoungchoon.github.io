@@ -1,5 +1,5 @@
 * or using quicklisp and help
-
+  
 * links
 
 http://www.common-lisp.net/project/slime/
@@ -46,7 +46,6 @@ C-c C-k : eval buffer
 
 
 #+END_SRC
-
 
 ** windows
 
