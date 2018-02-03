@@ -42,3 +42,8 @@
   If there is no information in IML logs, then check the SID. If the hot-plug fan LED is red then it is possible that either two or more fans are removed or have failed. The respective fan LEDs on the SID helps in identifying the fan having the issue. When two fans have failed, the server is shutdown to avoid damage due to over temperature.
 
 * case 1, Hot-Plug Fan Module failure
+
+1. [[file:hp-service.org][hp service]]의 지원을 받는다
+2. 일정 잡고 대기 중 입니다.
+
+* HP 케어팩 서비스

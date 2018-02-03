@@ -2,11 +2,29 @@
 
 * font
 
+** win
+
+여런 emacs 사용자들의 글에서 가져왔다. 어느 분인지 기억하지 못하지만 코드는 남는다.
+
 #+BEGIN_SRC 
 (face-attribute 'default :font)
 (set-frame-font "나눔고딕코딩-14:normal" t t)
 C-x C-=
 C-x C--
+#+END_SRC
+
+** mac os x
+
+#+BEGIN_SRC 
+(when (eq system-type 'darwin)
+  (set-face-attribute 'default nil :family "Monaco")
+  (set-face-attribute 'default nil :height 130)
+  (set-fontset-font t 'hangul (font-spec :name "NanumGothicCoding"))
+  )
+
+(setq face-font-rescale-alist
+      '((".*hiragino.*" . 1.2)
+        ("NanumGothic" . 1.2307692307692308)))
 #+END_SRC
 
 * read words about it
