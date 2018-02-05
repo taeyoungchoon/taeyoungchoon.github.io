@@ -11,3 +11,7 @@
 
 (global-set-key (kbd "<f8>") 'dictionary-lookup-definition)
 
+* pre
+
+1. package-install
+2. dictionary
