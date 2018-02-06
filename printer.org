@@ -7,9 +7,16 @@
 - CLT-M403S
 - CLT-Y403S
 
-* history
+** history
 
 - [2016-05-10 Tue] purchasing SL-C436 (186,620) from gmarket
 - [2016-05-21 Sat] purchasing CLT-K403S (36,880) from gmarket
 - [2017-03-31 Fri] purchasing CLT-K403S (32,840) from gmarket
-- [2017-10-31 ȭ] try samsung A/S but fail to simulate the situation
+- [2017-10-31 화] try samsung A/S but fail to simulate the situation
+
+* cannon using ftp
+
+- http://www.canon-bs.co.kr/cs/download.aspx
+- IR ADV C5940KB
+- [복합기 전용] CKBS FTP Server Utility Ver 2.7
+
