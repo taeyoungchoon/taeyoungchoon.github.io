@@ -1,0 +1,5 @@
+* default, wombat
+
+1. M-x load-theme
+2. Load custom theme: wombat
+

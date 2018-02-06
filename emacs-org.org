@@ -1,4 +1,3 @@
-* org-mode
 * org-mode with artist, so text
 
 #+BEGIN_SRC emacs-lisp
@@ -16,23 +15,9 @@
 
 #+END_SRC
 
-* org-mode with code
-
-- emacs-lisp
-- lisp
-
-- sql
-- dot
-- R
-- java
-- js
-
-- sh
-- perl
-- ruby
-- python
-
-* org-mode with emacs-lisp
+* TODO [2/3] org-mode with code
+** DONE emacs-lisp
+   CLOSED: [2018-02-06 화 11:50]
 
 - C-'
 - C-c C-c
@@ -40,39 +25,56 @@
 
 #+BEGIN_SRC emacs-lisp
 
-  (cons t nil)
+  (cons t (cons t nil))
 
 #+END_SRC
 
 #+RESULTS:
-| t |
+| t | t |
 
-* org-mode with perl then dot
+** TODO perl
 
 - no org-babel-execute function for perl!
 
 #+BEGIN_SRC perl
-
-  print "hi";
-
+  print "hello, world";
 #+END_SRC
 
-* template
+#+RESULTS:
+: 1
 
-#+BEGIN_SRC sh
-#+END_SRC 
+** DONE dot
+   CLOSED: [2018-02-06 화 12:09]
 
-* timestamp
+- C-c C-x C-v
+- M-x org-display-inline-images
+
+#+BEGIN_SRC dot :file dot_success.png :cmd_line -Kdot -Tpng
+digraph human {
+
+human -> body -> t;
+human -> mind;
+mind -> logos;
+mind -> heart;
+human -> soul -> nil;
+}
+#+END_SRC
+
+#+RESULTS:
+[[file:dot_success.png]]
+
+* TODO timestamp, in english, 금 > Fri
 
 | typing    | seen                   | prefer | desc                        |
 |-----------+------------------------+--------+-----------------------------|
-| C-c .     | <2014-10-17 금>        |        | insert date and time format |
+| C-c .     | <2014-10-17 금>      |        | insert date and time format |
 | C-c !     | [2014-10-17 금]       |        | make stamp inactive (?)     |
 | C-u C-c ! | [2014-09-28 Sun 20:43] | V      |                             |
 
 * reference card
 
 http://orgmode.org/orgcard.pdf
+
 * table
 
 ** convert the active region to a table
@@ -84,5 +86,7 @@ C-c |
 broken table layout
 
 ** remove column
+
+
 
 
