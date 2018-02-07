@@ -17,7 +17,7 @@
 
 * TODO [2/3] org-mode with code
 ** DONE emacs-lisp
-   CLOSED: [2018-02-06 화 11:50]
+   CLOSED: [2018-02-06 Tue 11:50]
 
 - C-'
 - C-c C-c
@@ -44,7 +44,7 @@
 : 1
 
 ** DONE dot
-   CLOSED: [2018-02-06 화 12:09]
+   CLOSED: [2018-02-06 Tue 12:09]
 
 - C-c C-x C-v
 - M-x org-display-inline-images
@@ -67,8 +67,8 @@ human -> soul -> nil;
 
 | typing    | seen                   | prefer | desc                        |
 |-----------+------------------------+--------+-----------------------------|
-| C-c .     | <2014-10-17 금>      |        | insert date and time format |
-| C-c !     | [2014-10-17 금]       |        | make stamp inactive (?)     |
+| C-c .     | <2014-10-17 Fri>       |        | insert date and time format |
+| C-c !     | [2014-10-17 Fri]       |        | make stamp inactive (?)     |
 | C-u C-c ! | [2014-09-28 Sun 20:43] | V      |                             |
 
 * reference card
@@ -86,7 +86,3 @@ C-c |
 broken table layout
 
 ** remove column
-
-
-
-
