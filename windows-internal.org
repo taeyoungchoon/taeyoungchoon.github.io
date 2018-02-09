@@ -1,0 +1,5 @@
+* process, antimalware service executable
+* boot
+* cpu
+* memory
+* disk even lvm
