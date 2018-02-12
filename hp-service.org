@@ -2,7 +2,7 @@
 
 1. [ ] product model
 2. [ ] product serial
-3. call : 1577-3270 (HP 고객 지원, 9-to-6)
+3. call : 1577-3270 (HP 고객 지원, 9-to-6, 9-to-1 sat)
 4. [ ] 추후 진행 확인을 위해 Case Number 확보
 5. 기술 지원 가능 여부 확인, 엔지니어 섭외 등 진행
 
