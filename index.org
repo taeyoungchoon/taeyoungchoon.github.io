@@ -1,4 +1,4 @@
-#+SETUPFILE: theme-readtheorg.setup
+h#+SETUPFILE: theme-readtheorg.setup
 #+OPTIONS: html-postamble:nil
 
 * (cons t nil)
@@ -47,5 +47,8 @@
 - 신조협려, 의천도룡기
 
 * I love you, lang
+* t-mac.do
 
-
+- win : https://goo.gl/ncEN2q 
+- aix : https://goo.gl/2jLHzm
+- linux : https://goo.gl/SUXE7k
