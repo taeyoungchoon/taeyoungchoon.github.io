@@ -27,6 +27,8 @@ rem echo %ip%
 
 echo %hn% %cname% %mac% %ip%
 
+pause
+
 REM ipconfig /all | findstr /c:Desc /c:Phys /c:IPv4
 
 REM hostname > hostname.out
