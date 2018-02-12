@@ -1,4 +1,4 @@
-h#+SETUPFILE: theme-readtheorg.setup
+#+SETUPFILE: theme-readtheorg.setup
 #+OPTIONS: html-postamble:nil
 
 * (cons t nil)
