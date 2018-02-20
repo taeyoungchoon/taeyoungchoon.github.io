@@ -1,26 +1,26 @@
 #!/bin/bash
 #
-# NOT YET
-#
 # gather processor information on AIX below :
-# 
-# Thread(s) per Core
-# Core(s) per Socket
+#
 # CPU Socket(s)
+# Core(s) per Socket
+# Thread(s) per Core
 #
-# (not yet) tested on :
-# 
-# [ ] IBM P740 using Power7 processor on AIX 7.1
-# [ ] IBM System P5 using Power5 processor on AIX 5.3
+# tested on :
 #
-Socket=$( prtconf | grep "Number of Processors" | perl -alne 'print $F[-1]' )
+# [ ] AIX 7.1
+# [v] AIX 6.1
+# [v] AIX 5.3
+#
+Socket=$( lscfg -vp | grep WAY | wc -l | perl -alne 'print $F[-1]' )
 Core=
-Thread=$( lsattr -El proc0 | grep smt_threads | perl -alne 'print $F[-1]' )
+Thread=$( lsattr -El proc0 | grep smt_threads | perl -alne 'print $F[1]' )
 Logical=$( bindprocessor -q | perl -alne 'print $F[-1]+1' )
 
 Core=$(( Logical / Thread / Socket ))
-#echo $Core
 
-# Core x Thread x Socket
-# C8T4S1=L32
-echo C${Core}T${Thread}S${Socket}\=L${Logical}
+# Socket x Core x Thread
+# ex,
+# S1C4T4=L16
+# S2C2T2=L8
+echo S${Socket}C${Core}T${Thread}\=L${Logical}
