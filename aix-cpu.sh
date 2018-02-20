@@ -21,7 +21,7 @@ Core=$(( Logical / Thread / Socket ))
 
 # Socket x Core x Thread
 # ex,
-# S1C4T4=L16
-# S2C2T2=L8
-# S1C8T4=L32
+# S2C2T2=L8 
+# S1C4T4=L16 with 00E7473 (4core cpu)
+# S1C8T4=L32 with 00E7469 (8core cpu)
 echo S${Socket}C${Core}T${Thread}\=L${Logical}
