@@ -12,7 +12,7 @@
 # [v] AIX 6.1
 # [v] AIX 5.3
 #
-Socket=$( lscfg -vp | grep WAY | wc -l | perl -alne 'print $F[-1]' )
+Socket=$( lscfg -vp | grep WAY | grep PROC | wc -l | perl -alne 'print $F[-1]' )
 Core=
 Thread=$( lsattr -El proc0 | grep smt_threads | perl -alne 'print $F[1]' )
 Logical=$( bindprocessor -q | perl -alne 'print $F[-1]+1' )
@@ -23,4 +23,5 @@ Core=$(( Logical / Thread / Socket ))
 # ex,
 # S1C4T4=L16
 # S2C2T2=L8
+# S1C8T4=L32
 echo S${Socket}C${Core}T${Thread}\=L${Logical}
