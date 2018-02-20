@@ -18,6 +18,7 @@
 
 ** S, to know about phyiscal cpu count
 
+- lscfg -vp | grep proc
 - prtconf | grep "Number Of Processors"
 - lsdev -Cc processor
 - pmcycles
@@ -34,7 +35,6 @@
 
 * cli, not yet
 
-- lscfg -vp | grep proc
 - lsattr -El proc0
 - mpstat
 - sar 1 1
