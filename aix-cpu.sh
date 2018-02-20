@@ -1,5 +1,7 @@
 #!/bin/bash
 #
+# NOT YET
+#
 # gather processor information on AIX below :
 # 
 # Thread(s) per Core
