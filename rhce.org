@@ -6,6 +6,10 @@
 
 그런데 등록은?
 
+* objective
+
+https://www.redhat.com/ko/resources/red-hat-certified-engineer-ex300-exam-objectives
+
 * hot link
 
 - http://akjahid.blogspot.com/2016/02/rhce-exam-preparation-version-7.html
