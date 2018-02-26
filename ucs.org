@@ -15,3 +15,20 @@
 
 * CIMC, Cisco Integrated Management Console
 * LOM, Lan On Motherboard
+* Cisco UCS Server Diagnostics Utility(SDU)
+
+- gg, Launching UCS Server Diagnostics Utility
+
+** kinds
+
+- Quick Test : 20-30 minutes
+- Comprehensive test : hours as stress test
+
+** steps
+
+1. kvm
+2. virtual media tab
+3. add image then map
+4. reboot by 'power cycle server' in CMC
+5. F6 to select boot device
+6. select Virtual CD/DVD

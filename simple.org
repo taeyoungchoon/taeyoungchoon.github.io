@@ -1,6 +1,11 @@
 * how much
 
-- 책상 위에 아무것도
-- 계정은
+- 책상 위에 아무것도 [2018-02-24 Sat 23:51] 지금 회사의 책상은 그런데 서랍은 아니다 그렇다면
+- 계정은 네이버는 탈퇴했다. 구글은 그리고 페이스북은
 - files
 - book
+- emacs or vim, editor, edit anyway on string
+- (cons t nil) ;; but shell, bash now for ex300
+- 정반합
+- A4
+- 비움이 필요한가

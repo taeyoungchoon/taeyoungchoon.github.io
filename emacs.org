@@ -1,3 +1,9 @@
+* simply can be called as emacs
+
+참 그냥 그렇게 불리우면 안되는 것인가
+왜 이리 많은 수식이 필요한지
+not so simple or simply mad at simple to be but me only
+
 * configration called [[file:init.el][init.el]] ever called as
 
 - that I have to seperate

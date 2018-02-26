@@ -1,13 +1,19 @@
-* .bash_profile
+* book, learning bash on my desk
+* config > .bash_profile
+* bash script vs sh, so
+* bash on windows?
 
-** general
+- cygwin을 대체하여 개인적으로 사용할 수는 있을까? 
+- windows 2003에는 무리겠지? windows 2003은 어떠나? 이제 신경쓰지 않아도 될까?
 
-PATH
+| cmd                 | so    |
+|---------------------+-------|
+| ls /mnt             | c d t |
+| apt install sysstat |       |
+| ifconfig            |       |
+| netstat -rn         |       |
+| nmap                |       |
+| iptraf              |       |
+| nload               |       |
 
-** oracle
-
-read [[file:oracle.org][oracle]]
-
-* bug
-
-2014-09, called [[file:shellshock.org][shellshock]]
+* so what?

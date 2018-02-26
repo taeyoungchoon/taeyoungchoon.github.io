@@ -1,3 +1,7 @@
+* netstat alternative
+
+ss born at iproute and as 'socket statistics or the status'
+
 * cli
 
 ss -ta
@@ -5,3 +9,22 @@ ss -ua
 ss -xa
 
 ss -ta -Z
+
+* more but againt
+
+ss -t -a
+ss -A tcp
+ss -u -a
+ss -A udp
+ss -l
+ss dst 192.168.1.139
+ss -ltn
+ss -lun
+ss -ltp
+ss -s
+ss -tn -o 
+ss -tl -f inet
+ss -tl -4
+ss -t4 state established
+ss -t4 state time-wait
+ss -t4 state syn-sent

@@ -1,3 +1,7 @@
+* netstat to ss or forever more on somewhere
+
+ss doesn't exist on others like aix or freebsd maybe
+
 * cli
 
 #+BEGIN_SRC 
