@@ -32,3 +32,8 @@
 4. reboot by 'power cycle server' in CMC
 5. F6 to select boot device
 6. select Virtual CD/DVD
+
+** save logs
+
+- You can use the Save Logs functionality to save your log files. Before saving logs, you must insert a USB flash drive or vMedia for storing the log files.
+- [ ] vMedia for storing
