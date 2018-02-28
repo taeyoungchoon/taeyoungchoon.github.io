@@ -1,0 +1,11 @@
+# Socket
+lscfg -vp | grep WAY | wc -l
+
+# Core
+lscfg -vp | grep WAY | head -1
+
+# Thread
+lsattr -El proc0 | grep smt_threads
+
+# Logical
+bindprocessor -q

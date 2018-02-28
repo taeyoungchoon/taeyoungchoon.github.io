@@ -12,12 +12,18 @@
 # [v] AIX 6.1
 # [v] AIX 5.3
 #
-Socket=$( lscfg -vp | grep WAY | grep PROC | wc -l | perl -alne 'print $F[-1]' )
-Core=
+# todo :
+# 
+# [ ] parse "      4-WAY  PROC CUOD:" | awk '{ print $1 }' | cut -d "-" -f 1
+
+Socket=$( lscfg -vp | grep "\-WAY" | wc -l | perl -alne 'print $F[-1]' )
+Core=$( lscfg -vp | grep "\-WAY" | head -1 | awk '{ print $1 }' | cut -d "-" -f 1' )
+# Core=
 Thread=$( lsattr -El proc0 | grep smt_threads | perl -alne 'print $F[1]' )
 Logical=$( bindprocessor -q | perl -alne 'print $F[-1]+1' )
 
-Core=$(( Logical / Thread / Socket ))
+# chk using :
+# Core=$(( Logical / Thread / Socket ))
 
 # Socket x Core x Thread
 # ex,
