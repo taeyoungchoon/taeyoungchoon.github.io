@@ -1,3 +1,7 @@
+* pre
+
+- yum install bash-completion -y
+
 * book, learning bash on my desk
 * config > .bash_profile
 * bash script vs sh, so

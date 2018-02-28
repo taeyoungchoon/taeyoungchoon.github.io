@@ -1,0 +1,16 @@
+* [100%] list
+
+- [ ] nmcli
+- ip addr
+- teaming
+- firewalld
+- selinux
+- [X] [[file:mysql.org][mysql]]
+- [ ] postfix , smtp nullclient
+- [ ] httpd
+- [ ] nfs, kerberos, selinux
+- [ ] samba
+- [ ] bash
+- dns
+- ipv6
+- ipa

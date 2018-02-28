@@ -91,3 +91,38 @@ tclass=dir
 - avc : cache, access vector cache
 
 * TODO /etc/selinux/POLICYTYPE/*
+* with nfs and kerberos
+
+** server
+
+1. wget -O /etc/krb5.keytab http://foo.com/keytabs/serverX.keytab
+2. (added) /etc/sysconfig/nfs
+   RPCNFSDARGS="-V 4.2"
+3. systemctl start nfs-sercure-server
+4. mkdir /securedexport
+5. /etc/exports
+   /etc/securedexport *.foo.com(sec=krb5p,rw)
+6. exportfs -r
+7. firewall-cmd --permanent --add-service=nfs
+8. firewall-cmd --permanent --add-service=rpc-bind
+9. firewall-cmd --permanent --add-service=mountd
+10. firewall-cmd --reload
+
+** client
+1. wget -O /etc/krb5.keytab http://foo.com/keytabs/desktopX.keytab
+1. yum install -y nfs-utils
+2. systemctl enable nfs-secure
+3. systemctl start nfs-secure
+4. mkdir /mnt/securedexport
+5. (opt) mount -o sec=krb5p serverX:/securedexport /mnt/securedexport
+6. /etc/fstab
+   serverX:/securedexport /mnt/securedexport nfs defaults,v4.2,sec=krb5p 0 0
+   serverX:/securedexport /mnt/securedexport nfs defaults,vers=4.2,sec=krb5p 0 0
+7. mount -a
+
+** test
+
+1. ssh ldapuser@desktopX
+
+
+

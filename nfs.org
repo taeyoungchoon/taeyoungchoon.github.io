@@ -1,0 +1,42 @@
+* general
+
+** server
+
+1. systemctl enable nfs-server
+2. systemctl start nfs-server
+3. mkdir /export
+4. /etc/exports
+   /etc/export desktopX(rw)
+5. exportfs -rv
+6. firewall-cmd --permanent --add-service=nfs
+7. firewall-cmd --permanent --add-service=rpc-bind
+8. firewall-cmd --permanent --add-service=mountd
+9. firewall-cmd --reload
+
+
+** client
+
+1. mkdir /mnt/export
+2. (opt) mount serverX:/export /mnt/export
+3. /etc/fstab
+   serverX:/export /mnt/export nfs defaults 0 0
+4. mount -a
+
+** test
+
+1. showmouse -e
+
+** one more thing
+
+- /etc/fstab
+  serverX:/export /mnt/export nfs defaults,_netdev 0 0
+- man nfs
+
+** root_squash
+
+| say            | mean          |
+|----------------+---------------|
+| root_squash    | default       |
+| no_root_squash | root is root  |
+| no_all_squash  | default       |
+| all_squash     | all nfsnobody |

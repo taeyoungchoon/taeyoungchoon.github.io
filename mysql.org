@@ -1,0 +1,48 @@
+* aka mariadb
+* sql?
+
+- yum install mariadb-server
+- yum groupinstall mariadb
+- yum install mariadb
+- yum groupinstall mariadb-client
+- mysql_secure_installation
+- mysql -uroot -p
+- firewall-cmd --permanent --add-service=mysql
+- firewall-cmd --reload
+- systemctl mariadb stop
+- systemctl status mariadb
+- systemctl enable mariadb
+- systemctl start mariadb
+
+* sql
+
+- show databases
+- use mysql
+- select * from product
+- select name from product where price < 2500
+- describe product
+- insert into product (name, price) values ('coffee',2000);
+- update product set price=2500 where name = 'coffee'
+- delete from product where name = 'coffee'
+
+* sql but user
+
+- create user 'jack'@'%' identified by 'password'
+- create user 'raul'@'%' identified by 'password'
+- grant select, insert, update, delete on sales.* to 'jack'@'%'
+- grant all privileges on *.* to 'raul'@'%'
+- revoke select, insert, update, delete on sales.* to 'jack'@'%'
+- show grants for 'jack'@'%'
+- flush privileges
+
+* sql? p2
+
+- mysqladmin flush-priv
+- mysqldump --skip-extended-insert --no-data mysql user
+
+* /etc/my.cnf 
+
+** [mysqld] section
+
+- bind-address=0.0.0.0
+- skip-networking

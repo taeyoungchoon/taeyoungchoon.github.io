@@ -7,10 +7,10 @@
 
 - eth0, eth1, eth2, team0, lo
 - nmcli device
-- nmcli deivce monitor
 - nmcli device disconnect eth2
 - nmcli device connect eth2
 - nmcli device show
+- nmcli deivce monitor
 
 * connection aka profile
 
@@ -19,3 +19,7 @@
 - nmcli connection monitor
 - nmcli connection down eth2
 - nmcli connection up eth2
+
+* comment
+
+- yum install bash-completion -y

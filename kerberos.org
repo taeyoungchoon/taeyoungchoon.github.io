@@ -2,18 +2,29 @@
 
 - Cerberus, Hound of Hades
 - the 4th moon of Pluto
-- 케르베로스 사가 중 인랑, 오시이 마모루
 
-* (security kerberos)
+* with nfs
 
-- 커버로스
-- 사용하나? openafs 그리고
+** server
 
-* links
+1. wget -O /etc/krb5.keytab http://foo.com/keytabs/serverX.keytab
+2. systemctl start nfs-sercure-server
+3. mkdir /securedexport
+4. /etc/exports
+   /etc/securedexport *.foo.com(sec=krb5p,rw)
+5. exportfs -r
+6. firewall-cmd --permanent --add-service=nfs
+7. firewall-cmd --permanent --add-service=rpc-bind
+8. firewall-cmd --permanent --add-service=mountd
+9. firewall-cmd --reload
 
-http://computing.help.inf.ed.ac.uk/kerberos-windows
-+ windows
-
-* with linux
-
-
+** client
+1. wget -O /etc/krb5.keytab http://foo.com/keytabs/desktopX.keytab
+1. yum install -y nfs-utils
+2. systemctl enable nfs-secure
+3. systemctl start nfs-secure
+4. mkdir /mnt/securedexport
+5. (opt) mount -o sec=krb5p serverX:/securedexport /mnt/securedexport
+6. /etc/fstab
+   serverX:/securedexport /mnt/securedexport nfs defaults,sec=krb5p 0 0
+7. mount -a
