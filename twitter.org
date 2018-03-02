@@ -52,3 +52,4 @@ C-c D 'twittering-delete-status'
 어쨌거나 지금은 청소중이다 많은 계정이 정리되었고 트위터도 청소중이다
 
 [2017-03-29 수 14:01] 4077
+[2018-01-31 수 22:17] then again with TwitWiping
