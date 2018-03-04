@@ -1,2 +1,2 @@
 clean:
-	rm *.fas *.lib *.png *~
+	rm *.fas *.lib *~

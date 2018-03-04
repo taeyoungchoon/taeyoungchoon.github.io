@@ -1,0 +1,20 @@
+* say
+
+좋은데 ㅎ
+
+* tmux on macosx with C-x key
+
+#+BEGIN_SRC 
+~ $ cat .tmux.conf 
+set-option -g prefix C-x
+#+END_SRC
+
+* step
+
+- tmux
+- C-x % 
+- C-x o
+- C-x o
+- C-x d
+- tmux attach
+ 

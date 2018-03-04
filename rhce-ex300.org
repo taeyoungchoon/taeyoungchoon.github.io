@@ -1,11 +1,11 @@
-* [100%] list
+* [0%] list
 
 - [ ] nmcli
 - ip addr
 - teaming
 - firewalld
 - selinux
-- [X] [[file:mysql.org][mysql]]
+- [ ] [[file:mysql.org][mysql]]
 - [ ] postfix , smtp nullclient
 - [ ] httpd
 - [ ] nfs, kerberos, selinux
