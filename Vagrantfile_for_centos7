@@ -1,0 +1,34 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  # config.vm.provision "shell", path: "bootstrap.sh"
+  # config.vm.provision "shell", inline: "apt-get update -y"
+  # config.vm.provision "shell", inline: <<-SHELL
+  #   apt-get update
+  #   apt-get install -y apache2
+  # SHELL
+
+  config.vm.define "server12" do |server12|
+    server12.vm.box = "minimal/centos7"
+    server12.vm.box_version = "7.0"
+    server12.vm.hostname = "server12"
+    server12.vm.provider.customize ["modifyvm", :id, "--memory", "512"]
+    server12.vm.network "private_network", ip: "192.168.1.100"
+    # server12.vm.network "public_network", ip: "172.20.6.47"
+    # server12.vm.provision "shell", inline: "apt-get install emacs -y"
+  end
+
+  config.vm.define "desktop12" do |desktop12|
+    desktop12.vm.box = "minimal/centos7"
+    desktop12.vm.box_version = "7.0"
+    desktop12.vm.hostname = "desktop12"
+    desktop12.vm.provider.customize ["modifyvm", :id, "--memory", "512"]
+    desktop12.vm.network "private_network", ip: "192.168.1.200"
+  end
+  
+  # config.vm.provider "virtualbox" do |vb|
+  #   vb.memory = "512"
+  # end
+
+end
