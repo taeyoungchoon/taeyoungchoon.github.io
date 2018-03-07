@@ -1,3 +1,19 @@
+* in the real world on windows 10
+
+** problem on windows 10, WARNING: UNPROTECTED PRIVATE KEY FILE
+
+>vagrant ssh server12
+Permission denied
+
+>vagrant ssh server12 -- -vvv
+WARNING: UNPROTECTED PRIVATE KEY FILE
+
+so what I've done
+
+vagrant ssh-config > ssh.conf
+ssh -F /cygdrive/d/vm/ssh.conf server12
+ssh -F /cygdrive/d/vm/ssh.conf desktop12
+
 * files
 
 - Vagrantfile

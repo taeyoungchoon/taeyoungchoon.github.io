@@ -42,7 +42,7 @@
 
 * /etc/my.cnf 
 
-** [mysqld] section
+** [mysqld] section at /usr/share/mysql/*.cnf
 
-- bind-address=0.0.0.0
 - skip-networking
+- bind-address=0.0.0.0

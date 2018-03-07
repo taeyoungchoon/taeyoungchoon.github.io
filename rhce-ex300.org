@@ -1,16 +1,153 @@
-* [0%] list
+* tiling 2:1
 
-- [ ] nmcli
+- [ ] about firefox
+
+* DONE mandb
+  CLOSED: [2018-03-07 Wed 15:43]
+
+- man -k firewall
+
+* DONE change root passwd
+  CLOSED: [2018-03-07 Wed 15:21]
+
+rd.break
+mount -o remount,rw /sysroot
+chroot /sysroot
+passwd root
+touch /.autorelabel
+exit
+exit
+
+* DONE mask
+  CLOSED: [2018-03-07 Wed 15:21]
+
+- systemctl mask iptables ip6tables ebtables
+
+* DONE enable selinux
+  CLOSED: [2018-03-07 Wed 15:22]
+
+- getenforce
+- /etc/selinux/config
+- SELINUX=enforcing
+
+* DONE gather dns using nslookup or using /etc/resolv.conf
+  CLOSED: [2018-03-07 Wed 15:22]
+
+- nslookkup
+- cat /etc/resolv.conf
+
+* DONE ipv4
+  CLOSED: [2018-03-07 Wed 15:30]
+
 - ip addr
-- teaming
-- firewalld
-- selinux
-- [ ] [[file:mysql.org][mysql]]
-- [ ] postfix , smtp nullclient
-- [ ] httpd
-- [ ] nfs, kerberos, selinux
-- [ ] samba
-- [ ] bash
-- dns
-- ipv6
-- ipa
+- ip route
+- nmcli con add con-name mynet type ethernet ifname eth0
+- nmcli con mod mynet
+  ipv4.method manual
+  ipv4.addresses "192.168.33.100/24 192.168.33.1"
+  ipv4.dns 8.8.8.8
+  connection.autoconnect yes
+- nmcil up mynet
+- nmcli con delete "System eth0"
+- nmcli con reload
+- nmcli con 
+
+* ipv6
+
+- nmcli con mod mynet
+  ipv6.method manual
+  ipv6.addresses xxx
+- [ ] ping6
+
+* DONE teaming
+  CLOSED: [2018-03-07 Wed 15:30]
+
+- nmcli con add con-name team0 type team ifname team0
+- nmcli con mod team0
+  ipv4.method manual
+  ipv4.addresses "192.168.33.101/24"
+  connection.autoconnect yes
+  config '{"runner" : {"name" : "activebackup" }}'
+- nmcli con add con-name team0-port1 type team-slave ifname eth1 master team0
+- nmcli con add con-name team1-port2 type team-slave ifname eth2 master team0
+- nmcli con reload
+- teamdctl team0 state
+- nmcli con delete "System eth1"
+- nmcli con delete "System eth2"
+- nmcli con reload
+
+* firewalld about zone
+
+- systemctl status firewalld
+- systemctl enable firewalld
+- systemctl start firewalld
+- firewall-cmd --list-all
+- firewall-cmd --set-default-zone=dmz
+- firewall-cmd --list-all
+
+* firewalld about forward
+
+- man firewalld.richlanguage | grep to-port
+
+* authconfig-gtk for kerberos and more
+* krb5-workstation and more for nfs-secure-server
+* yum repository
+
+- yum-config-manager --add-repo=
+- /etc/yum.repo.d
+- gpgcheck=0
+- [ ] up2date  using
+
+* mariadb
+
+- yum install mariadb-server mariadb
+- systemctl status mariadb
+- systemctl enable mariadb
+- systemctl start mariadb
+- firewall-cmd --permanent --add-service=mysql
+- firewall-cmd --reload
+- firewall-cmd --list-all
+- create user jack@'%' identified by 'redhat'
+- grant all privileges on *.* to jack@'%'
+- show grants for jack@'%'
+
+* httpd
+
+- yum install httpd mod_ssl mod_wsgi telnet lynx elinks curl -y
+- systemctl status httpd
+- systemctl enable httpd
+- systemctl start httpd
+  
+* nfs  
+* samba
+
+- yum install samba samba-client -y
+
+* iscsi.serer.pre
+
+- fdisk -l
+- dmesg
+- mount
+- yum install gdisk -y
+- [ ] and MiB (1MiB -eq 1048576 but 1MB -eq 1000000)
+- [ ] lvcreate -l vs -L
+
+* iscsi.server
+
+- yum install target-cli -y
+- target
+- firewall-cmd --permanent --add-port=3260/tcp
+- firewall-cmd --reload
+- firewall-cmd --list-all
+
+* iscsi.client
+
+- yum install iscsi-initiator-utils -y
+- /etc/initiatorname.iscsi
+- [ ] discoverydb vs discovery
+- [ ] node
+- [ ] session
+
+* dns caching, ntp
+
+- to do or not have to do?
