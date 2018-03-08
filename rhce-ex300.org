@@ -10,7 +10,7 @@
 
 - [ ] about firefox
 - save file fail on hypervisor, ssh key file
-
+  
 * DONE /etc/hosts
   CLOSED: [2018-03-08 Thu 13:46]
 
@@ -69,7 +69,7 @@ exit
 - nmcli con reload
 - nmcli con 
 
-* ipv6
+* ipv6, need a sample ipv6 address
 
 - nmcli con mod mynet
   ipv6.method manual
@@ -111,7 +111,8 @@ exit
 
 - [ ] dmz then more
 
-* TODO firewalld about forward
+* DONE firewalld about forward
+  CLOSED: [2018-03-08 Thu 22:40]
 
 - man firewalld.richlanguage | grep to-port
 - firewall-cmd --permanent --add-rich-rule="rule family=ipv4
@@ -123,7 +124,8 @@ exit
 - firewall-cmd --list-all
 
 * authconfig-gtk for kerberos and more
-* krb5-workstation and more for nfs-secure-server
+* DONE krb5-workstation and more for nfs-secure-server, nil from c7.0
+  CLOSED: [2018-03-08 Thu 22:41]
 * DONE yum repository
   CLOSED: [2018-03-08 Thu 11:27]
 
@@ -171,6 +173,10 @@ exit
 
 * TODO chmod, chown, setfacl, getfacl
 
+- chmod 
+- chown
+- setfacl -m u:mary:rw /share
+
 * URGT mariadb
 
 - yum install mariadb-server mariadb
@@ -196,8 +202,7 @@ exit
 - [ ] select * from tbl
 - [ ] revoke all privileges on *.* from jack@'%'
 
-* mariadb join, count, sum, group by
-
+* mariadb join, count, sum, group by, how deep
 * URGT [0/6] httpd
 
 - yum install httpd httpd-manual mod_ssl mod_wsgi telnet lynx elinks curl -y
@@ -271,8 +276,8 @@ ServerName portal.f.com
 - semanage fcontext -a -t httpd_sys_content_t '/srv/www(/.*)?'
 - restorecon -Rv /srv/www
 
-* genkey?  
-* nfs  
+* genkey? have to?
+* nfs
 
 - systemctl status nfs-server
 - systemctl enable nfs-server
@@ -459,16 +464,31 @@ ServerName portal.f.com
 - iscsiadm -m session -P 2
 - iscsiadm -m session -P 3
 
-* dns caching, ntp
-
-- to do or not have to do?
+* dns caching, ntp, to do or not have to do?
 * URGT bash, case, if
+
+#+BEGIN_SRC sh
+  case $1 in
+      ping)
+          echo pong
+          ;;
+      pong)
+          echo ping
+          ;;
+      ,*)
+          echo nil
+          ;;
+  esac
+
+  for user in `cat list`;
+  do
+      echo $user
+  done
+
+  if [ -e /etc/passwd ];
+  then
+      echo exist
+  fi
+#+END_SRC
+
 * tmp
-
-172.28.128.100/24
-server12.f.com
-desktop12.f.com
-
-enp0s8
-enp0s9
-enp0s10
