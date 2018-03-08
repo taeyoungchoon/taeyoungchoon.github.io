@@ -1,10 +1,26 @@
+* URGT REBOOT : server then client and sure about any
+
+- iscsi, samba, nfs
+- systemctl enable samba
+- config well
+- fstab with _netdev
+- firewalld
+
 * tiling 2:1
 
 - [ ] about firefox
+- save file fail on hypervisor, ssh key file
+
+* DONE /etc/hosts
+  CLOSED: [2018-03-08 Thu 13:46]
+
+- 172.28.128.100 server12.f.com server12
+- 172.28.128.200 desktop12.f.com desktop12
 
 * DONE mandb
   CLOSED: [2018-03-07 Wed 15:43]
 
+- mandb
 - man -k firewall
 
 * DONE change root passwd
@@ -22,6 +38,7 @@ exit
   CLOSED: [2018-03-07 Wed 15:21]
 
 - systemctl mask iptables ip6tables ebtables
+- systemctl status iptables ip6tables ebtables
 
 * DONE enable selinux
   CLOSED: [2018-03-07 Wed 15:22]
@@ -76,78 +93,382 @@ exit
 - nmcli con delete "System eth2"
 - nmcli con reload
 
-* firewalld about zone
+* TODO [0/1] firewalld about zone
 
 - systemctl status firewalld
 - systemctl enable firewalld
 - systemctl start firewalld
+- systemctl status firewalld
 - firewall-cmd --list-all
+- firewall-cmd --list-service
+
+- firewall-cmd --get-zones
+- firewall-cmd --get-default-zone
+- firewall-cmd --get-active-zones
+
 - firewall-cmd --set-default-zone=dmz
 - firewall-cmd --list-all
 
-* firewalld about forward
+- [ ] dmz then more
+
+* TODO firewalld about forward
 
 - man firewalld.richlanguage | grep to-port
+- firewall-cmd --permanent --add-rich-rule="rule family=ipv4
+  source address=192.168.33.0/24
+  forward-port port=2222
+  protocol=tcp
+  to-port=22"
+- firewall-cmd --reload
+- firewall-cmd --list-all
 
 * authconfig-gtk for kerberos and more
 * krb5-workstation and more for nfs-secure-server
-* yum repository
+* DONE yum repository
+  CLOSED: [2018-03-08 Thu 11:27]
 
-- yum-config-manager --add-repo=
+- yum-config-manager --add-repo=http://ftp.daumkakao.com/centos/7/os/x86_64
 - /etc/yum.repo.d
 - gpgcheck=0
-- [ ] up2date  using
+- yum repolist
+- yum install lynx
 
-* mariadb
+* DONE yum and rpm basic
+  CLOSED: [2018-03-08 Thu 11:27]
+
+- rpm -qa | grep samba
+- rpm -ql lvm2
+- rpm -qf /sbin/lvs
+- yum whatprovides ifconfig
+- yum search mariadb
+- yum install mariadb
+- yum reinstall lvm2
+- yum repolist
+
+* DONE systemd and journalctl
+  CLOSED: [2018-03-08 Thu 14:48]
+
+- journalctl -f
+- journalctl -u httpd
+
+* DONE ip addr and more
+  CLOSED: [2018-03-08 Thu 14:48]
+
+- ip addr
+- ip route
+- ip neigh
+
+* DONE selinux one
+  CLOSED: [2018-03-08 Thu 14:48]
+
+- semanage fcontext -l | grep httpd_sys_content_t
+- semanage port -l | grep ssh
+- semanage fcontext -a -t samba_share_t '/smbshare(/.*)?'
+- restorecon -Rv /srv/www
+- chcon -t httpd_sys_content_t /tmp/foo
+- [ ] yum whatprovides sealert
+- [ ] sealert -a /var/log/audit/audit.log
+
+* TODO chmod, chown, setfacl, getfacl
+
+* URGT mariadb
 
 - yum install mariadb-server mariadb
 - systemctl status mariadb
 - systemctl enable mariadb
 - systemctl start mariadb
+- systemctl status mariadb
+
 - firewall-cmd --permanent --add-service=mysql
 - firewall-cmd --reload
 - firewall-cmd --list-all
+
 - create user jack@'%' identified by 'redhat'
 - grant all privileges on *.* to jack@'%'
 - show grants for jack@'%'
+- create database product
+- [ ] create table tbl
+- [ ] insert into tbl (name,price) values ("wine",300);
+- [ ] insert into tbl (name,price) values ("coffee",200);
+- [ ] insert into tbl (name,price) values ("water",100);
+- [ ] update tbl set price=250 where name="coffee"
+- [ ] delete from tbl where name="water"
+- [ ] select * from tbl
+- [ ] revoke all privileges on *.* from jack@'%'
 
-* httpd
+* mariadb join, count, sum, group by
 
-- yum install httpd mod_ssl mod_wsgi telnet lynx elinks curl -y
+* URGT [0/6] httpd
+
+- yum install httpd httpd-manual mod_ssl mod_wsgi telnet lynx elinks curl -y
 - systemctl status httpd
 - systemctl enable httpd
 - systemctl start httpd
+- systemctl status httpd
+
+- firewall-cmd --list-services
+- firewall-cmd --permanent --add-service=http
+- firewall-cmd --permanent --add-service=https
+- firewall-cmd --reload
+- firewall-cmd --list-services
+
+- telnet server12 80
+- telnet server12 443
+
+- lynx /usr/share/httpd/manual
+- /etc/httpd/conf.d/vh.conf
+
+<Directory /var/www/html/owndir>
+order deny,allow
+deny from all
+allow from desktop12.f.com
+</Directory>
   
+<VirtualHost *:80>
+DocumentRoot /var/www/html
+ServerName server12.f.com
+</Virtualhost>
+
+<VirtualHost *:443>
+DocumentRoot /var/www/html
+ServerName server12.f.com
+SSLEngine on
+SSLCertificateFile /etc/pki/tls/certs/localhost.crt
+SSLCertificateKeyFile /etc/pki/tls/private/localhost.key
+#SSLCertificateChainFile /etc/pki/tls/certs/server-chain.crt
+</VirtualHost>
+
+<Directory /srv/www>
+Require all granted
+</Directory>
+  
+<VirtualHost *:80>
+DocumentRoot /srv/www
+ServerName portal.f.com
+</Virtualhost>
+
+- httpd -t
+- httpd -S
+- httpd -D DUMP_VHOSTS
+- systemctl status httpd
+- systemctl restart httpd
+- systemctl status httpd
+
+- curl http://server12
+- curl http://server12/owndir/
+- curl -k https://server12
+
+- cd /etc/pki/tls/certs
+- curl -O
+- chmod 600 *.crt
+
+- cd /etc/pki/tls/private/
+- curl -O
+- chmod 600 *.key
+
+- ls -lZ /var/www
+- mkdir /srv/www
+- semanage fcontext -a -t httpd_sys_content_t '/srv/www(/.*)?'
+- restorecon -Rv /srv/www
+
+* genkey?  
 * nfs  
+
+- systemctl status nfs-server
+- systemctl enable nfs-server
+- systemctl start nfs-server
+- systemctl status nfs-server
+
+- mkdir /nfsshare
+- [ ] chown, chmod, chgrp, setfacl
+
+- /etc/exports
+- exportfs -rv
+
+- firewall-cmd --permanent --add-service=nfs
+- firewall-cmd --permanent --add-service=rpc-bind
+- firewall-cmd --permanent --add-service=mountd
+
+- mount -t nfs server12:/nfsshare /mnt/nfsshare
+
+- server12:/nfsshare /mnt/nfsshare nfs defaults,_netdev 0 0
+
+* URGT nfs but secure, nfs-secure-server only centos 7.0
+
+- /etc/sysconfig/nfs
+- "-V 4.2"
+- [ ] systemctl status nfs-secure-server
+- [ ] curl -O to download keytab file
+
+- [ ] curl -O to download keytab file
+- [ ] systemctl status nfs-server
+
+- [ ] nfs-secure
+- mount -t nfs -o sec=krb5p,vers=4.2 server12:/nfsshare /mnt/nfsshare
+
+- server12:/nfsshare /mnt/nfsshare nfs defaults,sec=krb5p,_netdev 0 0
+
 * samba
 
 - yum install samba samba-client -y
+- systemctl status smb nmb
+- systemctl enable smb nmb
+- systemctl start smb nmb
+- systemctl status smb nmb
 
-* iscsi.serer.pre
+- firewall-cmd --permanent --add-service=samba
+- firewall-cmd --reload
+- firewall-cmd --list-services
 
-- fdisk -l
+- groupadd sales
+- useradd -s /sbin/nologin jack
+- useradd -s /sbin/nologin raul
+- useradd -s /sbin/nologin mary
+- usermod -aG sales jack
+- usermod -aG sales raul
+- groupmems -g sales -l
+- smbpasswd -a jack
+- smbpasswd -a raul
+- smbpasswd -a mary
+- pdbedit -L
+
+- mkdir /smbshare
+- chgrp sales /smbshare
+- chmod 2777 /smbshare
+- semanage fcontext -a -t samba_share_t '/smbshare(/.*)?'
+- restorecon -Rv /smbshare
+
+- /etc/samba/smb.conf
+  [smbshare]
+  path = /smbshare
+  valid users = @sales nerd 
+  write list = @sales
+  broweable = yes
+- testparm
+- systemctl restart smb nmb
+
+- smbclient -L server12.f.com -U jack
+- smbclient //server12.f.com/smbshare -U jack
+
+- /etc/passwd.samba
+  username=jack
+  password=redhat
+- chmod 700 /etc/passwd.samba
+- yum install cifs-utils -y
+- mount -t cifs -o credentials=/etc/passwd.samba
+  //server12.f.com/smbshare /mnt/smbshare
+
+- mount -t cifs -o credentials=/etc/passwd.samba,sec=ntlmssp,multiuser 
+  //server12.f.com/smbshare /mnt/smbshare
+- [ ] cifscreds add jack server12
+- [ ] keyctl
+
+* DONE [0/1] postfix but null client
+  CLOSED: [2018-03-08 Thu 15:19]
+
+- systemctl status postfix
+- systemctl enable postfix
+- systemctl start postfix
+- postconf
+- postconf -n
+- postconf | grep ^my
+- postconf -e "mydestination="
+- postconf -e "myorigin=example.com"
+- postconf -e "mynetworks=127.0.0.0/8, [::1]/128"
+- postconf -e "inet_interfaces=loopback-only"
+- postconf -e "relayhost=[server12.example.com]"
+- systemcl restart postfix
+- [ ] test by 
+
+* DONE [0/1] iscsi.serer.pre
+  CLOSED: [2018-03-08 Thu 11:41]
+
+- fdisk -l | grep Disk
+- lsblk
 - dmesg
 - mount
+
 - yum install gdisk -y
+- +500M
+- 8e00
+- partprobe
+
+- pvcreate /dev/sdb1
+- vgcreate vg_storage /dev/sdb1
+- vgdisplay vg_storage | grep PE
+- lvcreate -n lv_media -l 40 vg_storage
+- lvcreate -n lv_data -L 40M vg_storage
+- lvdisplay
+- lvs
+
 - [ ] and MiB (1MiB -eq 1048576 but 1MB -eq 1000000)
-- [ ] lvcreate -l vs -L
 
-* iscsi.server
+* DONE iscsi.server
+  CLOSED: [2018-03-08 Thu 13:38]
 
-- yum install target-cli -y
-- target
+- yum install targetcli -y
+- systemctl status target
+- systemctl enable target
+- systemctl start target
+- systemctl status target
+
 - firewall-cmd --permanent --add-port=3260/tcp
 - firewall-cmd --reload
-- firewall-cmd --list-all
+- firewall-cmd --list-ports
 
-* iscsi.client
+- target
+- cd /backstores/block
+- create i_image /dev/vg_storage/lv_media
+- cd /iscsi
+- create iqn.2018-03.com.f:server12
+- cd iqn.2018-03.com.f:server12/tpg1
+- ls
+- cd acls
+- create iqn.2018-03.com.f:desktop12
+- cd ../luns
+- create /backstores/block/i_image
+- exit
+- /etc/target/saveconfig.json
+- systemctl restart target
+
+* DONE iscsi.client
+  CLOSED: [2018-03-08 Thu 13:38]
 
 - yum install iscsi-initiator-utils -y
-- /etc/initiatorname.iscsi
-- [ ] discoverydb vs discovery
-- [ ] node
-- [ ] session
+- /etc/iscsi/initiatorname.iscsi
+- InitiatorName=iqn.2018-03.com.f:desktop12
+- systemctl status iscsi
+- systemctl start iscsi
+- systemctl status iscsi
+- man iscsiadm | grep discoverydb
+- iscsiadm -m discoverydb -t st -p server12.f.com --discover
+- man iscsiadm | grep node
+- iscsiadm -m node -T iqn.2018-03.com.f:server12 -p server12.f.com -l
+- dmesg
+- fdisk -l | grep Disk
+- yum install gdisk -y
+- gdisk /dev/sdc
+- partprobe
+- mkfs.xfs /dev/sdc1
+- blkid
+- /etc/fstab
+- UUID=ef1859f9-33dc-4df6-abe5-83baecb614f1 xfs defaults,_netdev 0 0
+- iscsiadm -m session
+- iscsiadm -m session -P 0
+- iscsiadm -m session -P 1
+- iscsiadm -m session -P 2
+- iscsiadm -m session -P 3
 
 * dns caching, ntp
 
 - to do or not have to do?
+* URGT bash, case, if
+* tmp
+
+172.28.128.100/24
+server12.f.com
+desktop12.f.com
+
+enp0s8
+enp0s9
+enp0s10
