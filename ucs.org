@@ -37,3 +37,14 @@
 
 - You can use the Save Logs functionality to save your log files. Before saving logs, you must insert a USB flash drive or vMedia for storing the log files.
 - [ ] vMedia for storing
+
+** at
+
+https://software.cisco.com/download/release.html?mdfid=284296253&reltype=latest&relind=AVAILABLE&dwnld=true&softwareid=286123307&rellifecycle=&atcFlag=N&release=5.0(3b)&dwldImageGuid=69720015F6A5F6527DB733CA568568A3CA4B7352&flowid=31742
+
+Downloads Home
+Products
+Servers - Unified Computing
+UCS C-Series Rack-Mount Standalone Server Software
+UCS C220 M3 Rack Server Software
+Unified Computing System (UCS) Diagnostics-5.0(3b) 
