@@ -1,41 +1,59 @@
-* my have to old notebook
+* note
 
-#+BEGIN_VERSE
+- 계속 사용하여야 하나? 오라클에서 버렸다는 말도 있다.
+- 자바의 미래는?
+- 자바와 korea, odd and strange, such as oracle database
 
-Microsoft Windows [Version 6.1.7601]
-Copyright (c) 2009 Microsoft Corporation. All rights reserved.
+* version
 
-C:\Users\foo>java -version
-java version "1.6.0_33"
-Java(TM) SE Runtime Environment (build 1.6.0_33-b03)
-Java HotSpot(TM) Client VM (build 20.8-b03, mixed mode, sharing)
+- java -version
+- java control panel > About, javacpl
+- 버전 7 업데이트 (빌드 1.7.0_60-b19)
+- Windows i586, x86, x64
 
-C:\Users\foo>
+* jdk and jre
 
-#+END_VERSE
+* java web start? and JNLP(jnlp)
 
-* old java, get
+- Java Network Launching Protocol
+- javaws
+- %APPDATA%\..\LocalLow\Sun\Java\Deployment
+- enable java console
 
-http://uni-smr.ac.ru/archive/dev/java/SDKs/sun/j2se/6/
+* vs browser
 
-* multiple java and JAVA_HOME
-* cli
+- IE
+- firefox
+- chrome
+
+* Cicso UCS CIMC and KVM Console
+
+- Cicso UCS CIMC : using flash
+- KVM Console : using jnlp
+
+* log
+
+- java control panel(Java 제어판) > 고급 > 디버깅 > 추적 사용, 로깅 사용
+
+* with IBM
 
 http://www-01.ibm.com/support/docview.wss?uid=isg3T1024496
 IBM Java for AIX FAQ: Identifying the Java versions and Java installation locations for an AIX system
+
+** cli
 
 java -version
 java -fullversion
 ps avwwwg | egrep "java"
 
-* env
+** env
 
 PATH
 CLASSPATH
 JAVA_HOME
 JAVA6HOME
 
-* path
+** path
 
 /usr/java8_64/jre/bin/java
 /usr/java71_64 (IBM Java 1.7.1)
@@ -43,12 +61,6 @@ JAVA6HOME
 /usr/java7_64
 /usr/java6_64
 
-* pack
+** pack
 
-lslpp -l
-
-* history
-
-Java 6 goes out of support Sept 2017. Prepare now!
-Java 5 is out of support and should be removed per the Java 5 Uninstall web page.
-Java 1.4 is out of support and should be removed per the Java Uninstall web page.
+   lslpp -l

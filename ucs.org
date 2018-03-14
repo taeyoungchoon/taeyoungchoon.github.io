@@ -48,3 +48,18 @@ Servers - Unified Computing
 UCS C-Series Rack-Mount Standalone Server Software
 UCS C220 M3 Rack Server Software
 Unified Computing System (UCS) Diagnostics-5.0(3b) 
+* Cisco UCS Server Configuration Utility(SCU)
+
+** platforms
+
+- Cisco UCS C210 Server series (M1 and M2)
+* CIMC GUI hang
+
+https://www.cisco.com/c/en/us/support/docs/servers-unified-computing/integrated-management-controller/212642-troubleshoot-cimc-gui-which-hangs-while.html
+
+* CIMC req
+
+1. ip, using wireshark
+2. flash for CIMC GUI
+3. enable java to use kvm console
+4. session count for terminate old session from ssh
