@@ -64,3 +64,5 @@ JAVA6HOME
 ** pack
 
    lslpp -l
+
+** download, where can I get that package?
