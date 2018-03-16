@@ -1,19 +1,60 @@
-* tree but pstree
+* postfix general
 
-#+BEGIN_SRC 
+- yum install postfix mailx mutt telnet -y
+- systemctl status postfix
+- systemctl enable postfix
+- systemctl start postfix
+- systemctl is-enabled postfix
+- systemctl is-active postfix
+- firewall-cmd --list-services | grep smtp
+- firewall-cmd --permanent --add-service=smtp
+- firewall-cmd --reload
+- firewall-cmd --list-services | grep smtp
 
-        |-master-+-pickup
-        |        `-qmgr
+* postfix server
 
-#+END_SRC
+- postconf | grep ^inet_interfaces
+- postconf -e "inet_interfaces = all"
+- postconf | grep ^mynetworks
+- postconf -e "mynetworks = 127.0.0.0/8 [::1]/128 192.168.0.0/24"
+- systemctl restart postfix
+- systemctl status postfix
+
+* postfix client as null client(machine that can only send mail)
+
+- postconf | grep ^inet_interfaces
+- postconf -e "inet_interfaces = loopback-only"
+- postconf | grep ^mynetworks
+- postconf -e "mynetworks = 127.0.0.0/8 [::1]/128"
+- postconf | grep ^myorigin
+- postconf -e "myorigin = f.com"
+- postconf | grep ^mydestination
+- postconf -e "mydestination ="
+- postconf | grep ^relayhost
+- postconf -e "relayhost = [server12.f.com]
+
+- cat /etc/postfix/main.cfg | grep ^my
+- cat /etc/postfix/main.cfg | grep ^relay
+- cat /etc/postfix/main.cfg | grep ^inet
+
+- systemctl restart postfix
+- systemctl status postfix
+
+* postfix server, chk
+
+- tail -f /var/log/maillog
+
+* postfix client, chk
+
+- tail -f /var/log/maillog &
+- mail jack@server12
+- mail taeyoungchoon@gmail.com
 
 * cli
 
 | cmd                          | des                  |
 |------------------------------+----------------------|
 | postconf -d                  | print default config |
-| postconf -e "mydestination=" | edit config          |
-| systemctl restart postfix    |                      |
 | postqueue -p                 | mailq                |
 | postfix flush                | force delivery       |
 | postsuper -d ALL             | delete               |
@@ -25,49 +66,27 @@
 - It receives no mail from the network, and it does not deliver any mail locally.
 - A null client typically uses POP, IMAP or NFS for mailbox access. 
 
-#+BEGIN_SRC 
-1 /etc/postfix/main.cf:
-2     myhostname = hostname.example.com
-3     myorigin = $mydomain
-4     relayhost = $mydomain
-5     inet_interfaces = loopback-only
-6     mydestination =
-#+END_SRC
+* mynetworks from "trusted" remote SMTP client
 
-* Postfix on a null client, ex300, postconf cmd then to /etc/postfix/main.conf
+- mynetworks = 127.0.0.0/8 [::1]/128
 
-#+BEGIN_SRC 
-postconf -e "inet_interfaces=loopback-only"
-postconf -e "mynetworks=127.0.0.1/8 [::1]/128"
-postconf -e "mydestination="
-postconf -e "relayhost=[smtp.foo.com]"
-postconf -e "myorigin=foo.com"
-#+END_SRC
-  
-* my
+** doc
 
-#+BEGIN_SRC 
-postconf -e "inet_interfaces=loopback-only"
-postconf -e "mynetworks=127.0.0.0/8 [::1]/128"
-postconf -e "mydestination="
-postconf -e "myorigin=example.com"
-postconf -e "relayhost=[station.network0.example.com]
-#+END_SRC
+- mynetworks = 127.0.0.0/8 168.100.189.0/28
+- mynetworks = !192.168.0.1, 192.168.0.0/28
+- mynetworks = 127.0.0.0/8 168.100.189.0/28 [::1]/128 [2001:240:587::]/64
+- mynetworks = $config_directory/mynetworks
+- mynetworks = hash:/etc/postfix/network_table
 
-* so diff to see what happened
+* inet_interfaces
 
-#+BEGIN_SRC 
-# diff main.cf.rpmsave main.cf
-116c116
-< inet_interfaces = loopback-only
----
-> inet_interfaces = localhost
-164c164
-< mydestination =
----
-> mydestination = $myhostname, localhost.$mydomain, localhost
-680,682d679
-< relayhost = [smtp.t0spring.net]
-< myorigin = t0spring.net
-< mynetworks = 127.0.0.0/8 [::1]/128
-#+END_SRC
+- inet_interfaces = loopback-only
+- inet_interfaces = localhost
+
+** doc
+
+- inet_interfaces = all (DEFAULT)
+- inet_interfaces = loopback-only (Postfix version 2.2 and later)
+- inet_interfaces = 127.0.0.1
+- inet_interfaces = 127.0.0.1, [::1] (Postfix version 2.2 and later)
+- inet_interfaces = 192.168.1.2, 127.0.0.1
