@@ -1,11 +1,13 @@
 * postfix general
 
 - yum install postfix mailx mutt telnet -y
+
 - systemctl status postfix
 - systemctl enable postfix
 - systemctl start postfix
 - systemctl is-enabled postfix
 - systemctl is-active postfix
+
 - firewall-cmd --list-services | grep smtp
 - firewall-cmd --permanent --add-service=smtp
 - firewall-cmd --reload
@@ -17,10 +19,11 @@
 - postconf -e "inet_interfaces = all"
 - postconf | grep ^mynetworks
 - postconf -e "mynetworks = 127.0.0.0/8 [::1]/128 192.168.0.0/24"
+
 - systemctl restart postfix
 - systemctl status postfix
 
-* postfix client as null client(machine that can only send mail)
+* postfix client?! as null client(machine that can only send mail)
 
 - postconf | grep ^inet_interfaces
 - postconf -e "inet_interfaces = loopback-only"
@@ -42,10 +45,13 @@
 
 * postfix server, chk
 
+- ss -lntp | grep :25
 - tail -f /var/log/maillog
+- su - jack then mutt
 
-* postfix client, chk
+* postfix client?!, chk
 
+- ss -lntp | grep :25
 - tail -f /var/log/maillog &
 - mail jack@server12
 - mail taeyoungchoon@gmail.com
@@ -81,7 +87,6 @@
 * inet_interfaces
 
 - inet_interfaces = loopback-only
-- inet_interfaces = localhost
 
 ** doc
 
