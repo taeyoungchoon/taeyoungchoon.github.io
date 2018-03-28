@@ -1,0 +1,12 @@
+* alternative words
+
+- UEFI, 요즘 추세
+- BIOS와 CMOS
+
+* BIOS, AMIBIOS
+
+* reboot to CMOS, why?
+
+- http://m.todayhumor.co.kr/view.php?table=total&no=2455361
+- 바이오스배터리가 방전됐을때도 같은 증상이니
+- 하드가 연결안되어있으면 시모스로 자동으로 넘어간다나
