@@ -33,6 +33,12 @@ zypper lr
 zypper search lynx
 zypper install lynx
 yast -i emacs-nox
+
 * firewall
 
 /sbin/SuSEfirewall2 off
+
+* kernel
+
+https://www.novell.com/support/kb/doc.php?id=3594951
+https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions
