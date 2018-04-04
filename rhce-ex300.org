@@ -1,4 +1,4 @@
-* URGT REBOOT : server then client and sure about any
+* TODO REBOOT : server then client and sure about any
 
 - iscsi, samba, nfs
 - systemctl enable samba
@@ -6,7 +6,8 @@
 - fstab with _netdev
 - firewalld
 
-* tiling 2:1
+* DONE tiling 2:1
+  CLOSED: [2018-04-04 Wed 15:42]
 
 - [ ] about firefox
 - save file fail on hypervisor, ssh key file
@@ -57,7 +58,9 @@ exit
   CLOSED: [2018-03-07 Wed 15:30]
 
 - ip addr
+- ifconfig
 - ip route
+- route -n
 - nmcli con add con-name mynet type ethernet ifname eth0
 - nmcli con mod mynet
   ipv4.method manual
@@ -66,18 +69,34 @@ exit
   connection.autoconnect yes
 - nmcil up mynet
 - nmcli con delete "System eth0"
-- nmcli con reload
 - nmcli con 
 
-* ipv6, need a sample ipv6 address
+* DONE ipv6, need a sample ipv6 address
+  CLOSED: [2018-04-04 Wed 15:26]
+
+** server
 
 - nmcli con mod mynet
   ipv6.method manual
-  ipv6.addresses xxx
-- [ ] ping6
+  ipv6.addresses "2001:db8:1::1/64"
+
+** client
+
+- nmcli con mod mynet
+  ipv6.method manual
+  ipv6.addresses "2001:db8:1::2/64"
+- ping6 -I eth1 2001:db8:1::1
 
 * DONE teaming
   CLOSED: [2018-03-07 Wed 15:30]
+
+- https://www.rootusers.com/how-to-configure-network-teaming-in-linux/
+- man nmcli-examples
+
+- nmcli con mod "System eth1" connection.autoconnect no
+- nmcli con mod "System eth2" connection.autoconnect no
+- nmcli con down "System eth1"
+- nmcli con down "System eth2"
 
 - nmcli con add con-name team0 type team ifname team0
 - nmcli con mod team0
@@ -85,22 +104,21 @@ exit
   ipv4.addresses "192.168.33.101/24"
   connection.autoconnect yes
   config '{"runner" : {"name" : "activebackup" }}'
-- nmcli con add con-name team0-port1 type team-slave ifname eth1 master team0
-- nmcli con add con-name team1-port2 type team-slave ifname eth2 master team0
-- nmcli con reload
+- nmcli con add con-name team0-port0 type team-slave ifname eth1 master team0
+- nmcli con add con-name team0-port1 type team-slave ifname eth2 master team0
+- nmcli con up team0-port0
+- nmcli con up team0-port1
+- nmcli con up team0
 - teamdctl team0 state
-- nmcli con delete "System eth1"
-- nmcli con delete "System eth2"
-- nmcli con reload
 
-* TODO [0/1] firewalld about zone
+* DONE firewalld about zone
+  CLOSED: [2018-04-04 Wed 17:12]
 
 - systemctl status firewalld
 - systemctl enable firewalld
 - systemctl start firewalld
 - systemctl status firewalld
 - firewall-cmd --list-all
-- firewall-cmd --list-service
 
 - firewall-cmd --get-zones
 - firewall-cmd --get-default-zone
@@ -112,8 +130,9 @@ exit
 - [ ] dmz then more
 
 * DONE firewalld about forward
-  CLOSED: [2018-03-08 Thu 22:40]
+  CLOSED: [2018-04-04 Wed 17:12]
 
+- yum reinstall firewalld
 - man firewalld.richlanguage | grep to-port
 - firewall-cmd --permanent --add-rich-rule="rule family=ipv4
   source address=192.168.33.0/24
@@ -123,7 +142,8 @@ exit
 - firewall-cmd --reload
 - firewall-cmd --list-all
 
-* authconfig-gtk for kerberos and more
+* DONE authconfig-gtk for kerberos and more
+  CLOSED: [2018-04-04 Wed 17:12]
 * DONE krb5-workstation and more for nfs-secure-server, nil from c7.0
   CLOSED: [2018-03-08 Thu 22:41]
 * DONE yum repository
@@ -134,6 +154,7 @@ exit
 - gpgcheck=0
 - yum repolist
 - yum install lynx
+- yum reinstall firewalld
 
 * DONE yum and rpm basic
   CLOSED: [2018-03-08 Thu 11:27]
@@ -168,16 +189,19 @@ exit
 - semanage fcontext -a -t samba_share_t '/smbshare(/.*)?'
 - restorecon -Rv /srv/www
 - chcon -t httpd_sys_content_t /tmp/foo
-- [ ] yum whatprovides sealert
-- [ ] sealert -a /var/log/audit/audit.log
+- yum whatprovides sealer
+- sealert -a /var/log/audit/audit.log
 
-* TODO chmod, chown, setfacl, getfacl
+* DONE chmod, chown, setfacl, getfacl
+  CLOSED: [2018-04-04 Wed 17:36]
 
 - chmod 
 - chown
+- getfacl
 - setfacl -m u:mary:rw /share
 
-* URGT mariadb
+* DONE mariadb
+  CLOSED: [2018-04-04 Wed 17:34]
 
 - yum install mariadb-server mariadb
 - systemctl status mariadb
@@ -185,25 +209,33 @@ exit
 - systemctl start mariadb
 - systemctl status mariadb
 
+- mysql_secure_installation
+- skip-networking
+- /etc/my.cnf
+
 - firewall-cmd --permanent --add-service=mysql
 - firewall-cmd --reload
 - firewall-cmd --list-all
+
+- ss -lntp  | grep 3306
 
 - create user jack@'%' identified by 'redhat'
 - grant all privileges on *.* to jack@'%'
 - show grants for jack@'%'
 - create database product
-- [ ] create table tbl
-- [ ] insert into tbl (name,price) values ("wine",300);
-- [ ] insert into tbl (name,price) values ("coffee",200);
-- [ ] insert into tbl (name,price) values ("water",100);
-- [ ] update tbl set price=250 where name="coffee"
-- [ ] delete from tbl where name="water"
-- [ ] select * from tbl
-- [ ] revoke all privileges on *.* from jack@'%'
+- create table tbl (name varchar(25), price integer);
+- desc tbl
+- insert into tbl (name,price) values ("wine",300);
+- insert into tbl (name,price) values ("coffee",200);
+- insert into tbl values ("water",100);
+- update tbl set price=250 where name="coffee"
+- delete from tbl where name="water"
+- select * from tbl
+- revoke all privileges on *.* from jack@'%'
 
-* mariadb join, count, sum, group by, how deep
-* URGT [0/6] httpd
+* DONE mariadb join, count, sum, group by, how deep
+  CLOSED: [2018-04-04 Wed 17:34]
+* TODO [0/6] httpd
 
 - yum install httpd httpd-manual mod_ssl mod_wsgi telnet lynx elinks curl -y
 - systemctl status httpd
@@ -277,7 +309,7 @@ ServerName portal.f.com
 - restorecon -Rv /srv/www
 
 * genkey? have to?
-* nfs
+* TODO nfs
 
 - systemctl status nfs-server
 - systemctl enable nfs-server
@@ -298,7 +330,7 @@ ServerName portal.f.com
 
 - server12:/nfsshare /mnt/nfsshare nfs defaults,_netdev 0 0
 
-* URGT nfs but secure, nfs-secure-server only centos 7.0
+* TODO nfs but secure, nfs-secure-server only centos 7.0
 
 - /etc/sysconfig/nfs
 - "-V 4.2"
@@ -313,7 +345,7 @@ ServerName portal.f.com
 
 - server12:/nfsshare /mnt/nfsshare nfs defaults,sec=krb5p,_netdev 0 0
 
-* samba
+* TODO samba
 
 - yum install samba samba-client -y
 - systemctl status smb nmb
@@ -385,7 +417,7 @@ ServerName portal.f.com
 - systemcl restart postfix
 - [ ] test by 
 
-* DONE [0/1] iscsi.serer.pre
+* DONE [0/1] iscsi.server.pre
   CLOSED: [2018-03-08 Thu 11:41]
 
 - fdisk -l | grep Disk
@@ -463,9 +495,8 @@ ServerName portal.f.com
 - iscsiadm -m session -P 1
 - iscsiadm -m session -P 2
 - iscsiadm -m session -P 3
-
-* dns caching, ntp, to do or not have to do?
-* URGT bash, case, if
+* DONE bash, case, if
+  CLOSED: [2018-04-04 Wed 17:35]
 
 #+BEGIN_SRC sh
   case $1 in
@@ -491,4 +522,5 @@ ServerName portal.f.com
   fi
 #+END_SRC
 
-* tmp
+* TODO dns caching, ntp, to do or not have to do?
+
