@@ -106,9 +106,12 @@ exit
   config '{"runner" : {"name" : "activebackup" }}'
 - nmcli con add con-name team0-port0 type team-slave ifname eth1 master team0
 - nmcli con add con-name team0-port1 type team-slave ifname eth2 master team0
+
+- nmcli con down team0
+- nmcli con
 - nmcli con up team0-port0
 - nmcli con up team0-port1
-- nmcli con up team0
+- nmcli con
 - teamdctl team0 state
 
 * DONE firewalld about zone

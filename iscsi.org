@@ -1,8 +1,13 @@
-* conf
+* is
+
+iscsi
+
+* s, conf
+* c, conf
 
 /etc/iscsi/initiatorname.iscsi
 
-* cli
+* cli, old
 
 /etc/init.d/open-iscsi restart
 
