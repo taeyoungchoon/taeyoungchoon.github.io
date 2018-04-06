@@ -125,9 +125,12 @@ exit
 - firewall-cmd --get-active-zones
 
 - firewall-cmd --set-default-zone=dmz
+- firewall-cmd --add-source=172.28.128.0/24 --zone=work
+- firewall-cmd --add-service=mysql --zone=work --permanent
+- firewall-cmd --add-service=mysql --zone=work
+- firewall-cmd --reload
 - firewall-cmd --list-all
-
-- [ ] dmz then more
+- cat /etc/firewalld/zones/work.xml
 
 * DONE firewalld about forward
   CLOSED: [2018-04-04 Wed 17:12]
@@ -235,7 +238,7 @@ exit
 
 * DONE mariadb join, count, sum, group by, how deep
   CLOSED: [2018-04-04 Wed 17:34]
-* TODO [0/6] httpd
+* URGT [0/6] httpd
 
 - yum install httpd httpd-manual mod_ssl mod_wsgi telnet lynx elinks curl -y
 - systemctl status httpd
@@ -244,13 +247,16 @@ exit
 - systemctl status httpd
 
 - firewall-cmd --list-services
-- firewall-cmd --permanent --add-service=http
+- firewall-cmd --permanent --add-service=http 
 - firewall-cmd --permanent --add-service=https
 - firewall-cmd --reload
 - firewall-cmd --list-services
 
 - telnet server12 80
 - telnet server12 443
+
+- curl localhost
+- curl -k https://localhost
 
 - lynx /usr/share/httpd/manual
 - /etc/httpd/conf.d/vh.conf
@@ -286,7 +292,6 @@ ServerName portal.f.com
 
 - httpd -t
 - httpd -S
-- httpd -D DUMP_VHOSTS
 - systemctl status httpd
 - systemctl restart httpd
 - systemctl status httpd
@@ -308,7 +313,39 @@ ServerName portal.f.com
 - semanage fcontext -a -t httpd_sys_content_t '/srv/www(/.*)?'
 - restorecon -Rv /srv/www
 
-* genkey? have to?
+* DONE cgi, wsgi
+  CLOSED: [2018-04-05 Thu 14:46]
+
+- vi /usr/share/doc/mod_wsgi-3.4/README
+- vh.conf
+
+<Directory /srv/vh2/www/bin>
+require all granted
+order deny,allow
+deny from all
+allow from all
+</Directory>
+
+<VirtualHost *:80>
+servername vh2.com
+documentroot /srv/vh2/www
+
+WSGIScriptAlias /myapp /srv/vh2/www/myapp.wsgi
+WSGIScriptAlias /bin/ /srv/vh2/www/bin/
+</VirtualHost>
+
+- myapp.wsgi
+
+def application(environ, start_response):
+    status = '200 OK'
+    output =        'Hello World!'
+
+    response_headers = [('Content-type', 'text/plain'),
+                        ('Content-Length', str(len(output)))]
+    start_response(status, response_headers)
+
+    return [output]
+
 * TODO nfs
 
 - systemctl status nfs-server
@@ -345,9 +382,10 @@ ServerName portal.f.com
 
 - server12:/nfsshare /mnt/nfsshare nfs defaults,sec=krb5p,_netdev 0 0
 
-* TODO samba
+* DONE samba
+  CLOSED: [2018-04-05 Thu 14:17]
 
-- yum install samba samba-client -y
+- yum install samba samba-client cifs-utils -y
 - systemctl status smb nmb
 - systemctl enable smb nmb
 - systemctl start smb nmb
@@ -378,9 +416,8 @@ ServerName portal.f.com
 - /etc/samba/smb.conf
   [smbshare]
   path = /smbshare
-  valid users = @sales nerd 
-  write list = @sales
-  broweable = yes
+  valid users = +sales nerd 
+  write list = +sales
 - testparm
 - systemctl restart smb nmb
 
@@ -390,15 +427,19 @@ ServerName portal.f.com
 - /etc/passwd.samba
   username=jack
   password=redhat
-- chmod 700 /etc/passwd.samba
+- chmod 600 /etc/passwd.samba
 - yum install cifs-utils -y
-- mount -t cifs -o credentials=/etc/passwd.samba
-  //server12.f.com/smbshare /mnt/smbshare
-
-- mount -t cifs -o credentials=/etc/passwd.samba,sec=ntlmssp,multiuser 
-  //server12.f.com/smbshare /mnt/smbshare
-- [ ] cifscreds add jack server12
+- mount //server12.f.com/smbshare /mnt/smbshare
+  -o credentials=/etc/passwd.samba
+- mount //server12.f.com/smbshare /mnt/smbshare
+  -o credentials=/etc/passwd.samba,sec=ntlmssp,multiuser 
+- cifscreds add -u jack server12
 - [ ] keyctl
+
+- cat >> /etc/fstab
+- //server12/smbshare /mnt/smbshare cifs credentials=/etc/passwd.samba,sec=ntlmssp,multiuser 0 0
+- mount /mnt/smbshare
+- df |  grep smbshare
 
 * DONE [0/1] postfix but null client
   CLOSED: [2018-03-08 Thu 15:19]
@@ -418,7 +459,7 @@ ServerName portal.f.com
 - [ ] test by 
 
 * DONE [0/1] iscsi.server.pre
-  CLOSED: [2018-03-08 Thu 11:41]
+  CLOSED: [2018-04-05 Thu 15:16]
 
 - fdisk -l | grep Disk
 - lsblk
@@ -441,7 +482,7 @@ ServerName portal.f.com
 - [ ] and MiB (1MiB -eq 1048576 but 1MB -eq 1000000)
 
 * DONE iscsi.server
-  CLOSED: [2018-03-08 Thu 13:38]
+  CLOSED: [2018-04-05 Thu 15:43]
 
 - yum install targetcli -y
 - systemctl status target
@@ -457,30 +498,32 @@ ServerName portal.f.com
 - cd /backstores/block
 - create i_image /dev/vg_storage/lv_media
 - cd /iscsi
-- create iqn.2018-03.com.f:server12
+- [ ] create iqn.2018-03.com.f:server12
 - cd iqn.2018-03.com.f:server12/tpg1
 - ls
 - cd acls
-- create iqn.2018-03.com.f:desktop12
+- [ ] create iqn.2018-03.com.f:desktop12
 - cd ../luns
 - create /backstores/block/i_image
+- cd ../portals
+- [ ] create 172.28.128.100:3260
 - exit
 - /etc/target/saveconfig.json
 - systemctl restart target
 
 * DONE iscsi.client
-  CLOSED: [2018-03-08 Thu 13:38]
+  CLOSED: [2018-04-05 Thu 15:43]
 
 - yum install iscsi-initiator-utils -y
 - /etc/iscsi/initiatorname.iscsi
-- InitiatorName=iqn.2018-03.com.f:desktop12
+- [ ] InitiatorName=iqn.2018-03.com.f:desktop12
 - systemctl status iscsi
 - systemctl start iscsi
 - systemctl status iscsi
 - man iscsiadm | grep discoverydb
 - iscsiadm -m discoverydb -t st -p server12.f.com --discover
 - man iscsiadm | grep node
-- iscsiadm -m node -T iqn.2018-03.com.f:server12 -p server12.f.com -l
+- [ ] iscsiadm -m node -T iqn.2018-03.com.f:server12 -p server12.f.com -l
 - dmesg
 - fdisk -l | grep Disk
 - yum install gdisk -y
@@ -495,6 +538,7 @@ ServerName portal.f.com
 - iscsiadm -m session -P 1
 - iscsiadm -m session -P 2
 - iscsiadm -m session -P 3
+
 * DONE bash, case, if
   CLOSED: [2018-04-04 Wed 17:35]
 
