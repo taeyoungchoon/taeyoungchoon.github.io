@@ -2,35 +2,52 @@
 
 ** server
 
-1. systemctl enable nfs-server
-2. systemctl start nfs-server
-3. mkdir /export
-4. /etc/exports
-   /etc/export desktopX(rw)
-5. exportfs -rv
-6. firewall-cmd --permanent --add-service=nfs
-7. firewall-cmd --permanent --add-service=rpc-bind
-8. firewall-cmd --permanent --add-service=mountd
-9. firewall-cmd --reload
-
+1. yum install nfs-utils
+2. systemctl enable nfs-server
+3. systemctl start nfs-server
+4. mkdir /nfsshare
+5. permission and ownership?
+6. /etc/exports
+   /nfsshare desktopX(rw)
+7. exportfs -a OR?
+8. exportfs -rv
+9. firewall-cmd --permanent --add-service=nfs
+10. firewall-cmd --permanent --add-service=rpc-bind
+11. firewall-cmd --permanent --add-service=mountd
+12. firewall-cmd --reload
 
 ** client
 
-1. mkdir /mnt/export
-2. (opt) mount serverX:/export /mnt/export
+1. mkdir /mnt/nfsshare
+2. (opt) mount serverX:/export /mnt/nfsshare
 3. /etc/fstab
-   serverX:/export /mnt/export nfs defaults 0 0
+   serverX:/export /mnt/nfsshare nfs defaults 0 0
 4. mount -a
 
 ** test
 
-1. showmouse -e
+1. showmouse -e server12
 
 ** one more thing
 
 - /etc/fstab
   serverX:/export /mnt/export nfs defaults,_netdev 0 0
 - man nfs
+
+** and more krb
+
+- download keytab file to /etc/krb5.keytab
+- systemctl start nfs-secure-server
+- export with sec=krb5p
+- systemctl start nfs-secure
+- mount with sec=krb5p
+
+
+** and more selinux with 4.2
+
+- /etc/sysconfig/nfs : -V 4.2
+  RPCNFSDARGS="-V 4.2"
+- mount -o vers=4.2  or v4.2
 
 ** root_squash
 
