@@ -1,3 +1,9 @@
+* TODO sample
+
+- https://gist.github.com/cainj13/3eebd69bc8fbe848f333c75dadf729d5
+- http://www.roggeware.nl/mediawiki-1.24.1/index.php?title=User:Tom/RHCE_EX300
+- https://websistent.com/rhce-exam-experience/
+
 * TODO REBOOT : server then client and sure about any
 
 - iscsi, samba, nfs
@@ -444,8 +450,7 @@ def application(environ, start_response):
 - mount /mnt/smbshare
 - df |  grep smbshare
 
-* DONE [0/1] postfix but null client
-  CLOSED: [2018-03-08 Thu 15:19]
+* TODO [0/1] postfix but null client
 
 - systemctl status postfix
 - systemctl enable postfix
@@ -458,8 +463,33 @@ def application(environ, start_response):
 - postconf -e "mynetworks=127.0.0.0/8, [::1]/128"
 - postconf -e "inet_interfaces=loopback-only"
 - postconf -e "relayhost=[server12.example.com]"
+- [ ] postconf -e "local_transport=error: local delivery disabled"
+- local_transport = error:local mail delivery is disabled
+  man or somewhere or command
 - systemcl restart postfix
-- [ ] test by 
+- [ ] mail -s "test" jack@desktop12.f.com
+- [ ] mutt -f imaps://imap12.f.com
+
+** local_transport
+
+- You redefine the "local_transport" setting in main.cf.
+- local_transport: determine how email addressed to $mydestination should be delivered. By default, set to local:$myhostname, which uses the local mail delivery agent to deliver incoming mail to the local message store in /var/spool/mail.
+- local_transport = virtual
+- local_transport (default: local:$myhostname)
+This is the default for final delivery to domains listed with mydestination, and for [ipaddress] destinations  that  match  $inet_interfaces or $proxy_interfaces. The default nexthop destination is the MTA hostname.
+- [ ] man transport
+- The error mailer can be used to bounce mail:
+- .example.com     error:mail for *.example.com is not deliverable
+- local_transport = local:$myhostname
+- [ ] local_transport = error: local delivery disabled
+- man 8 local
+- man error
+- The local_transport parameter enforces the fact that no email is delivered locally, so email to root@firewall.domain.com will be rejected with the error that local mail delivery is disabled. 
+- local_transport = error:local mail delivery is disabled on this machine
+- local_transport = error:local mail delivery is disabled
+- [ ] local_transport = error:xxx
+- /etc/postfix/transport
+- /etc/postfix/main.cf
 
 * DONE [0/1] iscsi.server.pre
   CLOSED: [2018-04-05 Thu 15:16]
