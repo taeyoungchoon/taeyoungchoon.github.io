@@ -1,0 +1,122 @@
+* result, fail to accomplish the need?
+
+어쨌거나 떨어졌다
+
+Final checks complete. About to write GPT data. THIS WILL OVERWRITE EXISTING
+PARTITIONS!!
+
+이런 메시지가 떴을텐데
+
+Partition table scan:
+  MBR: MBR only
+  BSD: not present
+  APM: not present
+  GPT: not present
+
+이 상황이었을텐데, 왜 그냥 진행했을까? 데이타 파티션도 아닌데 운영체제가 설치되어 있는 파티션인데?
+어쨌든 30분 남가고 상황이 발생했고 이 문제를 확인하고 다른 부분을 돌아보는 것으로 이번 시험을 마무리 했다.
+
+MiB, MB
+fdisk, gdisk, parted
+
+* pre
+
+이메일만 잘 적으면, cert id는 없어도
+조건을 로컬 터미널에 복사하여 편집해서 볼 것만 보고
+각 서버 정상 부팅되고 나면 ssh로 작업하는 것이 좋다
+
+root 패스워드는
+일반 사용자가 있는데 패스워드는
+다른 사용자도 있는데 이 계정은 문제 설명 중에 나온다는
+각 서버의 ip는 server1, server2
+도메인의 대역은 172.28.128.0/24
+그리고 realm의 인데 
+어디서는 접근이 되면 안된다 172.28.200.0/24
+yum-config-manager에 쓸 값은
+뭐 이렇게 설명하고
+
+nslookup realm하면 현제 dns를 볼 수 있다, 이거 말고 다른 방법은 없나
+host는 아니고 nmcli에서는?
+
+* and more
+
+reboot
+rd.break
+mount -o remount,rw /sysroot
+chroot /sysroot
+passwd root
+touch /.autorelabel
+exit
+exit
+
+teaming 구성시 config '{ "runner" : { "name" : "activebackup" }}' 에 대해서 에러가 발생하였는데 집에서 복기해 보니 에러가 나지 않았다. 지금 rh7.0 다운로드 받는 중입니다.
+/usr/share/doc/teamd-x.y/examples_ifcfgs/ifcfg-team_test0에 설정이 있다, 복사해서 사용하면 된다, 정안되면
+eth1, eth2에 네트워크 구성이 되어 있지 않은 인터페이스만 제공이 되는군요. 딱 좋군요.
+
+eth0은 nmcli connection mod로 변경하는 것이 좋을 것 같군요. 따로 mynet은 할필요가 없는 듯 합니다.
+
+ipv6는 netmask는 /64로 그냥 두면 되었을 듯합니다. 괜히 고민한 듯
+
+forward는 man firewalld.richlanguage | grep to-port 전에 이해 및 실습이 필요하다.
+
+yum-config-manager --add-repo=http://
+gpgcheck=0
+yum clean all
+yum install telnet -y
+
+lynx는 없다
+
+tcp wrapper는 허용하는 네트워크 대역과 막는 대역이 두개 있는데 각각 hosts.allow와 hosts.deny에 세팅하였군요.
+네트워크 대역 세팅은 항상 고민된다는
+
+방화벽은 public 그냥 두고 각종 막는 설정은 개별 서비스에서 진행하면 됩니다.
+
+samba는 smb.conf인가 smb.cnf인가에서
+SALES
+접근은 어디서
+multiuser,sec=ntlmssp 추가, 누구 계정으로 마운트하고 credentials=/etc/passwd.samba
+계정 추가
+누구는 읽고 누구는 읽고 쓰고
+
+nfs는 /etc/exports에서
+nfs는 keytab(krb5.keytab) 추가하고 퍼미션은 /etc에 받으니 별도로 세팅할 것이 없고
+rpc-bind mountd nfs
+nfs-secure-server
+nfs-secure
+selinux 관련하여 -V 4.2와 vers=4.2는 제외했는데
+sec=krb5p는 추가
+/public 172.x.x.x/24(ro)
+/protected 172.x.x.x/24(rw,sec=krb5p
+하위 디렉토리가 여기인가 samba인가
+
+iscsi는 우선 디스크 부터 그런데 서버도 MiB
+별도의 디스크를 제공하지 않고
+어디서만 접근 가능하고
+클라이언트도 MiB라니
+
+bash 스크립트는 Perl과 Python 그리고 help를 찍는 것으로 쉽게 출제 되었군요.
+
+selinux, enforcing으로 세팅하고 리부팅
+
+systemctl mask iptables ip6tables ebtables는 그냥
+
+qstat는 /usr/local/bin에 chmod +x 해서 만들어 두는 것으로
+
+mariadb는 skip-networking하고 데이타 import하고 계정 추가하고
+create user jack@'%' identified by xxx;
+grant all privileges on Contacts.* to jack@'%';
+로컬에서만 접근 제한인데 %가 맞는 것인가, 결론은 맞지만, 블랙박스라면
+설정을 볼까?
+테이블은 3개 password가 x인 사용자의 first name은
+
+postfix는 server1과 server2에 다 세팅
+local_transport=error: local delivery disabled
+뭐 명쾌하다
+
+httpd는 vh다수
+하위 폴더 제한도
+포트를 별도로 구성하는 것도, firewall-cmd --add-port=8999, semanage port -a -t -p tcp 8999
+wsgi도 있고 도메인에 접근하면 바로 돌리기
+접근 제한다
+특정 계정은 들어가서 변경할 수 있다까자 setfacl
+
