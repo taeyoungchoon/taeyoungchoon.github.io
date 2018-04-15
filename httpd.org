@@ -1,0 +1,11 @@
+* rhce > ex300, 20180414
+
+- no SSL
+- [ ] but LISTEN 8999
+- wsgi
+- [ ] order deny allow
+- sub directory
+- chown
+- setfacl
+- vh1, vh2, vh3
+- download index.html

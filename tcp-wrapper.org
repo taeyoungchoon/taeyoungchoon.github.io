@@ -46,6 +46,7 @@ tcp_wrappers-7.6-40.7.el5
 그리고 코드를 작성한 Wietse Venema의 쓴 초안에서도 tcp wrapper(1997)를 사용합니다. 
 패키지명을 tcp_wrappers로 하였군요.
 이 분이 Postfix(1997)도 개발하셨군요. 
+
 * so /etc/hosts.allow
 
 #+BEGIN_EXAMPLE
@@ -63,3 +64,16 @@ httpd(aka apache)는 httpd.conf를 사용하는 것도 좋다. rel : [[file:apac
 ALL: ALL
 #+END_EXAMPLE
 
+* rhce > ex300, 20180414
+
+** /etc/hosts.allow
+
+#+BEGIN_EXAMPLE
+sshd: 192.168.100.0/24
+#+END_EXAMPLE
+
+** /etc/hosts.deny
+
+#+BEGIN_EXAMPLE
+sshd: 192.168.200.0/24
+#+END_EXAMPLE

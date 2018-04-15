@@ -1,3 +1,15 @@
+* rhce > ex300, 20180414
+
+** nmcli c mod eth0
+** teaming, config at 'add' not 'mod'
+
+#+BEGIN_EXAMPLE
+nmcli c add con-name team0 type team ifname team0 config '{"runner": { "name": "activebackup"}}'
+#+END_EXAMPLE
+
+- diff centos7.0 and rh7.0, you can set 'config' at 'mod' from centos but not rh maybe
+- cat /usr/share/doc/teamd-1.9/example_ifcfgs/1/ifcfg-test_test0
+
 * list
 
 - nmcli device

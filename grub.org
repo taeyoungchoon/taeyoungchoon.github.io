@@ -1,3 +1,14 @@
+* rhce > ex300, 20180414
+
+#+BEGIN_EXAMPLE
+mount | grep sysroot
+mount -o remount,rw /sysroot
+chroot /sysroot
+passwd root
+exit
+exit
+#+END_EXAMPLE
+
 * grub, GRand Unified Bootloader
 * grub2 so
 * grub2 hack

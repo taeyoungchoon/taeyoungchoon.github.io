@@ -1,3 +1,23 @@
+* rhce > ex300, 20180414
+
+** enable
+
+#+BEGIN_EXAMPLE
+getenforce
+cat /etc/selinux/config
+SELINUX=enforcing
+reboot
+#+END_EXAMPLE
+
+** TODO port
+
+#+BEGIN_SRC 
+semanage port -a -t xx_t -p tcp 8999
+semanage port -l
+#+END_SRC
+
+** with nfs, nil
+
 * swap current mode online
   
 - enforcing and permissiave
@@ -123,6 +143,3 @@ tclass=dir
 ** test
 
 1. ssh ldapuser@desktopX
-
-
-

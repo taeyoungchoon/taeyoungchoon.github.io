@@ -1,3 +1,35 @@
+* TODO rhce > ex300, 20180414
+
+- fdisk
+- gdisk, gpt fdisk
+
+#+BEGIN_EXAMPLE
+fdisk /dev/vdb
+n, 3G
+t, 8e
+w
+partprobe
+
+pvcreate /dev/vdb3
+vgcreate vg_p1 /dev/vdb3
+lvcreate -n storage -L 3G vg_p1
+
+iscsi stuff
+
+fdisk /dev/sda
+n, 1G
+t, 83
+w
+partprobe
+
+mkfs.ext4 /dev/sda1
+
+blkid >> /etc/fstab
+vi /etc/fstab
+mount -a
+
+#+END_EXAMPLE
+
 * click
 
 * so

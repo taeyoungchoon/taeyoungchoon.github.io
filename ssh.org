@@ -1,3 +1,12 @@
+* rhce > ex300, 20180414
+
+#+BEGIN_EXAMPLE
+ssh root@172.28.128.101
+alias s1="ssh root@172.28.128.100"
+alias s2="ssh root@172.28.128.110"
+alias s3="ssh root@172.28.128.120"
+#+END_EXAMPLE
+
 * list
 
 - /etc/ssh/sshd_config

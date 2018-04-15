@@ -1,3 +1,9 @@
+* rhce > ex300, 20180414
+
+- Python then Perl
+- Perl then Python
+- nil or more then help
+
 * pre
 
 - yum install bash-completion -y
