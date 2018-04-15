@@ -1,70 +1,27 @@
-* wrap network service
-
-- 이런 알고보니 랩이 이거였군요. (예를 들면 랩으로 감싸서 채소칸에 보관하다)
-
-#+BEGIN_SRC emacs-lisp
-  (internet
-   (iptables
-    (tcp-wraper
-     network-service)))
-
-#+END_SRC
-
-* two files, hosts.allow then hosts.deny
-
-- The search stops at the first match
-
-* syntax
-
-- daemon : client
-- daemon as ALL, vsftpd, in.telnetd
-- client as ALL, foo.com, .bar.com, 61.111., 172.20.6.0/255.255.255.0, /etc/telnet.hosts
-
-* syntax but EXCEPT
-
-- ALL: .foo.com EXCEPT raul.foo.com
-- ALL EXCEPT in.telnetd: 192.168.0.
-
-* compiled to do so
-
-#+BEGIN_EXAMPLE
-$ ldd /usr/sbin/sshd  | grep libwrap
-        libwrap.so.0 => /lib64/libwrap.so.0 (0x00002b3b8549c000
-# ldd /usr/sbin/vsftpd | grep -i wrap
-        libwrap.so.0 => /lib64/libwrap.so.0 (0x00002adbba933000)
-#+END_EXAMPLE
-
-* tcp-wrapper or tcp-wrappers
-
-tcp-wrapper가 더 많이 나온다는
-
-#+BEGIN_EXAMPLE
-# rpm -qa | grep -i wrap
-tcp_wrappers-7.6-40.7.el5
-#+END_EXAMPLE
-
-그리고 코드를 작성한 Wietse Venema의 쓴 초안에서도 tcp wrapper(1997)를 사용합니다. 
-패키지명을 tcp_wrappers로 하였군요.
-이 분이 Postfix(1997)도 개발하셨군요. 
-
-* so /etc/hosts.allow
-
-#+BEGIN_EXAMPLE
-sshd: 172.20.6.0/255.255.255.0
-httpd: 172.20.6.0/255.255.255.0
-#+END_EXAMPLE
-
-httpd(aka apache)는 httpd.conf를 사용하는 것도 좋다. rel : [[file:apache.org][apache]]
-아닌가 설정을 여러 곳에 하는 것은 말이다. 
-그럼 이것도 아닌가. 다 iptables에 하는 것은 어떠한가?
-
-* so /etc/hosts.deny
-
-#+BEGIN_EXAMPLE
-ALL: ALL
-#+END_EXAMPLE
-
 * rhce > ex300, 20180414
+
+어떤 대역 A는 접근할 수 있도록 그리고
+어떤 대역 B는 접근할 수 없도록 세팅하라인데
+
+이 녀석은 /etc/hosts.allow로 허용하고 /etc/hosts.deny로 막고 나머지는 허용한다.
+(man 5 hosts_access)
+결국 아래는 그냥 문제를 낸 것처럼 기술한 것이고
+
+풀이해서 하려면
+/etc/hosts.allow에 허용할 대역만 /etc/hosts.deny는 sshd: ALL로 기술하면 된다.
+
+ALL: ALL는 어떤게 막힐 줄 알고 다 ALL: ALL을 기술한다는 말인가?
+데몬 중에 tcp wrapper를 사용하는 녀석이 누군지 알고 말이다.
+
+참 이 문제도 그냥 방화벽에서 하면 안될까?
+firewall-cmd --add-service=ssh
+firewall-cmd --add-rich-rule 'rule family=ipv4 source address="192.168.50.130" service name="ssh" log prefix="ssh " reject'
+(man firewalld.richlanguage | grep rule)
+
+journalctl -f -l
+Apr 14 21:50:36 server1 kernel: ssh IN=enp0s8 OUT= MAC=08:00:27:66:d0:e1:08:00:27:7d:79:f8:08:00 SRC=192.168.50.130 DST=192.168.50.110 LEN=60 TOS=0x00 PREC=0x00 TTL=64 ID=23654 DF PROTO=TCP SPT=38584 DPT=22 WINDOW=14600 RES=0x00 SYN URGP=0
+
+된다.
 
 ** /etc/hosts.allow
 
@@ -77,3 +34,46 @@ sshd: 192.168.100.0/24
 #+BEGIN_EXAMPLE
 sshd: 192.168.200.0/24
 #+END_EXAMPLE
+
+* daemon is the network daemon process name
+
+- sshd, vsftpd, in.telnetd
+- are specified i nthe inetd configuration file, normally
+
+* client, man hosts.access
+
+- ALL
+- foo.com .foo.com
+- 61.111.
+- 172.20.6.0/255.255.255.0
+- 172.20.6.0/24
+- /etc/telnet.hosts
+- 192.168.0.*
+- 192.168.0.1?0
+
+* syntax but EXCEPT
+
+- ALL: .foo.com EXCEPT raul.foo.com
+- ALL EXCEPT in.telnetd: 192.168.0.
+
+* knowledge or just know a little
+
+- Wietse Venema
+- tcp wrapper(1997) and Postfix(1997)
+- tcp_wrapper-7.6-40.7.el5
+- ldd /usr/sbin/sshd | grep libwrap
+
+* flow, the search stops at the first match
+
+1. /etc/hosts.allow
+2. /etc/hosts.deny
+3. allow
+
+* flow, allow only from 192.168.1.0/24
+
+1. /etc/hosts.allow
+   sshd: 192.168.1.0/24
+2. /etc/hosts.deny
+   sshd: ALL
+3. allow
+
