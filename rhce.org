@@ -19,7 +19,7 @@ https://www.redhat.com/ko/resources/red-hat-certified-engineer-ex300-exam-object
 - [ ] 이제 시험신청이 필요하다. 2018년 2월 23일이라
   https://www.redhat.com/ko/services/training/ex300-red-hat-certified-engineer-rhce-exam
   https://training-lms.redhat.com/lmt/clmscatalogsummary.prmain?in_sessionid=&in_portid=1&in_language_logged_out=ko&in_courseName=EX300&in_courseType=EX&in_region=kr&sc_cid=7016000000126ybAAA
-- [ ] money at
+- [ ] money at, 카드의 경우
   http://www.flane.co.kr/
 
 * steps, 금일 시험 수행 절차
