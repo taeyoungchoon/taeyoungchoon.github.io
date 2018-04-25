@@ -1,0 +1,5 @@
+* list
+
+hwclock -r
+hwclock -w
+man hwclockm
