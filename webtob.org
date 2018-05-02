@@ -50,3 +50,16 @@ repeat -i -k 2 ci -s
 $ echo ci -s | wsadmin
 $ wsadmin -C "ci -s"
 ps -ef | egrep "hth|wsm|htl"
+
+* license
+
+1. wsadmin -C wi to chk current license
+2. wlic  or cd $WEBTOB_HOME/license/
+3. cp license.dat license.dat.old or something like that
+4. upload license file to $WEBTOB_HOME/license/
+5. wsadmin -i license.dat to chk
+6. wcfg or cd $WEBTOB_HOME/config/
+7. wscfl -i http.m
+8. wsdown with care
+9. wsboot
+10. wsadmin -C wi to chk current license

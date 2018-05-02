@@ -75,3 +75,22 @@ $JEUS_HOME/logs/<node name>/jeusserver.log
 $JEUS_HOME/logs/<node name>/<container name>/container1.log
 $JEUS_HOME/logs/<node name>/<container name>/servlet/errorlog/error.log
 $JEUS_HOME/logs/JeusSystem/<container name>/std.log
+
+* license
+
+1. jeusadmin -licensedue
+2. jeusadmin -licenseinfo
+3. cd $JEUS_HOME/license/
+4. cp license license.old
+5. upload license file
+6. jdown then jboot (under JEUS 6)
+7. nmdown, dsdown, dsboot then nmboot (up from JEUS 7)
+8. jeusadmin -licensedue
+9. jeusadmin -licenseinfo
+
+** ds and nm
+
+- ds : Domain administrator Server
+- nm : Node Manager
+
+* print, JEUS7 운영자 가이드

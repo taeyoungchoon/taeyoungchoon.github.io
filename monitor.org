@@ -1,4 +1,25 @@
+* Uila, Application Performance Monitoring(APM) < visual monitoring and deep
+
+- Demo : https://www.youtube.com/watch?v=d1PeWccQZ5g
+- heavy monitoring
+- all layers
+- click, click then what to do
+- they know
+
+* Juniper Networks AppFormix < light monitoring
+
+- Demo : https://www.youtube.com/watch?v=BpuffLZFXRU
+- light monitoring
+- surfice only, cpu, memory, disk like that
+- have to know well, what 
+- with devops
+
+* nagios and more
+
 * so
 
-이 모니터가 그 모니터일까 ㅎ 
-또는 보안 운영체제의 모니터?
+- 관제는 안다는 것이다. 조금 또는 많이 그리고 총체적으로 그 수준에 따른다.
+- 관제는 제공자와 소비자의 공동의 작업이다.
+- 역시나 안다의 차이다.
+- 센서의 수준의 안다의 기본이다.
+- 센서의 시각화는 
