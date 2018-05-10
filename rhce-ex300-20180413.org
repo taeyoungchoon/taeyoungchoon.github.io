@@ -19,6 +19,7 @@ Partition table scan:
 
 MiB, MB
 fdisk, gdisk, parted
+
 * english
 
 컴퓨터에 처음 보이는 화면은 이름, 이메일, cert id, 주소를 적는
@@ -40,7 +41,7 @@ root 패스워드는
 yum-config-manager에 쓸 값은
 뭐 이렇게 설명하고
 
-nslookup realm하면 현제 dns를 볼 수 있다, 이거 말고 다른 방법은 없나
+nslookup realm하면 현재 dns를 볼 수 있다, 이거 말고 다른 방법은 없나
 host는 아니고 nmcli에서는?
 
 * [100%] and more

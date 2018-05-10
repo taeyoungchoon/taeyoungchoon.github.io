@@ -1,0 +1,22 @@
+//
+// graphviz-dot-mode
+//
+// M-x compile
+// C-c p
+//
+
+digraph chk {
+	graph [fontsize=12 rankdir = "LR"];	
+	
+	user1 -> haproxy
+	user2 -> haproxy
+	user3 -> haproxy
+	haproxy -> web1
+	haproxy -> web2
+
+	subgraph cluster_1 {
+		label="server Farm";
+		web1;
+		web2;
+	}
+}
