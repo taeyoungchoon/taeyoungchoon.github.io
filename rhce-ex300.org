@@ -1,12 +1,12 @@
-* TODO sample
+* TODO [0/3] sample
 
-- https://gist.github.com/cainj13/3eebd69bc8fbe848f333c75dadf729d5
-- http://www.roggeware.nl/mediawiki-1.24.1/index.php?title=User:Tom/RHCE_EX300
-- https://websistent.com/rhce-exam-experience/
+- [ ] https://gist.github.com/cainj13/3eebd69bc8fbe848f333c75dadf729d5
+- [ ] http://www.roggeware.nl/mediawiki-1.24.1/index.php?title=User:Tom/RHCE_EX300
+- [ ] https://websistent.com/rhce-exam-experience/
 
-* TODO REBOOT : server then client and sure about any
+* TODO [0/1] REBOOT : server then client and sure about any
 
-- iscsi, samba, nfs
+- [ ] iscsi, samba, nfs
 - systemctl enable samba
 - config well
 - fstab with _netdev
@@ -97,7 +97,8 @@ exit
   CLOSED: [2018-03-07 Wed 15:30]
 
 - https://www.rootusers.com/how-to-configure-network-teaming-in-linux/
-- man nmcli-examples
+- [ ] man nmcli-examples | grep team | grep add
+- [ ] man teamd.conf | grep activebackup
 
 - nmcli con mod "System eth1" connection.autoconnect no
 - nmcli con mod "System eth2" connection.autoconnect no
@@ -179,6 +180,7 @@ exit
 - yum install mariadb
 - yum reinstall lvm2
 - yum repolist
+- yum list | grep cifs-utils
 
 * DONE systemd and journalctl
   CLOSED: [2018-03-08 Thu 14:48]
@@ -229,25 +231,27 @@ exit
 - firewall-cmd --reload
 - firewall-cmd --list-all
 
-- ss -lntp  | grep 3306
+- ss -lntup  | grep 3306
 
 - create user jack@'%' identified by 'redhat'
-- grant all privileges on *.* to jack@'%'
-- show grants for jack@'%'
-- create database product
-- create table tbl (name varchar(25), price integer);
-- desc tbl
+- [ ] grant all privileges on *.* to jack@'%'
+- [ ] show grants for jack@'%'
+- create database db;
+- use db;
+- create table tbl (name varchar(30), price integer);
+- desc tbl;
 - insert into tbl (name,price) values ("wine",300);
 - insert into tbl (name,price) values ("coffee",200);
 - insert into tbl values ("water",100);
-- update tbl set price=250 where name="coffee"
-- delete from tbl where name="water"
-- select * from tbl
-- revoke all privileges on *.* from jack@'%'
+- update tbl set price=250 where name="coffee";
+- delete from tbl where name="water";
+- select * from tbl;
+- revoke all privileges on *.* from jack@'%';
 
 * DONE mariadb join, count, sum, group by, how deep
   CLOSED: [2018-04-04 Wed 17:34]
-* URGT [0/6] httpd
+
+* TODO [0/6] httpd
 
 - yum install httpd httpd-manual mod_ssl mod_wsgi telnet lynx elinks curl -y
 - systemctl status httpd
@@ -322,10 +326,10 @@ ServerName portal.f.com
 - semanage fcontext -a -t httpd_sys_content_t '/srv/www(/.*)?'
 - restorecon -Rv /srv/www
 
-* DONE cgi, wsgi
+* TODO [0/1] cgi, wsgi
   CLOSED: [2018-04-05 Thu 14:46]
 
-- vi /usr/share/doc/mod_wsgi-3.4/README
+- [ ] vi /usr/share/doc/mod_wsgi-3.4/README
 - vh.conf
 
 <Directory /srv/vh2/www/bin>
@@ -355,7 +359,7 @@ def application(environ, start_response):
 
     return [output]
 
-* TODO nfs
+* TODO [0/1] nfs
 
 - systemctl status nfs-server
 - systemctl enable nfs-server
@@ -376,7 +380,7 @@ def application(environ, start_response):
 
 - server12:/nfsshare /mnt/nfsshare nfs defaults,_netdev 0 0
 
-* TODO nfs but secure, nfs-secure-server only centos 7.0
+* TODO [0/5] nfs but secure, nfs-secure-server only centos 7.0
 
 - /etc/sysconfig/nfs
 - "-V 4.2"
@@ -391,7 +395,7 @@ def application(environ, start_response):
 
 - server12:/nfsshare /mnt/nfsshare nfs defaults,sec=krb5p,_netdev 0 0
 
-* DONE samba
+* DONE [0/8] samba
   CLOSED: [2018-04-05 Thu 14:17]
 
 - yum install samba samba-client cifs-utils -y
@@ -410,7 +414,7 @@ def application(environ, start_response):
 - useradd -s /sbin/nologin mary
 - usermod -aG sales jack
 - usermod -aG sales raul
-- groupmems -g sales -l
+- [ ] groupmems -g sales -l
 - smbpasswd -a jack
 - smbpasswd -a raul
 - smbpasswd -a mary
@@ -418,8 +422,8 @@ def application(environ, start_response):
 
 - mkdir /smbshare
 - chgrp sales /smbshare
-- chmod 2777 /smbshare
-- semanage fcontext -a -t samba_share_t '/smbshare(/.*)?'
+- [ ] chmod 2777 /smbshare
+- [ ] semanage fcontext -a -t samba_share_t '/smbshare(/.*)?'
 - restorecon -Rv /smbshare
 
 - /etc/samba/smb.conf
@@ -437,20 +441,20 @@ def application(environ, start_response):
   username=jack
   password=redhat
 - chmod 600 /etc/passwd.samba
-- yum install cifs-utils -y
+- [ ] yum install cifs-utils -y
 - mount //server12.f.com/smbshare /mnt/smbshare
   -o credentials=/etc/passwd.samba
-- mount //server12.f.com/smbshare /mnt/smbshare
+- [ ] mount //server12.f.com/smbshare /mnt/smbshare
   -o credentials=/etc/passwd.samba,sec=ntlmssp,multiuser 
-- cifscreds add -u jack server12
+- [ ] cifscreds add -u jack server12
 - [ ] keyctl
 
-- cat >> /etc/fstab
+- [ ] cat >> /etc/fstab
 - //server12/smbshare /mnt/smbshare cifs credentials=/etc/passwd.samba,sec=ntlmssp,multiuser 0 0
 - mount /mnt/smbshare
 - df |  grep smbshare
 
-* TODO [0/1] postfix but null client
+* TODO [0/5] postfix but null client
 
 - systemctl status postfix
 - systemctl enable postfix
@@ -461,8 +465,8 @@ def application(environ, start_response):
 - postconf -e "mydestination="
 - postconf -e "myorigin=example.com"
 - postconf -e "mynetworks=127.0.0.0/8, [::1]/128"
-- postconf -e "inet_interfaces=loopback-only"
-- postconf -e "relayhost=[server12.example.com]"
+- [ ] postconf -e "inet_interfaces=loopback-only"
+- [ ] postconf -e "relayhost=[server12.example.com]"
 - [ ] postconf -e "local_transport=error: local delivery disabled"
 - local_transport = error:local mail delivery is disabled
   man or somewhere or command
@@ -491,7 +495,7 @@ This is the default for final delivery to domains listed with mydestination, and
 - /etc/postfix/transport
 - /etc/postfix/main.cf
 
-* DONE [0/1] iscsi.server.pre
+* DONE [1/1] iscsi.server.pre
   CLOSED: [2018-04-05 Thu 15:16]
 
 - fdisk -l | grep Disk
@@ -512,9 +516,9 @@ This is the default for final delivery to domains listed with mydestination, and
 - lvdisplay
 - lvs
 
-- [ ] and MiB (1MiB -eq 1048576 but 1MB -eq 1000000)
+- [X] and MiB (1MiB -eq 1048576 but 1MB -eq 1000000)
 
-* DONE iscsi.server
+* TODO [2/4] iscsi.server
   CLOSED: [2018-04-05 Thu 15:43]
 
 - yum install targetcli -y
@@ -529,13 +533,13 @@ This is the default for final delivery to domains listed with mydestination, and
 
 - target
 - cd /backstores/block
-- create i_image /dev/vg_storage/lv_media
+- [ ] create i_image /dev/vg_storage/lv_media
 - cd /iscsi
-- [ ] create iqn.2018-03.com.f:server12
+- [X] create iqn.2018-03.com.f:server12
 - cd iqn.2018-03.com.f:server12/tpg1
 - ls
 - cd acls
-- [ ] create iqn.2018-03.com.f:desktop12
+- [X] create iqn.2018-03.com.f:desktop12
 - cd ../luns
 - create /backstores/block/i_image
 - cd ../portals
@@ -544,19 +548,20 @@ This is the default for final delivery to domains listed with mydestination, and
 - /etc/target/saveconfig.json
 - systemctl restart target
 
-* DONE iscsi.client
+* TODO [1/3] iscsi.client
   CLOSED: [2018-04-05 Thu 15:43]
 
 - yum install iscsi-initiator-utils -y
 - /etc/iscsi/initiatorname.iscsi
-- [ ] InitiatorName=iqn.2018-03.com.f:desktop12
+- [X] InitiatorName=iqn.2018-03.com.f:desktop12
 - systemctl status iscsi
 - systemctl start iscsi
 - systemctl status iscsi
 - man iscsiadm | grep discoverydb
-- iscsiadm -m discoverydb -t st -p server12.f.com --discover
+- iscsiadm -m discoverydb -t st -p server12.com.f --discover
 - man iscsiadm | grep node
-- [ ] iscsiadm -m node -T iqn.2018-03.com.f:server12 -p server12.f.com -l
+- [ ] iscsiadm -m node -T iqn.2018-03.com.f:server12 -p server12.com.f -l
+- [ ] systemctl restart iscsid
 - dmesg
 - fdisk -l | grep Disk
 - yum install gdisk -y
@@ -572,8 +577,10 @@ This is the default for final delivery to domains listed with mydestination, and
 - iscsiadm -m session -P 2
 - iscsiadm -m session -P 3
 
-* DONE bash, case, if
+* TODO [0/1] bash: case, for then if
   CLOSED: [2018-04-04 Wed 17:35]
+
+- case
 
 #+BEGIN_SRC sh
   case $1 in
@@ -588,16 +595,25 @@ This is the default for final delivery to domains listed with mydestination, and
           ;;
   esac
 
+#+END_SRC
+
+- for
+
+#+BEGIN_SRC sh
   for user in `cat list`;
   do
       echo $user
   done
+#+END_SRC
 
+- [ ] if
+
+#+BEGIN_SRC sh
   if [ -e /etc/passwd ];
   then
       echo exist
   fi
 #+END_SRC
 
-* TODO dns caching, ntp, to do or not have to do?
+* DONE dns caching, ntp, to do or not have to do?
 
