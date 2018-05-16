@@ -56,3 +56,7 @@ http://www.youtube.com/watch?v=X1x9EMd5ywY
 
 https://www.icc-usa.com/raid-calculator/
 
+* product and cli
+
+- megacli then storcli
+- twcli
