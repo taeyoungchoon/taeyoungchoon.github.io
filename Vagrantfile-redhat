@@ -1,0 +1,49 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# All Vagrant configuration is done below. The "2" in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). Please don't change it unless you know what
+# you're doing.
+Vagrant.configure("2") do |config|
+
+  config.vm.synced_folder ".", "/vagrant", disabled: true
+
+  config.vm.define "server0" do |server0|
+    server0.vm.box = "rhel7"
+    server0.vm.hostname = "server0"
+    server0.vm.network "private_network", ip: "192.168.33.99"
+    # server0.vm.network "public_network", ip: "172.20.6.47"
+    # foo.vm.provision "shell", inline: "apt-get install emacs -y"
+  end
+
+  config.vm.define "server1" do |server1|
+    server1.vm.box = "rhel7"
+    server1.vm.hostname = "server1"
+    server1.vm.network "private_network", ip: "192.168.33.100"
+    server1.vm.network "private_network", ip: "192.168.33.101"
+    server1.vm.network "private_network", ip: "192.168.33.102"
+    # server1.vm.network "public_network", ip: "172.20.6.47"
+    # foo.vm.provision "shell", inline: "apt-get install emacs -y"
+  end
+
+  config.vm.define "server2" do |server2|
+    server2.vm.box = "rhel7"
+    server2.vm.hostname = "server2"
+    server2.vm.network "private_network", ip: "192.168.33.200"
+    server2.vm.network "private_network", ip: "192.168.33.201"
+    server2.vm.network "private_network", ip: "192.168.33.202"
+    # server2.vm.network "public_network", ip: "172.20.6.47"
+    # foo.vm.provision "shell", inline: "apt-get install emacs -y"
+  end
+
+  # config.vm.provision "shell", inline: <<-SHELL
+  #   apt-get update
+  #   apt-get install -y apache2
+  # SHELL
+
+  config.vm.provider "virtualbox" do |vb|
+    vb.memory = "1024"
+  end
+
+end
