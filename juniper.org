@@ -1,0 +1,7 @@
+* fail to connect with con so
+
+- Mini-USB Type-B console port as an active console port
+
+#+BEGIN_SRC 
+user@switch# set system ports auxiliary port-type mini-usb
+#+END_SRC

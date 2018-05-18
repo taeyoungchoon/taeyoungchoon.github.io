@@ -1,0 +1,31 @@
+* failure with credssp
+
+- wusa /uninstall /kb:4103721
+- get-hotfix
+- https://support.microsoft.com/en-au/help/4103721/windows-10-update-kb4103721
+- CredSSP.reg
+
+** reg
+
+#+BEGIN_SRC 
+REG  ADD HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System\CredSSP\Parameters\ /v AllowEncryptionOracle /t REG_DWORD /d 2
+#+END_SRC
+
+** gui but windows10
+
+- gpedit.msc
+- Computer Configuration / Administrative Templates / System / Credentials Delegation
+- Encryption Oracle Remediation policy to Enabled, and Protection Level to Vulnerable
+
+** msg
+
+- 원격 데스크탑 연결
+- 인증 오류가 발생하였습니다.
+- 요청한 함수가 지원되지 않습니다.
+- 원격 컴퓨터: x.x.x.x
+- CredSSP 암호화 Oracle 수정 때문일 수 있습니다.
+- 자세한 내용은 https://go.microsoft.com/fwlink/?linkid=866660
+
+** CVE-2018-0886용 CredSSP 업데이트
+
+- https://support.microsoft.com/ko-kr/help/4093492/credssp-updates-for-cve-2018-0886-march-13-2018
