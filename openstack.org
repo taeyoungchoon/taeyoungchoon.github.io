@@ -38,3 +38,21 @@
 - devstack
 
 * with vagrant
+* cli
+
+#+BEGIN_SRC 
+openstack x y z
+openstack x y z -c id -f cvs
+openstack x y z -c id -f cvs | sed 's/^/openstack x y id/' 
+openstack x y z -c id -f cvs | sed 's/^/openstack x y id/' | sh
+
+fping -g 1.1.1.10 1.1.1.15
+
+swatch
+
+watch
+
+ls -tlr
+
+tail -f /var/log/*/*.log
+#+END_SRC
