@@ -1,1 +1,40 @@
 * openstack to me, small aws
+* words
+
+- nova, abstact box, sdc, compute
+- neutron but contrail, sdn, network
+- ui called
+- swift, object, s3, sds, storage
+- ironic, baremetal 
+
+* network, network, network
+
+- bridge, tap?
+- eth0, em0, nic1, veth(virtual ethernet)
+- vlan
+- vxlan
+- mpls
+- api network, tenent network, provisioning network, pxe, tftp, storage network
+- juniper qfe5000
+- big switch
+- cisco
+- cumurus?
+- openflow
+- jabber protocol
+- bgp then bgpx
+- pxe, tftp, dhcp is the application to someone
+- uuid
+- neutron with contrail
+- neutron only
+
+* deploy with director(tripleO), server manager(using ubuntu), devstack, fuel or marintas?
+
+- undercloud to overcloud to do service on it
+
+* what about docker, container, lxc
+* multiple openstack
+* openstack on sinle image or few images
+
+- devstack
+
+* with vagrant

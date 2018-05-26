@@ -1,26 +1,28 @@
 * m
 
 #+BEGIN_SRC emacs-lisp
-  '(m pm vm xm)
+  '(m
+    (pm
+     vm
+     xm))
 #+END_SRC
 
 #+RESULTS:
-| m | pm | vm | xm |
+| m | (pm vm xm) |
 
-* m
-
-꼭 m, achine을 의미할 필요는 없겠지만
+* m, not only machine
 
 * pm
 
-베어메탈 어떻게 써야 하나?
+- bare metal, white box, server, pc?
+- and to me, box
 
 * vm
 
 - xen, virtualbox, kvm
-- 뭐 그리고 이에 대한 관리 시스템, openstack이라고 하면 화를 내려나? 
+- with openstack
 
 * xm
 
-- solaris containers, docker, chroot
-- 이 아이도 관리가 필요하다, k8s, openshift
+- solaris containers, docker, lxc(linux container), chroot
+- with k8s, openshift
