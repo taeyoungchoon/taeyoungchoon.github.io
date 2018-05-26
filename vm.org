@@ -24,15 +24,13 @@
 * full, para-(near, abnormal ex. paradox, parachute = para + chute, fall)
 * oracle virtualbox but more
 
-말없이 할 수 있는 무언가가 있다는 그리고 vagrant 그리고 openstack, cloudstack like that
-
 - [ ] VBoxManage
 - [ ] VBoxHeadless
 
 * TODO qemu but more about network
 
-qemu 그 이상이라는 느낌이다 이런 모든 것의 베이스가 되다
-cli or using virt-manager(prefer at first step or two)
+- qemu that's it
+- cli or using virt-manager(prefer at first step or two)
 
 #+BEGIN_SRC 
 http://cdimage.debian.org/debian-cd/8.6.0/i386/iso-cd/
