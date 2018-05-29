@@ -40,7 +40,9 @@
 * with vagrant
 * cli
 
-#+BEGIN_SRC 
+su - stack
+. stackrc
+
 openstack x y z
 openstack x y z -c id -f cvs
 openstack x y z -c id -f cvs | sed 's/^/openstack x y id/' 
@@ -55,4 +57,54 @@ watch
 ls -tlr
 
 tail -f /var/log/*/*.log
-#+END_SRC
+
+ssh heat-admin@x
+
+openstack baremetal delete 8f79ffb4-a113-44b0-8eca-fb870c580a7a
+openstack baremetal node delete e5033df5-5ee2-4cb3-a834-b09623f9cbd2
+openstack baremetal import --json ~/instackenv.json
+openstack baremetal introspection data save
+openstack baremetal introspection data save 0070eb8b-a4e8-4ce5-b39e-9d381d378327|jq .
+openstack baremetal node list
+openstack baremetal node manage 294a02b5-24f0-4b6c-b749-7cdaa4c5b8e2
+openstack baremetal node power off 9cad6ce8-cc9d-4293-aa8e-68f334e4fa6e
+openstack baremetal node set --property capabilities='profile:compute,node:compute-0,boot_option:local' 09965b81-c2fa-483f-9a34-2dc9bd8c221b
+openstack flavor delete contrailanalyticsdatabase contrailcontroller contrailanalytics
+openstack flavor list
+openstack net list
+openstack overcloud
+openstack overcloud introspect 09965b81-c2fa-483f-9a34-2dc9bd8c221b --provider
+openstack overcloud node data save 0070eb8b-a4e8-4ce5-b39e-9d381d378327|jq .
+openstack overcloud node import ./instackenv2.json
+openstack overcloud node introspect 09965b81-c2fa-483f-9a34-2dc9bd8c221b --provider
+openstack overcloud node introspect --all-manageable --provide
+openstack overcloud profiles list
+openstack port list
+openstack stack delete 9906c84d-4e55-46a6-97f1-f7dd14975155 --y
+openstack stack delete overcloud --y
+openstack stack list
+watch -d 'openstack stack list --nested|grep -v COMP'
+nova list
+ssh heat-admin@overcloud-contrailanalytics-0
+vi .ssh/known_hosts 
+./create_stack.sh
+systemctl status neutron-dhcp-agent
+tail -f overcloud_deploy.log
+ssh heat-admin@172.168.10.18
+tail -f overcloud_deploy.log|egrep -i 'error|warn|fail'
+ssh-copy-id -i ~/.ssh/id_rsa.pub root@172.168.10.100
+vi ~/.ssh/known_hosts 
+for i in d3545415-e1d5-4968-97b7-fe7306efdc55 ab121761-80de-4cb9-8912-438ae0f20298 6b0ea6e1-c539-4b18-a8c8-4c4f9748f12d; do nova delete $i; done
+
+  960  cat vncserver.sh 
+  961  vncserver :1 -geometry 1600x1200
+  962  vncserver -list
+  963  cd /root/.vnc/
+  965  cat xstartup 
+  967  vi /etc/X11/xinit/xinitrc
+
+neutron subnet-list
+  937  for i in {Contrail-Controller,Contrail-Analytics,Contrail-Analytics-Database,controll}; do virsh -c qemu+ssh://root@192.168.50.206/system domiflist overcloud-node0$i | awk '$3 == "provisioning" {print $5};'; done > /tmp/nodes.txt
+  635  ipmitool -I lanplus -H 172.168.0.11 -L ADMINISTRATOR -U admin -R 3 -N 5 -f /tmp/tmpTIjtfp power status
+
+openstack user list -c Name -f value | sed 's/^/openstack user show /'  | sh
