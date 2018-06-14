@@ -1,0 +1,5 @@
+* with karabiner-elements
+
+- 한영전환을 위해서 사용합니다.
+- 우측 option 키를 한영 전환키로 사용합니다. 윈도우즈 처럼 말이죠.
+- 이제 emacs에서 mark하기 위해서 Ctrl+Space를 사용할 수 있습니다. 야호
