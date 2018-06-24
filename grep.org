@@ -1,1 +1,19 @@
-* hmm
+* report.out
+
+#+BEGIN_SRC 
+processor x
+cpu y
+#+END_SRC
+
+* grep
+
+#+BEGIN_SRC
+grep processor report.out
+grep cpu report.out
+#+END_SRC
+
+* egrep, enhanced but how much
+
+#+BEGIN_SRC 
+egrep "^(processor|cpu)" report.out
+#+END_SRC

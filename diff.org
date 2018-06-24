@@ -1,1 +1,24 @@
-* diff and again
+* foo.old
+
+#+BEGIN_SRC 
+1
+2
+#+END_SRC
+
+* foo.new
+
+#+BEGIN_SRC 
+1
+2
+3
+#+END_SRC
+
+* diff 
+
+#+BEGIN_SRC 
+diff foo.old foo.new
+diff -c foo.old foo.new
+diff -u foo.old foo.new
+#+END_SRC
+
+* diff gui, meld or more
