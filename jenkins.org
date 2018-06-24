@@ -1,0 +1,4 @@
+* issue or not
+
+https://wiki.jenkins.io/display/JENKINS/Starting+and+Accessing+Jenkins
+
