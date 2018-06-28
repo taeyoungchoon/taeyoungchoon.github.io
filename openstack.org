@@ -30,6 +30,7 @@
 * deploy with director(tripleO), server manager(using ubuntu), devstack, fuel or marintas?
 
 - undercloud to overcloud to do service on it
+- https://access.redhat.com/documentation/ko-kr/red_hat_openstack_platform/11/html-single/director_installation_and_usage/
 
 * what about docker, container, lxc
 * multiple openstack

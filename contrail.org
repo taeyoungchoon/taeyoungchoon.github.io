@@ -1,1 +1,30 @@
 * is the cloud anyway
+* cli
+
+/usr/bin/dropstats
+/usr/bin/flow
+/usr/bin/mirror
+/usr/bin/mpls
+/usr/bin/nh
+/usr/bin/qosmap
+/usr/bin/rt
+/usr/bin/vif
+/usr/bin/vifdump
+/usr/bin/vrfstats
+/usr/bin/vrmemstats
+/usr/bin/vrouter
+/usr/bin/vxlan
+
+** cli > vif
+
+#+BEGIN_SRC 
+vif --list
+vif --get 0
+vif --get 1
+vif --get 2
+#+END_SRC
+
+VrouterPhysicalInterface: vlan20
+VrouterPhysicalInterface: eth1
+
+
