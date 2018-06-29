@@ -1,0 +1,11 @@
+* general beautify or ./jq
+
+python -m json.tool
+
+#+BEGIN_SRC 
+$ echo '{"one":1,"two":2}' | python -mjson.tool
+{
+    "one": 1,
+    "two": 2
+}
+#+END_SRC
