@@ -1,0 +1,6 @@
+* cli
+
+#+BEGIN_SRC 
+virsh start x
+virsh console x
+#+END_SRC

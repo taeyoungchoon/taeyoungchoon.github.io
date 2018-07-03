@@ -38,3 +38,11 @@
 
 - 192.168.0.120
 - root / calvin
+
+* drac cli
+
+#+BEGIN_SRC 
+/admin1-> racadm getsysinfo
+/admin1-> racadm serveraction powerstatus
+/admin1-> racadm serveraction powercycle
+#+END_SRC

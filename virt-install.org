@@ -26,5 +26,3 @@ Domain installation still in progress. Waiting for installation to complete.
 * cli
 
 - virsh console foo
-
---cdrom /root/Download/foo.iso

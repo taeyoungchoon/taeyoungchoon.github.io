@@ -1,0 +1,4 @@
+* shutdown or reboot
+
+- web-ui
+- shell > poweroff
