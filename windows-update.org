@@ -1,3 +1,7 @@
+* shutdown without installing updates
+
+- shutdown -s -t 1
+
 * if you are in closed network
 
 - using WSUS ( Windows Server Update Service )

@@ -1,0 +1,97 @@
+* cli
+
+#+BEGIN_SRC 
+ifconig -a
+lsattr -El en0
+netstat -rn
+netstat -r -f inet
+netstat -s -f inet
+ifconfig -Cc if
+ifconfig eno down
+ifconfig eno up
+#+END_SRC
+
+#+BEGIN_SRC 
+entstat en0
+entstat -d en0
+no -a
+#+END_SRC
+
+#+BEGIN_SRC 
+smitty mktcpip
+smitty chinet
+smitty route
+#+END_SRC
+
+#+BEGIN_SRC 
+odmget -q "attribute = route" CuAt
+#+END_SRC
+
+* smitty mktcpip
+
+- Once done, save change and exit by pressing F10 / Esc + 0
+
+* TODO bond on aix 6.1.10 on p570
+
+- https://blog.boxcorea.com/wp/archives/1530
+
+#+BEGIN_SRC 
+lsdev -Cc adapter
+rmdev -l ent0
+rmdev -l ent1
+smitty etherchannel
+Add An EtherChannel / Link Aggregation about 'ent0'
+Backup Adapter as 'ent1'
+Mode to '8023ad'
+lsdev -Cc adapter | grep -i etherchannel ;;en2 born
+smitty chinet
+ifconfig -a
+entstat -d en2 | grep -i "number of adapters"
+entstat -d en2 | grep -i link
+entstat -d en2 | grep -i active
+#+END_SRC
+
+* bond, more docs
+
+- https://www.lazysystemadmin.com/2010/07/configuring-link-aggregation-network.html
+
+#+BEGIN_SRC 
+smit
+Devices > Communication > EtherChannel / IEEE 802.3ad Link Aggregation > Add An EtherChannel / Link Aggregation 
+ent0
+select Mode as 8023ad
+backup adapter
+ent1
+smit
+Communications Applications and Services > TCP/IP > Minimum Configuration & Startup
+ent2
+#+END_SRC
+
+* bond, more and more docs
+
+- http://aix4admins.blogspot.com/2011/05/etherchannel-etherchannel-is-trademark.html
+
+#+BEGIN_SRC 
+smitty etherchannel --> Change/Show Characteristics
+Mode          8023ad
+Hash Mode     src_dst_port
+#+END_SRC
+
+chdev?
+
+#+BEGIN_SRC 
+entstat -d en2 | head
+man ethchan_config
+smitty etherchannel
+lsattr -El ent2
+entstat -d ent2 | grep Act
+#+END_SRC
+
+#+BEGIN_SRC 
+cfgmgr
+errpt | head
+entstat -d entX|grep -i Aggr
+#+END_SRC
+
+* rmdev
+* HMC, Hardware Management Console
