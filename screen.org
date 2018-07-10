@@ -1,0 +1,6 @@
+* sharing session
+
+1. A: screen -S sharing
+2. B: screen -ls
+3. B: screen -x sharing
+4. A: C-a d

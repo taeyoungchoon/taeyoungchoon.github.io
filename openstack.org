@@ -109,3 +109,131 @@ neutron subnet-list
   635  ipmitool -I lanplus -H 172.168.0.11 -L ADMINISTRATOR -U admin -R 3 -N 5 -f /tmp/tmpTIjtfp power status
 
 openstack user list -c Name -f value | sed 's/^/openstack user show /'  | sh
+
+* enroll
+
+** case
+
+Failed to validate power driver interface for node 33e2be52-418c-49eb-8932-11ee712b09f4.
+Error: SSH connection cannot be established: Failed to establish SSH connection to host 1.1.10.233.
+
+** dig
+
+/usr/lib/python2.7/site-packages/ironic/common/exception.py
+
+    414 class SSHConnectFailed(IronicException):
+    415     _msg_fmt = _("Failed to establish SSH connection to host %(host)s.")
+
+# grep SSHConnectFailed * | grep -v Binary
+grep: glance_serviceexception.py:class SSHConnectFailed(IronicException):
+: Is a directory
+utils.py:    :raises: SSHConnectFailed
+utils.py:        raise exception.SSHConnectFailed(host=connection.get('host'))
+
+def ssh_connect(connection):
+    """Method to connect to a remote system using ssh protocol.
+
+    :param connection: a dict of connection parameters.
+    :returns: paramiko.SSHClient -- an active ssh connection.
+    :raises: SSHConnectFailed
+
+    """
+    try:
+        ssh = paramiko.SSHClient()
+        ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        key_contents = connection.get('key_contents')
+        if key_contents:
+            data = six.moves.StringIO(key_contents)
+            if "BEGIN RSA PRIVATE" in key_contents:
+                pkey = paramiko.RSAKey.from_private_key(data)
+            elif "BEGIN DSA PRIVATE" in key_contents:
+                pkey = paramiko.DSSKey.from_private_key(data)
+            else:
+                # Can't include the key contents - secure material.
+                raise ValueError(_("Invalid private key"))
+        else:
+            pkey = None
+        ssh.connect(connection.get('host'),
+                    username=connection.get('username'),
+                    password=connection.get('password'),
+                    port=connection.get('port', 22),
+                    pkey=pkey,
+                    key_filename=connection.get('key_filename'),
+                    timeout=connection.get('timeout', 10))
+
+        # send TCP keepalive packets every 20 seconds
+        ssh.get_transport().set_keepalive(20)
+    except Exception as e:
+        LOG.debug("SSH connect failed: %s" % e)
+        raise exception.SSHConnectFailed(host=connection.get('host'))
+
+    return ssh
+
+
+[stack@osp10dir01 paramiko]$ ssh -i ~/.ssh/id_rsa root@1.1.10.230 "rpm -qa | grep -i openssh-server"
+openssh-server-7.4p1-11.el7.x86_64
+[stack@osp10dir01 paramiko]$ ssh -i ~/.ssh/id_rsa root@1.1.10.232 "rpm -qa | grep -i openssh-server"
+openssh-server-7.4p1-11.el7.x86_64
+[stack@osp10dir01 paramiko]$ ssh -i ~/.ssh/id_rsa root@1.1.10.233 "rpm -qa | grep -i openssh-server"
+openssh-server-7.4p1-16.el7.x86_64
+
+[stack@osp10dir01 paramiko]$ ssh -i ~/.ssh/id_rsa root@1.1.10.233 "cat /etc/redhat-release"
+Red Hat Enterprise Linux Server release 7.5 (Maipo)
+[stack@osp10dir01 paramiko]$ ssh -i ~/.ssh/id_rsa root@1.1.10.232 "cat /etc/redhat-release"
+Red Hat Enterprise Linux Server release 7.4 (Maipo)
+[stack@osp10dir01 paramiko]$ ssh -i ~/.ssh/id_rsa root@1.1.10.230 "cat /etc/redhat-release"
+Red Hat Enterprise Linux Server release 7.4 (Maipo)
+[stack@osp10dir01 paramiko]$ 
+
+* another
+
+    def _do_node_verify(self, task):
+        """Internal method to perform power credentials verification."""
+        node = task.node
+        LOG.debug('Starting power credentials verification for node %s',
+                  node.uuid)
+
+        error = None
+        try:
+            task.driver.power.validate(task)
+        except Exception as e:
+            error = (_('Failed to validate power driver interface for node '
+                       '%(node)s. Error: %(msg)s') %
+                     {'node': node.uuid, 'msg': e})
+        else:
+            try:
+                power_state = task.driver.power.get_power_state(task)
+            except Exception as e:
+                error = (_('Failed to get power state for node '
+                           '%(node)s. Error: %(msg)s') %
+                         {'node': node.uuid, 'msg': e})
+
+        if error is None:
+            node.power_state = power_state
+            task.process_event('done')
+        else:
+            LOG.error(error)
+            node.last_error = error
+            task.process_event('fail')
+            node.target_provision_state = None
+            node.save()
+
+** normal
+
+Jul 10 18:56:07 localhost sshd[32100]: Accepted publickey for root from 1.1.10.51 port 55984 ssh2: RSA SHA256:XlYW9SY9pv58fdQv6EU9RwQLSkXuLLHAdqdVuXGyV2o
+Jul 10 18:56:07 localhost sshd[32100]: pam_unix(sshd:session): session opened for user root by (uid=0)
+
+
+Jul 10 18:56:41 localhost sshd[32100]: Received disconnect from 1.1.10.51 port 55984:11: disconnected by user
+Jul 10 18:56:41 localhost sshd[32100]: Disconnected from 1.1.10.51 port 55984
+Jul 10 18:56:41 localhost sshd[32100]: pam_unix(sshd:session): session closed for user root
+
+** and 
+
+Jul 10 16:41:53 localhost sshd[30163]: Connection closed by 1.1.10.51 port 44620 [preauth]
+Jul 10 16:41:54 localhost sshd[30165]: Connection closed by 1.1.10.51 port 44622 [preauth]
+Jul 10 16:41:54 localhost sshd[30167]: Connection closed by 1.1.10.51 port 44624 [preauth]
+Jul 10 16:41:56 localhost sshd[30169]: Connection closed by 1.1.10.51 port 44640 [preauth]
+Jul 10 16:41:56 localhost sshd[30171]: Connection closed by 1.1.10.51 port 44644 [preauth]
+Jul 10 16:41:56 localhost sshd[30173]: Connection closed by 1.1.10.51 port 44648 [preauth]
+

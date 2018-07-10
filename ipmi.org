@@ -1,0 +1,3 @@
+* cli 
+
+ipmitool -I lanplus -H 1.1.10.15 -L ADMINISTRATOR -U admin -R 3 -N 5 -P xxx power status

@@ -1,0 +1,7 @@
+* lisp
+
+#+BEGIN_SRC emacs-lisp
+(cons dhcp ftp)
+#+END_SRC
+  
+* with server type

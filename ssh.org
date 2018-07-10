@@ -1,36 +1,22 @@
-* rhce > ex300, 20180414
+* config
 
-#+BEGIN_EXAMPLE
-ssh root@172.28.128.101
-alias s1="ssh root@172.28.128.100"
-alias s2="ssh root@172.28.128.110"
-alias s3="ssh root@172.28.128.120"
-#+END_EXAMPLE
+- StrictHostKeyChecking no
 
-* list
+* files
 
-- /etc/ssh/sshd_config
-- /etc/ssh/ssh_config
-
+- ~/.ssh/config
 - ~/.ssh/known_hosts
 - ~/.ssh/known_hosts2
 - ~/.ssh/authorized_keys
 - ~/.ssh/authorized_keys2
-
-* ssh-keygen
-
 - $HOME/.ssh/id_rsa
 - $HOME/.ssh/id_rsa.pub
 - $HOME/.ssh/id_dsa
 - $HOME/.ssh/id_dsa.pub
 
-* ssh-copy-id
-
-#+BEGIN_EXAMPLE
-
-$ ssh-copy-id user@192.168.0.101
-
-#+END_EXAMPLE
+* ssh-keygen -R hostname
+* ssh -i ~/.ssh/id_rsa user@target
+* ssh-copy-id user@target
 
 #+BEGIN_EXAMPLE
 
@@ -44,8 +30,6 @@ $ scp ~/.ssh/id_dsa.pub user@192.168.0.100:.ssh/id_dsa.pub
 
 #+END_EXAMPLE
 
-* authorized_keys vs authorized_keys2
-
 * ssh-agent
 
 #+BEGIN_EXAMPLE
@@ -55,17 +39,4 @@ $ ssh-add ~/.ssh/id_rsa
 
 #+END_EXAMPLE
 
-* ssh -i
 
-#+BEGIN_EXAMPLE
-
-$ ssh -i ~/.ssh/id_rsa user@192.168.0.101
-
-#+END_EXAMPLE
-
-* configure
-
-Port 29
-PermitRootLogin no
-AllowUsers jack raul
-AllowGroupss wheel
