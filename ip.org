@@ -7,3 +7,6 @@ http://jodies.de/ipcalc
 * ip cli
 
 ip addr
+ip a
+ip -4 -o a
+ip -4 -o -c a
