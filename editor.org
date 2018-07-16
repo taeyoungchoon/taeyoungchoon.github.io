@@ -1,20 +1,18 @@
-* note
-
-#+BEGIN_SRC 
-(emacs :temporary notepad)
-#+END_SRC
-
 * list
 
-- emacs
-- vi, vim
+- [ ] emacs
+- vi
+- [ ] vim
 - [ ] ed
 - sed
 - pico, nano
-- notepad, notepad+
-- ultraedit, editplus
+- notepad
+- notepad+
+- ultraedit
+- editplus
 - hwp
-- [ ] textmate
+- textmate
 - eclipse
-- [ ] atom, sublime, visual studio code
-
+- [ ] atom
+- [ ] sublime
+- [ ] visual studio code
