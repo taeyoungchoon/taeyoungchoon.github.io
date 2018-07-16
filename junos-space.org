@@ -1,4 +1,43 @@
+* what?
+
+- https://www.juniper.net/documentation/en_US/junos-space18.1/platform/topics/concept/junos-space-ha-logical-clusters-overview.html#jd0e49
+- https://www.juniper.net/documentation/en_US/junos-space18.1/index.html
+
+* add node
+
+- https://www.juniper.net/documentation/en_US/junos-space15.2/platform/topics/task/configuration/junos-space-appliance-nodes-managing.html
+- [ ] con ha
+- [ ] db sync
+
+* component
+
+1. apache load balancer(active-standby)
+   - using mod_proxy 
+2. jboss cluster(active-active)
+3. mysql cluster(active-standby)
+4. cassandra(active-active)
+   - Starting in Release 15.2R2
+
 * shutdown or reboot
 
 - web-ui
 - shell > poweroff
+
+* password recovery docs
+
+- https://kb.juniper.net/InfoCenter/index?page=content&id=KB26220
+- https://kb.juniper.net/InfoCenter/index?page=content&id=KB12167
+- http://rtodto.net/junos-space-password-recovery-reset-and-default-password/
+
+* administration related users
+
+- admin for CLI
+- super for WebUI
+- maintenance for maintenance
+
+* password recovery of maintenance
+
+#+BEGIN_SRC 
+htpasswd /var/www/maintenance/maintPW maintenance
+#+END_SRC
+
