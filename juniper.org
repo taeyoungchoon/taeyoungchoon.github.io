@@ -5,3 +5,13 @@
 #+BEGIN_SRC 
 user@switch# set system ports auxiliary port-type mini-usb
 #+END_SRC
+
+* address
+
+ship to:
+juniper networks korea
+19th floor, capital tower
+736-1 yeoksam-dong
+kangnam-gu 135-983 south korea
+
+https://www.juniper.net/kr/kr/contact-us/
