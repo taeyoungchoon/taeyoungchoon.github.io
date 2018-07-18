@@ -28,7 +28,7 @@
 * RMA, send
 
 1. (opt) Cisco 어카운트 생성
-2. arrange a pickkup using POWR Tool (Product Online Web Returns Tool)
+2. arrange a pick up using POWR Tool (Product Online Web Returns Tool)
    - https://www.cisco.com/c/en/us/buy/product-online-web-returns.html
 3. packaging
 4. attach RMA number sticker
