@@ -34,6 +34,6 @@
 4. attach RMA number sticker
 5. attach shipping label
 
-** 참고
+* 참고
 
-lg nsys tac을 통하는 경우는 최초 case open을 lg nsys tac에서 진행한다.
+- lg nsys tac을 통하는 경우는 최초 case open을 lg nsys tac에서 진행한다.
