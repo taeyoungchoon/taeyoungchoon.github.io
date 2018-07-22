@@ -1,0 +1,6 @@
+* enable
+
+#+BEGIN_SRC 
+(setq default-input-method "korean-hangul3f")
+(global-set-key (kbd "S-SPC") 'toggle-input-method)
+#+END_SRC
