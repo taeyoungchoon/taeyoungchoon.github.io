@@ -1,3 +1,11 @@
+* directory
+
+- network general, ipv4
+- network next, ipv6 or sdn
+- network device aka nic
+- network appliance
+- firewall, ips and such a like that
+
 * is
 
 네트워크 장비인가? network device 

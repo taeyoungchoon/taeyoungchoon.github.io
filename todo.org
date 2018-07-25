@@ -1,3 +1,9 @@
+* now
+
+** Debugger entered--Lisp error: (error "Font 'tty' is not defined")
+
+- rm ~/.emacs.d/.emacs.desktop
+
 * todo? what then
 
 - oracle, not yet but
