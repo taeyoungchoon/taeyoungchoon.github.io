@@ -1,3 +1,7 @@
+* tips
+
+http://emacsblog.org
+
 * simply can be called as emacs
 
 참 그냥 그렇게 불리우면 안되는 것인가

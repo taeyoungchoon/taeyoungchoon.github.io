@@ -1,0 +1,6 @@
+* rel
+
+| atom                   | list           |
+|------------------------+----------------|
+| docker, xm, contrainer | k8s, openshift |
+| kvm, vm                | openstack      |

@@ -1,0 +1,8 @@
+* with heat and so with openstack
+
+1. generate platform policy using heat template looks like yaml file not html or xml
+2. boot vm on openstack or director
+3. platform configuring with (heat) template
+4. template call puppet
+
+* packed with cloud-init
