@@ -1,4 +1,0 @@
-* xor, XOR, Exclusive or
-
-- one or the other but not both
-- XOR gate
