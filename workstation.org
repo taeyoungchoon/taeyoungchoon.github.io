@@ -1,4 +1,0 @@
-* hp z workstation
-
-- z400
-- z800
