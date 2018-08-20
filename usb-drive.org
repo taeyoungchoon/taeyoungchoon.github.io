@@ -1,0 +1,22 @@
+* burn centos 7 to usb drive from mac os x
+
+#+BEGIN_SRC 
+# shasum CentOS-7-x86_64-DVD-1804.iso
+3a7cb1f2041fee7c3c99c2afc7f1bf60ac671c73  CentOS-7-x86_64-DVD-1804.iso
+
+# diskutil list
+...
+/dev/disk2 (external, physical):
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:     FDisk_partition_scheme                        *32.0 GB    disk2
+   1:               Windows_NTFS Untitled                32.0 GB    disk2s1
+
+# diskutil unmountDisk /dev/disk2
+Unmount of all volumes on disk2 was successful
+
+? sudo dd if=CentOS-7-x86_64-DVD-1804.iso of=/dev/rdisk2 bs=1m
+4263+0 records in
+4263+0 records out
+4470079488 bytes transferred in 477.838800 secs (9354786 bytes/sec)
+
+#+END_SRC
