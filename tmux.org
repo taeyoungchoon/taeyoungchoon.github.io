@@ -18,3 +18,8 @@ set-option -g prefix C-x
 - C-x d
 - tmux attach
  
+* and more with mouse?
+* type to all window s
+
+1. C-b :
+2. setw 
