@@ -1,0 +1,7 @@
+* what the, rescue? trk alternative?
+
+* burn usb
+
+- [[https://docs.microsoft.com/en-us/windows-hardware/get-started/adk-install][adk-install]]
+- copype amd64 T:\WinPE_amd64
+- makewinpemedia /ufd t:\WinPE_amd64 d:

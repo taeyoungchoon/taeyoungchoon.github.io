@@ -1,14 +1,30 @@
-* oslevel 
+* sample
 
-https://www.ibm.com/support/knowledgecenter/ssw_aix_61/com.ibm.aix.cmds4/oslevel.htm
+7100-02-02-1316
+6100-07-01-1141
+6100-06-01-1043
+5300-08-01-0819
+5300-06-00-0000
 
-* oslevel -s
+* oslevel -s to tbl
+
+6001-02-06-0943
+
+|  num | mean                                     |
+|------+------------------------------------------|
+| 6100 | Base Level: AIX 6.1                      |
+|   02 | TL(technology level) 2                   |
+|   06 | SP(service pack) 6                       |
+| 0943 | Service Pack came out in week 43 of 2009 |
+
+* means
 
 https://www.ibm.com/developerworks/community/blogs/AIXDownUnder/entry/understanding_aix_levels6?lang=en
+http://ibmsystemsmag.com/aix/tipstechniques/migration/oslevel_versions/
 
-“oslevel -s” command reports 6100-02-06-0943, 
-then you know you’re on AIX 6.1, 
-running TL 2, 
-with SP 6. 
-The “0943” tells you that Service Pack came out in week 43 of 2009. It’s time to update your system.
+A TL gives new features, 
+while a SP contains fixes for problems 
+that are critical and can't wait until the next TL.
+
+https://medium.com/@bala529/upgrading-ibm-aix-technology-level-and-service-pack-level-81930c72bdfc
 

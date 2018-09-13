@@ -1,0 +1,23 @@
+* off
+
+** way 1 using usysfault
+
+/usr/lpp/diagnostics/bin/usysfault -s normal
+
+** way 2 using diag
+
+You can reset the attention led with diag in the following way:
+
+- Task Selection (Diagnostics, Advanced Diagnostics, Service Aids, etc.)
+- Identify and Attention Indicators
+- Set System Attention Indicator to NORMAL
+
+ENTER
++ Set System Attention Indicator to NORMAL
+And then
+
+F7
+
+** way 3 using HMC
+
+Under version 7 of HMC, click on the managed system, expand Operations, expand LED Status and click on Deactivate Attention LED.

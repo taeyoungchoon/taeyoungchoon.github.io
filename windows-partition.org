@@ -1,0 +1,3 @@
+* ever
+* now about Microsoft Reserved Partition(MSR)
+* diskpart
