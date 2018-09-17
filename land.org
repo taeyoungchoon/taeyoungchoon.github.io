@@ -1,5 +1,0 @@
-* land, Local Area Network Denial
-
-- DoS attack 
-- using spoofed packet
-- with the target host's IP address to an open port as both source and destination
