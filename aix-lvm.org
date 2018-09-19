@@ -64,9 +64,10 @@ chfs -m /new /old
 * attach storage
 
 - [2018-01-11 Thu] (consing (gi-p2 t s) storage)
-  1. map luns to each t and s server 
-  2. then attach and expand using smit
-  3. cat /etc/filesystems
+  - map luns to each t and s server 
+    1. then attach and expand using smit from s
+    2. then attach, make filesystem and mount using smit from t
+       + cat /etc/filesystems
 
 bootinfo -s 
 
