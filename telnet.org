@@ -1,5 +1,4 @@
-* cli 
-
+* cli using pkgmgr
 ** install 
 
 pkgmgr /iu:"TelnetClient"
@@ -8,3 +7,45 @@ pkgmgr /iu:"TelnetClient"
 
 pkgmgr /uu:"TelnetClient"
 
+** output
+
+C:\Users\jack>pkgmgr /iu:"TelnetClient"
+
+C:\Users\jack>pkgmgr /uu:"TelnetClient"
+
+C:\Users\jack>
+
+* cli using dism
+
+** output
+
+C:\WINDOWS\system32>dism /online /Enable-Feature /FeatureName:TelnetClient
+
+배포 이미지 서비스 및 관리 도구
+버전: 10.0.17134.1
+
+이미지 버전: 10.0.17134.285
+
+기능을 사용하도록 설정하는 중
+[==========================100.0%==========================]
+작업을 완료했습니다.
+
+C:\WINDOWS\system32>dism /online /disable-feature /FeatureName:TelnetClient
+
+배포 이미지 서비스 및 관리 도구
+버전: 10.0.17134.1
+
+이미지 버전: 10.0.17134.285
+
+기능을 사용하지 않도록 설정하는 중
+[==========================100.0%==========================]
+작업을 완료했습니다.
+
+C:\WINDOWS\system32>
+
+* TODO cli using powershell
+* gui
+
+1. appwiz.cpl
+2. Turn Windows feature on or off
+3. [ ] telnet client

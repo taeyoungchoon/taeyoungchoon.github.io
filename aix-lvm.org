@@ -75,3 +75,26 @@ df -g
 smitty lv
 smitty jfs2
 mount
+
+* note again
+
+- cfgmgr
+- lscfg -p
+- lscfg -v
+- lscfg -s
+- lscfg -l
+- bootinfo -s hdisk1
+- lsvg
+- lsvg rootvg
+- lsvg -p rootvg
+- lslv hd1
+- lslv -l rootvg
+- lslv -m rootvg
+- /etc/filesystems
+- lsfs
+- df -k /backup
+- df -g /backup
+- chfs -a size=+1G /backup
+- chfs -a size=50G /backup
+- mklv -y lv_tmax -t jfs2 rootvg 100G
+- crfs -v jfs2 -d lv_tmax -m /home/tmax -A yes
