@@ -5,3 +5,12 @@
 - OpenFlow
 - SDN Application
 - SDN Datapath
+
+* word, two
+
+- software defined
+- soft-ware not hard-ware
+- program then programmable not to user but others like big user, naver or google or app sale using that interface
+
+* to me
+
