@@ -1,9 +1,0 @@
-* saldm.exe
-
-"Server Appliance Local Display Manager" 
-
-* case, memory usage 50% or more
-
-1. then reboot
-2. memory usage 0%
-
