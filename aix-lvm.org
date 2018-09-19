@@ -63,7 +63,10 @@ chfs -m /new /old
 
 * attach storage
 
-- [2018-01-11 목] 인천캠퍼스 전산실 p2 스토리지 공간 정리 완료
+- [2018-01-11 Thu] (consing (gi-p2 t s) storage)
+  1. map luns to each t and s server 
+  2. then attach and expand using smit
+  3. cat /etc/filesystems
 
 bootinfo -s 
 
