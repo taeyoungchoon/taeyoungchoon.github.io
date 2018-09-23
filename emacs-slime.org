@@ -1,3 +1,10 @@
+* TODO check
+
+Evaluation commands:
+C-M-x	- Evaluate top-level from containing point.
+C-x C-e	- Evaluate sexp before point.
+C-c C-p	- Evaluate sexp before point, pretty-print result.
+
 * or using quicklisp and help
   
 * links

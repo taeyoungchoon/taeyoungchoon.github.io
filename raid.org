@@ -28,12 +28,30 @@ smartmontools, smartctl
 | disk 1 | a     |
 | disk 2 | b     |
 
+#+BEGIN_SRC emacs-lisp
+'((d1 1 3)
+  (d2 2))
+#+END_SRC
+
+#+RESULTS:
+| d1 | 1 | 3 |
+| d2 | 2 |   |
+
 * raid 1, mirror
 
 | disk   | block |
 |--------+-------|
 | disk 1 | a,b   |
 | disk 2 | a,b   |
+
+#+BEGIN_SRC emacs-lisp
+'((d1 1 2 3)
+  (d2 1 2 3))
+#+END_SRC
+
+#+RESULTS:
+| d1 | 1 | 2 | 3 |
+| d2 | 1 | 2 | 3 |
 
 * raid 5
 
@@ -42,6 +60,17 @@ smartmontools, smartctl
 | disk 1 | a,c   |
 | disk 2 | a,b   |
 | disk 3 | b,c   |
+
+#+BEGIN_SRC emacs-lisp
+ '((d1 1 3)
+   (d2 1 2)
+   (d3 2 3))
+#+END_SRC
+
+#+RESULTS:
+| d1 | 1 | 3 |
+| d2 | 1 | 2 |
+| d3 | 2 | 3 |
 
 * links
 

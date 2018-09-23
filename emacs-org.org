@@ -37,7 +37,7 @@
 - no org-babel-execute function for perl!
 
 #+BEGIN_SRC perl
-  print "hello, world";
+  print "3";
 #+END_SRC
 
 #+RESULTS:
