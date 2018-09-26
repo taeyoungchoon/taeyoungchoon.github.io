@@ -3,8 +3,33 @@
 - brand linux such as redhat then centos, debian then ubuntu and slackware
 - custom linux
 
-* who knows
+* who knows, sure but
 
 uname -a
+
+* who knows, old
+
 lsb_release -a
 cat /etc/redhat-release
+
+* say
+
+- linux but distribute using and named as linux distribution
+- redhat, debian, custom
+- redhat: rhel, centos
+- debian: debian, ubuntu(based on debian unstable)
+- custom: slackware, knoppix, trk and so name it
+
+* code
+
+#+BEGIN_SRC emacs-lisp
+
+(setf debian '(debian ubuntu))
+(setf redhat '(rhel centos))
+(setf custom '(slackware knoppix trk))
+(setf distribution (append redhat debian custom))
+
+#+END_SRC
+
+#+RESULTS:
+| rhel | centos | debian | ubuntu | slackware | knoppix | trk |
