@@ -1,0 +1,29 @@
+* links
+
+https://zetawiki.com/wiki/Devstack_설치_실습
+https://www.popit.kr/devstack-이용-오픈스택-설치하기/
+http://sooking2016.blogspot.com/2016/11/openstack-in-ubuntu-1604-lts-devstack.html
+http://html5around.com/wordpress/tutorials/ubuntu-openstack-install/
+
+$ ./unstack.sh
+$ ./clean.sh
+
+$ . openrc admin demo
+$ openstack image list
+$ openstack flavor list
+$ ssh-keygen
+$ openstack keypair create --public-key ~/.ssh/id_rsa.pub admin-key
+$ openstack project list
+$ openstack security group list
+$ openstack security group rule create --proto icmp --src-ip 0.0.0.0/0 \
+--dst-port -1 --ingress c7c5282d-fd92-4518-9506-8c9c49cabed3
+$ openstack security group rule create --proto tcp --src-ip 0.0.0.0/0 \
+--dst-port 1:65535 --ingress c7c5282d-fd92-4518-9506-8c9c49cabed3
+$ openstack network list
+$ openstack server list
+$ openstack server create --image 0dbd2fe2-3844-48a2-b873-a9b0c5bc6ebd \
+> --flavor m1.tiny --nic net-id=d115d85e-8fff-4280-9e96-08515ef86e95 \
+> --key-name admin-key --security-group default test-01
+$ sudo ip netns
+$ openstack compute service list
+$ openstack network agent list
