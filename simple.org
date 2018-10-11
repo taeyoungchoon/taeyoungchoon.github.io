@@ -9,3 +9,17 @@
 - 정반합
 - A4
 - 비움이 필요한가
+
+* history
+
+- [2018-10-11 Thu 23:28] 이 공간 역시 단촐함이 필요하다면, 단촐한 룰의 교정이 필요하다.
+
+#+BEGIN_SRC emacs-lisp
+  '((life hack)
+    human
+    book novel poetry
+    code perl lisp
+    os linux myos
+    note moleskine
+    plan planner)
+#+END_SRC
