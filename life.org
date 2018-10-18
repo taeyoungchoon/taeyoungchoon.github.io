@@ -14,3 +14,29 @@
 - [2016-04-23 Sat 22:18] 하하 책을 보고 있다 요즘 들어 말이다 조금 그리고 다시 접고 또 펼치고 생각하고 명상하고 잠에 든다 내일 또 책을 펼칠까
 - [2016-11-09 Wed 21:08] 영화도 보고 말이다 영화를 보면서 나를 버린다
 - [2017-02-14 화 13:51] 일을 한다 일을 한다 노동, 
+
+* day one
+
+오늘에 살다 오늘을 살다 오늘에 죽는다 딱 이 부분의 강조를 조절한다. 오늘에 살다 오늘에 살다 그렇게 오늘을 살다 오늘에 집중한다. 가능한가? 소설은 미래를 읽으면서 말이다. 미래는 과연 미래의 이야기인가? 아니면 미래라고 부르는 또 다른 과거를 이야기하는 것인가? 하여 다시 오늘/현실/지금 이 순간으로 돌아선다. 역사도 그리고 인간의 삶도 마찬가지가 아닐까? 혹 내가 꿈을 꾸더라고 내가 인간이든 검은 상자안에서 잠들어 그리고 꿈을 꾸는 고양이더라고 말아다.
+
+오픈 스택, freebsd, freebsd linux? 이건 뭐지?, 오픈 스택 스택 모음 하여 다시금 g로 그리고 cons된다.
+
+#+BEGIN_SRC emacs-lisp
+(cons t nil)
+(cons 'freebsd 'linux)
+(cons 'linux 'freebsd)
+(list 'linux 'freebsd)
+#+END_SRC
+
+#+RESULTS:
+| linux | freebsd |
+
+줄을 세우는 것과 cons를 통해서 수렴하는 것은 어떠한 차이가 있을까? 수렴? 무슨 말이지?
+
+지금은 ovs를 보아야 하는가? obelle ovs open vswitch brocade sdn controller plugin ml2
+
+#+BEGIN_SRC emacs-lisp
+(cons t nil)
+#+END_SRC
+
+"<s" 를 입력하고 "tab" 키를 누르면 abbrev-mode가 활성화 되는 것인가? 아니지만 유사하다. 이건 일기인가? 
