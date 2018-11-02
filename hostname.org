@@ -1,0 +1,34 @@
+* redhat maybe
+
+#+BEGIN_SRC 
+[root@c01 ~]# hostnamectl set-hostname --static STATIC
+[root@c01 ~]# hostnamectl set-hostname --pretty PRETTY
+[root@c01 ~]# hostnamectl set-hostname --transient TRANSIENT
+[root@c01 ~]# cat /etc/hostname 
+STATIC
+[root@c01 ~]# cat /etc/machine-info 
+PRETTY_HOSTNAME=PRETTY
+[root@c01 ~]# hostname
+STATIC
+[root@c01 ~]# hostnamectl 
+   Static hostname: STATIC
+   Pretty hostname: PRETTY
+Transient hostname: TRANSIENT
+         Icon name: computer-vm
+           Chassis: vm
+        Machine ID: 1b459a0b70ff496cb3f47f8f377b4e05
+           Boot ID: b1c951a9a2be44d78d884fb6c2cc1b53
+    Virtualization: kvm
+  Operating System: CentOS Linux 7 (Core)
+       CPE OS Name: cpe:/o:centos:centos:7
+            Kernel: Linux 3.10.0-862.14.4.el7.x86_64
+      Architecture: x86-64
+[root@c01 ~]# exit
+logout
+[vagrant@c01 ~]$ exit
+logout
+Connection to 127.0.0.1 closed.
+? vagrant ssh c01
+Last login: Thu Nov  1 21:02:12 2018 from 10.0.2.2
+[vagrant@STATIC ~]$
+#+END_SRC
