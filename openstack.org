@@ -1,3 +1,8 @@
+* pre
+
+- linux
+- network
+
 * openstack to me, small aws
 * words
 
