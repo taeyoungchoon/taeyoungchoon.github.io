@@ -1,0 +1,13 @@
+* key
+
+| func    | desc          |
+|---------+---------------|
+| h split | Apple+d       |
+| v split | Apple+Shift+d |
+| jump    | Apple+[ or ]  |
+
+http://www.ifdattic.com/iterm-shortcut-keys/
+
+* say
+
+not so bad

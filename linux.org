@@ -32,9 +32,9 @@ getting complicated more and more
 - 거의 모든 보안 장비는 리눅스 기반? 
 - 리눅스를 보았기에 이것도 저것도 본다 그랬다
 
-* 배포판
+* distribution
 
-** 만진 판
+** ever I am using and used
 
 - slackware
 - redhat

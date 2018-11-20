@@ -1,0 +1,34 @@
+* The system failed to flush data to the transaction log. Corruption may occur.
+
+Event Source:  Ftdisk
+Event Category:  Disk
+Event ID:  57
+
+ftdisk: Fault Tolerant Disk
+
+* An error was detected on device \Device\Harddisk1 during a paging operation.
+
+Event Source:  Disk
+Event ID:  51
+
+** harddisk1 first
+
+- diskpart > list disk > select disk 1 > detail disk
+- Get-PhysicalDisk | Select -Prop DeviceId,FriendlyName,SerialNumber
+- dd --list
+
+* Event 50, NTFS
+
+- [ ] NTFS
+
+
+* Error Cannot Load Resource File sqresus.dll
+
+Oracle ODBC Driver
+
+* Event 36874, Schannel
+
+Source:        Schannel
+Event ID:      36874
+
+An SSL connection request was received from a remote client application, but none of the cipher suites supported by the client application are supported by the server. The SSL connection request has failed.

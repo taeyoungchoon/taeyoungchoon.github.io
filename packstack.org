@@ -1,0 +1,18 @@
+* cli
+
+packstack --allinone
+packstack --gen-answer-file=answers.txt
+
+* links
+
+https://github.com/openstack/packstack
+https://wiki.openstack.org/wiki/Packstack
+
+* dig puppet
+
+* log
+
+ERROR : Error appeared during Puppet run: 10.0.2.15_compute.pp
+Error: Evaluation Error: Error while evaluating a Function Call, Could not find data item CONFIG_NOVA_DB_PW in any Hiera data file and no default supplied at /var/tmp/packstack/902e75caf2954420a2dc14d7a6242de5/modules/packstack/manifests/nova.pp:3:19 on node c75
+
+* hiera, the config
