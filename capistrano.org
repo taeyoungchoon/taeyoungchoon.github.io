@@ -12,3 +12,4 @@
 
 * cap shell
 
+* ansible-console
