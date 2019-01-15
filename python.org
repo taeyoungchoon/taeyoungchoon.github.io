@@ -4,3 +4,22 @@
 나는 아니다 했다 저는 말이죠 조금 old한 것을 사용하는 것으로 물론 지금도 사용하지 못하고 있지만
 
 make clean이라
+
+* later and now
+
+이제 시작할까 생각 아니 시작입니다.
+
+* go
+
+- import
+- from
+- if elif else
+- :
+- ;
+- ,
+- os
+- sys
+- re
+- math
+- network rel
+

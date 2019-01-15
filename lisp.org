@@ -26,12 +26,12 @@
     (mapcar #'cadr (nth 1 host)))
 
   (progn
+    ;; (ip w1-server))
     (interface w1-server)
-    (ip w1-server))
 #+END_SRC
 
 #+RESULTS:
-| 1.1 | 1.2 |
+| eth0 | eth1 |
 
 
 * site

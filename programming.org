@@ -12,6 +12,7 @@ pen and paper
 - [[file:perl.org][perl]]
 - [[file:ruby.org][ruby]]
 - [[file:lisp.org][lisp]]
+- python
   
 * that's it? or lots of more ^^;
 
