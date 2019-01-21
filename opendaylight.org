@@ -1,0 +1,26 @@
+* install
+
+- yum install java-1.8.0-openjdk
+- yum install java-1.8.0-openjdk-devel
+- wget https://nexus.opendaylight.org/content/repositories/public/org/opendaylight/integration/karaf/0.8.4/karaf-0.8.4.tar.gz
+- tar xvfz karaf-0.8.4.tar.gz
+- cd karaf-0.8.4/bin/
+- ./status
+- ./start
+- ./client
+- feature:install odl-dlux-core odl-l2switch-switch odl-restconf
+- curl localhost:8181
+- curl http://localhost:8181/index.html
+- [X] feature:install odl-l2switch-switch-ui
+- [ ] feature:install odl-mdsal-apidocs odl-dlux-core
+- [ ] feature:install odl-dlux-all
+- [ ] feature:install odl-mdsal-apidocs
+- [ ] feature:install odl-dlux-yangui
+
+* more 
+
+- unable to login
+- karaf: JAVA_HOME not set; results may vary
+- log:clear
+- log:display
+- log:tail
