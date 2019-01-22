@@ -9,7 +9,9 @@ cd karaf-0.8.4/bin/
 ./status
 ./start
 ./client
-feature:install odl-dlux-core odl-dluxapps-nodes odl-dluxapps-topology odl-dluxapps-yangui odl-dluxapps-yangvisualizer odl-dluxapps-yangman
+feature:install odl-dlux-core 
+feature:install odl-dluxapps-nodes odl-dluxapps-topology odl-dluxapps-yangui odl-dluxapps-yangvisualizer odl-dluxapps-yangman
+feature:install odl-l2switch-switch odl-l2switch-switch-ui
 curl http://localhost:8181/index.html
 #+END_SRC
 
