@@ -2,6 +2,7 @@
 
 - odl-dlux-core and odl-restconf is not enough
 - you have to install one of the odl-dluxapps-x like odl-dluxapps-nodes
+- odl-l2switch-switch-ui installed with odl-dluxapps-topologies
 
 * install
 
