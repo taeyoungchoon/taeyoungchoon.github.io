@@ -1,4 +1,4 @@
 * so
-* ansible tower
-* ansible tower free?
-* ansible-shell
+* ansible tower, nil
+* ansible tower free? called awx
+* ansible-shell as alternative of capistrano(cap shell)
