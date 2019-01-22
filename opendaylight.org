@@ -25,6 +25,8 @@ curl http://localhost:8181/index.html
 - feature:install odl-mdsal-apidocs
 - feature:install odl-dlux-yangui
 - feature:install odl-dlux-all
+- feature: install odl-restconf-all
+- curl -u "admin:admin" http://$ODL_IP:8181/restconf/modules
 
 * more 
 
