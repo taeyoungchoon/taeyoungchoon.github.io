@@ -53,3 +53,7 @@ ovs-vsctl add-port br-test enp4s0f0
 ovs-vsctl add-port br-test enp4s0f1
 ovs-vsctl show
 ovs-vsctl set-controller br-test tcp:127.0.0.1:6633
+
+* history
+
+- [2019-01-22 화 11:01] it works
