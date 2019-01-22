@@ -1,26 +1,55 @@
 * install
 
-- yum install java-1.8.0-openjdk
-- yum install java-1.8.0-openjdk-devel
-- wget https://nexus.opendaylight.org/content/repositories/public/org/opendaylight/integration/karaf/0.8.4/karaf-0.8.4.tar.gz
-- tar xvfz karaf-0.8.4.tar.gz
-- cd karaf-0.8.4/bin/
-- ./status
-- ./start
-- ./client
-- feature:install odl-dlux-core odl-l2switch-switch odl-restconf
-- curl localhost:8181
-- curl http://localhost:8181/index.html
-- [X] feature:install odl-l2switch-switch-ui
-- [ ] feature:install odl-mdsal-apidocs odl-dlux-core
-- [ ] feature:install odl-dlux-all
-- [ ] feature:install odl-mdsal-apidocs
-- [ ] feature:install odl-dlux-yangui
+#+BEGIN_SRC 
+yum install java-1.8.0-openjdk
+yum install java-1.8.0-openjdk-devel
+wget https://nexus.opendaylight.org/content/repositories/public/org/opendaylight/integration/karaf/0.8.4/karaf-0.8.4.tar.gz
+tar xvfz karaf-0.8.4.tar.gz
+cd karaf-0.8.4/bin/
+./status
+./start
+./client
+feature:install odl-dlux-core odl-dluxapps-nodes odl-dluxapps-topology odl-dluxapps-yangui odl-dluxapps-yangvisualizer odl-dluxapps-yangman
+curl http://localhost:8181/index.html
+#+END_SRC
+
+* legacy
+
+- [X] feature:install odl-dlux-core 
+- [X] feature:install odl-restconf
+- [X] feature:install odl-l2switch-switch 
+- feature:install odl-l2switch-switch-ui
+- feature:install odl-mdsal-apidocs 
+- feature:install odl-mdsal-apidocs
+- feature:install odl-dlux-yangui
+- feature:install odl-dlux-all
 
 * more 
 
 - unable to login
 - karaf: JAVA_HOME not set; results may vary
+
+* karaf cli
+
+- feature:install system
+- system:shutdown
+- halt
 - log:clear
 - log:display
 - log:tail
+- karaf clean
+
+* ovs
+
+yum install openvswitch -y
+systemctl start openvswitch
+systemctl status openvswitch
+ovs-vsctl show
+ovs-vsctl add-br br-test
+ip l
+ip a
+ovs-vsctl add-port br-test enp3s0f1
+ovs-vsctl add-port br-test enp4s0f0
+ovs-vsctl add-port br-test enp4s0f1
+ovs-vsctl show
+ovs-vsctl set-controller br-test tcp:127.0.0.1:6633
