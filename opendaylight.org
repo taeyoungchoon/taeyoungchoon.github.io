@@ -1,16 +1,22 @@
+* notice
+
+- odl-dlux-core and odl-restconf is not enough
+- you have to install one of the odl-dluxapps-x like odl-dluxapps-nodes
+
 * install
 
 #+BEGIN_SRC 
-yum install java-1.8.0-openjdk
-yum install java-1.8.0-openjdk-devel
+yum install java-1.8.0-openjdk -y
+yum install java-1.8.0-openjdk-devel -y
 wget https://nexus.opendaylight.org/content/repositories/public/org/opendaylight/integration/karaf/0.8.4/karaf-0.8.4.tar.gz
 tar xvfz karaf-0.8.4.tar.gz
 cd karaf-0.8.4/bin/
 ./status
 ./start
 ./client
-feature:install odl-dlux-core 
-feature:install odl-dluxapps-nodes odl-dluxapps-topology odl-dluxapps-yangui odl-dluxapps-yangvisualizer odl-dluxapps-yangman
+feature:install odl-dlux-core odl-dluxapps-nodes 
+feature:install odl-dluxapps-topology 
+feature:install odl-dluxapps-yangui odl-dluxapps-yangvisualizer odl-dluxapps-yangman
 feature:install odl-l2switch-switch odl-l2switch-switch-ui
 curl http://localhost:8181/index.html
 #+END_SRC
