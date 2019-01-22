@@ -3,22 +3,20 @@
   gather_facts: true
 
   tasks:
-#  - name: foo
-#    command: touch /tmp/foo.out
   - name: pkg
     yum:
       name:
+        - bash-completion
+        - sysstat
+        - vim
         - emacs-nox
         - nmap
-        - sysstat
         - tcpdump
         - git
         - psmisc
         - lsof
         - strace
         - ruby
-        - vim
-        - bash-completion
         - openvswitch
       state: present
 
@@ -34,23 +32,16 @@
     timezone:
       name: Asia/Seoul
 
-  - name: rc.local
+  - name: systemd
     systemd:
-      name: rc-local
+      name: "{{ item }}"
       state: started
       enabled: yes
-
-  - name: openvswitch
-    systemd:
-      name: openvswitch
-      state: started
-      enabled: yes
-      
-  - name: sysstat
-    systemd:
-      name: sysstat
-      state: started
-      enabled: yes
+    with_items:
+      - rc-local
+      - chronyd
+      - sysstat
+      - openvswitch
       
   - name: t-shell check
     stat: path=/root/t-shell
@@ -63,6 +54,8 @@
   - name: git clone t-shell
     command: git clone https://github.com/taeyoungchoon/t-shell.git chdir=/root
     when: not tstat.stat.exists
-      
-#  - name: pkg
-#    shell: yum install ansible -y
+
+  - name: debug
+    debug:
+      msg: debug
+    
