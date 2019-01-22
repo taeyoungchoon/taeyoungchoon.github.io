@@ -1,0 +1,91 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  
+  config.vm.synced_folder ".", "/vagrant", disabled: true
+
+  # c75: CentOS 7.5
+  config.vm.define "c75" do |c75|
+    c75.vm.box = "bento/centos-7.5"
+    c75.vm.hostname = "c75"
+    #c75.vm.network "public_network", ip: "192.168.0.100"
+    c75.vm.network "private_network", ip: "172.20.91.100"
+    c75.vm.network "private_network", ip: "172.20.91.101"
+  end
+
+  # c74: CentOS 7.4
+  config.vm.define "c74" do |c74|
+    c74.vm.box = "bento/centos-7.4"
+    c74.vm.hostname = "c74"
+    #c74.vm.network "public_network", ip: "192.168.0.100"
+    c74.vm.network "private_network", ip: "172.20.91.120"
+    c74.vm.network "private_network", ip: "172.20.91.121"
+  end
+
+  
+  # c72: CentOS 7.2
+  config.vm.define "c72" do |c72|
+    c72.vm.box = "bento/centos-7.2"
+    c72.vm.hostname = "c72"
+    c72.vm.network "private_network", ip: "172.20.91.140"
+    c72.vm.network "private_network", ip: "172.20.91.141"
+  end
+
+  # u18: Bionic Beaver
+  config.vm.define "u18" do |u18|
+    u18.vm.box = "ubuntu/bionic64"
+    u18.vm.hostname = "u18"
+  end
+
+  # u16: Xenial Xerus
+  config.vm.define "u16" do |u16|
+    u16.vm.box = "ubuntu/xenial64"
+    u16.vm.hostname = "u16"
+  end
+
+  # d9: debian stretch
+  config.vm.define "d9" do |d9|
+    d9.vm.box = "debian/stretch64"
+    d9.vm.hostname = "d9"
+  end
+
+  # s15: opensuse leap 15
+  config.vm.define "s15" do |s15|
+    s15.vm.box = "bento/opensuse-leap-15"
+    s15.vm.hostname = "s15"
+  end
+
+  # o75: oracle 7.5
+  config.vm.define "o75" do |o75|
+    o75.vm.box = "bento/oracle-7.5"
+    o75.vm.hostname = "o75"
+  end
+
+  # al: archlinux
+  config.vm.define "archlinux" do |archlinux|
+    archlinux.vm.box = "archlinux/archlinux"
+    archlinux.vm.hostname = "archlinux"
+  end
+
+  # f11: freebsd
+  config.vm.define "f11" do |f11|
+    f11.vm.box = "freebsd/FreeBSD-11.2-STABLE"
+    f11.vm.hostname = "f11"
+  end
+
+  # config.vm.provision "shell", path: "bootstrap.sh"
+  # config.vm.provision "shell", inline: <<-SHELL
+  #   apt-get update
+  #   apt-get install -y apache2
+  # SHELL
+  config.vm.provision "ansible" do |ansible|
+    ansible.playbook = "site.yml"
+    ansible.become = true
+  end
+
+  config.vm.provider "virtualbox" do |vb|
+    vb.memory = "1024"
+  end
+
+end
