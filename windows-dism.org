@@ -6,6 +6,17 @@ use dism to enable gpedit on windows10 home edition
 https://msdn.microsoft.com/ko-kr/library/dn251565.aspx
 cleaning WinSxS folder
 
+** list of all
+
 #+BEGIN_SRC 
-dism /online /cleanup-image /startcomponentcleanup /resetbase
+Dism.exe /online /Cleanup-Image /StartComponentCleanup
+Dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase
+Dism.exe /online /Cleanup-Image /SPSuperseded
 #+END_SRC
+
+** have to
+
+#+BEGIN_SRC 
+Dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase
+#+END_SRC
+

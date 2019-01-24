@@ -1,6 +1,33 @@
+* note about ssh
+
+- telnet alternative
+- being secure
+
 * config
 
 - StrictHostKeyChecking no
+
+* config about slow login
+
+comment below at sshd_config
+
+#+BEGIN_SRC 
+GSSAPIAuthentication yes
+GSSAPIDelegateCredentials no
+#+END_SRC
+
+** GSSAPI
+
+- Generic Security Services Application Program Interface
+- GSS-API
+- The dominant GSSAPI mechanism implementation in use is Kerberos. 
+  Unlike the GSSAPI, the Kerberos API has not been standardized and various existing implementations use incompatible APIs. 
+  The GSSAPI allows Kerberos implementations to be API compatible.
+- July 1991: IETF Common Authentication Technology (CAT) Working Group meets in Atlanta, led by John Linn
+- October 1997: SASL published, includes GSSAPI mechanism
+  - APP:SASL:GSSAPI:Kerberos
+- May 2006: Secure Shell use of GSSAPI standardised
+  - SSH:GSSAPI:Kerberos
 
 * files
 
@@ -19,23 +46,17 @@
 * ssh-copy-id user@target
 
 #+BEGIN_EXAMPLE
-
 $ cat ~/.ssh/id_rsa.pub | ssh user@192.168.0.100 "mkdir -p ~/.ssh && cat >>  ~/.ssh/authorized_keys"
-
 #+END_EXAMPLE
 
 #+BEGIN_EXAMPLE
-
 $ scp ~/.ssh/id_dsa.pub user@192.168.0.100:.ssh/id_dsa.pub
-
 #+END_EXAMPLE
 
-* ssh-agent
+* TODO ssh-agent
 
 #+BEGIN_EXAMPLE
-
 $ eval "$(ssh-agent -s)"
 $ ssh-add ~/.ssh/id_rsa
-
 #+END_EXAMPLE
 
