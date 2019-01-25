@@ -1,0 +1,23 @@
+* have to care about?
+
+지식 도메인이라, 내가 이것을 신경써야만 하는가? 과연말이다. 
+
+내가 이 지구상에 언제까지나 있을 수 있을까? 길게 봐서 앞으로 50년이나 될까? 
+
+(me (life knowledge-domain))
+(me)
+()
+(me (life (length 100)))
+(me (life (left 50)))
+(human knowledge-domain)
+(human knowledge)
+(knowledge domain)
+
+(domain (programming compute physics linux windows c c++ java python yum rpm deb dpkg yellowdog mainboard art piano))
+
+현명함, 현자
+똑똑한 자, 아는 이? 지자
+
+중간자, 때에 맞추다 지금 나는 어디에 있는가? 
+
+피티 프리

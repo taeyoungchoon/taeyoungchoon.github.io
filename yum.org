@@ -9,7 +9,8 @@
 - yum update
 - yum upgrade
 - yum install lynx
-
+- yum list installed | grep chrony
+  - vs rpm -qa | grep chrony
 * TODO group
 
 * TODO config
