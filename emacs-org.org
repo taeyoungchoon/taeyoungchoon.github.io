@@ -24,9 +24,7 @@
 - code block evalution complete
 
 #+BEGIN_SRC emacs-lisp
-
   (cons t (cons t nil))
-
 #+END_SRC
 
 #+RESULTS:

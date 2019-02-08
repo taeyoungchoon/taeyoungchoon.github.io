@@ -1,3 +1,13 @@
+* with emacs but and then emacs 26.1 it works well
+
+#+BEGIN_SRC
+Warning (python): 
+Your 'python-shell-interpreter' doesn't seem to support readline, yet 
+'python-shell-completion-native-enable' was t 
+and "python" is not part of the 'python-shell-completion-native-disabled-interpreters' list.  
+Native completions have been disabled locally.
+#+END_SRC
+
 * is the snake? or what?
 
 뭐 개발언어 이기도 하다 요즘 아니 좀 오래전부터 (perl이나 lisp만큼은 아니지만)
