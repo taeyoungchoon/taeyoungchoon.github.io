@@ -44,10 +44,13 @@ class L2Switch(app_manager.RyuApp):
             actions=actions)
         dp.send_msg(out)
 #+END_SRC
-* ui
+
+* ui, possible
 
 1. ./bin/ryu run ryu/app/simple_switch_13.py
 2. start mininet with ryu
 3. stop code
 4. ./bin/ryu run ryu/app/gui_topology/gui_topology.py
 5. localhost:8080
+
+* cli?

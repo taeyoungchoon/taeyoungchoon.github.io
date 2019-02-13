@@ -82,7 +82,9 @@ ovs-vsctl set-controller br-test tcp:127.0.0.1:6633
 9. Fluorine
 
 * note
+
 * issue
+
 ** unable to login
 ** data-missing
 
@@ -101,3 +103,7 @@ http://192.168.25.151:8181/apidoc/explorer/
   }
 }
 #+END_SRC
+
+* cli?
+* ui, hard to, yang only
+* jvm, setenv, how much
