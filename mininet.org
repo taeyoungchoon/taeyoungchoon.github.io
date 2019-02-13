@@ -1,0 +1,32 @@
+* steps
+
+http://sdnhub.org/tutorials/openflow-1-3/
+
+sudo mn --topo single,3 --mac --controller remote --switch ovsk,protocols=OpenFlow13
+ovs-vsctl set bridge s1 protocols=OpenFlow13
+
+sudo wireshark &
+cd /home/ubuntu/ryu && ./bin/ryu-manager --verbose ryu/app/simple_switch_13.py
+
+mininet> h1 ping h3
+sudo ovs-ofctl dump-flows s1 -O OpenFlow13
+
+* more 
+
+http://sdnhub.org/resources/useful-mininet-setups/
+
+$ sudo mn --arp --topo single,3 --mac --switch ovsk --controller remote
+$ sudo mn --topo linear --switch ovsk --controller remote
+$ sudo mn --arp --topo single,4 --mac --switch ovsk --controller remote
+
+* so
+
+https://www.youtube.com/watch?v=7LBgXno9fcg
+
+sudo mn --topo single,3 --mac --controller remote,ip=192.168.56.64 --switch ovsk,protocols=OpenFlow13
+sudo mn --topo linear,4 --mac --controller remote,ip=192.168.56.64 --switch ovsk,protocols=OpenFlow13
+
+* cli
+
+net
+pingall

@@ -1,0 +1,15 @@
+* karaf cli
+
+- feature:install system
+- system:shutdown
+- halt
+- log:clear
+- log:display
+- log:tail
+- system:framework
+- system:version
+- version
+
+* bare
+
+- karaf clean

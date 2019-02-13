@@ -84,4 +84,20 @@ ovs-vsctl set-controller br-test tcp:127.0.0.1:6633
 * note
 * issue
 ** unable to login
+** data-missing
 
+http://192.168.25.151:8181/apidoc/explorer/
+
+#+BEGIN_SRC 
+{
+  "errors": {
+    "error": [
+      {
+        "error-type": "application",
+        "error-tag": "data-missing",
+        "error-message": "Request could not be completed because the relevant data model content does not exist "
+      }
+    ]
+  }
+}
+#+END_SRC
