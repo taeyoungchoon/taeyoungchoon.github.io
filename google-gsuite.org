@@ -1,0 +1,16 @@
+* dns, create the TXT record on
+
+#+BEGIN_SRC 
+> whois ylit.co.kr | findstr Author
+Authorized Agency           : Gabia, Inc.(http://www.gabia.co.kr)
+#+END_SRC
+
+* domain verification
+
+#+BEGIN_SRC 
+> chcp437
+> prompt $gx
+> nslookup -q=TXT ylit.co.kr
+naver.com       text =
+	"google-site-verification=gie0Z5wd5qFezE9CmmiTghNNfkDUnaLA8-7LZ6vL_gk"
+#+END_SRC

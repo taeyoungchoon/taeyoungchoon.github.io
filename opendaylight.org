@@ -68,3 +68,20 @@ ovs-vsctl set-controller br-test tcp:127.0.0.1:6633
 * history
 
 - [2019-01-22 화 11:01] it works
+
+* version
+
+1. Hydrogen 2014
+2. Helium
+3. Lithium
+4. Beryllium 
+5. Boron 2016
+6. Carbon
+7. Nitrogen
+8. Oxygen
+9. Fluorine
+
+* note
+* issue
+** unable to login
+
