@@ -1,0 +1,24 @@
+* not yet
+
+#+BEGIN_SRC emacs-lisp
+
+(if nil nil)
+
+#+END_SRC
+
+#+RESULTS:
+
+if nil but if t
+
+#+BEGIN_SRC emacs-lisp
+
+(if t t)
+
+#+END_SRC
+
+#+RESULTS:
+: t
+
+if t then t
+
+what is t and what it can be? 

@@ -1,3 +1,46 @@
 * words
 
 - CORD : Central Office Rearchitected as a Datacenter
+
+* web-ui using 8181 but against odl 8181
+
+L
+H
+/
+A
+
+* app
+
+karaf@root > app-ids | grep fwd
+id=94, name=org.onosproject.fwd
+
+app activate org.onosproject.fwd
+
+app deactivate fwd
+app activate fwd
+
+apps -a -s 
+help onos
+devices
+links
+flows
+paths
+intents
+intents -i
+flows -s
+
+* TODO intents ?
+* ONOS GUI not ready yet, please stand by
+* start
+
+1. tar xvfz
+2. cd onos/karaf/bin
+3. start
+4. client
+5. http://192.168.25.151:8181/onos/ui onos rocks
+
+* openflow?
+
+karaf@root > app activate org.onosproject.openflow
+Activated org.onosproject.openflow
+karaf@root >

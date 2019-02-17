@@ -23,13 +23,18 @@ $ sudo mn --arp --topo single,4 --mac --switch ovsk --controller remote
 
 https://www.youtube.com/watch?v=7LBgXno9fcg
 
-sudo mn --topo single,3 --mac --controller remote,ip=192.168.56.64 --switch ovsk,protocols=OpenFlow13
-sudo mn --topo linear,4 --mac --controller remote,ip=192.168.56.64 --switch ovsk,protocols=OpenFlow13
+mn --topo single,3 --mac --controller remote,ip=192.168.25.151 --switch ovsk,protocols=OpenFlow13
+mn --topo linear,4 --mac --controller remote,ip=192.168.25.151 --switch ovsk,protocols=OpenFlow13
+mn --topo tree,depth=2,fanout=3 --mac --controller remote,ip=192.168.25.151 --switch ovsk,protocols=OpenFlow13
+
+ovs-ofctl -O Openflow13 dump-flows s1 --rsort
 
 * cli
 
 net
 pingall
+link s2 s11 down
+link s2 s11 up
 
 * semi result
 

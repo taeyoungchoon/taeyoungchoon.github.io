@@ -1,2 +1,2 @@
-* 2019-01-22 opendaylight
-* 2019-02-13 still and so on
+* 2019-01 opendaylight
+* 2019-02 still and so on, sdn
