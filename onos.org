@@ -44,3 +44,16 @@ flows -s
 karaf@root > app activate org.onosproject.openflow
 Activated org.onosproject.openflow
 karaf@root >
+
+* issue, stop start then fail with lots of logs
+
+15:24:36.068 ERROR [FelixDispatchQueue] FrameworkEvent ERROR - org.onosproject.onos-core-net
+org.osgi.framework.ServiceException: Service factory returned null. (Component: org.onosproject.store.app.DistributedApplicationStore (5))
+
+15:24:36.078 ERROR [FelixDispatchQueue] FrameworkEvent ERROR - org.onosproject.onos-core-net
+org.osgi.framework.ServiceException: Service factory returned null. (Component: org.onosproject.app.impl.ApplicationManager (40))
+
+15:24:36.086 ERROR [FelixDispatchQueue] FrameworkEvent ERROR - org.onosproject.onos-apps-acl
+org.osgi.framework.ServiceException: Service factory returned null. (Component: org.onosproject.core.impl.CoreManager (55))
+
+
