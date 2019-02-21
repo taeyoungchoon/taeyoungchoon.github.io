@@ -1,0 +1,60 @@
+* wiretapping, 도청 and against
+
+- layered
+
+* attack point and method
+
+- 입술모양
+  - 입술모양으로 알아듣고 표출하는 인공지능(http://www.aitimes.kr/news/articleView.html?idxno=8818)
+  - 독순술, 독화법, 구화법
+- 소리
+  - 접시모양의 파라볼릭 안테나
+  - 레이저 도청장비
+    - noise generator
+- 화면, 영상
+  - tempest since 1993 : 모니터에 나오는 전자파를 수신 및 해독(수 백m), 모니터 도청
+    - vs 필름, 전자기파 차폐 장비나 필름, 커튼, 블라인드
+    - vs 텐트
+- 통신 장비
+  - stringray(IMSI Catcher): 무선 통신 도청(~4G)
+    - IMSI Catcher Detector
+    - mobile IMSI Catcher
+  - scrambler(비화기): 암호화, encrypted voip
+
+* depender
+
+** sound
+
+- over 100 db
+- noise generator
+- audio jamming
+- sound masking
+- acoustic transducer
+
+** screen, tempest
+
+- tent
+- shield room
+
+** spyware vs device(pc or mobile)
+
+** scrambler, 비화기
+
+- 암호화
+- 업무 전용
+* case
+
+** in
+
+- shield room or tent
+- with detector and jammer
+- with wiretapping device
+
+** out
+
+- on car
+
+** wired 
+
+- on car
+- do not use mouse
