@@ -42,6 +42,7 @@
 
 - 암호화
 - 업무 전용
+
 * case
 
 ** in
@@ -58,3 +59,72 @@
 
 - on car
 - do not use mouse
+* 레이저 도청장비
+
+- 삼각대 > 쌍안경 형태
+
+* 비화기
+
+- 128bit to 256bit
+- black phone
+- 스텔스폰
+- encrypted 스마트폰
+- KT 등 통신 사업자 구간내에서 누군가 불법 도정을 시도 하더라도
+
+* 드론 drone jammer
+
+* law
+
+- 통신비밀보허법
+
+* imsi catcher 
+
+- with 이동통신 jammer
+
+* imsi catcher detector app, rooting and not enough
+
+- SnoopSnitch
+- Cell Spy Catcher
+- Android IMSI-Catcher Detector
+
+* where
+
+** just sale? 동작할까? 사용법은?
+
+- 알리바바 https://www.alibaba.com/countrysearch/CN/imsi-catcher.html
+
+** not kr? 수입이 될까?
+
+- securcube http://securcube.net/bts-tracker/ bts tracker
+- comsec https://comsecllc.com/imsi-catcher-detector/ imsi catcher detector
+- phantom technologies https://phantom-technologies.com/imsi400-imsi-catcher/ imsi catcher imsi400
+
+** kr? 팔기는 하나?
+
+1. 한국통신 https://www.globaltscmgroup-korea.com/정보-수사-군-안내/
+2. 스파이존 http://spy-zone.co.kr
+3. 007월드 http://007world.co.kr/
+
+** 한국통신 미국지나 있기는 한데, Available to Law Enforcement agencies ONLY!!
+
+- https://www.globaltscmgroup-usa.com/law-enforcement-agencies/blocker-of-active-interception-systems-ts-gsm/
+
+* one more thing, device os or board or chip
+
+- os
+- or board hack
+  내부 LTE/3G 모뎀 속 악성코드, OS 재설치에도 살아남아 해킹한다 DEFCON, tftp
+
+* book
+
+- 서울에는 비밀이 없다 지금은 도청중
+- 스마트폰 회로의 일부를 빼내
+- 보안이 사실상 엉터리로 운용되는 것도 많이 보았다
+- 장비를 구매한다 초기에는 관리한다 담당자가 바뀐다 끝, 유지보수 건도 포함되어야
+- 디지털 도청 기술로 살짝 무장한 스파이에 대해 아날로그 기술로 중무장한 도청 보안팀, 누가 이길까?
+
+* words
+
+- 미림팀
+- 해킹팀
+
