@@ -1,0 +1,10 @@
+* but (en)crypt using VPN or
+* ZRTP
+
+- http://zfoneproject.com
+- rfc6189
+  ZRTP: Media Path Key Agreement for Unicast Secure RTP
+
+* secure
+
+https://www.voip-info.org/asterisk-encryption/

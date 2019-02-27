@@ -1,6 +1,8 @@
 * link
 
 https://veracrypt.codeplex.com/
+https://www.veracrypt.fr
+based on TrueCrypt 7.1a.
 
 by 
 
