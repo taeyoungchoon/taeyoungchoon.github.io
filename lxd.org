@@ -1,0 +1,30 @@
+* after lxc? anyway!
+* steps
+
+** bulk 
+
+sudo snap install lxd
+/snap/bin/lxd init
+
+** if desktop
+
+sudo usermod -a -G lxd $USER
+newgrp lxd
+
+** bulk
+
+/snap/bin/lxc storage list
+lxc storage show default
+lxc network show lxdbr0
+lxc profile show default
+
+** just in case
+
+lxc profile edit default
+
+** bulk
+
+lxc launch ubuntu:16.04 u1
+lxc exec u1 ping 8.8.8.8
+lxc stop u1
+lxc delete u1

@@ -1,0 +1,116 @@
+* pre
+
+- [X] snap
+- [X] lxd
+- [ ] juju
+
+* conjure-up 
+
+#+BEGIN_SRC 
+                                                                         Oops, there was a problem with your install:
+
+              Reason:
+                   'MaxRetryError' object does not support indexing
+
+                    Review log messages at /home/jack/.cache/conjure-up/conjure-up.log If appropriate, please submit a bug here:
+                   https://github.com/conjure-up/conjure-up/issues/new
+#+END_SRC
+
+#+BEGIN_SRC 
+2019-03-04 17:03:32,919 [DEBUG] conjure-up/openstack-novalxd - telemetry.py:17 - Showing screen: Configure Applications
+2019-03-04 17:03:36,325 [ERROR] conjure-up/openstack-novalxd - root: charmstore.py:103 - Error during request: https://api.jujucharms.com/charmstore/v5/ceph-osd-257/readme message: HTTPSConnectionPool(host='api.jujucharms.com', port=443): Max retries exceeded with url: /charmstore/v5/ceph-osd-257/readme (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x7f7061fe9668>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution',))
+2019-03-04 17:03:36,332 [ERROR] conjure-up/openstack-novalxd - root: charmstore.py:103 - Error during request: https://api.jujucharms.com/charmstore/v5/ceph-radosgw-256/readme message: HTTPSConnectionPool(host='api.jujucharms.com', port=443): Max retries exceeded with url: /charmstore/v5/ceph-radosgw-256/readme (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x7f706202bc18>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution',))
+2019-03-04 17:03:36,333 [ERROR] conjure-up/openstack-novalxd - root: charmstore.py:103 - Error during request: https://api.jujucharms.com/charmstore/v5/cinder-268/readme message: HTTPSConnectionPool(host='api.jujucharms.com', port=443): Max retries exceeded with url: /charmstore/v5/cinder-268/readme (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x7f7061fc4160>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution',))
+2019-03-04 17:03:36,325 [ERROR] conjure-up/openstack-novalxd - applicationlist.py:118 - Error loading README
+Traceback (most recent call last):
+  File "/snap/conjure-up/1043/lib/python3.6/site-packages/urllib3/connection.py", line 141, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "/snap/conjure-up/1043/lib/python3.6/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/snap/conjure-up/1043/usr/lib/python3.6/socket.py", line 745, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/snap/conjure-up/1043/lib/python3.6/site-packages/urllib3/connectionpool.py", line 601, in urlopen
+    chunked=chunked)
+  File "/snap/conjure-up/1043/lib/python3.6/site-packages/urllib3/connectionpool.py", line 346, in _make_request
+    self._validate_conn(conn)
+  File "/snap/conjure-up/1043/lib/python3.6/site-packages/urllib3/connectionpool.py", line 850, in _validate_conn
+    conn.connect()
+  File "/snap/conjure-up/1043/lib/python3.6/site-packages/urllib3/connection.py", line 284, in connect
+    conn = self._new_conn()
+  File "/snap/conjure-up/1043/lib/python3.6/site-packages/urllib3/connection.py", line 150, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.VerifiedHTTPSConnection object at 0x7f7061fe9668>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/snap/conjure-up/1043/lib/python3.6/site-packages/requests/adapters.py", line 440, in send
+    timeout=timeout
+  File "/snap/conjure-up/1043/lib/python3.6/site-packages/urllib3/connectionpool.py", line 639, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/snap/conjure-up/1043/lib/python3.6/site-packages/urllib3/util/retry.py", line 388, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.jujucharms.com', port=443): Max retries exceeded with url: /charmstore/v5/ceph-osd-257/readme (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x7f7061fe9668>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution',))
+#+END_SRC
+
+#+BEGIN_SRC 
+Traceback (most recent call last):
+  File "/snap/conjure-up/1043/lib/python3.6/site-packages/conjureup/controllers/juju/deploy/common.py", line 30, in do_deploy
+    await app.juju.client.deploy(fn)
+  File "/snap/conjure-up/1043/lib/python3.6/site-packages/juju/model.py", line 1283, in deploy
+    await handler.execute_plan()
+  File "/snap/conjure-up/1043/lib/python3.6/site-packages/juju/model.py", line 1966, in execute_plan
+    result = await method(*step.args)
+  File "/snap/conjure-up/1043/lib/python3.6/site-packages/juju/model.py", line 2131, in deploy
+    application, charm, overrides=resources)
+  File "/snap/conjure-up/1043/lib/python3.6/site-packages/juju/model.py", line 1343, in _add_store_resources
+    include_stats=False)
+  File "/snap/conjure-up/1043/lib/python3.6/site-packages/juju/model.py", line 2242, in coro
+    return await self.loop.run_in_executor(None, method)
+  File "/snap/conjure-up/1043/usr/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/snap/conjure-up/1043/lib/python3.6/site-packages/theblues/charmstore.py", line 146, in entity
+    return self._meta(entity_id, includes, channel=channel)
+  File "/snap/conjure-up/1043/lib/python3.6/site-packages/theblues/charmstore.py", line 126, in _meta
+    data = self._get(url)
+  File "/snap/conjure-up/1043/lib/python3.6/site-packages/theblues/charmstore.py", line 104, in _get
+    raise ServerError(exc.args[0][1].errno,
+TypeError: 'MaxRetryError' object does not support indexing
+2019-03-04 17:14:59,700 [DEBUG] conjure-up/openstack-novalxd - __init__.py:27 - Showing dialog for exception: 'MaxRetryError' object does not support indexing
+2019-03-04 17:19:07,491 [DEBUG] conjure-up/openstack-novalxd - events.py:52 - Setting Shutdown at conjureup/events.py:145
+2019-03-04 17:19:07,493 [DEBUG] conjure-up/openstack-novalxd - events.py:52 - Received Shutdown at conjureup/events.py:176
+2019-03-04 17:19:07,493 [INFO] conjure-up/openstack-novalxd - events.py:180 - Shutting down
+2019-03-04 17:19:07,493 [INFO] conjure-up/openstack-novalxd - app_config.py:192 - Storing conjure-up state
+2019-03-04 17:19:07,556 [INFO] conjure-up/openstack-novalxd - app_config.py:207 - State saved
+2019-03-04 17:19:07,557 [DEBUG] conjure-up/openstack-novalxd - events.py:200 - Cancelling pending task: <Task pending coro=<Model._watch.<locals>._all_watcher() running at /snap/conjure-up/1043/lib/python3.6/site-packages/juju/model.py:808> wait_for=<Future pending cb=[<TaskWakeupMethWrapper object at 0x7f7066ad9f18>()]>>
+2019-03-04 17:19:07,557 [DEBUG] conjure-up/openstack-novalxd - events.py:200 - Cancelling pending task: <Task pending coro=<WebSocketCommonProtocol.recv() running at /snap/conjure-up/1043/lib/python3.6/site-packages/websockets/protocol.py:419> wait_for=<Future pending cb=[<TaskWakeupMethWrapper object at 0x7f7066af8378>()]> cb=[_wait.<locals>._on_completion() at /snap/conjure-up/1043/usr/lib/python3.6/asyncio/tasks.py:380]>
+2019-03-04 17:19:07,558 [DEBUG] conjure-up/openstack-novalxd - events.py:200 - Cancelling pending task: <Task pending coro=<Event.wait() running at /snap/conjure-up/1043/usr/lib/python3.6/asyncio/locks.py:283> wait_for=<Future pending cb=[<TaskWakeupMethWrapper object at 0x7f7066af8f48>()]> cb=[_wait.<locals>._on_completion() at /snap/conjure-up/1043/usr/lib/python3.6/asyncio/tasks.py:380]>
+2019-03-04 17:19:07,558 [DEBUG] conjure-up/openstack-novalxd - events.py:200 - Cancelling pending task: <Task pending coro=<_Task.start.<locals>.run() running at /snap/conjure-up/1043/lib/python3.6/site-packages/juju/client/connection.py:565> wait_for=<Future pending cb=[<TaskWakeupMethWrapper object at 0x7f7066de2af8>()]>>
+2019-03-04 17:19:07,558 [DEBUG] conjure-up/openstack-novalxd - events.py:200 - Cancelling pending task: <Task pending coro=<DeployController._wait_for_applications() running at /snap/conjure-up/1043/lib/python3.6/site-packages/conjureup/controllers/juju/deploy/gui.py:82> wait_for=<Future pending cb=[<TaskWakeupMethWrapper object at 0x7f70671db3d8>()]>>
+2019-03-04 17:19:07,559 [DEBUG] conjure-up/openstack-novalxd - events.py:200 - Cancelling pending task: <Task pending coro=<Event.wait() running at /snap/conjure-up/1043/usr/lib/python3.6/asyncio/locks.py:283> wait_for=<Future pending cb=[<TaskWakeupMethWrapper object at 0x7f7066af81f8>()]> cb=[_wait.<locals>._on_completion() at /snap/conjure-up/1043/usr/lib/python3.6/asyncio/tasks.py:380]>
+2019-03-04 17:19:07,559 [DEBUG] conjure-up/openstack-novalxd - events.py:200 - Cancelling pending task: <Task pending coro=<WebSocketCommonProtocol.keepalive_ping() running at /snap/conjure-up/1043/lib/python3.6/site-packages/websockets/protocol.py:977> wait_for=<Future pending cb=[<TaskWakeupMethWrapper object at 0x7f706703d288>()]>>
+2019-03-04 17:19:07,560 [DEBUG] conjure-up/openstack-novalxd - events.py:200 - Cancelling pending task: <Task pending coro=<WebSocketCommonProtocol.transfer_data() running at /snap/conjure-up/1043/lib/python3.6/site-packages/websockets/protocol.py:674> wait_for=<Future pending cb=[<TaskWakeupMethWrapper object at 0x7f7066ad9168>()]> cb=[<TaskWakeupMethWrapper object at 0x7f7066be8918>(), _wait.<locals>._on_completion() at /snap/conjure-up/1043/usr/lib/python3.6/asyncio/tasks.py:380]>
+2019-03-04 17:19:07,560 [DEBUG] conjure-up/openstack-novalxd - events.py:200 - Cancelling pending task: <Task pending coro=<Connection._pinger.<locals>._do_ping() running at /snap/conjure-up/1043/lib/python3.6/site-packages/juju/client/connection.py:251> wait_for=<Future pending cb=[<TaskWakeupMethWrapper object at 0x7f7066e3ea38>()]> cb=[_wait.<locals>._on_completion() at /snap/conjure-up/1043/usr/lib/python3.6/asyncio/tasks.py:380]>
+2019-03-04 17:19:07,561 [DEBUG] conjure-up/openstack-novalxd - events.py:200 - Cancelling pending task: <Task pending coro=<Event.wait() running at /snap/conjure-up/1043/usr/lib/python3.6/asyncio/locks.py:283> wait_for=<Future pending cb=[<TaskWakeupMethWrapper object at 0x7f7066af8348>()]> cb=[_wait.<locals>._on_completion() at /snap/conjure-up/1043/usr/lib/python3.6/asyncio/tasks.py:380]>
+2019-03-04 17:19:07,561 [DEBUG] conjure-up/openstack-novalxd - events.py:200 - Cancelling pending task: <Task pending coro=<AllWatcherFacade.Next() running at /snap/conjure-up/1043/lib/python3.6/site-packages/juju/client/facade.py:420> wait_for=<Future pending cb=[<TaskWakeupMethWrapper object at 0x7f7066c18d98>()]> cb=[_wait.<locals>._on_completion() at /snap/conjure-up/1043/usr/lib/python3.6/asyncio/tasks.py:380]>
+2019-03-04 17:19:07,561 [DEBUG] conjure-up/openstack-novalxd - events.py:200 - Cancelling pending task: <Task pending coro=<_Task.start.<locals>.run() running at /snap/conjure-up/1043/lib/python3.6/site-packages/juju/client/connection.py:565> wait_for=<Future pending cb=[<TaskWakeupMethWrapper object at 0x7f7066f8e108>()]>>
+2019-03-04 17:19:07,562 [DEBUG] conjure-up/openstack-novalxd - events.py:200 - Cancelling pending task: <Task pending coro=<WebSocketCommonProtocol.close_connection() running at /snap/conjure-up/1043/lib/python3.6/site-packages/websockets/protocol.py:1019> wait_for=<Task pending coro=<WebSocketCommonProtocol.transfer_data() running at /snap/conjure-up/1043/lib/python3.6/site-packages/websockets/protocol.py:674> wait_for=<Future cancelled> cb=[<TaskWakeupMethWrapper object at 0x7f7066be8918>(), _wait.<locals>._on_completion() at /snap/conjure-up/1043/usr/lib/python3.6/asyncio/tasks.py:380]>>
+#+END_SRC
+
+* again
+
+#+BEGIN_SRC 
+2019-03-04 17:31:32,954 [INFO] conjure-up/openstack-novalxd - juju.model: model.py:1388 - Deploying cs:ceph-mon-23
+2019-03-04 17:31:55,647 [INFO] conjure-up/openstack-novalxd - juju.model: model.py:1388 - Deploying cs:ceph-osd-257
+2019-03-04 17:32:18,846 [INFO] conjure-up/openstack-novalxd - juju.model: model.py:1388 - Deploying cs:ceph-radosgw-256
+2019-03-04 17:32:41,752 [INFO] conjure-up/openstack-novalxd - juju.model: model.py:1388 - Deploying cs:cinder-268
+2019-03-04 17:33:00,403 [INFO] conjure-up/openstack-novalxd - juju.model: model.py:1388 - Deploying cs:cinder-ceph-231
+2019-03-04 17:33:18,974 [INFO] conjure-up/openstack-novalxd - juju.model: model.py:1388 - Deploying cs:glance-263
+2019-03-04 17:33:33,056 [INFO] conjure-up/openstack-novalxd - juju.model: model.py:1388 - Deploying cs:keystone-275
+2019-03-04 17:33:53,489 [INFO] conjure-up/openstack-novalxd - juju.model: model.py:1388 - Deploying cs:lxd-22
+#+END_SRC
