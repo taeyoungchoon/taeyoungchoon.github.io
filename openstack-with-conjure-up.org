@@ -1,3 +1,7 @@
+* doc
+
+https://blog.ubuntu.com/2018/02/02/tutorial-install-single-server-openstack-with-conjure-up
+
 * pre
 
 - [X] snap
@@ -113,4 +117,987 @@ TypeError: 'MaxRetryError' object does not support indexing
 2019-03-04 17:33:18,974 [INFO] conjure-up/openstack-novalxd - juju.model: model.py:1388 - Deploying cs:glance-263
 2019-03-04 17:33:33,056 [INFO] conjure-up/openstack-novalxd - juju.model: model.py:1388 - Deploying cs:keystone-275
 2019-03-04 17:33:53,489 [INFO] conjure-up/openstack-novalxd - juju.model: model.py:1388 - Deploying cs:lxd-22
+#+END_SRC
+
+* then again, Deploying Applications
+
+- ceph-mon
+- ceph-osd
+- ceph-radosgw
+- cinder
+- glance
+- keystone
+- mysql
+- neutron-api
+- neutron-gateway
+- nova-cloud-controller
+- nova-compute
+- openstack-dashboard
+- rabbitmq-server
+
+* pstree
+
+#+BEGIN_SRC 
+jack@s004:~$ pstree -A
+systemd-+-NetworkManager-+-dnsmasq
+        |                |-{gdbus}
+        |                `-{gmain}
+        |-accounts-daemon-+-{gdbus}
+        |                 `-{gmain}
+        |-acpid
+        |-agetty
+        |-at-spi-bus-laun-+-dbus-daemon
+        |                 |-{dconf worker}
+        |                 |-{gdbus}
+        |                 `-{gmain}
+        |-at-spi2-registr-+-{gdbus}
+        |                 `-{gmain}
+        |-avahi-daemon---avahi-daemon
+        |-colord-+-{gdbus}
+        |        `-{gmain}
+        |-cron
+        |-cups-browsed-+-{gdbus}
+        |              `-{gmain}
+        |-cupsd---dbus
+        |-daemon.start---lxd---73*[{lxd}]
+        |-2*[dbus-daemon]
+        |-dconf-service-+-{gdbus}
+        |               `-{gmain}
+        |-2*[dnsmasq]
+        |-gvfsd-+-{gdbus}
+        |       `-{gmain}
+        |-gvfsd-fuse-+-{gdbus}
+        |            |-{gmain}
+        |            |-{gvfs-fuse-sub}
+        |            `-2*[{gvfsd-fuse}]
+        |-irqbalance
+        |-lightdm-+-Xorg-+-{InputThread}
+        |         |      |-{llvmpipe-0}
+        |         |      |-{llvmpipe-10}
+        |         |      |-{llvmpipe-11}
+        |         |      |-{llvmpipe-12}
+        |         |      |-{llvmpipe-13}
+        |         |      |-{llvmpipe-14}
+        |         |      |-{llvmpipe-15}
+        |         |      |-{llvmpipe-1}
+        |         |      |-{llvmpipe-2}
+        |         |      |-{llvmpipe-3}
+        |         |      |-{llvmpipe-4}
+        |         |      |-{llvmpipe-5}
+        |         |      |-{llvmpipe-6}
+        |         |      |-{llvmpipe-7}
+        |         |      |-{llvmpipe-8}
+        |         |      `-{llvmpipe-9}
+        |         |-lightdm-+-lightdm-greeter---unity-greeter-+-{dconf worker}
+        |         |         |                                 |-{gdbus}
+        |         |         |                                 |-{gmain}
+        |         |         |                                 |-{llvmpipe-0}
+        |         |         |                                 |-{llvmpipe-10}
+        |         |         |                                 |-{llvmpipe-11}
+        |         |         |                                 |-{llvmpipe-12}
+        |         |         |                                 |-{llvmpipe-13}
+        |         |         |                                 |-{llvmpipe-14}
+        |         |         |                                 |-{llvmpipe-15}
+        |         |         |                                 |-{llvmpipe-1}
+        |         |         |                                 |-{llvmpipe-2}
+        |         |         |                                 |-{llvmpipe-3}
+        |         |         |                                 |-{llvmpipe-4}
+        |         |         |                                 |-{llvmpipe-5}
+        |         |         |                                 |-{llvmpipe-6}
+        |         |         |                                 |-{llvmpipe-7}
+        |         |         |                                 |-{llvmpipe-8}
+        |         |         |                                 |-{llvmpipe-9}
+        |         |         |                                 `-{threaded-ml}
+        |         |         |-{gdbus}
+        |         |         `-{gmain}
+        |         |-lightdm
+        |         |-{gdbus}
+        |         `-{gmain}
+        |-lxcfs---7*[{lxcfs}]
+        |-lxd---systemd-+-accounts-daemon-+-{gdbus}
+        |               |                 `-{gmain}
+        |               |-agetty
+        |               |-atd
+        |               |-bash---jujud---51*[{jujud}]
+        |               |-bash---jujud---53*[{jujud}]
+        |               |-ceph-osd-+-{admin_socket}
+        |               |          |-{ceph-osd}
+        |               |          |-{filestore_sync}
+        |               |          |-3*[{fn_anonymous}]
+        |               |          |-{fn_appl_fstore}
+        |               |          |-{fn_jrn_objstore}
+        |               |          |-{fn_odsk_fstore}
+        |               |          |-{journal_write}
+        |               |          |-{log}
+        |               |          |-7*[{ms_dispatch}]
+        |               |          |-7*[{ms_local}]
+        |               |          |-{msgr-worker-0}
+        |               |          |-{msgr-worker-1}
+        |               |          |-{msgr-worker-2}
+        |               |          |-{osd_srv_agent}
+        |               |          |-{osd_srv_heartbt}
+        |               |          |-{rocksdb:bg0}
+        |               |          |-{rocksdb:bg1}
+        |               |          |-{rocksdb:bg2}
+        |               |          |-{rocksdb:bg3}
+        |               |          |-{rocksdb:bg4}
+        |               |          |-{rocksdb:bg5}
+        |               |          |-{rocksdb:bg6}
+        |               |          |-{rocksdb:bg7}
+        |               |          |-11*[{safe_timer}]
+        |               |          |-{service}
+        |               |          |-{signal_handler}
+        |               |          |-2*[{tp_fstore_op}]
+        |               |          |-{tp_osd_cmd}
+        |               |          |-{tp_osd_disk}
+        |               |          |-5*[{tp_osd_tp}]
+        |               |          |-2*[{tp_peering}]
+        |               |          `-{wb_throttle}
+        |               |-cron
+        |               |-dbus-daemon
+        |               |-dhclient
+        |               |-2*[iscsid]
+        |               |-polkitd-+-{gdbus}
+        |               |         `-{gmain}
+        |               |-rsyslogd-+-{in:imklog}
+        |               |          |-{in:imuxsock}
+        |               |          `-{rs:main Q:Reg}
+        |               |-snapd---28*[{snapd}]
+        |               |-sshd
+        |               |-systemd-journal
+        |               |-systemd-logind
+        |               `-systemd-udevd
+        |-lxd---systemd-+-accounts-daemon-+-{gdbus}
+        |               |                 `-{gmain}
+        |               |-agetty
+        |               |-atd
+        |               |-bash---jujud---52*[{jujud}]
+        |               |-bash---jujud---53*[{jujud}]
+        |               |-cron
+        |               |-dbus-daemon
+        |               |-dhclient
+        |               |-haproxy-systemd---haproxy---haproxy
+        |               |-2*[iscsid]
+        |               |-neutron-dhcp-ag
+        |               |-neutron-l3-agen
+        |               |-neutron-lbaasv2
+        |               |-neutron-metadat---6*[neutron-metadat]
+        |               |-neutron-meterin
+        |               |-neutron-openvsw---2*[ovsdb-client]
+        |               |-nova-api-metada---6*[nova-api-metada]
+        |               |-ovs-vswitchd-+-{handler170}
+        |               |              |-{handler171}
+        |               |              |-{handler172}
+        |               |              |-{handler173}
+        |               |              |-{handler174}
+        |               |              |-{handler175}
+        |               |              |-{handler176}
+        |               |              |-{handler177}
+        |               |              |-{handler178}
+        |               |              |-{handler179}
+        |               |              |-{handler180}
+        |               |              |-{handler181}
+        |               |              |-{handler182}
+        |               |              |-{handler183}
+        |               |              |-{handler184}
+        |               |              |-{handler185}
+        |               |              |-{handler186}
+        |               |              |-{revalidator187}
+        |               |              |-{revalidator188}
+        |               |              |-{revalidator189}
+        |               |              |-{revalidator190}
+        |               |              |-{revalidator191}
+        |               |              |-{revalidator192}
+        |               |              |-{revalidator193}
+        |               |              `-{urcu4}
+        |               |-ovsdb-server
+        |               |-polkitd-+-{gdbus}
+        |               |         `-{gmain}
+        |               |-privsep-helper
+        |               |-rsyslogd-+-{in:imklog}
+        |               |          |-{in:imuxsock}
+        |               |          `-{rs:main Q:Reg}
+        |               |-snapd---28*[{snapd}]
+        |               |-sshd
+        |               |-systemd-journal
+        |               |-systemd-logind
+        |               |-systemd-udevd
+        |               `-uuidd
+        |-lxd---systemd-+-accounts-daemon-+-{gdbus}
+        |               |                 `-{gmain}
+        |               |-agetty
+        |               |-apache2-+-2*[apache2---26*[{apache2}]]
+        |               |         `-6*[apache2---3*[{apache2}]]
+        |               |-atd
+        |               |-2*[bash---jujud---53*[{jujud}]]
+        |               |-cron
+        |               |-dbus-daemon
+        |               |-dhclient
+        |               |-haproxy-systemd---haproxy---haproxy
+        |               |-2*[iscsid]
+        |               |-memcached---5*[{memcached}]
+        |               |-nova-api-os-com---6*[nova-api-os-com]
+        |               |-nova-conductor---6*[nova-conductor]
+        |               |-nova-scheduler
+        |               |-polkitd-+-{gdbus}
+        |               |         `-{gmain}
+        |               |-rsyslogd-+-{in:imklog}
+        |               |          |-{in:imuxsock}
+        |               |          `-{rs:main Q:Reg}
+        |               |-snapd---28*[{snapd}]
+        |               |-sshd
+        |               |-systemd-journal
+        |               |-systemd-logind
+        |               `-systemd-udevd
+        |-lxd---systemd-+-accounts-daemon-+-{gdbus}
+        |               |                 `-{gmain}
+        |               |-agetty
+        |               |-apache2---2*[apache2---26*[{apache2}]]
+        |               |-atd
+        |               |-bash---jujud---52*[{jujud}]
+        |               |-bash---jujud---51*[{jujud}]
+        |               |-cron
+        |               |-dbus-daemon
+        |               |-dhclient
+        |               |-glance-api---6*[glance-api]
+        |               |-glance-registry---6*[glance-registry]
+        |               |-haproxy-systemd---haproxy---haproxy
+        |               |-2*[iscsid]
+        |               |-memcached---5*[{memcached}]
+        |               |-polkitd-+-{gdbus}
+        |               |         `-{gmain}
+        |               |-rsyslogd-+-{in:imklog}
+        |               |          |-{in:imuxsock}
+        |               |          `-{rs:main Q:Reg}
+        |               |-snapd---28*[{snapd}]
+        |               |-sshd
+        |               |-systemd-journal
+        |               |-systemd-logind
+        |               |-systemd-udevd
+        |               `-uuidd
+        |-lxd---systemd-+-accounts-daemon-+-{gdbus}
+        |               |                 `-{gmain}
+        |               |-agetty
+        |               |-atd
+        |               |-bash---jujud---53*[{jujud}]
+        |               |-bash---jujud---52*[{jujud}]
+        |               |-ceph-osd-+-{admin_socket}
+        |               |          |-{ceph-osd}
+        |               |          |-{filestore_sync}
+        |               |          |-3*[{fn_anonymous}]
+        |               |          |-{fn_appl_fstore}
+        |               |          |-{fn_jrn_objstore}
+        |               |          |-{fn_odsk_fstore}
+        |               |          |-{journal_write}
+        |               |          |-{log}
+        |               |          |-7*[{ms_dispatch}]
+        |               |          |-7*[{ms_local}]
+        |               |          |-{msgr-worker-0}
+        |               |          |-{msgr-worker-1}
+        |               |          |-{msgr-worker-2}
+        |               |          |-{osd_srv_agent}
+        |               |          |-{osd_srv_heartbt}
+        |               |          |-{rocksdb:bg0}
+        |               |          |-{rocksdb:bg1}
+        |               |          |-{rocksdb:bg2}
+        |               |          |-{rocksdb:bg3}
+        |               |          |-{rocksdb:bg4}
+        |               |          |-{rocksdb:bg5}
+        |               |          |-{rocksdb:bg6}
+        |               |          |-{rocksdb:bg7}
+        |               |          |-11*[{safe_timer}]
+        |               |          |-{service}
+        |               |          |-{signal_handler}
+        |               |          |-2*[{tp_fstore_op}]
+        |               |          |-{tp_osd_cmd}
+        |               |          |-{tp_osd_disk}
+        |               |          |-5*[{tp_osd_tp}]
+        |               |          |-2*[{tp_peering}]
+        |               |          `-{wb_throttle}
+        |               |-cron
+        |               |-dbus-daemon
+        |               |-dhclient
+        |               |-2*[iscsid]
+        |               |-polkitd-+-{gdbus}
+        |               |         `-{gmain}
+        |               |-rsyslogd-+-{in:imklog}
+        |               |          |-{in:imuxsock}
+        |               |          `-{rs:main Q:Reg}
+        |               |-snapd---28*[{snapd}]
+        |               |-sshd
+        |               |-systemd-journal
+        |               |-systemd-logind
+        |               `-systemd-udevd
+        |-lxd---systemd-+-accounts-daemon-+-{gdbus}
+        |               |                 `-{gmain}
+        |               |-agetty
+        |               |-atd
+        |               |-bash---jujud---53*[{jujud}]
+        |               |-bash---jujud---52*[{jujud}]
+        |               |-cron
+        |               |-dbus-daemon
+        |               |-dhclient
+        |               |-2*[iscsid]
+        |               |-mysqld_safe---mysqld---73*[{mysqld}]
+        |               |-polkitd-+-{gdbus}
+        |               |         `-{gmain}
+        |               |-rsyslogd-+-{in:imklog}
+        |               |          |-{in:imuxsock}
+        |               |          `-{rs:main Q:Reg}
+        |               |-snapd---28*[{snapd}]
+        |               |-sshd
+        |               |-systemd-journal
+        |               |-systemd-logind
+        |               `-systemd-udevd
+        |-lxd---systemd-+-accounts-daemon-+-{gdbus}
+        |               |                 `-{gmain}
+        |               |-agetty
+        |               |-apache2---2*[apache2---26*[{apache2}]]
+        |               |-atd
+        |               |-bash---jujud---53*[{jujud}]
+        |               |-bash---jujud---52*[{jujud}]
+        |               |-cron
+        |               |-dbus-daemon
+        |               |-dhclient
+        |               |-haproxy-systemd---haproxy---haproxy
+        |               |-2*[iscsid]
+        |               |-memcached---5*[{memcached}]
+        |               |-neutron-server---10*[neutron-server]
+        |               |-polkitd-+-{gdbus}
+        |               |         `-{gmain}
+        |               |-rsyslogd-+-{in:imklog}
+        |               |          |-{in:imuxsock}
+        |               |          `-{rs:main Q:Reg}
+        |               |-snapd---28*[{snapd}]
+        |               |-sshd
+        |               |-systemd-journal
+        |               |-systemd-logind
+        |               `-systemd-udevd
+        |-lxd---systemd-+-accounts-daemon-+-{gdbus}
+        |               |                 `-{gmain}
+        |               |-agetty
+        |               |-apache2-+-2*[apache2---26*[{apache2}]]
+        |               |         `-6*[apache2---3*[{apache2}]]
+        |               |-atd
+        |               |-2*[bash---jujud---52*[{jujud}]]
+        |               |-bash---jujud---51*[{jujud}]
+        |               |-cinder-schedule
+        |               |-cinder-volume---cinder-volume---20*[{cinder-volume}]
+        |               |-cron
+        |               |-dbus-daemon
+        |               |-dhclient
+        |               |-haproxy-systemd---haproxy---haproxy
+        |               |-2*[iscsid]
+        |               |-memcached---5*[{memcached}]
+        |               |-polkitd-+-{gdbus}
+        |               |         `-{gmain}
+        |               |-rsyslogd-+-{in:imklog}
+        |               |          |-{in:imuxsock}
+        |               |          `-{rs:main Q:Reg}
+        |               |-snapd---28*[{snapd}]
+        |               |-sshd
+        |               |-systemd-journal
+        |               |-systemd-logind
+        |               |-systemd-udevd
+        |               |-tgtd
+        |               `-uuidd
+        |-lxd---systemd-+-accounts-daemon-+-{gdbus}
+        |               |                 `-{gmain}
+        |               |-agetty
+        |               |-atd
+        |               |-bash---jujud---53*[{jujud}]
+        |               |-bash---jujud---52*[{jujud}]
+        |               |-cron
+        |               |-dbus-daemon
+        |               |-dhclient
+        |               |-haproxy-systemd---haproxy---haproxy
+        |               |-2*[iscsid]
+        |               |-polkitd-+-{gdbus}
+        |               |         `-{gmain}
+        |               |-radosgw-+-{admin_socket}
+        |               |         |-{civetweb-master}
+        |               |         |-100*[{civetweb-worker}]
+        |               |         |-{data-notifier}
+        |               |         |-{fn-radosclient}
+        |               |         |-2*[{fn_anonymous}]
+        |               |         |-2*[{http_manager}]
+        |               |         |-{index-complete}
+        |               |         |-{lifecycle_thr}
+        |               |         |-{log}
+        |               |         |-{meta-notifier}
+        |               |         |-{ms_dispatch}
+        |               |         |-{ms_local}
+        |               |         |-{msgr-worker-0}
+        |               |         |-{msgr-worker-1}
+        |               |         |-{msgr-worker-2}
+        |               |         |-32*[{rados_async}]
+        |               |         |-{radosgw}
+        |               |         |-{rgw_buck_st_syn}
+        |               |         |-{rgw_curl}
+        |               |         |-{rgw_dt_lg_renew}
+        |               |         |-{rgw_gc}
+        |               |         |-{rgw_obj_expirer}
+        |               |         |-{rgw_reshard}
+        |               |         |-{rgw_swift_k_rev}
+        |               |         |-{rgw_user_st_syn}
+        |               |         |-7*[{safe_timer}]
+        |               |         |-{service}
+        |               |         `-{signal_handler}
+        |               |-rsyslogd-+-{in:imklog}
+        |               |          |-{in:imuxsock}
+        |               |          `-{rs:main Q:Reg}
+        |               |-snapd---29*[{snapd}]
+        |               |-sshd
+        |               |-systemd-journal
+        |               |-systemd-logind
+        |               |-systemd-udevd
+        |               `-uuidd
+        |-lxd---systemd-+-accounts-daemon-+-{gdbus}
+        |               |                 `-{gmain}
+        |               |-agetty
+        |               |-atd
+        |               |-bash---jujud---52*[{jujud}]
+        |               |-bash---jujud---54*[{jujud}]
+        |               |-cron
+        |               |-dbus-daemon
+        |               |-dhclient
+        |               |-epmd
+        |               |-2*[iscsid]
+        |               |-polkitd-+-{gdbus}
+        |               |         `-{gmain}
+        |               |-rabbitmq-server---rabbitmq-server---beam.smp-+-inet_gethost---inet_gethost
+        |               |                                              |-{10_scheduler}
+        |               |                                              |-{11_scheduler}
+        |               |                                              |-{12_scheduler}
+        |               |                                              |-{13_scheduler}
+        |               |                                              |-{14_scheduler}
+        |               |                                              |-{15_scheduler}
+        |               |                                              |-{16_scheduler}
+        |               |                                              |-{17_scheduler}
+        |               |                                              |-{18_scheduler}
+        |               |                                              |-{19_scheduler}
+        |               |                                              |-{1_scheduler}
+        |               |                                              |-{20_scheduler}
+        |               |                                              |-{21_scheduler}
+        |               |                                              |-{22_scheduler}
+        |               |                                              |-{23_scheduler}
+        |               |                                              |-{24_scheduler}
+        |               |                                              |-{2_scheduler}
+        |               |                                              |-{3_scheduler}
+        |               |                                              |-{4_scheduler}
+        |               |                                              |-{5_scheduler}
+        |               |                                              |-{6_scheduler}
+        |               |                                              |-{7_scheduler}
+        |               |                                              |-{8_scheduler}
+        |               |                                              |-{9_scheduler}
+        |               |                                              |-{async_10}
+        |               |                                              |-{async_11}
+        |               |                                              |-{async_12}
+        |               |                                              |-{async_13}
+        |               |                                              |-{async_14}
+        |               |                                              |-{async_15}
+        |               |                                              |-{async_16}
+        |               |                                              |-{async_17}
+        |               |                                              |-{async_18}
+        |               |                                              |-{async_19}
+        |               |                                              |-{async_1}
+        |               |                                              |-{async_20}
+        |               |                                              |-{async_21}
+        |               |                                              |-{async_22}
+        |               |                                              |-{async_23}
+        |               |                                              |-{async_24}
+        |               |                                              |-{async_25}
+        |               |                                              |-{async_26}
+        |               |                                              |-{async_27}
+        |               |                                              |-{async_28}
+        |               |                                              |-{async_29}
+        |               |                                              |-{async_2}
+        |               |                                              |-{async_30}
+        |               |                                              |-{async_31}
+        |               |                                              |-{async_32}
+        |               |                                              |-{async_33}
+        |               |                                              |-{async_34}
+        |               |                                              |-{async_35}
+        |               |                                              |-{async_36}
+        |               |                                              |-{async_37}
+        |               |                                              |-{async_38}
+        |               |                                              |-{async_39}
+        |               |                                              |-{async_3}
+        |               |                                              |-{async_40}
+        |               |                                              |-{async_41}
+        |               |                                              |-{async_42}
+        |               |                                              |-{async_43}
+        |               |                                              |-{async_44}
+        |               |                                              |-{async_45}
+        |               |                                              |-{async_46}
+        |               |                                              |-{async_47}
+        |               |                                              |-{async_48}
+        |               |                                              |-{async_4}
+        |               |                                              |-{async_5}
+        |               |                                              |-{async_6}
+        |               |                                              |-{async_7}
+        |               |                                              |-{async_8}
+        |               |                                              |-{async_9}
+        |               |                                              |-{aux}
+        |               |                                              |-{child_waiter}
+        |               |                                              |-{sys_msg_dispatc}
+        |               |                                              `-{sys_sig_dispatc}
+        |               |-rsyslogd-+-{in:imklog}
+        |               |          |-{in:imuxsock}
+        |               |          `-{rs:main Q:Reg}
+        |               |-snapd---28*[{snapd}]
+        |               |-sshd
+        |               |-systemd---(sd-pam)
+        |               |-systemd-journal
+        |               |-systemd-logind
+        |               `-systemd-udevd
+        |-lxd---systemd-+-accounts-daemon-+-{gdbus}
+        |               |                 `-{gmain}
+        |               |-agetty
+        |               |-apache2-+-2*[apache2---26*[{apache2}]]
+        |               |         `-3*[apache2---12*[{apache2}]]
+        |               |-atd
+        |               |-bash---jujud---53*[{jujud}]
+        |               |-bash---jujud---54*[{jujud}]
+        |               |-cron
+        |               |-dbus-daemon
+        |               |-dhclient
+        |               |-haproxy-systemd---haproxy---haproxy
+        |               |-2*[iscsid]
+        |               |-memcached---5*[{memcached}]
+        |               |-polkitd-+-{gdbus}
+        |               |         `-{gmain}
+        |               |-rsyslogd-+-{in:imklog}
+        |               |          |-{in:imuxsock}
+        |               |          `-{rs:main Q:Reg}
+        |               |-snapd---29*[{snapd}]
+        |               |-sshd
+        |               |-systemd-journal
+        |               |-systemd-logind
+        |               `-systemd-udevd
+        |-lxd---systemd-+-accounts-daemon-+-{gdbus}
+        |               |                 `-{gmain}
+        |               |-agetty
+        |               |-atd
+        |               |-bash---jujud---70*[{jujud}]
+        |               |-cron
+        |               |-dbus-daemon
+        |               |-mongod-+-{ApplyBa.Journal}
+        |               |        |-{Backgro.kSource}
+        |               |        |-{DeadlineMonitor}
+        |               |        |-{Network.IO-RS-0}
+        |               |        |-{Network.ation-0}
+        |               |        |-{Network.cutor-0}
+        |               |        |-{NoopWriter}
+        |               |        |-{Periodi.kRunner}
+        |               |        |-{ReplBatcher}
+        |               |        |-{SyncSou.eedback}
+        |               |        |-{TTLMonitor}
+        |               |        |-{WT Reco.plog.rs}
+        |               |        |-{WTCheck.tThread}
+        |               |        |-{WTJourn.Flusher}
+        |               |        |-{WTOplog.lThread}
+        |               |        |-{clientcursormon}
+        |               |        |-{conn11}
+        |               |        |-{conn12}
+        |               |        |-{conn13}
+        |               |        |-{conn14}
+        |               |        |-{conn15}
+        |               |        |-{conn16}
+        |               |        |-{conn17}
+        |               |        |-{conn18}
+        |               |        |-{conn19}
+        |               |        |-{conn20}
+        |               |        |-{conn21}
+        |               |        |-{conn22}
+        |               |        |-{conn23}
+        |               |        |-{conn24}
+        |               |        |-{conn25}
+        |               |        |-{conn26}
+        |               |        |-{conn27}
+        |               |        |-{conn28}
+        |               |        |-{conn29}
+        |               |        |-{conn30}
+        |               |        |-{conn31}
+        |               |        |-{conn32}
+        |               |        |-{conn33}
+        |               |        |-{conn34}
+        |               |        |-{conn35}
+        |               |        |-{conn36}
+        |               |        |-{conn37}
+        |               |        |-{conn38}
+        |               |        |-{conn39}
+        |               |        |-{conn40}
+        |               |        |-{conn41}
+        |               |        |-{conn42}
+        |               |        |-{conn43}
+        |               |        |-{conn44}
+        |               |        |-{conn45}
+        |               |        |-{conn46}
+        |               |        |-{conn47}
+        |               |        |-{conn48}
+        |               |        |-{conn49}
+        |               |        |-{conn50}
+        |               |        |-{conn51}
+        |               |        |-{conn52}
+        |               |        |-{ftdc}
+        |               |        |-{listener}
+        |               |        |-10*[{mongod}]
+        |               |        |-{monitor.or HMAC}
+        |               |        |-2*[{repl wr.orker 0}]
+        |               |        |-2*[{repl wr.orker 1}]
+        |               |        |-2*[{repl wr.orker 2}]
+        |               |        |-2*[{repl wr.orker 3}]
+        |               |        |-2*[{repl wr.orker 4}]
+        |               |        |-2*[{repl wr.orker 5}]
+        |               |        |-2*[{repl wr.orker 6}]
+        |               |        |-2*[{repl wr.orker 7}]
+        |               |        |-2*[{repl wr.orker 8}]
+        |               |        |-2*[{repl wr.orker 9}]
+        |               |        |-2*[{repl wr.rker 10}]
+        |               |        |-2*[{repl wr.rker 11}]
+        |               |        |-2*[{repl wr.rker 12}]
+        |               |        |-2*[{repl wr.rker 13}]
+        |               |        |-2*[{repl wr.rker 14}]
+        |               |        |-2*[{repl wr.rker 15}]
+        |               |        |-{replexec-2}
+        |               |        |-{replication-0}
+        |               |        |-{rsBackg.undSync}
+        |               |        |-{rsSync}
+        |               |        |-{signalP.gThread}
+        |               |        `-{thread28}
+        |               |-networkd-dispat---{gmain}
+        |               |-polkitd-+-{gdbus}
+        |               |         `-{gmain}
+        |               |-rsyslogd-+-{in:imuxsock}
+        |               |          `-{rs:main Q:Reg}
+        |               |-sshd
+        |               |-systemd-journal
+        |               |-systemd-logind
+        |               |-systemd-network
+        |               |-systemd-resolve
+        |               |-systemd-udevd
+        |               `-unattended-upgr---{gmain}
+        |-lxd---systemd-+-accounts-daemon-+-{gdbus}
+        |               |                 `-{gmain}
+        |               |-agetty
+        |               |-atd
+        |               |-2*[bash---jujud---53*[{jujud}]]
+        |               |-2*[bash---jujud---52*[{jujud}]]
+        |               |-cron
+        |               |-dbus-daemon
+        |               |-dhclient
+        |               |-2*[iscsid]
+        |               |-lxd---30*[{lxd}]
+        |               |-lxd-bridge-prox---3*[{lxd-bridge-prox}]
+        |               |-neutron-openvsw---2*[ovsdb-client]
+        |               |-nova-compute
+        |               |-ovs-vswitchd-+-{handler146}
+        |               |              |-{handler147}
+        |               |              |-{handler148}
+        |               |              |-{handler149}
+        |               |              |-{handler150}
+        |               |              |-{handler151}
+        |               |              |-{handler152}
+        |               |              |-{handler153}
+        |               |              |-{handler154}
+        |               |              |-{handler155}
+        |               |              |-{handler156}
+        |               |              |-{handler157}
+        |               |              |-{handler158}
+        |               |              |-{handler159}
+        |               |              |-{handler160}
+        |               |              |-{handler161}
+        |               |              |-{handler162}
+        |               |              |-{revalidator163}
+        |               |              |-{revalidator164}
+        |               |              |-{revalidator165}
+        |               |              |-{revalidator166}
+        |               |              |-{revalidator167}
+        |               |              |-{revalidator168}
+        |               |              |-{revalidator169}
+        |               |              `-{urcu3}
+        |               |-ovsdb-server
+        |               |-polkitd-+-{gdbus}
+        |               |         `-{gmain}
+        |               |-rsyslogd-+-{in:imklog}
+        |               |          |-{in:imuxsock}
+        |               |          `-{rs:main Q:Reg}
+        |               |-snapd---28*[{snapd}]
+        |               |-sshd
+        |               |-systemd-journal
+        |               |-systemd-logind
+        |               |-systemd-udevd
+        |               `-uuidd
+        |-lxd---systemd-+-accounts-daemon-+-{gdbus}
+        |               |                 `-{gmain}
+        |               |-agetty
+        |               |-atd
+        |               |-bash---jujud---52*[{jujud}]
+        |               |-bash---jujud---54*[{jujud}]
+        |               |-ceph-osd-+-{admin_socket}
+        |               |          |-{ceph-osd}
+        |               |          |-{filestore_sync}
+        |               |          |-3*[{fn_anonymous}]
+        |               |          |-{fn_appl_fstore}
+        |               |          |-{fn_jrn_objstore}
+        |               |          |-{fn_odsk_fstore}
+        |               |          |-{journal_write}
+        |               |          |-{log}
+        |               |          |-7*[{ms_dispatch}]
+        |               |          |-7*[{ms_local}]
+        |               |          |-{msgr-worker-0}
+        |               |          |-{msgr-worker-1}
+        |               |          |-{msgr-worker-2}
+        |               |          |-{osd_srv_agent}
+        |               |          |-{osd_srv_heartbt}
+        |               |          |-{rocksdb:bg0}
+        |               |          |-{rocksdb:bg1}
+        |               |          |-{rocksdb:bg2}
+        |               |          |-{rocksdb:bg3}
+        |               |          |-{rocksdb:bg4}
+        |               |          |-{rocksdb:bg5}
+        |               |          |-{rocksdb:bg6}
+        |               |          |-{rocksdb:bg7}
+        |               |          |-11*[{safe_timer}]
+        |               |          |-{service}
+        |               |          |-{signal_handler}
+        |               |          |-2*[{tp_fstore_op}]
+        |               |          |-{tp_osd_cmd}
+        |               |          |-{tp_osd_disk}
+        |               |          |-5*[{tp_osd_tp}]
+        |               |          |-2*[{tp_peering}]
+        |               |          `-{wb_throttle}
+        |               |-cron
+        |               |-dbus-daemon
+        |               |-dhclient
+        |               |-2*[iscsid]
+        |               |-polkitd-+-{gdbus}
+        |               |         `-{gmain}
+        |               |-rsyslogd-+-{in:imklog}
+        |               |          |-{in:imuxsock}
+        |               |          `-{rs:main Q:Reg}
+        |               |-snapd---28*[{snapd}]
+        |               |-sshd
+        |               |-systemd-journal
+        |               |-systemd-logind
+        |               `-systemd-udevd
+        |-lxd---systemd-+-accounts-daemon-+-{gdbus}
+        |               |                 `-{gmain}
+        |               |-agetty
+        |               |-atd
+        |               |-2*[bash---jujud---53*[{jujud}]]
+        |               |-ceph-mgr-+-{admin_socket}
+        |               |          |-{ceph-mgr}
+        |               |          |-{flusher}
+        |               |          |-3*[{fn_anonymous}]
+        |               |          |-{log}
+        |               |          |-{ms_dispatch}
+        |               |          |-{ms_local}
+        |               |          |-{msgr-worker-0}
+        |               |          |-{msgr-worker-1}
+        |               |          |-{msgr-worker-2}
+        |               |          |-3*[{safe_timer}]
+        |               |          |-{service}
+        |               |          `-{signal_handler}
+        |               |-ceph-mon-+-{admin_socket}
+        |               |          |-4*[{cpu_tp}]
+        |               |          |-{fin}
+        |               |          |-{fn_monstore}
+        |               |          |-{log}
+        |               |          |-2*[{ms_dispatch}]
+        |               |          |-2*[{ms_local}]
+        |               |          |-{msgr-worker-0}
+        |               |          |-{msgr-worker-1}
+        |               |          |-{msgr-worker-2}
+        |               |          |-2*[{rocksdb:bg0}]
+        |               |          |-{rstore_compact}
+        |               |          |-2*[{safe_timer}]
+        |               |          |-{service}
+        |               |          `-{signal_handler}
+        |               |-cron
+        |               |-dbus-daemon
+        |               |-dhclient
+        |               |-2*[iscsid]
+        |               |-polkitd-+-{gdbus}
+        |               |         `-{gmain}
+        |               |-rsyslogd-+-{in:imklog}
+        |               |          |-{in:imuxsock}
+        |               |          `-{rs:main Q:Reg}
+        |               |-snapd---29*[{snapd}]
+        |               |-sshd
+        |               |-systemd-journal
+        |               |-systemd-logind
+        |               `-systemd-udevd
+        |-lxd---systemd-+-accounts-daemon-+-{gdbus}
+        |               |                 `-{gmain}
+        |               |-agetty
+        |               |-atd
+        |               |-bash---jujud---51*[{jujud}]
+        |               |-bash---jujud---53*[{jujud}]
+        |               |-ceph-mgr-+-{admin_socket}
+        |               |          |-{balancer}
+        |               |          |-{ceph-mgr}
+        |               |          |-{flusher}
+        |               |          |-3*[{fn_anonymous}]
+        |               |          |-{log}
+        |               |          |-{mgr-fin}
+        |               |          |-2*[{ms_dispatch}]
+        |               |          |-2*[{ms_local}]
+        |               |          |-{msgr-worker-0}
+        |               |          |-{msgr-worker-1}
+        |               |          |-{msgr-worker-2}
+        |               |          |-{restful}
+        |               |          |-3*[{safe_timer}]
+        |               |          |-{service}
+        |               |          `-{signal_handler}
+        |               |-ceph-mon-+-{admin_socket}
+        |               |          |-4*[{cpu_tp}]
+        |               |          |-{fin}
+        |               |          |-{fn_monstore}
+        |               |          |-{log}
+        |               |          |-2*[{ms_dispatch}]
+        |               |          |-2*[{ms_local}]
+        |               |          |-{msgr-worker-0}
+        |               |          |-{msgr-worker-1}
+        |               |          |-{msgr-worker-2}
+        |               |          |-2*[{rocksdb:bg0}]
+        |               |          |-{rstore_compact}
+        |               |          |-2*[{safe_timer}]
+        |               |          |-{service}
+        |               |          `-{signal_handler}
+        |               |-cron
+        |               |-dbus-daemon
+        |               |-dhclient
+        |               |-2*[iscsid]
+        |               |-polkitd-+-{gdbus}
+        |               |         `-{gmain}
+        |               |-rsyslogd-+-{in:imklog}
+        |               |          |-{in:imuxsock}
+        |               |          `-{rs:main Q:Reg}
+        |               |-snapd---29*[{snapd}]
+        |               |-sshd
+        |               |-systemd-journal
+        |               |-systemd-logind
+        |               `-systemd-udevd
+        |-lxd---systemd-+-accounts-daemon-+-{gdbus}
+        |               |                 `-{gmain}
+        |               |-agetty
+        |               |-atd
+        |               |-bash---jujud---52*[{jujud}]
+        |               |-bash---jujud---53*[{jujud}]
+        |               |-ceph-mgr-+-{admin_socket}
+        |               |          |-{ceph-mgr}
+        |               |          |-{flusher}
+        |               |          |-3*[{fn_anonymous}]
+        |               |          |-{log}
+        |               |          |-{ms_dispatch}
+        |               |          |-{ms_local}
+        |               |          |-{msgr-worker-0}
+        |               |          |-{msgr-worker-1}
+        |               |          |-{msgr-worker-2}
+        |               |          |-3*[{safe_timer}]
+        |               |          |-{service}
+        |               |          `-{signal_handler}
+        |               |-ceph-mon-+-{admin_socket}
+        |               |          |-4*[{cpu_tp}]
+        |               |          |-{fin}
+        |               |          |-{fn_monstore}
+        |               |          |-{log}
+        |               |          |-2*[{ms_dispatch}]
+        |               |          |-2*[{ms_local}]
+        |               |          |-{msgr-worker-0}
+        |               |          |-{msgr-worker-1}
+        |               |          |-{msgr-worker-2}
+        |               |          |-2*[{rocksdb:bg0}]
+        |               |          |-{rstore_compact}
+        |               |          |-2*[{safe_timer}]
+        |               |          |-{service}
+        |               |          `-{signal_handler}
+        |               |-cron
+        |               |-dbus-daemon
+        |               |-dhclient
+        |               |-2*[iscsid]
+        |               |-polkitd-+-{gdbus}
+        |               |         `-{gmain}
+        |               |-rsyslogd-+-{in:imklog}
+        |               |          |-{in:imuxsock}
+        |               |          `-{rs:main Q:Reg}
+        |               |-snapd---30*[{snapd}]
+        |               |-sshd
+        |               |-systemd-journal
+        |               |-systemd-logind
+        |               `-systemd-udevd
+        |-lxd---systemd-+-accounts-daemon-+-{gdbus}
+        |               |                 `-{gmain}
+        |               |-agetty
+        |               |-apache2-+-2*[apache2---26*[{apache2}]]
+        |               |         `-7*[apache2---3*[{apache2}]]
+        |               |-atd
+        |               |-2*[bash---jujud---53*[{jujud}]]
+        |               |-cron
+        |               |-dbus-daemon
+        |               |-dhclient
+        |               |-haproxy-systemd---haproxy---haproxy
+        |               |-2*[iscsid]
+        |               |-memcached---5*[{memcached}]
+        |               |-polkitd-+-{gdbus}
+        |               |         `-{gmain}
+        |               |-rsyslogd-+-{in:imklog}
+        |               |          |-{in:imuxsock}
+        |               |          `-{rs:main Q:Reg}
+        |               |-snapd---28*[{snapd}]
+        |               |-sshd
+        |               |-systemd-journal
+        |               |-systemd-logind
+        |               `-systemd-udevd
+        |-nm-applet-+-{dconf worker}
+        |           |-{gdbus}
+        |           `-{gmain}
+        |-polkitd-+-{gdbus}
+        |         `-{gmain}
+        |-rsyslogd-+-{in:imklog}
+        |          |-{in:imuxsock}
+        |          `-{rs:main Q:Reg}
+        |-rtkit-daemon---2*[{rtkit-daemon}]
+        |-snapd---31*[{snapd}]
+        |-sshd-+-sshd---bash---su---bash---python3---120*[{python3}]
+        |      `-sshd---bash---su---bash---pstree
+        |-2*[systemd---(sd-pam)]
+        |-systemd-journal
+        |-systemd-logind
+        |-systemd-timesyn---{sd-resolve}
+        |-systemd-udevd
+        |-unity-settings--+-{dconf worker}
+        |                 |-{gdbus}
+        |                 `-{gmain}
+        |-upowerd-+-{gdbus}
+        |         `-{gmain}
+        |-upstart-+-indicator-appli-+-{gdbus}
+        |         |                 `-{gmain}
+        |         |-indicator-bluet-+-{dconf worker}
+        |         |                 |-{gdbus}
+        |         |                 `-{gmain}
+        |         |-indicator-datet-+-{dconf worker}
+        |         |                 |-{gdbus}
+        |         |                 `-{gmain}
+        |         |-indicator-keybo-+-{dconf worker}
+        |         |                 |-{gdbus}
+        |         |                 `-{gmain}
+        |         |-indicator-messa-+-{dconf worker}
+        |         |                 |-{gdbus}
+        |         |                 `-{gmain}
+        |         |-indicator-power-+-{dconf worker}
+        |         |                 |-{gdbus}
+        |         |                 `-{gmain}
+        |         |-indicator-sessi-+-{dconf worker}
+        |         |                 |-{gdbus}
+        |         |                 `-{gmain}
+        |         |-indicator-sound-+-{dconf worker}
+        |         |                 |-{gdbus}
+        |         |                 `-{gmain}
+        |         `-pulseaudio---{null-sink}
+        `-whoopsie-+-{gdbus}
+                   `-{gmain}
+jack@s004:~$
 #+END_SRC
