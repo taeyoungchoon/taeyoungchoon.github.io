@@ -1,4 +1,7 @@
 * after lxc? anyway!
+
+vm or container?
+
 * steps
 
 ** bulk 

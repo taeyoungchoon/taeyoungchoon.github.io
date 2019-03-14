@@ -1,4 +1,9 @@
-* lisp
+* word
+
+- zero touch provisioning
+- Zero Touch Provisioning
+
+* desc as
 
 #+BEGIN_SRC emacs-lisp
 (cons dhcp ftp)

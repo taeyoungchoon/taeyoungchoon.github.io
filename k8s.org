@@ -1,6 +1,18 @@
 * rel
 
-| atom                   | list           |
-|------------------------+----------------|
-| docker, xm, contrainer | k8s, openshift |
-| kvm, vm                | openstack      |
+| atom   | list           | will be      |
+|--------+----------------+--------------|
+| xm     | k8s, openshift | openstack_ed |
+| pm, vm | openstack      |              |
+
+* word
+
+1. kubernetes
+2. k ubernete s
+3. k 8 s
+4. k8s
+
+* history
+
+and with sdn
+such as openstack

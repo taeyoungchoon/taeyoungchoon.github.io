@@ -11,3 +11,8 @@ zfs list -t volume
 zfs list -t snapshots
 
 * dump information using dumpadm
+
+* history
+
+- ever from the unix some kinds of
+- now on linux with [[file:lxd.org][lxd]]
