@@ -11,3 +11,32 @@
   (filesystem (linux ext)
               (freebsd ufs))
 #+END_SRC
+
+* stack
+
+- filesystem
+- partition or slice
+- volume manager such lvm
+- network
+- raid
+- disk
+
+* kinds of
+
+- xfs
+- zfs
+- reiserfs
+- ext2
+- ext3
+- ext4
+- btrfs
+- ufs: freebsd
+
+* from windows
+
+- ntfs
+- fat
+
+* other type
+
+- lvm
