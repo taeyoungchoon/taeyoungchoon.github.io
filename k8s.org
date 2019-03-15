@@ -16,3 +16,16 @@
 
 and with sdn
 such as openstack
+
+* lots of but contained
+
+- container
+- pod
+- volume?
+- service?
+- namespace
+
+* supported contrainer?
+
+- docker only
+- or more?
