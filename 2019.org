@@ -1,2 +1,11 @@
 * 2019-01 opendaylight
 * 2019-02 still and so on, sdn
+
+- and dig about IMSI Catcher and more
+
+* 2019-03 so fast and what?
+
+- onos to know about sdn
+- atto's obelle and athene
+- english? military!
+- juniper contrail networking

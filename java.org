@@ -27,7 +27,13 @@ Oracle Java SE 로드맵에 대한 중요한 정보
 - 버전 7 업데이트 (빌드 1.7.0_60-b19)
 - Windows i586, x86, x64
 
+** old: 1.6
+** recent: 1.8
+
 * jdk and jre
+
+- OracleJDK
+- OpenJDK
 
 * java web start? and JNLP(jnlp)
 
