@@ -1,0 +1,18 @@
+* type
+
+| name                                    | Generation      | Read Speed     | Write Speed    | register date | Price       | m |
+|-----------------------------------------+-----------------+----------------+----------------+---------------+-------------+---|
+| sandisk extreme pro usb 3.1 solid state | USB 3.0 (Gen 1) | up to 420 MB/s | up to 380 MB/s |       2017.03 | over 46,530 |   |
+| sandisk extream go usb 3.1              | USB 3.0 (Gen 1) | up to 200 MB/s | up to 150 MB/s |       2017.03 | over 31,880 |   |
+|-----------------------------------------+-----------------+----------------+----------------+---------------+-------------+---|
+| sandisk ultra flair usb 3.0             | USB 3.0         | up to 150 MB/s |                |       2015.12 | over 20,400 | v |
+| sandisk ultra usb 3.0                   | USB 3.0         | up to 100 MB/s |                |       2013.08 | over 20.220 |   |
+| cruzer glide 3.0 usb                    | USB 3.0         | no comment     |                |               |             |   |
+|-----------------------------------------+-----------------+----------------+----------------+---------------+-------------+---|
+| cruzer glide usb                        | USB 2.0         |                |                |               |             |   |
+| cruzer blade usb                        | USB 2.0         |                |                |               |             |   |
+
+* note
+
+- MLC: Multi Level Cell
+- TLC: Triple Level Cell
