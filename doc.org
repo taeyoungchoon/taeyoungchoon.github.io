@@ -1,3 +1,8 @@
+* essential
+
+- 주민등록등본 at http://minwon.go.kr or http://gov.kr
+- 기본증명서,가족관계증명서 at http://efamily.scourt.go.kr or http://gov.kr
+
 * kinds of
 
 ** 보안서약서 그리고 대표이사용 보안서약서
@@ -27,3 +32,4 @@
 - 제조사(기술지원사)명 
 
 ** 국세완납증명서
+

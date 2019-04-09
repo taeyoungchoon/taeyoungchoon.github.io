@@ -1,0 +1,10 @@
+* real word, not thinker
+* fai
+* openstack
+* tripleO, OSPd(aka Director)
+* imagex? forget the name
+* cobbler but more
+
+- RedHat Satellite rel and before
+- SpaceWalk?
+- include repository sync

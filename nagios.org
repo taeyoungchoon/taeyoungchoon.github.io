@@ -104,3 +104,4 @@ DNS OK: 0.180 seconds response time. linux.com returns 140.211.167.50,140.211.16
 * history
 
 - [2015-11-03 Tue 20:58] 다른 곳으로 떠나간 장비를 관제에서 뺐다. cfg를 bak로 변경하고 그룹에서 뺐다. reload하고 끝
+- [2019-03-23 토 00:47] 다시 시작하는 nagios 관제 대상은 localhost 포함해서 4대였다. 간만에 만져서 조금 버거웠다. 그리고 역시나 재미있었다.
