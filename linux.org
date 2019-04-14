@@ -46,3 +46,17 @@ getting complicated more and more
 - 그리고 이제는 그 이름이 기억나지 않는다 
 - 그래서 인지 거의 root에 해당하는 판만을 만진다 그리 나쁜 전략은 아닌 듯 
   
+* say my
+
+- 리눅스 엔지니어입니다. 
+- linux engineer?
+- ls -altr
+- df -h
+- dmesg
+- kernel
+- openstack
+- openshift
+- c
+- perl, python, ruby
+- java?
+- english
