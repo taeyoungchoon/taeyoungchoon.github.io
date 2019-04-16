@@ -1,0 +1,23 @@
+* version at kernel.org
+
+- ever using finger
+- nowadays using what? web using https://www.kernel.org/finger_banner
+
+#+BEGIN_SRC sh
+curl https://www.kernel.org/finger_banner 2>/dev/null | tr -s ' ' | sed -e 's/e version/e . version/' -e 's/t version/t . version/'
+#+END_SRC
+
+#+RESULTS:
+| The | latest | stable     |    0 | version | of | the | Linux | kernel | is: |         5.0.7 |       |
+| The | latest | mainline   |    0 | version | of | the | Linux | kernel | is: |       5.1-rc4 |       |
+| The | latest | stable     |  5.0 | version | of | the | Linux | kernel | is: |         5.0.7 |       |
+| The | latest | stable     |  4.2 | version | of | the | Linux | kernel | is: |       4.20.17 | (EOL) |
+| The | latest | longterm   | 4.19 | version | of | the | Linux | kernel | is: |       4.19.34 |       |
+| The | latest | longterm   | 4.14 | version | of | the | Linux | kernel | is: |      4.14.111 |       |
+| The | latest | longterm   |  4.9 | version | of | the | Linux | kernel | is: |       4.9.168 |       |
+| The | latest | longterm   |  4.4 | version | of | the | Linux | kernel | is: |       4.4.178 |       |
+| The | latest | longterm   | 3.18 | version | of | the | Linux | kernel | is: |      3.18.138 | (EOL) |
+| The | latest | longterm   | 3.16 | version | of | the | Linux | kernel | is: |       3.16.65 |       |
+| The | latest | linux-next |    0 | version | of | the | Linux | kernel | is: | next-20190412 |       |
+
+* source code the compile, c
