@@ -1,0 +1,8 @@
+* rel
+
+- [[file:meltdown-spectre.org]]
+- https://en.wikipedia.org/wiki/Spectre_(security_vulnerability)
+- Spectre is a vulnerability that affects modern microprocessors that perform branch prediction.
+- Date discovered: January 2018
+- https://meltdownattack.com/
+

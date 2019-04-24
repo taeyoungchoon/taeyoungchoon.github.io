@@ -1,0 +1,6 @@
+* cli
+
+rpm -qp --scripts httpd-2.2.15-15.el6_2.1.x86_64.rpm
+rpm -q --scripts httpd
+
+rpm --setperms coreutils

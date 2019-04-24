@@ -1,0 +1,13 @@
+* lots or rel
+
+- su -
+- /var/log/secure
+- /etc/shadow
+- ls -l /bin/su
+- chown, chgrp
+- chmod
+- /etc/pam.d/su
+
+* notice
+
+- chown, chgrp break setuid bit on /bin/su file

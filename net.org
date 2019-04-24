@@ -1,5 +1,25 @@
 * cli
 
+#+BEGIN_SRC 
+net use z: \\x.x.x.x\space passing /user:raul /persistent:yes
+net use
+pause
+#+END_SRC
+
+#+BEGIN_SRC 
+net use
+z:
+cd "x\y\z\tmp"
+type touch.txt
+pause
+#+END_SRC
+
+#+BEGIN_SRC 
+net use z: /delete
+net use
+pause
+#+END_SRC
+
 * net share
 * net view
 * net use

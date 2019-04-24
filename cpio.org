@@ -1,0 +1,14 @@
+* cli
+
+rpm2cpio foo.rpm | cpio -idmv
+
+i: restore archive?, --extract, run in "Copy-in mode"
+d: directory, required to place file on it
+m: set time as ever
+v: verbose
+
+rpm2cpio foo.rpm | cpio -idm
+
+* Copy-in mode, copy-in mode
+
+In copy-in mode, cpio copies files out of an archive or lists the archives contents.

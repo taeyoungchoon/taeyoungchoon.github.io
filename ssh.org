@@ -1,3 +1,12 @@
+* key
+
+| key     | say                                        |
+|---------+--------------------------------------------|
+| rsa     | secure enough so ssh-keygen -t rsa -b 2048 |
+| dsa     | disabled on OpenSSH 7.0                    |
+| ecdsa   | compatibility headaches no more            |
+| ed25519 | compatibility headaches no more            |
+
 * note about ssh
 
 - telnet alternative

@@ -1,3 +1,16 @@
+* talks 
+
 철학하며 살고 싶다
 철학 그리고 시 그리고 감춘다는 것
 이상하자는 것, 이상한다는 것이다
+
+* and history
+
+philosophy, philosophical depth in life or something else
+
+#+BEGIN_SRC emacs-lisp
+(setf else '(lisp linux emacs))
+#+END_SRC
+
+#+RESULTS:
+| lisp | linux | emacs |
