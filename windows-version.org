@@ -1,0 +1,11 @@
+* TODO 1,2,3 nop
+
+1. windows 95
+2. windows 98
+3. windows xp
+4. windows 7
+5. windows 10
+
+* TODO type server
+
+1. windows nt?
