@@ -1,8 +1,8 @@
-* cli
+* cli, "shutdown /s /t 0"
 
 - [X] shutdown /s
-- [ ] shutdown /s /t 1
-- [ ] shutdown -s -t 1
+- [X] shutdown /s /t 1
+- [X] shutdown /s /t 0
 
 * reboot
 
