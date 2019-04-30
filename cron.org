@@ -1,3 +1,25 @@
+* cron.allow and cron.deny
+
+cron.allow first, if ok then ok, if not then nil
+
+#+BEGIN_SRC 
+[root@c75 ~]# cat /etc/cron.allow
+jack
+[root@c75 ~]# cat /etc/cron.deny
+jack
+[root@c75 ~]# su - jack
+Last login: Tue Apr 30 21:07:00 KST 2019 on pts/0
+[jack@c75 ~]$ crontab -l
+* * * * * /usr/bin/date > /tmp/date.log
+[jack@c75 ~]$ logout
+[root@c75 ~]# su - raul
+Last login: Tue Apr 30 21:07:15 KST 2019 on pts/0
+[raul@c75 ~]$ crontab -l
+You (raul) are not allowed to use this program (crontab)
+See crontab(1) for more information
+[raul@c75 ~]$
+#+END_SRC
+
 * name?
 
 check out the wikipedia
