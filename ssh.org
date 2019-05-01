@@ -1,3 +1,14 @@
+* TODO option: -t
+
+- Force pseudo-terminal allocation.  
+- This can be used to execute arbitrary screen-based programs on a remote machine, 
+- [ ] which can be very useful, e.g. when implementing menu services. (ex. sudo uptime)
+- Multiple -t options force tty allocation, even if ssh has no local tty.
+
+#+BEGIN_SRC 
+ssh -t
+#+END_SRC
+
 * key
 
 | key     | say                                        |
