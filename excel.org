@@ -1,3 +1,9 @@
+* say
+
+- [ ] group then subtotal
+- [ ] pivot
+- [ ] Ctrl-H: find and replace
+
 * for example
 
 ** countifs
