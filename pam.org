@@ -16,10 +16,10 @@ session    optional   pam_motd.so
 * man pam_motd > /etc/update-modtd.d/*
 * module type
 
+- session , 인증 이후
 - auth , 인증
 - account , 관리?
 - password
-- session , 인증 이후
 
 * opt
 

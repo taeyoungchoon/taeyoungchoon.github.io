@@ -1,3 +1,9 @@
+* change password from cli
+
+#+BEGIN_SRC 
+echo 'P@ssw0rd' | passwd --stdin jack
+#+END_SRC
+
 * file format of passwd then shadow
 
 #+BEGIN_EXAMPLE

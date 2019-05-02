@@ -1,0 +1,78 @@
+* files
+
+- /etc/vsftpd/vsftpd.conf
+  - userlist_enable=YES
+- /etc/vsftpd/ftpusers
+- /etc/vsftpd/user_list
+
+* ftpusers with pam and user_list with userlist_enable=YES
+
+#+BEGIN_SRC
+
+# cat /etc/pam.d/vsftpd  | grep ftpusers
+auth       required     pam_listfile.so item=user sense=deny file=/etc/vsftpd/ftpusers onerr=succeed
+
+# cat /etc/pam.d/vsftpd
+#%PAM-1.0
+session    optional     pam_keyinit.so    force revoke
+auth       required     pam_listfile.so item=user sense=deny file=/etc/vsftpd/ftpusers onerr=succeed
+auth       required     pam_shells.so
+auth       include      password-auth
+account    include      password-auth
+session    required     pam_loginuid.so
+session    include      password-auth
+ 
+# cat ftpusers
+# Users that are not allowed to login via ftp
+root
+bin
+daemon
+adm
+lp
+sync
+shutdown
+halt
+mail
+news
+uucp
+operator
+games
+nobody
+
+# cat user_list
+# vsftpd userlist
+# If userlist_deny=NO, only allow users in this file
+# If userlist_deny=YES (default), never allow users in this file, and
+# do not even prompt for a password.
+# Note that the default vsftpd pam config also checks /etc/vsftpd/ftpusers
+# for users that are denied.
+root
+bin
+daemon
+adm
+lp
+sync
+shutdown
+halt
+mail
+news
+uucp
+operator
+games
+nobody
+
+# cat ftpusers | grep -v \# | md5sum | cut -b 1-2
+f6
+# cat user_list | grep -v \# | md5sum | cut -b 1-2
+f6
+
+#+END_SRC
+* White List Pattern
+
+- https://gist.githubusercontent.com/yuikns
+
+#+BEGIN_SRC 
+userlist_deny=NO
+userlist_enable=YES
+userlist_file=/etc/vsftpd/user_list
+#+END_SRC

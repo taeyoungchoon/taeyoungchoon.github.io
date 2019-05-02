@@ -1,3 +1,10 @@
+* cli
+
+#+BEGIN_SRC 
+su -l jack -c 'id'
+su -l jack -c 'crontab -l'
+#+END_SRC
+
 * lots or rel
 
 - su -

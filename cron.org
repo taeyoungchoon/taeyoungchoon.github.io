@@ -1,4 +1,5 @@
-* TODO cron.allow and cron.deny
+* DONE cron.allow and cron.deny
+  CLOSED: [2019-05-02 목 13:05]
 
 - lisping
 

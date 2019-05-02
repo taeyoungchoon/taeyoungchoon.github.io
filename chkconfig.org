@@ -1,7 +1,17 @@
 * cli
 
-chkconfig --list atd
-chkconfig --del atd
-chkconfig --add atd
+
+#+BEGIN_SRC 
+# cat /etc/inittab | grep -v \#
+id:3:initdefault:
+#+END_SRC
+
+#+BEGIN_SRC 
+chkconfig --list vsftpd
+chkconfig --level 3 vsftpd on
+chkconfig --level 3 vsftpd off
+chkconfig --level 3 vsftpd on
+chkconfig --level 3 vsftpd reset
+#+END_SRC
 
 * vs ntsysv
