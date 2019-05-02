@@ -1,6 +1,16 @@
-* cron.allow and cron.deny
+* TODO cron.allow and cron.deny
 
-cron.allow first, if ok then ok, if not then nil
+- lisping
+
+#+BEGIN_SRC emacs-lisp
+((cron.allow nil)(cron.deny nil) t) ;; no good for security
+((cron.allow t)(cron.deny nil) cron.allow) ;; blacklist always fail
+((cron.allow nil)(cron.deny t) (- t cron.deny)) ;; love white and clear
+((cron.allow t)(cron.deny t) cron.allow) ;; love white
+#+END_SRC
+
+- cron.allow first, if ok then ok, if not then nil
+  cron.allow only work, if two file exist!
 
 #+BEGIN_SRC 
 [root@c75 ~]# cat /etc/cron.allow
@@ -10,7 +20,7 @@ jack
 [root@c75 ~]# su - jack
 Last login: Tue Apr 30 21:07:00 KST 2019 on pts/0
 [jack@c75 ~]$ crontab -l
-* * * * * /usr/bin/date > /tmp/date.log
+x * * * * /usr/bin/date > /tmp/date.log
 [jack@c75 ~]$ logout
 [root@c75 ~]# su - raul
 Last login: Tue Apr 30 21:07:15 KST 2019 on pts/0
@@ -19,6 +29,30 @@ You (raul) are not allowed to use this program (crontab)
 See crontab(1) for more information
 [raul@c75 ~]$
 #+END_SRC
+
+- [X] if account locked, what happed to ever registered req? working
+
+#+BEGIN_SRC 
+==> jack.log <==
+Thu May  2 04:06:01 CEST 2019
+
+==> raul.log <==
+Thu May  2 04:06:01 CEST 2019
+#+END_SRC
+
+#+BEGIN_SRC 
+[root@c63 tmp]# echo jack > /etc/cron.allow
+#+END_SRC
+
+#+BEGIN_SRC 
+==> jack.log <==
+Thu May  2 04:07:01 CEST 2019
+
+==> raul.log <==
+Thu May  2 04:07:01 CEST 2019
+#+END_SRC
+
+- after reboot, working
 
 * name?
 
