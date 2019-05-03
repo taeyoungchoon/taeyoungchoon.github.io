@@ -1,0 +1,6 @@
+* simply and it works
+
+#+BEGIN_SRC 
+stty erase ^H
+#+END_SRC
+
