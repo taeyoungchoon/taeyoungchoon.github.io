@@ -29,15 +29,6 @@ bin
 daemon
 adm
 lp
-sync
-shutdown
-halt
-mail
-news
-uucp
-operator
-games
-nobody
 
 # cat user_list
 # vsftpd userlist
@@ -51,15 +42,6 @@ bin
 daemon
 adm
 lp
-sync
-shutdown
-halt
-mail
-news
-uucp
-operator
-games
-nobody
 
 # cat ftpusers | grep -v \# | md5sum | cut -b 1-2
 f6
@@ -67,6 +49,7 @@ f6
 f6
 
 #+END_SRC
+
 * White List Pattern
 
 - https://gist.githubusercontent.com/yuikns

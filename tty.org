@@ -1,69 +1,33 @@
 * lots? understanding a little
 
-- pts
-- tty
-- console
-
-#+BEGIN_SRC 
-# tty <= virtualbox
-/dev/tty1
-
-# tty <= ssh
-/dev/pts/0
-
-# pstree -p -A | grep bash
-        |-login(1228)---bash(5122)
-        |-login(1230)---bash(5140)
-        |-sshd(1129)-+-sshd(2201)---sshd(2203)---bash(2204)---sudo(2242)---bash(2243)
-        |            `-sshd(2221)---sshd(2223)---bash(2224)---sudo(2257)---bash(2258)-+-grep(5181)
-#+END_SRC
-
-#+BEGIN_SRC 
-# pwd
-/dev
-# ls -al console
-crw------- 1 root root 5, 1 May  2 04:07 console
-#+END_SRC
+- [X] pts used by telnet, ssh
+- [X] tty used by virtual terminal
 
 * more 
 
-- ttyS0
+- [ ] /dev/console
+- [X] /devttyS0, serial
+- [ ] /dev/vc/1
 - teletype
+- http://tldp.org/HOWTO/Text-Terminal-HOWTO-24.html#teletype
 
 * securetty
 
-#+BEGIN_SRC 
-# pwd
-/etc
+- securetty only allow to login by 'root'
 
-# cat securetty
+** ex
+
+- linux virtual termianl(tty) allow to login by root
+- direct connected terminal(console) allow to login by root
+- pseudo terminal(ssh, telnet) is /not allow/ to login by root
+
+#+BEGIN_SRC 
+# cat /etc/securetty
 console
 vc/1
 vc/2
 vc/3
-vc/4
-vc/5
-vc/6
-vc/7
-vc/8
-vc/9
-vc/10
-vc/11
 tty1
 tty2
 tty3
-tty4
-tty5
-tty6
-tty7
-tty8
-tty9
-tty10
-tty11
-#+END_SRC
-
-#+BEGIN_SRC 
-# cat /etc/ssh/sshd_config | grep -i root | grep -i permit
-#PermitRootLogin yes
-# the setting of "PermitRootLogin without-password".
 #+END_SRC

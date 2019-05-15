@@ -1,4 +1,4 @@
-* say
+* TODO say
 
 - [ ] group then subtotal
 - [ ] pivot
@@ -123,7 +123,7 @@ DMIN
 http://www.soongin.com/2012/10/pivot-table.html
 
 * graph, chart
-
+  
 * macro
 * etc about filename
 
