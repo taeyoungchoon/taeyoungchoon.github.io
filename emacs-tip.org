@@ -1,0 +1,17 @@
+* init.el
+
+(keyboard-translate ?\C-h ?\C-?)
+(setq make-backup-files nil)
+(global-visual-line-mode t)
+;; (prefer-coding-system 'utf-8)
+
+* cli
+
+stty erase '^?'
+stty erase '^h'
+stty erase '^h'
+emacs -q --load init.el
+
+* note
+
+backspace

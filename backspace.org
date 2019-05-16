@@ -20,3 +20,27 @@ or
 * hhkb lite 2
 
 dip switch 3 : On
+
+* some
+
+(global-set-key "\C-h" 'delete-backward-char)
+
+* prefer
+
+(keyboard-translate ?\C-h ?\C-?)
+emacs -q --load init.el
+
+* note from xshell
+
+1. backspace key then
+2. what?
+   - [ ] ASCII 127 (Ctrl+?)
+   - [ ] Backspace (Ctrl+H)
+
+* ^h, ^? and emacs help
+
+stty -a
+erase = ^?
+
+backspace key > ascii 8
+C-h > ascii 8

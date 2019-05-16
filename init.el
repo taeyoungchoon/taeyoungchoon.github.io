@@ -3,6 +3,7 @@
   '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
 
+(global-visual-line-mode t)
 (setq inhibit-splash-screen t)
 (display-time)
 (load-theme 'wombat)
