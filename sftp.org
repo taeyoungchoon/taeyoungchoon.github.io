@@ -1,0 +1,58 @@
+* and scp with ssh
+
+[root@c61 tmp]# lftp -u vagrant sftp://10.0.0.102
+Password: 
+lftp vagrant@10.0.0.102:~> ls
+drwx------    3 vagrant  vagrant      4096 May  8 04:02 .
+drwxr-xr-x    6 root     root         4096 May  8 04:16 ..
+-rw-------    1 vagrant  vagrant       131 May 22 00:28 .bash_history
+-rw-r--r--    1 vagrant  vagrant        18 Mar 23  2017 .bash_logout
+-rw-r--r--    1 vagrant  vagrant       176 Mar 23  2017 .bash_profile
+-rw-r--r--    1 vagrant  vagrant       124 Mar 23  2017 .bashrc
+drwx------    2 vagrant  root         4096 May  8 03:59 .ssh
+-rw-r--r--    1 vagrant  vagrant         6 Dec 27 20:21 .vbox_version
+lftp vagrant@10.0.0.102:~> quit
+[root@c61 tmp]#
+
+* sftp with secure log
+
+May 22 00:32:10 c62 sshd[1643]: Accepted password for vagrant from 10.0.0.101 port 54708 ssh2
+May 22 00:32:10 c62 sshd[1643]: pam_unix(sshd:session): session opened for user vagrant by (uid=0)
+May 22 00:32:10 c62 sshd[1647]: subsystem request for sftp
+May 22 00:32:17 c62 sshd[1647]: Received disconnect from 10.0.0.101: 11: disconnected by user
+May 22 00:32:17 c62 sshd[1643]: pam_unix(sshd:session): session closed for user vagrant
+
+* ssh with secure log
+
+May 22 00:32:40 c62 sshd[1653]: Accepted password for vagrant from 10.0.0.101 port 54710 ssh2
+May 22 00:32:40 c62 sshd[1653]: pam_unix(sshd:session): session opened for user vagrant by (uid=0)
+May 22 00:32:45 c62 sshd[1657]: Received disconnect from 10.0.0.101: 11: disconnected by user
+May 22 00:32:45 c62 sshd[1653]: pam_unix(sshd:session): session closed for user vagrant
+
+* scp with secure log
+
+May 22 00:34:47 c62 sshd[1676]: Accepted password for vagrant from 10.0.0.101 port 54712 ssh2
+May 22 00:34:47 c62 sshd[1676]: pam_unix(sshd:session): session opened for user vagrant by (uid=0)
+May 22 00:34:47 c62 sshd[1680]: Received disconnect from 10.0.0.101: 11: disconnected by user
+May 22 00:34:47 c62 sshd[1676]: pam_unix(sshd:session): session closed for user vagrant
+
+* process
+
+#+BEGIN_SRC 
+Every 2.0s: pstree -p | grep ssh 
+
+Wed May 22 01:33:47 2019
+
+        |-sshd(1416)-+-sshd(1574)---sshd(1578)---bash(1579)---su(1605)---bash(1609)---sudo(1626)---bash(1627)---watch(2446)
+        |            |-sshd(2059)---sshd(2063)---bash(2064)---sudo(2134)---bash(2135)---watch(2433)---sh(2504)-+-grep(2506)
+        |            `-sshd(2271)---sshd(2305)---sftp-server(2306)
+
+#+END_SRC
+
+** strace each process, sshd
+
+- show read
+
+** strace each process, sftp-server
+
+- show ls

@@ -59,3 +59,7 @@ userlist_deny=NO
 userlist_enable=YES
 userlist_file=/etc/vsftpd/user_list
 #+END_SRC
+* timeout
+
+#idle_session_timeout=600
+#data_connection_timeout=120

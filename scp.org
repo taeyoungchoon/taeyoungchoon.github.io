@@ -1,0 +1,24 @@
+* scp vs sftp
+
+- to me 
+- scp is the subnet of ssh
+- sftp is the ftp like view of ssh using specific implementation such as sftp-server at /usr/libexec/openssh/sftp-server
+
+* process
+
+#+BEGIN_SRC 
+Every 2.0s: pstree -p | grep ssh 
+
+        |-sshd(1416)-+-sshd(1574)---sshd(1578)---bash(1579)---su(1605)---bash(1609)---sudo(1626)---bash(1627)---watch(2446)
+        |            |-sshd(2059)---sshd(2063)---bash(2064)---sudo(2134)---bash(2135)---watch(2433)---sh(2504)-+-grep(2506)
+        |            `-sshd(2909)---sshd(2956)---bash(2957)
+
+#+END_SRC
+
+** strace each process, sshd
+
+- show read
+
+** strace each process, bash
+
+- show ls
