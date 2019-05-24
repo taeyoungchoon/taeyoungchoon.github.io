@@ -1,0 +1,93 @@
+* chk
+
+- req : nss-util
+- req : nss-soft-okn
+- req : nspr
+
+#+BEGIN_SRC 
+Installed:
+  nss.i686 0:3.36.0-9.el6_10                                                                                                                                                        
+
+Dependency Installed:
+  glibc.i686 0:2.12-1.212.el6_10.3                    
+  ncurses-libs.i686 0:5.7-4.20090207.el6         
+
+  nspr.i686 0:4.19.0-1.el6          
+
+  nss-softokn.i686 0:3.14.3-23.3.el6_8        
+  nss-softokn-freebl.i686 0:3.14.3-23.3.el6_8         
+
+  nss-util.i686 0:3.36.0-1.el6                   
+
+  readline.i686 0:6.0-4.el6         
+  sqlite.i686 0:3.6.20-1.el6_7.2              
+
+Complete!
+#+END_SRC
+
+#+BEGIN_SRC 
+[root@c61 ~]# yum install nss.i686
+Loaded plugins: fastestmirror
+Setting up Install Process
+Loading mirror speeds from cached hostfile
+ * base: ftp-srv2.kddilabs.jp
+ * extras: ftp-srv2.kddilabs.jp
+ * updates: ftp.jaist.ac.jp
+Resolving Dependencies
+--> Running transaction check
+---> Package nss.i686 0:3.36.0-9.el6_10 will be installed
+--> Processing Dependency: nss-softokn(x86-32) >= 3.14.3-22 for package: nss-3.36.0-9.el6_10.i686
+--> Processing Dependency: libsoftokn3.so for package: nss-3.36.0-9.el6_10.i686
+--> Processing Dependency: libpthread.so.0(GLIBC_2.0) for package: nss-3.36.0-9.el6_10.i686
+--> Processing Dependency: libpthread.so.0 for package: nss-3.36.0-9.el6_10.i686
+--> Processing Dependency: libplds4.so for package: nss-3.36.0-9.el6_10.i686
+--> Processing Dependency: libplc4.so for package: nss-3.36.0-9.el6_10.i686
+--> Processing Dependency: libnssutil3.so(NSSUTIL_3.33) for package: nss-3.36.0-9.el6_10.i686
+--> Processing Dependency: libnssutil3.so(NSSUTIL_3.31) for package: nss-3.36.0-9.el6_10.i686
+--> Processing Dependency: libnssutil3.so(NSSUTIL_3.24) for package: nss-3.36.0-9.el6_10.i686
+--> Processing Dependency: libnssutil3.so(NSSUTIL_3.21) for package: nss-3.36.0-9.el6_10.i686
+--> Processing Dependency: libnssutil3.so(NSSUTIL_3.17.1) for package: nss-3.36.0-9.el6_10.i686
+--> Processing Dependency: libnssutil3.so(NSSUTIL_3.15) for package: nss-3.36.0-9.el6_10.i686
+--> Processing Dependency: libnssutil3.so(NSSUTIL_3.14) for package: nss-3.36.0-9.el6_10.i686
+--> Processing Dependency: libnssutil3.so(NSSUTIL_3.13) for package: nss-3.36.0-9.el6_10.i686
+--> Processing Dependency: libnssutil3.so(NSSUTIL_3.12.5) for package: nss-3.36.0-9.el6_10.i686
+--> Processing Dependency: libnssutil3.so(NSSUTIL_3.12.3) for package: nss-3.36.0-9.el6_10.i686
+--> Processing Dependency: libnssutil3.so(NSSUTIL_3.12) for package: nss-3.36.0-9.el6_10.i686
+--> Processing Dependency: libnssutil3.so for package: nss-3.36.0-9.el6_10.i686
+--> Processing Dependency: libnssdbm3.so for package: nss-3.36.0-9.el6_10.i686
+--> Processing Dependency: libnspr4.so for package: nss-3.36.0-9.el6_10.i686
+--> Processing Dependency: libfreebl3.so for package: nss-3.36.0-9.el6_10.i686
+--> Processing Dependency: libdl.so.2 for package: nss-3.36.0-9.el6_10.i686
+--> Processing Dependency: libc.so.6(GLIBC_2.4) for package: nss-3.36.0-9.el6_10.i686
+
+nss > nss-softokn, libsoftokn3.so, libpthread.so.0, libplds4.so, libplc4.so, libnssutil3.so, libnssdbm3.so, libnspr4.so, libfreebl3, libdl, libc.so.6
+
+nss >> glibc, nss-softokn, nss-softokn-freebl, nspr
+nspr >> sqlite >> readline >> ncurses-libs
+
+--> Running transaction check
+---> Package glibc.i686 0:2.12-1.212.el6_10.3 will be installed
+---> Package nspr.i686 0:4.19.0-1.el6 will be installed
+---> Package nss-softokn.i686 0:3.14.3-23.3.el6_8 will be installed
+--> Processing Dependency: libsqlite3.so.0 for package: nss-softokn-3.14.3-23.3.el6_8.i686
+---> Package nss-softokn-freebl.i686 0:3.14.3-23.3.el6_8 will be installed
+---> Package nss-util.i686 0:3.36.0-1.el6 will be installed
+
+glibc, nspr, nss-softokn > libsqlite3.so.0, nss-softokn-freebl, nss-util
+
+--> Running transaction check
+---> Package sqlite.i686 0:3.6.20-1.el6_7.2 will be installed
+--> Processing Dependency: libreadline.so.6 for package: sqlite-3.6.20-1.el6_7.2.i686
+
+sqlite > libreadline.so.6 > readline
+
+--> Running transaction check
+---> Package readline.i686 0:6.0-4.el6 will be installed
+--> Processing Dependency: libtinfo.so.5 for package: readline-6.0-4.el6.i686
+
+readline > libtinfo.so.5 > ncurses-libs
+
+--> Running transaction check
+---> Package ncurses-libs.i686 0:5.7-4.20090207.el6 will be installed
+--> Finished Dependency Resolution
+#+END_SRC
