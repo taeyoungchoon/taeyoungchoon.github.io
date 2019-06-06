@@ -6,3 +6,18 @@ smart-compile on emacs
 
 * system administrator only?
 * with cpan or without
+* syntax
+
+#+BEGIN_SRC perl
+  #!/usr/bin/perl
+
+  use static;
+  use warnings;
+  use feature qw/ say switch /;
+
+  if( $line =~ /(eu|ht|if)/ ) {
+      say "live in outside world";
+  } else {
+      say "live in inside";
+  }
+#+END_SRC
