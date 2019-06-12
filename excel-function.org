@@ -1,0 +1,5 @@
+* for example
+
+#+BEGIN_SRC 
+=IF(LEN(IFERROR(VLOOKUP(C90,$A$2:$A$110,1,FALSE),""))>0,"O","X")
+#+END_SRC
