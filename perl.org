@@ -1,3 +1,10 @@
+* with emacs
+
+- [ ] auto completion variable
+- [ ] C-space not working then
+- [ ] backspace handling with emacs way
+- [ ] color off
+
 * launching
 
 rlwrap perl -d -e 0
@@ -11,13 +18,82 @@ smart-compile on emacs
 #+BEGIN_SRC perl
   #!/usr/bin/perl
 
-  use static;
+  use strict;
   use warnings;
   use feature qw/ say switch /;
+
+  my $line = 'pkceuapp1';
 
   if( $line =~ /(eu|ht|if)/ ) {
       say "live in outside world";
   } else {
       say "live in inside";
   }
+#+END_SRC
+
+#+RESULTS:
+: 1
+
+* todo
+
+- [ ] struct such as array of hash or hash of array such a like that
+- [ ] system, backtick, qx, open, readpipe, open3? and return
+- [ ] arg handling, @ARGV and options
+- [ ] moduler, use x
+- [ ] read use input
+
+#+BEGIN_SRC perl
+  #!/usr/bin/perl
+
+  use strict;
+  use warnings;
+  use feature qw/ say switch /;
+
+  my $input;
+  chomp($input = <STDIN>);
+
+  print $input;
+#+END_SRC
+
+#+RESULTS:
+: 1
+
+- [ ] sub x and call it
+- [ ] cperl mode
+- [ ] Term::ANSIColor
+- [ ] tar using perl
+- [ ] zip using perl
+- [ ] with ssh
+- [ ] with shell
+- [ ] sed
+- [ ] awk
+- [ ] split and join
+
+#+BEGIN_SRC perl
+$text = "this is it.";
+@tks = split(/ /, $text);
+$alternate_text = join(':', @tks);
+print $alternate_text;
+
+#+END_SRC
+
+- [ ] with sqlite or not
+- [X] loop
+
+#+BEGIN_SRC perl
+  #!/usr/bin/perl
+
+  use strict;
+  use warnings;
+  use features qw/ say switch/;
+
+  BEGIN {
+      print "-" x 76, "\n";
+  }
+
+  while( 1 ) {
+      system("perl foo.pl");
+      system("sleep 3");
+  }
+
 #+END_SRC
