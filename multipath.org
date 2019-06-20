@@ -1,0 +1,46 @@
+* options
+
+user_friendly_names no
+max_fds max
+flush_on_last_del yes
+queue_without_daemon no
+dev_loss_tmo infinity
+
+* TODO links
+
+http://blog.foobargem.com/blog/2014/08/27/multipath/
+https://www.suse.com/support/kb/doc/?id=7016305
+
+https://help.ubuntu.com/lts/serverguide/multipath-dm-multipath-config-file.html.en
+
+
+https://www.kernel.org/doc/html/v4.13/driver-api/scsi.html
+SCSI Interfaces Guide
+
+https://support.purestorage.com/Solutions/Linux/Reference/Linux_Recommended_Settings
+linux recommended setting
+
+https://access.redhat.com/solutions/137073
+multipath is not detecting path failures fast enough which results in application failure and system reboots
+
+https://www.academia.edu/35410451/SCSI_Error_Handling
+scsi error handling
+
+* with virtualbox
+
+* scsi fault injection test
+
+fast_io_fail_tmo off > 15
+dev_loss_tmo 300 > 30
+
+* kr and Red Hat
+
+https://access.redhat.com/documentation/ko-kr/red_hat_enterprise_linux/6/html/dm_multipath/config_file_devices
+
+fast_io_fail_tmo
+FC 원격 포트에서 문제를 발견한 후 그 원격 포트에서 장치로 I/O 실패 전 까지의 SCSI 레이어의 대기 시간 (초)입니다. 이 값은 dev_loss_tmo 값 보다 작아야 합니다. 이를 off로 설정하면 시간 제한이 비활성화됩니다.
+
+dev_loss_tmo
+FC 원격 포트에서 문제를 발견한 후 시스템에서 제거하기 전 까지 SCSI 레이어의 대기 시간 (초)입니다. 이를 무한으로 설정하려면 2147483647 초 또는 68 년으로 설정합니다.
+
+* fast_io_fail_tmo off dev_loss_tmo scsi_timeout
