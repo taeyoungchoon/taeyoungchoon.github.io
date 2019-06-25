@@ -18,3 +18,11 @@ systemctl set-default graphical.target
 
 /etc/systemd/system/default.target
 /usr/lib/systemd/system/graphical.target
+
+* rel rescue
+
+systemd.unit=rescue.target
+systemd.unit=emergency.target is the init=/bin/sh
+
+e1000 then pause
+_ underline then blink
