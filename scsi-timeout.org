@@ -1,0 +1,28 @@
+* timeout 30s and retry 5 times
+
+https://docs.huihoo.com/doxygen/linux/kernel/3.7/drivers_2scsi_2sd_8h.html
+https://elixir.bootlin.com/linux/v2.6.32/source/drivers/scsi/sd.h
+
+#define 	SD_TIMEOUT   (30 * HZ)
+#define 	SD_MAX_RETRIES   5
+
+* execute with the value
+
+https://github.com/torvalds/linux/blob/master/drivers/scsi/sd.c
+
+res = scsi_execute_req(sdev, cmd, DMA_NONE,
+			     NULL, 0, &sshdr,
+			     SD_TIMEOUT, SD_MAX_RETRIES);
+
+* configurable, retry, hmm
+
+Subject: Re: [SCSI PATCH] sd: max-retries becomes configurable
+
+* configurable, timeout, yes
+
+/sys/block/sd*/device/timeout
+
+# find /sys/class/scsi_generic/*/device/timeout -exec grep -H . {} \;
+/sys/class/scsi_generic/sg0/device/timeout:30
+/sys/class/scsi_generic/sg1/device/timeout:30
+/sys/class/scsi_generic/sg2/device/timeout:30
