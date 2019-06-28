@@ -1,0 +1,33 @@
+* alternatives
+
+alternatives --config java
+
+* javaz
+
+- OpenJDK 11
+- OpenJDK 8
+- Oracle Java 11
+- Oracle Java 8
+
+* cli
+
+https://stackoverflow.com/questions/10268583/downloading-java-jdk-on-linux-via-wget-is-shown-license-page-instead
+download tar.gz or rpm using wget
+
+#+BEGIN_SRC sh
+wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" https://download.oracle.com/otn-pub/java/jdk/12.0.1+12/69cfe15208a647278a19ef0990eea691/jdk-12.0.1_linux-x64_bin.tar.gz
+tar xvfz 
+tar xvfz jdk-12.0.1_linux-x64_bin.tar.gz -C /opt
+alternatives --install /usr/bin/java java /opt/jdk-12.0.1/bin/java 9999
+java -version
+alternatives --set java /opt/java-12.0.1/bin/java
+java -version
+#+END_SRC
+
+#+BEGIN_SRC 
+wget -c --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.rpm
+rpm -qp --scripts jdk-8u131-linux-x64.rpm | grep alt_install_java | grep 180131
+yum localinstall jdk-8u131-linux-x64.rpm
+rpm -q --scripts jdk1.8.0_131
+alternatives --config java
+#+END_SRC

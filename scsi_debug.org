@@ -1,0 +1,67 @@
+* interesting module and more
+* howto
+
+1. modprobe scsi_debug
+2. opt
+3. every_nth
+4. sg something
+
+* try
+
+30s
+Jun 27 05:24:56 c62 kernel: scsi_debug: abort
+Jun 27 05:24:56 c62 kernel: scsi_debug: cmd 00 00 00 00 00 00 
+
+10s
+Jun 27 05:25:06 c62 kernel: scsi_debug: abort
+Jun 27 05:25:06 c62 kernel: scsi_debug: device_reset
+Jun 27 05:25:06 c62 kernel: scsi_debug: cmd 00 00 00 00 00 00 
+
+10s
+Jun 27 05:25:16 c62 kernel: scsi_debug: abort
+Jun 27 05:25:16 c62 kernel: scsi_debug: bus_reset
+
+10s
+Jun 27 05:25:26 c62 kernel: scsi_debug: cmd 00 00 00 00 00 00 
+
+10s
+Jun 27 05:25:36 c62 kernel: scsi_debug: abort
+Jun 27 05:25:36 c62 kernel: scsi_debug: host_reset
+
+10s
+Jun 27 05:25:46 c62 kernel: scsi_debug: cmd 00 00 00 00 00 00 
+
+10s
+Jun 27 05:25:56 c62 kernel: scsi_debug: abort
+Jun 27 05:25:56 c62 kernel: sd 4:0:0:1: Device offlined - not ready after error recovery
+
+* try then
+
+1. req
+2. 30s 
+3. abort&cmd 
+4. 10s 
+5. abort &device_reset &cmd 
+6. 10s 
+7. abort &bus_reset 
+8. 10s 
+9. cmd 
+10. 10s 
+11. abort &host_reset 
+12. 10s 
+13. cmd 
+14. 10s
+15. abort &device_offlined
+
+* try so
+
+- 30초 뒤에 abort 그리고 cmd?
+- 10초 뒤에 abort 그리고 device reset 그리고 cmd?
+- 10초 뒤에 abort 그리고 bus reset
+- 10초 뒤에 cmd?
+- 10초 뒤에 abort 그리고 host reset
+- 10초 뒤에 cmd?
+- 10초 뒤에 abort 그리고 device offline
+
+* abort는 try로 봐야 하는가?
+

@@ -1,0 +1,23 @@
+* alternative
+
+- strace alike ltrace, ftrace
+- dtrace on linux
+- and lots of more
+
+* how, module, lang
+
+* block input-output, scsi
+
+1. ioblock.request
+2. ioscheduler.elv_add_request
+3. scsi.ioentry
+4. scsi.iodispatching
+5. scsi.ioexecute
+6. scsi.iodone
+7. scsi.iocompleted
+8. ioscheduler.elv_completed_request
+9. ioblock.end
+
+* network stack
+
+- netdev.rx

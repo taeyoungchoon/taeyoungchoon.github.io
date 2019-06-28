@@ -1,39 +1,18 @@
-* notice
-
-Oracle Java SE 로드맵에 대한 중요한 정보
-
-향후 Oracle Java SE 릴리스에 대한 액세스에 영향을 주는 변경사항이 있습니다.
-
-기업 사용자는 2019년 1월부터 영향을 받습니다.
-
-이러한 변경사항은 설치하려는 버전에 영향을 주지 않습니다.
-
-추가 지침을 보려면 다음 링크로 이동하십시오.
-
-추가 정보
-
-확인 
-
 * note
 
 - 계속 사용하여야 하나? 오라클에서 버렸다는 말도 있다.
 - 자바의 미래는?
 - 자바와 korea, odd and strange, such as oracle database
 
-* version
+* TODO notice about commercial use
+
+기업 사용자는 2019년 1월부터 영향을 받습니다.
+
+* TODO version
 
 - java -version
-- java control panel > About, javacpl
-- 버전 7 업데이트 (빌드 1.7.0_60-b19)
-- Windows i586, x86, x64
-
-** old: 1.6
-** recent: 1.8
-
-* jdk and jre
-
-- OracleJDK
-- OpenJDK
+- Windows i586, x86, x64 and nowadays(2019-06-28, jdk-12.0.1) x64 only
+- 1.8, 1.12
 
 * java web start? and JNLP(jnlp)
 

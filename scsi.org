@@ -2,3 +2,13 @@
 
 - scsi terminator
 - scsi id
+
+* first?
+
+- scsi hdd? or scsi scanner?
+
+* layer
+
+- up, connect user side
+- middle, logos, scsi_transport_fc and more, error handler include
+- under, lld, driver, adapter driver, hba driver, company made

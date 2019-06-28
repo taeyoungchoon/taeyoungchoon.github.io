@@ -15,7 +15,7 @@ lslpp -l "Java*" | grep Java7
 /usr/java6_64/jre/bin/java -version
 #+END_SRC
 
-* download java6_64.sdk.6.0.0.650.tar
+* download java6_64.sdk.6.0.0.650.tar from ibm
 
 https://www-01.ibm.com/marketing/iwm/iwm/web/reg/download.do?source=dka&S_PKG=aix64j6b&S_TACT=105AGX05&S_CMP=JDK&lang=en_US&cp=UTF-8&dlmethod=http#14
 

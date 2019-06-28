@@ -1,0 +1,17 @@
+* human or machine what are the difference?
+* machine rel
+
+- ide, eide
+- pata, sata
+- scsi
+- fc, iscsi, firewire
+- sas
+- mouse, keyboard, display
+- touch screen
+
+* human
+
+- say it
+- see what I can see
+- feel what you can't
+- ever

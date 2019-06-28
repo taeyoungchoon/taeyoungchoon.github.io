@@ -1,5 +1,7 @@
 * timeout 30s and retry 5 times
 
+커널에 하드코딩되어 있지만
+
 https://docs.huihoo.com/doxygen/linux/kernel/3.7/drivers_2scsi_2sd_8h.html
 https://elixir.bootlin.com/linux/v2.6.32/source/drivers/scsi/sd.h
 
@@ -7,6 +9,8 @@ https://elixir.bootlin.com/linux/v2.6.32/source/drivers/scsi/sd.h
 #define 	SD_MAX_RETRIES   5
 
 * execute with the value
+
+그리고 요청을 말아서 아래(LLD, Driver)에 던질때(systemtap term: scsi.ioexecute, linux: scsi_execute_req) timeout값과 max_retries값을 담는다.
 
 https://github.com/torvalds/linux/blob/master/drivers/scsi/sd.c
 
@@ -16,9 +20,13 @@ res = scsi_execute_req(sdev, cmd, DMA_NONE,
 
 * configurable, retry, hmm
 
+시도는 있었다는데 보이지는 않는다. 나른 최신의 커널에서는 보일까? 3.10에서는 보이지 않는다. 물론 /sys/class/scsi_generic/sgX/device 위치에서 확인했다.
+
 Subject: Re: [SCSI PATCH] sd: max-retries becomes configurable
 
 * configurable, timeout, yes
+
+SD_TIMEOUT, scsi device timeout 값은 /sys/class/scsi_generic/sgX/device/timeout 에 echo로 던져서 변경이 가능하다.
 
 /sys/block/sd*/device/timeout
 
@@ -26,3 +34,4 @@ Subject: Re: [SCSI PATCH] sd: max-retries becomes configurable
 /sys/class/scsi_generic/sg0/device/timeout:30
 /sys/class/scsi_generic/sg1/device/timeout:30
 /sys/class/scsi_generic/sg2/device/timeout:30
+
