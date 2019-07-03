@@ -1,4 +1,39 @@
 * interesting module and more
+
+#+BEGIN_SRC sh
+$ modprobe scsi_debug dev_size_mb=100 num_tgts=1 vpd_use_hostno=0 add_host=1 delay=20 max_luns=2 no_lun_0=1 opts=5
+
+$ lsscsi 
+[2:0:0:0]    disk    ATA      VBOX HARDDISK    1.0   /dev/sda 
+[3:0:0:0]    disk    VBOX     HARDDISK         1.0   /dev/sdb 
+[4:0:0:1]    disk    Linux    scsi_debug       0004  /dev/sdc 
+
+$ lsscsi -g
+$ lsscsi --host
+$ cat /sys/class/scsi_generic/sg4/device/timeout
+$ echo 1 > every_nth
+$ fdisk -l
+$ echo 3 > every_nth
+$ echo 1000 > every_nth
+$ modprobe -r scsi_debug
+$ tail -f /var/log/messages
+$ cat /proc/scsi/scsi_debug/4
+scsi_debug adapter driver, version 1.82 [20100324]
+num_tgts=1, shared (ram) size=100 MB, opts=0x5, every_nth=0(curr:0)
+delay=20, max_luns=2, scsi_level=5
+sector_size=512 bytes, cylinders=200, heads=32, sectors=32
+number of aborts=0, device_reset=0, bus_resets=0, host_resets=0
+dix_reads=0 dix_writes=0 dif_errors=0
+$ echo 5 > opts
+$ smartctl -a /dev/sdf
+$ ln -s /sys/bus/pseudo/drivers/scsi_debug scsi_debug
+$ ls
+adapter0  bind         dif     every_nth  map        no_lun_0   num_tgts  scsi_level   unbind
+add_host  delay        dix     fake_rw    max_luns   no_uld     opts      sector_size  virtual_gb
+ato       dev_size_mb  dsense  guard      max_queue  num_parts  ptype     uevent       vpd_use_hostno
+
+#+END_SRC
+
 * howto
 
 1. modprobe scsi_debug
@@ -6,7 +41,19 @@
 3. every_nth
 4. sg something
 
-* try
+* try, pre
+
+$ uname -r
+2.6.32-754.9.1.el6.x86_64
+
+$ lsmod | grep scsi
+scsi_debug             80146  0 
+crc_t10dif              1209  2 scsi_debug,sd_mod
+mptscsih               36702  1 mptspi
+mptbase                93807  2 mptspi,mptscsih
+scsi_transport_spi     25703  1 mptspi
+
+* pre
 
 30s
 Jun 27 05:24:56 c62 kernel: scsi_debug: abort
@@ -55,13 +102,13 @@ Jun 27 05:25:56 c62 kernel: sd 4:0:0:1: Device offlined - not ready after error 
 
 * try so
 
-- 30초 뒤에 abort 그리고 cmd?
-- 10초 뒤에 abort 그리고 device reset 그리고 cmd?
-- 10초 뒤에 abort 그리고 bus reset
-- 10초 뒤에 cmd?
-- 10초 뒤에 abort 그리고 host reset
-- 10초 뒤에 cmd?
-- 10초 뒤에 abort 그리고 device offline
+- [~30]30초 뒤에 abort 그리고 cmd? : ok
+- [~40]10초 뒤에 abort 그리고 device reset 그리고 cmd? : 10s?
+- [~50]10초 뒤에 abort 그리고 bus reset
+- [~60]10초 뒤에 cmd?
+- [~70]10초 뒤에 abort 그리고 host reset
+- [~80]10초 뒤에 cmd?
+- [~90]10초 뒤에 abort 그리고 device offline 
 
 * abort는 try로 봐야 하는가?
 
