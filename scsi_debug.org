@@ -103,6 +103,7 @@ Jun 27 05:25:56 c62 kernel: sd 4:0:0:1: Device offlined - not ready after error 
 * try so
 
 - [~30]30초 뒤에 abort 그리고 cmd? : ok
+
 - [~40]10초 뒤에 abort 그리고 device reset 그리고 cmd? : 10s?
 - [~50]10초 뒤에 abort 그리고 bus reset
 - [~60]10초 뒤에 cmd?
