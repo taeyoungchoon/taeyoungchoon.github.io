@@ -7,5 +7,11 @@
 
 - onos to know about sdn
 - atto's obelle and athene
+  - name came from greek and so on
 - english? military!
 - juniper contrail networking
+
+* 2019-07 legendary redhat 6 with (linux) kernel, linux-2.6.32-279.el6.tar.gz
+
+- cfg, pkg but sec
+- scsi sub system, call call call

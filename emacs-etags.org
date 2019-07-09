@@ -1,0 +1,8 @@
+* what and why?
+
+- etags, tags, tag
+- Use incron (Inotify cron) to generate tags automatically
+
+#+BEGIN_SRC sh
+find . -name '*.c' -exec etags -a {} \;
+#+END_SRC

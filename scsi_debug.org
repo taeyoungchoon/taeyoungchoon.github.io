@@ -113,3 +113,332 @@ Jun 27 05:25:56 c62 kernel: sd 4:0:0:1: Device offlined - not ready after error 
 
 * abort는 try로 봐야 하는가?
 
+* and more with
+
+==> sysctl_max.sh <==
+sysctl -w dev.scsi.logging_level=77777777777777777777
+
+==> sysctl.sh <==
+sysctl -w dev.scsi.logging_level=7
+
+* btrace, log
+
+mount -t debugfs nodev /sys/kernel/debug
+btrace /dev/sdc
+
+#+BEGIN_SRC 
+[BEGIN] 2019-07-09 오전 10:10:54
+^C  8,32   0        0     0.000012961     0  m   N cfq1802S / alloced
+  8,32   0        2     0.000013441  1802  G  WS 0 + 2 [dd]
+  8,32   0        3     0.000014876  1802  P   N [dd]
+  8,32   0        4     0.000015575  1802  I  WS 0 + 2 [dd]
+  8,32   0        0     0.000016708     0  m   N cfq1802S / insert_request
+  8,32   0        0     0.000017601     0  m   N cfq1802S / add_to_rr
+  8,32   0        0     0.000019405     0  m   N cfq1802S / idle=0
+  8,32   0        5     0.000020164  1802  U   N [dd] 1
+  8,32   0        0     0.000021773     0  m   N cfq workload slice:300
+  8,32   0        0     0.000022995     0  m   N cfq1802S / set_active wl_prio:0 wl_type:2
+  8,32   0        0     0.000024548     0  m   N cfq1802S / fifo=(null)
+  8,32   0        0     0.000025170     0  m   N cfq1802S / dispatch_insert
+  8,32   0        0     0.000026450     0  m   N cfq1802S / dispatched a request
+  8,32   0        0     0.000027201     0  m   N cfq1802S / activate rq, drv=1
+  8,32   0        6     0.000027440  1802  D  WS 0 + 2 [dd]
+  8,32   0        7     0.020090935     0  C  WS 0 + 2 [0]
+  8,32   0        0     0.020100514     0  m   N cfq1802S / complete rqnoidle 0
+  8,32   0        0     0.020101640     0  m   N cfq1802S / set_slice=100
+  8,32   0        0     0.020102274     0  m   N cfq schedule dispatch
+  8,32   0        8     0.020147802  1802  Q  WS 2 + 2 [dd]
+  8,32   0        9     0.020149949  1802  G  WS 2 + 2 [dd]
+  8,32   0       10     0.020151236  1802  P   N [dd]
+  8,32   0       11     0.020151686  1802  I  WS 2 + 2 [dd]
+  8,32   0        0     0.020153001     0  m   N cfq1802S / insert_request
+  8,32   0       12     0.020154126  1802  U   N [dd] 1
+  8,32   0        0     0.020155426     0  m   N cfq1802S / dispatch_insert
+  8,32   0        0     0.020156915     0  m   N cfq1802S / dispatched a request
+  8,32   0        0     0.020157638     0  m   N cfq1802S / activate rq, drv=1
+  8,32   0       13     0.020157852  1802  D  WS 2 + 2 [dd]
+  8,32   0       14     0.040305282     0  C  WS 2 + 2 [0]
+  8,32   0        0     0.040317363     0  m   N cfq1802S / complete rqnoidle 0
+  8,32   0        0     0.040318293     0  m   N cfq schedule dispatch
+  8,32   0       15     0.040365882  1802  Q  WS 4 + 2 [dd]
+  8,32   0       16     0.040368254  1802  G  WS 4 + 2 [dd]
+  8,32   0       17     0.040369630  1802  P   N [dd]
+  8,32   0       18     0.040369970  1802  I  WS 4 + 2 [dd]
+  8,32   0        0     0.040371422     0  m   N cfq1802S / insert_request
+  8,32   0       19     0.040372553  1802  U   N [dd] 1
+  8,32   0        0     0.040373927     0  m   N cfq1802S / dispatch_insert
+  8,32   0        0     0.040375257     0  m   N cfq1802S / dispatched a request
+  8,32   0        0     0.040375952     0  m   N cfq1802S / activate rq, drv=1
+  8,32   0       20     0.040376155  1802  D  WS 4 + 2 [dd]
+  8,32   0       21     0.060602099     0  C  WS 4 + 2 [0]
+  8,32   0        0     0.060616061     0  m   N cfq1802S / complete rqnoidle 0
+  8,32   0        0     0.060617548     0  m   N cfq schedule dispatch
+  8,32   0       22     0.060672613  1802  Q  WS 6 + 2 [dd]
+  8,32   0       23     0.060676073  1802  G  WS 6 + 2 [dd]
+  8,32   0       24     0.060677982  1802  P   N [dd]
+  8,32   0       25     0.060678685  1802  I  WS 6 + 2 [dd]
+  8,32   0        0     0.060680213     0  m   N cfq1802S / insert_request
+  8,32   0       26     0.060681943  1802  U   N [dd] 1
+  8,32   0        0     0.060683626     0  m   N cfq1802S / dispatch_insert
+  8,32   0        0     0.060684971     0  m   N cfq1802S / dispatched a request
+  8,32   0        0     0.060685939     0  m   N cfq1802S / activate rq, drv=1
+  8,32   0       27     0.060686365  1802  D  WS 6 + 2 [dd]
+  8,32   0       28     0.081016975     0  C  WS 6 + 2 [0]
+  8,32   0        0     0.081026062     0  m   N cfq1802S / complete rqnoidle 0
+  8,32   0        0     0.081026991     0  m   N cfq schedule dispatch
+  8,32   0       29     0.081068224  1802  Q  WS 8 + 2 [dd]
+  8,32   0       30     0.081085945  1802  G  WS 8 + 2 [dd]
+  8,32   0       31     0.081087220  1802  P   N [dd]
+  8,32   0       32     0.081087694  1802  I  WS 8 + 2 [dd]
+  8,32   0        0     0.081088981     0  m   N cfq1802S / insert_request
+  8,32   0       33     0.081090345  1802  U   N [dd] 1
+  8,32   0        0     0.081091636     0  m   N cfq1802S / dispatch_insert
+  8,32   0        0     0.081092789     0  m   N cfq1802S / dispatched a request
+  8,32   0        0     0.081093467     0  m   N cfq1802S / activate rq, drv=1
+  8,32   0       34     0.081093657  1802  D  WS 8 + 2 [dd]
+  8,32   0       35    30.780172959  1708  R  WS 8 + 2 [0]
+  8,32   0        0    30.780175850     0  m   N cfq1802S / deactivate rq, drv=0
+  8,32   0       36    30.780176059  1708  I  WS 8 + 2 [scsi_eh_4]
+  8,32   0        0    30.780181442     0  m   N cfq1802S / activate rq, drv=1
+  8,32   0       37    30.780181668  1708  D  WS 8 + 2 [scsi_eh_4]
+  8,32   0       38    30.780182127  1708  P   N [scsi_eh_4]
+  8,32   0       39    30.780183780    19  P   N [kblockd/0]
+  8,32   0       40    30.782300291     0 UT   N [swapper] 1
+  8,32   0       41    30.782309092    19  U   N [kblockd/0] 1
+  8,32   0       42    30.802331050     0  C  WS 8 + 2 [0]
+  8,32   0        0    30.802339655     0  m   N cfq1802S / complete rqnoidle 0
+  8,32   0        0    30.802340754     0  m   N cfq1802S / will busy wait
+  8,32   0        0    30.802341229     0  m   N cfq schedule dispatch
+  8,32   0       43    30.802379182  1802  Q  WS 10 + 2 [dd]
+  8,32   0       44    30.802381200  1802  G  WS 10 + 2 [dd]
+  8,32   0       45    30.802382231  1802  P   N [dd]
+  8,32   0       46    30.802382564  1802  I  WS 10 + 2 [dd]
+  8,32   0        0    30.802383623     0  m   N cfq1802S / insert_request
+  8,32   0       47    30.802384857  1802  U   N [dd] 1
+  8,32   0        0    30.802385996     0  m   N cfq1802S / slice expired t=0
+  8,32   0        0    30.802387020     0  m   N / served: vt=2883584 min_vt=2873344
+  8,32   0        0    30.802388312     0  m   N cfq1802S / sl_used=100 disp=5 charge=5 iops=1 sect=10
+  8,32   0        0    30.802389250     0  m   N cfq workload slice:300
+  8,32   0        0    30.802390124     0  m   N cfq1802S / set_active wl_prio:0 wl_type:1
+  8,32   0        0    30.802391230     0  m   N cfq1802S / fifo=(null)
+  8,32   0        0    30.802391791     0  m   N cfq1802S / dispatch_insert
+  8,32   0        0    30.802392782     0  m   N cfq1802S / dispatched a request
+  8,32   0        0    30.802393376     0  m   N cfq1802S / activate rq, drv=1
+  8,32   0       48    30.802393667  1802  D  WS 10 + 2 [dd]
+  8,32   0       49    30.822844058     0  C  WS 10 + 2 [0]
+  8,32   0        0    30.822853214     0  m   N cfq1802S / complete rqnoidle 0
+  8,32   0        0    30.822854354     0  m   N cfq1802S / set_slice=100
+  8,32   0        0    30.822854941     0  m   N cfq schedule dispatch
+  8,32   0       50    30.822895287  1802  Q  WS 12 + 2 [dd]
+  8,32   0       51    30.822897293  1802  G  WS 12 + 2 [dd]
+  8,32   0       52    30.822898631  1802  P   N [dd]
+  8,32   0       53    30.822899056  1802  I  WS 12 + 2 [dd]
+  8,32   0        0    30.822900301     0  m   N cfq1802S / insert_request
+  8,32   0       54    30.822901427  1802  U   N [dd] 1
+  8,32   0        0    30.822902678     0  m   N cfq1802S / dispatch_insert
+  8,32   0        0    30.822903787     0  m   N cfq1802S / dispatched a request
+  8,32   0        0    30.822904470     0  m   N cfq1802S / activate rq, drv=1
+  8,32   0       55    30.822904663  1802  D  WS 12 + 2 [dd]
+  8,32   0       56    30.843610691     0  C  WS 12 + 2 [0]
+  8,32   0        0    30.843619749     0  m   N cfq1802S / complete rqnoidle 0
+  8,32   0        0    30.843620656     0  m   N cfq schedule dispatch
+  8,32   0       57    30.843661631  1802  Q  WS 14 + 2 [dd]
+  8,32   0       58    30.843663562  1802  G  WS 14 + 2 [dd]
+  8,32   0       59    30.843664743  1802  P   N [dd]
+  8,32   0       60    30.843665144  1802  I  WS 14 + 2 [dd]
+  8,32   0        0    30.843666403     0  m   N cfq1802S / insert_request
+  8,32   0       61    30.843667509  1802  U   N [dd] 1
+  8,32   0        0    30.843668792     0  m   N cfq1802S / dispatch_insert
+  8,32   0        0    30.843669956     0  m   N cfq1802S / dispatched a request
+  8,32   0        0    30.843670640     0  m   N cfq1802S / activate rq, drv=1
+  8,32   0       62    30.843670866  1802  D  WS 14 + 2 [dd]
+  8,32   0       63    61.779981981  1708  R  WS 14 + 2 [0]
+  8,32   0        0    61.779984823     0  m   N cfq1802S / deactivate rq, drv=0
+  8,32   0       64    61.779985239  1708  I  WS 14 + 2 [scsi_eh_4]
+  8,32   0        0    61.779990771     0  m   N cfq1802S / activate rq, drv=1
+  8,32   0       65    61.779990982  1708  D  WS 14 + 2 [scsi_eh_4]
+  8,32   0       66    61.779991626  1708  P   N [scsi_eh_4]
+  8,32   0       67    61.779997931    19  P   N [kblockd/0]
+  8,32   0       68    61.782304212     0 UT   N [swapper] 1
+  8,32   0       69    61.782315055    19  U   N [kblockd/0] 1
+  8,32   0       70    61.802516141     0  C  WS 14 + 2 [0]
+  8,32   0        0    61.802527232     0  m   N cfq1802S / complete rqnoidle 0
+  8,32   0        0    61.802528298     0  m   N cfq1802S / will busy wait
+  8,32   0        0    61.802528855     0  m   N cfq schedule dispatch
+  8,32   0       71    61.802573491  1802  Q  WS 16 + 2 [dd]
+  8,32   0       72    61.802575587  1802  G  WS 16 + 2 [dd]
+  8,32   0       73    61.802576777  1802  P   N [dd]
+  8,32   0       74    61.802577279  1802  I  WS 16 + 2 [dd]
+  8,32   0        0    61.802578480     0  m   N cfq1802S / insert_request
+  8,32   0       75    61.802579728  1802  U   N [dd] 1
+  8,32   0        0    61.802581224     0  m   N cfq1802S / slice expired t=0
+  8,32   0        0    61.802582236     0  m   N / served: vt=2889728 min_vt=2883584
+  8,32   0        0    61.802583570     0  m   N cfq1802S / sl_used=100 disp=3 charge=3 iops=1 sect=6
+  8,32   0        0    61.802584604     0  m   N cfq workload slice:300
+  8,32   0        0    61.802585496     0  m   N cfq1802S / set_active wl_prio:0 wl_type:1
+  8,32   0        0    61.802586677     0  m   N cfq1802S / fifo=(null)
+  8,32   0        0    61.802587257     0  m   N cfq1802S / dispatch_insert
+  8,32   0        0    61.802588249     0  m   N cfq1802S / dispatched a request
+  8,32   0        0    61.802588888     0  m   N cfq1802S / activate rq, drv=1
+  8,32   0       76    61.802589089  1802  D  WS 16 + 2 [dd]
+  8,32   0       77    61.823588109     0  C  WS 16 + 2 [0]
+  8,32   0        0    61.823597834     0  m   N cfq1802S / complete rqnoidle 0
+  8,32   0        0    61.823598986     0  m   N cfq1802S / set_slice=100
+  8,32   0        0    61.823599540     0  m   N cfq schedule dispatch
+  8,32   0       78    61.823639659  1802  Q  WS 18 + 2 [dd]
+  8,32   0       79    61.823641941  1802  G  WS 18 + 2 [dd]
+  8,32   0       80    61.823648343  1802  P   N [dd]
+  8,32   0       81    61.823649615  1802  I  WS 18 + 2 [dd]
+  8,32   0        0    61.823653302     0  m   N cfq1802S / insert_request
+  8,32   0       82    61.823658339  1802  U   N [dd] 1
+  8,32   0        0    61.823662611     0  m   N cfq1802S / dispatch_insert
+  8,32   0        0    61.823663835     0  m   N cfq1802S / dispatched a request
+  8,32   0        0    61.823664739     0  m   N cfq1802S / activate rq, drv=1
+  8,32   0       83    61.823664934  1802  D  WS 18 + 2 [dd]
+  8,32   0       84    61.843716311     0  C  WS 18 + 2 [0]
+  8,32   0        0    61.843728336     0  m   N cfq1802S / complete rqnoidle 0
+  8,32   0        0    61.843729564     0  m   N cfq schedule dispatch
+  8,32   0        0    61.844149642     0  m   N cfq1802S / slice expired t=0
+  8,32   0        0    61.844150770     0  m   N / served: vt=2893824 min_vt=2889728
+  8,32   0        0    61.844152147     0  m   N cfq1802S / sl_used=20 disp=2 charge=2 iops=1 sect=4
+  8,32   0        0    61.844152869     0  m   N cfq1802S / del_from_rr
+  8,32   0        0    61.844153287     0  m   N / del_from_rr group
+  8,32   0        0    61.844153856     0  m   N cfq1802S / put_queue
+  8,32   0        0    61.846477849     0  m   N cfq1803S / alloced
+  8,32   0       85    61.846478990  1803  G   N [scsi_id]
+  8,32   0       86    61.846486312  1803  P   N [scsi_id]
+  8,32   0       87    61.846486549  1803  I   R 254 (12 00 00 00 fe 00 ..) [scsi_id]
+  8,32   0       88    61.846488804  1803  D   R 254 (12 00 00 00 fe 00 ..) [scsi_id]
+  8,32   0       89    69.780963645  1708  C   R (12 00 00 00 fe 00 ..) [0]
+  8,32   0        0    69.781063847     0  m   N cfq1803S / put_queue
+  8,32   0       90    69.783024875  1805  Q   R 204672 + 8 [blkid]
+  8,32   0        0    69.783031826     0  m   N cfq1805S / alloced
+  8,32   0       91    69.783032234  1805  G   R 204672 + 8 [blkid]
+  8,32   0       92    69.783033442  1805  P   N [blkid]
+  8,32   0       93    69.783033863  1805  I   R 204672 + 8 [blkid]
+  8,32   0        0    69.783034918     0  m   N cfq1805S / insert_request
+  8,32   0        0    69.783035661     0  m   N cfq1805S / add_to_rr
+  8,32   0        0    69.783036881     0  m   N cfq1805S / idle=0
+  8,32   0       94    69.783038017  1805  U   N [blkid] 1
+  8,32   0        0    69.783039030     0  m   N cfq workload slice:300
+  8,32   0        0    69.783040101     0  m   N cfq1805S / set_active wl_prio:0 wl_type:2
+  8,32   0        0    69.783041161     0  m   N cfq1805S / fifo=(null)
+  8,32   0        0    69.783041657     0  m   N cfq1805S / dispatch_insert
+  8,32   0        0    69.783042703     0  m   N cfq1805S / dispatched a request
+  8,32   0        0    69.783043305     0  m   N cfq1805S / activate rq, drv=1
+  8,32   0       95    69.783043510  1805  D   R 204672 + 8 [blkid]
+  8,32   0       96    69.802573790     0  C   R 204672 + 8 [0]
+  8,32   0        0    69.802597229     0  m   N cfq1805S / complete rqnoidle 0
+  8,32   0        0    69.802599361     0  m   N cfq1805S / set_slice=120
+  8,32   0        0    69.802600183     0  m   N cfq schedule dispatch
+  8,32   0       97    69.802676463  1805  Q   R 204784 + 8 [blkid]
+  8,32   0       98    69.802678900  1805  G   R 204784 + 8 [blkid]
+  8,32   0       99    69.802680467  1805  P   N [blkid]
+  8,32   0      100    69.802680949  1805  I   R 204784 + 8 [blkid]
+  8,32   0        0    69.802682579     0  m   N cfq1805S / insert_request
+  8,32   0      101    69.802684682  1805  U   N [blkid] 1
+  8,32   0        0    69.802686132     0  m   N cfq1805S / dispatch_insert
+  8,32   0        0    69.802687342     0  m   N cfq1805S / dispatched a request
+  8,32   0        0    69.802688074     0  m   N cfq1805S / activate rq, drv=1
+  8,32   0      102    69.802688274  1805  D   R 204784 + 8 [blkid]
+  8,32   0      103    69.822748149     0  C   R 204784 + 8 [0]
+  8,32   0        0    69.822761861     0  m   N cfq1805S / complete rqnoidle 0
+  8,32   0        0    69.822763015     0  m   N cfq schedule dispatch
+  8,32   0      104    69.822808925  1805  Q   R 0 + 8 [blkid]
+  8,32   0      105    69.822811475  1805  G   R 0 + 8 [blkid]
+  8,32   0      106    69.822812979  1805  P   N [blkid]
+  8,32   0      107    69.822813476  1805  I   R 0 + 8 [blkid]
+  8,32   0        0    69.822814743     0  m   N cfq1805S / insert_request
+  8,32   0      108    69.822816659  1805  U   N [blkid] 1
+  8,32   0        0    69.822818070     0  m   N cfq1805S / dispatch_insert
+  8,32   0        0    69.822819170     0  m   N cfq1805S / dispatched a request
+  8,32   0        0    69.822819880     0  m   N cfq1805S / activate rq, drv=1
+  8,32   0      109    69.822820024  1805  D   R 0 + 8 [blkid]
+  8,32   0      110    69.842331505     0  C   R 0 + 8 [0]
+  8,32   0        0    69.842343104     0  m   N cfq1805S / complete rqnoidle 0
+  8,32   0        0    69.842344154     0  m   N cfq schedule dispatch
+  8,32   0      111    69.842384614  1805  Q   R 8 + 8 [blkid]
+  8,32   0      112    69.842386958  1805  G   R 8 + 8 [blkid]
+  8,32   0      113    69.842388249  1805  P   N [blkid]
+  8,32   0      114    69.842388723  1805  I   R 8 + 8 [blkid]
+  8,32   0        0    69.842390022     0  m   N cfq1805S / insert_request
+  8,32   0      115    69.842391781  1805  U   N [blkid] 1
+  8,32   0        0    69.842393109     0  m   N cfq1805S / dispatch_insert
+  8,32   0        0    69.842394207     0  m   N cfq1805S / dispatched a request
+  8,32   0        0    69.842395153     0  m   N cfq1805S / activate rq, drv=1
+  8,32   0      116    69.842395353  1805  D   R 8 + 8 [blkid]
+  8,32   0      117   100.780337930  1708  R   R 8 + 8 [0]
+  8,32   0        0   100.780347457     0  m   N cfq1805S / deactivate rq, drv=0
+  8,32   0      118   100.780348501  1708  I   R 8 + 8 [scsi_eh_4]
+  8,32   0        0   100.780361795     0  m   N cfq1805S / activate rq, drv=1
+  8,32   0      119   100.780362025  1708  D   R 8 + 8 [scsi_eh_4]
+  8,32   0      120   100.780362661  1708  P   N [scsi_eh_4]
+  8,32   0      121   100.780364687    19  P   N [kblockd/0]
+  8,32   0      122   100.783571267     0 UT   N [swapper] 1
+  8,32   0      123   100.783584854    19  U   N [kblockd/0] 1
+  8,32   0      124   100.803966331     0  C   R 8 + 8 [0]
+  8,32   0        0   100.803978389     0  m   N cfq1805S / complete rqnoidle 0
+  8,32   0        0   100.803979550     0  m   N cfq1805S / will busy wait
+  8,32   0        0   100.803980091     0  m   N cfq schedule dispatch
+  8,32   0      125   100.804023316  1805  Q   R 204792 + 8 [blkid]
+  8,32   0      126   100.804025548  1805  G   R 204792 + 8 [blkid]
+  8,32   0      127   100.804026833  1805  P   N [blkid]
+  8,32   0      128   100.804027290  1805  I   R 204792 + 8 [blkid]
+  8,32   0        0   100.804028432     0  m   N cfq1805S / insert_request
+  8,32   0      129   100.804030300  1805  U   N [blkid] 1
+  8,32   0        0   100.804031641     0  m   N cfq1805S / slice expired t=0
+  8,32   0        0   100.804032666     0  m   N / served: vt=2897920 min_vt=2889728
+  8,32   0        0   100.804033943     0  m   N cfq1805S / sl_used=120 disp=4 charge=4 iops=1 sect=32
+  8,32   0        0   100.804034919     0  m   N cfq workload slice:300
+  8,32   0        0   100.804035960     0  m   N cfq1805S / set_active wl_prio:0 wl_type:1
+  8,32   0        0   100.804037123     0  m   N cfq1805S / fifo=(null)
+  8,32   0        0   100.804037856     0  m   N cfq1805S / dispatch_insert
+  8,32   0        0   100.804038795     0  m   N cfq1805S / dispatched a request
+  8,32   0        0   100.804039419     0  m   N cfq1805S / activate rq, drv=1
+  8,32   0      130   100.804039622  1805  D   R 204792 + 8 [blkid]
+  8,32   0      131   100.823374165     0  C   R 204792 + 8 [0]
+  8,32   0        0   100.823391307     0  m   N cfq1805S / complete rqnoidle 0
+  8,32   0        0   100.823392890     0  m   N cfq1805S / set_slice=120
+  8,32   0        0   100.823393675     0  m   N cfq schedule dispatch
+  8,32   0      132   100.823504435  1805  Q   R 204536 + 8 [blkid]
+  8,32   0      133   100.823509100  1805  G   R 204536 + 8 [blkid]
+  8,32   0      134   100.823511302  1805  P   N [blkid]
+  8,32   0      135   100.823512267  1805  I   R 204536 + 8 [blkid]
+  8,32   0        0   100.823515154     0  m   N cfq1805S / insert_request
+  8,32   0      136   100.823518084  1805  U   N [blkid] 1
+  8,32   0        0   100.823521428     0  m   N cfq1805S / dispatch_insert
+  8,32   0        0   100.823523096     0  m   N cfq1805S / dispatched a request
+  8,32   0        0   100.823524067     0  m   N cfq1805S / activate rq, drv=1
+  8,32   0      137   100.823524480  1805  D   R 204536 + 8 [blkid]
+  8,32   0      138   100.843988293     0  C   R 204536 + 8 [0]
+  8,32   0        0   100.844011406     0  m   N cfq1805S / complete rqnoidle 0
+  8,32   0        0   100.844013345     0  m   N cfq schedule dispatch
+  8,32   0      139   100.844270119  1805  Q   R 204736 + 8 [blkid]
+  8,32   0      140   100.844273220  1805  G   R 204736 + 8 [blkid]
+  8,32   0      141   100.844275076  1805  P   N [blkid]
+  8,32   0      142   100.844275520  1805  I   R 204736 + 8 [blkid]
+  8,32   0        0   100.844277175     0  m   N cfq1805S / insert_request
+  8,32   0      143   100.844279266  1805  U   N [blkid] 1
+  8,32   0        0   100.844281053     0  m   N cfq1805S / dispatch_insert
+  8,32   0        0   100.844282295     0  m   N cfq1805S / dispatched a request
+  8,32   0        0   100.844282982     0  m   N cfq1805S / activate rq, drv=1
+  8,32   0      144   100.844283191  1805  D   R 204736 + 8 [blkid]
+CPU0 (8,32):
+ Reads Queued:           7,       28KiB	 Writes Queued:          10,       10KiB
+ Read Dispatches:        8,       28KiB	 Write Dispatches:       12,       10KiB
+ Reads Requeued:         1		 Writes Requeued:         2
+ Reads Completed:        6,       24KiB	 Writes Completed:       10,       10KiB
+ Read Merges:            0,        0KiB	 Write Merges:            0,        0KiB
+ Read depth:             1        	 Write depth:             1
+ PC Reads Queued:        0,        0KiB	 PC Writes Queued:        0,        0KiB
+ PC Read Disp.:          1,        0KiB	 PC Write Disp.:          0,        0KiB
+ PC Reads Req.:          0		 PC Writes Req.:          0
+ PC Reads Compl.:        1		 PC Writes Compl.:        0
+ IO unplugs:            20        	 Timer unplugs:           3
+
+Throughput (R/W): 0KiB/s / 0KiB/s
+Events (8,32): 296 entries
+Skips: 59 forward (4,226 -  93.5%)
+[root@c62 ~]# [root@c62 ~]# 
+[END] 2019-07-09 오전 10:41:53
+#+END_SRC
