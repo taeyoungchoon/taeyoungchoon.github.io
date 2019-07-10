@@ -1,0 +1,19 @@
+* tripleO then director
+
+- openstack over openstack
+
+* using puppet
+
+- nice
+
+* using ansible
+
+- and now
+
+* devstack
+
+- based on it
+
+* and more
+
+- vm to xm(contained one, container)
