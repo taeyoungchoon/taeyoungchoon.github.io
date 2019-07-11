@@ -1,4 +1,17 @@
 * network
+
+- nick name neutron, ever quantum
+
 * compute
+
+- nick name compute
+
 * repo
+
+- lots of, glance and more, include ceph
+
 * ui, web or cli
+
+- horizon
+- vs cli, g1, g2(generation)
+

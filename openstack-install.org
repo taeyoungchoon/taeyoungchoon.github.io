@@ -1,6 +1,13 @@
-* tripleO then director
+* tripleO
 
 - openstack over openstack
+- openstack in a box
+- add compute node on it
+- detach compute node as a standalone openstack controller, network and it's compute
+
+* tripleO then director
+
+- redhat
 
 * using puppet
 
