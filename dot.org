@@ -32,7 +32,7 @@ graphviz-dot-mode
 
 * for example
 
-#+BEGIN_SRC dot
+#+BEGIN_SRC dot :file dot.png 
 digraph sample {
 
 	edge[dir=none]
@@ -41,3 +41,6 @@ digraph sample {
 	a -> c
 }
 #+END_SRC
+
+#+RESULTS:
+[[file:dot.png]]

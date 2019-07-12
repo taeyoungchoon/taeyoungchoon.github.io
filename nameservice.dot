@@ -2,7 +2,7 @@
 // graphviz-dot-mode
 //
 // M-x compile
-// C-c p
+// C-c C-p
 //
 
 digraph nameservice {
