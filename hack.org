@@ -1,0 +1,21 @@
+* linux
+* emacs
+* lisp
+
+common lisp, emacslisp, slime, alegro x, autocad's lisp
+
+* sdn
+
+네트워크의 컨트롤단 분리, 프로토콜의 구현까지인가? 
+
+* nfv
+
+는 오픈스택 위에 구현이 되는 것인가?
+
+* openstack
+
+6개월 마다 새로운 버전이 나온다고 한다. 새로운 기능이 추가된다고 한다. 
+
+* cobol, fortran, pascal and lots of the others
+
+모든 언어를이 가능할까? 

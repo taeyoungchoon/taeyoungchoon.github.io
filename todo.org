@@ -19,13 +19,13 @@
 * some more thing
 
 - [[file:mathematics.org][math]]
-
+  
 * q
-
+  
 - 독학사
 
 * now maybe
-
+  
 - 사피엔스, sapiens, yuval noah harari
 - vpn
 - profiling
