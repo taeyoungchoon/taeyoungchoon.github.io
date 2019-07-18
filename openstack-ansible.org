@@ -1,0 +1,618 @@
+* log
+
+https://stafwag.github.io/blog/blog/2019/01/21/settinp-up-openstack-ansible-all-in-one-on-a-centos-7-system/
+
+[root@c71 openstack-ansible]# ./scripts/bootstrap-aio.sh
+
+TASK [bootstrap-host : Fail if there is not enough space available in /] 
+fatal: [localhost]: FAILED! => {"changed": false, "failed": true, "msg": "Not enough space available in /.\nFound 36.39 GB, required 50 GB)\n"}
+
+# pwd
+/opt/openstack-ansible/tests/roles/bootstrap-host/tasks
+# ls check-requirements.yml
+check-requirements.yml
+#
+
+- name: Fail if there is not enough space available in /
+  fail:
+    msg: |
+      Not enough space available in /.
+      Found {{ root_gb_available }} GB, required {{ bootstrap_host_data_disk_min_size }} GB)
+  when:
+    - bootstrap_host_data_disk_device == None
+    - (host_root_space_available_bytes | int) < (host_data_disk_min_size_bytes | int)
+  tags:
+    - check-disk-size
+
+# grep 50 tests/roles/bootstrap-host/defaults/main.yml
+bootstrap_host_data_disk_min_size: 50
+#
+
+# grep bootstrap_host_data_disk_min_size tests/roles/bootstrap-host/defaults/main.yml
+bootstrap_host_data_disk_min_size: 10
+#
+
+[root@c71 openstack-ansible]# ip -4 -o a
+1: lo    inet 127.0.0.1/8 scope host lo\       valid_lft forever preferred_lft forever
+2: eth0    inet 10.0.2.15/24 brd 10.0.2.255 scope global noprefixroute dynamic eth0\       valid_lft 84515sec preferred_lft 84515sec
+3: br-mgmt    inet 172.29.236.100/22 brd 172.29.239.255 scope global br-mgmt\       valid_lft forever preferred_lft forever
+4: br-storage    inet 172.29.244.100/22 brd 172.29.247.255 scope global br-storage\       valid_lft forever preferred_lft forever
+5: br-vlan    inet 172.29.248.100/22 brd 172.29.251.255 scope global br-vlan\       valid_lft forever preferred_lft forever
+5: br-vlan    inet 172.29.248.1/22 brd 172.29.251.255 scope global secondary br-vlan:0\       valid_lft forever preferred_lft forever
+8: br-vxlan    inet 172.29.240.100/22 brd 172.29.243.255 scope global br-vxlan\       valid_lft forever preferred_lft forever
+
+# ls ifcfg-*
+ifcfg-br-mgmt  ifcfg-br-storage  ifcfg-br-vlan  ifcfg-br-vlan:0  ifcfg-br-vxlan  ifcfg-eth0  ifcfg-lo
+#
+
+# head -1000 ifcfg-*
+==> ifcfg-br-mgmt <==
+DEVICE=br-mgmt
+TYPE=Bridge
+IPADDR=172.29.236.100
+NETMASK=255.255.252.0
+ONBOOT=yes
+BOOTPROTO=none
+NM_CONTROLLED=no
+DELAY=0
+ETHTOOL_OPTS="-K ${DEVICE} sg off"
+
+==> ifcfg-br-storage <==
+DEVICE=br-storage
+TYPE=Bridge
+IPADDR=172.29.244.100
+NETMASK=255.255.252.0
+ONBOOT=yes
+BOOTPROTO=none
+NM_CONTROLLED=no
+DELAY=0
+ETHTOOL_OPTS="-K ${DEVICE} sg off"
+
+==> ifcfg-br-vlan <==
+# This interface has a veth peer
+DEVICE=br-vlan
+TYPE=Bridge
+IPADDR=172.29.248.100
+NETMASK=255.255.252.0
+ONBOOT=yes
+BOOTPROTO=none
+NM_CONTROLLED=no
+DELAY=0
+ETHTOOL_OPTS="-K ${DEVICE} sg off"
+
+==> ifcfg-br-vlan:0 <==
+# This interface is an alias
+DEVICE=br-vlan:0
+IPADDR=172.29.248.1
+NETMASK=255.255.252.0
+ONBOOT=yes
+
+==> ifcfg-br-vxlan <==
+DEVICE=br-vxlan
+TYPE=Bridge
+IPADDR=172.29.240.100
+NETMASK=255.255.252.0
+ONBOOT=yes
+BOOTPROTO=none
+NM_CONTROLLED=no
+DELAY=0
+ETHTOOL_OPTS="-K ${DEVICE} sg off"
+
+==> ifcfg-eth0 <==
+DEVICE="eth0"
+BOOTPROTO="dhcp"
+ONBOOT="yes"
+TYPE="Ethernet"
+PERSISTENT_DHCLIENT="yes"
+
+==> ifcfg-lo <==
+DEVICE=lo
+IPADDR=127.0.0.1
+NETMASK=255.0.0.0
+NETWORK=127.0.0.0
+# If you're having problems with gated making 127.0.0.0/8 a martian,
+# you can change this to something else (255.255.255.255, for example)
+BROADCAST=127.255.255.255
+ONBOOT=yes
+NAME=loopback
+#
+
+# brctl show
+bridge name	bridge id		STP enabled	interfaces
+br-mgmt		8000.000000000000	no
+br-storage		8000.000000000000	no
+br-vlan		8000.c22fbc05933f	no		br-vlan-veth
+br-vxlan		8000.000000000000	no
+#
+
+
+# ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host
+       valid_lft forever preferred_lft forever
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 52:54:00:8a:fe:e6 brd ff:ff:ff:ff:ff:ff
+    inet 10.0.2.15/24 brd 10.0.2.255 scope global noprefixroute dynamic eth0
+       valid_lft 84157sec preferred_lft 84157sec
+    inet6 fe80::5054:ff:fe8a:fee6/64 scope link
+       valid_lft forever preferred_lft forever
+3: br-mgmt: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/ether 36:da:e5:74:27:43 brd ff:ff:ff:ff:ff:ff
+    inet 172.29.236.100/22 brd 172.29.239.255 scope global br-mgmt
+       valid_lft forever preferred_lft forever
+    inet6 fe80::34da:e5ff:fe74:2743/64 scope link
+       valid_lft forever preferred_lft forever
+4: br-storage: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/ether 2a:3f:84:ad:8e:ca brd ff:ff:ff:ff:ff:ff
+    inet 172.29.244.100/22 brd 172.29.247.255 scope global br-storage
+       valid_lft forever preferred_lft forever
+    inet6 fe80::283f:84ff:fead:8eca/64 scope link
+       valid_lft forever preferred_lft forever
+5: br-vlan: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
+    link/ether c2:2f:bc:05:93:3f brd ff:ff:ff:ff:ff:ff
+    inet 172.29.248.100/22 brd 172.29.251.255 scope global br-vlan
+       valid_lft forever preferred_lft forever
+    inet 172.29.248.1/22 brd 172.29.251.255 scope global secondary br-vlan:0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::eccd:2aff:fe3f:668/64 scope link
+       valid_lft forever preferred_lft forever
+6: eth12@br-vlan-veth: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
+    link/ether 12:4c:ad:0b:08:a3 brd ff:ff:ff:ff:ff:ff
+    inet6 fe80::104c:adff:fe0b:8a3/64 scope link
+       valid_lft forever preferred_lft forever
+7: br-vlan-veth@eth12: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-vlan state UP group default qlen 1000
+    link/ether c2:2f:bc:05:93:3f brd ff:ff:ff:ff:ff:ff
+    inet6 fe80::c02f:bcff:fe05:933f/64 scope link
+       valid_lft forever preferred_lft forever
+8: br-vxlan: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/ether 32:74:c4:49:b1:96 brd ff:ff:ff:ff:ff:ff
+    inet 172.29.240.100/22 brd 172.29.243.255 scope global br-vxlan
+       valid_lft forever preferred_lft forever
+    inet6 fe80::3074:c4ff:fe49:b196/64 scope link
+       valid_lft forever preferred_lft forever
+#
+
+# ovs-vsctl
+-bash: ovs-vsctl: command not found
+#
+
+# bridge link
+7: br-vlan-veth state UP @eth12: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 master br-vlan state forwarding priority 32 cost 2
+#
+
+# ip a | grep veth
+6: eth12@br-vlan-veth: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
+7: br-vlan-veth@eth12: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-vlan state UP group default qlen 1000
+#
+
+# ip a s eth12
+6: eth12@br-vlan-veth: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
+    link/ether 12:4c:ad:0b:08:a3 brd ff:ff:ff:ff:ff:ff
+    inet6 fe80::104c:adff:fe0b:8a3/64 scope link
+       valid_lft forever preferred_lft forever
+#
+
+# pwd
+/opt/openstack-ansible/playbooks
+#
+
+# pwd
+/etc/openstack_deploy
+# ls openstack_user_config.yml user_variables.yml
+openstack_user_config.yml  user_variables.yml
+#
+
+# pstree
+systemd─┬─NetworkManager─┬─dhclient
+        │                └─2*[{NetworkManager}]
+        ├─agetty
+        ├─anacron
+        ├─auditd───{auditd}
+        ├─chronyd
+        ├─crond
+        ├─dbus-daemon───{dbus-daemon}
+        ├─dnsmasq
+        ├─gssproxy───5*[{gssproxy}]
+        ├─lvmetad
+        ├─master─┬─pickup
+        │        └─qmgr
+        ├─polkitd───6*[{polkitd}]
+        ├─rpcbind
+        ├─rsyslogd───2*[{rsyslogd}]
+        ├─ssh
+        ├─sshd───sshd───bash───sudo───bash───bash───ansible-playboo─┬─ansible-playboo───ssh
+        │                                                           └─2*[{ansible-playboo}]
+        ├─sshd───sh───python───python───gtar───xz
+        ├─sshd───sshd───bash───sudo───bash───pstree
+        ├─sshd
+        ├─systemd-journal
+        ├─systemd-logind
+        ├─systemd-machine
+        ├─systemd-udevd
+        └─tuned───4*[{tuned}]
+#
+
+TASK [lxc_hosts : Ensure that the LXC cache has been prepared] *********************************************************************************************************************************************
+Thursday 18 July 2019  13:18:01 +0000 (0:00:00.786)       0:11:04.241 *********
+FAILED - RETRYING: Ensure that the LXC cache has been prepared (120 retries left).
+FAILED - RETRYING: Ensure that the LXC cache has been prepared (119 retries left).
+FAILED - RETRYING: Ensure that the LXC cache has been prepared (118 retries left).
+changed: [aio1]
+
+ASK [lxc_container_create : Create container (dir)]
+
+# lxc-ls --fancy
+NAME                                   STATE   AUTOSTART GROUPS            IPV4 IPV6
+aio1_horizon_container-cb145a57        STOPPED 1         onboot, openstack -    -
+aio1_keystone_container-1753b49d       STOPPED 1         onboot, openstack -    -
+aio1_neutron_server_container-75989006 STOPPED 1         onboot, openstack -    -
+aio1_swift_proxy_container-6f69669c    STOPPED 1         onboot, openstack -    -
+aio1_utility_container-8d3db5a0        STOPPED 1         onboot, openstack -    -
+#
+
+# lxc-info --name aio1_horizon_container-cb145a57
+Name:           aio1_horizon_container-cb145a57
+State:          RUNNING
+PID:            22361
+CPU use:        0.75 seconds
+BlkIO use:      72.71 MiB
+Memory use:     8.99 MiB
+KMem use:       0 bytes
+Link:           vethN938XE
+ TX bytes:      656 bytes
+ RX bytes:      3.20 KiB
+ Total bytes:   3.84 KiB
+#
+
+# lxc-ls --fancy
+NAME                                   STATE   AUTOSTART GROUPS            IPV4 IPV6
+aio1_cinder_api_container-ade654c3     STOPPED 1         onboot, openstack -    -
+aio1_designate_container-1a360417      STOPPED 1         onboot, openstack -    -
+aio1_glance_container-03078ce1         STOPPED 1         onboot, openstack -    -
+aio1_horizon_container-cb145a57        RUNNING 1         onboot, openstack -    -
+aio1_keystone_container-1753b49d       RUNNING 1         onboot, openstack -    -
+aio1_memcached_container-4cb65778      STOPPED 1         onboot, openstack -    -
+aio1_neutron_server_container-75989006 RUNNING 1         onboot, openstack -    -
+aio1_repo_container-e846b452           STOPPED 1         onboot, openstack -    -
+aio1_swift_proxy_container-6f69669c    RUNNING 1         onboot, openstack -    -
+aio1_utility_container-8d3db5a0        RUNNING 1         onboot, openstack -    -
+#
+
+ free -m
+              total        used        free      shared  buff/cache   available
+Mem:            487         289           5          20         192         122
+Swap:
+
+# df -h
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda1        40G   11G   30G  27% /
+devtmpfs        237M     0  237M   0% /dev
+tmpfs           244M  324K  244M   1% /dev/shm
+tmpfs           244M  680K  243M   1% /run
+tmpfs           244M     0  244M   0% /sys/fs/cgroup
+tmpfs            49M     0   49M   0% /run/user/1000
+/dev/loop0      128G  465M  126G   1% /var/lib/machines
+/dev/loop2     1008G   77M  957G   1% /var/lib/nova/instances
+/dev/loop3      1.0T   33M  1.0T   1% /srv/swift1.img
+/dev/loop4      1.0T   33M  1.0T   1% /srv/swift2.img
+/dev/loop5      1.0T   33M  1.0T   1% /srv/swift3.img
+tmpfs            49M     0   49M   0% /run/user/0
+#
+
+? df -h
+Filesystem      Size   Used  Avail Capacity iused               ifree %iused  Mounted on
+/dev/disk1s1    70Gi   65Gi  2.0Gi    98%  868105 9223372036853907702    0%   /
+devfs          191Ki  191Ki    0Bi   100%     662                   0  100%   /dev
+/dev/disk1s4    70Gi  2.0Gi  2.0Gi    51%       2 9223372036854775805    0%   /private/var/vm
+/dev/disk0s3   9.2Gi  206Mi  9.0Gi     3%    6576              296048    2%   /Volumes/SHARE
+map -hosts       0Bi    0Bi    0Bi   100%       0                   0  100%   /net
+map auto_home    0Bi    0Bi    0Bi   100%       0                   0  100%   /home
+/dev/disk0s4    33Gi   27Gi  6.5Gi    81%  273912             6925788    4%   /Volumes/BOOTCAMP
+?
+
+? df -Pk
+Filesystem    1024-blocks     Used Available Capacity  Mounted on
+/dev/disk1s1     73204200 61325516   8594084    88%    /
+devfs                 191      191         0   100%    /dev
+/dev/disk1s4     73204200  2097504   8594084    20%    /private/var/vm
+/dev/disk0s3      9683968   210432   9473536     3%    /Volumes/SHARE
+map -hosts              0        0         0   100%    /net
+map auto_home           0        0         0   100%    /home
+/dev/disk0s4     34756240 27915708   6840532    81%    /Volumes/BOOTCAMP
+?
+
+# free -m
+              total        used        free      shared  buff/cache   available
+Mem:            487         260          24          22         201         143
+Swap:          2047         361        1686
+#
+
+# lxc-ls --fancy
+NAME                                   STATE   AUTOSTART GROUPS            IPV4 IPV6
+aio1_cinder_api_container-ade654c3     RUNNING 1         onboot, openstack -    -
+aio1_designate_container-1a360417      RUNNING 1         onboot, openstack -    -
+aio1_galera_container-fd677ef1         RUNNING 1         onboot, openstack -    -
+aio1_glance_container-03078ce1         RUNNING 1         onboot, openstack -    -
+aio1_heat_api_container-db22c2e3       RUNNING 1         onboot, openstack -    -
+aio1_horizon_container-cb145a57        RUNNING 1         onboot, openstack -    -
+aio1_keystone_container-1753b49d       RUNNING 1         onboot, openstack -    -
+aio1_memcached_container-4cb65778      RUNNING 1         onboot, openstack -    -
+aio1_neutron_server_container-75989006 RUNNING 1         onboot, openstack -    -
+aio1_nova_api_container-9045adf7       RUNNING 1         onboot, openstack -    -
+aio1_rabbit_mq_container-1247be91      RUNNING 1         onboot, openstack -    -
+aio1_repo_container-e846b452           RUNNING 1         onboot, openstack -    -
+aio1_rsyslog_container-2845845e        RUNNING 1         onboot, openstack -    -
+aio1_swift_proxy_container-6f69669c    RUNNING 1         onboot, openstack -    -
+aio1_utility_container-8d3db5a0        RUNNING 1         onboot, openstack -    -
+#
+
+# bridge link
+7: br-vlan-veth state UP @eth12: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 master br-vlan state forwarding priority 32 cost 2
+11: vethIAS75F state UP @(null): <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 master lxcbr0 state forwarding priority 32 cost 2
+13: vethN938XE state UP @(null): <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 master lxcbr0 state forwarding priority 32 cost 2
+15: vethSLM8F1 state UP @(null): <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 master lxcbr0 state forwarding priority 32 cost 2
+17: vethYFA2WQ state UP @(null): <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 master lxcbr0 state forwarding priority 32 cost 2
+19: vethHA8ANX state UP @(null): <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 master lxcbr0 state forwarding priority 32 cost 2
+21: vethDVORXC state UP @(null): <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 master lxcbr0 state forwarding priority 32 cost 2
+23: vethJGJ1MS state UP @(null): <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 master lxcbr0 state forwarding priority 32 cost 2
+25: veth36F943 state UP @(null): <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 master lxcbr0 state forwarding priority 32 cost 2
+27: veth21PQ2R state UP @(null): <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 master lxcbr0 state forwarding priority 32 cost 2
+29: vethG3QL94 state UP @(null): <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 master lxcbr0 state forwarding priority 32 cost 2
+31: veth74OGXW state UP @(null): <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 master lxcbr0 state forwarding priority 32 cost 2
+33: veth53KP4T state UP @(null): <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 master lxcbr0 state forwarding priority 32 cost 2
+35: vethAPIEYQ state UP @(null): <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 master lxcbr0 state forwarding priority 32 cost 2
+37: veth6BY9AS state UP @(null): <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 master lxcbr0 state forwarding priority 32 cost 2
+39: vethU02YU6 state UP @(null): <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 master lxcbr0 state forwarding priority 32 cost 2
+
+# brctl show
+bridge name	bridge id		STP enabled	interfaces
+br-mgmt		8000.000000000000	no
+br-storage		8000.000000000000	no
+br-vlan		8000.c22fbc05933f	no		br-vlan-veth
+br-vxlan		8000.000000000000	no
+lxcbr0		8000.fe030a91e2b0	no		veth21PQ2R
+							veth36F943
+							veth53KP4T
+							veth6BY9AS
+							veth74OGXW
+							vethAPIEYQ
+							vethDVORXC
+							vethG3QL94
+							vethHA8ANX
+							vethIAS75F
+							vethJGJ1MS
+							vethN938XE
+							vethSLM8F1
+							vethU02YU6
+							vethYFA2WQ
+#
+
+TASK [lxc_container_create : Add veth pair name to match container name]
+
+TASK [lxc_container_create : Run container veth wiring script]
+
+
+
+
+
+# lxc-ls --fancy
+NAME                                   STATE   AUTOSTART GROUPS            IPV4           IPV6
+aio1_cinder_api_container-ade654c3     RUNNING 1         onboot, openstack -              -
+aio1_designate_container-1a360417      RUNNING 1         onboot, openstack -              -
+aio1_galera_container-fd677ef1         RUNNING 1         onboot, openstack -              -
+aio1_glance_container-03078ce1         RUNNING 1         onboot, openstack -              -
+aio1_heat_api_container-db22c2e3       RUNNING 1         onboot, openstack -              -
+aio1_horizon_container-cb145a57        RUNNING 1         onboot, openstack 172.29.236.87  -
+aio1_keystone_container-1753b49d       RUNNING 1         onboot, openstack 172.29.237.126 -
+aio1_memcached_container-4cb65778      RUNNING 1         onboot, openstack -              -
+aio1_neutron_server_container-75989006 RUNNING 1         onboot, openstack -              -
+aio1_nova_api_container-9045adf7       RUNNING 1         onboot, openstack -              -
+aio1_rabbit_mq_container-1247be91      RUNNING 1         onboot, openstack -              -
+aio1_repo_container-e846b452           RUNNING 1         onboot, openstack -              -
+aio1_rsyslog_container-2845845e        RUNNING 1         onboot, openstack -              -
+aio1_swift_proxy_container-6f69669c    RUNNING 1         onboot, openstack 172.29.238.119 -
+aio1_utility_container-8d3db5a0        RUNNING 1         onboot, openstack 172.29.239.191 -
+#
+
+
+# lxc-ls --fancy
+NAME                                   STATE   AUTOSTART GROUPS            IPV4                           IPV6
+aio1_cinder_api_container-ade654c3     RUNNING 1         onboot, openstack 172.29.236.153, 172.29.244.182 -
+aio1_designate_container-1a360417      RUNNING 1         onboot, openstack 172.29.238.217                 -
+aio1_galera_container-fd677ef1         RUNNING 1         onboot, openstack 172.29.239.221                 -
+aio1_glance_container-03078ce1         RUNNING 1         onboot, openstack 172.29.237.247, 172.29.245.112 -
+aio1_heat_api_container-db22c2e3       RUNNING 1         onboot, openstack 172.29.238.75                  -
+aio1_horizon_container-cb145a57        RUNNING 1         onboot, openstack 172.29.236.87                  -
+aio1_keystone_container-1753b49d       RUNNING 1         onboot, openstack 172.29.237.126                 -
+aio1_memcached_container-4cb65778      RUNNING 1         onboot, openstack 172.29.239.117                 -
+aio1_neutron_server_container-75989006 RUNNING 1         onboot, openstack 172.29.238.16                  -
+aio1_nova_api_container-9045adf7       RUNNING 1         onboot, openstack 172.29.237.23                  -
+aio1_rabbit_mq_container-1247be91      RUNNING 1         onboot, openstack 172.29.238.162                 -
+aio1_repo_container-e846b452           RUNNING 1         onboot, openstack 172.29.236.76                  -
+aio1_rsyslog_container-2845845e        RUNNING 1         onboot, openstack 172.29.236.64                  -
+aio1_swift_proxy_container-6f69669c    RUNNING 1         onboot, openstack 172.29.238.119, 172.29.245.33  -
+aio1_utility_container-8d3db5a0        RUNNING 1         onboot, openstack 172.29.239.191                 -
+#
+
+# lxc-info --name aio1_horizon_container-cb145a57
+Name:           aio1_horizon_container-cb145a57
+State:          RUNNING
+PID:            22361
+IP:             172.29.236.87
+CPU use:        6.92 seconds
+BlkIO use:      713.13 MiB
+Memory use:     1.96 MiB
+KMem use:       0 bytes
+Link:           vethN938XE
+ TX bytes:      656 bytes
+ RX bytes:      9.61 KiB
+ Total bytes:   10.25 KiB
+#
+
+
+# top -n 1
+
+top - 13:41:28 up  1:19,  2 users,  load average: 36.88, 16.26, 9.33
+Tasks: 362 total,  41 running, 316 sleeping,   0 stopped,   5 zombie
+%Cpu(s):  6.2 us, 46.2 sy,  0.0 ni,  0.0 id,  0.0 wa,  0.0 hi, 47.7 si,  0.0 st
+KiB Mem :   498888 total,     6360 free,   279208 used,   213320 buff/cache
+KiB Swap:  2097148 total,  1752060 free,   345088 used.    93948 avail Mem
+
+  PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
+  33 root      20   0       0      0      0 R 12.7  0.0   0:36.13 kswapd0
+
+TASK [lxc_container_create : Wait for container connectivity]
+
+# ip -4 -o a
+1: lo    inet 127.0.0.1/8 scope host lo\       valid_lft forever preferred_lft forever
+2: eth0    inet 10.0.2.15/24 brd 10.0.2.255 scope global noprefixroute dynamic eth0\       valid_lft 81556sec preferred_lft 81556sec
+3: br-mgmt    inet 172.29.236.100/22 brd 172.29.239.255 scope global br-mgmt\       valid_lft forever preferred_lft forever
+4: br-storage    inet 172.29.244.100/22 brd 172.29.247.255 scope global br-storage\       valid_lft forever preferred_lft forever
+5: br-vlan    inet 172.29.248.100/22 brd 172.29.251.255 scope global br-vlan\       valid_lft forever preferred_lft forever
+5: br-vlan    inet 172.29.248.1/22 brd 172.29.251.255 scope global secondary br-vlan:0\       valid_lft forever preferred_lft forever
+8: br-vxlan    inet 172.29.240.100/22 brd 172.29.243.255 scope global br-vxlan\       valid_lft forever preferred_lft forever
+9: lxcbr0    inet 10.255.255.1/24 brd 10.255.255.255 scope global noprefixroute lxcbr0\       valid_lft forever preferred_lft forever
+#
+
+# brctl show
+bridge name	bridge id		STP enabled	interfaces
+br-mgmt		8000.fe188daeb570	no		03078ce1_eth1
+							1247be91_eth1
+							1753b49d_eth1
+							1a360417_eth1
+							2845845e_eth1
+							4cb65778_eth1
+							6f69669c_eth1
+							75989006_eth1
+							8d3db5a0_eth1
+							9045adf7_eth1
+							ade654c3_eth1
+							cb145a57_eth1
+							db22c2e3_eth1
+							e846b452_eth1
+							fd677ef1_eth1
+br-storage		8000.fe17a5e00672	no		03078ce1_eth2
+							6f69669c_eth2
+							ade654c3_eth2
+br-vlan		8000.c22fbc05933f	no		br-vlan-veth
+br-vxlan		8000.000000000000	no
+lxcbr0		8000.fe05dbf1432f	no		03078ce1_eth0
+							1247be91_eth0
+							1753b49d_eth0
+							1a360417_eth0
+							2845845e_eth0
+							4cb65778_eth0
+							6f69669c_eth0
+							75989006_eth0
+							8d3db5a0_eth0
+							9045adf7_eth0
+							ade654c3_eth0
+							cb145a57_eth0
+							db22c2e3_eth0
+							e846b452_eth0
+							fd677ef1_eth0
+#
+
+
+# lxc-ls --fancy
+NAME                                   STATE   AUTOSTART GROUPS            IPV4           IPV6
+aio1_cinder_api_container-ade654c3     RUNNING 1         onboot, openstack 10.255.255.233 -
+aio1_designate_container-1a360417      RUNNING 1         onboot, openstack 10.255.255.230 -
+aio1_galera_container-fd677ef1         RUNNING 1         onboot, openstack 10.255.255.204 -
+aio1_glance_container-03078ce1         RUNNING 1         onboot, openstack 10.255.255.34  -
+aio1_heat_api_container-db22c2e3       RUNNING 1         onboot, openstack 10.255.255.131 -
+aio1_horizon_container-cb145a57        RUNNING 1         onboot, openstack 10.255.255.158 -
+aio1_keystone_container-1753b49d       RUNNING 1         onboot, openstack 10.255.255.248 -
+aio1_memcached_container-4cb65778      RUNNING 1         onboot, openstack 10.255.255.225 -
+aio1_neutron_server_container-75989006 RUNNING 1         onboot, openstack 10.255.255.180 -
+aio1_nova_api_container-9045adf7       RUNNING 1         onboot, openstack 10.255.255.43  -
+aio1_rabbit_mq_container-1247be91      RUNNING 1         onboot, openstack 10.255.255.160 -
+aio1_repo_container-e846b452           RUNNING 1         onboot, openstack 10.255.255.184 -
+aio1_rsyslog_container-2845845e        RUNNING 1         onboot, openstack 10.255.255.133 -
+aio1_swift_proxy_container-6f69669c    RUNNING 1         onboot, openstack 10.255.255.111 -
+aio1_utility_container-8d3db5a0        RUNNING 1         onboot, openstack 10.255.255.93  -
+#
+
+# cat /etc/hosts
+127.0.0.1 localhost aio1
+127.0.1.1 aio1.openstack.local aio1
+
+# The following lines are desirable for IPv6 capable hosts
+::1 ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+ff02::3 ip6-allhosts
+172.29.236.100 aio1.openstack.local aio1
+172.29.239.191 aio1-utility-container-8d3db5a0.openstack.local aio1-utility-container-8d3db5a0 aio1_utility_container-8d3db5a0
+172.29.238.119 aio1-swift-proxy-container-6f69669c.openstack.local aio1-swift-proxy-container-6f69669c aio1_swift_proxy_container-6f69669c
+172.29.237.247 aio1-glance-container-03078ce1.openstack.local aio1-glance-container-03078ce1 aio1_glance_container-03078ce1
+172.29.238.16 aio1-neutron-server-container-75989006.openstack.local aio1-neutron-server-container-75989006 aio1_neutron_server_container-75989006
+172.29.236.76 aio1-repo-container-e846b452.openstack.local aio1-repo-container-e846b452 aio1_repo_container-e846b452
+172.29.239.117 aio1-memcached-container-4cb65778.openstack.local aio1-memcached-container-4cb65778 aio1_memcached_container-4cb65778
+172.29.239.221 aio1-galera-container-fd677ef1.openstack.local aio1-galera-container-fd677ef1 aio1_galera_container-fd677ef1
+172.29.238.162 aio1-rabbit-mq-container-1247be91.openstack.local aio1-rabbit-mq-container-1247be91 aio1_rabbit_mq_container-1247be91
+172.29.238.217 aio1-designate-container-1a360417.openstack.local aio1-designate-container-1a360417 aio1_designate_container-1a360417
+172.29.236.153 aio1-cinder-api-container-ade654c3.openstack.local aio1-cinder-api-container-ade654c3 aio1_cinder_api_container-ade654c3
+172.29.236.87 aio1-horizon-container-cb145a57.openstack.local aio1-horizon-container-cb145a57 aio1_horizon_container-cb145a57
+172.29.237.126 aio1-keystone-container-1753b49d.openstack.local aio1-keystone-container-1753b49d aio1_keystone_container-1753b49d
+172.29.238.75 aio1-heat-api-container-db22c2e3.openstack.local aio1-heat-api-container-db22c2e3 aio1_heat_api_container-db22c2e3
+172.29.237.23 aio1-nova-api-container-9045adf7.openstack.local aio1-nova-api-container-9045adf7 aio1_nova_api_container-9045adf7
+172.29.236.64 aio1-rsyslog-container-2845845e.openstack.local aio1-rsyslog-container-2845845e aio1_rsyslog_container-2845845e
+#
+
+TASK [openstack_hosts : If a keyfile is provided, copy the gpg keyfile to the key location]
+
+# pstree
+systemd─┬─NetworkManager─┬─dhclient
+        │                └─2*[{NetworkManager}]
+        ├─agetty
+        ├─auditd───{auditd}
+        ├─chronyd
+        ├─crond
+        ├─dbus-daemon───{dbus-daemon}
+        ├─dnsmasq
+        ├─gssproxy───5*[{gssproxy}]
+        ├─lvmetad
+        ├─15*[lxc-start───systemd─┬─5*[agetty]]
+        │                         ├─crond]
+        │                         ├─dbus-daemon]
+        │                         ├─dhclient]
+        │                         ├─rsyslogd───2*[{rsyslogd}]]
+        │                         ├─sshd]
+        │                         ├─systemd-journal]
+        │                         └─systemd-logind]
+        ├─master─┬─pickup
+        │        └─qmgr
+        ├─polkitd───6*[{polkitd}]
+        ├─rpcbind
+        ├─rsyslogd───5*[{rsyslogd}]
+        ├─ssh
+        ├─sshd───sshd───bash───sudo───bash───bash───ansible-playboo─┬─5*[ansible-playboo───ssh]
+        │                                                           └─2*[{ansible-playboo}]
+        ├─sshd───sshd───bash───sudo───bash───pstree
+        ├─sshd───sshd───5*[lxc-attach───su───sh───python───python───yum]
+        ├─systemd-journal
+        ├─systemd-logind
+        ├─systemd-udevd
+        └─tuned───4*[{tuned}]
+#
+
+TASK [openstack_hosts : Add requirement packages (repositories gpg keys packages, toolkits...)]
+
+# free -m
+              total        used        free      shared  buff/cache   available
+Mem:            487         371           6           0         109          45
+Swap:          2047        1442         605
+#
+
+
+[ERROR]: User interrupted execution
+
+# openstack-ansible setup-hosts.yml
+
+so again?!
