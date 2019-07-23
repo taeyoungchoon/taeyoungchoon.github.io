@@ -1,0 +1,94 @@
+* ceph day one
+
+- [2019-07-22 월 11:45] day one so
+
+ceph ansible used by OSA(openstack ansible)
+ceph deploy
+
+(controller (monitor manager (radosgw object) (metadata-server fs)))
+(storage (osd))
+
+so this week, todo
+
+openstack with ceph
+
+lxc attach cinder
+cd /etc/ceph
+cat *.keyring
+
+ceph, object storage, osd(Object Storage Daemon)
+
+pool volumes
+pg 10, placement group
+
+ceph osd pool ls
+ceph osd pool get x
+pg_num: N
+ceph pg dump | awk
+
+ceph -s
+journal, can seperate
+replication size
+calculate but 80%
+
+osa-deployer
+ceph-mon
+ceph-mds
+ceph-rgw
+ceph_hosts:*infrature_hosts
+
+haproxy on OSA
+
+fsid: x
+devices:
+cephfs_pools:
+cinder_backends: x
+radosgw_frontend_type:vivetweb
+cinder_service_bacup_driver: x.ceph
+manila not support by queens's OSA version
+openstack_deploy directory
+
+ceph 제대로 배워보자
+ceph storage, paas x by naver
+
+(mon mgr mds)
+(osd osd osd)
+
+crush map with ssd pool, hdd pool
+
+confluence
+
+type 0 osd
+type 1 disk_sas
+type 2 disk_sata
+type 3 root
+
+with crush_role_sas
+
+stein iwth obelle fabric 4.6
+osa with container ip
+masakari
+nfd group
+pxe
+arya
+
+config, network so stable
+
+c node disk less
+/dev/sda
+raid with journal
+pg calc site
+Ceph pgcalc,Ceph PGs per Pool Calculator, suggested pg count
+
+openstack_user_config.yml
+user_variables.yml
+
+(ceph rados) with keystone auth
+
+youtube, ceph intro & architecture overview, ross turk
+
+easy to install
+tuning hard to be done
+
+fs unstable but used by naver nowaday
+
