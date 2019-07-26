@@ -1041,5 +1041,35 @@ cleaning then again
 
 * again from the beginning without reinstall os
 
-using pre.sh
+nop more control compute storage related task except rpm
+
+- [X] using pre.sh
+- [X] openstack-ansible setup-infrastructure.yml --syntax-check
+
+rpm broken
+
+rm -f /var/lib/rpm/__db.00*
+rpm --rebuilddb
+
+nop hardening
+
+- [ ] openstack-ansible setup-hosts.yml
+
+nop disk space 50 to 30
+
+이런 아래 때문일까?
+
+TASK [lxc_container_create : Run container veth wiring script] *************************************************************************************************
+Friday 26 July 2019  17:33:19 +0900 (0:00:10.897)       0:15:11.674 *********** 
+ [WARNING]: sftp transfer mechanism failed on [172.29.236.11]. Use ANSIBLE_DEBUG=1 to see detailed information
+
+ [WARNING]: scp transfer mechanism failed on [172.29.236.11]. Use ANSIBLE_DEBUG=1 to see detailed information
+
+failed: [infra1_keystone_container-3c65c331] (item={'value': {u'interface': u'eth1', u'bridge': u'br-mgmt', u'netmask': u'255.255.252.0', u'type': u'veth', u'address': u'172.29.236.60'}, 'key': u'container_address'}) => {"item": {"key": "container_address", "value": {"address": "172.29.236.60", "bridge": "br-mgmt", "interface": "eth1", "netmask": "255.255.252.0", "type": "veth"}}, "msg": "Failed to connect to the host via ssh: ssh: connect to host 172.29.236.11 port 22: Connection timed out\r\n", "unreachable": true}
+fatal: [infra1_keystone_container-3c65c331]: UNREACHABLE! => {"changed": false, "msg": "All items completed", "results": [{"_ansible_ignore_errors": null, "_ansible_item_result": true, "item": {"key": "container_address", "value": {"address": "172.29.236.60", "bridge": "br-mgmt", "interface": "eth1", "netmask": "255.255.252.0", "type": "veth"}}, "msg": "Failed to connect to the host via ssh: ssh: co
+
+[root@deployer openstack_deploy]# cp user_variables.yml.test.example user_variables.yml
+cp: overwrite ‘user_variables.yml’? y
+[root@deployer openstack_deploy]# vi user_variables.yml
+[root@deployer openstack_deploy]# 
 
