@@ -1073,3 +1073,206 @@ cp: overwrite ‘user_variables.yml’? y
 [root@deployer openstack_deploy]# vi user_variables.yml
 [root@deployer openstack_deploy]# 
 
+ANSIBLE_DEBUG=1
+
+# openstack-ansible setup-infrastructure.yml --syntax-check
+Variable files: "-e @/etc/openstack_deploy/user_secrets.yml -e @/etc/openstack_deploy/user_variables.yml "
+ [WARNING]: Unable to parse /etc/openstack_deploy/inventory.ini as an inventory source
+
+
+
+ [WARNING]: Could not match supplied host pattern, ignoring: unbound
+ [WARNING]: Could not match supplied host pattern, ignoring: repo_masters
+ [WARNING]: Could not match supplied host pattern, ignoring: etcd_all
+ [WARNING]: Could not match supplied host pattern, ignoring: ceph-mon
+ [WARNING]: Could not match supplied host pattern, ignoring: ceph-osd
+ [WARNING]: Could not match supplied host pattern, ignoring: rsyslog
+
+
+
+TASK [Ensure python is installed] ******************************************************************
+Friday 26 July 2019  21:22:25 +0900 (0:00:00.703)       0:00:00.703 *********** 
+fatal: [compute1]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 172.29.236.12 port 22: No route to host\r\n", "unreachable": true}
+fatal: [infra1]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 172.29.236.11 port 22: No route to host\r\n", "unreachable": true}
+fatal: [storage1]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 172.29.236.13 port 22: No route to host\r\n", "unreachable": true}
+
+PLAY RECAP *****************************************************************************************
+compute1                   : ok=0    changed=0    unreachable=1    failed=0   
+infra1                     : ok=0    changed=0    unreachable=1    failed=0   
+storage1                   : ok=0    changed=0    unreachable=1    failed=0   
+
+Friday 26 July 2019  21:23:09 +0900 (0:00:44.547)       0:00:45.251 *********** 
+=============================================================================== 
+Ensure python is installed ----------------------------------------------------------------- 44.55s
+
+EXIT NOTICE [Playbook execution failure] **************************************
+===============================================================================
+
+
+따라갈 수 없다. 눈 튀어나오겠다.
+오늘 몇시부터 몇시까지 봤는지 모르겠다.
+어쨌거나 녹색이 많이 나온다. 하얀색 그리고 녹색 좋은 로그다.
+
+하얀색은? description and timestamp
+TASK [lxc_hosts : Add image cache] ****************
+Friday 26 July 2019  21:33:16 +0900 (0:00:00.925) 0:05:04:803
+
+녹색은? 
+ok: [infra1] => (item=logrotate)
+
+노란색은? 
+changed: [infra1]
+
+푸른색은? 
+include: /etc/ansible/roles/lxc_hosts/tasks/lxc_cache_preparation>systemd_old.yml for infra1
+skipping: [infra1_rabbit_mq_container_x]
+
+보라색은?
+
+짙은 보라색은?
+
+흑색은? 
+FAILED - RETRYING: Ensure image has been pre-staged (60 retries left).
+
+WARNING! The remote SSH server rejected X11 forwarding request.
+Last login: Fri Jul 26 21:36:13 2019 from 192.168.100.1
+------------------------------------------------------------------------------
+* WARNING                                                                    *
+* You are accessing a secured system and your actions will be logged along   *
+* with identifying information. Disconnect immediately if you are not an     *
+* authorized user of this system.                                            *
+------------------------------------------------------------------------------
+
+# cat /etc/ssh/sshd_config  | grep ^Banner
+Banner /etc/motd
+
+infra aka control 한참 설치 중에 들어가서 보니 
+메모리 8g 중 4g 사용 중이다.
+cpus는 20% 이하로 나온다. 좋다.
+
+Friday 26 July 2019  21:59:41 +0900 (0:00:01.597)       0:31:30.193 *********** 
+=============================================================================== 
+pip_install : Install distro packages --------------------------------------------------------------------------- 234.25s
+lxc_hosts : Ensure image has been pre-staged -------------------------------------------------------------------- 203.83s
+openstack_hosts : Add requirement packages (repositories gpg keys packages, toolkits...) ------------------------ 196.86s
+pip_install : Install PIP --------------------------------------------------------------------------------------- 106.75s
+lxc_hosts : Ensure that the LXC cache has been prepared ---------------------------------------------------------- 96.81s
+lxc_hosts : Place container rootfs ------------------------------------------------------------------------------- 63.33s
+lxc_container_create : Write default container config ------------------------------------------------------------ 50.56s
+pip_install : Get Modern PIP ------------------------------------------------------------------------------------- 48.18s
+lxc_hosts : Ensure createrepo package is installed --------------------------------------------------------------- 41.32s
+lxc_container_create : Container service directories ------------------------------------------------------------- 24.39s
+lxc_container_create : Run container veth wiring script ---------------------------------------------------------- 22.16s
+lxc_hosts : Create lxc image ------------------------------------------------------------------------------------- 21.51s
+openstack_hosts : Adding new system tuning ----------------------------------------------------------------------- 21.35s
+openstack_hosts : Load kernel module(s) -------------------------------------------------------------------------- 18.73s
+lxc_container_create : Read custom facts from previous runs ------------------------------------------------------ 14.84s
+pip_install : Install PIP ---------------------------------------------------------------------------------------- 14.46s
+lxc_container_create : Drop veth cleanup script ------------------------------------------------------------------ 13.45s
+openstack_hosts : If a keyfile is provided, copy the gpg keyfile to the key location ----------------------------- 13.26s
+openstack_hosts : Drop hosts file entries script locally --------------------------------------------------------- 12.83s
+lxc_container_create : LXC host config for container networks ---------------------------------------------------- 12.59s
+
+EXIT NOTICE [Playbook execution success] **************************************
+===============================================================================
+? openstack-ansible setup-hosts.yml 
+
+된것가 여기까지는 말이다.
+
+? openstack-ansible setup-infrastructure.yml
+
+이다. 
+
+infra aka control 한참 설치 중에 들어가서 보니 
+메모리 8g 중 4g free다. > 600m free다.
+cpus는 20% 이하로 나온다. 좋다. > 최고 100%도 친다. 그래도 낮게 나온다. 
+
+시간은 오래 걸린다 언제 끝이 날까?
+
+1:16:15:242
+
+
+
+ASK [galera_client : Install galera distro packages] ********************************************************************
+Friday 26 July 2019  23:18:07 +0900 (0:00:00.659)       1:16:15.242 *********** 
+
+TASK [galera_server : Fail if the galera root password is not provided] **************************************************
+Friday 26 July 2019  23:32:25 +0900 (0:00:00.023)       1:30:33.507 *********** 
+fatal: [infra1_galera_container-5103f3b8]: FAILED! => {"changed": false, "failed": true, "msg": "Please set the galera_root_password variable prior to applying the\ngalera role.\n"}
+
+PLAY RECAP ***************************************************************************************************************
+compute1                   : ok=18   changed=3    unreachable=0    failed=0   
+infra1                     : ok=52   changed=25   unreachable=0    failed=0   
+infra1_cinder_api_container-179eba5a : ok=9    changed=3    unreachable=0    failed=0   
+infra1_galera_container-5103f3b8 : ok=20   changed=8    unreachable=0    failed=1   
+infra1_glance_container-9e87261d : ok=9    changed=3    unreachable=0    failed=0   
+infra1_heat_api_container-1e3d12d9 : ok=9    changed=3    unreachable=0    failed=0   
+infra1_horizon_container-280f6f5a : ok=9    changed=3    unreachable=0    failed=0   
+infra1_keystone_container-3c65c331 : ok=9    changed=3    unreachable=0    failed=0   
+infra1_memcached_container-21e6d45f : ok=40   changed=22   unreachable=0    failed=0   
+infra1_neutron_server_container-47a7eec0 : ok=9    changed=3    unreachable=0    failed=0   
+infra1_nova_api_container-758f0659 : ok=9    changed=3    unreachable=0    failed=0   
+infra1_rabbit_mq_container-76ec7893 : ok=9    changed=3    unreachable=0    failed=0   
+infra1_repo_container-a2b512e9 : ok=176  changed=78   unreachable=0    failed=0   
+infra1_utility_container-8de920e2 : ok=36   changed=20   unreachable=0    failed=0   
+localhost                  : ok=1    changed=1    unreachable=0    failed=0   
+storage1                   : ok=9    changed=3    unreachable=0    failed=0   
+
+Friday 26 July 2019  23:32:25 +0900 (0:00:00.082)       1:30:33.590 *********** 
+=============================================================================== 
+repo_build : Create OpenStack-Ansible requirement wheels ------------------------------------------------------- 2445.79s
+repo_build : Wait for the venvs builds to complete -------------------------------------------------------------- 792.19s
+galera_client : Install galera distro packages ------------------------------------------------------------------ 661.04s
+repo_build : Clone git repositories ----------------------------------------------------------------------------- 523.33s
+galera_client : Install galera distro packages ------------------------------------------------------------------ 229.32s
+memcached_server : Install distro packages ----------------------------------------------------------------------- 82.13s
+repo_build : Install packages ------------------------------------------------------------------------------------ 53.20s
+Install pip packages --------------------------------------------------------------------------------------------- 50.43s
+repo_server : Install pip packages (from repo) ------------------------------------------------------------------- 35.12s
+repo_server : Install distro packages ---------------------------------------------------------------------------- 34.20s
+repo_build : Install pip packages (from repo) -------------------------------------------------------------------- 32.20s
+repo_build : Execute the venv build scripts asynchonously -------------------------------------------------------- 29.20s
+haproxy_server : Create haproxy service config files ------------------------------------------------------------- 28.73s
+haproxy_server : Install HAProxy Packages ------------------------------------------------------------------------ 24.08s
+repo_server : Install required pip packages (from repo) ---------------------------------------------------------- 19.98s
+repo_build : Create venv build options files --------------------------------------------------------------------- 14.96s
+pip_install : Install PIP ---------------------------------------------------------------------------------------- 10.98s
+pip_install : Install PIP ---------------------------------------------------------------------------------------- 10.96s
+Install distro packages ------------------------------------------------------------------------------------------- 8.58s
+repo_server : File and directory setup (non-root user) ------------------------------------------------------------ 7.79s
+
+EXIT NOTICE [Playbook execution failure] **************************************
+===============================================================================
+? 
+
+
+
+- name: Fail if the galera root password is not provided
+  fail:
+    msg: |
+      Please set the galera_root_password variable prior to applying the
+      galera role.
+  when: (galera_root_password is undefined) or (galera_root_password is none)
+  tags:
+    - always
+
+
+
+grep -r galera_root_password *
+
+? ./scripts/pw-token-gen.py --file /etc/openstack_deploy/user_secrets.yml
+Creating backup file [ /etc/openstack_deploy/user_secrets.yml.tar ]
+Operation Complete, [ /etc/openstack_deploy/user_secrets.yml ] is ready
+? pwd
+/opt/openstack-ansible
+? 
+
+
+? diff user_secrets.yml.orig user_secrets.yml | grep galera_root_password
+< galera_root_password:
+> galera_root_password: dcf6eb7100fb1f42ecb2
+? 
+
+* galera then again
+
+[2019-07-26 금 23:41] 오늘은 이만하고 잘까? 이건 어쩌나? 두면 될까? 얼마나 걸리려나?
