@@ -616,3 +616,430 @@ Swap:          2047        1442         605
 # openstack-ansible setup-hosts.yml
 
 so again?!
+* part 2 on virtualbox with many interfaces
+
+"vm_deployer_1563794608410_18016" 
+"vm_control_1563795073812_19332"
+"vm_compute_1563795546380_95137"
+"vm_storage_1563796007834_66559"
+
+vboxmanage modifyvm "vm_deployer_1563794608410_18016" --hostonlyadapter4 "VirtualBox Host-Only Ethernet Adapter #3"
+vboxmanage modifyvm "vm_deployer_1563794608410_18016" --nic4 hostonly
+vboxmanage modifyvm "vm_deployer_1563794608410_18016" --hostonlyadapter5 "VirtualBox Host-Only Ethernet Adapter #4"
+vboxmanage modifyvm "vm_deployer_1563794608410_18016" --nic5 hostonly
+vboxmanage modifyvm "vm_deployer_1563794608410_18016" --hostonlyadapter6 "VirtualBox Host-Only Ethernet Adapter #5"
+vboxmanage modifyvm "vm_deployer_1563794608410_18016" --nic6 hostonly
+
+vboxmanage modifyvm "vm_control_1563795073812_19332" --hostonlyadapter4 "VirtualBox Host-Only Ethernet Adapter #3"
+vboxmanage modifyvm "vm_control_1563795073812_19332" --nic4 hostonly
+vboxmanage modifyvm "vm_control_1563795073812_19332" --hostonlyadapter5 "VirtualBox Host-Only Ethernet Adapter #4"
+vboxmanage modifyvm "vm_control_1563795073812_19332" --nic5 hostonly
+vboxmanage modifyvm "vm_control_1563795073812_19332" --hostonlyadapter6 "VirtualBox Host-Only Ethernet Adapter #5"
+vboxmanage modifyvm "vm_control_1563795073812_19332" --nic6 hostonly
+
+vboxmanage modifyvm "vm_compute_1563795546380_95137" --hostonlyadapter4 "VirtualBox Host-Only Ethernet Adapter #3"
+vboxmanage modifyvm "vm_compute_1563795546380_95137" --nic4 hostonly
+vboxmanage modifyvm "vm_compute_1563795546380_95137" --hostonlyadapter5 "VirtualBox Host-Only Ethernet Adapter #4"
+vboxmanage modifyvm "vm_compute_1563795546380_95137" --nic5 hostonly
+vboxmanage modifyvm "vm_compute_1563795546380_95137" --hostonlyadapter6 "VirtualBox Host-Only Ethernet Adapter #5"
+vboxmanage modifyvm "vm_compute_1563795546380_95137" --nic6 hostonly
+
+vboxmanage modifyvm "vm_storage_1563796007834_66559" --hostonlyadapter4 "VirtualBox Host-Only Ethernet Adapter #3"
+vboxmanage modifyvm "vm_storage_1563796007834_66559" --nic4 hostonly
+vboxmanage modifyvm "vm_storage_1563796007834_66559" --hostonlyadapter5 "VirtualBox Host-Only Ethernet Adapter #4"
+vboxmanage modifyvm "vm_storage_1563796007834_66559" --nic5 hostonly
+vboxmanage modifyvm "vm_storage_1563796007834_66559" --hostonlyadapter6 "VirtualBox Host-Only Ethernet Adapter #5"
+vboxmanage modifyvm "vm_storage_1563796007834_66559" --nic6 hostonly
+
+vboxmanage showvminfo "vm_deployer_1563794608410_18016"  | more
+
+yum install python-ethtool net-tools bridge-utils -y
+
+* part 2 and fail to conn
+  
+** opendev.org connection fail
+
+http://git.openstack.org/cgit/openstack/requirements/plain/upper-constraints.txt?id=6a92e89c14e68c42a149b719d93742979d241c5b
+[2019-07-25 목 17:37] 오랜 실패의 시간을 소진하고 이제 된다. 이거참
+아토에서 했으면 잘 됬을까?
+
+열심히 그리고 opendev.org에서 파일을 받아온다.
+- [ ] 오프라인으로 처리할 필요가 있다.
+
+** bootstrap-aio.sh but syntax fail but right one as I can see
+
+export PATH=/usr/local/bin:$PATH
+
+then work! my
+
+grep 50 tests/roles/bootstrap-host/defaults/main.yml
+bootstrap_host_data_disk_min_size: 30
+
+sed -i 's/50/30/' tests/roles/bootstrap-host/defaults/main.yml
+
+* openstack-ansible setup-hosts.yml , hold again
+
+TASK [ansible-hardening : Add or remove packages based on STIG requirements]
+Friday 26 July 2019  11:43:58 +0900 (0:00:00.703)       0:06:00.246 
+ok: [compute1] => (item=absent)
+ok: [infra1] => (item=absent)
+ok: [storage1] => (item=absent)
+
+Ctrl-C
+
+[root@control my]# rpm -qa
+error: rpmdb: BDB0113 Thread/process 4426/140274796144704 failed: BDB1507 Thread died in Berkeley DB library
+error: db5 error(-30973) from dbenv->failchk: BDB0087 DB_RUNRECOVERY: Fatal error, run database recovery
+error: cannot open Packages index using db5 -  (-30973)
+error: cannot open Packages database in /var/lib/rpm
+error: rpmdb: BDB0113 Thread/process 4426/140274796144704 failed: BDB1507 Thread died in Berkeley DB library
+error: db5 error(-30973) from dbenv->failchk: BDB0087 DB_RUNRECOVERY: Fatal error, run database recovery
+error: cannot open Packages database in /var/lib/rpm
+[root@control my]# 
+
+rm -f /var/lib/rpm/__db*
+rpm --rebuilddb
+
+on control and storage, wait long have to wait long enough
+
+/opt/openstack-ansible/playbooks/ 
+setup-hosts.yml
+setup-infrastructure.hml
+
+/etc/openstack-deploy/ 
+openstack_user_config.yml 
+user_variables.yml
+
+ansible-hardening
+
+TASK [lxc_container_create : Create container (dir)] ***********************************************************************************************************
+Friday 26 July 2019  13:43:30 +0900 (0:00:01.893)       0:12:04.867 *********** 
+fatal: [infra1_keystone_container-af9f1617 -> 172.29.236.11]: FAILED! => {"changed": false, "failed": true, "msg": "The `lxc` module is not importable. Check the requirements."}
+fatal: [infra1_neutron_server_container-1dbe0b7a -> 172.29.236.11]: FAILED! => {"changed": false, "failed": true, "msg": "The `lxc` module is not importable. Check the requirements."}
+fatal: [infra1_utility_container-0674895c -> 172.29.236.11]: FAILED! => {"changed": false, "failed": true, "msg": "The `lxc` module is not importable. Check the requirements."}
+fatal: [infra1_horizon_container-fbd3b559 -> 172.29.236.11]: FAILED! => {"changed": false, "failed": true, "msg": "The `lxc` module is not importable. Check the requirements."}
+fatal: [infra1_repo_container-1de92927 -> 172.29.236.11]: FAILED! => {"changed": false, "failed": true, "msg": "The `lxc` module is not importable. Check the requirements."}
+fatal: [infra1_glance_container-ed0fcd59 -> 172.29.236.11]: FAILED! => {"changed": false, "failed": true, "msg": "The `lxc` module is not importable. Check the requirements."}
+fatal: [infra1_memcached_container-7d277f71 -> 172.29.236.11]: FAILED! => {"changed": false, "failed": true, "msg": "The `lxc` module is not importable. Check the requirements."}
+fatal: [infra1_cinder_api_container-6d9d4294 -> 172.29.236.11]: FAILED! => {"changed": false, "failed": true, "msg": "The `lxc` module is not importable. Check the requirements."}
+fatal: [infra1_heat_api_container-3ca87b11 -> 172.29.236.11]: FAILED! => {"changed": false, "failed": true, "msg": "The `lxc` module is not importable. Check the requirements."}
+fatal: [infra1_galera_container-11734601 -> 172.29.236.11]: FAILED! => {"changed": false, "failed": true, "msg": "The `lxc` module is not importable. Check the requirements."}
+fatal: [infra1_nova_api_container-f34593d8 -> 172.29.236.11]: FAILED! => {"changed": false, "failed": true, "msg": "The `lxc` module is not importable. Check the requirements."}
+fatal: [infra1_rabbit_mq_container-c34abfbe -> 172.29.236.11]: FAILED! => {"changed": false, "failed": true, "msg": "The `lxc` module is not importable. Check the requirements."}
+
+PLAY RECAP *****************************************************************************************************************************************************
+aio1                       : ok=0    changed=0    unreachable=1    failed=0   
+aio1_cinder_api_container-c5058329 : ok=0    changed=0    unreachable=1    failed=0   
+aio1_designate_container-0adb3958 : ok=0    changed=0    unreachable=1    failed=0   
+aio1_galera_container-ffeb3190 : ok=0    changed=0    unreachable=1    failed=0   
+aio1_glance_container-95d47c66 : ok=0    changed=0    unreachable=1    failed=0   
+aio1_heat_api_container-0d531822 : ok=0    changed=0    unreachable=1    failed=0   
+aio1_horizon_container-5d922e17 : ok=0    changed=0    unreachable=1    failed=0   
+aio1_keystone_container-249da988 : ok=0    changed=0    unreachable=1    failed=0   
+aio1_memcached_container-6405a10f : ok=0    changed=0    unreachable=1    failed=0   
+aio1_neutron_server_container-5a9d0180 : ok=0    changed=0    unreachable=1    failed=0   
+aio1_nova_api_container-a9c398e3 : ok=0    changed=0    unreachable=1    failed=0   
+aio1_rabbit_mq_container-fcc2a0c8 : ok=0    changed=0    unreachable=1    failed=0   
+aio1_repo_container-da809349 : ok=0    changed=0    unreachable=1    failed=0   
+aio1_rsyslog_container-d3f65cc9 : ok=0    changed=0    unreachable=1    failed=0   
+aio1_swift_proxy_container-ad4f8b12 : ok=0    changed=0    unreachable=1    failed=0   
+aio1_utility_container-67d3edf4 : ok=0    changed=0    unreachable=1    failed=0   
+compute1                   : ok=151  changed=25   unreachable=0    failed=0   
+infra1                     : ok=54   changed=2    unreachable=0    failed=1   
+infra1_cinder_api_container-6d9d4294 : ok=6    changed=2    unreachable=0    failed=1   
+infra1_galera_container-11734601 : ok=6    changed=2    unreachable=0    failed=1   
+infra1_glance_container-ed0fcd59 : ok=6    changed=2    unreachable=0    failed=1   
+infra1_heat_api_container-3ca87b11 : ok=6    changed=2    unreachable=0    failed=1   
+infra1_horizon_container-fbd3b559 : ok=6    changed=2    unreachable=0    failed=1   
+infra1_keystone_container-af9f1617 : ok=6    changed=2    unreachable=0    failed=1   
+infra1_memcached_container-7d277f71 : ok=6    changed=2    unreachable=0    failed=1   
+infra1_neutron_server_container-1dbe0b7a : ok=6    changed=2    unreachable=0    failed=1   
+infra1_nova_api_container-f34593d8 : ok=6    changed=2    unreachable=0    failed=1   
+infra1_rabbit_mq_container-c34abfbe : ok=6    changed=2    unreachable=0    failed=1   
+infra1_repo_container-1de92927 : ok=6    changed=2    unreachable=0    failed=1   
+infra1_utility_container-0674895c : ok=6    changed=2    unreachable=0    failed=1   
+storage1                   : ok=53   changed=2    unreachable=0    failed=1   
+
+Friday 26 July 2019  13:43:36 +0900 (0:00:06.224)       0:12:11.093 *********** 
+=============================================================================== 
+ansible-hardening : Ensure RPM verification task has finished ----------------------------------------------------------------------------------------- 171.34s
+lxc_container_create : Allow the usage of local facts ------------------------------------------------------------------------------------------------- 137.37s
+Ensure python is installed ----------------------------------------------------------------------------------------------------------------------------- 44.40s
+openstack_hosts : Drop hosts file entries script locally ----------------------------------------------------------------------------------------------- 28.73s
+openstack_hosts : Adding new system tuning ------------------------------------------------------------------------------------------------------------- 20.41s
+lxc_container_create : Container service directories --------------------------------------------------------------------------------------------------- 19.93s
+ansible-hardening : Check each user to see if its home directory exists on the filesystem -------------------------------------------------------------- 17.86s
+openstack_hosts : Load kernel module(s) ---------------------------------------------------------------------------------------------------------------- 17.38s
+ansible-hardening : Add or remove packages based on STIG requirements ---------------------------------------------------------------------------------- 17.23s
+pip_install : Install PIP ------------------------------------------------------------------------------------------------------------------------------ 15.56s
+lxc_container_create : LXC autodev setup --------------------------------------------------------------------------------------------------------------- 11.08s
+ansible-hardening : V-72269 - Synchronize system clock (configuration file) ----------------------------------------------------------------------------- 9.76s
+lxc_container_create : Gather variables for each operating system --------------------------------------------------------------------------------------- 9.58s
+lxc_container_create : Read custom facts from previous runs --------------------------------------------------------------------------------------------- 8.94s
+ansible-hardening : Set sysctl configurations ----------------------------------------------------------------------------------------------------------- 7.16s
+lxc_container_create : Create container (dir) ----------------------------------------------------------------------------------------------------------- 6.22s
+openstack_hosts : Write list of modules to load at boot ------------------------------------------------------------------------------------------------- 4.88s
+ansible-hardening : Adjust auditd/audispd configurations ------------------------------------------------------------------------------------------------ 3.75s
+openstack_hosts : If a keyfile is provided, copy the gpg keyfile to the key location -------------------------------------------------------------------- 3.54s
+ansible-hardening : Deploy rules for auditd based on STIG requirements ---------------------------------------------------------------------------------- 3.24s
+
+EXIT NOTICE [Playbook execution failure] **************************************
+===============================================================================
+
+
+[root@storage ~]# rpm -qa
+error: rpmdb: BDB0113 Thread/process 5878/139940613572672 failed: BDB1507 Thread died in Berkeley DB library
+error: db5 error(-30973) from dbenv->failchk: BDB0087 DB_RUNRECOVERY: Fatal error, run database recovery
+error: cannot open Packages index using db5 -  (-30973)
+error: cannot open Packages database in /var/lib/rpm
+error: rpmdb: BDB0113 Thread/process 5878/139940613572672 failed: BDB1507 Thread died in Berkeley DB library
+error: db5 error(-30973) from dbenv->failchk: BDB0087 DB_RUNRECOVERY: Fatal error, run database recovery
+error: cannot open Packages database in /var/lib/rpm
+[root@storage ~]# rm -f /var/lib/rpm/__db.00*
+[root@storage ~]# rpm --rebuilddb
+[root@storage ~]# yum-complete-transaction 
+Loaded plugins: fastestmirror, priorities, rpm-warm-cache
+Loading mirror speeds from cached hostfile
+ * base: mirror.navercorp.com
+ * epel: mirror.horizon.vn
+ * extras: mirror.navercorp.com
+ * updates: mirror.navercorp.com
+555 packages excluded due to repository priority protections
+There are 1 outstanding transactions to complete. Finishing the most recent one
+The remaining transaction had 5 elements left to run
+Package aide-0.15.1-13.el7.x86_64 already installed and latest version
+Package audispd-plugins-2.8.4-4.el7.x86_64 already installed and latest version
+--> Running transaction check
+---> Package dracut-fips.x86_64 0:033-554.el7 will be installed
+---> Package dracut-fips-aesni.x86_64 0:033-554.el7 will be installed
+---> Package hmaccalc.x86_64 0:0.9.13-4.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+==============================================================================================================================================================================================================================================================================
+ Package                                                                  Arch                                                          Version                                                             Repository                                                   Size
+==============================================================================================================================================================================================================================================================================
+Installing:
+ dracut-fips                                                              x86_64                                                        033-554.el7                                                         base                                                         61 k
+ dracut-fips-aesni                                                        x86_64                                                        033-554.el7                                                         base                                                         65 k
+ hmaccalc                                                                 x86_64                                                        0.9.13-4.el7                                                        base                                                         26 k
+
+Transaction Summary
+==============================================================================================================================================================================================================================================================================
+Install  3 Packages
+
+Total size: 152 k
+Installed size: 125 k
+Is this ok [y/d/N]: y
+Downloading packages:
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : hmaccalc-0.9.13-4.el7.x86_64                                                                                                                                                                                                                               1/3 
+  Installing : dracut-fips-033-554.el7.x86_64                                                                                                                                                                                                                             2/3 
+  Installing : dracut-fips-aesni-033-554.el7.x86_64                                                                                                                                                                                                                       3/3 
+  Verifying  : hmaccalc-0.9.13-4.el7.x86_64                                                                                                                                                                                                                               1/3 
+  Verifying  : dracut-fips-033-554.el7.x86_64                                                                                                                                                                                                                             2/3 
+  Verifying  : dracut-fips-aesni-033-554.el7.x86_64                                                                                                                                                                                                                       3/3 
+
+Installed:
+  dracut-fips.x86_64 0:033-554.el7                                                        dracut-fips-aesni.x86_64 0:033-554.el7                                                        hmaccalc.x86_64 0:0.9.13-4.el7                                                       
+
+Complete!
+Cleaning up completed transaction file
+[root@storage ~]#
+
+rpmdb는 왜 이리도 깨지는 것일까? 이유는 무엇일까?
+
+[root@deployer playbooks]# cat setup-hosts.yml 
+---
+# Copyright 2014, Rackspace US, Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+- include: openstack-hosts-setup.yml
+# - include: security-hardening.yml
+- include: containers-deploy.yml
+[root@deployer playbooks]# 
+
+/etc/hosts 가 문제였을까?
+aio으로 설치되었던 잔재가 문제가 되었을 소지가 있다. 
+
+- [X] add more memory and cpu to compute
+  - kswapd0 또 올라왔다. 
+
+#+BEGIN_SRC 
+top - 15:18:29 up  1:50,  1 user,  load average: 4.15, 3.03, 2.07
+Tasks: 348 total,   6 running, 342 sleeping,   0 stopped,   0 zombie
+%Cpu(s): 93.4 us,  5.3 sy,  0.0 ni,  0.0 id,  0.0 wa,  0.0 hi,  1.2 si,  0.0 st
+KiB Mem :  1881840 total,    82308 free,   745796 used,  1053736 buff/cache
+KiB Swap:  1572860 total,  1464564 free,   108296 used.   845500 avail Mem 
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND                                                                                    
+23559 root      20   0  414184 112496   9464 R  91.4  6.0   0:12.10 python   
+#+END_SRC
+
+- [X] care about facts at /etc/openstack_deploy/ansible_facts/
+  - 25일 어제 밤 9시 34분에서 부터
+
+다시 또 다시 그리고 또 다시다.
+
+ls
+ls -l
+ls -al
+ls -ltr
+ls -altr
+ls -lR
+ls -lR | grep x
+
+
+- [X] 개별서버의 /etc/hosts도 확인 필요하다, 제거 대상인가?
+- [ ] lxc howto
+
+* then again
+
+- [X] openstack-ansible setup-infrastructure.yml --syntax-check
+- [ ] openstack-ansible setup-hosts.yml
+
+infra1 is the 'control' but who name it?
+compute1
+storage1
+
+ASK [Ensure python is installed] ******************************************************************************************************************************
+Friday 26 July 2019  15:30:34 +0900 (0:00:01.871)       0:00:01.871 *********** 
+ok: [infra1]
+ok: [compute1]
+ok: [storage1]
+fatal: [aio1]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 172.29.236.100 port 22: No route to host\r\n", "unreachable": true}
+
+
+/tmp/
+
+TASK [Ensure python is installed] ******************************************************************************************************************************
+Friday 26 July 2019  15:36:09 +0900 (0:00:01.239)       0:00:01.239 *********** 
+ok: [compute1]
+ok: [infra1]
+ok: [storage1]
+fatal: [aio1]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: 
+ssh: connect to host 172.29.236.100 port 22: No route to host\r\n", "unreachable": true}
+
+
+
+- name: Install Ansible prerequisites
+  hosts: "{{ openstack_host_group|default('hosts') }}"
+  gather_facts: false
+  user: root
+  pre_tasks:
+    - name: Ensure python is installed
+      register: result
+      raw: |
+        if which apt-get >/dev/null && ! which python >/dev/null ; then
+          apt-get -y install python
+          exit 2
+        else
+          exit 0
+        fi
+      changed_when: "result.rc == 2"
+      failed_when: "result.rc not in [0, 2]"
+
+
+
+https://stackoverflow.com/questions/42971296/usage-of-variable-and-role-in-openstack-ansible
+
+* then again, 다시
+
+- [X] script/bootstrap-ansible.sh
+- [X] openstack-ansible setup-infrastructure.yml --syntax-check
+- [ ] openstack-ansible setup-hosts.yml
+
+이제는 Ensure python is installed에서 aio1에 대한 실패는 뜨지 않겠지? 인데
+서 있다. 설마!
+
+또 떴다. aio1 그리고 172.29.236.100
+
+rpm 또 깨질까? 그러면 그때 comment
+
+# Bind the External VIP
+auto br-mgmt:0
+iface br-mgmt:0 inet static
+    address 172.29.236.10
+    netmask 255.255.252.0
+
+global_overrides:
+  # The internal and external VIP should be different IPs, however they
+  # do not need to be on separate networks.
+  external_lb_vip_address: 172.29.236.10
+
+https://docs.openstack.org/openstack-ansible/queens/user/test/example.html
+
+
+[root@deployer openstack_deploy]# cat /etc/sysconfig/network-scripts/ifcfg-br-mgmt 
+BOOTPROTO=none
+ONBOOT=yes
+DEVICE=br-mgmt
+TYPE=Bridge
+IPADDR=172.29.236.3
+PREFIX=22
+[root@deployer openstack_deploy]# 
+
+https://ma.ttias.be/how-to-add-secondary-ip-alias-on-network-interface-in-rhel-centos-7/
+
+# cat /etc/sysconfig/network-scripts/ifcfg-br-mgmt:0
+BOOTPROTO=none
+ONBOOT=yes
+DEVICE=br-mgmt:0
+TYPE=Bridge
+IPADDR=172.29.236.10
+PREFIX=22
+
+그런데 어디에 두어야 하는가?
+
+TASK [Ensure python is installed] ********************************************************************************************************************************************************************************************************************************************
+task path: /opt/openstack-ansible/playbooks/openstack-hosts-setup.yml:27
+Friday 26 July 2019  16:47:53 +0900 (0:00:01.302)       0:00:01.302 *********** 
+<aio1> The "physical_host" variable of "aio1" has been found to have a corresponding host entry in inventory.
+<aio1> The "physical_host" variable of "aio1" terminates at "172.29.236.100" using the host variable "ansible_host".
+container_name: "aio1"
+physical_host: "aio1"
+container_name: "aio1"
+physical_host: "aio1"
+<172.29.236.100> ESTABLISH SSH CONNECTION FOR USER: root
+<172.29.236.100> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o User=root -o ConnectTimeout=5 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o ServerAliveInterval=64 -o ServerAliveCountMax=1024 -o Compression=no -o TCPKeepAlive=yes -o VerifyHostKeyDNS=no -o ForwardX11=no -o ForwardAgent=yes -T -o ControlPath=/root/.ansible/cp/53b4b74265 -tt 172.29.236.100 'if which apt-get >/dev/null && ! which python >/dev/null ; then
+ apt-get -y install python
+ exit 2
+ else
+ exit 0
+ fi'
+
+
+https://docs.openstack.org/openstack-ansible/pike/reference/manage-inventory.html
+
+[root@deployer openstack_deploy]# cat openstack_inventory.json.old | grep 100
+                "ansible_host": "172.29.236.100",
+		
+
+https://docs.openstack.org/openstack-ansible/latest/reference/inventory/manage-inventory.html
+
+Never edit or delete the files /etc/openstack_deploy/openstack_inventory.json or /etc/openstack_deploy/openstack_hostnames_ips.yml. This can lead to file corruptions, and problems with the inventory: hosts and container could disappear and new ones would appear, breaking your existing deployment.
+
+/etc/openstack-x
+/opt/openstack-x
+
+cleaning then again
+
+* again from the beginning without reinstall os
+
+using pre.sh
+

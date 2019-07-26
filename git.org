@@ -31,6 +31,24 @@ cd taeyoungchoon.github.io
 git status
 #+END_SRC
 
+* now
+
+#+BEGIN_SRC sh
+git clone https://github.com/taeyoungchoon/t-openstack.git
+cd t-openstack
+git config user.name "taeyoungchoon"
+git config user.email "taeyoungchoon@gmail.com"
+git config --global push.default simple
+git config --global credential.helper store
+git pull
+#+END_SRC
+
+#+BEGIN_SRC 
+git push
+Username for 'https://github.com': taeyoungchoon@gmail.com
+Password for 'https://taeyoungchoon@gmail.com@github.com': N 
+#+END_SRC
+
 * init
 
 #+BEGIN_SRC sh
