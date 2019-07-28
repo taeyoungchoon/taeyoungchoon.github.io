@@ -1276,3 +1276,534 @@ Operation Complete, [ /etc/openstack_deploy/user_secrets.yml ] is ready
 * galera then again
 
 [2019-07-26 금 23:41] 오늘은 이만하고 잘까? 이건 어쩌나? 두면 될까? 얼마나 걸리려나?
+* done
+
+PLAY [Ensure rabbitmq user for monitoring GUI] ***************************************************************************
+
+TASK [Create rabbitmq user for monitoring GUI] ***************************************************************************
+Saturday 27 July 2019  00:21:01 +0900 (0:00:00.438)       0:40:02.521 ********* 
+changed: [infra1_rabbit_mq_container-76ec7893]
+ [WARNING]: Could not match supplied host pattern, ignoring: etcd_all
+
+
+PLAY [Install etcd server cluster] ***************************************************************************************
+skipping: no hosts matched
+ [WARNING]: Could not match supplied host pattern, ignoring: ceph-mon
+
+
+PLAY [Install ceph mons] *************************************************************************************************
+skipping: no hosts matched
+ [WARNING]: Could not match supplied host pattern, ignoring: ceph-osd
+
+
+PLAY [Install ceph osds] *************************************************************************************************
+skipping: no hosts matched
+ [WARNING]: Could not match supplied host pattern, ignoring: rsyslog
+
+
+PLAY [Install rsyslog] ***************************************************************************************************
+skipping: no hosts matched
+
+PLAY RECAP ***************************************************************************************************************
+compute1                   : ok=18   changed=0    unreachable=0    failed=0   
+infra1                     : ok=48   changed=0    unreachable=0    failed=0   
+infra1_cinder_api_container-179eba5a : ok=9    changed=0    unreachable=0    failed=0   
+infra1_galera_container-5103f3b8 : ok=83   changed=40   unreachable=0    failed=0   
+infra1_glance_container-9e87261d : ok=9    changed=0    unreachable=0    failed=0   
+infra1_heat_api_container-1e3d12d9 : ok=9    changed=0    unreachable=0    failed=0   
+infra1_horizon_container-280f6f5a : ok=9    changed=0    unreachable=0    failed=0   
+infra1_keystone_container-3c65c331 : ok=9    changed=0    unreachable=0    failed=0   
+infra1_memcached_container-21e6d45f : ok=34   changed=1    unreachable=0    failed=0   
+infra1_neutron_server_container-47a7eec0 : ok=9    changed=0    unreachable=0    failed=0   
+infra1_nova_api_container-758f0659 : ok=9    changed=0    unreachable=0    failed=0   
+infra1_rabbit_mq_container-76ec7893 : ok=84   changed=41   unreachable=0    failed=0   
+infra1_repo_container-a2b512e9 : ok=143  changed=8    unreachable=0    failed=0   
+infra1_utility_container-8de920e2 : ok=32   changed=5    unreachable=0    failed=0   
+localhost                  : ok=1    changed=1    unreachable=0    failed=0   
+storage1                   : ok=9    changed=0    unreachable=0    failed=0   
+
+Saturday 27 July 2019  00:21:16 +0900 (0:00:14.346)       0:40:16.867 ********* 
+=============================================================================== 
+galera_server : Install galera_server role remote packages ----------------------------------------------------- 1627.36s
+rabbitmq_server : Ensure RabbitMQ node [0] is stopped ------------------------------------------------------------ 95.15s
+rabbitmq_server : Install RabbitMQ packages ---------------------------------------------------------------------- 41.08s
+haproxy_server : Create haproxy service config files ------------------------------------------------------------- 27.78s
+rabbitmq_server : Configure rabbitmq plugins --------------------------------------------------------------------- 22.86s
+rabbitmq_server : Ensure RabbitMQ node [0] is started ------------------------------------------------------------ 22.44s
+rabbitmq_server : Ensure RabbitMQ node [0] is started ------------------------------------------------------------ 19.84s
+rabbitmq_server : Ensure RabbitMQ node [0] is started ------------------------------------------------------------ 17.11s
+rabbitmq_server : Install yum versionlock plugin ----------------------------------------------------------------- 16.97s
+rabbitmq_server : Ensure default rabbitmq guest user is removed -------------------------------------------------- 14.47s
+Create rabbitmq user for monitoring GUI -------------------------------------------------------------------------- 14.35s
+galera_server : Run galera secure -------------------------------------------------------------------------------- 13.84s
+haproxy_server : Install HAProxy Packages ------------------------------------------------------------------------ 12.46s
+galera_server : Apply systemd options ---------------------------------------------------------------------------- 11.51s
+rabbitmq_server : Ensure RabbitMQ node [0] is stopped ------------------------------------------------------------ 11.24s
+pip_install : Install PIP ---------------------------------------------------------------------------------------- 10.99s
+repo_build : Create venv build options files --------------------------------------------------------------------- 10.70s
+galera_server : Start new cluster -------------------------------------------------------------------------------- 10.55s
+haproxy_server : Remove haproxy service config files for absent services ------------------------------------------ 9.60s
+repo_build : Install packages ------------------------------------------------------------------------------------- 7.54s
+
+EXIT NOTICE [Playbook execution success] **************************************
+===============================================================================
+You have mail in /var/spool/mail/root
+? timed out waiting for input: auto-logout
+[vagrant@deployer ~]$ 
+
+
+앗 아직이다.
+
+
+
+
+[root@deployer playbooks]# openstack-ansible setup-openstack.yml 
+
+
+TASK [os_nova : Install required pip packages] ***************************************************************************
+Saturday 27 July 2019  01:06:11 +0900 (0:00:00.032)       0:24:45.984 ********* 
+
+TASK [os_nova : Set SELinux file contexts for nova's ssh keys] ***********************************************************
+Saturday 27 July 2019  01:07:18 +0900 (0:00:00.087)       0:25:53.501 ********* 
+fatal: [compute1]: FAILED! => {"changed": false, "failed": true, "msg": "This module requires policycoreutils-python"}
+
+RUNNING HANDLER [os_nova : Stop services] ********************************************************************************
+Saturday 27 July 2019  01:07:19 +0900 (0:00:00.610)       0:25:54.111 ********* 
+FAILED - RETRYING: Stop services (5 retries left).
+FAILED - RETRYING: Stop services (4 retries left).
+FAILED - RETRYING: Stop services (3 retries left).
+FAILED - RETRYING: Stop services (2 retries left).
+FAILED - RETRYING: Stop services (1 retries left).
+failed: [compute1] (item={u'init_config_overrides': {}, u'service_name': u'nova-compute', u'start_order': 5, u'group': u'nova_compute', 'service_key': u'nova-compute'}) => {"attempts": 5, "changed": false, "failed": true, "item": {"group": "nova_compute", "init_config_overrides": {}, "service_key": "nova-compute", "service_name": "nova-compute", "start_order": 5}, "msg": "Could not find the requested service nova-compute: host"}
+
+RUNNING HANDLER [os_nova : Copy new policy file into place] **************************************************************
+Saturday 27 July 2019  01:07:32 +0900 (0:00:12.694)       0:26:06.806 ********* 
+
+RUNNING HANDLER [os_nova : Remove legacy policy.json file] ***************************************************************
+Saturday 27 July 2019  01:07:32 +0900 (0:00:00.034)       0:26:06.841 ********* 
+ok: [compute1]
+
+RUNNING HANDLER [os_nova : Start services] *******************************************************************************
+Saturday 27 July 2019  01:07:32 +0900 (0:00:00.369)       0:26:07.211 ********* 
+FAILED - RETRYING: Start services (5 retries left).
+FAILED - RETRYING: Start services (4 retries left).
+FAILED - RETRYING: Start services (3 retries left).
+FAILED - RETRYING: Start services (2 retries left).
+FAILED - RETRYING: Start services (1 retries left).
+failed: [compute1] (item={u'init_config_overrides': {}, u'service_name': u'nova-compute', u'start_order': 5, u'group': u'nova_compute', 'service_key': u'nova-compute'}) => {"attempts": 5, "changed": false, "failed": true, "item": {"group": "nova_compute", "init_config_overrides": {}, "service_key": "nova-compute", "service_name": "nova-compute", "start_order": 5}, "msg": "Could not find the requested service nova-compute: host"}
+
+RUNNING HANDLER [os_nova : Wait for the nova-compute service to initialize] **********************************************
+Saturday 27 July 2019  01:07:45 +0900 (0:00:12.645)       0:26:19.857 ********* 
+skipping: [compute1]
+
+RUNNING HANDLER [os_nova : meta] *****************************************************************************************
+Saturday 27 July 2019  01:07:45 +0900 (0:00:00.133)       0:26:19.990 ********* 
+
+PLAY RECAP ***************************************************************************************************************
+compute1                   : ok=37   changed=21   unreachable=0    failed=3   
+infra1_cinder_api_container-179eba5a : ok=107  changed=58   unreachable=0    failed=0   
+infra1_glance_container-9e87261d : ok=86   changed=52   unreachable=0    failed=0   
+infra1_keystone_container-3c65c331 : ok=123  changed=66   unreachable=0    failed=0   
+infra1_nova_api_container-758f0659 : ok=98   changed=60   unreachable=0    failed=0   
+storage1                   : ok=72   changed=43   unreachable=0    failed=0   
+
+Saturday 27 July 2019  01:07:45 +0900 (0:00:00.022)       0:26:20.013 ********* 
+=============================================================================== 
+os_nova : Install distro packages ------------------------------------------------------------------------------- 188.37s
+Perform online data migrations ----------------------------------------------------------------------------------- 66.99s
+os_cinder : Install distro packages ------------------------------------------------------------------------------ 65.97s
+os_keystone : Install distro packages ---------------------------------------------------------------------------- 56.95s
+os_nova : Install required pip packages -------------------------------------------------------------------------- 37.00s
+os_nova : Synchronize the nova DB schema ------------------------------------------------------------------------- 33.08s
+os_cinder : Ensure cinder api is available ----------------------------------------------------------------------- 32.60s
+os_cinder : Install distro packages ------------------------------------------------------------------------------ 30.99s
+os_glance : Install distro packages ------------------------------------------------------------------------------ 29.85s
+os_nova : Install distro packages -------------------------------------------------------------------------------- 28.45s
+os_nova : Install required pip packages -------------------------------------------------------------------------- 27.53s
+os_keystone : Wait for web server to complete starting ----------------------------------------------------------- 21.32s
+os_keystone : Wait for uWSGI socket to be ready ------------------------------------------------------------------ 21.22s
+Ensure rabbitmq user --------------------------------------------------------------------------------------------- 20.34s
+Ensure rabbitmq user --------------------------------------------------------------------------------------------- 17.36s
+Ensure rabbitmq user --------------------------------------------------------------------------------------------- 16.69s
+Ensure rabbitmq user --------------------------------------------------------------------------------------------- 15.63s
+os_cinder : Install requires pip packages ------------------------------------------------------------------------ 15.53s
+Ensure Rabbitmq vhost -------------------------------------------------------------------------------------------- 14.13s
+os_nova : Unarchive pre-built venv ------------------------------------------------------------------------------- 13.93s
+
+EXIT NOTICE [Playbook execution failure] **************************************
+===============================================================================
+[root@deployer playbooks]# 
+
+[root@compute ~]# yum install policycoreutils-python -y
+
+어 이거 그분이 올려놓은 글에서 확인한 내용인데
+
+오래 걸린다. 이유는
+
+control 8g 중 150m free, cpu hot with python, swap 427m using
+compute 2g 중 822m free . 504m free.
+storage 2g 중 645m free
+
+[vagrant@compute ~]$ pstree -p
+systemd(1)─┬─VBoxService(833)─┬─{VBoxService}(835)
+           │                  ├─{VBoxService}(836)
+           │                  ├─{VBoxService}(837)
+           │                  ├─{VBoxService}(838)
+           │                  ├─{VBoxService}(839)
+           │                  ├─{VBoxService}(840)
+           │                  └─{VBoxService}(841)
+           ├─agetty(736)
+           ├─auditd(646)───{auditd}(647)
+           ├─chronyd(689)
+           ├─crond(729)
+           ├─dbus-daemon(680)───{dbus-daemon}(705)
+           ├─dhclient(1049)
+           ├─gssproxy(696)─┬─{gssproxy}(697)
+           │               ├─{gssproxy}(698)
+           │               ├─{gssproxy}(699)
+           │               ├─{gssproxy}(700)
+           │               └─{gssproxy}(701)
+           ├─irqbalance(711)
+           ├─libvirtd(8117)─┬─{libvirtd}(8118)
+           │                ├─{libvirtd}(8119)
+           │                ├─{libvirtd}(8120)
+           │                ├─{libvirtd}(8121)
+           │                ├─{libvirtd}(8122)
+           │                ├─{libvirtd}(8123)
+           │                ├─{libvirtd}(8124)
+           │                ├─{libvirtd}(8125)
+           │                ├─{libvirtd}(8126)
+           │                ├─{libvirtd}(8127)
+           │                ├─{libvirtd}(8128)
+           │                ├─{libvirtd}(8129)
+           │                ├─{libvirtd}(8130)
+           │                ├─{libvirtd}(8131)
+           │                ├─{libvirtd}(8132)
+           │                └─{libvirtd}(8137)
+           ├─lvmetad(492)
+
+
+[vagrant@storage ~]$ pstree -p
+systemd(1)─┬─VBoxService(834)─┬─{VBoxService}(836)
+           │                  ├─{VBoxService}(837)
+           │                  ├─{VBoxService}(838)
+           │                  ├─{VBoxService}(839)
+           │                  ├─{VBoxService}(840)
+           │                  ├─{VBoxService}(841)
+           │                  └─{VBoxService}(842)
+           ├─agetty(728)
+           ├─auditd(649)───{auditd}(650)
+           ├─chronyd(696)
+           ├─cinder-volume(6312)───cinder-volume(6323)
+
+
+[vagrant@control ~]$ pstree
+systemd─┬─VBoxService───7*[{VBoxService}]
+        ├─agetty
+        ├─auditd───{auditd}
+        ├─chronyd
+        ├─crond
+        ├─dbus-daemon───{dbus-daemon}
+        ├─dhclient
+        ├─dnsmasq
+        ├─gssproxy───5*[{gssproxy}]
+        ├─haproxy-systemd───haproxy───haproxy
+        ├─irqbalance
+        ├─lvmetad
+        ├─14*[lxc-autostart───systemd─┬─5*[agetty]]
+        │                             ├─crond]
+        │                             ├─dbus-daemon]
+        │                             ├─dhclient]
+        │                             ├─rsyslogd───2*[{rsyslogd}]]
+        │                             ├─sshd]
+        │                             ├─systemd-journal]
+        │                             └─systemd-logind]
+        ├─lxc-start───systemd─┬─5*[agetty]
+        │                     ├─anacron
+        │                     ├─crond
+        │                     ├─dbus-daemon
+        │                     ├─dhclient
+        │                     ├─rsyslogd───4*[{rsyslogd}]
+        │                     ├─sshd
+        │                     ├─systemd-journal
+        │                     ├─systemd-logind
+        │                     └─uwsgi───8*[uwsgi]
+        ├─lxc-start───systemd─┬─5*[agetty]
+        │                     ├─cinder-schedule
+        │                     ├─crond
+        │                     ├─dbus-daemon
+        │                     ├─dhclient
+        │                     ├─rsyslogd───4*[{rsyslogd}]
+        │                     ├─sshd
+        │                     ├─systemd-journal
+        │                     ├─systemd-logind
+        │                     └─uwsgi───9*[uwsgi]
+        ├─lxc-start───systemd─┬─5*[agetty]
+        │                     ├─beam.smp─┬─erl_child_setup───inet_gethost───inet_gethost
+        │                     │          └─135*[{beam.smp}]
+        │                     ├─crond
+        │                     ├─dbus-daemon
+        │                     ├─dhclient
+        │                     ├─epmd
+        │                     ├─rsyslogd───4*[{rsyslogd}]
+        │                     ├─sshd
+        │                     ├─systemd-journal
+        │                     └─systemd-logind
+        ├─2*[lxc-start───systemd─┬─5*[agetty]]
+        │                        ├─crond]
+        │                        ├─dbus-daemon]
+        │                        ├─dhclient]
+        │                        ├─rsyslogd───2*[{rsyslogd}]]
+        │                        ├─sshd]
+        │                        ├─systemd-journal]
+        │                        └─systemd-logind]
+        ├─lxc-start───systemd─┬─5*[agetty]
+        │                     ├─crond
+        │                     ├─dbus-daemon
+        │                     ├─dhclient
+        │                     ├─nova-conductor───2*[nova-conductor]
+        │                     ├─nova-consoleaut
+        │                     ├─nova-scheduler
+        │                     ├─nova-spicehtml5
+        │                     ├─rsyslogd───4*[{rsyslogd}]
+        │                     ├─sshd
+        │                     ├─systemd-journal
+        │                     ├─systemd-logind
+        │                     └─3*[uwsgi───9*[uwsgi]]
+        ├─lxc-start───systemd─┬─5*[agetty]
+        │                     ├─anacron
+        │                     ├─crond
+        │                     ├─dbus-daemon
+        │                     ├─dhclient
+        │                     ├─nginx───4*[nginx]
+        │                     ├─rsyslogd───4*[{rsyslogd}]
+        │                     ├─sshd
+        │                     ├─systemd-journal
+        │                     ├─systemd-logind
+        │                     └─2*[uwsgi───9*[uwsgi]]
+        ├─lxc-start───systemd─┬─5*[agetty]
+        │                     ├─crond
+        │                     ├─dbus-daemon
+        │                     ├─dhclient
+        │                     ├─memcached───9*[{memcached}]
+        │                     ├─rsyslogd───3*[{rsyslogd}]
+        │                     ├─sshd
+        │                     ├─systemd-journal
+        │                     └─systemd-logind
+        ├─lxc-start───systemd─┬─5*[agetty]
+        │                     ├─crond
+        │                     ├─dbus-daemon
+        │                     ├─dhclient
+        │                     ├─mysqld───77*[{mysqld}]
+        │                     ├─rsyslogd───4*[{rsyslogd}]
+        │                     ├─sshd
+        │                     ├─systemd-journal
+        │                     ├─systemd-logind
+        │                     └─xinetd
+        ├─lxc-start───systemd─┬─5*[agetty]
+        │                     ├─apt-cacher-ng───8*[{apt-cacher-ng}]
+        │                     ├─crond
+        │                     ├─dbus-daemon
+        │                     ├─dhclient
+        │                     ├─nginx───2*[nginx]
+        │                     ├─pypi-server───237*[{pypi-server}]
+        │                     ├─rsync
+        │                     ├─rsyslogd───4*[{rsyslogd}]
+        │                     ├─sshd
+        │                     ├─systemd-journal
+        │                     └─systemd-logind
+        ├─master─┬─pickup
+        │        └─qmgr
+        ├─polkitd───6*[{polkitd}]
+        ├─rpcbind
+        ├─rsyslogd───5*[{rsyslogd}]
+        ├─sshd─┬─sshd───lxc-attach───su───sh───sudo───sh───python───python───neutron-db-mana
+        │      └─sshd───sshd───bash───pstree
+        ├─systemd-journal
+        ├─systemd-logind
+        ├─systemd-udevd
+        └─tuned───4*[{tuned}]
+[vagrant@control ~]$ 
+
+
+[vagrant@control ~]$ brctl show
+bridge name	bridge id		STP enabled	interfaces
+br-mgmt		8000.0800277bd9b7	no		0674895c_eth1
+							11734601_eth1
+							179eba5a_eth1
+							1dbe0b7a_eth1
+							1de92927_eth1
+							1e3d12d9_eth1
+							21e6d45f_eth1
+							280f6f5a_eth1
+							3c65c331_eth1
+							3ca87b11_eth1
+							47a7eec0_eth1
+							5103f3b8_eth1
+							6d9d4294_eth1
+							758f0659_eth1
+							76ec7893_eth1
+							7d277f71_eth1
+							8de920e2_eth1
+							9e87261d_eth1
+							a2b512e9_eth1
+							af9f1617_eth1
+							c34abfbe_eth1
+							ed0fcd59_eth1
+							eth2
+							f34593d8_eth1
+							fbd3b559_eth1
+br-storage		8000.080027578616	no		179eba5a_eth2
+							6d9d4294_eth2
+							9e87261d_eth2
+							ed0fcd59_eth2
+							eth3
+br-vlan		8000.08002773a6ad	no		eth5
+br-vxlan		8000.08002705c2db	no		eth4
+lxcbr0		8000.fe018eacb221	no		0674895c_eth0
+							11734601_eth0
+							179eba5a_eth0
+							1dbe0b7a_eth0
+							1de92927_eth0
+							1e3d12d9_eth0
+							21e6d45f_eth0
+							280f6f5a_eth0
+							3c65c331_eth0
+							3ca87b11_eth0
+							47a7eec0_eth0
+							5103f3b8_eth0
+							6d9d4294_eth0
+							758f0659_eth0
+							76ec7893_eth0
+							7d277f71_eth0
+							8de920e2_eth0
+							9e87261d_eth0
+							a2b512e9_eth0
+							af9f1617_eth0
+							c34abfbe_eth0
+							ed0fcd59_eth0
+							f34593d8_eth0
+							fbd3b559_eth0
+[vagrant@control ~]$ 
+
+
+[vagrant@control ~]$ vmstat 1
+procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
+ 2  0 440320 213348     12 748712    2    9   164   397  425  287 13  3 84  0  0
+ 2  1 440320 201604     12 751284    0    0  2508  1156 3475 1967 25  7 67  1  0
+ 2  0 440320 182640     12 752116    0    0   916    26 4149 1773 39  9 52  1  0
+ 2  0 440320 186440     12 752800    0    0   692    72 3376 1663 33  5 61  1  0
+ 4  0 440320 184704     12 752812    0    0     0   270 3459 2000 27  6 67  0  0
+ 2  0 440320 166272     12 753052    0    0    56    53 3814 1554 41  6 52  0  0
+ 2  0 440320 162864     12 753004    0    0     0  1210 3166 1867 31  5 64  0  0
+ 2  0 440320 151388     12 754352    0    0  1216    20 3615 1399 36  5 58  0  0
+ 1  0 440320 161224     12 754052    0    0    80   634 4544 1638 33  7 60  0  0
+ 1  2 440320 137180     12 761680    0    0  7320     8 3678 1792 28  8 62  3  0
+ 2  0 443392 137968     12 743380    0 3040  8608  3564 5945 1682 43  9 45  3  0
+ 2  0 443392 133388     12 745172    0    0  2688     0 3443 1544 38  5 56  1  0
+ 2  0 443392 149232     12 746232    0    0   872    54 4330 1513 35  7 58  1  0
+ 2  0 443392 130172     12 746328    0    0   344  1330 4548 2177 32  9 58  0  0
+^C
+[vagrant@control ~]$ 
+
+30분째 돌고 있다.
+
+* again from 
+
+ssh 로그인도 안된다. control
+
+TASK [rsyslog_client : Write rsyslog config for converting logs into syslog messages] *******************************
+Saturday 27 July 2019  01:55:46 +0900 (0:00:09.138)       0:44:58.925 ********* 
+
+virtualbox에서 붙으려 한다.
+control login: root
+[x.x] Out of memory: Kill proces 14818 (mysqld) score 74 or sacrifice child
+[x.x] Killed process 14818 (mysqld) 
+
+top - 02:04:44 up  4:39,  1 user,  load average: 57.54, 100.26, 57.39
+Tasks: 625 total,   2 running, 623 sleeping,   0 stopped,   0 zombie
+%Cpu(s): 27.2 us,  4.0 sy,  0.0 ni, 64.6 id,  3.0 wa,  0.0 hi,  1.2 si,  0.0 st
+KiB Mem :  8008928 total,   126948 free,  7355084 used,   526896 buff/cache
+KiB Swap:  1572860 total,        8 free,  1572852 used.   135696 avail Mem 
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND                                                              
+ 3697 neutron   20   0  333168  68112   6408 R  99.7  0.9   0:06.19 neutron-linuxbr     
+
+
+TASK [Create DB for service] ****************************************************************************************
+Saturday 27 July 2019  02:04:08 +0900 (0:00:00.268)       0:53:20.255 ********* 
+fatal: [infra1_horizon_container-280f6f5a]: FAILED! => {"censored": "the output has been hidden due to the fact that 'no_log: true' was specified for this result", "changed": false, "failed": true}
+
+PLAY RECAP **********************************************************************************************************
+compute1                   : ok=162  changed=66   unreachable=0    failed=0   
+infra1                     : ok=71   changed=38   unreachable=0    failed=0   
+infra1_cinder_api_container-179eba5a : ok=78   changed=1    unreachable=0    failed=0   
+infra1_glance_container-9e87261d : ok=67   changed=2    unreachable=0    failed=0   
+infra1_heat_api_container-1e3d12d9 : ok=82   changed=54   unreachable=0    failed=0   
+infra1_horizon_container-280f6f5a : ok=10   changed=4    unreachable=0    failed=1   
+infra1_keystone_container-3c65c331 : ok=103  changed=6    unreachable=0    failed=0   
+infra1_neutron_server_container-47a7eec0 : ok=77   changed=48   unreachable=0    failed=0   
+infra1_nova_api_container-758f0659 : ok=95   changed=13   unreachable=0    failed=0   
+localhost                  : ok=0    changed=0    unreachable=0    failed=0   
+storage1                   : ok=50   changed=1    unreachable=0    failed=0   
+
+Saturday 27 July 2019  02:04:11 +0900 (0:00:02.875)       0:53:23.131 ********* 
+=============================================================================== 
+rsyslog_client : Write rsyslog config for converting logs into syslog messages ----------------------------- 469.70s
+os_neutron : Install neutron role packages ------------------------------------------------------------------ 84.38s
+os_neutron : Install neutron role packages ------------------------------------------------------------------ 55.38s
+os_neutron : Copy neutron rootwrap filters ------------------------------------------------------------------ 42.18s
+os_neutron : Copy neutron rootwrap filters ------------------------------------------------------------------ 36.62s
+Execute service action -------------------------------------------------------------------------------------- 35.25s
+Ensure rabbitmq user ---------------------------------------------------------------------------------------- 33.62s
+os_heat : Install requires pip packages --------------------------------------------------------------------- 31.56s
+os_neutron : Install requires pip packages ------------------------------------------------------------------ 29.48s
+os_nova : Compile new SELinux policy ------------------------------------------------------------------------ 28.90s
+os_nova : Perform a cell_v2 discover ------------------------------------------------------------------------ 27.59s
+Perform online data migrations ------------------------------------------------------------------------------ 24.39s
+os_nova : Create the cell1 mapping entry in the nova API DB ------------------------------------------------- 23.65s
+os_nova : Create the cell0 mapping entry in the nova API DB ------------------------------------------------- 23.47s
+os_neutron : Perform a DB expand ---------------------------------------------------------------------------- 23.17s
+os_nova : Synchronize the nova DB schema -------------------------------------------------------------------- 22.99s
+os_neutron : Unarchive pre-built venv ----------------------------------------------------------------------- 22.84s
+os_nova : Synchronize the nova API DB schema ---------------------------------------------------------------- 22.84s
+os_heat : Install distro packages --------------------------------------------------------------------------- 22.19s
+os_nova : Stop services ------------------------------------------------------------------------------------- 19.86s
+
+EXIT NOTICE [Playbook execution failure] **************************************
+===============================================================================
+[root@deployer playbooks]# 
+[root@deployer playbooks]# 
+
+* TODO finally have to 
+
+
+lxc-ls | grep utility
+
+lxc-attach -n infra1_utility_container-x
+
+openstack user list --os-cloud=default
+
+
+
+Verifying the Dashboard (horizon)¶
+
+    With a web browser, access the Dashboard by using the external load balancer IP address defined by the external_lb_vip_address option in the /etc/openstack_deploy/openstack_user_config.yml file. The Dashboard uses HTTPS on port 443.
+    Authenticate by using the admin user name and the password defined by the keystone_auth_admin_password option in the /etc/openstack_deploy/user_secrets.yml file.
+
+* again
+
+- rpmdb broken again
+
+#+BEGIN_SRC 
+rm -f /var/lib/rpm/__db.00*
+rpm --rebuilddb
+#+END_SRC
+
+- since the beginning, openstack-ansible setup-host.yml at playbook
+
+#+BEGIN_SRC 
+cd /opt/openstack-ansible/playbook/
+openstack-ansible setup-host.yml
+#+END_SRC
