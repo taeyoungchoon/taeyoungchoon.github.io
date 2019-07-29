@@ -1776,22 +1776,6 @@ EXIT NOTICE [Playbook execution failure] **************************************
 [root@deployer playbooks]# 
 [root@deployer playbooks]# 
 
-* TODO finally have to 
-
-
-lxc-ls | grep utility
-
-lxc-attach -n infra1_utility_container-x
-
-openstack user list --os-cloud=default
-
-
-
-Verifying the Dashboard (horizon)¶
-
-    With a web browser, access the Dashboard by using the external load balancer IP address defined by the external_lb_vip_address option in the /etc/openstack_deploy/openstack_user_config.yml file. The Dashboard uses HTTPS on port 443.
-    Authenticate by using the admin user name and the password defined by the keystone_auth_admin_password option in the /etc/openstack_deploy/user_secrets.yml file.
-
 * again
 
 - rpmdb broken again
@@ -1814,3 +1798,602 @@ TASK [lxc_hosts : Ensure image has been pre-staged] ****************************
 Monday 29 July 2019  11:12:02 +0900 (0:00:01.081)       0:05:12.154 ***********
 fatal: [infra1]: FAILED! => {"ansible_job_id": "559411145086.25886", "attempts": 1, "changed": true, "cmd": "
 aria2c --max-connection-per-server=4 --allow-overwrite=true --dir=/tmp --out=rootfs.tar.xz --check-certificate=true https://us.images.linuxcontainers.org/images/centos/7/amd64/default/20190728_07:08/rootfs.tar.xz https://uk.images.linuxcontainers.org/images/centos/7/amd64/default/20190728_07:08/rootfs.tar.xz  > /var/log/aria2c-image-prestage.log 2>&1", "delta": "0:00:01.482925", "end": "2019-07-29 11:10:56.046070", "failed": true, "finished": 1, "msg": "non-zero return code", "rc": 1, "start": "2019-07-29 11:10:54.563145", "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+
+aria2c again 
+
+ls /tmp/rootfs*
+rm /tmp/rootfs*
+
+명령어만을 따로 추출하여 시도하였다. 실패?
+/tmp의 rootfs* 파일을 삭제하고 다시 시도하였다. 성공!
+openstack-ansible setup-host.yml 
+again
+
+잘 될것 같다.
+
+실패는 성공의 어머니라고들 이야기한다.
+실패하지 않으면 알 수 없다. 속을 알 수 없다.
+실패하고 실패하고 그렇게 하면 속을 이해하게 된다.
+
+aria2c를 사용하는 군요. 병렬전송 관련 전송이다. 아이서브 시절 확인하였다. 여기서 다시 보게 된다. 좋다. 하오. 好
+
+지나갔다. 5분이 지났다. 다음 단계를 진행하고 있다. 헌하오. 
+
+* control > high load of neutron-linuxbr rel
+* DONE host done
+
+PLAY RECAP **********************************************************************************************************************************************************************************************************************************compute1                   : ok=50   changed=2    unreachable=0    failed=0
+infra1                     : ok=138  changed=27   unreachable=0    failed=0
+infra1_cinder_api_container-179eba5a : ok=68   changed=6    unreachable=0    failed=0
+infra1_galera_container-5103f3b8 : ok=68   changed=6    unreachable=0    failed=0
+infra1_glance_container-9e87261d : ok=68   changed=6    unreachable=0    failed=0
+infra1_heat_api_container-1e3d12d9 : ok=68   changed=6    unreachable=0    failed=0
+infra1_horizon_container-280f6f5a : ok=78   changed=6    unreachable=0    failed=0
+infra1_keystone_container-3c65c331 : ok=68   changed=6    unreachable=0    failed=0
+infra1_memcached_container-21e6d45f : ok=68   changed=6    unreachable=0    failed=0
+infra1_neutron_server_container-47a7eec0 : ok=68   changed=6    unreachable=0    failed=0
+infra1_nova_api_container-758f0659 : ok=68   changed=6    unreachable=0    failed=0
+infra1_rabbit_mq_container-76ec7893 : ok=71   changed=6    unreachable=0    failed=0
+infra1_repo_container-a2b512e9 : ok=68   changed=6    unreachable=0    failed=0
+infra1_utility_container-8de920e2 : ok=68   changed=6    unreachable=0    failed=0
+storage1                   : ok=40   changed=2    unreachable=0    failed=0
+
+Monday 29 July 2019  11:46:50 +0900 (0:00:02.102)       0:26:03.998 ***********
+===============================================================================
+openstack_hosts : Add requirement packages (repositories gpg keys packages, toolkits...) ------------------------------------------------------------------------------------------------------------------------------------------- 179.04s
+lxc_hosts : Ensure that the LXC cache has been prepared ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 118.12s
+lxc_container_create : Write default container config ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 78.57s
+lxc_hosts : Place container rootfs -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 66.91s
+lxc_container_create : Container service directories -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 37.07s
+lxc_hosts : Create lxc image -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 28.49s
+lxc_hosts : Ensure createrepo package is installed ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 26.87s
+lxc_container_create : Run container veth wiring script ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 24.74s
+openstack_hosts : Adding new system tuning ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ 23.75s
+lxc_container_create : Read custom facts from previous runs ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 22.40s
+openstack_hosts : Load kernel module(s) --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 21.58s
+lxc_container_create : Gather variables for each operating system ------------------------------------------------------------------------------------------------------------------------------------------------------------------- 21.40s
+lxc_container_create : LXC host config for container networks ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- 20.58s
+lxc_container_create : Defines a pre and post hook script --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 20.55s
+pip_install : Install PIP ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 19.98s
+lxc_container_create : LXC autodev setup -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 18.78s
+lxc_container_create : Drop veth cleanup script ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 17.68s
+openstack_hosts : If a keyfile is provided, copy the gpg keyfile to the key location ------------------------------------------------------------------------------------------------------------------------------------------------ 16.58s
+lxc_container_create : Create wiring script ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 15.70s
+openstack_hosts : Drop hosts file entries script locally ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 13.80s
+
+EXIT NOTICE [Playbook execution success] **************************************
+===============================================================================
+
+* DONE setup-infrastructure.yml again takes 15m 
+
+PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+compute1                   : ok=18   changed=0    unreachable=0    failed=0
+infra1                     : ok=48   changed=0    unreachable=0    failed=0
+infra1_cinder_api_container-179eba5a : ok=9    changed=0    unreachable=0    failed=0
+infra1_galera_container-5103f3b8 : ok=74   changed=4    unreachable=0    failed=0
+infra1_glance_container-9e87261d : ok=9    changed=0    unreachable=0    failed=0
+infra1_heat_api_container-1e3d12d9 : ok=9    changed=0    unreachable=0    failed=0
+infra1_horizon_container-280f6f5a : ok=9    changed=0    unreachable=0    failed=0
+infra1_keystone_container-3c65c331 : ok=9    changed=0    unreachable=0    failed=0
+infra1_memcached_container-21e6d45f : ok=35   changed=3    unreachable=0    failed=0
+infra1_neutron_server_container-47a7eec0 : ok=9    changed=0    unreachable=0    failed=0
+infra1_nova_api_container-758f0659 : ok=9    changed=0    unreachable=0    failed=0
+infra1_rabbit_mq_container-76ec7893 : ok=67   changed=7    unreachable=0    failed=0
+infra1_repo_container-a2b512e9 : ok=143  changed=5    unreachable=0    failed=0
+infra1_utility_container-8de920e2 : ok=32   changed=2    unreachable=0    failed=0
+localhost                  : ok=2    changed=1    unreachable=0    failed=0
+storage1                   : ok=9    changed=0    unreachable=0    failed=0
+
+Monday 29 July 2019  12:04:05 +0900 (0:00:06.088)       0:15:54.084 ***********
+===============================================================================
+haproxy_server : Create haproxy service config files -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 56.62s
+rabbitmq_server : Lock package versions --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 28.66s
+pip_install : Install PIP ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 22.72s
+repo_build : Create venv build options files ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 22.27s
+haproxy_server : Remove haproxy service config files for absent services ------------------------------------------------------------------------------------------------------------------------------------------------------------ 15.65s
+memcached_server : Install distro packages ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ 14.83s
+repo_build : Install packages ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 14.24s
+Load local packages ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 14.18s
+galera_server : Apply systemd options ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 13.00s
+pip_install : Drop pip config ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 12.43s
+Install pip packages ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 12.24s
+pip_install : Determine PIP installation script ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 11.58s
+repo_server : Git service data folder setup ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 11.24s
+pip_install : Create pip config directory ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 11.12s
+galera_server : Create galera users ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 10.39s
+haproxy_server : Install HAProxy Packages -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 9.93s
+Gathering Facts ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 9.70s
+galera_server : Install percona repo ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 9.31s
+pip_install : Install distro packages ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ 9.16s
+repo_server : Drop NGINX configuration files ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 8.55s
+
+EXIT NOTICE [Playbook execution success] **************************************
+
+* setup-openstack.yml ing
+** pstree of control
+
+#+BEGIN_SRC
+systemd-+-VBoxService---7*[{VBoxService}]
+        |-agetty
+        |-auditd---{auditd}
+        |-chronyd
+        |-crond
+        |-dbus-daemon---{dbus-daemon}
+        |-dhclient
+        |-dnsmasq
+        |-gssproxy---5*[{gssproxy}]
+        |-haproxy-systemd---haproxy---haproxy
+        |-irqbalance
+        |-lvmetad
+        |-14*[lxc-autostart---systemd-+-5*[agetty]]
+        |                             |-crond]
+        |                             |-dbus-daemon]
+        |                             |-dhclient]
+        |                             |-rsyslogd---2*[{rsyslogd}]]
+        |                             |-sshd]
+        |                             |-systemd-journal]
+        |                             `-systemd-logind]
+        |-lxc-autostart---systemd-+-5*[agetty]
+        |                         |-crond
+        |                         |-dbus-daemon
+        |                         |-dhclient
+        |                         |-mysqld---70*[{mysqld}]
+        |                         |-rsyslogd---4*[{rsyslogd}]
+        |                         |-sshd
+        |                         |-systemd-journal
+        |                         |-systemd-logind
+        |                         `-xinetd
+        |-lxc-autostart---systemd-+-5*[agetty]
+        |                         |-crond
+        |                         |-dbus-daemon
+        |                         |-dhclient
+        |                         |-nginx---4*[nginx]
+        |                         |-rsyslogd---4*[{rsyslogd}]
+        |                         |-sshd
+        |                         |-systemd-journal
+        |                         |-systemd-logind
+        |                         `-2*[uwsgi---9*[uwsgi]]
+        |-lxc-autostart---systemd-+-5*[agetty]
+        |                         |-beam.smp-+-erl_child_setup---inet_gethost---inet_gethost
+        |                         |          `-135*[{beam.smp}]
+        |                         |-crond
+        |                         |-dbus-daemon
+        |                         |-dhclient
+        |                         |-epmd
+        |                         |-rsyslogd---4*[{rsyslogd}]
+        |                         |-sshd
+        |                         |-systemd-journal
+        |                         `-systemd-logind
+        |-lxc-autostart---systemd-+-5*[agetty]
+        |                         |-crond
+        |                         |-dbus-daemon
+        |                         |-dhclient
+        |                         |-nova-conductor---2*[nova-conductor]
+        |                         |-nova-consoleaut
+        |                         |-nova-scheduler
+        |                         |-nova-spicehtml5
+        |                         |-rsyslogd---4*[{rsyslogd}]
+        |                         |-sshd
+        |                         |-systemd-journal
+        |                         |-systemd-logind
+        |                         `-3*[uwsgi---9*[uwsgi]]
+        |-lxc-autostart---systemd-+-5*[agetty]
+        |                         |-cinder-schedule
+        |                         |-crond
+        |                         |-dbus-daemon
+        |                         |-dhclient
+        |                         |-gssproxy---5*[{gssproxy}]
+        |                         |-rpcbind
+        |                         |-rsyslogd---4*[{rsyslogd}]
+        |                         |-sshd
+        |                         |-systemd-journal
+        |                         |-systemd-logind
+        |                         `-uwsgi---9*[uwsgi]
+        |-lxc-autostart---systemd-+-5*[agetty]
+        |                         |-crond
+        |                         |-dbus-daemon
+        |                         |-dhclient
+        |                         |-gssproxy---5*[{gssproxy}]
+        |                         |-rpcbind
+        |                         |-rsyslogd---4*[{rsyslogd}]
+        |                         |-sshd
+        |                         |-systemd-journal
+        |                         |-systemd-logind
+        |                         `-uwsgi---8*[uwsgi]
+        |-lxc-autostart---systemd-+-5*[agetty]
+        |                         |-crond
+        |                         |-dbus-daemon
+        |                         |-dhclient
+        |                         |-heat-engine---2*[heat-engine]
+        |                         |-rsyslogd---4*[{rsyslogd}]
+        |                         |-sshd
+        |                         |-systemd-journal
+        |                         |-systemd-logind
+        |                         `-2*[uwsgi---8*[uwsgi]]
+        |-lxc-autostart---systemd-+-5*[agetty]
+        |                         |-crond
+        |                         |-dbus-daemon
+        |                         |-dhclient
+        |                         |-memcached---9*[{memcached}]
+        |                         |-rsyslogd---3*[{rsyslogd}]
+        |                         |-sshd
+        |                         |-systemd-journal
+        |                         `-systemd-logind
+        |-lxc-autostart---systemd-+-5*[agetty]
+        |                         |-crond
+        |                         |-dbus-daemon
+        |                         |-dhclient
+        |                         |-neutron-server---5*[neutron-server]
+        |                         |-rsyslogd---4*[{rsyslogd}]
+        |                         |-sshd
+        |                         |-systemd-journal
+        |                         `-systemd-logind
+        |-lxc-autostart---systemd-+-5*[agetty]
+        |                         |-crond
+        |                         |-dbus-daemon
+        |                         |-dhclient
+        |                         |-nginx---2*[nginx]
+        |                         |-pypi-server---239*[{pypi-server}]
+        |                         |-rsync
+        |                         |-rsyslogd---4*[{rsyslogd}]
+        |                         |-sshd
+        |                         |-systemd-journal
+        |                         `-systemd-logind
+        |-master-+-pickup
+        |        `-qmgr
+        |-neutron-dhcp-ag
+        |-neutron-l3-agen
+        |-neutron-linuxbr
+        |-neutron-metadat---2*[neutron-metadat]
+        |-neutron-meterin
+        |-polkitd---6*[{polkitd}]
+        |-privsep-helper
+        |-rpcbind
+        |-rsyslogd---5*[{rsyslogd}]
+        |-sshd-+-sshd---sshd---bash---sudo---bash-+-less
+        |      |                                  `-pstree
+        |      `-sshd---lxc-attach---su---sh---python---python
+        |-systemd-journal
+        |-systemd-logind
+        |-systemd-machine
+        |-systemd-udevd
+        `-tuned---4*[{tuned}]
+#+END_SRC
+
+** pstree of compute
+
+#+BEGIN_SRC 
+systemd(1)-+-VBoxService(820)-+-{VBoxService}(821)
+           |                  |-{VBoxService}(822)
+           |                  |-{VBoxService}(823)
+           |                  |-{VBoxService}(824)
+           |                  |-{VBoxService}(825)
+           |                  |-{VBoxService}(826)
+           |                  `-{VBoxService}(827)
+           |-agetty(1605)
+           |-auditd(622)---{auditd}(623)
+           |-chronyd(668)
+           |-crond(1597)
+           |-dbus-daemon(660)---{dbus-daemon}(686)
+           |-dhclient(1040)
+           |-gssproxy(670)-+-{gssproxy}(675)
+           |               |-{gssproxy}(676)
+           |               |-{gssproxy}(677)
+           |               |-{gssproxy}(678)
+           |               `-{gssproxy}(679)
+           |-irqbalance(650)
+           |-ksmtuned(710)---sleep(17328)
+           |-libvirtd(1591)-+-{libvirtd}(1614)
+           |                |-{libvirtd}(1615)
+           |                |-{libvirtd}(1616)
+           |                |-{libvirtd}(1617)
+           |                |-{libvirtd}(1618)
+           |                |-{libvirtd}(1619)
+           |                |-{libvirtd}(1620)
+           |                |-{libvirtd}(1621)
+           |                |-{libvirtd}(1622)
+           |                |-{libvirtd}(1623)
+           |                |-{libvirtd}(1628)
+           |                |-{libvirtd}(1629)
+           |                |-{libvirtd}(1630)
+           |                |-{libvirtd}(1631)
+           |                |-{libvirtd}(1632)
+           |                `-{libvirtd}(1645)
+           |-lvmetad(471)
+           |-master(1915)-+-pickup(13700)
+           |              `-qmgr(1919)
+           |-neutron-linuxbr(17417)
+           |-nova-compute(1634)
+           |-polkitd(648)-+-{polkitd}(685)
+           |              |-{polkitd}(687)
+           |              |-{polkitd}(689)
+           |              |-{polkitd}(690)
+           |              |-{polkitd}(692)
+           |              `-{polkitd}(694)
+           |-rpcbind(684)
+           |-rsyslogd(1585)-+-{rsyslogd}(1598)
+           |                |-{rsyslogd}(1599)
+           |                |-{rsyslogd}(1600)
+           |                `-{rsyslogd}(1602)
+           |-sshd(1587)---sshd(17384)---sshd(17388)---bash(17389)---pstree(17426)
+           |-systemd-journal(452)
+           |-systemd-logind(652)
+           |-systemd-machine(649)
+           |-systemd-udevd(486)
+           `-tuned(1581)-+-{tuned}(1815)
+                         |-{tuned}(1816)
+                         |-{tuned}(1818)
+                         `-{tuned}(1852)
+#+END_SRC
+
+** pstree of storage
+
+#+BEGIN_SRC 
+[vagrant@storage ~]$ pstree -p
+systemd(1)-+-VBoxService(804)-+-{VBoxService}(805)
+           |                  |-{VBoxService}(806)
+           |                  |-{VBoxService}(807)
+           |                  |-{VBoxService}(808)
+           |                  |-{VBoxService}(809)
+           |                  |-{VBoxService}(810)
+           |                  `-{VBoxService}(811)
+           |-agetty(1592)
+           |-auditd(646)---{auditd}(647)
+           |-chronyd(687)
+           |-cinder-volume(7467)---cinder-volume(7594)
+           |-crond(1589)
+           |-dbus-daemon(679)---{dbus-daemon}(702)
+           |-dhclient(1024)
+           |-gssproxy(689)-+-{gssproxy}(694)
+           |               |-{gssproxy}(695)
+           |               |-{gssproxy}(696)
+           |               |-{gssproxy}(697)
+           |               `-{gssproxy}(698)
+           |-irqbalance(678)
+           |-master(1831)-+-pickup(6600)
+           |              `-qmgr(1833)
+           |-polkitd(703)-+-{polkitd}(725)
+           |              |-{polkitd}(726)
+           |              |-{polkitd}(727)
+           |              |-{polkitd}(728)
+           |              |-{polkitd}(729)
+           |              `-{polkitd}(730)
+           |-rpcbind(692)
+           |-rsyslogd(1573)-+-{rsyslogd}(1580)
+           |                |-{rsyslogd}(1581)
+           |                |-{rsyslogd}(1582)
+           |                `-{rsyslogd}(1583)
+           |-sshd(1572)---sshd(7811)---sshd(7815)---bash(7816)---pstree(7840)
+           |-systemd-journal(449)
+           |-systemd-logind(677)
+           |-systemd-udevd(480)
+           |-tgtd(1568)
+           `-tuned(1570)-+-{tuned}(1768)
+                         |-{tuned}(1769)
+                         |-{tuned}(1770)
+                         `-{tuned}(1791)
+#+END_SRC
+* DONE setup-openstack.yml done, this is the first time
+
+PLAY RECAP **********************************************************************************************************************************************************************************************************************************compute1                   : ok=143  changed=8    unreachable=0    failed=0
+infra1                     : ok=65   changed=9    unreachable=0    failed=0
+infra1_cinder_api_container-179eba5a : ok=78   changed=1    unreachable=0    failed=0
+infra1_glance_container-9e87261d : ok=67   changed=2    unreachable=0    failed=0
+infra1_heat_api_container-1e3d12d9 : ok=71   changed=5    unreachable=0    failed=0
+infra1_horizon_container-280f6f5a : ok=66   changed=45   unreachable=0    failed=0
+infra1_keystone_container-3c65c331 : ok=103  changed=7    unreachable=0    failed=0
+infra1_neutron_server_container-47a7eec0 : ok=60   changed=3    unreachable=0    failed=0
+infra1_nova_api_container-758f0659 : ok=90   changed=9    unreachable=0    failed=0
+infra1_utility_container-8de920e2 : ok=0    changed=0    unreachable=0    failed=0
+localhost                  : ok=0    changed=0    unreachable=0    failed=0
+storage1                   : ok=54   changed=5    unreachable=0    failed=0
+
+Monday 29 July 2019  13:26:21 +0900 (0:00:00.027)       0:43:08.974 ***********
+===============================================================================
+os_horizon : Install distro packages ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ 96.83s
+os_horizon : Ensure static files are collected and compressed ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- 88.60s
+os_nova : Stop services ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 38.90s
+os_nova : Perform a cell_v2 discover ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ 33.62s
+os_horizon : Install requires pip packages ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ 31.87s
+os_nova : Compile new SELinux policy ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ 27.99s
+os_neutron : Copy neutron rootwrap filters ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ 27.21s
+os_neutron : Copy neutron rootwrap filters ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ 25.84s
+os_neutron : Stop services ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 25.24s
+os_nova : Create the cell1 mapping entry in the nova API DB ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 24.56s
+os_nova : Install distro packages --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 24.40s
+os_nova : Synchronize the nova API DB schema ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 24.05s
+os_nova : Synchronize the nova DB schema -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 23.70s
+os_nova : Create the cell0 mapping entry in the nova API DB ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 22.89s
+os_horizon : Enable project panels -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 22.48s
+os_glance : Deploy Glance configuration files --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 20.70s
+os_keystone : Create keystone dir --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 20.15s
+os_nova : Create tmpfiles.d entry --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 17.56s
+os_horizon : Unarchive pre-built venv ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 15.08s
+os_neutron : Check for available offline migrations --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 14.69s
+
+EXIT NOTICE [Playbook execution success] **************************************
+===============================================================================
+* DONE finally have to ing
+
+lxc-ls | grep utility
+lxc-attach -n infra1_utility_container-x
+openstack user list --os-cloud=default
+
+Verifying the Dashboard (horizon)
+
+    With a web browser, access the Dashboard by using the external load balancer IP address 
+defined by the external_lb_vip_address option 
+in the /etc/openstack_deploy/openstack_user_config.yml file. 
+
+The Dashboard uses HTTPS on port 443.
+    Authenticate by using the admin user name and the password 
+defined by the keystone_auth_admin_password option 
+in the /etc/openstack_deploy/user_secrets.yml file.
+
+? cat /etc/openstack_deploy/openstack_user_config.yml | grep external
+  # The internal and external VIP should be different IPs, however they
+  external_lb_vip_address: 172.29.236.10
+
+? cat /etc/openstack_deploy/user_secrets.yml | grep keystone_auth
+keystone_auth_admin_password: 29f84426adc7f7422fb908d7b2fab8a9891d64d658ebd8dd3132c3aea8
+
+#+BEGIN_SRC 
+? lxc-attach -n `lxc-ls | grep utility | awk '{ print $2 }'`
+? openstack --os-cloud=default user list
++----------------------------------+--------------------+
+| ID                               | Name               |
++----------------------------------+--------------------+
+| 149130286a804eb1884b074fdb2fdbc4 | neutron            |
+| 4bc224ccfa354dc19f9a6adfb567778a | admin              |
+| 609b3f4166e246fba556074c3fb95031 | glance             |
+| 6696f97c04e843a4a6c245fc3d72cbc3 | stack_domain_admin |
+| 823152811ec545728f7f3b98da3c7751 | placement          |
+| 98fa801365d049d5b8ed1d2068240417 | keystone           |
+| 99a7131c666842039d8c291ec70d9707 | nova               |
+| b423ca56c73c47dbbc030f6e0482f73f | heat               |
+| b5466f1bedc24633ac122750e5bde5a7 | cinder             |
++----------------------------------+--------------------+
+?
+#+END_SRC
+
+cinder rel and other command not working as I'm expected so dig it.
+- [X] try download python2-openstackclient from control(infra1)
+
+#+BEGIN_SRC 
+yum install python2-openstackclient -y
+#+END_SRC
+
+[root@control ~]# lxc-ls -1 | grep util | tail -1
+infra1_utility_container-8de920e2
+[root@control ~]# lxc-attach -n `lxc-ls -1 | grep util | tail -1`
+[root@infra1-utility-container-8de920e2 ~]# . openrc
+[root@infra1-utility-container-8de920e2 ~]# cinder service-list
++------------------+--------------------------------------+------+---------+-------+----------------------------+-----------------+
+| Binary           | Host                                 | Zone | Status  | State | Updated_at                 | Disabled Reason |
++------------------+--------------------------------------+------+---------+-------+----------------------------+-----------------+
+| cinder-scheduler | infra1-cinder-api-container-179eba5a | nova | enabled | up    | 2019-07-29T06:04:02.000000 | -               |
+| cinder-volume    | storage@lvm                          | nova | enabled | down  | 2019-07-29T03:53:00.000000 | -               |
++------------------+--------------------------------------+------+---------+-------+----------------------------+-----------------+
+[root@infra1-utility-container-8de920e2 ~]#
+
+
+[root@infra1-utility-container-8de920e2 ~]# openstack compute service list
++----+------------------+------------------------------------+----------+---------+-------+----------------------------+
+| ID | Binary           | Host                               | Zone     | Status  | State | Updated At                 |
++----+------------------+------------------------------------+----------+---------+-------+----------------------------+
+|  1 | nova-scheduler   | infra1-nova-api-container-758f0659 | internal | enabled | up    | 2019-07-29T06:05:56.000000 |
+|  2 | nova-consoleauth | infra1-nova-api-container-758f0659 | internal | enabled | up    | 2019-07-29T06:05:56.000000 |
+|  3 | nova-conductor   | infra1-nova-api-container-758f0659 | internal | enabled | up    | 2019-07-29T06:05:56.000000 |
++----+------------------+------------------------------------+----------+---------+-------+----------------------------+
+x
+so it works
+
+* TODO arch of this vm based trying
+
+- vm using virtualbox
+- add two more network interface using cli
+
+** TODO tbl
+
+| nic  | vm network Attached to                   | bridge     | x  |        deployer | control | compute | storage | note |
+|------+------------------------------------------+------------+----+-----------------+---------+---------+---------+------|
+| eth0 | NAT                                      |            |    |       10.0.2.15 | t       |       t |       t |      |
+| eth1 | VirtualBox Host-Only Ethernet Adapter #1 |            | A2 | 192.168.100.101 | 102     |     103 |     104 |      |
+| eth2 | #2                                       | br-mgmt    | A3 |    172.29.236.3 | 10, 11  |      12 |      13 |      |
+| eth3 | #3                                       | br-storage | A4 |    172.29.244.3 | 11      |      12 |      13 |      |
+| eth4 | #4                                       | br-vxlan   | A5 |    172.29.240.3 | 11      |      12 |      13 |      |
+| eth5 | #5                                       | br-vlan    | A6 |               x | x       |       x |       x |      |
+
+** DONE interfaces of ifcfg-x of control's br-mgmt rel
+
+? hostname
+control
+
+? cat "ifcfg-br-mgmt:0"
+NM_CONTROLLED=no
+DEVICE=br-mgmt:0
+ONBOOT=yes
+BOOTPROTO=static
+IPADDR=172.29.236.10
+PREFIX=22
+?
+
+** DONE interfaces or ifcfg-x
+
+==> ifcfg-eth0 <==
+DEVICE="eth0"
+BOOTPROTO="dhcp"
+ONBOOT="yes"
+TYPE="Ethernet"
+PERSISTENT_DHCLIENT="yes"
+
+==> ifcfg-eth1 <==
+NM_CONTROLLED=yes
+BOOTPROTO=none
+ONBOOT=yes
+IPADDR=192.168.100.101
+NETMASK=255.255.255.0
+DEVICE=eth1
+PEERDNS=no
+
+==> ifcfg-eth2 <==
+NM_CONTROLLED=no
+TYPE=Ethernet
+BOOTPROTO=none
+ONBOOT=yes
+DEVICE=eth2
+BRIDGE=br-mgmt
+
+==> ifcfg-br-mgmt <==
+BOOTPROTO=none
+ONBOOT=yes
+DEVICE=br-mgmt
+TYPE=Bridge
+IPADDR=172.29.236.3
+PREFIX=22
+
+==> ifcfg-eth3 <==
+NM_CONTROLLED=no
+TYPE=Ethernet
+BOOTPROTO=none
+ONBOOT=yes
+DEVICE=eth3
+BRIDGE=br-storage
+
+==> ifcfg-br-storage <==
+BOOTPROTO=none
+ONBOOT=yes
+DEVICE=br-storage
+TYPE=Bridge
+IPADDR=172.29.244.3
+PREFIX=22
+
+==> ifcfg-eth4 <==
+NM_CONTROLLED=no
+TYPE=Ethernet
+BOOTPROTO=none
+ONBOOT=yes
+DEVICE=eth4
+BRIDGE=br-vxlan
+
+==> ifcfg-br-vxlan <==
+BOOTPROTO=none
+ONBOOT=yes
+DEVICE=br-vxlan
+TYPE=Bridge
+IPADDR=172.29.240.3
+PREFIX=22
+
+==> ifcfg-eth5 <==
+NM_CONTROLLED=no
+TYPE=Ethernet
+BOOTPROTO=none
+ONBOOT=yes
+DEVICE=eth5
+BRIDGE=br-vlan
+
+==> ifcfg-br-vlan <==
+BOOTPROTO=none
+ONBOOT=yes
+DEVICE=br-vlan
+TYPE=Bridge

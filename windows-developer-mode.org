@@ -1,3 +1,5 @@
 * for what? linux with?
 
-
+- [2019-07-29 월 12:45] now I'm using it. tmux then connect to 4 openstack-ansible rel servers.
+- [X] ansible installed not using apt but pip
+- [ ] x-window with xming or pure startx like that

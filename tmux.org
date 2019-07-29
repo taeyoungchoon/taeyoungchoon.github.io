@@ -1,9 +1,16 @@
-* tmux on macosx with C-x key
+* tmux vs emacs
+* TODO tmux on macosx with C-a key
 
 #+BEGIN_SRC 
-~ $ cat .tmux.conf 
-set-option -g prefix C-x
+? cat .tmaux.conf 
+set-option -g prefix C-a
 #+END_SRC
+
+* TODO words
+
+- session: C-b c, C-b c, C-b c, C-b c, C-b c then C-b 0,1,2,3,4
+- window
+- pane
 
 * step
 
@@ -13,15 +20,10 @@ set-option -g prefix C-x
 - C-x o
 - C-x d
 - tmux attach
-
-* words
-
-- session: C-b 0,1,2,3,4 C-b c
-- window
-- pane
  
 * and more with mouse?
 * type to all window s
 
 1. C-b :
 2. setw 
+   
