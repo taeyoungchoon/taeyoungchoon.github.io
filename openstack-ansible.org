@@ -1807,3 +1807,10 @@ rpm --rebuilddb
 cd /opt/openstack-ansible/playbook/
 openstack-ansible setup-host.yml
 #+END_SRC
+
+* with playbook setup-host something
+
+TASK [lxc_hosts : Ensure image has been pre-staged] *****************************************************************************************************************************************************************************************
+Monday 29 July 2019  11:12:02 +0900 (0:00:01.081)       0:05:12.154 ***********
+fatal: [infra1]: FAILED! => {"ansible_job_id": "559411145086.25886", "attempts": 1, "changed": true, "cmd": "
+aria2c --max-connection-per-server=4 --allow-overwrite=true --dir=/tmp --out=rootfs.tar.xz --check-certificate=true https://us.images.linuxcontainers.org/images/centos/7/amd64/default/20190728_07:08/rootfs.tar.xz https://uk.images.linuxcontainers.org/images/centos/7/amd64/default/20190728_07:08/rootfs.tar.xz  > /var/log/aria2c-image-prestage.log 2>&1", "delta": "0:00:01.482925", "end": "2019-07-29 11:10:56.046070", "failed": true, "finished": 1, "msg": "non-zero return code", "rc": 1, "start": "2019-07-29 11:10:54.563145", "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
