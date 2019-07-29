@@ -1,7 +1,3 @@
-* say
-
-좋은데 ㅎ
-
 * tmux on macosx with C-x key
 
 #+BEGIN_SRC 
@@ -17,6 +13,12 @@ set-option -g prefix C-x
 - C-x o
 - C-x d
 - tmux attach
+
+* words
+
+- session: C-b 0,1,2,3,4 C-b c
+- window
+- pane
  
 * and more with mouse?
 * type to all window s
