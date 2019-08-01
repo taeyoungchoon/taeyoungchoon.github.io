@@ -1,3 +1,7 @@
+* tmux with my history
+
+- [2019-08-01 Thu] 근래에 잘썼다.
+
 * tmux vs emacs
 * TODO tmux on macosx with C-a key
 
