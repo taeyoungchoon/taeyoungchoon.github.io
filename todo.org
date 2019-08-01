@@ -1,34 +1,18 @@
 * now
+* about future
 
-** Debugger entered--Lisp error: (error "Font 'tty' is not defined")
+- linux/os
+- emacs/editor/major/minor
+- code/logos/lisp
+- network/conn
 
-- rm ~/.emacs.d/.emacs.desktop
+* be with nowaday
 
-* todo? what then
-
-- oracle, not yet but
-- hp-ux > shell
-- aix > shell
-- storage
-- backup
-- centos
-- ms office
-- ignite
-- blade, hp then cisco
-
-* some more thing
-
-- [[file:mathematics.org][math]]
-  
-* q
-  
-- 독학사
-
-* now maybe
-  
-- 사피엔스, sapiens, yuval noah harari
-- vpn
+- office, ms, excel, powerpoint, word
 - profiling
-- owasp
-- isms
-- 정보보안기사 > 실기, in memory
+- 정보처리기사 
+
+* book
+
+- 논어 then again
+- harry potter 3 and more

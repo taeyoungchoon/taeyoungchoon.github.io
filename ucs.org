@@ -48,11 +48,13 @@ Servers - Unified Computing
 UCS C-Series Rack-Mount Standalone Server Software
 UCS C220 M3 Rack Server Software
 Unified Computing System (UCS) Diagnostics-5.0(3b) 
+
 * Cisco UCS Server Configuration Utility(SCU)
 
 ** platforms
 
 - Cisco UCS C210 Server series (M1 and M2)
+
 * CIMC GUI hang
 
 https://www.cisco.com/c/en/us/support/docs/servers-unified-computing/integrated-management-controller/212642-troubleshoot-cimc-gui-which-hangs-while.html
@@ -63,3 +65,54 @@ https://www.cisco.com/c/en/us/support/docs/servers-unified-computing/integrated-
 2. flash for CIMC GUI
 3. enable java to use kvm console
 4. session count for terminate old session from ssh
+
+* TODO BIOS
+
+- [ ] boot, how to boot from cimc??
+- 'F2' to enter BIOS maybe 
+
+* TODO 'F8' to enter CIMC Config 
+
+* boot then
+
+- F2 to enter setup
+- F6 boot menu
+- F8 cimc config, cimc configuration utility
+- F12 network boot
+
+* TODO setting data and time on bios, ucs then operating system
+
+* note about time
+
+The CIMC grabs it's time from BIOS. If you want to change the time you would have to get into the bios and change the time there. 
+
+* TODO term about time but more Cisco UCS Manager
+
+- Server
+  - Utilities
+    - Export Technical Support
+    - Generate Technical Support
+    - Export CIMC Configuration
+    - Import CIMC Configuration
+    - Reset CIMC to Factory Default
+    - [ ] Reboot CIMC
+    - Generate NMI to Host
+
+- Admin
+  - Server Summary
+    - Actions
+      - Power on Server
+      - Power Off Server
+      - Shut Down Server
+      - Power Cycle Server
+      - Hard Reset Server
+      - Launch KVM Console
+
+    - Server Properties
+      - Product Name: UCS C220 M3S
+
+    - Cisco Integrated Management Controller(Cisco IMC) Information
+      - Firmware Version: 2.0(4c)
+      - Current Time(UTC): Sat Jul 20 11:13:46 2019
+      - Local Time: Sat Jul 20 20:13:46 2019 KST +0900
+      - Timezone: Asia/Seoul (Select Timezone)

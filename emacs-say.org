@@ -1,0 +1,4 @@
+** Debugger entered--Lisp error: (error "Font 'tty' is not defined")
+
+- rm ~/.emacs.d/.emacs.desktop
+
