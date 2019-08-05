@@ -1,4 +1,4 @@
-* log
+* log, aio and Not enough space available with bootstrap_host_data_disk_min_size
 
 https://stafwag.github.io/blog/blog/2019/01/21/settinp-up-openstack-ansible-all-in-one-on-a-centos-7-system/
 
@@ -2288,7 +2288,7 @@ infra1_utility_container-8de920e2
 x
 so it works
 
-* TODO arch of this vm based trying
+* DONE arch of this vm based trying
 
 - vm using virtualbox
 - add two more network interface using cli
@@ -2397,3 +2397,124 @@ BOOTPROTO=none
 ONBOOT=yes
 DEVICE=br-vlan
 TYPE=Bridge
+* TODO 20190802 infra then fail at haproxy
+
+RUNNING HANDLER [haproxy_endpoints : Set haproxy service state] *************************************************************************************************************
+Friday 02 August 2019  15:58:22 +0900 (0:00:00.568)       0:49:35.453 ********* 
+failed: [infra1_galera_container-3034b496 -> 10.74.41.101] (item=infra1) => {"changed": false, "failed": true, "item": "infra1", "module_stderr": "Shared connection to 10.74.41.101 closed.\r\n", "module_stdout": "Traceback (most recent call last):\r\n  File \"/tmp/ansible_QKwuNq/ansible_module_haproxy.py\", line 458, in <module>\r\n    main()\r\n  File \"/tmp/ansible_QKwuNq/ansible_module_haproxy.py\", line 454, in main\r\n    ansible_haproxy.act()\r\n  File \"/tmp/ansible_QKwuNq/ansible_module_haproxy.py\", line 403, in act\r\n    state_before = self.get_state_for(self.backend, self.host)\r\n  File \"/tmp/ansible_QKwuNq/ansible_module_haproxy.py\", line 334, in get_state_for\r\n    data = self.execute('show stat', 200, False).lstrip('# ')\r\n  File \"/tmp/ansible_QKwuNq/ansible_module_haproxy.py\", line 254, in execute\r\n    self.client.connect(self.socket)\r\n  File \"/usr/lib64/python2.7/socket.py\", line 224, in meth\r\n    return getattr(self._sock,name)(*args)\r\nsocket.error: [Errno 111] Connection refused\r\n", "msg": "MODULE FAILURE", "rc": 0}
+
+PLAY RECAP ******************************************************************************************************************************************************************
+compute1                   : ok=18   changed=0    unreachable=0    failed=0   
+infra1                     : ok=52   changed=22   unreachable=0    failed=0   
+infra1_cinder_api_container-bb74c95f : ok=9    changed=0    unreachable=0    failed=0   
+infra1_galera_container-3034b496 : ok=66   changed=31   unreachable=0    failed=2   
+infra1_glance_container-bd2b368f : ok=9    changed=0    unreachable=0    failed=0   
+infra1_heat_api_container-9b9e7300 : ok=9    changed=0    unreachable=0    failed=0   
+infra1_horizon_container-848b63f4 : ok=9    changed=0    unreachable=0    failed=0   
+infra1_keystone_container-8b8b3f8a : ok=9    changed=0    unreachable=0    failed=0   
+infra1_memcached_container-0d293730 : ok=40   changed=19   unreachable=0    failed=0   
+infra1_neutron_server_container-cc70c1ea : ok=9    changed=0    unreachable=0    failed=0   
+infra1_nova_api_container-11e90b9f : ok=9    changed=0    unreachable=0    failed=0   
+infra1_rabbit_mq_container-13634058 : ok=9    changed=0    unreachable=0    failed=0   
+infra1_repo_container-044e96f3 : ok=176  changed=75   unreachable=0    failed=0   
+infra1_utility_container-71f5b32c : ok=36   changed=17   unreachable=0    failed=0   
+localhost                  : ok=2    changed=1    unreachable=0    failed=0   
+storage1                   : ok=9    changed=0    unreachable=0    failed=0   
+
+Friday 02 August 2019  15:58:25 +0900 (0:00:02.461)       0:49:37.915 ********* 
+=============================================================================== 
+repo_build : Create OpenStack-Ansible requirement wheels ----------------------------------------------------------------------------------------------------------- 955.97s
+repo_build : Clone git repositories -------------------------------------------------------------------------------------------------------------------------------- 574.56s
+repo_build : Wait for the venvs builds to complete ----------------------------------------------------------------------------------------------------------------- 283.96s
+galera_server : Install galera_server role remote packages --------------------------------------------------------------------------------------------------------- 133.06s
+Get list of python clients ----------------------------------------------------------------------------------------------------------------------------------------- 127.83s
+repo_build : Install packages --------------------------------------------------------------------------------------------------------------------------------------- 58.67s
+galera_client : Install galera distro packages ---------------------------------------------------------------------------------------------------------------------- 45.97s
+haproxy_server : Create haproxy service config files ---------------------------------------------------------------------------------------------------------------- 43.62s
+galera_client : Install galera distro packages ---------------------------------------------------------------------------------------------------------------------- 36.10s
+repo_server : Install distro packages ------------------------------------------------------------------------------------------------------------------------------- 35.38s
+repo_build : Execute the venv build scripts asynchonously ----------------------------------------------------------------------------------------------------------- 27.37s
+repo_build : Create venv build options files ------------------------------------------------------------------------------------------------------------------------ 22.73s
+galera_server : Start new cluster ----------------------------------------------------------------------------------------------------------------------------------- 21.93s
+memcached_server : Install distro packages -------------------------------------------------------------------------------------------------------------------------- 21.39s
+galera_server : Install pip packages -------------------------------------------------------------------------------------------------------------------------------- 18.28s
+pip_install : Install PIP ------------------------------------------------------------------------------------------------------------------------------------------- 17.58s
+galera_server : Apply systemd options ------------------------------------------------------------------------------------------------------------------------------- 15.99s
+Install pip packages ------------------------------------------------------------------------------------------------------------------------------------------------ 14.70s
+haproxy_server : Install HAProxy Packages --------------------------------------------------------------------------------------------------------------------------- 14.57s
+repo_server : Install pip packages (from repo) ---------------------------------------------------------------------------------------------------------------------- 13.87s
+
+EXIT NOTICE [Playbook execution failure] **************************************
+===============================================================================
+
+[root@deployer openstack_deploy]# pwd
+/etc/openstack_deploy
+[root@deployer openstack_deploy]# diff openstack_user_config.yml.v1 openstack_user_config.yml
+3,5c3,5
+<   container: 10.74.41.0/22
+<   tunnel: 10.74.44.0/22
+<   storage: 10.74.42.0/22
+---
+>   container: 10.74.41.0/24
+>   tunnel: 10.74.44.0/24
+>   storage: 10.74.42.0/24
+[root@deployer openstack_deploy]# 
+
+- [ ] what I have to do after modify something
+
+but work without
+
+* TODO next setup-openstack with keystone, no_log
+
+TASK [Create DB for service] **********************************************************************************************************************************************
+Friday 02 August 2019  16:21:37 +0900 (0:00:00.053)       0:00:13.868 ********* 
+fatal: [infra1_keystone_container-8b8b3f8a]: FAILED! => {"censored": "the output has been hidden due to the fact that 'no_log: true' was specified for this result", "changed": false, "failed": true}
+
+NO MORE HOSTS LEFT ********************************************************************************************************************************************************
+
+PLAY RECAP ************************************************************************************************************************************************************
+infra1_keystone_container-8b8b3f8a : ok=2    changed=2    unreachable=0    failed=1   
+
+Friday 02 August 2019  16:22:09 +0900 (0:00:32.385)       0:00:46.253 ********* 
+=============================================================================== 
+Create DB for service --------------------------------------------------------------------------------------------------------------------------------------------- 32.39s
+Ensure rabbitmq user ----------------------------------------------------------------------------------------------------------------------------------------------- 7.69s
+Ensure Rabbitmq vhost ---------------------------------------------------------------------------------------------------------------------------------------------- 5.94s
+Ensure rabbitmq user ----------------------------------------------------------------------------------------------------------------------------------------------- 0.05s
+Ensure Rabbitmq vhost ---------------------------------------------------------------------------------------------------------------------------------------------- 0.05s
+
+EXIT NOTICE [Playbook execution failure] **************************************
+===============================================================================
+? openstack-ansible setup-openstack.yml
+
+- [ ] openstack-ansible os-keystone-install.yml
+
+? vi common-tasks/mysql-db-user.yml 
+
+- [X] no_log to False
+
+? openstack-ansible os-keystone-install.yml 
+
+TASK [Create DB for service] **********************************************************************************************************************************************
+Friday 02 August 2019  16:30:39 +0900 (0:00:00.053)       0:00:08.941 ********* 
+fatal: [infra1_keystone_container-8b8b3f8a -> 10.74.40.20]: FAILED! => {"changed": false, "failed": true, "msg": "unable to connect to database, check login_user and login_password are correct or /root/.my.cnf has the credentials. Exception message: (2003, 'Can\\'t connect to MySQL server on \\'10.74.41.101\\' (110 \"Connection timed out\")')"}
+
+do something about galera
+
+* DONE mixed and mixed config
+
+- only that or more
+- only that, (swap control compute)
+- or more, don not know that yet
+
+* DONE broken some diff msg
+
+rm -f /var/lib/rpm/__db*
+rpm --rebuilddb
+yum install createrepo -y
+yum install lynx -y
+* DONE network issue, enough
+
+- atto, unstable wireless network
+- office, illegal network? broken download or more failure eventually
+- so, no way out
