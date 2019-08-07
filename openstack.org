@@ -1,16 +1,40 @@
+* so
+
+- openstack to me, small aws
+- 다 알 수 있을까? 모두 다 말이다. 귀신인가? 아니면 Hermione's Secret과 같을까? 손오공의 분실술? clone 복제의 기술, 아는데까지 인간으로 나로서 '나-너-우리' 로 할 수 있는 정도까지가 아닐까? 그래 그 정도까지다.
+- so, words or pre
+
 * pre
 
-- linux
-- network
+1. linux
+2. network
+3. not the linux or not the network
+4. just let it go
 
-* openstack to me, small aws
 * words
 
+** word.g(roup) but near pure openstack rel
+
+- ui called horizon
 - nova, abstact box, sdc, compute
 - neutron but contrail, sdn, network
-- ui called
+- cinder, pure
 - swift, object, s3, sds, storage
+- glance
+- ceph
 - ironic, baremetal 
+
+** openstack network, quantum, neutron
+
+- some kinds of
+
+** network
+
+- lldp
+- c class, 172.20.6.0/23 168.126.63.1 8.8.8.8 192.168.100.0/24 class
+- stp? why? rstrp bpdu
+
+- mon night
 
 * network, network, network
 

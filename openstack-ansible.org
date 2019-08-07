@@ -2518,3 +2518,165 @@ yum install lynx -y
 - atto, unstable wireless network
 - office, illegal network? broken download or more failure eventually
 - so, no way out
+* DONE can not create volume so no vm : Block Device Mapping is invalid
+
+- [2019-08-07 수] ^^
+- so create 'cinder-volumes' on storage node, so much hard
+  - trying: reduce /home mounted, umount, xfs_something, crash and more
+  - allow to make pv at /dev/sda3 by edit some /etc/lvm/lvm.conf
+- restart cinder container on control
+  - attach to util
+  - lxc-stop then lxc-start
+- restart daemon on storage
+  - systemd controlled, systemctl list-units | grep cinder
+- chk using cli and horizon
+  - cinder create 1
+
+* DONE network network network, provider network or what
+
+- webui and cli
+#+BEGIN_SRC 
+Name
+    ext-net
+ID
+    047fbdbb-fbaa-4efc-bd5d-46f24913d27b
+Project ID
+    df15475f8fdc4d40a6b9460cfe514d2d
+Status
+    Active
+Admin State
+    UP
+Shared
+    Yes
+External Network
+    Yes
+MTU
+    1500
+Provider Network
+    Network Type: flat
+    Physical Network: flat
+    Segmentation ID: -
+#+END_SRC
+* TODO word(s), lxc rel
+* TODO word, lvm
+* TODO nav horizon, maybe first time
+* TODO gen vm on horizon, status: error
+
+- [2019-08-07 수] 
+
+#+BEGIN_SRC 
+[root@infra1-utility-container-6d08a42a ~]# openstack server create --image cirros --network pantech --flavor 2 --key-name tk example-instance
++-------------------------------------+-----------------------------------------------+
+| Field                               | Value                                         |
++-------------------------------------+-----------------------------------------------+
+| OS-DCF:diskConfig                   | MANUAL                                        |
+| OS-EXT-AZ:availability_zone         |                                               |
+| OS-EXT-SRV-ATTR:host                | None                                          |
+| OS-EXT-SRV-ATTR:hypervisor_hostname | None                                          |
+| OS-EXT-SRV-ATTR:instance_name       |                                               |
+| OS-EXT-STS:power_state              | NOSTATE                                       |
+| OS-EXT-STS:task_state               | scheduling                                    |
+| OS-EXT-STS:vm_state                 | building                                      |
+| OS-SRV-USG:launched_at              | None                                          |
+| OS-SRV-USG:terminated_at            | None                                          |
+| accessIPv4                          |                                               |
+| accessIPv6                          |                                               |
+| addresses                           |                                               |
+| adminPass                           | nGQALqe7vbKT                                  |
+| config_drive                        |                                               |
+| created                             | 2019-08-07T06:45:14Z                          |
+| flavor                              | m1.mini (2)                                   |
+| hostId                              |                                               |
+| id                                  | 9180d024-6fe8-40dd-99c9-6726df8b4efe          |
+| image                               | cirros (cda0858b-876e-4858-b0f1-0ac14267e7e0) |
+| key_name                            | tk                                            |
+| name                                | example-instance                              |
+| progress                            | 0                                             |
+| project_id                          | df15475f8fdc4d40a6b9460cfe514d2d              |
+| properties                          |                                               |
+| security_groups                     | name='default'                                |
+| status                              | BUILD                                         |
+| updated                             | 2019-08-07T06:45:14Z                          |
+| user_id                             | 472f0512eeb342edbe150bdc4735f69d              |
+| volumes_attached                    |                                               |
++-------------------------------------+-----------------------------------------------+
+[root@infra1-utility-container-6d08a42a ~]#
+
+[root@infra1-utility-container-6d08a42a ~]# openstack server create --image cirros --network pantech --flavor 2 --key-name tk example-instance
++-------------------------------------+-----------------------------------------------+
+| Field                               | Value                                         |
++-------------------------------------+-----------------------------------------------+
+| OS-DCF:diskConfig                   | MANUAL                                        |
+| OS-EXT-AZ:availability_zone         |                                               |
+| OS-EXT-SRV-ATTR:host                | None                                          |
+| OS-EXT-SRV-ATTR:hypervisor_hostname | None                                          |
+| OS-EXT-SRV-ATTR:instance_name       |                                               |
+| OS-EXT-STS:power_state              | NOSTATE                                       |
+| OS-EXT-STS:task_state               | scheduling                                    |
+| OS-EXT-STS:vm_state                 | building                                      |
+| OS-SRV-USG:launched_at              | None                                          |
+| OS-SRV-USG:terminated_at            | None                                          |
+| accessIPv4                          |                                               |
+| accessIPv6                          |                                               |
+| addresses                           |                                               |
+| adminPass                           | nGQALqe7vbKT                                  |
+| config_drive                        |                                               |
+| created                             | 2019-08-07T06:45:14Z                          |
+| flavor                              | m1.mini (2)                                   |
+| hostId                              |                                               |
+| id                                  | 9180d024-6fe8-40dd-99c9-6726df8b4efe          |
+| image                               | cirros (cda0858b-876e-4858-b0f1-0ac14267e7e0) |
+| key_name                            | tk                                            |
+| name                                | example-instance                              |
+| progress                            | 0                                             |
+| project_id                          | df15475f8fdc4d40a6b9460cfe514d2d              |
+| properties                          |                                               |
+| security_groups                     | name='default'                                |
+| status                              | BUILD                                         |
+| updated                             | 2019-08-07T06:45:14Z                          |
+| user_id                             | 472f0512eeb342edbe150bdc4735f69d              |
+| volumes_attached                    |                                               |
++-------------------------------------+-----------------------------------------------+
+[root@infra1-utility-container-6d08a42a ~]#
+
+[root@infra1-utility-container-6d08a42a ~]# openstack server list
++--------------------------------------+------------------+--------+----------+--------+---------+
+| ID                                   | Name             | Status | Networks | Image  | Flavor  |
++--------------------------------------+------------------+--------+----------+--------+---------+
+| 9180d024-6fe8-40dd-99c9-6726df8b4efe | example-instance | ERROR  |          | cirros | m1.mini |
+| 914c36b1-9418-4a3f-8955-4748d84024ed | t again          | ERROR  |          |        | m1.mini |
+| dd1acdb7-db0b-4820-8e23-3b140b59bd66 | t                | ERROR  |          |        | m1.mini |
++--------------------------------------+------------------+--------+----------+--------+---------+
+#+END_SRC
+
+#+BEGIN_SRC 
+[root@control ~]# lxc-attach -n $(lxc-ls -1 | grep nova)
+[root@infra1-nova-api-container-79a49546 ~]# cd /var/log/nova/
+[root@infra1-nova-api-container-79a49546 nova]# ls
+nova-api-metadata.log    nova-api-wsgi.log   nova-consoleauth.log  nova-metadata-wsgi.log  nova-scheduler.log
+nova-api-os-compute.log  nova-conductor.log  nova-manage.log       nova-placement-api.log  nova-spicehtml5proxy.log
+[root@infra1-nova-api-container-79a49546 nova]#
+#+END_SRC
+
+#+BEGIN_SRC 
+[root@compute nova]# cat nova-compute.log  | less
+[root@compute nova]# pwd 
+/var/log/nova
+
+2019-08-07 15:45:21.056 22812 ERROR nova.compute.manager [req-b0b8e45d-9ee6-4d6c-a54f-28f8d32a8ae6 472f0512eeb342edbe150bdc4735f69d df15475f8fdc4d40a6b9460cfe514d2d - default default] Instance failed network setup after 1 attempt(s): PortBindingFailed: Binding failed for port c7999dfd-46f5-4cda-91d0-40b8ea4c914f, please check neutron logs for more information.
+2019-08-07 15:45:21.056 22812 ERROR nova.compute.manager Traceback (most recent call last):
+2019-08-07 15:45:21.056 22812 ERROR nova.compute.manager   File "/openstack/venvs/nova-17.1.13.dev3/lib/python2.7/site-packages/nova/compute/manager.py", line 1436, in _allocate_network_async
+2019-08-07 15:45:21.056 22812 ERROR nova.compute.manager     bind_host_id=bind_host_id)
+2019-08-07 15:45:21.056 22812 ERROR nova.compute.manager   File "/openstack/venvs/nova-17.1.13.dev3/lib/python2.7/site-packages/nova/network/neutronv2/api.py", line 989, in allocate_for_instance
+#+END_SRC
+
+#+BEGIN_SRC 
+[root@compute neutron]# tail neutron-linuxbridge-agent.log
+
+2019-08-07 15:53:37.131 25169 INFO neutron.common.config [-] Logging enabled!
+2019-08-07 15:53:37.131 25169 INFO neutron.common.config [-] /openstack/venvs/neutron-17.1.13.dev3/bin/neutron-linuxbridge-agent version 12.1.1.dev10                       2019-08-07 15:53:37.132 25169 INFO neutron.plugins.ml2.drivers.linuxbridge.agent.linuxbridge_neutron_agent [-] Interface mappings: {'flat': 'eth12', 'vlan': 'br-vlan'}
+2019-08-07 15:53:37.132 25169 INFO neutron.plugins.ml2.drivers.linuxbridge.agent.linuxbridge_neutron_agent [-] Bridge mappings: {}
+2019-08-07 15:53:37.142 25169 ERROR neutron.plugins.ml2.drivers.linuxbridge.agent.linuxbridge_neutron_agent [-] Interface eth12 for physical network flat does not exist. Agent terminated!
+#+END_SRC
+
+eth12 but br-vlan but type flat
