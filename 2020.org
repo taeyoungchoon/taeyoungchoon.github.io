@@ -22,3 +22,7 @@ if nil but if t
 if t then t
 
 what is t and what it can be? 
+
+* so not yet
+
+- [2019-08-06 화 21:49] 아직 오지 않았다. 만약이 아니면 방문하게 될 것이다. 그리고 소실될 것이다. 만약이면 말이다.

@@ -1,0 +1,28 @@
+* if, if, if
+
+코딩에 꼭 필요하다. 일까? 이다.
+삶에서는 있는가?
+
+(if t 1 2 3)
+(when t 1 2 3)
+
+#+BEGIN_SRC emacs-lisp
+(if t 1 2 3)
+(if nil 1 2 3)
+(if nil 1 (progn 2 3))
+(if t (progn 1 2) 3)
+(when t 1 2 3)
+(when t (progn 1 2 3))
+(if t (progn 1 2 3))
+(when nil 1 2 3)
+(if nil (progn 1 2 3))
+#+END_SRC
+
+#+RESULTS:
+
+* in life, if
+
+만약 히틀러가
+만약 이순신 장군이
+만약 만약 말이다
+

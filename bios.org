@@ -1,0 +1,6 @@
+* ami, american megatrend
+
+- amibios 8, legacy
+- aptio 4, uefi support
+  https://ami.com/ami_downloads/Aptio_TSE_Users_Guide.pdf
+- aptio v, newcomer

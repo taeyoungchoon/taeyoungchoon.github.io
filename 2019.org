@@ -13,5 +13,14 @@
 
 * 2019-07 legendary redhat 6 with (linux) kernel, linux-2.6.32-279.el6.tar.gz
 
+- since 2019-04
 - cfg, pkg but sec
 - scsi sub system, call call call
+
+* 2019-08 OSA, OpenStack Ansible
+
+- OSA AIO
+- OSA Test with LinuxBridge
+- OSA Test with OpenVswitch
+- OSA Production
+- so what will be
