@@ -1,8 +1,7 @@
-* note
+* DONE security, secure, sec but about how? and think about it
 
-so
+- is not a product but a process that build policy
 
-* is not a product but a process that build policy
 * product
 
 - firewall even ngfw

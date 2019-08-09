@@ -1,3 +1,39 @@
+* TODO config
+
+- but the beginning
+- user login using console, telnet or ssh
+
+** daemon or something like that
+
+- agetty
+- sshd - sshd - sshd - bash - sudo - bash - pstree
+
+** /etc
+
+- profile : first call by bash
+- profile.d
+- bashrc
+- bash_completion.d
+- skel/
+  - .bashrc
+  - .bash_profile
+  - .bash_logout
+
+** ~/
+
+  - .bashrc
+  - .bash_profile : then the next after /etc/profile
+  - .bash_logout
+  - .bash_history
+  - .bash_login : /etc/profile -> .bash_profile -> .bash_login -> .profile
+  - .profile : /etc/profile -> .bash_profile -> .bash_login -> .profile
+
+** dig
+
+- --noprofile
+
+** rcfile, rc, bashrc
+
 * rhce > ex300, 20180414
 
 - Python then Perl
