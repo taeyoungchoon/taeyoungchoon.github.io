@@ -27,3 +27,136 @@ $ openstack server create --image 0dbd2fe2-3844-48a2-b873-a9b0c5bc6ebd \
 $ sudo ip netns
 $ openstack compute service list
 $ openstack network agent list
+* so script or what
+* say
+
+./stack.sh 중이다. 이런 중이다. 설정은 local.conf에 약간 했다. 약간이다. 참고로 
+stable/queens를 따왔다.
+설치는 될까? 4 vcpu에 메모리는 8g다. 안되기 힘들다. 
+local.conf에 HOST_IP는 변경을 했군요. horizon을 봐야 하고, 외부로 통신도 되야하니 말이죠.
+devstack이라 
+packstack, openstack-ansible 뭐 그들과의 차이는 무엇인가 하나 g다.
+순수하게 돌리면(devstack) 모든 것이 프로세스로 보인다. 운영체제 위에 말이다.
+tripleO(또는 director)는 뭐 설치과정은 복잡하지만 docker로 프로세스를 감싸고
+openstack-ansible은 lxc로 프로세스를 감싼다.
+packstack은 순수를 정말 패키지화 한 것이고
+설치 과정 그리고 결과물의 차이라
+./stack.sh 중인데 열심히 무슨 패키지를 받아서 설치한다. python도 말이다. pip를 사용하는 듯하다.
+bash에 debug를 걸어두어서 화면에 많이도 출력되는 군요.
+egrep
+echo
+git_timed
+local start_time=
+date +%s%3N
+elapsed_time=4393
+end_time
+cd /opt/stack/noVNC
+git show --oneline
+head -1
+return 1
+pwd
+orig_dir
+RECLONE=False
+pycadf===2.7.2 in /usr/lib/python2.7/site-packages 
+(from -c /opt/stack/requrements/upper-constraints.txt (line 282))
+Collecting
+Requrement already satisfied:
+numpy
+webcolors
+munch
+jmespath
+smmap2
+setup.py
+Running setup.py 
+Centos
+lib/nova:
+parse_yum_result=
+BEGIN
+don't match your 
+YUM_FAILED
+git_timed clone https://git.openstack.org/openstack/horizon.git /opt/stack/horizon --branch stable/queens
+timeout -s SIGINT 0 git glone
+Cloning intput '/opt/stack/horizon'
+egrep -q '^refs'
+openSUSE
+tox -r --notest --efull
+++lib/tempest:install_tempest:661
+full create: /opt/stack/tempest/.tox/tempest
+full installdeps: -chttps://releases.openstack.org/constraints/uppper/master
+-r/opt/stack/tempest/STH
+restart_service mariadb
+initset
+stackdb
+DEBUG
+INFO migrate.versioning.api
+curl -g -k --noproxy 
+/usr/bin/keystoneSTH
+openstack project
+oscwrap role create another
+openstack role add member
+assignment list
+열심히 명령어를 내리고 있다. 저 말구요.
+memory usage 4g
+설치중인데 openstack project list 잘 동작한다
+물론 . openrc 이후에 말이다.
+리부팅후에도 잘 동작할까
+Django
+/opt/stack/horizon/static
+lib/horizon:init_horizon:155
+DJANGO_SETTINGS_MODULE=openstack_dashboard
+http://x/identity
+echo unset OS_
+wait_for_compute
+is_service_enabled
+Obtaining file:///opt/stack/x
+cirros
+openstack project list
+openstack image list
+openstack flavor list
+venv-tempest recreate /opt/stack/tempest/.tox/tempest
+initset /opt/stack/tempest/etc/tempest.conf auth tempest_roles Member
+tox -evenv -- tempest verify-config -uro /tmp/tmp.rvFw28y151
+venv create: /opt/stack/tempest/.tox/venv
+1h 30m 완료
+
+=========================
+DevStack Component Timing
+ (times are in seconds)
+=========================
+run_process           42
+test_with_retry        7
+pip_install          1558
+osc                  477
+wait_for_service      47
+yum_install          483
+git_timed            1245
+dbsync                42
+-------------------------
+Unaccounted time     1097
+=========================
+Total runtime        4998
+
+
+
+This is your host IP address: 192.168.100.111
+This is your host IPv6 address: ::1
+Horizon is now available at http://192.168.100.111/dashboard
+Keystone is serving at http://192.168.100.111/identity/
+The default users are: admin and demo
+The password: nomoresecret
+
+WARNING:
+Using lib/neutron-legacy is deprecated, and it will be removed in the future
+
+
+Services are running under systemd unit files.
+For more information see:
+https://docs.openstack.org/devstack/latest/systemd.html
+
+DevStack Version: queens
+Change: b3a817956af9c383635475ae690f346b6a0821c4 zuul: new variable to easily populate TEMPEST_PLUGINS 2019-07-26 12:04:38 +0200
+OS Version: CentOS 7.5.1804 Core
+
+[stack@one devstack]$
+
+8g 중 300m free

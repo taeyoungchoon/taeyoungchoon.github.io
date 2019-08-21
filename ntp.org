@@ -1,7 +1,10 @@
 * cli, first
 
+restrict 192.168.110.0 mask 255.255.255.0 nomodify notrap
+
 ntpq -p
 ntpdate -q time.bora.net
+ntpdate -d time.bora.net
 
 * dig
 
@@ -25,4 +28,85 @@ grep ntp /etc/services
 
 * read
 
+http://blog.naver.com/PostView.nhn?blogId=oxcow119&logNo=221499348324&parentCategoryNo=&categoryNo=10&viewDate=&isShowPopularPosts=true&from=searhc
+good, arch
+
 http://linuxism.tistory.com/120
+
+* so chrony
+
+driftfile /var/lib/chrony/drift
+local stratum 8
+manual
+allow 192.168.165
+allow 192.168.110.0/24
+firewall-cmd --add-service=ntp --permament
+firewall-cmd --reload
+
+/etc/chrony.conf
+server master iburst
+
+https://www.ntppool.org/zone/kr
+
+server 1.kr.pool.ntp.org
+server 0.asia.pool.ntp.org
+driftfile /var/lib/chrony/drift
+logdir /var/log/chrony
+log measurements statistics tracking
+timedatectl
+timedatectl set-ntp true
+chronyc sources -v
+chronyc tracking
+chronyc -a makestep
+Reference ID
+Stratum
+
+| car | cdr | means               | more        |
+|-----+-----+---------------------+-------------|
+| ^   |     | server              |             |
+| =   |     | peer                |             |
+| #   |     | local               |             |
+|     | *   | using               |             |
+|     | +   | possible to connect | takes time? |
+|     | -   | not                 |             |
+|     | ?   | fail to             |             |
+|     | x   | not possible        |             |
+
+* what the
+
+ntptime -s 0 -f 0
+stratum 0, primary reference clock, GPS, Caesium Cs 55
+stratum 1
+chronyc sourcestats
+commandkey 1
+keyfile /etc/chrony.keys
+chronyc>
+chronyc ntpdata
+makestep threshold limit
+makestep 0.1 1
+burst 1/2
+keygen 73 SHA1 256
+
+https://chrony.tuxfamily.org/doc/3.1/chrony.conf.html
+https://chrony.tuxfamily.org/doc/3.1/chronyc.html
+
+* ntp client minimal
+
+https://chrony.tuxfamily.org/faq.html
+
+#+BEGIN_SRC 
+pool pool.ntp.org iburst
+driftfile /var/lib/chrony/drift
+makestep 1 3
+rtcsync
+#+END_SRC
+
+* faq
+
+** How do I make an NTP server from an NTP client?
+
+You need to add an allow directive to the chrony.conf file
+
+** I have several computers on a LAN. Should be all clients of an external server?
+
+The best configuration is usually to make one computer the server, with the others as clients of it. Add a local directive to the server’s chrony.conf file. 

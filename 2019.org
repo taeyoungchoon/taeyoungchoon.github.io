@@ -18,9 +18,15 @@
 - scsi sub system, call call call
 
 * 2019-08 OSA, OpenStack Ansible
-
+  
 - OSA AIO
 - OSA Test with LinuxBridge
 - OSA Test with OpenVswitch
 - OSA Production
 - so what will be
+* 2019-08-12 and then 2019-08-13
+
+뱀을 밤을 새다 세다. 밤을 지세우다. 밤을 세다. 한글 참 어렵다. 한글만 일까?
+아니다.
+
+그래 그리고 [2019-08-14 수 14:21] 지금이다. 13일 아니 12일 부터 그리고 밤을 꼬박 지새우고 지세우고 다음 날 7시 30분경 퇴근 그때 다른 이들은 출근을 한다. visual-line-mode 말고 줄 바꾸는 모드는 무엇일까? moleskine으로 Jump을 할까 그리고 자리를 바꿀까? 조금 전까지는 책을 읽고 있었는데 Harry potter and the goblet of fire이다. 재미는 있는데 해석은 잘되지 않는다 무슨 말인가? 읽기는 하는 것인가? 
