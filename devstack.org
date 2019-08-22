@@ -27,7 +27,6 @@ $ openstack server create --image 0dbd2fe2-3844-48a2-b873-a9b0c5bc6ebd \
 $ sudo ip netns
 $ openstack compute service list
 $ openstack network agent list
-* so script or what
 * say
 
 ./stack.sh 중이다. 이런 중이다. 설정은 local.conf에 약간 했다. 약간이다. 참고로 
@@ -160,3 +159,57 @@ OS Version: CentOS 7.5.1804 Core
 [stack@one devstack]$
 
 8g 중 300m free
+* so script or what
+
+** ready
+
+- memory: 8g
+
+** pre
+
+sudo useradd -s /bin/bash -d /opt/stack -m stack
+echo "stack ALL=(ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/stack
+sudo su - stack
+sudo yum install git -y
+git clone https://git.openstack.org/openstack-dev/devstack -b stable/queens
+cd devstack
+cp samples/local.conf .
+
+** edit local.conf
+
+# Network
+# HOST_IP=127.0.0.1
+FIXED_RANGE=172.20.6.0/24
+IP_VERSION=4
+
+# Auth
+ADMIN_PASSWORD=1113
+DATABASE_PASSWORD=$ADMIN_PASSWORD
+RABBIT_PASSWORD=$ADMIN_PASSWORD
+SERVICE_PASSWORD=$ADMIN_PASSWORD
+
+# One more thing
+disable_service tempest
+
+Q_PLUGIN=ml2
+Q_AGENT=openvswitch
+
+# Logging
+LOGFILE=$DEST/logs/stack.sh.log
+LOGDAYS=2
+LOG_COLOR=True
+VERBOSE=True
+ENABLE_DEBUG_LOG_LEVEL=True
+ENABLE_VERBOSE_LOG_LEVEL=True
+
+** to build(./stack.sh) offline
+
+OFFLINE=True
+
+* more
+
+https://docs.openstack.org/devstack/latest/
+https://docs.openstack.org/devstack/latest/development.html
+https://docs.openstack.org/devstack/latest/systemd.html
+https://docs.openstack.org/devstack/latest/configuration.html
+https://docs.openstack.org/devstack/latest/configuration.html#logging
