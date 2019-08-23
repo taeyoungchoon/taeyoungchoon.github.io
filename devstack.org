@@ -8,25 +8,38 @@ http://html5around.com/wordpress/tutorials/ubuntu-openstack-install/
 $ ./unstack.sh
 $ ./clean.sh
 
-$ . openrc admin demo
-$ openstack image list
-$ openstack flavor list
-$ ssh-keygen
-$ openstack keypair create --public-key ~/.ssh/id_rsa.pub admin-key
-$ openstack project list
-$ openstack security group list
-$ openstack security group rule create --proto icmp --src-ip 0.0.0.0/0 \
---dst-port -1 --ingress c7c5282d-fd92-4518-9506-8c9c49cabed3
-$ openstack security group rule create --proto tcp --src-ip 0.0.0.0/0 \
---dst-port 1:65535 --ingress c7c5282d-fd92-4518-9506-8c9c49cabed3
-$ openstack network list
-$ openstack server list
-$ openstack server create --image 0dbd2fe2-3844-48a2-b873-a9b0c5bc6ebd \
-> --flavor m1.tiny --nic net-id=d115d85e-8fff-4280-9e96-08515ef86e95 \
-> --key-name admin-key --security-group default test-01
-$ sudo ip netns
-$ openstack compute service list
-$ openstack network agent list
+source openrc admin
+openstack image list
+t_cirros=$(openstack image list -f value -c ID -c Name | \
+grep -w cirros | head -1 | cut -d " " -f 1)
+openstack flavor list
+yes y | ssh-keygen -t rsa -N '' -f ~/.ssh/id_rsa
+openstack keypair create --public-key ~/.ssh/id_rsa.pub admin-key
+openstack project list
+t_p=$(openstack project list -f value -c ID -c Name | \
+grep -w demo | cut -d " " -f 1)
+openstack security group list
+t_sg=$(openstack security group list -f value -c ID -c Project | \
+grep $t_p | cut -d " " -f 1)
+openstack security group rule create --proto icmp --src-ip 0.0.0.0/0 \
+--dst-port -1 --ingress $t_sg
+openstack security group rule create --proto tcp --src-ip 0.0.0.0/0 \
+--dst-port 1:65535 --ingress $t_sg
+openstack network list
+t_n=$(openstack network list -f value -c ID -c Name | \
+grep private | cut -d " " -f 1)
+openstack server list
+openstack server create --image $t_cirros --flavor m1.tiny \
+--nic net-id=$t_n --security-group $t_sg --key-name admin-key test-01
+sudo ip netns
+t_r=$(sudo ip netns | grep qrouter | cut -d " " -f 1)
+sudo ip netns exec $t_r ip a
+t_ip=$(openstack server list --name test-01 -c Networks -f value | \
+cut -d '=' -f 2)
+sudo ip netns exec $t_r ssh cirros@$t_ip
+openstack compute service list
+openstack network agent list
+
 * say
 
 ./stack.sh 중이다. 이런 중이다. 설정은 local.conf에 약간 했다. 약간이다. 참고로 
