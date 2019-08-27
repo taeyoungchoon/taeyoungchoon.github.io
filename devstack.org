@@ -36,7 +36,7 @@ t_r=$(sudo ip netns | grep qrouter | cut -d " " -f 1)
 sudo ip netns exec $t_r ip a
 t_ip=$(openstack server list --name test-01 -c Networks -f value | \
 cut -d '=' -f 2)
-sudo ip netns exec $t_r ssh cirros@$t_ip
+sudo ip netns exec $t_r ssh -i ~/.ssh/id_rsa cirros@$t_ip
 openstack compute service list
 openstack network agent list
 
