@@ -1,0 +1,4 @@
+* make
+
+- [[file:makefile][makefile]] is required
+- mother(not father) of all configuration management such cfengine, puppet and ansible

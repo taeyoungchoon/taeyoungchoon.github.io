@@ -14,3 +14,11 @@ philosophy, philosophical depth in life or something else
 
 #+RESULTS:
 | lisp | linux | emacs |
+
+* person or people
+
+- 공자, 논어
+- 니체
+- 소크라테스
+- 나
+- 나-너-우리
