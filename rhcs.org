@@ -1,5 +1,6 @@
-* using 
+* using
 
 - Pacemaker
 - Corosync Cluster Engine
-- Linux-HA heartbeat
+- Linux-HA heartbeat, nil
+- and GFS2

@@ -1,0 +1,12 @@
+* so
+
+- [2019-08-27 화 21:26] today
+
+* dig
+
+1. with redhat cluster sth, pcs status
+2. mount -t gfs
+3. under layer, lvm, this time
+4. external storage, 3par
+
+* lvm controled by or I did not know well enough

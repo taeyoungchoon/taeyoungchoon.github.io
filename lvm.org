@@ -27,15 +27,14 @@ mkfs.ext4 /dev/sda1
 blkid >> /etc/fstab
 vi /etc/fstab
 mount -a
-
 #+END_EXAMPLE
-
-* click
-
-* so
 
 * cli
 
 vgscan
 vgchange -a y
 mount /dev/volumegroup/logicalvolume /mnt/somewhere
+
+* one more thing
+
+- [ ] active?
