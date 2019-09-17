@@ -16,3 +16,12 @@
 
 - 논어 then again
 - harry potter 3 and more
+
+* tips and tricks
+
+- linux-ha
+- vm, kvm, lxc, linux-vm
+- xm, docker, container, linux-xm
+- linux-firewall
+- linux-network-nic
+- linux-network-cfg-route
