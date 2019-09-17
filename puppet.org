@@ -1,0 +1,6 @@
+* puppet with or using agent and about manifest
+
+- snmp
+- snmp agent
+- consider well about ntp 
+- big one k8s

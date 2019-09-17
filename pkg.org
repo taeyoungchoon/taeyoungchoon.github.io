@@ -1,0 +1,19 @@
+* pkg, tgz, rpm, deb then all pkg and control the state (machine)
+
+- [[file:puppet.org][puppet]], manifest and say policy
+- k8s, kubernates too with agent such as puppet agent
+
+#+BEGIN_SRC 
+kubernates
+k01234567s
+k8s
+#+END_SRC
+
+- choco, windows only? and around
+- process, program, dep, library, link of all
+- quantum and cell
+- all cons
+- cons again
+- (cons t nil)
+- (cons 1 (cons 2 (cons 3)))
+- (list 1 2 3)
