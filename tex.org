@@ -1,0 +1,30 @@
+#+LATEX_HEADER: \usepackage{kotex}
+
+* purpose
+
+- [X] hangul as 한글
+
+* process
+
+1. install software
+2. add PATH
+
+#+BEGIN_SRC 
+C:\texlive\2019\bin\win32
+#+END_SRC
+
+3. add line to org file
+
+#+BEGIN_SRC 
+#+LATEX_HEADER: \usepackage{kotex}
+#+END_SRC
+
+- C-c C-e l o
+
+* ref
+
+- https://heejune.me/2016/03/05/
+- http://www.ktug.org
+
+* so emacs
+

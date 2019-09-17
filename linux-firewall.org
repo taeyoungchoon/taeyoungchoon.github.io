@@ -6,4 +6,15 @@ service iptables stop
 iptables -nL
 
 * rhel 7 then centos 7
+* now rhel 8
+
+- now?
+
+* netfilter since Linux kernel 3.13 released on 19 [[file:january.org][January]] 2014
+
+- nft
+- netfilter table
+- ever iptables
+- then ever ipchains
+- ever and ever more ipfwadm
 

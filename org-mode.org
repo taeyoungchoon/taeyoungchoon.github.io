@@ -28,11 +28,13 @@ C-x C--
 #+END_SRC
 
 * read words about it
-  - http://orgmode.org/worg/org-quotes.html
+
+- http://orgmode.org/worg/org-quotes.html
 
 * command
-  - C-c C-e b : export to html file then open it from browser
-  - C-c a : type command for agenda view
+
+- C-c C-e b : export to html file then open it from browser
+- C-c a : type command for agenda view
 
 * calc or spreadsheet
 

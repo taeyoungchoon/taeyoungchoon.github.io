@@ -1,0 +1,14 @@
+#+LATEX_HEADER: \usepackage{kotex}
+* say
+
+한글로
+
+* from wiki(pedia)
+
+Red Hat Enterprise Linux 8 (Ootpa) is based on Fedora 28, upstream Linux kernel 4.18, GCC 8.2, glibc 2.28, systemd 239, and GNOME 3.28. The first beta was announced on November 14, 2018.[20] Red Hat Enterprise Linux 8 was officially released on May 7, 2019.
+
+#+BEGIN_SRC 
+#+LATEX_HEADER: \usepackage{kotex}
+#+END_SRC
+
+* yum, pkg, package
