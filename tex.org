@@ -28,3 +28,9 @@ C:\texlive\2019\bin\win32
 
 * so emacs
 
+* mac
+
+#+BEGIN_SRC 
+rew search tex
+#+END_SRC
+
