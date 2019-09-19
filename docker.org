@@ -1,0 +1,28 @@
+* docker version, 2
+* docker cli or podman like that
+
+docker pull ubuntu
+docker pull debian
+docekr run -it --name test ubuntu /bin/bash
+docker run -it debian
+docker ps -a | cut -d " " -f 1 | grep -v C | sed 's/^/docker rm /'
+cat /etc/sysconfig/docker
+docker pull hello-world
+docker run -it hello-world
+docker restart debian
+docker rmi hello-world
+docker ps
+docker attache -f
+
+docker history
+docker history f6
+docker ps 
+docker ps -a
+docker stop 6a
+docker rm 6a
+docker images
+
+* podman, is the standard, the protocol
+
+yum install podman-docker
+

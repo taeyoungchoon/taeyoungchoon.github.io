@@ -1,4 +1,4 @@
 all:
 
 clean:
-	rm *.fas *.lib *~
+	rm *~ *.tex *.fas *.aux *.lib *.log

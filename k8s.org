@@ -28,4 +28,28 @@ such as openstack
 * supported container?
 
 - docker only
-- or more?
+- or more? kvm sure
+
+* cli or the bash scriptable
+
+curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64   && chmod +x minikube
+sudo install minikube /usr/local/bin
+curl -LO https://storage.googleapis.com/minikube/releases/latest/docker-machine-driver-kvm2 && sudo install docker-machine-driver-kvm2 /usr/local/bin/
+minikube  start --vm-driver kvm2
+curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl && chmod +x kubectl && sudo mv kubectl /usr/bin/.
+
+kubectl cluster-info
+kubectl get nodes
+kubectl get pods --all-namespaces
+kubectl run hello-minikube --image=k8s.gcr.io/echoserver:1.10 --port=8080
+kubectl get deployments
+kubectl get pods
+kubectl expose deployment hello-minikube --type=NodePort
+kubectl get services
+minikube service hello-minikube --url
+minikube dashboard --url
+virsh list
+virsh console 2
+
+minikube login: root
+docker ps
