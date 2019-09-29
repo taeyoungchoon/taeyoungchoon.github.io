@@ -48,7 +48,10 @@
 
 (defun hello-again ()
   (let ((name "jack"))
-    (format t "hello ~A" name)))(cons t nil)
+    (format t "hello ~A" name)))
+
+(cons t nil)
+
 (setf *lt* (list 1 2 3))
 
 ;;(jack raul ((1.1.1.1 mapping) (2.2.2.2 service)) 20151119)
@@ -97,4 +100,4 @@
 
 (hello-again)
 
-(+ 3 3)
+
