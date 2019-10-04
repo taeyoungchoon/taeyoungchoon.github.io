@@ -14,9 +14,22 @@
 - [2017-03-31 Fri] purchasing CLT-K403S (32,840) from gmarket
 - [2017-10-31 화] try samsung A/S but fail to simulate the situation
 
-* cannon using ftp
+* cannon using ftp at some university
 
 - http://www.canon-bs.co.kr/cs/download.aspx
 - IR ADV C5940KB
 - [복합기 전용] CKBS FTP Server Utility Ver 2.7
+
+* at office, ylit
+
+- 192.168.25.61 
+- ir1024 
+- UFR2 only, why?
+- driver download failure, hmm
+
+** driver
+
+- driver file: [Windows 64bit] imageRUNNER 1024A/1024F/1020 MFDrivers (UFR II rinter/ FAX / ScanGear)
+- driver at: http://www.canon-europe.com/support/products/imagerunner/ir1024f.aspx
+- downloaded: iR1024MFDriversV290W64EN.exe 
 

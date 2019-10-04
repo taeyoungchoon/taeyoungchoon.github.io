@@ -1,3 +1,41 @@
+* TODO execute permission required
+
+#+BEGIN_SRC 
+[root@two tmp]# date
+Tue Oct  1 17:02:58 KST 2019
+[root@two tmp]# crontab -l
+* *  *  *  * /tmp/every-minute-by-etc-crontab-file.sh
+[root@two tmp]# cat every-minute-by-etc-crontab-file.log
+20191001.170001
+20191001.170101
+20191001.170201
+20191001.170302
+#+END_SRC
+
+#+BEGIN_SRC 
+[root@two tmp]# ls -l /etc/cron.hourly/
+total 12
+-rwxr-xr-x. 1 root root 392 Apr 11  2018 0anacron
+-rwxr-xr-x. 1 root root  67 Oct  1 16:51 hourly-by-etc-cron.hourly.sh
+-rw-r--r--. 1 root root  83 Oct  1 16:52 hourly-by-etc-cron.hourly-without-execute.sh
+[root@two tmp]# ls -l /tmp/hourly*
+-rw-r--r--. 1 root root 16 Oct  1 17:01 /tmp/hourly-by-etc-cron.hourly.log
+[root@two tmp]# cat /tmp/hourly-by-etc-cron.hourly.log
+20191001.170101
+#+END_SRC
+
+#+BEGIN_SRC 
+[root@two tmp]# tail -30 /var/log/cron
+Oct  1 08:00:01 localhost CROND[3294]: (root) CMD (/tmp/every-minute-by-etc-crontab-file.sh)
+Oct  1 08:01:01 localhost CROND[3313]: (root) CMD (/tmp/every-minute-by-etc-crontab-file.sh)
+Oct  1 08:01:01 localhost CROND[3314]: (root) CMD (run-parts /etc/cron.hourly)
+Oct  1 08:01:01 localhost run-parts(/etc/cron.hourly)[3314]: starting hourly-by-etc-cron.hourly.sh
+Oct  1 08:01:01 localhost run-parts(/etc/cron.hourly)[3334]: finished hourly-by-etc-cron.hourly.sh
+Oct  1 08:02:01 localhost CROND[3360]: (root) CMD (/tmp/every-minute-by-etc-crontab-file.sh)
+Oct  1 08:03:02 localhost CROND[3392]: (root) CMD (/tmp/every-minute-by-etc-crontab-file.sh)
+[root@two tmp]#
+#+END_SRC
+
 * DONE cron.allow and cron.deny
   CLOSED: [2019-05-02 목 13:05]
 
