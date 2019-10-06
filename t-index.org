@@ -1,0 +1,33 @@
+* index?
+
+* history
+
+- [2019-10-06 Sun 22:41] day one
+
+* essential
+
+- body
+  - muscle
+  - digest
+- food
+- lang
+  - korean, english, latin, t
+- time
+  - moment to momentus
+- think
+- book
+- nil
+
+* with compute
+
+- code
+  - c, perl, ruby, java, python
+- emacs
+  - major and minor
+- infra
+  - openstack
+  - sdn
+  - nfv
+  - linux
+- compute
+
