@@ -1,0 +1,13 @@
+* steps
+
+- vagrant up tom
+- vagrant up huck
+- ip -4 addr
+- ip route
+- yum install tcpdump lldpd -y
+- systemctl start lldpd
+- lldpdcli show int
+- lldpdcli show neigh
+- tcpdump -i any ether proto 0x88cc -vvv
+- ip neigh
+- watch ip neigh (STALE - DELAY - REACHABLE)

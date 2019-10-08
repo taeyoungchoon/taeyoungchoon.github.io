@@ -19,6 +19,11 @@ $ cli
 > set date 2012.01.01-23:59
 #+END_SRC
 
+#+BEGIN_SRC 
+set system ntp-server-ip x.x.92.136
+set system timezone "ROK"
+#+END_SRC
+
 * TODO ntp on OVS Mode
 
 - pure debian way?
