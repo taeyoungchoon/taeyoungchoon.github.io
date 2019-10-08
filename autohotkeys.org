@@ -16,7 +16,7 @@ Capslock::Ctrl
 * refer 
 
 - imacro from firefox
-- selenium
+- [[file:selenium.org][selenium]]
 - http://www.autohotkey.co.kr/
 - http://www.autohotkey.co.kr/cgi/board.php?bo_table=tip&wr_id=361
 

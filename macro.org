@@ -1,6 +1,6 @@
 * list
 
-- emacs macro
-- c macro
-- gmacro
+- emacs macro 'C-x ('
+- c macro '#define BUFFER_SIZE 1024'
 - autohotkeys
+- lisp macro
