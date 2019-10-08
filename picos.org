@@ -1,0 +1,43 @@
+* DONE time init: timezone, date, time
+
+admin@Switch$cat /etc/timezone
+admin@Switch$sudo dpkg-reconfigure tzdata
+admin@Switch$sudo date --set 2015-12-07
+admin@Switch$sudo date --set 13:21:00
+admin@Switch$cat /etc/timezone
+
+* DONE ntp on L2/L3 Mode
+
+#+BEGIN_SRC 
+$ cli
+> conf
+# run show system ntp-status 
+# set system ntp-server-ip 192.168.10.100
+# commit 
+# set system timezone Pacific/Kosrae
+# commit 
+> set date 2012.01.01-23:59
+#+END_SRC
+
+* TODO ntp on OVS Mode
+
+- pure debian way?
+
+* DONE PicOS Mode Selection
+
+- L2/L3 Mode, legacy mode and juniper-like
+- OVS Mode
+
+admin@LEAF-A$/etc/init.d/picos status
+xorp_rtrmgr is running.
+ovsdb-server is not running ... failed!
+ovs-vswitchd is not running ... failed!
+
+* note
+
+- XorPlus based on XORP, an eXtensible Open Router Platform
+
+* manual
+
+- PicOS Routing and Switching Configuration Guide
+- PicOS Open vSwitch Configuration Guide
