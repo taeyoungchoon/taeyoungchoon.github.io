@@ -8,6 +8,7 @@
 - systemctl start lldpd
 - lldpdcli show int
 - lldpdcli show neigh
-- tcpdump -i any ether proto 0x88cc -vvv
+- [X] [[file:tcpdump.org][tcpdump]] -i any ether proto 0x88cc -vvv
 - ip neigh
 - watch ip neigh (STALE - DELAY - REACHABLE)
+

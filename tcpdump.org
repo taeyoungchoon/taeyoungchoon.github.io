@@ -1,0 +1,15 @@
+* this is the tcpdump examples
+
+- tcpdump -i any ether proto 0x88cb -vvv
+
+* much more hack tool such as
+
+- nmap
+- perl
+- python
+- lisp
+- emacs
+- to much my way, hahaha
+- graphviz, dot
+- much less
+- tcpdump then wireshark
