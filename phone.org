@@ -31,7 +31,7 @@
 
 ** steps
 
-1. on windows > using firefox
+1. on windows > using firefox nil, using chrome t
 2. http://www.tworld.co.kr
 3. 나의 요금 > 청구 요금 : 청구 내역 인쇄하기
 
