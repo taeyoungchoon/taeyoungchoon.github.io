@@ -1,10 +1,19 @@
-* DONE time init: timezone, date, time
+* DONE time init
+
+- timezone
+- date and time
 
 admin@Switch$cat /etc/timezone
 admin@Switch$sudo dpkg-reconfigure tzdata
 admin@Switch$sudo date --set 2015-12-07
 admin@Switch$sudo date --set 13:21:00
-admin@Switch$cat /etc/timezone
+
+** if timedatectl
+
+- timedatectl list-time-zones
+- timedatectl set-timezone Asia/Seoul
+- timedatectl
+- date
 
 * DONE ntp on L2/L3 Mode
 
@@ -24,13 +33,44 @@ set system ntp-server-ip x.x.92.136
 set system timezone "ROK"
 #+END_SRC
 
-* TODO ntp on OVS Mode
+* DONE ntp on OVS Mode
 
-- pure debian way?
+- pure debian way
+
+** if ntp
+
+- /etc/default/ntp
+- /etc/ntp.conf: pool
+- systemctl restart ntp
+- systemctl enable ntp
+- systemctl status ntp
+- ntpq -p
+
+** if chrony
+
+- /etc/default/chrony
+- /etc/chrony/chrony.conf: pool
+- systemctl status chronyd
+- systemctl enable chronyd
+- systemctl start chronyd
+- chronyc tracking
+- chronyc sources
+
+** if systemd-timesyncd
+
+- systemctl status systemd-timesyncd
+
+** more or help
+
+- ip route add
+
+* DONE PicOS Mode Change
+
+- https://docs.pica8.com/display/PICOS2111cg/Changing+PicOS+Mode+from+CLI
 
 * DONE PicOS Mode Selection
 
-- L2/L3 Mode, legacy mode and juniper-like
+- L2/L3 Mode
 - OVS Mode
 
 admin@LEAF-A$/etc/init.d/picos status
@@ -38,11 +78,11 @@ xorp_rtrmgr is running.
 ovsdb-server is not running ... failed!
 ovs-vswitchd is not running ... failed!
 
-* note
+* DONE note
 
 - XorPlus based on XORP, an eXtensible Open Router Platform
 
-* manual
+* DONE manual
 
 - PicOS Routing and Switching Configuration Guide
 - PicOS Open vSwitch Configuration Guide

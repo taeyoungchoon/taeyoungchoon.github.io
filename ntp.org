@@ -110,3 +110,32 @@ You need to add an allow directive to the chrony.conf file
 ** I have several computers on a LAN. Should be all clients of an external server?
 
 The best configuration is usually to make one computer the server, with the others as clients of it. Add a local directive to the server’s chrony.conf file. 
+
+* dig
+
+ntpstat
+ntpdate -q time.bora.net
+ntpq -c rv
+ntpq -c ker
+leap_none < leap_alarm
+sync_ntp < sync_unspec
+no_sys_peer < spike_detect < restart
+
+chronyc activity
+chronyc sourcestats
+
+* old and story
+
+- ICMP Timestamp
+- IP Timestamp
+- daytime with inetd port 13
+- time with inetd and rdate port 37
+- ntp port 123
+  - David L Mills
+  - ntpdate
+  - chrony
+- sntp
+  - windows xp and 2000
+  - small system
+  - systemd-timesyncd(default from debian 8/9)
+- ptp
