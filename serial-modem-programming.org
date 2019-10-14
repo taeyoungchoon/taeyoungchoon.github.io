@@ -1,5 +1,33 @@
 * hardware
 
+- kw-825
+  - 강원전자 NETmate USB 2.0-시리얼
+  - USB2.0 to RS232 Converter
+  - 1.8m
+  - RS232 시리얼
+  - USB 2.0/1.1
+  - Serial 9pin Male
+  - FTDI
+- kw-725
+  - short enough
+  - 0.45m
+- NEXT-RS232WC
+  - so short
+- NEXT-RS232U20
+  - 1.8m
+
+* RS-232
+
+1. DCD Data Carrier Detect
+2. RXD Receive Data
+3. TXD Transmit Data
+4. DTR Data Terminal Ready
+5. GND Ground
+6. RI Ring Indicator
+7. CTS Clear to Send
+8. RTS Request to Send
+9. DSR Data Set Ready
+
 * linux
 
 * windows
