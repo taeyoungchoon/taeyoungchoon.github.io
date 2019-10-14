@@ -1,6 +1,20 @@
+* javascript
+
+- netscape another ssl
+- JavaScript(JS)
+- ECMAScript, the standard
+- and css, CSS
+- and again html, http, HTML, HTTP
+- java, JAVA, Java
+
+* TODO lecture, tutorial
+
+- command line heroes
+
 * jquery hoverintent, easing, lightview
 * jquery mobile
 * js/jwplayer.js
 * js/diapo.js
 
 - Diapo | a free jQuery slideshow by Pixedelic
+* Node.js

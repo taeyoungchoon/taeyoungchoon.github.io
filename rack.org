@@ -1,0 +1,18 @@
+* TODO size
+
+- 42U, 210cm
+
+#+BEGIN_SRC emacs-lisp
+(/ 210 42)
+#+END_SRC
+
+#+RESULTS:
+: 5
+
+* TODO U, Unit, unit, RU
+
+- 1.75inch, 1.75"
+- 44.45mm
+
+* various
+
