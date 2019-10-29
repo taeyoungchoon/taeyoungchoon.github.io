@@ -179,6 +179,7 @@ OS Version: CentOS 7.5.1804 Core
 [stack@one devstack]$
 
 8g 중 300m free
+
 * so script or what
 
 ** ready
@@ -233,3 +234,4 @@ https://docs.openstack.org/devstack/latest/development.html
 https://docs.openstack.org/devstack/latest/systemd.html
 https://docs.openstack.org/devstack/latest/configuration.html
 https://docs.openstack.org/devstack/latest/configuration.html#logging
+* 2019-10-29 iptables -F to access horizon
