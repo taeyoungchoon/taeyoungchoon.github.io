@@ -16,10 +16,13 @@
 hwclock --systohc
 hwclock --hctosys
 
-** date
+** TODO date
+
+date -s "20191107 14:00:10"
+
 ** time protocol 
 
-rdate
+set time using rdate
 
 ** ntp protocol using ntpd, ntpdate
 
@@ -35,3 +38,11 @@ chronyc tracking
 chronyc sources
 chronyc sourcestats
 chronyc makestep
+
+** timezone
+
+dpkg-reconfigure tzdata
+(the old)tzconfig
+tzselect
+timedatectl set-timezone Asia/Seoul
+

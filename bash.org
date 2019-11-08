@@ -63,3 +63,20 @@
 | nload               |       |
 
 * so what?
+* TODO BASH_REMATCH, match, re
+
+#+BEGIN_SRC 
+? cat go.sh
+#!/usr/bin/env bash
+
+target=$1
+host=$target
+
+if [[ $host =~ ^([a-z]+)- ]]
+then
+        echo ${BASH_REMATCH[1]}
+fi
+? ./go.sh as-a1-c0-lgu2p
+
+as
+#+END_SRC

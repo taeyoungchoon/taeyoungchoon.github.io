@@ -1,1 +1,48 @@
 * have to be done, requested by ceo
+* pstree
+
+#+BEGIN_SRC 
+[root@s004 openshift-controller-manager]# pstree
+systemd-+-agetty
+        |-containerd-+-containerd-shim-+-hyperkube---66*[{hyperkube}]
+        |            |                 `-9*[{containerd-shim}]
+        |            |-9*[containerd-shim-+-pod---6*[{pod}]]
+        |            |                    `-9*[{containerd-shim}]]
+        |            |-4*[containerd-shim-+-pod---5*[{pod}]]
+        |            |                    `-9*[{containerd-shim}]]
+        |            |-containerd-shim-+-hyperkube---34*[{hyperkube}]
+        |            |                 `-9*[{containerd-shim}]
+        |            |-containerd-shim-+-openshift---57*[{openshift}]
+        |            |                 `-9*[{containerd-shim}]
+        |            |-containerd-shim-+-hyperkube---48*[{hyperkube}]
+        |            |                 `-9*[{containerd-shim}]
+        |            |-containerd-shim-+-hypershift---72*[{hypershift}]
+        |            |                 `-9*[{containerd-shim}]
+        |            |-2*[containerd-shim-+-pod---6*[{pod}]]
+        |            |                    `-10*[{containerd-shim}]]
+        |            |-2*[containerd-shim-+-openshift---34*[{openshift}]]
+        |            |                    `-9*[{containerd-shim}]]
+        |            |-containerd-shim-+-service-serving---53*[{service-serving}]
+        |            |                 `-9*[{containerd-shim}]
+        |            |-containerd-shim-+-service-serving---38*[{service-serving}]
+        |            |                 `-9*[{containerd-shim}]
+        |            |-containerd-shim-+-service-serving---32*[{service-serving}]
+        |            |                 `-9*[{containerd-shim}]
+        |            |-containerd-shim-+-hypershift---56*[{hypershift}]
+        |            |                 `-9*[{containerd-shim}]
+        |            |-containerd-shim-+-hypershift---52*[{hypershift}]
+        |            |                 `-9*[{containerd-shim}]
+        |            |-containerd-shim-+-hypershift---47*[{hypershift}]
+        |            |                 `-9*[{containerd-shim}]
+        |            |-containerd-shim-+-openshift-route-+-haproxy
+        |            |                 |                 `-34*[{openshift-route}]
+        |            |                 `-9*[{containerd-shim}]
+        |            |-containerd-shim-+-dockerregistry---34*[{dockerregistry}]
+        |            |                 `-9*[{containerd-shim}]
+        |            |-containerd-shim-+-origin-web-cons---36*[{origin-web-cons}]
+        |            |                 `-10*[{containerd-shim}]
+        |            `-66*[{containerd}]
+        |-dockerd---41*[{dockerd}]
+        |-firewalld---{firewalld}
+        `-tuned---4*[{tuned}]
+#+END_SRC
