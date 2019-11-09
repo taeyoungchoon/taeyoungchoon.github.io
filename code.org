@@ -2,3 +2,13 @@
 
 - is can be called as think
 - is not called as soul
+
+* code(r)
+
+#+BEGIN_SRC emacs-lisp
+(cons t nil)
+#+END_SRC
+
+#+RESULTS:
+| t |
+
