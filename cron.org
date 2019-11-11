@@ -1,10 +1,10 @@
-* TODO execute permission required
+* DONE execute permission required
 
 #+BEGIN_SRC 
 [root@two tmp]# date
 Tue Oct  1 17:02:58 KST 2019
 [root@two tmp]# crontab -l
-* *  *  *  * /tmp/every-minute-by-etc-crontab-file.sh
+x *  *  *  * /tmp/every-minute-by-etc-crontab-file.sh
 [root@two tmp]# cat every-minute-by-etc-crontab-file.log
 20191001.170001
 20191001.170101
@@ -142,3 +142,4 @@ sys     0m0.003s
 
 - http://www.askbjoernhansen.com/2007/11/19/space_out_cronjobs.html
 
+* TODO and anacron
