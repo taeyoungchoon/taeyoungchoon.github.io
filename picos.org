@@ -86,3 +86,44 @@ ovs-vswitchd is not running ... failed!
 
 - PicOS Routing and Switching Configuration Guide
 - PicOS Open vSwitch Configuration Guide
+* [2/2] ntp again
+
+- timezone: Asia/Seoul, ROK
+- server1: 10.0.92.136
+- server2: 10.0.92.210
+
+** DONE l2/l3 mode
+
+#+BEGIN_SRC 
+show system ntp-status  
+conf
+set system ntp-server-ip 10.0.92.136
+set system ntp-server-ip 10.0.92.210
+set system timezone "ROK"
+commit
+show system ntp-status  
+#+END_SRC
+
+** DONE ovs mode
+
+#+BEGIN_SRC 
+ln -sf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
+
+root@PICOS-OVS:/cftmp/auto# cat post-ovs 
+#!/bin/bash
+/cftmp/auto/config_on_boot.sh
+
+root@PICOS-OVS:/cftmp/auto# cat config_on_boot.sh
+#!/bin/bash
+
+config_data="#
+server 10.0.92.136
+server 10.0.92.210
+#"
+echo "$config_data" | sudo tee /etc/ntp-server >/dev/null
+
+sudo service ntp restart >/dev/null
+
+root@PICOS-OVS:/cftmp/auto# sh post-ovs
+root@PICOS-OVS:/cftmp/auto# ntpq -p
+#+END_SRC
