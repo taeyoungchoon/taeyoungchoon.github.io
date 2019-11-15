@@ -25,3 +25,151 @@
 - linux-firewall
 - linux-network-nic
 - linux-network-cfg-route
+* TODO ssh with (curse) menu
+* TODO grub2 from grub, lilo, loadlin
+
+and harder to configure
+
+* TODO linux-ha: ha cluster, using lvm iscsi and more
+  
+** refer
+
+https://www.youtube.com/watch?v=iVGwd1nweKo
+RedHat Cluster Configuration Step by Step with Two Node Part1
+
+** env
+
+128 storage
+129 node1
+192.168.10.130 node2.technical-tech.local node2
+
+** at storage
+
+lsblk
+pvcreate /dev/sdv
+vgcreate vg_iscsi /dev/sdb
+lvcreate -l 100%FREE -n lv_iscsi vg_iscsi
+lsblk
+yum install targetcli
+targetcli
+ls
+cd /backstore/black
+create iscsi_shared_storage /dev/vg_iscsi/lv_iscsi
+cd /iscsi
+create iqn.2017-05.local.storage.technical-tech:cluster
+cd /iscsi/iqn.2017-05.local.storage.technical-tech:cluster/tpg1/acls
+create iqn.2017-05.local.storage.technical-tech:node1node2
+cd /iscsi/iqn.2017-05.local.storage.technical-tech:cluster/tg1
+set attribute authentication=0
+set attribute generate_node_acls=1
+cd /iscsi/iqn.2017-05.local.storage.technical-tech:cluster/tpg1/luns
+create /backstore/black/iscsi_share_storage
+cd /
+ls
+saveconfig
+exit
+systemctl enable target.service
+systemctl start target.service
+
+** at node2 and node2
+
+ssh node1
+lsblk
+yum install iscsi-initiator-utils -y
+iscsiadm -m discovery -t st -p 192.168.10.128
+cat > /etc/iscsi/initiatorname.iscsi <<EOF
+InitiatorName=iqn.2017-05.local.storage.technical-tech:node1node2
+EOF
+iscsiadm -m node -T iqn.2017-05.local.storage.technical-tech:node1node2 -p 192.168.10.128 -l
+systemctl restart iscsid.service 
+lsblk
+partprobe /dev/sdb
+pvcreate /dev/sdb
+vgcreate vg_http /dev/sdb
+lvcreate -l 100%FREE -n lv_http vg_http
+reboot
+
+mount /dev/cdrom /mnt
+cd /mnt/Packages
+cd /mnt/addons/HighAvailability
+
+mkfs.ext4 /dev/vg_http/lv_http
+cat /etc/hosts
+yum install pcs* pacemaker* fence-agents-all -y
+cat /etc/passwd | grep hacluster
+passwd hacluster
+systemctl enable pcsd.service
+systemctl start pcsd.service
+pcs cluster auth node1.technical-tech.local node2.technical-tech.local
+hacluster
+x
+pcs cluster setup --start --name technical-tech_cluster node1.technical-tech.local node2.technical-tech.local
+pcs cluster enable --all
+pcs cluster status
+pcs status
+
+yum install httpd wget -y
+vi /etc/httpd/conf/httpd.conf
+<Location /server-status>
+SetHandler server-status
+Order deny,allow
+Deny from all
+Allow from 127.0.0.1
+</Location>
+mount /dev/vg_http/lv_http /var/www
+df -h
+mkdir /var/www/html
+mkdir /var/www/cgi-bin
+mkdir /var/www/error
+echo "This is Technicaltech website" > /var/www/html/index.html
+umount /var/www/
+ssh node2
+mount /dev/vg_http/lv_http /var/www
+
+** part2 with resources
+
+lvs
+pcs resource create httpd_fs FileSystem device="/dev/mapper/vg_http-lv_http" directory="/var/www" fstype="ext4" --group apache
+pcs resource create http_vip IPaddr2 ip=192.168.10.131 cidr_netmask=24 --group apache
+pcs resource create http_ser apache configfile="/etc/httpd/config/httpd.conf" statusurl="http://127.0.0.1/server-status" --group apache
+pcs property set stonith-enabled=false
+pcs status
+wget 192.168.10.131
+pcs cluster status
+ip a
+pcs cluster stop node1.technical-tech.local
+pcs status
+pcs cluster start node1.technical-tech.local
+pcs resource move apache node1.technical-tech.local 
+pcs status
+pcs resource restart apache
+
+** TODO words
+
+- corosync
+- pacemaker
+
+* TODO ha cluster using k8s
+* TODO ha cluster with vagrant
+  
+* TODO linux-sec
+
+- id, user, chown
+- permission, chmod
+- /etc/issue /etc/issue.net
+- and more and more and more again, what the
+- pam.d
+- sshd_config
+- sshd_config
+- motd
+- rsyslog.conf
+
+* TODO console font then hangul
+
+- setfont
+- /usr/share/consolefonts
+- /etc/default/console-setup
+- /etc/vconsole.conf
+- loadkeys
+
+

@@ -86,44 +86,93 @@ ovs-vswitchd is not running ... failed!
 
 - PicOS Routing and Switching Configuration Guide
 - PicOS Open vSwitch Configuration Guide
-* [2/2] ntp again
+
+cat /etc/timezone
+sudo dpkg-reconfigure tzdata
+cat /etc/timezone
+sudo date --set 2015-12-07
+sudo date --set 13:21:00
+echo "server x.x.96.136" | sudo bash -c "cat - > /etc/ntp-server"
+set system ntp-server-ip 192.168.10.100
+set system timezone Pacific/Kosrae
+set date 2012.01.01-23:59
+
+run bash "start shell sh"
+
+https://docs.pica8.com/display/PicOS2119/Auto-Run+Script+Upon+System+Boot+Up
+
+sudo chmod 777 /cftmp/auto/post-ovs
+no sudo required at post-ovs file
+
+https://unix.stackexchange.com/questions/452559/what-is-etc-timezone-used-for
+/etc/timezone used by some, cron, cups, java and upstream 
+
+* DONE ntp again
 
 - timezone: Asia/Seoul, ROK
-- server1: 10.0.92.136
-- server2: 10.0.92.210
+- server1: x.x.92.136
+- server2: x.x.92.210
 
-** DONE l2/l3 mode
+** l2/l3 mode
 
 #+BEGIN_SRC 
-show system ntp-status  
+ping x.x.92.136
+ping x.x.92.210
+
+show system date  
+show system ntp-status
+
 conf
-set system ntp-server-ip 10.0.92.136
-set system ntp-server-ip 10.0.92.210
+set date 2019.11.15-19:01
 set system timezone "ROK"
+set system ntp-server-ip x.x.92.136
+set system ntp-server-ip x.x.92.210
 commit
+
+show system date
 show system ntp-status  
 #+END_SRC
 
-** DONE ovs mode
+** ovs mode
 
 #+BEGIN_SRC 
-ln -sf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
+date
+sudo date --set 2019-11-15
+sudo date --set 19:01:01
+date
 
-root@PICOS-OVS:/cftmp/auto# cat post-ovs 
+sudo dpkg-reconfigure tzdata
+date
+
+ping x.x.92.136
+ping x.x.92.210
+
+sudo touch /cftmp/auto/post-ovs
+sudo chmod 777 /cftmp/auto/post-ovs
+sudo vi cftmp/auto/post-ovs 
+-BEGIN-
 #!/bin/bash
 /cftmp/auto/config_on_boot.sh
+-END-
 
-root@PICOS-OVS:/cftmp/auto# cat config_on_boot.sh
+sudo touch /cftmp/auto/config_on_boot.sh
+sudo chmod 777 /cftmp/auto/config_on_boot.sh
+# echo "server x.x.96.136" | sudo bash -c "cat - > /etc/ntp-server"
+# echo "server x.x.92.210" | sudo bash -c "cat - >> /etc/ntp-server"
+sudo vi /cftmp/auto/config_on_boot.sh
+- BEGIN-
 #!/bin/bash
 
-config_data="#
-server 10.0.92.136
-server 10.0.92.210
-#"
+config_data="server x.x.92.136
+server x.x.92.210"
 echo "$config_data" | sudo tee /etc/ntp-server >/dev/null
 
 sudo service ntp restart >/dev/null
+- END -
 
-root@PICOS-OVS:/cftmp/auto# sh post-ovs
-root@PICOS-OVS:/cftmp/auto# ntpq -p
+sudo sh /cftmp/auto/post-ovs
+ntpq -c rv
+ntpq -p
+
+date
 #+END_SRC
