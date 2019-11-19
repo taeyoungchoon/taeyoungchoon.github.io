@@ -1,0 +1,27 @@
+* pc
+* server
+* TODO network
+
+- z9100
+- s4048-on
+
+* network and os and more
+
+- Cumulus Linux OS
+- Big Switch Networks Switch Light OS
+- Dell Networking Operating System v9
+- Pluribus OS, Netvisor ONE
+- iP infusion OcNOS
+- FBOSS, Facebook Open Switching System
+- OF-DPA, OpenFlow Data Plane Abstraction
+- OpenNSL, Open Network Switch Library
+- OpenSwitch, OPX NOS
+- ONL, Open Network Linux
+
+* others like
+
+- ONIE, Open Network Install Environment
+- bare metal switch, white box switch
+- edge-core networks
+- quanta
+- netberg

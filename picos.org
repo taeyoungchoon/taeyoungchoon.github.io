@@ -1,3 +1,4 @@
+* company called info-a(http://in4a.co.kr)
 * DONE time init
 
 - timezone
