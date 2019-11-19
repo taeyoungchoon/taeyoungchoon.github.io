@@ -4,4 +4,13 @@
 
 * Linux High Availability Add-On
 
-- https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/considerations_in_adopting_rhel_8/high-availability-and-clusters-considerations-in-adopting-rhel-8
+* with
+
+- aws with linux-ha
+- using container, docker
+- template vagrant
+
+* more
+
+- with or without shared storage
+

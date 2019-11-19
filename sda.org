@@ -1,6 +1,44 @@
-* one of cisco
-* software defined access < software defined network
-* items
+* software defined access < software defined network, SDN
+* protocol
 
-- [ ] LISP, location
-- VXLAN
+- lisp
+  https://www.theasciiconstruct.com/post/cisco-sda-part-i-introduction-to-lisp
+- evpn
+- vxlan
+- bgp
+- isis
+- ospf
+- lldp
+- vlan, dot1q, mlag
+- tag, lacp, bond
+- stp, bpdu
+
+* component
+  
+- fusion router
+- fabric edge node
+- fabric border node
+- fabric intermediate node(underlay)
+- APIC-EM Controller
+- control plane node
+- user / group repository
+- ISE
+
+* google
+
+- underlay, lan automation, isis
+- overlay
+- design guide
+- campus
+- best practice
+- intent
+  https://www.cisco.com/c/en/us/solutions/intent-based-networking.html
+- configuration guide
+- deployment guide
+
+* pr to read
+
+- 시스코 SDA, DNA Assurance 집중탐구 - Cisco
+- networktest sda
+- https://www.jack.cloud/cisco-dna-c/
+

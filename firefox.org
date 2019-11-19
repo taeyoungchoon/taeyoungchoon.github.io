@@ -1,11 +1,5 @@
-* firefox
-
-* 만을 사용하기도 한다
-
-- 물론 파이어폭스 띠우고 IE 까지 띠우면 시스템 리소스 많이 잡아 먹는다
-- IE 나 크롬이나 
-
-* 뭐 엮어 쓰기도 한다 상황에 따라서 말이다
+* firefox with keyboard
+* combined with
 
 ** 웹과 연계된 문제를 잡기 위해서는 
 
@@ -27,7 +21,7 @@
 - Awesome screenshot
 - gmail notifier ( http://add0n.com/gmail-notifier.html )
 
-* 메모
+* memo
 
 tor 와 연계되어 사용할 수도 있다던데 흠
 
