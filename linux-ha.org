@@ -1,6 +1,9 @@
 * Linux-HA
 
+- clusterlabs
 - say say say
+- what the
+  http://blog.clusterlabs.org/blog/2010/pacemaker-heartbeat-corosync-wtf
 
 * Linux High Availability Add-On
 
@@ -14,3 +17,31 @@
 
 - with or without shared storage
 
+* arch
+
+| stack     | desc                     |
+|-----------+--------------------------|
+| pcs       | external interface       |
+| pacemaker | (resource) control layer |
+| corosync  | internal interface       |
+
+* arch but items
+
+- pcs, pcsd, ui, interface
+- pacemaker, resource control
+- corosync, msg, bus
+  https://corosync.github.io/corosync/
+
+* word
+
+- stonith: Shoot The Other Node In The Head
+- ipmi
+- fencing, scsi3, gnbd, resource fencing, split brain, shared file system
+  https://www.slideshare.net/kerneltraining/red-hat-cluster-suite-1
+  https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/high_availability_add-on_overview/ch-fencing
+- drbd
+- scancore
+- quorum, vote, cluster stop working
+- gfs
+- fiber channel switch
+- rabbitmq
