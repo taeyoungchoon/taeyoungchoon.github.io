@@ -173,3 +173,16 @@ pcs resource restart apache
 - loadkeys
 
 
+* iptables
+
+- add
+- any
+- delete
+- line
+
+* ntp on picso and odd behavior
+
+- /etc/ntp-server
+- /etc/ntp.conf
+
+* route file on linux
