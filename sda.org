@@ -42,3 +42,12 @@
 - networktest sda
 - https://www.jack.cloud/cisco-dna-c/
 
+* TODO stacking
+
+| name it     | desc |
+|-------------+------|
+| core        |      |
+| ospf, eigrp |      |
+| isis        |      |
+| border      |      |
+| pnp agent   |      |
