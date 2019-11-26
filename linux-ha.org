@@ -19,11 +19,11 @@
 
 * arch
 
-| stack     | desc                     |
-|-----------+--------------------------|
-| pcs       | external interface       |
-| pacemaker | (resource) control layer |
-| corosync  | internal interface       |
+| stack     | desc                     | alter     |
+|-----------+--------------------------+-----------|
+| pcs       | external interface       |           |
+| pacemaker | (resource) control layer |           |
+| corosync  | internal interface       | heartbeat |
 
 * arch but items
 
@@ -45,3 +45,7 @@
 - gfs
 - fiber channel switch
 - rabbitmq
+
+* cli
+
+pcs cluster status

@@ -151,7 +151,7 @@ pcs resource restart apache
 
 * TODO ha cluster using k8s
 * TODO ha cluster with vagrant
-  
+* TODO ha cluster using aws
 * TODO linux-sec
 
 - id, user, chown
@@ -171,7 +171,6 @@ pcs resource restart apache
 - /etc/default/console-setup
 - /etc/vconsole.conf
 - loadkeys
-
 
 * iptables
 
