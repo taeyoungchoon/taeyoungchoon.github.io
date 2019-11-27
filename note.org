@@ -1,0 +1,12 @@
+* list
+
+- paas, platform? mysql/trove and more
+- sddc for example
+- sds, ceph only?
+- aci, the design
+- bs, the big switch network and their sdn
+- hci with vmware or without vmware
+- ai, big data, machine learning and implementation 
+- blockchain and implementation
+- rpa in my
+- api gateway
