@@ -24,3 +24,8 @@
 - tcl
 - snmp
 - snmp + trap
+
+* [2019-11-26 화] seminar
+
+
+automate
