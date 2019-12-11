@@ -1,0 +1,5 @@
+* tabaco? taco
+
+- https://taco-docs.readthedocs.io
+- https://github.com/openinfradev , skt open infrastructure
+- https://openinfradev.github.io/

@@ -1,0 +1,3 @@
+* openafs at cern, no more
+
+- CERN's AFS replacement project

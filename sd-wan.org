@@ -1,0 +1,8 @@
+* cisco way, cisco sd-wan
+
+- Cisco SD-WAN on Cisco Routers at tech field day
+- integrated Viptela architecture on IOS-XE
+- using vmanage
+  - vsmart
+  - vbond
+  - wan edge
