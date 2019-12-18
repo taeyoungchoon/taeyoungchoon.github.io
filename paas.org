@@ -1,0 +1,3 @@
+* paas, apaas, application platform then platform (war)
+
+- ex. cf(pivotal, cloud foundry), and pivotal to vmware

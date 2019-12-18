@@ -2,3 +2,4 @@
 
 - [[file:makefile][makefile]] is required
 - mother(not father) of all configuration management such cfengine, puppet and ansible
+- [2019-12-17 화 10:56] still using 

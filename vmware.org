@@ -1,0 +1,6 @@
+* inc
+
+- vm
+- kubernetes on vm
+- network control called NSX(lead product of SDN area)
+- recently cf, hmm
