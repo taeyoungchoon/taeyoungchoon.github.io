@@ -12,3 +12,41 @@
 | sdn   | network                         |
 | sdc   | compute, computer, server, node |
 | sds   | storage, disk/disc, repository  |
+
+* care,s
+
+** TODO code
+
+- roll on vm or container
+- process changing, deploy by x, devops
+
+** DONE network
+
+- simply mad if not
+- if vlan only then do this(vs vxlan, lldp, ISIS, LISP, evpn)
+- sep sdn and pure network(with stp, mlag)
+  - sdn is the app(using openflow, jabber, iptables, bridge)
+- and linux engineer to sdn
+- nfv, nf, f, function called firewall, load balancer like that
+- f made of vm then container
+
+** compute
+
+*** DONE compute vs network
+
+- word conflict with network, sdn,, simulate one by big picture(r)
+- provisioning & management network exist
+- protect management network
+
+*** DONE vm vs container
+
+- openstack lost market, kubernetes getting
+- vmware combined with pivotal(cloud foundry)
+- container network, much complicating
+- sep vm world and contained
+- sdn with container?
+
+** DONE storage
+
+- ceph, seperate with sdn if possible
+- pure storage if possible
