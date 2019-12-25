@@ -6,3 +6,7 @@
 http://en.wikipedia.org/wiki/Rsync
 
 * say
+* with sparse
+
+- expand sparse file
+- rsync --sparse (vs dd cp file du strings od)

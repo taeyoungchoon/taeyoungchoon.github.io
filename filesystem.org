@@ -1,8 +1,7 @@
 * memo and come from syslog.org
 
 #+BEGIN_SRC emacs-lisp
-  (general (raw (volume-manager optional) partitoin/slice filesystem))
-  (freebsd (dmesg gpart newfs))
+  (general (raw (volume-manager optional) partition/slice filesystem))
 
   (volume-manager (linux madam)
                   (solaris (solaris-volume-manager zfs))
@@ -21,26 +20,17 @@
 - raid
 - disk
 
-* kinds of
+* fs list
 
-- xfs
-- zfs
-- reiserfs
-- ext2
-- ext3
-- ext4
+- overlay
+- fuse
+- tmpfs
 - btrfs
-- ufs: freebsd
+- /sys/fs/cgroups
+- /dev/shm
+- /run/user/0
 
-* from windows
-
-- ntfs
-- fat
-
-* other type
+* fs and more
 
 - lvm
-
-* note
-
-파일시스템에만 집중하다. 그리고 나머지는 분산하다. 파티션, 볼륨, 각종 도구 등은 말이다. 그래야만 할까? if not
+- /dev/mapper/centos-root

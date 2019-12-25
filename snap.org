@@ -1,0 +1,4 @@
+* trend? to (pkg (tgz rpm deb))
+
+- /var/lib/snapd/snap/emacs/255
+- /dev/loop0
