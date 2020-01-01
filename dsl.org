@@ -1,0 +1,11 @@
+* domain specific language
+
+- domain, knowledge domain
+- language
+- so, describe something in 'that' domain
+- how much, deep, less
+
+* that
+
+- web
+

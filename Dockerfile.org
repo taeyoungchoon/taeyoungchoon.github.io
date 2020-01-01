@@ -1,0 +1,29 @@
+* syntax and on
+
+FROM ubuntu
+RUN apt-get
+
+FROM ansible
+pip3 install ansible --user
+dnf install ansible
+RUN ansible-playbook site.yml -c local
+
+MAINTAINER
+
+CMD ["echo", "hello, world"]
+
+FROM perl
+COPY . /app
+WORKDIR /app
+CMD [ "perl", "foo.pl"]
+
+docker build -t foo .
+docker run -it --rm --name foo foo
+
+FROM ubuntu
+CMD perl -E 'print "hello"'
+
+docker build -t d .
+docker run d
+
+docker run d perl -v
