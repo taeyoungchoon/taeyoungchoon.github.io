@@ -4,10 +4,11 @@
 - [ ] pivot
 - [ ] Ctrl-H: find and replace
 
-* for example
+* TODO for example
 
 ** countifs
 ** vlookup
+** match with index
 
 * function
 

@@ -1,0 +1,8 @@
+* DONE minikube alternatives  
+
+- such as k3s and
+- microk8s based on multipass maybe
+
+* DONE minikube everywhere even windows 10 Home not Pro or Enterprise
+
+
