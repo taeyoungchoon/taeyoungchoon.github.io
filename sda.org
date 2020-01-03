@@ -51,3 +51,6 @@
 | isis        |      |
 | border      |      |
 | pnp agent   |      |
+* TODO lan automation
+
+- [2020-01-03 금 09:33] again yesterday

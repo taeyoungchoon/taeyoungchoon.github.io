@@ -1,28 +1,19 @@
 * not yet
 
 #+BEGIN_SRC emacs-lisp
-
-(if nil nil)
-
+(if t 1 2 3)
 #+END_SRC
 
 #+RESULTS:
-
-if nil but if t
-
-#+BEGIN_SRC emacs-lisp
-
-(if t t)
-
-#+END_SRC
-
-#+RESULTS:
-: t
-
-if t then t
-
-what is t and what it can be? 
+: 1
 
 * so not yet
 
 - [2019-08-06 화 21:49] 아직 오지 않았다. 만약이 아니면 방문하게 될 것이다. 그리고 소실될 것이다. 만약이면 말이다.
+- [2020-01-03 금 09:32] 소실되었는가? 소비되었는가? 소비되는가? 
+
+* 20200102 the first, 1st
+
+하여 시작되었다. 그리고 사무실이다. 꿈인듯 시작하였고 이제 다시 꿈으로 돌아간다. 
+
+* 2020 and so on
