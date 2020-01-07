@@ -51,6 +51,22 @@
 | isis        |      |
 | border      |      |
 | pnp agent   |      |
+
 * TODO lan automation
 
 - [2020-01-03 금 09:33] again yesterday
+- lan automation is the underlay using pnp, all underlay
+
+* with dna center
+
+| name it    | desc |
+|------------+------|
+| dna center |      |
+| network    |      |
+
+* fusion router is good, is not, but automation
+
+- bgp all automate
+- can be complicated
+- fusion optional but good
+

@@ -1,0 +1,9 @@
+* then ibm bluemix but ibm bluemix cloud foundry?
+
+- IBM Cloud Foundry Enterprise
+- IBM Cloud Kubernetes Service
+- IBM Cloud Functions
+- Bluemix, what the
+- Bluemix is now IBM Cloud
+
+
