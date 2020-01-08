@@ -15,3 +15,15 @@ juniper networks korea
 kangnam-gu 135-983 south korea
 
 https://www.juniper.net/kr/kr/contact-us/
+
+* p
+
+- SSG Series, 20, at work
+  - Secure Services Gateway
+  - 5, 20, 140, 300M, 500, 500M
+- ISG Series, 2000 at somewhere
+  - Integrated Service Gateway
+  - 1000, 2000 so ISG1000, ISG2000
+  - screenos EOL, ScreenOS, 6.2.0, 6.2.0r18 Rev 2 / 10-18-13
+- NetScreen Series
+  - 5, 25, 50, 200, 500, 5000
