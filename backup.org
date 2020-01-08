@@ -6,10 +6,17 @@
 * using
 
 - veritas netbackup, data protector
-- cp, tar, dd, cpio
+- cp, tar, dd, cpio still tar and still all others
 - cp, rcp, scp
-- svn, git
-- rsync
+- [ ] svn, git
+- [ ] rsync then deltacopy or syncrify
+  - You are using Syncrify for personal use, which is free
+  - https://thedatafrog.com/en/backup-rsync-windows-wsl/ near pure way
+  - rsync -av srcdir/ backup/
+  - rsync -av --delete srcdir backup/
+  - sudo mount -t drvfs J: /mnt/j
+  - rsync -av /mnt/c/data/ /mnt/j/
+- [ ] windows 10: file history
 
 * src
 
