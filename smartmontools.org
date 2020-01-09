@@ -1,0 +1,11 @@
+* DONE smartmontools cli on windows
+
+- smartctl -x c:\
+- smartctl -t short c:\
+- smartctl -Hc c:\
+
+* DONE alternatives
+
+- seatools and then bootable
+- crystaldiskinfo
+- HD Tune Pro: $34.95 USB or 24.95 EUR so 39,412 KRW
