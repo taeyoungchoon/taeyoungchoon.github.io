@@ -1,0 +1,34 @@
+* atom
+
+- user
+- lb
+
+* atom at workder node
+
+- kub proxy
+- docker
+- pod
+- contained services
+- kublet, the agent
+- flannel or the other such as weave net, calico 
+
+* atom at master node
+
+- api server
+- controller-manager
+- scheduler
+- etcd
+
+* atom, user
+
+- operator who using kubectl
+
+* networking and iptables
+
+- flannel by red
+- weave net at mid size
+- calico using bpg
+
+* service mesh
+
+- istio

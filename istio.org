@@ -1,0 +1,23 @@
+* atom
+
+- ingress controller
+
+* atom at worker node
+
+- envoy as a sidecar
+
+* atom at control plane
+
+- mixer do policy check and telemetry rel
+- pilot with config
+- citadel care cert
+
+* can debug
+
+- zipkin
+- kiali
+
+* can gather
+
+- prometheus
+- then grafana
