@@ -25,14 +25,13 @@
 | pacemaker | (resource) control layer |           |
 | corosync  | internal interface       | heartbeat |
 
-* arch but items
+* TODO arch but items
 
 - pcs, pcsd, ui, interface
 - pacemaker, resource control
 - corosync, msg, bus
-  https://corosync.github.io/corosync/
 
-* word
+* TODO word
 
 - stonith: Shoot The Other Node In The Head
 - ipmi
