@@ -1,0 +1,19 @@
+* cli
+
+- model name
+get system | include product
+
+- serial number
+get system | include "serial number"
+
+- os version
+get system | include software
+
+- cpu usage
+get performance cpu
+
+- memory usage
+get memory
+* example
+
+- Juniper networks isg 2000

@@ -5,3 +5,19 @@
 2. server offer
 3. client request
 4. server ack
+
+* DHCP Option Code
+
+- 138 : CAPWAP Access Controller's IP Address(es)
+  - IPv4 addresses of one or more CAPWAP Access controllers. 
+  - This option is described in RFC 5417.
+- AP Controller 그리고 138
+- you want to forward the CAPWAP-requests to
+
+* DHCP Option Code with 60 and 43
+
+- PnP string: 5A1D;B2;K4;I172.19.45.222;J80 added to DHCP Server
+- https://zartmann.dk/pnp/
+- 43 : Vendor specific information's Text
+  - This option is used by clients and servers to exchange vendor-specific information.
+

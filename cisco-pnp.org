@@ -1,0 +1,4 @@
+* detail or hack with dhcp
+
+- https://zartmann.dk/pnp/
+- DHCP - uses option 43 to tell the PnP agent where and how to speak with the PnP server for initial contact.

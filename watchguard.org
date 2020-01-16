@@ -1,0 +1,9 @@
+* dhcpd
+
+- Configure an IPv4 DHCP Server
+- Configuring the Firebox as a DHCP Server - WatchGuard
+- Configure DHCP Relay - WatchGuard
+
+* example
+
+- WatchGuard Firebox M200 
