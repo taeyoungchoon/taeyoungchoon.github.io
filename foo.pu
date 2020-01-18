@@ -1,0 +1,6 @@
+@startuml
+client -> server: discover
+server -> client: offer
+client -> server: request
+server -> client: ack
+@enduml

@@ -1,0 +1,35 @@
+* plantuml-mode on emacs
+
+- https://github.com/skuro/plantuml-mode
+
+* install
+
+M-x package-install
+plantuml-mode
+
+* pre
+
+M-x plantuml-mode
+M-x plantuml-download-jar
+mv plantuml.jav .emacs.d/plantuml/
+
+* init.el
+
+(setq plantuml-jar-path ".emacs.d/plantuml/plantuml.jar")
+(setq plantuml-default-exec-mode 'jar)
+(add-to-list 'auto-mode-alist '("\\.plantuml\\'" . plantuml-mode))
+(add-to-list 'auto-mode-alist '("\\.pu\\'" . plantuml-mode))
+(setq plantuml-output-type "png")
+
+* use
+
+M-x plantuml-mode
+
+* output
+
+plantuml-output-type
+svg
+png
+Unicode ASCII art
+
+* TODO with org-mode
