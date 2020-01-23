@@ -6,6 +6,7 @@
 * general
 
 - yum search lynx
+- yum whatprovides pifconfig
 - yum update
 - yum upgrade
 - yum install lynx
