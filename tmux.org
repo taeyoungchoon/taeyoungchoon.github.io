@@ -3,6 +3,12 @@
 - [2019-08-01 Thu] 근래에 잘썼다. 한글이 보인다. 조금 이상헤게 작게 귀엽게라고 해야할까?
 
 * tmux vs emacs
+* DONE copy and paste
+
+1. C-b [ to start copying
+2. emacs copy and paste such as C-space, move using C-a C-b C-f C-p C-n C-e then M-w
+3. C-b ] to paste something
+
 * TODO tmux on macosx with C-a key
 
 #+BEGIN_SRC 
