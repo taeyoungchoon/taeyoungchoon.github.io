@@ -1,4 +1,22 @@
+* TODO [0/1] current until and renew
+
+- 3 years
+- current until: June 01, 2021
+  - cause last certificate(Red Hat Certified Engineer) done at June 01, 2018
+- Red Hat Certified System Administrator at November 18, 2017
+- [ ] The Next(renew) before June 01, 2021
+  - not expire, terminated or invalid
+  - just "non-current"
+  - passing again or by taking Red Hat Certified Architect(RHCA), nil
+    - passing again is the easy way, 38 manwon
+    - by taking and passing any of the exams an RHCE can apply towards earning Red Hat Certified Architect (RHCA).
+      https://servicesblog.redhat.com/2016/09/23/stay-current/
+      - such as 'Red Hat Certified Specialist in High Availability Clustering'
+    
 * then RHCA, Red Hat Certified Architect
+
+- pass five of the following exams
+- https://www.redhat.com/en/services/certification/rhca
 
 * say
 
