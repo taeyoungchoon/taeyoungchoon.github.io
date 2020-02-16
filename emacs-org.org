@@ -1,3 +1,26 @@
+* DONE print kr
+
+** way 1
+
+- install latex then export with following:
+
+#+BEGIN_SRC 
+
+#+LATEX_HEADER: \usepackage{kotex}
+
+#+END_SRC
+
+** way 2
+
+- install latex then edit init.el
+
+#+BEGIN_SRC 
+
+(setq org-latex-packages-alist '())
+(add-to-list 'org-latex-packages-alist '("" "kotex" t))
+
+#+END_SRC
+
 * org-mode with artist, so text
 
 #+BEGIN_SRC emacs-lisp
