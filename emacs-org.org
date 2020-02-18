@@ -21,6 +21,18 @@
 
 #+END_SRC
 
+* TODO looks good
+
+https://orgmode.org/manual/LaTeX-header-and-sectioning.html
+https://www.overleaf.com/learn/latex/Page_size_and_margins
+
+#+BEGIN_SRC 
+
+#+LATEX_CLASS: article
+#+LATEX_CLASS_OPTIONS: [a4paper]
+
+#+END_SRC
+
 * org-mode with artist, so text
 
 #+BEGIN_SRC emacs-lisp
