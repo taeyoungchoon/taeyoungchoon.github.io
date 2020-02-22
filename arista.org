@@ -1,0 +1,4 @@
+* arista or arista network(s) but arista networks
+
+- eos, EOS, Extensible Operating System, vEOS
+- cloud vision, CloudVision
