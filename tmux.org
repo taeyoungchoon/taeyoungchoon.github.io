@@ -1,22 +1,16 @@
-* tmux with my history
+* DONE copy and paste
 
-- [2019-08-01 Thu] 근래에 잘썼다. 한글이 보인다. 조금 이상헤게 작게 귀엽게라고 해야할까?
+1. C-b [ to start copying
+2. emacs copy and paste such as C-space, move using emacs keys then M-w
+3. C-b ] to paste something
 
-* tmux vs emacs
-* TODO tmux on macosx with C-a key
-
-#+BEGIN_SRC 
-? cat .tmaux.conf 
-set-option -g prefix C-a
-#+END_SRC
-
-* TODO words
+* DONE start using new window? or pane?
 
 - session: C-b c, C-b c, C-b c, C-b c, C-b c then C-b 0,1,2,3,4
 - window
 - pane
 
-* step
+* DONE step
 
 - tmux
 - C-x % 
@@ -25,7 +19,7 @@ set-option -g prefix C-a
 - C-x d
 - tmux attach
  
-* and more with mouse?
+* TODO and more with mouse?
 * type to all window s
 
 1. C-b :

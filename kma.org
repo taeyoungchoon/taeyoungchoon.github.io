@@ -1,5 +1,12 @@
+* Korea Meteorological Administration
+
 * location
 
-- 본청
-- 오창
-- 그리고 또
+- main
+- sub : National Center for Meterological Supercomputer
+  - CRAY XC40(2015), XE6(2010), X1E(2005), SX-5(2000)
+- and one more thing
+
+* items
+
+- kma-cloud
