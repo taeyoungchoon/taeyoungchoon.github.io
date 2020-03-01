@@ -1,7 +1,7 @@
 * sdn and nfv, and now nfv
 
 - nf
-- vnf
-- platform
+- vnf such as vLB(using HAproxy), vRouter(using VyOS)
+- platform such as athene and more
 
-
+* Cisco, Network Service Orchestrator(NSO)

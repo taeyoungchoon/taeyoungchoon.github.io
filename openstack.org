@@ -35,7 +35,6 @@
 - stp? why? rstrp bpdu
 
 - mon night
-
 * network, network, network
 
 - bridge, tap?
@@ -213,7 +212,6 @@ Red Hat Enterprise Linux Server release 7.4 (Maipo)
 [stack@osp10dir01 paramiko]$ ssh -i ~/.ssh/id_rsa root@1.1.10.230 "cat /etc/redhat-release"
 Red Hat Enterprise Linux Server release 7.4 (Maipo)
 [stack@osp10dir01 paramiko]$ 
-
 * another
 
     def _do_node_verify(self, task):
@@ -265,4 +263,39 @@ Jul 10 16:41:54 localhost sshd[30167]: Connection closed by 1.1.10.51 port 44624
 Jul 10 16:41:56 localhost sshd[30169]: Connection closed by 1.1.10.51 port 44640 [preauth]
 Jul 10 16:41:56 localhost sshd[30171]: Connection closed by 1.1.10.51 port 44644 [preauth]
 Jul 10 16:41:56 localhost sshd[30173]: Connection closed by 1.1.10.51 port 44648 [preauth]
+* debugging general
 
+https://ask.openstack.org/en/question/148/how-do-i-debug-openstack/
+https://docs.openstack.org/operations-guide/index.html
+
+* TODO debugging about network
+
+https://docs.openstack.org/operations-guide/ops-network-troubleshooting.html
+
+- ip a
+- ip a | grep state
+- ovs-ofctl show br-int
+- ovs-ofctl dump-flows br-eth1 | grep 2113
+- ovs-vsctl show | grep -A 3 -e Port\ \"gre-
+- neutron net-show --fields provider:segmentation_id <network name>
+- ovs-ofctl dump-flows br-tun | grep 0x3
+- ip netns exec qrouter-e52x-x-x-x-x ip a | grep state
+- tcpdump -i any -n -v 'icmp[icmptype] = icmp-echoreply or icmp[icmptype] = icmp-echo'
+- iptables
+- iptables-save
+- mysql> select uuid from instance where hostname = 'hostname';
+- mysql> select * from fixed_ips where instance_uuid = '<uuid>';
+- mysql> select * from floating_ips where fixed_ip_id = '<fixed_ip_id>';
+- openstack console log show <instance nane or uuid>
+- ps aux | grep dnsmasq
+- tcpdump -i br100 -n port 67 or port 68
+- host openstack.org
+- ping openstack.org
+- tcpdump -i br100 -n -v udp port 53
+- ovs-vsctl list-br
+- ovs-vsctl list-ports eth1-br
+- ip netns
+- openstack server list --all-project | grep 'IP-ADDRESS'
+- openstack subnet list
+- easyOVS
+- Don
