@@ -25,7 +25,63 @@
 - snmp
 - snmp + trap
 
-* [2019-11-26 화] seminar
+** cli
 
+*** level 1
 
-automate
+#+BEGIN_SRC
+
+terminal length 0
+show version
+show clock
+show processes cpu
+show processes cpu history
+show processes memory
+show memory
+show startup-config
+show running-config
+show logging
+
+show ip interface brief
+show interface status
+show interface | i Giga|rate
+show mac-address-table
+show arp
+
+#+END_SRC
+
+*** level 2
+
+#+BEGIN_SRC
+
+show vlan
+show spanning-tree
+show spanning-tree summary
+show spanning-tree blockedports
+
+show cdp neighbors
+show cdp en *
+
+show interfaces counters
+
+clear arp-cache
+show tech-support
+
+show inv
+show env
+show module
+
+show ip route
+show ip eigrp neighbors
+show ip eigrp topology
+
+show standby br
+
+show ip bgp summary
+show ip bgp neighbors
+show ip bgp filter-list 1
+show ip bgp paths
+show ip bgp all
+show route-map
+
+#+END_SRC
