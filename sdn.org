@@ -1,3 +1,29 @@
+* more branch
+
+- sd-wan 
+- sd-lan : cisco sd-access
+- nfv?
+- sdn for openstack like, obelle-fabric, juniper contrail sth
+
+* implementation
+
+- cisco sd-access
+- juniper contrail sth
+- atto-research obelle fabric
+- atto-research athene
+- arista cloudvision?
+- big switch but arista now
+
+* TODO think
+
+** overlay so underlay
+** sep plane, control and data and more(policy like /cisco)
+
+- no more cli?
+
+** openflow with whitebox
+** yang?
+
 * SDN, Software Defined Network
 * word
 

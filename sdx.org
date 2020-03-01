@@ -1,0 +1,7 @@
+* sdx
+
+- sdc : soften compute
+- sdn : software defined network, soften network
+- sds : soften storage
+
+* softend
