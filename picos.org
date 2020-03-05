@@ -177,3 +177,22 @@ ntpq -p
 
 date
 #+END_SRC
+* DONE snmp on L2/L3 Mode
+
+- https://docs.pica8.com/display/PicOS21125sp/Configuring+SNMPv2
+  PicOS Routing and Switching Configuration Guide > SNMP Configuration
+
+#+BEGIN_SRC 
+set protocols snmp community Pica8-data-center
+#+END_SRC
+
+* DONE snmp on OVS Mode
+
+- https://docs.pica8.com/display/PicOS36sp/Configuring+snmp
+  PICOS Open vSwitch Configuration Guide > Configure snmp
+
+#+BEGIN_SRC 
+ovs-vsctl set-snmp-enable true
+ovs-vsctl show-snmp
+ovs-vsctl set-snmp-community-name pica8
+#+END_SRC

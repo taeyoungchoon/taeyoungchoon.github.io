@@ -1,0 +1,12 @@
+* DONE how to
+
+- https://www.logicmonitor.com/support/monitoring/networking-firewalls/dell-switch-monitoring/
+  Dell Switch Monitoring
+
+#+BEGIN_SRC 
+show running-config snmp
+show snmp
+snmp-server community x
+snmp-server community x ro
+snmp-server community x ro x.x.x.x
+#+END_SRC
