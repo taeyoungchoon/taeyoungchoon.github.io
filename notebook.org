@@ -43,3 +43,9 @@
 - with nil of operating system, so
 - 그램을 충전하고 그램으로 충전하고
   양방향으로 충전할 수 있어 더 편리해 졌습니다.
+
+* and one more thing
+
+- SSD
+  - M.2
+  - 256GB

@@ -1,0 +1,191 @@
+* pure
+
+linux, fedora based maybe
+
+* reverse dns lookup
+* license warning
+
+- base
+- plus
+- Apex
+- Device Admin
+
+* case: Server Error
+
+Server is not reachable, please check back after some time.
+
+* TODO certificate, expire issue
+
+- and cluster
+- certificate > system cert
+  - expiration TTL : 10 years
+  - renewing this certficate will cause an application server restart on the selected node.
+
+* CSR: generate Certficate Signing Requests
+
+- generate
+- export
+- signed by an external authority
+- bind x
+- it will be removed from this list
+
+* TODO cluster
+
+not so easy
+
+** arch
+
+- ise1.foo.com
+  - admin as primary
+  - monitor as secondary
+  - policy service
+  - pxgrid
+- ise2.foo.com
+  - admin as secondary
+  - monitor as primary
+  - policy service
+  - pxgrid
+
+** patch, when?
+
+- version 2.6.0.156
+- installed patches 1
+- ADE-OS Version 3.0.5.144
+
+** note : certificate
+
+- system certificate
+  - used by
+  - ISE Messaging Service
+  - pxGrid
+  - EAP Authentication, Admin, Portal, RADIUS DTLS
+  - SAML
+- trusted cert
+- OCSP cert profile
+- cert signing requests
+- cert periodic check settings
+
+** TODO register with WARNING, READ IT!
+
+- deployment status
+  - registration or sync initiated
+
+** TODO cluster and some options
+
+1. export kinds of certificate from ise1
+2. import certficate to ise2
+3. export certificate from ise2
+4. import certficate to ise1
+
+** case : ise2 status still warning 
+** case : Oops, something went wrong at ise2
+
+access is denied, please contact your administrator
+
+** case : promote to primary
+
+- administration nodes
+- Full Sync
+- the completion of Sync
+- promoting this node may result in data loss at the nodes sync status is SYNC FAILED
+  are you sure you want to continue?
+
+** deployment nodes ise1
+
+- monitoring role: secondary
+- policy service
+  - enable device admin service
+  - enable passive identity service
+- pxgrid
+
+** deployment nodes ise2
+
+- monitoring role: primary
+- enable device admin service
+- enable passive identity service
+- pxgrid
+
+** dnac > settings > Authentication and policy servers
+
+- server ip address
+- shared secret as x
+- [X] cisco ise server
+- username
+- password
+- fqdn such as ise1.foo.com
+- subscriber name as x
+  - then you can see at ise > admin > pxgrid > client name
+
+** approve at ise > admin > pxgrid > client name
+
+- status: Pending to Online(XMPP)
+  - are you sure you want to approve the selected client(s)?
+  - connected via XMPP ise1.foo.com(standby: ise2)
+    - no connection to pxgrid node (client status unreliable)
+- [ ] subscriber name: Offline(XMPP)
+- subscriber name_dnac_ndp: Online(XMPP)
+  - Capability Detail
+    - Core
+    - IdentityGroup
+    - SessionDirectory
+    - TrustSecMetaData
+
+* TODO with dna-c, dnac, dna integration
+
+externally connected systems > Identity Service Engine(ISE)
+
+| x              | ip | status     | misc        | desc                                                         |
+|----------------+----+------------+-------------+--------------------------------------------------------------|
+| primary        | 21 | available  |             |                                                              |
+| secondry       | 22 | available  | Unavailable | Timeout elapsed before connecting to the host x on port 9060 |
+| pxgrid-active  | 21 | available  |             |                                                              |
+| pxgrid-standby | 22 | configured |             |                                                              |
+
+* TODO and time
+
+- NTP
+- UTC
+- [ ] Asia/Seoul howto?
+
+* TODO backup and restore
+* DONE reboot by reload
+* TODO cluster reboot or halt howto
+* DONE start shell by ISE, only by TAC using kinds of installed pkg
+* TODO [0/1] and certificate expire issue 
+
+- [ ] Expires one year later
+
+* show application status ise
+
+- application server
+- pxgrid x
+
+* cli
+
+- show application status ise
+  - running
+  - not running
+  - disabled
+  - initializing
+- show clock
+- show ntp
+- show timezones
+- show timezone
+- reload
+
+* TODO not secure at chrome browser and others
+
+- your connection to this site is not secure
+- certificate(invalid)
+- 인증서
+  - 이 CA 루트 인증서를 신뢰할 수 없습니다. 신뢰를 얻으려면, 이 인증서를 신뢰할 수 있는 루트 인증 기관 저장소에 설치하십시오.
+  - 발급 대상: ise2.foo.com
+  - 발급자: ise2.foo.com
+  - 유효 기간(시작) 2020-03-11 부터 2021-03-11
+  - 이 CA 루트 인증서가 신뢰할 수 있는 루트 인증 기관 저장소에 있지 않으므로 신뢰할 수 없습니다.
+
+* server information at ise2
+
+- personas: administration, monitoring, policy service, pxgrid(identity mapping, session, profiler, device admin)
+- role: sec(a), pri(m)
+- system time: mar 13 2020 03:51:21 am utc
