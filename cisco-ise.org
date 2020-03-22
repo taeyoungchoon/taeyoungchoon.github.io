@@ -2,7 +2,7 @@
 
 linux, fedora based maybe
 
-* reverse dns lookup
+* reverse dns lookup, PTR record to dns or using ip host x x
 * license warning
 
 - base

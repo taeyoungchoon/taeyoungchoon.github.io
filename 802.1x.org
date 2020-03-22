@@ -1,0 +1,32 @@
+* protocol
+* aka IEEE 802.1X
+* so what
+
+- EAP over LAN
+- 802.1X-2001
+- 802.1X-2004
+- 802.1X-2010 : +
+- supplicant, authenticator, authentication server
+- credential type : name/password or cerificate
+- (RADIUS (EAPOL EAP))
+- extension called MAB(MAC Authentication Bypass)
+
+* implementations
+
+- Xsupplicant
+- wpa-supplicant with NetworkManager
+- iphone, android, chrome os
+- mac os x, windows
+
+* flow
+
+| supplicant               | authenticator              | authentication sever |
+|--------------------------+----------------------------+----------------------|
+| new connection ->        |                            |                      |
+| <- EAP-Request Identity  |                            |                      |
+| EAP-Response Identity -> | RADIUS Access-Request ->   |                      |
+|                          | <- RADIUS Access-Challenge |                      |
+| <- EAP Request           |                            |                      |
+| EAP Response ->          | RADIUS Access-Request ->   |                      |
+|                          | <- RADIUS Access-Accept    |                      |
+| <- EAP Success           |                            |                      |
