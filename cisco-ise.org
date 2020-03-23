@@ -1,27 +1,42 @@
-* pure
+* TODO story
 
-linux, fedora based maybe
+좋은가? 아니면 좋은가? 잘 모르겠다. 좋은가?
+쉬은가? 쉽지 않은가? 
+멋진가? 멋스러운가?
 
-* reverse dns lookup
-* license warning
+setup 하여 설치를 하였다.
+그 전에 해야할 일은? 정하는 것이다. 무엇을? 이름 그리고
 
-- base
-- plus
-- Apex
-- Device Admin
+hostname
+and domain name?
+username admin?
+password strong!
 
-* case: Server Error
+how many?
 
-Server is not reachable, please check back after some time.
+ntp!!! as Asia/Seoul not UTC
+dns +reverse dns lookup
 
-* TODO certificate, expire issue
+how to stop and start that many and with other friends like dnac?
+certificate with many
+certificate forever or not
 
-- and cluster
+is the radius? and linux but fedora based
+
+(licenses (base plus Apex Device-Admin))
+
+friend called external identity source such as active directory
+
+* DONE certificate
+
+** expire
+
 - certificate > system cert
-  - expiration TTL : 10 years
-  - renewing this certficate will cause an application server restart on the selected node.
+- expiration TTL : 10 years
+- renewing this certficate will cause an application server restart on the selected node
+- 그런데 말이다 그런데 말이다 어떤 것을 그리고 그 다음은
 
-* CSR: generate Certficate Signing Requests
+** CSR: generate Certficate Signing Requests
 
 - generate
 - export
@@ -130,37 +145,22 @@ access is denied, please contact your administrator
     - SessionDirectory
     - TrustSecMetaData
 
-* TODO with dna-c, dnac, dna integration
+* DONE ise and dna integration
 
-externally connected systems > Identity Service Engine(ISE)
+- externally connected systems > Identity Service Engine(ISE)
 
-| x              | ip | status     | misc        | desc                                                         |
-|----------------+----+------------+-------------+--------------------------------------------------------------|
-| primary        | 21 | available  |             |                                                              |
-| secondry       | 22 | available  | Unavailable | Timeout elapsed before connecting to the host x on port 9060 |
-| pxgrid-active  | 21 | available  |             |                                                              |
-| pxgrid-standby | 22 | configured |             |                                                              |
+| role           | ip      | status     | desc                             |
+|----------------+---------+------------+----------------------------------|
+| primary        | x.x.x.1 | available  | primary ERS                      |
+| secondry       | x.x.x.2 | available  | port 9060, service ERS, R(EST)   |
+| pxgrid-active  | x.x.x.1 | available  | port x, service pxGRID for what? |
+| pxgrid-standby | x.x.x.2 | configured |                                  |
 
-* TODO and time
+* DONE backup and restore
 
-- NTP
-- UTC
-- [ ] Asia/Seoul howto?
+- not so bad as dnac
 
-* TODO backup and restore
-* DONE reboot by reload
-* TODO cluster reboot or halt howto
-* DONE start shell by ISE, only by TAC using kinds of installed pkg
-* TODO [0/1] and certificate expire issue 
-
-- [ ] Expires one year later
-
-* show application status ise
-
-- application server
-- pxgrid x
-
-* cli
+* DONE cli
 
 - show application status ise
   - running
@@ -173,19 +173,16 @@ externally connected systems > Identity Service Engine(ISE)
 - show timezone
 - reload
 
-* TODO not secure at chrome browser and others
+* DONE role
 
-- your connection to this site is not secure
-- certificate(invalid)
-- 인증서
-  - 이 CA 루트 인증서를 신뢰할 수 없습니다. 신뢰를 얻으려면, 이 인증서를 신뢰할 수 있는 루트 인증 기관 저장소에 설치하십시오.
-  - 발급 대상: ise2.foo.com
-  - 발급자: ise2.foo.com
-  - 유효 기간(시작) 2020-03-11 부터 2021-03-11
-  - 이 CA 루트 인증서가 신뢰할 수 있는 루트 인증 기관 저장소에 있지 않으므로 신뢰할 수 없습니다.
+** roles
 
-* server information at ise2
+- administration
+- monitoring
+- polixy service
+- pxgrid(identity mapping, session, profiler, device admin)
 
-- personas: administration, monitoring, policy service, pxgrid(identity mapping, session, profiler, device admin)
-- role: sec(a), pri(m)
-- system time: mar 13 2020 03:51:21 am utc
+** if two m
+
+- m1 : pri(a) sec(m)
+- m2 : pri(m) sec(a)

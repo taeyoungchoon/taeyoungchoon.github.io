@@ -1,3 +1,11 @@
+* DONE how to enter and do more, F8
+
+- same as CIMC, F8
+
+* TODO usb boot
+
+* kvm and
+
 * one
 
 http://blog.vmpros.nl/2009/11/17/microsoft-connection-problems-by-opening-iloilo2-using-internet-explorer-8/
