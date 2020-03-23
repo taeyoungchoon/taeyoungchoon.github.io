@@ -4,8 +4,13 @@
 쉬은가? 쉽지 않은가? 
 멋진가? 멋스러운가?
 
+<<<<<<< HEAD
 setup 하여 설치를 하였다.
 그 전에 해야할 일은? 정하는 것이다. 무엇을? 이름 그리고
+=======
+* reverse dns lookup, PTR record to dns or using ip host x x
+* license warning
+>>>>>>> 86744454acdb52807108f6349f93e5c91d6894ea
 
 hostname
 and domain name?
