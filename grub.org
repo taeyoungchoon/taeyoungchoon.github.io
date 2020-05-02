@@ -21,7 +21,7 @@ exit
 grub-install --root-directory=/mnt/sysimage /dev/sda
 update-grub
 
-* options 
+* options
 
 - quiet : before rhgb
 - rhgb : redhat graphical boot
@@ -59,3 +59,10 @@ https://www.gnu.org/software/grub/manual/html_node/GRUB-only-offers-a-rescue-she
 27.1 GRUB only offers a rescue shell
 
 https://help.ubuntu.com/community/Grub2/Troubleshooting
+
+* TODO grub with windows after yum/dnf update -y
+
+cat /etc/grub2-efi.cfg  | grep ^menuentry | cut -d "'" -f2 | cat -n
+grub2-editenv list
+grub2-set-default 4
+grub2-editenv list
