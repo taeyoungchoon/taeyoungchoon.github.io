@@ -1,0 +1,64 @@
+* with powerpoint sample
+
+#+BEGIN_SRC 
+Sub ImageHandler()
+    Dim mySlide As Slide
+    Dim shp As Shape
+    
+    Set mySlide = Application.ActiveWindow.View.Slide
+    Set shp = mySlide.Shapes(1)
+     
+    With shp
+        .LockAspectRatio = False        
+        ' .Height = ActivePresentation.PageSetup.SlideHeight
+        ' .Width = ActivePresentation.PageSetup.SlideWidth
+        .Height = 200
+        .Width = 200
+        .Left = 0
+        .Top = 0
+    End With
+End Sub
+#+END_SRC
+
+#+BEGIN_SRC 
+Sub PastingClipboard()
+    With Application.ActivePresentation
+        ' .Slides(1).Shapes(1).Copy
+        .Slides(2).Shapes.Paste
+    End With
+End Sub
+#+END_SRC
+
+#+BEGIN_SRC 
+Sub Messenger()
+    MsgBox ("hi" & ActiveWindow.View.Slide.SlideNumber)
+End Sub
+#+END_SRC
+
+* DONE PastingFromClipboardWithSmallSize
+
+#+BEGIN_SRC 
+Sub PastingFromClipboardWithSmallSize()
+    With Application.ActivePresentation
+        .Slides(ActiveWindow.View.Slide.SlideNumber).Shapes.Paste.Height = 200
+    End With
+End Sub
+#+END_SRC
+
+* TODO call, run
+
+- Alt+F11 to run Visual Basic
+- Alt+F8 call dialog
+- Shortcut key
+
+* TODO opt
+
+- Developer > Macro Security
+- Excel Options > Quick Access Toolbar(QAT)
+- Customize Ribbon
+
+* TODO VBA Editor
+
+- Procedure
+- UserForm
+- Module
