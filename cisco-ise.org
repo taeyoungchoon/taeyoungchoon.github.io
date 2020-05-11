@@ -159,9 +159,10 @@ access is denied, please contact your administrator
 | pxgrid-active  | x.x.x.1 | available  | port x, service pxGRID for what? |
 | pxgrid-standby | x.x.x.2 | configured |                                  |
 
-* DONE backup and restore
+* TODO backup and restore
 
 - not so bad as dnac
+- [ ] application configure ise > 7
 
 * DONE cli
 
