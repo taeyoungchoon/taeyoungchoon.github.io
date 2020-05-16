@@ -1,52 +1,3 @@
-* TODO story
-
-좋은가? 아니면 좋은가? 잘 모르겠다. 좋은가?
-쉬은가? 쉽지 않은가? 
-멋진가? 멋스러운가?
-
-setup 하여 설치를 하였다.
-그 전에 해야할 일은? 정하는 것이다. 무엇을? 이름 그리고
-
-* reverse dns lookup, PTR record to dns or using ip host x x
-* license warning
-
-hostname
-and domain name?
-username admin?
-password strong!
-
-how many?
-
-ntp!!! as Asia/Seoul not UTC
-dns +reverse dns lookup
-
-how to stop and start that many and with other friends like dnac?
-certificate with many
-certificate forever or not
-
-is the radius? and linux but fedora based
-
-(licenses (base plus Apex Device-Admin))
-
-friend called external identity source such as active directory
-
-* DONE certificate
-
-** expire
-
-- certificate > system cert
-- expiration TTL : 10 years
-- renewing this certficate will cause an application server restart on the selected node
-- 그런데 말이다 그런데 말이다 어떤 것을 그리고 그 다음은
-
-** CSR: generate Certficate Signing Requests
-
-- generate
-- export
-- signed by an external authority
-- bind x
-- it will be removed from this list
-
 * TODO cluster
 
 not so easy
@@ -148,21 +99,10 @@ access is denied, please contact your administrator
     - SessionDirectory
     - TrustSecMetaData
 
-* DONE ise and dna integration
+* TODO two node cluster, shut or start
 
-- externally connected systems > Identity Service Engine(ISE)
-
-| role           | ip      | status     | desc                             |
-|----------------+---------+------------+----------------------------------|
-| primary        | x.x.x.1 | available  | primary ERS                      |
-| secondry       | x.x.x.2 | available  | port 9060, service ERS, R(EST)   |
-| pxgrid-active  | x.x.x.1 | available  | port x, service pxGRID for what? |
-| pxgrid-standby | x.x.x.2 | configured |                                  |
-
-* TODO backup and restore
-
-- not so bad as dnac
-- [ ] application configure ise > 7
+- stop : PAN(Standby) then PAN(Active)
+- start : PAN(Active) then PAN(Standby)
 
 * DONE cli
 
@@ -176,6 +116,21 @@ access is denied, please contact your administrator
 - show timezones
 - show timezone
 - reload
+- halt
+- show retore status
+- application configure ise
+- password
+- application reset-passwd ise admin
+- [ ] reset admin cli password using ISE DVD
+- application stop ise
+
+* TODO cli more
+
+- show logging
+
+* TODO webui but more
+
+- tcpdump to do wireshark later
 
 * DONE role
 
@@ -183,10 +138,41 @@ access is denied, please contact your administrator
 
 - administration
 - monitoring
-- polixy service
+- policy service
 - pxgrid(identity mapping, session, profiler, device admin)
 
 ** if two m
 
 - m1 : pri(a) sec(m)
 - m2 : pri(m) sec(a)
+
+** if more than two
+
+- m1 : pri(a, administration)
+- m2 : sec(a)
+- m3 : pri(m, monitoring)
+- m4 : sec(m)
+- m* : policy service
+- [ ] and choose some to do pxGRID service
+
+* DONE and about, manual?
+
+1. is a radius server, authentication server from 802.1X world, talk with authenticator
+2. about role, persona in two node
+3. webui and cli, WebUI and CLI(command line interface), Web UI or more IPMI way
+4. name it to dns as a 'a'(address record, forward lookup) and 'ptr'(pointer, reverse lookup)
+5. time, ntp but more about timezone
+6. license
+7. certificate(s), system, CA, CSR(Certificate Signing Request), expiration TTL
+8. server installation vs appliance configuration
+9. Cisco ISE in a Distributed Environment, Cluster
+10. patch
+11. doing backup and restore, more about source and certificate(system and CA)
+    - config data with scheduling
+    - operational data without, policy
+    - restore with 'show restore status'
+    - internal CA Store backup with 'application configure ise' then 7 then when?
+12. ise and friends such as AD as a external identity source
+13. ise and friends such as DNAC from Cisco Software-Defined Access, ERS and pxGRID
+14. policy and element
+
