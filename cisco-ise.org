@@ -176,3 +176,27 @@ access is denied, please contact your administrator
 13. ise and friends such as DNAC from Cisco Software-Defined Access, ERS and pxGRID
 14. policy and element
 
+* TODO policy
+
+** element
+
+- endpoint identity group, mac addresses with template uploading
+- username list
+- what about ip? static ip vs dynamic(DHCP) and about profiler's profiling even nmap/NMAP
+- external identity source, AD
+- result's authorization profile, profile but role
+  - acl
+  - vlan
+  - voice domain permission for IPT
+
+** policy
+
+- policy set but policy list
+- authentication
+  - at mac list or username list
+  - [ ] but? MAB or 802.1X(DOT1X) or more? default??
+- authorization
+- but more
+- [ ] network device's policy?
+- [ ] pap-ascii/ascii/pap(password authentication protocol)
+- not no policy only backup but trouble shooting only exist
