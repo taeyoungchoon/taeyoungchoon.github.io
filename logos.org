@@ -1,0 +1,12 @@
+* code but more
+* stamp, id as a key, left
+
+#+BEGIN_SRC emacs-lisp
+  ((o_stamp o_id o_left)
+   (n_stamp n_id n_left))
+
+  (if (eq o_id n_id)
+      (swap)
+    (progn pr swap))
+#+END_SRC
+
