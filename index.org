@@ -1,11 +1,15 @@
 #+SETUPFILE: theme-readtheorg.setup
 #+OPTIONS: html-postamble:nil
 
-* (cons t nil)
+* re-init
 
 - C-c C-e h o
-- [[http://goo.gl/mTMLmr][네이버 맞춤법 검사기]] , 세상과 소통하기 아니 https://translate.google.com 이 필요한 것은 아닐까?
-- https://twitter.com/search-home , 세상을 보는 창
+
+* (cons t nil), think
+
+- 정반합
+- 아니 부
+- (think ((emacs lisp linux) book))
 
 * programming > lisp
 
@@ -20,15 +24,29 @@
 #+RESULTS:
 | t |
 
+- car, cdr, cond, loop, defun, if, when
+- [ ] bind on it or
+- habit
+
 * then emacs, emacs, emacs-lisp
 
 - macro
 - org-mode > agenda
 - dunnet
 - with dropbox or what? git?
+- habit
 
-* book
+* linux again, operating system with more such as network and what?
 
+- [ ] rhce? why?
+- redhat, rpm, yum then what?
+- debian, ubuntu, apt then where?
+- what about slack!
+- habit
+
+* book, peom, nothing but think
+
+- habit
 - book, 論語
 
 #+BEGIN_SRC
@@ -40,11 +58,8 @@
 책은 책은 말이다
 #+END_SRC
 
-- 읽지 않는 책 또 다른 말은 쓰지 않는 글이다
-- podcast도 책이라고 할 수 있을까? 오디오북은? 지하철에서는 좋지 않다
 - 사피엔스에서 (사실 아직 보는 중이다) 다시 논어로
-- 달빛조각사, 사조영웅전, 삼국지
-- 신조협려, 의천도룡기
+- 우주만화
 
 * I love you, lang
 * t-mac.do
@@ -52,3 +67,13 @@
 - win : https://goo.gl/ncEN2q 
 - aix : https://goo.gl/2jLHzm
 - linux : https://goo.gl/SUXE7k
+
+* think, habit until the day
+* nowaday
+
+- dna-sda
+- sdn/nfv
+- vba, python, perl, lisp and so on so code daily/momently
+- book reading with think and writing at side of it, depend
+- aging
+- working and walking and more not most
