@@ -1,0 +1,448 @@
+* what?
+
+aka manual, guide, howto
+* TODO index, ddos protection
+** name
+netclinic
+
+** desc
+web application for remote administration
+
+** view
+single box on dmz
+windows and web application
+*** physical
+*** logical
+** user
+real user
+helper
+** use
+different url
+** admin
+admin url
+** manage
+add helper
+** mon(itoring)
+process 1,2,3
+** case
+*** case 1
+hang then reboot
+*** case 2
+** see also
+rsupport
+** history
+add
+retire, do not support above windows 7
+** bugs
+no update increase security risk
+* TODO index, firewall
+** name
+netclinic
+
+** desc
+web application for remote administration
+
+** view
+single box on dmz
+windows and web application
+*** physical
+*** logical
+** user
+real user
+helper
+** use
+different url
+** admin
+admin url
+** manage
+add helper
+** mon(itoring)
+process 1,2,3
+** case
+*** case 1
+hang then reboot
+*** case 2
+** see also
+rsupport
+** history
+add
+retire, do not support above windows 7
+** bugs
+no update increase security risk
+* TODO index, ips
+** name
+netclinic
+
+** desc
+web application for remote administration
+
+** view
+single box on dmz
+windows and web application
+*** physical
+*** logical
+** user
+real user
+helper
+** use
+different url
+** admin
+admin url
+** manage
+add helper
+** mon(itoring)
+process 1,2,3
+** case
+*** case 1
+hang then reboot
+*** case 2
+** see also
+rsupport
+** history
+add
+retire, do not support above windows 7
+** bugs
+no update increase security risk
+* TODO index, waf
+** name
+netclinic
+
+** desc
+web application for remote administration
+
+** view
+single box on dmz
+windows and web application
+*** physical
+*** logical
+** user
+real user
+helper
+** use
+different url
+** admin
+admin url
+** manage
+add helper
+** mon(itoring)
+process 1,2,3
+** case
+*** case 1
+hang then reboot
+*** case 2
+** see also
+rsupport
+** history
+add
+retire, do not support above windows 7
+** bugs
+no update increase security risk
+* TODO index, spam
+** name
+netclinic
+
+** desc
+web application for remote administration
+
+** view
+single box on dmz
+windows and web application
+*** physical
+*** logical
+** user
+real user
+helper
+** use
+different url
+** admin
+admin url
+** manage
+add helper
+** mon(itoring)
+process 1,2,3
+** case
+*** case 1
+hang then reboot
+*** case 2
+** see also
+rsupport
+** history
+add
+retire, do not support above windows 7
+** bugs
+no update increase security risk
+* TODO index, wireless include smartphone data network
+** name
+netclinic
+
+** desc
+web application for remote administration
+
+** view
+single box on dmz
+windows and web application
+*** physical
+*** logical
+** user
+real user
+helper
+** use
+different url
+** admin
+admin url
+** manage
+add helper
+** mon(itoring)
+process 1,2,3
+** case
+*** case 1
+hang then reboot
+*** case 2
+** see also
+rsupport
+** history
+add
+retire, do not support above windows 7
+** bugs
+no update increase security risk
+* TODO index, identity
+** name
+netclinic
+
+** desc
+web application for remote administration
+
+** view
+single box on dmz
+windows and web application
+*** physical
+*** logical
+** user
+real user
+helper
+** use
+different url
+** admin
+admin url
+** manage
+add helper
+** mon(itoring)
+process 1,2,3
+** case
+*** case 1
+hang then reboot
+*** case 2
+** see also
+rsupport
+** history
+add
+retire, do not support above windows 7
+** bugs
+no update increase security risk
+* DONE index, vpn
+** name
+sslvpn
+
+** desc
+sslvpn
+
+** view
+web application
+single box on dmz and behind firewall
+user management application
+user information on directory
+*** physical
+*** logical
+** user
+real user
+** use
+url
+** admin
+admin url
+** manage
+add user using application
+** mon(itoring)
+snmp and nagios
+** case
+*** case 1
+memory usage high then reboot
+*** case 2
+clear cache then restart browser
+** see also
+ipsec
+** history
+add
+too old, do not support above windows 7 64bit, windows 8
+** bugs
+no update increase security risk
+* TODO index, network dlp without agent
+** name
+netclinic
+
+** desc
+web application for remote administration
+
+** view
+single box on dmz
+windows and web application
+*** physical
+*** logical
+** user
+real user
+helper
+** use
+different url
+** admin
+admin url
+** manage
+add helper
+** mon(itoring)
+process 1,2,3
+** case
+*** case 1
+hang then reboot
+*** case 2
+** see also
+rsupport
+** history
+add
+retire, do not support above windows 7
+** bugs
+no update increase security risk
+* TODO index, endpoint dlp using agent and include smartphone
+** name
+netclinic
+
+** desc
+web application for remote administration
+
+** view
+single box on dmz
+windows and web application
+*** physical
+*** logical
+** user
+real user
+helper
+** use
+different url
+** admin
+admin url
+** manage
+add helper
+** mon(itoring)
+process 1,2,3
+** case
+*** case 1
+hang then reboot
+*** case 2
+** see also
+rsupport
+** history
+add
+retire, do not support above windows 7
+** bugs
+no update increase security risk
+* TODO index, vaccine
+** name
+netclinic
+
+** desc
+web application for remote administration
+
+** view
+single box on dmz
+windows and web application
+*** physical
+*** logical
+** user
+real user
+helper
+** use
+different url
+** admin
+admin url
+** manage
+add helper
+** mon(itoring)
+process 1,2,3
+** case
+*** case 1
+hang then reboot
+*** case 2
+** see also
+rsupport
+** history
+add
+retire, do not support above windows 7
+** bugs
+no update increase security risk
+* TODO index, monitoring using nagios
+** name
+netclinic
+
+** desc
+web application for remote administration
+
+** view
+single box on dmz
+windows and web application
+*** physical
+*** logical
+** user
+real user
+helper
+** use
+different url
+** admin
+admin url
+** manage
+add helper
+** mon(itoring)
+process 1,2,3
+** case
+*** case 1
+hang then reboot
+*** case 2
+** see also
+rsupport
+** history
+add
+retire, do not support above windows 7
+** bugs
+no update increase security risk
+
+* DONE index, remote support using netclinic
+** name
+netclinic
+
+** desc
+web application for remote administration
+
+** view
+single box on dmz
+windows and web application
+*** physical
+*** logical
+** user
+real user
+helper
+** use
+different url
+** admin
+admin url
+** manage
+add helper
+** mon(itoring)
+process 1,2,3
+** case
+*** case 1
+hang then reboot
+*** case 2
+** see also
+rsupport
+** history
+add
+retire, do not support above windows 7
+** bugs
+no update increase security risk
