@@ -84,3 +84,47 @@ ORA-39070: 로그 파일을 열 수 없습니다.
 ORA-29283: 부적합한 파일 작업
 ORA-06512: "SYS.UTL_FILE",  536행
 ORA-29283: 부적합한 파일 작업
+* oracle related one
+
+** alert.log
+
+- with syslog
+- with tail
+- with tail
+- with swatch
+
+** adrci
+
+- since 11g
+- Automatic Diagnostic Repository Command Interpreter
+
+** lang > character set, national?
+
+https://docs.oracle.com/cd/B10500_01/server.920/a96529/ch10.htm
+
+#+BEGIN_EXAMPLE
+
+STARTUP MOUNT;
+ALTER SYSTEM ENABLE RESTRICTED SESSION;
+ALTER SYSTEM SET JOB_QUEUE_PROCESSES=0;
+ALTER SYSTEM SET AQ_TM_PROCESSES=0;
+ALTER DATABASE OPEN;
+ALTER DATABASE CHARACTER SET new_character_set;
+SHUTDOWN IMMEDIATE; -- or SHUTDOWN NORMAL; 
+STARTUP;
+
+#+END_EXAMPLE
+
+- US7ASCII
+- KO16MSWIN949
+- KO16MSWIN949
+- UTF8
+- AL32UTF8
+
+** SID
+
+** process
+
+- ps -ef |  grep pmon | grep -v grep | wc -l
+
+** oracle internal
