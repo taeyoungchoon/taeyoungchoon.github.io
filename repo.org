@@ -1,3 +1,10 @@
+* TODO simply
+
+- file from text
+- database from file more struct
+- directory from database more static
+- nosql from database more flex
+
 * filesystem
 * multipath
 * lvm

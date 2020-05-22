@@ -1,3 +1,23 @@
+* DONE and about, manual?
+
+1. is a radius server, authentication server from 802.1X world, talk with authenticator
+2. about role, persona in two node
+3. webui and cli, WebUI and CLI(command line interface), Web UI or more IPMI way
+4. name it to dns as a 'a'(address record, forward lookup) and 'ptr'(pointer, reverse lookup)
+5. time, ntp but more about timezone
+6. license
+7. certificate(s), system, CA, CSR(Certificate Signing Request), expiration TTL
+8. server installation vs appliance configuration
+9. Cisco ISE in a Distributed Environment, Cluster
+10. patch
+11. doing backup and restore, more about source and certificate(system and CA)
+    - config data with scheduling
+    - operational data without, policy
+    - restore with 'show restore status'
+    - internal CA Store backup with 'application configure ise' then 7 then when?
+12. ise and friends such as AD as a external identity source
+13. ise and friends such as DNAC from Cisco Software-Defined Access, ERS and pxGRID
+14. policy and element
 * TODO cluster
 
 not so easy
@@ -98,7 +118,6 @@ access is denied, please contact your administrator
     - IdentityGroup
     - SessionDirectory
     - TrustSecMetaData
-
 * TODO two node cluster, shut or start
 
 - stop : PAN(Standby) then PAN(Active)
@@ -125,7 +144,7 @@ access is denied, please contact your administrator
 - application stop ise
 
 * TODO cli more
-
+  
 - show logging
 
 * TODO webui but more
@@ -154,28 +173,6 @@ access is denied, please contact your administrator
 - m4 : sec(m)
 - m* : policy service
 - [ ] and choose some to do pxGRID service
-
-* DONE and about, manual?
-
-1. is a radius server, authentication server from 802.1X world, talk with authenticator
-2. about role, persona in two node
-3. webui and cli, WebUI and CLI(command line interface), Web UI or more IPMI way
-4. name it to dns as a 'a'(address record, forward lookup) and 'ptr'(pointer, reverse lookup)
-5. time, ntp but more about timezone
-6. license
-7. certificate(s), system, CA, CSR(Certificate Signing Request), expiration TTL
-8. server installation vs appliance configuration
-9. Cisco ISE in a Distributed Environment, Cluster
-10. patch
-11. doing backup and restore, more about source and certificate(system and CA)
-    - config data with scheduling
-    - operational data without, policy
-    - restore with 'show restore status'
-    - internal CA Store backup with 'application configure ise' then 7 then when?
-12. ise and friends such as AD as a external identity source
-13. ise and friends such as DNAC from Cisco Software-Defined Access, ERS and pxGRID
-14. policy and element
-
 * TODO policy
 
 ** element
