@@ -1,3 +1,11 @@
+* license
+
+- Base : Basic Radius, Security Group Tagging(Cisco TrustSec SGT), ERS(CRUD), REST(Monitoring)
+- Plus : Profiling
+- Apex : Posture(endpoint compliance and remediation), MDM, Anyconnect Unified Agent, BYOD client provisioning and enablement
+- Device Administration : TACACS+
+- IPSec : VPN?
+
 * DONE and about, manual?
 
 1. is a radius server, authentication server from 802.1X world, talk with authenticator
