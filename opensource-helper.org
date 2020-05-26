@@ -1,0 +1,12 @@
+* kinds of biz, but range
+
+- linux installation
+- linux configuration
+- linux tuning
+- database migration
+- in cloud
+
+* java?!
+
+- 전자정부프레임워크
+- spring, mybatis
