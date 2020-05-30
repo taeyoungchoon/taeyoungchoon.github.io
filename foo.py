@@ -1,47 +1,61 @@
 #!/usr/bin/env python
+#
+# if/for/while then try with except(tion)
+# function, class with self
+# time, system, network
+# time.time() time.sleep()
+# os.getcwd() os.system()
+# string with regexp
 
-import sys
-import os
-import math
-import random
-import datetime
+import time, os
 
 foo = 1
-bar = 'hi'
-lt = []
+bar = "this is the world"
 lt = [1, 2, 3]
-lt = ['a', 'b', 'c']
-kv = {}
-kv = {1:2, 3:4}
-kv = {'love':'me', 'hate':'you'}
-ml = """
-this is the line one
-then two
-"""
-# tuple, set
+kv = {1: 2, 3: 4}
 
 if True:
-    print 'right'
+    print(True)
 
-for num in range(3):
-    print num
+if False:
+    print(False)
 
-value = 0
-maxium = 3
-while True:
-    print value
-    val = value + 1
-    if val == maxium:
-        exit(0)
+if 0:
+    print(False)
 
-def hi(to='jack'):
-    print('this is it')
-    print('say number %d as %s' % (foo, bar))
-    out = 'hello', to
-    return out
+for item in lt:
+    print(item)
 
-def hi(to='jack')
+for k, v in kv.items():
+    print(k, '>', v)
 
-hi()
-hi(to='someone')
+print(int(time.time()))
+time.sleep(0.5)
+print(os.getcwd())
 
+try:
+    print('try')
+except:
+    print('except')
+else:
+    print('else')
+finally:
+    print('finally')
+
+def hello():
+    print("Hello, World")
+
+hello()
+
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def show(self):
+        print(self.x, self.y)
+
+a = Point(10, 10)
+a.show()
+b = Point(100, 100)
+b.show()
