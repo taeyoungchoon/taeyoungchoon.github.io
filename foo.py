@@ -5,57 +5,32 @@
 # time, system, network
 # time.time() time.sleep()
 # os.getcwd() os.system()
+#
 # string with regexp
+# lambda
 
-import time, os
+# machine = 'hp'
+# role = 'web'
 
-foo = 1
-bar = "this is the world"
-lt = [1, 2, 3]
-kv = {1: 2, 3: 4}
+class Host:
+    def __init__(self, machine, role):
+        self.machine = machine
+        self.role = role
 
-if True:
-    print(True)
+h1 = Host('hp', 'conn')
+h2 = Host('hp', 'logos')
+h3 = Host('hp', 'repo')
 
-if False:
-    print(False)
+import re
 
-if 0:
-    print(False)
+line = "this is the line"
+match = re.search('the', line)
+print(match.group(0))
 
-for item in lt:
-    print(item)
+line = "this-is-the-line"
+lt = line.split('-')
+print(lt)
 
-for k, v in kv.items():
-    print(k, '>', v)
+f = lambda a, b : a + b
 
-print(int(time.time()))
-time.sleep(0.5)
-print(os.getcwd())
-
-try:
-    print('try')
-except:
-    print('except')
-else:
-    print('else')
-finally:
-    print('finally')
-
-def hello():
-    print("Hello, World")
-
-hello()
-
-class Point:
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-
-    def show(self):
-        print(self.x, self.y)
-
-a = Point(10, 10)
-a.show()
-b = Point(100, 100)
-b.show()
+print(f(1, 2))
