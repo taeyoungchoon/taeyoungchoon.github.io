@@ -1,25 +1,11 @@
 #!/usr/bin/env python
 #
-# if/for/while then try with except(tion)
-# function, class with self
-# time, system, network
-# time.time() time.sleep()
-# os.getcwd() os.system()
-#
-# string with regexp
-# lambda
-
-# machine = 'hp'
-# role = 'web'
-
 class Host:
     def __init__(self, machine, role):
         self.machine = machine
         self.role = role
-
-h1 = Host('hp', 'conn')
-h2 = Host('hp', 'logos')
-h3 = Host('hp', 'repo')
+        self.age = 0
+        self.power = []
 
 import re
 
@@ -27,13 +13,46 @@ line = "this is the line"
 match = re.search('the', line)
 print(match.group(0))
 
-line = "this-is-the-line"
+line = "this-is-the"
 lt = line.split('-')
-print(lt)
 
 f = lambda a, b : a + b
+f(1, 2)
+
+for i in range(1, 10):
+    if i % 2 == 0:
+        print(i)
+
+from math import sin, cos, tan
+
+print("{}: {}".format(1, 2))
+
+def summy(a, b):
+    return a + b
+
+print(summy(1, 2))
+
+kv = {'raul': 99, 'jack': 23}
+print(kv['raul'])
+
+kv['raul'] = 100
+print(kv['raul'])
+
+print([i for i in range(1, 5)])
+
+from math import radians, pi
+import sys
+
+value = input("input num : ")
 
 print(f(1, 2))
 
 {'E': [1,2]}
 {'A': "lakjsdlf"}
+
+try:
+    if int(value) == int:        
+        pass
+except:
+    pass
+
