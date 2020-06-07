@@ -1,4 +1,49 @@
-* TODO redhat ansible exam
+* TODO redhat ansible exam and check
+
+- [-] Understand core components of Ansible
+  - [X] Inventories
+  - [ ] Modules
+  - [ ] Variables
+  - [X] Facts
+  - [ ] Plays
+  - [X] Playbooks
+  - [X] Configuration files
+- [X] Install and configure an Ansible control node
+  - [X] Install required packages
+  - [X] Create a static host inventory file
+  - [X] Create a configuration file
+- [X] Configure Ansible managed nodes
+  - [X] Create and distribute SSH keys to managed nodes
+  - [X] Configure privilege escalation on managed nodes
+  - [X] Validate a working configuration using ad-hoc Ansible commands
+- [X] Create simple shell scripts that run ad hoc Ansible commands
+- [ ] Use both static and dynamic inventories to define groups of hosts
+- [ ] Utilize an existing dynamic inventory script
+- [-] Create Ansible plays and playbooks
+  - [X] Know how to work with commonly used Ansible modules
+  - [X] Use variables to retrieve the results of running commands
+  - [ ] Use conditionals to control play execution
+  - [ ] Configure error handling
+  - [ ] Create playbooks to configure systems to a specified state
+- [-] Use Ansible modules for system administration tasks that work with:
+  - [X] Software packages and repositories
+  - [X] Services
+  - [ ] Firewall rules
+  - [ ] File systems
+  - [ ] Storage devices
+  - [X] File content
+  - [ ] Archiving
+  - [X] Scheduled tasks
+  - [ ] Security
+  - [X] Users and groups
+- [X] Create and use templates to create customized configuration files
+- [ ] Work with Ansible variables and facts
+- [ ] Create and work with roles
+- [ ] Download roles from an Ansible Galaxy and use them
+- [ ] Manage parallelism
+- [ ] Use Ansible Vault in playbooks to protect sensitive data
+- [X] Use provided documentation to look up specific information about Ansible modules and commands
+* redhat ansible exam
 
 https://www.redhat.com/en/services/training/ex407-red-hat-certified-specialist-in-ansible-automation-exam?section=Objectives
 
@@ -48,12 +93,10 @@ https://www.redhat.com/en/services/training/ex407-red-hat-certified-specialist-i
     Use provided documentation to look up specific information about Ansible modules and commands
 #+END_SRC
 
-* so
-* ansible tower, nil
 * ansible tower free? called awx
 * ansible-shell as alternative of capistrano(cap shell)
-* TODO syntax
-* TODO odd header
-* TODO yaml
-* TODO editor
-* TODO tree
+* syntax
+* odd header ---
+* yaml
+* editor
+* tree
