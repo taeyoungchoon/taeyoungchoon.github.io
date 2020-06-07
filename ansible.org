@@ -2,3 +2,8 @@
 * ansible tower, nil
 * ansible tower free? called awx
 * ansible-shell as alternative of capistrano(cap shell)
+* TODO syntax
+* TODO odd header
+* TODO yaml
+* TODO editor
+* TODO tree
