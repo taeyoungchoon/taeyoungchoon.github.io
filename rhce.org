@@ -11,7 +11,34 @@
     - passing again is the easy way, 38 manwon
     - by taking and passing any of the exams an RHCE can apply towards earning Red Hat Certified Architect (RHCA).
       https://servicesblog.redhat.com/2016/09/23/stay-current/
-      - such as 'Red Hat Certified Specialist in High Availability Clustering'
+      - such as 'Red Hat Certified Specialist in High Availability Clustering' 
+- To attain and maintain RHCA status, an RHCE must pass at least 5 of the following exams and keep the associated certifications current
+- https://www.redhat.com/en/services/certification/rhce for existing rhces
+
+** list
+
+https://www.redhat.com/en/services/certification/rhca
+
+- [ ] EX125 - Red Hat Certified Specialist in Ceph Storage Administration exam
+- [X] EX210 - Red Hat Certified System Administrator in Red Hat OpenStack exam
+- [ ] EX220 - Red Hat Certified Specialist in Hybrid Cloud Management exam
+- [ ] EX236 - Red Hat Certified Specialist in Gluster Storage Administration exam
+- [ ] EX240 - Red Hat Certified Specialist in API Management
+- [ ] EX248 - Red Hat Certified Specialist in Enterprise Application Server Administration exam
+- [X] EX280 - Red Hat Certified Specialist in OpenShift Administration exam
+- [ ] EX310 - Red Hat Certified Engineer in Red Hat OpenStack
+- [X] EX318 - Red Hat Certified Virtualization Administrator exam
+- [ ] EX342 - Red Hat Certified Specialist in Linux Diagnostics and Troubleshooting
+- [ ] EX362 - Red Hat Certified Specialist in Identity Management
+- [X] EX403 - Red Hat Certified Specialist in Deployment and Systems Management exam
+- [ ] EX405 - Red Hat Certified Specialist in Configuration Management
+- [X] EX407 - Red Hat Certified Specialist in Ansible Automation exam
+- [ ] EX415 - Red Hat Certified Specialist in Security: Linux exam
+- [ ] EX425 - Red Hat Certified Specialist in Security: Containers and OpenShift Container Platform exam
+- [X] EX436 - Red Hat Certified Specialist in High Availability Clustering exam
+- [ ] EX440 - Red Hat Certified Specialist in Messaging Administration exam
+- [ ] EX442 - Red Hat Certified Specialist in Linux Performance Tuning exam
+- [ ] EX447 - Red Hat Certified Specialist in Advanced Automation: Ansible Best Practices
     
 * then RHCA, Red Hat Certified Architect
 

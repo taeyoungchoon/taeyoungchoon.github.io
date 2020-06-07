@@ -1,0 +1,39 @@
+* redhat exam
+
+https://www.redhat.com/en/services/training/ex403-red-hat-certified-specialist-in-deployment-and-systems-management-exam?section=Objectives
+
+#+BEGIN_SRC 
+
+    Configure Red Hat Satellite server
+        Create and configure organizations and locations
+        Create and configure users and roles
+        Create and configure Ansible® roles
+        Create and configure Ansible variables
+    Manage content and software channels
+        Synchronize Red Hat Enterprise Linux content
+        Configure subscriptions, content, and content views
+        Create custom content channels and populate them with software
+        Create and configure development life cycles
+        Sign an RPM
+    Manage systems
+        Create activation keys
+        Create host group keys
+        Configure bare-metal deployments
+    Manage Ansible roles
+        Import Ansible roles
+        Configure Ansible roles
+    Manage Ansible variables
+        Import Ansible variables from an Ansible role
+        Configure an Ansible variable
+    Manage clients
+        Register an existing client to a Satellite server
+        Apply errata to clients
+        Install custom software on clients
+        Use Satellite server to remotely execute scripts on clients
+        Assign an Ansible role to an existing client
+    Provision clients
+        Provision bare metal and virtual clients using kickstarts
+        Use Ansible variables in kickstarts
+        Use Ansible roles in kickstarts
+
+#+END_SRC
