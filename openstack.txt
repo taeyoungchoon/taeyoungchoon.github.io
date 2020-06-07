@@ -1,0 +1,66 @@
+Table of Contents
+_________________
+
+
+1 TODO redhat openstack exam
+============================
+
+  ,----
+  | 
+  | Understand and work with director-based deployments
+  |     Use identity environment files to connect to the undercloud
+  |     Use identity environment files to connect to the overcloud
+  |     Use template files, environment files, and other resources to obtain information about an OpenStack environment
+  |     Work with containerized services
+  | Configure OpenStack domains
+  |     Create projects
+  |     Create groups
+  |     Create users
+  |     Manage quotas
+  | Create resources
+  |     Create virtual machine flavors
+  |     Add existing images to an overcloud
+  |     Create security groups
+  |     Create key pairs
+  | Configure networking
+  |     Create and assign networks to projects
+  |     Configure network routers
+  |     Configure software-defined networks
+  |     Work with Open Virtual Networks
+  | Configure floating IP addresses
+  |     Configure an instance to use a floating IP address
+  |     Configure a service to be accessible via a floating IP address
+  | Manage block storage
+  |     Create a block storage volume
+  |     Attach block storage volumes to an instance
+  |     Snapshot a storage volume
+  | Work with Red Hat® Ceph Storage
+  |     Configure Ceph storage
+  |     Monitor Ceph Storage
+  |     Diagnose and troubleshoot Ceph Storage issues
+  | Work with object storage
+  |     Create a Swift container
+  |     Utilize a Swift container
+  | Work with shared storage
+  |     Create shared file systems
+  |     Configure instances to use shared file systems
+  | Manage instances
+  |     Launch instances
+  |     Associate instances with specified projects and networks
+  |     Use key pairs to connect to instances
+  |     Configure an instance during deployment
+  | Create a Heat stack
+  |     Create a Heat template
+  |     Diagnose and correct a broken Heat template
+  |     Launch a Heat stack
+  | Work with images
+  |     Modify an existing image
+  |     Create and associate flavors to customized images
+  |     Launch an instance from a customized image
+  |     Launch an instance on a second compute node
+  | Work with OpenStack services
+  |     Manage Identity Service tokens
+  |     Enable tracing in RabbitMQ
+  |     Display statistics using Ceilometer
+  | 
+  `----
