@@ -51,12 +51,12 @@ http://www.kisa.or.kr/business/protect/protect1_sub5.jsp
 
 - http://www.dailysecu.com/
 
-* from somewhere
+* TODO from somewhere
 
 - hacking inc malware with IRC
 - spaces such as office and data center
 - project rel
-  - 보안담당자
+  - project manager
   - process
     - paper, edu, management
     - program, scheduled check
