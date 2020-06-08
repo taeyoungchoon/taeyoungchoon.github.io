@@ -1,0 +1,12 @@
+* with capwap or words
+
+- ap, access point
+- wlc, wireless lan controller
+
+* secure anyway
+
+- [ ] capwap and option 138 from isc dhcp and other option numbers?
+- how to
+- limit, air
+
+* linux again, iptime
