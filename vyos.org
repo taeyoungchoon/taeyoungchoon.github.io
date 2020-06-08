@@ -1,0 +1,32 @@
+* why or what is vyos?
+
+- linux based something
+- and used by atto research's nfv platform athene known as vnf
+- [ ] pfsense?
+- [ ] as dhcpd
+- [ ] init, configure
+
+* step to install
+
+1. { 'disk' : '20GiB', 'nic' : [ 'bridge', 'host-only' ] }
+2. live cd
+3. login as vyos / vyos
+4. install image
+   - /opt/vyatta/etc/config/config.boot
+
+* history
+
+- at home, try to install, t
+- [2020-06-08 Mon 08:47] at work space, try to install, ing
+
+* configure
+
+#+BEGIN_SRC 
+set interfaces ethernet eth0 address 192.168.25.200/24
+set interfaces ethernet eth1 address 192.168.99.99/24
+set service ssh
+commit
+save
+#+END_SRC
+
+* debian 10.4

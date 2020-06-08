@@ -196,3 +196,48 @@ host centos72 {
 }
 ? 
 #+END_SRC
+* TODO dhcpd server centos8 based
+
+- dhcp client rel interface have ip of that range such as 192.168.99.100
+
+#+BEGIN_SRC 
+dnf install dhcp-server
+cd /etc/dhcp
+cp dhcpd.conf dhcpd.conf.orig
+cp /usr/share/doc/dhcp-server/dhcpd.conf.example dhcpd.conf
+EDIT dhcpd.conf
+journalctl -f
+#+END_SRC
+
+#+BEGIN_SRC 
+option domain-name-server 8.8.8.8, 8.8.8.9;
+default-lease-time 600;
+max-lease-time 7200;
+log-facility local7;
+
+# option capwap code 138 = array of ip-address;
+# option capwap 192.168.99.1;
+# https://kb.isc.org/docs/aa-01112
+option capwap-ac-v4 192.168.99.1;
+
+# option TCode "Asia/Seoul"
+
+subnet 192.168.99.0 netmask 255.255.255.0 {
+  range 192.168.99.200 192.168.99.210;
+  option routers 192.168.99.1;
+}
+#+END_SRC
+
+- [ ] option 138 rel, adding
+- [ ] selinux disable or let it
+- [ ] firewall disable or just enable
+
+* TODO dhcpd client
+
+#+BEGIN_SRC 
+nmcli connection
+nmcli connection down enp0s8
+nmcli connection up enp0s8
+#+END_SRC
+
+- [ ] I reboot host pc to disable dhcp server on virtualbox

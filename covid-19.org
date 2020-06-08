@@ -1,0 +1,4 @@
+* name it, how? covid and 19
+
+** DONE 19, 2019
+** TODO covid

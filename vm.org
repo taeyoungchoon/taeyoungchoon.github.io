@@ -1,3 +1,34 @@
+* vm world on my note, worse
+
+1. virtualbox
+2. virtualbox with vagrant
+3. but broken nowadays
+4. hyperv with vagrant
+5. but static ip range
+6. virtualbox again but vagrant broken
+
+#+BEGIN_SRC 
+$ vagrant status
+==> vagrant: A new version of Vagrant is available: 2.2.9 (installed version: 2.2.6)!
+==> vagrant: To upgrade visit: https://www.vagrantup.com/downloads.html
+
+An error occurred while executing a PowerShell script. This error
+is shown below. Please read the error message and see if this is
+a configuration error with your system. If it is not, then please
+report a bug.
+
+Script: get_vm_status.ps1
+Error:
+
+Get-Item : Cannot find path 'C:\WINDOWS\System32\vmms.exe' because it does not exist.
+At C:\HashiCorp\Vagrant\embedded\gems\2.2.6\gems\vagrant-2.2.6\plugins\providers\hyperv\scripts\get_vm_status.ps1:21
+char:28
++ $HyperVVersion = [version](Get-Item $VmmsPath).VersionInfo.ProductVer ...
++                            ~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\WINDOWS\System32\vmms.exe:String) [Get-Item], ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetItemCommand
+#+END_SRC
+
 * helper
 
 - vagrant
