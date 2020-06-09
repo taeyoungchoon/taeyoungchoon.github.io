@@ -1,0 +1,18 @@
+* web application firewall
+
+- fortinet fortiweb
+- citrix netscaler appfirewall
+- f5 advanced waf
+- radware appwall
+- symantec waf
+- barracuda waf
+- imperva waf
+- sophs xg firewall
+- sonicwall nsa
+
+* and now virtual so cloud
+
+- azure waf
+- aws waf
+- oracle cloud web application firewall
+- google, cloud armor

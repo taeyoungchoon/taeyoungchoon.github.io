@@ -1,12 +1,18 @@
-* with capwap or words
+* word
 
+- ssid
+- ssid broadcast
 - ap, access point
 - wlc, wireless lan controller
 
-* secure anyway
-
-- [ ] capwap and option 138 from isc dhcp and other option numbers?
-- how to
-- limit, air
-
 * linux again, iptime
+* Wi-Fi 6, 802.11ax
+* Wi-Fi 5, 802.11ac Wave 2
+* 802.11a, b, g, 11n
+* cisco aironet
+* cisco WLC
+
+- Catalyst 9800-CL / L / 40 / 80
+  - and more such as embedded wireless on switch or on AP
+- 3504 wireless controller
+- mobility express

@@ -1,0 +1,109 @@
+* security is
+* wep, wap/wap2 personal/enterprise
+
+- none aka Open
+- wep 64/128
+- wpa is the
+  - Wi-Fi Protected Access
+  - IEEE 802.11i
+  - aka TKIP(Temporal Key Integrity Protocol)
+  - deprecated since 2009
+  - using RC4 stream cipher
+- then wpa2, real 802.11i 
+  - using AES block cipher
+- wpa2-psk[AES] aka wpa2 personal from mac
+- wpa-psk[TKIP]+wpa2-psk[AES] aka wpa/wap2 personal
+- wpa/wpa2 enterprise aka wpa/wpa2 enterprise from mac, and not use PSK, so use RADIUS server
+
+* more
+
+- wireless mac filter, allow only these wireless devices
+
+* capwap, option 138, isc dhcp, option-x
+* 802.1X, EAPOL
+* ac(wac)
+* ap(access point)
+* radius server
+* endpoint now STA
+* PMK, pairwise master key
+* PSK, pre-shared key
+* Authentication Protocol such PAP, Password AP, CHAP, Challenge-handshake AP then EAP
+* EAP, Extensible Authentication Protocol, framework
+* MAB(MAC Authentication Bypass)
+* four-way handshake
+* WTP, wireless termination point
+* part 2
+* LWAPP, Lightweight Access Point Protocol
+
+- designed by airespace and then bought out by cisco in 2005
+- L2 Mode : Supported
+- with LWAP, lightweight access point
+
+* CAPWAP, Control and Provisioning of Wireless Access Point
+
+- based on LWAPP
+- 2009
+- DTLS Security : Yes
+  - Datagram Transport Layer Security
+
+* beacon
+* wireless mesh network
+
+- backupbone
+- gateway
+- mesh router
+- mesh client
+
+* wcl discovery
+
+1. option 43/
+   - cisco switch dhcp f
+     - option 43 hex f1080a0a6f0a
+     - 10.10.111.10
+     - f108 0a 0a 111 10
+     - no ip dhcp pool vlan114
+     - ip helper-address 10.10.210.6
+   - and so windows dnsmgmt
+     - 043 Vendor Specific Info
+   - result
+     - CAPWAP-5-DHCP_OPTION_43
+       - Controller address 10.10.111.10 obtained through DHCP
+2. option 60 so cond
+   - option 60 ascii "Cisco AP c1240"
+   - option 43 hex f1040a0a700a
+3. CISCO-LWAPP-CONTROLLER.localdomain
+
+* dhcp option 43, 60, 138
+
+- 43 Vendor Specific Information
+- 60 Vendor Class Identifier
+- 138 OPTION_CAPWAP_AC_V4 CAPWAP Access Controller addresses
+
+* option 138, dig
+
+- https://tools.ietf.org/html/rfc5417
+- 
+
+* X.509 Certificate
+* CISCO-CAPWAP-CONTROLLER
+* configure capwap
+
+- capwap ap controller ip address 192.168.100.1
+- show capwap client config
+
+* vWLC
+* AP Cert types
+
+1. MIC
+2. SSC
+3. LSC
+
+* AP Join
+* debug 
+
+- debug capwap events enable
+- debug capwap errors enable
+- debug pm pki enable
+
+* ip helper-address
+* dnsmgmt.msc
