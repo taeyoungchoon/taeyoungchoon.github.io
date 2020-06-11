@@ -12,3 +12,21 @@ Red Hat Enterprise Linux 8 (Ootpa) is based on Fedora 28, upstream Linux kernel 
 #+END_SRC
 
 * yum, pkg, package
+* cli then key
+
+1. subscription-manager status
+2. yum repolist
+3. subscription-manager register --auto-attach
+
+* general
+
+- yum list all
+
+* odd, now
+
+- yum module list
+
+* todo
+
+- [ ] local repo
+  https://www.centlinux.com/2019/07/configure-local-yum-dnf-repository-in-rhel-8.html
