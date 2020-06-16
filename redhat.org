@@ -1,0 +1,39 @@
+* history
+* word but site
+
+- SAML, Single Sign On
+- not the firefox but chrome
+
+- http://www.redhat.com
+- http://access.redhat.com : Customer Portal
+- [ ] http://connect.redhat.com
+- http://partnercenter.redhat.com : PARTNER CONNECT
+- http://training-lms.redhat.com : OPEN
+- http://redhat-partner.highspot.com : PARTNER CONTENT HUB
+- http://labs.opentlc.com : Training System
+- [ ] http://rhpds.redhat.com : PRODUCT DEMO SYSTEM
+
+* word but for sale
+
+- Red Hat Enterprise Linux
+- Red Hat JBoss Middleware
+- [ ] Red Hat Ansible
+- [ ] Cloud Computing
+  - OpenStack Platform
+  - Cloud Suites includes :
+    - cloudforms
+    - openstack
+    - openshift
+    - virtualization
+    - satellite
+- [ ] Virtualization
+- Red Hat OpenStack Platform
+- [X] Red Hat Storage
+  - Gluster
+  - Ceph
+
+* word but account
+
+- partner?
+  - [ ] tech, Certified Technology Portal
+  - biz
