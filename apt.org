@@ -1,6 +1,0 @@
-* advanced persistent threat
-* yara
-
-http://virustotal.github.io/yara/
-
-Yet Another Recursive Acronym, or Yet Another Ridiculous Acronym.
