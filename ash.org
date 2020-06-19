@@ -1,5 +1,0 @@
-* not a shell, ash viewer for oracle
-
-- ASH Viewer provides graphical view of active session history data within the Oracle instance. 
-
-* ashes to ashes / David Bowie
