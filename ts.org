@@ -1,1 +1,0 @@
-* tsadmin.msc, terminal service
