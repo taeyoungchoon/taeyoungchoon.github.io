@@ -1,5 +1,0 @@
-* AAA for radius/diameter
-
-- Authentication 인증
-- Authorization 권한 검증
-- Accounting
