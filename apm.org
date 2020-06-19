@@ -1,4 +1,6 @@
-* (:ex ((apache php mysql) t))
+* ex 
+
+- ((apache php mysql) t)
 
 * combined
 
