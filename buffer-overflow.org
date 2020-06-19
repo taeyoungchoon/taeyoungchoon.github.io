@@ -1,6 +1,0 @@
-* so
-
-- strncpy
-- GHOST (glibc gethostbyname)
-- code red I/II
-- sql slammer
