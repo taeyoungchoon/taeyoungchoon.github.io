@@ -1,4 +1,4 @@
 * TODO cli
 
-date --set 2015-12-07
-date --set 13:21:00
+- date --set 2015-12-07
+- date --set 13:21:00
