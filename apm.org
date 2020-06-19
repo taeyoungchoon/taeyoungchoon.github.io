@@ -1,19 +1,28 @@
-* apache, php, mysql and then
-* apache like x php like x mysql like
-
-- like and like each other using
-- mod_jk
-- apache, nginx
-- tomcat, jboss, wildfly
-- uWSGI, gunicorn
-- mysql, mariadb
-- galera
-- python
-- java, bean, test
-- on linux like, centos, rhel, openbsd
+* (:ex ((apache php mysql) t))
 
 * combined
 
 1. req from outside world to conn(s)
 2. inside then logos(es)
 3. search at repo(s)
+
+* conn
+
+- apache, nginx
+- mod_jk
+
+* logos
+
+- tomcat, jboss, wildfly
+- uWSGI, gnuicorn
+- java, bean
+
+* repo
+
+- mysql, mariadb
+- galera
+
+* box called m(achine)
+
+- linux-like, bsd-like
+
