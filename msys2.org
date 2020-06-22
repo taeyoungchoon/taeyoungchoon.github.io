@@ -1,3 +1,0 @@
-http://www.msys2.org
-
-from cygwin?
