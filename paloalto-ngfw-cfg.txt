@@ -1,8 +1,0 @@
-$ ssh secadm@10.0.0.240
-Password:
-Last login: Thu Jul 30 15:49:28 2015 from 10.0.0.240
-secadm@FW-A(active)> set cli pager off
-secadm@FW-A(active)> show config running
-secadm@FW-A(active)> ^D
-Connection to 10.0.0.240 closed.
-$

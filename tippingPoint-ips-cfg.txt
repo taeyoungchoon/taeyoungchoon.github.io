@@ -1,8 +1,0 @@
-$ ssh secadm@10.0.0.230
-secadm@10.0.0.230's password:
-IPS-A#
-IPS-A# show configuration
-IPS-A# quit
-Connection to 10.0.0.230 closed by remote host.
-Connection to 10.0.0.230 closed.
-$
