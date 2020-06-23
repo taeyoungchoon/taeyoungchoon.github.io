@@ -1,4 +1,0 @@
-* so
-
-- ebXML (Electronic Business XML)
-- ebXML 보안

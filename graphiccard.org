@@ -1,3 +1,0 @@
-* sample
-
-Intel(R) HD Graphics 3000
