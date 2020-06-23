@@ -2,3 +2,7 @@
 
 ** DONE 19, 2019
 ** TODO covid
+
+* and later
+
+전과 후 그 차이는 어떨까?
