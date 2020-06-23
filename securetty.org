@@ -1,7 +1,0 @@
-* /etc/securetty
-
-console
-
-* chk
-
-ls /etc/secure*
