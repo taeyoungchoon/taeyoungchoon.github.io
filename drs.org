@@ -1,6 +1,0 @@
-* 복구 수준별 DRS
-
-- mirror, active-active
-- hot, active-standby
-- warm
-- cold

@@ -1,6 +1,0 @@
-* config called vimrc
-
-set incsearch
-set hlsearch
-
-
