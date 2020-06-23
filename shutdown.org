@@ -1,9 +1,0 @@
-* cli
-
-shutdown -r now
-shutdown -h now
-
-init 6
-init 0
-
-

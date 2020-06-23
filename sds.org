@@ -1,6 +1,0 @@
-* ex
-
-- ceph
-- opensds
-- minio.io
-- storpool

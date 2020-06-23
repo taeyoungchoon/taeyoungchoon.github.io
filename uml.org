@@ -1,3 +1,0 @@
-* vs [[file:dot.org][dot]]?
-* language? yes
-* using tool
