@@ -196,6 +196,7 @@ host centos72 {
 }
 ? 
 #+END_SRC
+
 * TODO dhcpd server centos8 based
 
 - dhcp client rel interface have ip of that range such as 192.168.99.100
