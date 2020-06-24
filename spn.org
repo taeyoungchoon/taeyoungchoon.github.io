@@ -1,4 +1,0 @@
-* SPN, SP-network, substitution-permutation network
-
-- is a series of linked mathematical operations used in block cipher algorithms.
-
