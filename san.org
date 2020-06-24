@@ -6,10 +6,3 @@ node
 port
 initiator
 
-* word : Storage Area Network
-* friends : DAS, SAN, NAS
-* youtube
-
-https://www.youtube.com/watch?v=zb2kEtjMmPg
-
-* with linux
