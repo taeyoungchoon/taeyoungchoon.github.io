@@ -1,0 +1,41 @@
+* server using virtualbox
+
+- virtualbox dhcp : 192.168.99.200~250
+
+- memory : 4g
+- disk : 50g
+- net : nat and host-only adapter
+- cpu : 2core
+
+- operating system : windows server 2016 datacenter, this time
+- sconfig > host-only : 192.168.99.200
+- sconfig > hostname : ender, then reboot suggested, reboot
+
+- add roles and features
+- dns and active directory domain services role added
+  - and automatically group policy management feature enabled
+- post-deployment configuration
+  - add a new forest
+    - root domain name as 'x.dom'
+  - set DSRM(Directory Services Restore Mode) password
+  - NetBIOS domain name: X
+- installation started, tasks time, lots of time
+
+* todo
+
+- [ ] easy login password
+- [ ] automatically login
+- [ ] disable screenlock
+- [X] remote login
+  sconfig > 7 remote desktop then 1440x900
+- [ ] remoting
+- [X] set date and time
+  sconfig > 9 date and time
+- [X] shutdown, sconfig > 14
+- [X] add local administrator, sconfig > 3
+
+* second one 
+
+- dns to 192.168.99.200
+- [ ] what about this(at second one) dns?
+  - anyway added
