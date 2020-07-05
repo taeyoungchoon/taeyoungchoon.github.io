@@ -100,3 +100,30 @@ systemd-+-agetty
         |-firewalld---{firewalld}
         `-tuned---4*[{tuned}]
 #+END_SRC
+* TODO minishift on mac
+
+1. brew cask install minishift
+2. brew install docker-machine-driver-hyperkit
+3. minishift start --vm-driver=hyperkit
+
+#+BEGIN_SRC 
+-- Checking if requested hypervisor 'hyperkit' is supported on this platform ... OK
+-- Copying oc binary from the OpenShift container image to VM
+#+END_SRC
+
+4. [ ] eval $(minishift oc-env)
+5. minishift stop
+
+* TODO minishift cli
+
+- minishift oc-env
+- minishift start --vm-driver=virtualbox
+
+* minishift, OpenShift Web Console
+* links
+
+https://docs.okd.io/3.11/minishift/getting-started/quickstart.html
+* version
+
+- v3.11.0
+
