@@ -100,7 +100,7 @@ systemd-+-agetty
         |-firewalld---{firewalld}
         `-tuned---4*[{tuned}]
 #+END_SRC
-* TODO minishift on mac
+* DONE minishift on mac
 
 1. brew cask install minishift
 2. brew install docker-machine-driver-hyperkit
@@ -114,10 +114,48 @@ systemd-+-agetty
 4. [ ] eval $(minishift oc-env)
 5. minishift stop
 
+* TODO minishift on win10
+
+1. download minishift for windows from https://github.com/minishift/minishift/releases
+2. cmd (note: install from c drive not else where)
+3. minishift start --vm-driver=virtualbox
+
+#+BEGIN_SRC 
+   Downloading ISO 'https://github.com/minishift/minishift-centos-iso/releases/download/v1.16.0/minishift-centos7.iso'
+ 370.00 MiB / 370.00 MiB [=================================================================================] 100.00% 0s
+-- Starting Minishift VM ..... FAIL E0706 10:32:56.473037   28788 start.go:494] 
+Error starting the VM: Error creating the VM. Error creating machine: Error in driver during machine creation: open /Users/jack/.minishift/cache/iso/centos/v1.16.0/minishift-centos7.iso: The system cannot find the path specified.. Retrying.
+Error starting the VM: Error creating the VM. Error creating machine: Error in driver during machine creation: open /Users/jack/.minishift/cache/iso/centos/v1.16.0/minishift-centos7.iso: The system cannot find the path specified.
+#+END_SRC
+
+#+BEGIN_SRC 
+Unable to delete entries from kube config: open C:\Users\jack\.kube\config: The system cannot find the path specified.
+#+END_SRC
+
+#+BEGIN_SRC 
+The server is accessible via web console at:
+    https://192.168.99.100:8443/console
+
+You are logged in as:
+    User:     developer
+    Password: <any value>
+
+To login as administrator:
+    oc login -u system:admin
+#+END_SRC
+
 * TODO minishift cli
 
 - minishift oc-env
 - minishift start --vm-driver=virtualbox
+- minishift delete
+- minishift delete --clear-cache
+- ~/.minishift
+- minishift start --vm-privider=virtualbox --show-libmachine-logs -v5
+- minishift config view
+- minishift config set save-start-flags false
+- minishift logs
+- minishift console --url
 
 * minishift, OpenShift Web Console
 * links
