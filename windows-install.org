@@ -1,15 +1,16 @@
 * server using virtualbox
 
+- [X] box-type : virtualbox
 - virtualbox dhcp : 192.168.99.200~250
 
-- memory : 4g
-- disk : 50g
-- net : nat and host-only adapter
 - cpu : 2core
+- memory : 4g
+- [X] disk : 50g
+- [X] net : nat and host-only adapter
 
-- operating system : windows server 2016 datacenter, this time
-- sconfig > host-only : 192.168.99.200
-- sconfig > hostname : ender, then reboot suggested, reboot
+- [X] operating system : windows server 2016 datacenter, this time
+- [X] sconfig > host-only : 192.168.99.200
+- [X] sconfig > hostname : ender, then reboot suggested, reboot
 
 - add roles and features
 - dns and active directory domain services role added
@@ -31,8 +32,11 @@
 - [ ] remoting
 - [X] set date and time
   sconfig > 9 date and time
-- [X] shutdown, sconfig > 14
-- [X] add local administrator, sconfig > 3
+- [ ] shutdown, sconfig > 14
+- [ ] add local administrator, sconfig > 3
+- [ ] enable ping
+- [ ] activate windows or install product key
+- [ ] windows update
 
 * second one 
 

@@ -19,3 +19,7 @@ common lisp, emacslisp, slime, alegro x, autocad's lisp
 * cobol, fortran, pascal and lots of the others
 
 모든 언어를이 가능할까? 
+
+* TODO simply again
+
+* TODO network
