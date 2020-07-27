@@ -1,0 +1,26 @@
+* process
+
+** remote(gdrive such as ~/gdrive/repo)
+
+#+BEGIN_SRC 
+cd ~/gdrive/repo
+git init --bare source53.git
+#+END_SRC
+
+** local
+
+#+BEGIN_SRC 
+cd source
+git init
+git add .
+git commit -m "first commit"
+git remote add origin ~/gdrive/repo/source53.git
+git push -u origin master
+#+END_SRC
+
+** local somewhere else
+
+#+BEGIN_SRC 
+git clone ~/gdrive/repo/source53.git source
+cd source
+#+END_SRC
