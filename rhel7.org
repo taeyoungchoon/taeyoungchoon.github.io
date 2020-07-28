@@ -1,0 +1,64 @@
+* hardware
+
+- two disk(mirror) : os, data
+- nic and network : ip / nm / gw / (ns1, ns2) then link-aggr like that
+
+* installation
+
+- installation media : DVD
+- language : English
+- timezone : Asia/Seoul
+- ntp
+- software selection : Server with GUI
+- hostname : x
+- root password : P@ssw0rd
+- user creation : username , P@ssw0rd
+
+** partitioning
+
+- sda1 , /boot , 1G , xfs
+- lvm , / 191G , xfs
+- lvm , swap, 8G(max * 2/rhel7)
+- lvm , home , 100G , xfs
+
+https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html-single/installation_guide/index#sect-recommended-partitioning-scheme-ppc
+13.15.4.4. Recommended Partitioning Scheme
+
+https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/installation_guide/s2-diskpartrecommend-x86
+9.15.5. Recommended Partitioning Scheme
+
+If you are not sure how best to configure the partitions for your computer, accept the default partition layout. 
+
+*** swap, rhel5
+
+Table 7.1. Recommended System Swap Space
+
+Amount of RAM in the System	Recommended Amount of Swap Space
+---
+4GB of RAM or less	a minimum of 2GB of swap space
+4GB to 16GB of RAM	a minimum of 4GB of swap space
+16GB to 64GB of RAM	a minimum of 8GB of swap space
+64GB to 256GB of RAM	a minimum of 16GB of swap space > 32G
+256GB to 512GB of RAM	a minimum of 32GB of swap space > 64G
+
+*** swap, rhel7
+
+https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/ch-swapspace
+
+Table 15.1. Recommended System Swap Space
+
+Amount of RAM in the system 	
+< 2 GB 	2 times the amount of RAM 	
+> 2 GB – 8 GB 	Equal to the amount of RAM
+> 8 GB – 64 GB 	At least 4 GB 	
+> 64 GB 	At least 4 GB 	
+
+* after
+
+- os image at /root/rhel7.iso
+
+* sec 
+
+- [ ] firewall
+- [ ] selinux
+

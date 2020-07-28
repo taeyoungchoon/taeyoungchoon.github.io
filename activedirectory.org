@@ -1,3 +1,21 @@
-* [2020-05-28 Thu]  and this too? yes!
-* ad is not ad only, include dns, so much, self domain
+* (set AD (ActiveDirectoryDomainService DNS))
+* req
 
+- [ ] computer name : foo
+- [ ] domain name : x.dom
+- [ ] functional level : windows server 2019
+- capabilities
+  - [ ] DNS
+  - [ ] GC
+- [ ] DSRM(Directory Service Restore Mode) password
+- NetBIOS domain name : X
+
+* dns
+
+- Forward Lookup Zones
+- 53/tcp, 53/udp
+
+* firewall, if
+
+https://maystyle.tistory.com/269
+depends on service flow
