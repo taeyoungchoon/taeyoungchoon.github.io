@@ -34,3 +34,11 @@
 
 - lvm
 - /dev/mapper/centos-root
+* TODO [2020-08-03 Mon] until now
+
+- ext2 > ext3 > ext4, reiserfs, xfs
+- (raid 0 1 5)
+- fat rel, ntfs
+- file-system filesystem file partition mount umount loop iso
+- network file system, nfs, smb, samba, cifs, port(s)
+- obj? object s3 rel

@@ -6,7 +6,7 @@
 
 - ntpdate -q time.bora.net
 
-* just but windows? or the other? and from the command line!
+* TODO just but windows? or the other? and from the command line!
 
 ** xp 
 
@@ -49,7 +49,7 @@ NetTime from http://timesynctool.com
 
 http://time.ewha.or.kr/
 
-* from windows 2003 server
+* TODO from windows 2003 server
 
 #+BEGIN_EXAMPLE
 >netstat -ano | findstr 123
@@ -81,3 +81,14 @@ The current time is 2016-04-19 오전 10:39:43 (local time).
 ^C
 >
 #+END_EXAMPLE
+
+* TODO from windows 2019 server
+
+w32tm /query /source
+w32tm /query /status
+w32tm /query /peers
+w32tm /config /update /manualpeerlist:"192.168.15.111 192.168.15.112"
+
+from powershell
+
+Get-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\W32Time\Parameters\" -Name "NtpServer"

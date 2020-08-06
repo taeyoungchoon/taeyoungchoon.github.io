@@ -19,3 +19,9 @@
 
 https://maystyle.tistory.com/269
 depends on service flow
+
+* deligation
+
+* firewall
+
+* ldaps
