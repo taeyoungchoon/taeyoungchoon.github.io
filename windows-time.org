@@ -87,8 +87,29 @@ The current time is 2016-04-19 오전 10:39:43 (local time).
 w32tm /query /source
 w32tm /query /status
 w32tm /query /peers
-w32tm /config /update /manualpeerlist:"192.168.15.111 192.168.15.112"
+# w32tm /config /update /manualpeerlist:"192.168.15.111 192.168.15.112"
 
 from powershell
 
 Get-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\W32Time\Parameters\" -Name "NtpServer"
+
+* TODO HOT syncfromflags
+
+>w32tm /config /manualpeerlist:ntpserver.contoso.com,clock.adatum.com /syncfromflags:manual /update
+
+* TODO more
+
+w32tm /query /configuration
+
+* good result
+
+C:\Users\Administrator>w32tm /query /status
+윤초 조정: 0(경고 없음)
+계층: 2(보조 참조 - (S)NTP로 동기화됨)
+정밀도: -23(틱당 119.209ns)
+루트 지연: 0.0015285s
+루트 분산: 1.9356109s
+참조 ID: 0xC0A80F6F(원본 IP:  192.168.15.111)
+마지막으로 동기화한 시간: 2020-08-07 오전 10:56:53
+원본: 192.168.15.111,192.168.15.112
+폴링 간격: 7(128s)
