@@ -1,0 +1,5 @@
+* ldapsearch
+
+ldapsearch -x -LLL -p 389 -h 192.168.99.101 -b "cn=Users,dc=women,dc=little" -s sub -x "(&(objectclass=*)(cn=*))" -D "beth" -w '123$qwer' 
+
+ldapsearch -x -LLL -H ldap://192.168.99.101:389 -b "cn=Users,dc=women,dc=little" -s sub -x "(&(objectclass=*)(cn=*))" -D "beth" -w '123$qwer'
