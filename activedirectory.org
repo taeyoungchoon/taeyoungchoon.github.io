@@ -1,8 +1,8 @@
 * (set AD (ActiveDirectoryDomainService DNS))
 * req
 
-- [ ] computer name : foo
-- [ ] domain name : x.dom
+- [ ] computer name : sam
+- [ ] domain name : lotr.foo
 - [ ] functional level : windows server 2019
 - capabilities
   - [ ] DNS
@@ -25,3 +25,20 @@ depends on service flow
 * firewall
 
 * ldaps
+
+* let's begin
+
+1. adds(domain service) with dns first
+2. then adcs(certificate service)
+
+** TODO adds with dns first
+
+1. ing, nothing to say
+2. reboot automatically
+
+** then adcs
+
+1. ing, seperately
+2. reboot manually
+
+* enable ssh
