@@ -1,0 +1,11 @@
+* DONE permission then, systemsettingsadminflows.exe error
+
+** symptom
+
+ws에서 한글팩을 추가하려하니 권한이 없다는 메시지가 뜬다. 헤더는 systemsettingsadminflows.exe가 보인다. go steps
+
+** steps
+
+1. secpol.msc
+2. Local Policies->Security Options 
+3. Enable "User Account Control: Admin Approval Mode for the Built-in Administrator account" which is set to Not Defined.
