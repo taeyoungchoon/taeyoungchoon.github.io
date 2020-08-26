@@ -1,0 +1,15 @@
+* 설치
+** make install
+** make secure
+** 테스트
+
+* 설정
+** my.cnf - portal(512G, full) > innodb_buffer_pool_size 1/2
+** my.cnf - cloudera(256G, shared) > 1/3
+** my.cnf 설명
+
+* 시작과 종료
+
+* 백업
+** make backup
+
