@@ -1,0 +1,81 @@
+| opt                             | desc                                                                                            |
+|---------------------------------+-------------------------------------------------------------------------------------------------|
+| port                            | 포트 번호                                                                                       |
+| socket                          | 소켓 파일 위치                                                                                  |
+| basedir                         | 데이타베이스 홈 디렉토리                                                                        |
+| datadir                         | 데이터 파일이 저장되는 디렉토리                                                                 |
+| tmpdir                          | 임시테이블의 데이터 파일이 저장되는 위치                                                        |
+| character-set-server            | 문자셋 설정                                                                                     |
+| collation-server                | 콜레이션(정렬 형식) 설정                                                                        |
+| init_connect                    | 클라이언트의 서버 연결시 서버가 실행하는 문자열                                                 |
+| default-storage-engine          | 기본 스토리지 엔진                                                                              |
+| performance_schema              | 성능 자료 수집 여부                                                                             |
+| max_connections                 | 클라이언트의 동시 연결 허용 갯수                                                                |
+| max_connect_errors              | 에러 발생 수가 허용하는 범위안에서 통신 허용                                                    |
+| max_allowed_packet              | 패킷 한 개의 최대 크기                                                                          |
+| wait_timeout                    | 활동하지 않는 커넥션을 끊을때까지 서버가 대기하는 시간                                          |
+| interactive-timeout             | 활동중인 커넥션이 닫히기 전까지 서버가 대기하는 시간                                            |
+| query_cache_size                | 쿼리 결과를 캐싱하기 위해 할당되는 메모리 크기                                                  |
+| query_cache_limit               | 단일 쿼리 결과의 저장을 허용하는 최대 크기                                                      |
+| query_cache_type                | 쿼리캐시 타입 설정                                                                              |
+| transaction_isolation           | 트랜잭션 격리 수준                                                                              |
+| log_bin_trust_function_creators | binary log가 저장함수를 신뢰할지 여부를 결정                                                    |
+| skip-name-resolve               | 클라이언트에서 서버 접속할 때 DNS LOOKUP 과정을 스킵                                            |
+| skip-host-cache                 | 호스트 이름 캐시 비활성화                                                                       |
+| sort_buffer_size                | 인덱스를 이용한 정렬이 불가능 하여 mysql이 별도의 filesort 라는 정렬 작업을 할 때 사용하는 버퍼 |
+| join_buffer_size                | 인덱스를 사용할 수 없는 경우의 Join 에서 사용하는 버퍼                                          |
+| read_buffer_size                | mysql 에서 풀 테이블 스캔을 할 때 사용하는 버퍼                                                 |
+| read_rnd_buffer_size            | 정렬 작업 이후 정렬된 순서대로 데이터를 다시 읽어 들일 때 사용되는 버퍼                         |
+| max_heap_table_size             | 사용자가 작성한 메모리 테이블이 증가하도록 허용되는 최대 크기                                   |
+| tmp_table_size                  | group by 또는 inline view 가 필요한 작업에서temporary table 을 필요로 할 때 사용                |
+| key_buffer_size                 | 인덱스 블록에 사용되는 버퍼                                                                     |
+| myisam-recover-options          | 데이터 파일 복구 옵션                                                                           |
+| aria_pagecache_buffer_size      | aria table 인덱스 블록에 사용되는 버퍼의 크기                                                   |
+| innodb_file_format              | innoDB 파일 포멧                                                                                |
+| innodb_file_format_max          | 서버 기동시 더 상위의innoDB 파일 포멧 강제 옵션                                                 |
+| innodb_file_per_table           | 테이블마다 파일 테이블 공간에 테이블 생성 여부                                                  |
+| innodb_data_file_path           | ibdata1-100M-autoextend (자동으로 확장하는 ibdata1 이라는 이름의 100M 데이터 파일)              |
+| innodb_data_home_dir            | innodb 의 데이터 홈 디렉토리                                                                    |
+| innodb_write_io_threads         | 쓰기 조작을 위한 입출력 스레드의 수                                                             |
+| innodb_read_io_threads          | 읽기 조작을 위한 입출력 스레드의 수                                                             |
+| innodb_io_capacity              | 백그라운드 작업에 의해 초당 수행되는 I/O 작업 수의 최대치                                       |
+| innodb_thread_concurrency       | InnoDB가 내부적으로 허용하는 최대 스레드의 수, 0이면 동시성 검사 하지 않음                      |
+| innodb_max_dirty_pages_pct      | InnoDB 더티 페이지의 백분율이 이 값을 초과하지 않기 위해 데이터를 플러시하도록 시도             |
+| innodb_stats_on_metadata        | InnoDB 업데이트와 같은 메타 데이터 질의를 성능 자료에 반영 여부                                 |
+| innodb_lock_wait_timeout        | 잠김 행에 액세스하려는 트랜잭션이 대기하는 시간의 최대값                                        |
+| innodb_buffer_pool_size         | 버퍼 풀의 크기(InnoDB 캐시 영역 및 인덱스 데이터가 있는 메모리 영역)                            |
+| innodb_log_buffer_size          | InnoDB 의 로그파일에 사용하는 버퍼의 크기                                                       |
+| innodb_log_file_size            | 로그파일의 크기의 최대값                                                                        |
+| innodb_log_files_in_group       | 로그 그룹에서의 로그 파일 개수                                                                  |
+| innodb_open_files               | MySQL 이 한번에 열어 둘 수 있는 최대 .ibd 파일 수                                               |
+| innodb_flush_log_at_trx_commit  | 커밋시 로그 처리 시점 설정                                                                      |
+| innodb_flush_method             | flush 방법                                                                                      |
+| innodb_print_all_deadlocks      | deadlock을 에러 로그에 기록 여부                                                                |
+| innodb_doublewrite              | doublewrite 버퍼 사용 여부                                                                      |
+| thread_pool_size                | 쓰레드 풀의 갯수                                                                                |
+| thread_handling                 | 질의 처리 쓰레드의 방식 조정                                                                    |
+| thread_pool_max_threads         | 쓰레드 풀에서 허용하는 worker 쓰레드 최대 개수                                                  |
+| general_log                     | 일반 로그                                                                                       |
+| general_log_file                | 일반 로그 파일                                                                                  |
+| slow_query_log                  | 질의 지연 로그 기록 여부                                                                        |
+| slow_query_log_file             | 지연 로그 파일                                                                                  |
+| long_query_time                 | 질의 지연 기준값                                                                                |
+| log-error                       | 에러 로그 파일                                                                                  |
+| expire_logs_days                | binlog 만료 기존                                                                                |
+| min_examined_row_limit          | 세팅한 값보다 적은 row를 확인한 slow query는 로깅 대상에서 제외하는 옵션                        |
+| server_id                       | 내부적으로 사용하는 구분자                                                                      |
+| log-bin                         | 바이너리 로그 경로                                                                              |
+| binlog_format                   | binary-log 형식                                                                                 |
+| relay_log                       | 리플리케이션 중 slave 가 작성한 log 파일의 경로                                                 |
+| sync_binlog                     | mysql 서버가 얼마나 자주 바이너리 로그를 디스크에 동기화하는지 여부                             |
+| replicate_do_table              | 복제대상 테이블 지정                                                                            |
+| replicate_do_db                 | 복제대상 데이타베이스 지정                                                                      |
+| rpl_semi_sync_master_enabled    | master 에서 반자동 복제를 사용할지 여부                                                         |
+| log_slave_updates               | 리플리케이션 중 슬레이브가 슬레이브 업데이트를 바이너리로그에 기록할지 여부                     |
+| read_only                       | 읽기 전용으로 할지 여부                                                                         |
+| skip-slave-start                | 슬레이브 자동 시작 여부                                                                         |
+| auto_increment_offset           | 멀티 리플리케이션 사용시 초기값                                                                 |
+| auto_increment_increment        | 멀티 리플리케이션 사용시 증가값                                                                 |
+| quick                           | 테이블에서 row별로 데이타를 가져오는 옵션                                                       |
+| max_allowed_packet              | 클라이언트/통신간 최대 버퍼 사이즈                                                              |
+| interactive-timeout             | 활동중인 커넥션 유지 만료 시간                                                                  |
