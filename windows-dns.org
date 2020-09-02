@@ -1,0 +1,42 @@
+* DNS 운영
+
+일괄 작업의 경우에는 PowerShell을 사용합니다. 편집기에서 내용을 작성하고 명령어 줄에 작업 내용을 붙여 넣습니다.
+
+** 정방향 조회 영역 생성 및 A 레코드 추가
+
+*** 정방향 조회 영역 생성
+
+AD와 DNS 설치 및 구성 중에 자동으로 생성되어 별도의 작업이 필요 없습니다. (Add-DNSServerPrimaryZone)
+Add-DnsServerPrimaryZone -Name "west01.contoso.com" -ReplicationScope "Forest" -PassThru ??
+PS C:\> Add-DnsServerPrimaryZone -Name "west02.contoso.com" -ZoneFile "west02.contoso.com.dns"
+
+*** 기존 레코드 확인
+
+PowerShell 명령어 문법
+Get-DNSServerResouceRecord -ZoneName x
+Get-DnsServerZone
+
+*** 새로운 레코드 추가
+
+PowerShell 명령어 문법
+Add-DNSServerResouceRecordA -ZoneName x -IPv4Address x.x.x.x -Name y
+
+*** 추가된 레코드 확인
+
+PowerShell 명령어 문법
+Get-DNSServerResouceRecord -ZoneName x
+
+** 역방향 조회 영역 생성 및 PTR 레코드 추가
+
+*** 역방향 조회 영역 생성
+
+Add-DnsServerPrimaryZone -NetworkID 10.3.0.0/24 -ZoneFile "0.3.10.in-addr.arpa.dns" ??
+
+*** 기존 레코드 확인
+
+Add-DnsServerResourceRecordPtr -ZoneName x.arpa -Name z -PtrDomainName y
+Add-DnsServerResourceRecordPtr-이름 "IP_ADDRESS_LAST_OCTET"-ZoneName "ZONE_NAME"-PtrDomainName "HOST_NAME_FQDN"[-AllowUpdateAny] [-AgeRecord] [-TimeToLive TTL_VALUE]
+
+*** 새로운 레코드 추가
+
+*** 추가된 레크드 확인

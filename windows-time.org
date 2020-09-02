@@ -120,3 +120,31 @@ w32tm /config /update /syncfromflags:manual /manualpeerlist:192.168.15.111,192.1
 net stop w32time
 net start w32time
 C:\Users\Administrator>w32tm /query /status
+
+* ntp 적용
+
+외부 시간 서버와 시간을 동기화 한다.
+
+** 구성 및 확인
+
+*** 구성
+
+w32tm /config /update /syncfromflags:manual /manualpeerlist:192.168.15.111,192.168.15.112
+
+net stop w32time
+net start w32time
+
+*** 확인
+
+w32tm /query /configuration
+
+w32tm /query /status
+윤초 조정: 0(경고 없음)
+계층: 2(보조 참조 - (S)NTP로 동기화됨)
+정밀도: -23(틱당 119.209ns)
+루트 지연: 0.0015285s
+루트 분산: 1.9356109s
+참조 ID: 0xC0A80F6F(원본 IP:  192.168.15.111)
+마지막으로 동기화한 시간: 2020-08-07 오전 10:56:53
+원본: 192.168.15.111,192.168.15.112
+폴링 간격: 7(128s)
