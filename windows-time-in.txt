@@ -1,0 +1,15 @@
+C:\>w32tm /config /update /syncfromflags:manual /manualpeerlist:"192.168.15.111 192.168.15.112"
+The command completed successfully.
+
+C:\>net stop w32time
+The Windows Time service is stopping.
+The Windows Time service was stopped successfully.
+
+C:\>net start w32time
+The Windows Time service is starting.
+The Windows Time service was started successfully.
+
+C:\>w32tm /resync
+Sending resync command to local computer
+The command completed successfully.
+

@@ -1,0 +1,29 @@
+C:\>w32tm /query /peers
+#Peers: 2
+
+Peer: 192.168.15.112
+State: Active
+Time Remaining: 59.6765512s
+Mode: 1 (Symmetric Active)
+Stratum: 0 (unspecified)
+PeerPoll Interval: 0 (unspecified)
+HostPoll Interval: 6 (64s)
+
+Peer: 192.168.15.111
+State: Active
+Time Remaining: 59.6919079s
+Mode: 1 (Symmetric Active)
+Stratum: 3 (secondary reference - syncd by (S)NTP)
+PeerPoll Interval: 15 (32768s)
+HostPoll Interval: 6 (64s)
+
+C:\>w32tm /query /status
+Leap Indicator: 0(no warning)
+Stratum: 2 (secondary reference - syncd by (S)NTP)
+Precision: -23 (119.209ns per tick)
+Root Delay: 0.0015285s
+Root Dispersion: 1.9356109s
+ReferenceId: 0xC0A80F6F (source IP: 192.168.15.111)
+Last Successful Sync Time: 8/7/2020 10:56:53 AM
+Source: 192.168.15.111,192.168.15.112
+Poll Interval: 7 (128s)
