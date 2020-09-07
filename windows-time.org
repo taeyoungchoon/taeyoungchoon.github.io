@@ -138,6 +138,7 @@ net start w32time
 
 w32tm /query /configuration
 
+#+BEGIN_EXAMPLE
 w32tm /query /status
 윤초 조정: 0(경고 없음)
 계층: 2(보조 참조 - (S)NTP로 동기화됨)
@@ -148,6 +149,7 @@ w32tm /query /status
 마지막으로 동기화한 시간: 2020-08-07 오전 10:56:53
 원본: 192.168.15.111,192.168.15.112
 폴링 간격: 7(128s)
+#+END_EXAMPLE
 
 * finally
 
@@ -157,3 +159,4 @@ net start w32time
 w32tm /resync
 w32tm /query /peers
 w32tm /query /status
+
