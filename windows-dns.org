@@ -1,3 +1,25 @@
+* words
+
+- 역방향 조회 역역
+  - 새 영역
+    - 주 영역
+      - Active Directory 영역 복제 범위
+	- x 도메인에 있는 도메인 컨트롤러에서 실행되는 실행되는 모든 DNS 서버로(default?)
+      - 역방향 조회 영역 이름
+	- IPv4 역방향 조회 영역
+	  - 역방향 조회 영역을 식별하려면 네트워크 ID 또는 영역 이름을 입력하십시오.
+	    - 100.0.0.
+	      - 동적 업데이트
+		동적 업데이트 허용 안함?
+
+- DNS
+  - Computer Name?
+    - Forward Lookup Zones
+    - Reverse Lookup Zones
+      - 0.168.192.in-addr.arpa
+	- New Pointer(PTR)
+	  - Host IP Address
+	  - Host name
 * DNS 운영
 
 일괄 작업의 경우에는 PowerShell을 사용합니다. 편집기에서 내용을 작성하고 명령어 줄에 작업 내용을 붙여 넣습니다.
