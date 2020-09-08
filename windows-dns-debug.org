@@ -1,0 +1,40 @@
+* EASY WAY, event viewer > Application and > Microsoft > Windows > DNS > Show Analytics and
+
+- Analytical > Enable Log
+- nslookup
+- Diable Log 
+- Save All Events As "C:\foo.evtx"
+- open file with event viewer 
+- [ ] but PacketData
+
+* HARD WAY, dns.msc > Properties > Debug Logging: Log packet for debugging
+
+- Packet direction: Outgoing, Incoming
+- Transport protocol: UDP
+- Packet contents: Queries/Transfers
+- Packet type: Request, Response
+- [v] Details
+  - ANSWER SECTION:
+    DATA 117.53.101.8
+- [ ] Filter packet by IP address
+
+
+PS C:\> Get-Content foo.log -wait -Tail 10 
+
+Send/Receive indicator
+    Remote IP
+              Query/Response: R = Response, black = Query
+                  Flags: A = Authoritative Answer, T = Truncated Response, D = Recursion Desired, R = Recursion Available
+                      ResponseCode
+                              Question Type
+                                     Question Name
+
+Rcv 127.0.0.1     D   NOERROR A      (3)foo(3)com(0) means foo.com
+Snd 8.8.8.8       D   NOERROR A      (3)foo(3)com(0)
+Rcv 8.8.8.8   R   DR  NOERROR A      (3)foo(3)com(0)
+Snd 127.0.0.1 R   DR  NOERROR A      (3)foo(3)com(0)
+
+PS C:\> remove empty lines
+PS C:\> Get-Content foo.log -wait -Tail 10 | ? { $_.trim() -ne "" }
+
+
