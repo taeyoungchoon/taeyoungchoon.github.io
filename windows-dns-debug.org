@@ -18,7 +18,7 @@
     DATA 117.53.101.8
 - [ ] Filter packet by IP address
 
-
+#+BEGIN_SRC 
 PS C:\> Get-Content foo.log -wait -Tail 10 
 
 Send/Receive indicator
@@ -34,7 +34,6 @@ Snd 8.8.8.8       D   NOERROR A      (3)foo(3)com(0)
 Rcv 8.8.8.8   R   DR  NOERROR A      (3)foo(3)com(0)
 Snd 127.0.0.1 R   DR  NOERROR A      (3)foo(3)com(0)
 
-PS C:\> remove empty lines
+PS C:\> # remove empty lines
 PS C:\> Get-Content foo.log -wait -Tail 10 | ? { $_.trim() -ne "" }
-
-
+#+END_SRC
