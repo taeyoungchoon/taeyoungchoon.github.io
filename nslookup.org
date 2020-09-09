@@ -1,0 +1,43 @@
+* cli
+
+? nslookup empas.com
+Server:         10.0.2.3
+Address:        10.0.2.3#53
+
+Non-authoritative answer:
+Name:   empas.com
+Address: 117.53.101.8
+
+? nslookup empas.com 8.8.8.8
+Server:         8.8.8.8
+Address:        8.8.8.8#53
+
+Non-authoritative answer:
+Name:   empas.com
+Address: 117.53.101.8
+
+* more
+
+? nslookup
+> set type=ns
+> empas.com
+Server:         10.0.2.3
+Address:        10.0.2.3#53
+
+Non-authoritative answer:
+empas.com       nameserver = ns1.natecorp.com.
+empas.com       nameserver = ns1.skcommunications.com.
+empas.com       nameserver = ns2.skcommunications.com.
+empas.com       nameserver = ns2.natecorp.com.
+
+Authoritative answers can be found from:
+> set type=mx
+> empas.com
+Server:         10.0.2.3
+Address:        10.0.2.3#53
+
+Non-authoritative answer:
+empas.com       mail exchanger = 10 mx1.empal.com.
+
+Authoritative answers can be found from:
+>
