@@ -1,0 +1,15 @@
+* words
+
+- link aggregation
+- inverse multiplexer
+- lag
+- mclag
+- bonding/teaming
+- etherchannel
+- trunking
+- lacp with or without lacp
+- SPB, 8021aq, Shortest Path Briding
+- trill
+- cisco fabricpath
+- isis
+- stp

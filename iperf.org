@@ -1,0 +1,22 @@
+* iperf and some options
+
+** server
+
+1) -s
+2) -s -D
+3) -s -D -p
+
+** client
+
+1) -c
+2) -p
+3) -P
+
+* TODO issues
+
+- bond interface so lacp/hash
+
+* pkg
+
+- yum install iperf3 from centos7 or the others
+- single package
