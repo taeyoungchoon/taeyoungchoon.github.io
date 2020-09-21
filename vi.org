@@ -1,0 +1,89 @@
+* vi editor
+* so
+
+** from or on
+
+- cygwin
+- wsl
+- linux with virtualbox-like
+- gvim
+
+** in & out, first in
+
+- vi
+- vim
+- gvim
+
+** then out
+
+- :q
+- :q!
+
+** ESC ESC why? talk about mode
+
+- three modes
+- command mode
+- entry mode or say as insert mode
+- last-line mode or say as command-line mode or more as execution mode ex
+
+#+BEGIN_SRC 
+((: ! / ?) command last-line)
+((return) last-line command)
+((esc) entry command)
+((i a o r c I A O R C) command entry)
+#+END_SRC
+
+#+BEGIN_SRC 
+((q q! wq x) last-line exit)
+((ZZ) command exit)
+#+END_SRC
+
+** ed, editor
+
+#+BEGIN_SRC 
+? ed
+q
+? ed foo
+foo: No such file or directory
+w
+0
+q
+? cat foo
+? ed foo
+0
+i
+hello, world
+.
+w
+13
+q
+? wc foo
+ 1  2 13 foo
+? cat foo
+hello, world
+?
+
+#+END_SRC
+
+** sed, stream editor
+
+- sed 'hi' | sed 's/hi/hello/'
+
+** vim, vi improved, VIM - Vi IMproved
+
+1. yum install vim -y
+2. vim
+
+** write
+** save
+** move
+** config
+** more
+*** get info
+
+C-g C-g
+
+*** show line number
+
+- :set number
+- :set nonumber

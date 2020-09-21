@@ -57,3 +57,64 @@
 | no_root_squash | root is root  |
 | no_all_squash  | default       |
 | all_squash     | all nfsnobody |
+
+* DONE easy
+
+** DONE server
+
+#+BEGIN_SRC 
+yum install nfs-utils -y
+systemctl start nfs-server
+mkdir /data
+touch /data/foo
+echo '/data *' > /etc/exports
+exportfs -a
+#+END_SRC
+
+** DONE client
+
+#+BEGIN_SRC 
+showmount -e 192.168.99.130
+mkdir /data
+mount 192.168.99.130:/data /data
+ls /data
+umount /data
+#+END_SRC
+
+#+BEGIN_SRC 
+echo '192.168.99.130:/data    /data                   nfs     defaults        0 0' >> /etc/fstab
+grep data /etc/fstab
+mount -a
+sleep 3
+ls /data
+umount /data
+sed -i '/data/d' /etc/fstab
+#+END_SRC
+
+* DONE what about process but service
+
+** server
+
+- nfs-utils
+  - nfs-server(/usr/lib/systemd/system/nfs-server.service)
+    - After= proc-fs-nfsd.mount rpcbind.socket nfs-mountd.service
+    - After= nfs-idmapd.service rpc-statd.service
+- [X] rpcbind
+- [X] rpc.idmapd
+- [X] rpc.statd
+- [X] rpc.mountd
+- /proc/fs/nfsd
+
+** client
+
+- rpcbind? who did this? vagrant up then installed and works already
+- nfs-utils but not systemd rel service, just mount
+- [X] rpcbind
+
+* debug
+
+- nfsstat -s
+- nfsstat -c
+- rpcinfo -p
+- tcpdump -i eth1 192.168.99.120 -n
+- tcpdump -i eth1 port nfs
