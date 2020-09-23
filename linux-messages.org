@@ -1,0 +1,60 @@
+* TODO about disk but and what about fs issue?
+
+파일시스템 에러 없이 이러면, 아니 파일시스템 에러가 없으면 정상
+이건 체크형으로 보임, 예를 들면 multipath
+
+scsi_io_completion: 2 callbacks suppressed
+kernel: sd 4:0:1:7 [sday] tag#0 FAILED Result: hostbyte=DID_OK driverbyte=DRIVER_SENS
+kernel: sd 4:0:1:7 [sday] tag#0 Sense Key : Illegal Request [current]
+kernel: sd 4:0:1:7 [sday] tag#0 Add. Sense: Logical block address out of range
+kernel: sd 4:0:1:7 [sday] tag#0 CDB: Read(10) 28 00 00 00 00 00 00 01 00 00
+blk_update_request: 2 callback suppressed
+blk_update_request: critical taget error, dev sday, sector 0
+
+x3
+
+kernel: sd 4:0:1:7 [sdak] tag#0 FAILED Result: hostbyte=DID_OK driverbyte=DRIVER_SENS
+kernel: sd 4:0:1:7 [sdak] tag#0 Sense Key : Illegal Request [current]
+kernel: sd 4:0:1:7 [sdak] tag#0 Add. Sense: Logical block address out of range
+kernel: sd 4:0:1:7 [sdak] tag#0 CDB: Read(10) 28 00 00 00 00 00 00 01 00 00
+blk_update_request: critical taget error, dev sdak, sector 0
+
+x3
+
+and others like sdx
+
+from one of DB0X
+
+at the same time
+
+** debugging tools and tips
+
+- lsscsi
+- smartctl
+- ls -ld /sysblock/sd*/device
+- lshw -class disk -short
+- scsi_id -g -u - s /block/sdc
+- multipath -l
+- multipath -ll
+- multipath -v2
+- mkfs.ext3 /dev/mapper/mpath#
+- kpartx -a /dev/mapper/mpath#
+- service multipathd restart
+- /etc/multipath.conf
+- /etc/multipath/bindings
+- /etc/udev/rules.d/98-disk_permit.rules
+- blkid
+- ls /dev/mapper
+- udevadm info x
+- fdisk -l /dev/dm*
+- scsi addressing: adapter, channel, id, lun(host, bus, target, lun)
+
+** refer
+
+https://support.hpe.com/hpesc/public/docDisplay?docId=c02270753
+
+Buffer I/O errors occurring on SAN devices presented to Linux host using Linux native multipathing
+and
+so
+
+This is a normal behavior for Linux native multipath, and the errors do not indicate an array issue. 
