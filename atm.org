@@ -1,0 +1,24 @@
+* apache
+
+rpm -qa httpd
+rpm -ql httpd | grep "/usr/sbin/httpd"
+ps -e f| grep httpd | grep -v grep
+systemctl stop httpd
+systemctl start httpd
+
+* tomcat
+
+/opt/tomcat/bin/version.sh
+ls -l /opt/ | grep tomcat
+ps -ef | grep tomcat | grep -v grep
+cd /opt/tomcat/bin
+./shutdown.sh
+./startup.sh
+
+* mariadb
+
+ls -l /usr/local/ | grep maria
+echo 'status' | /usr/local/mariadb/bin/mysql -uroot -p | grep 'Server v'
+ps -ef | grep maria | grep -v grep
+systemctl stop mariadb
+systemctl start mariadb
