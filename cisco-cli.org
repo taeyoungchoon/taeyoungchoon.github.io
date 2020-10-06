@@ -1,0 +1,13 @@
+* cli at fusion
+
+- show vrf
+- show ip bgp vpnv4 all
+- show ip bgp vpnv4 all summary
+- show ip route vrf VRF-GLOBAL-ROUTES
+- show ip eigrp vrf VRF-GLOBAL-ROUTES neighbors 
+
+* border
+
+- show ip bgp neighbors
+- show ip bgp all
+- show ip bgp summary

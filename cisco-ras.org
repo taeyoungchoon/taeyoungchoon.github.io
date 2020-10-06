@@ -1,0 +1,12 @@
+* what the?
+
+- RAS : Remote Access Service
+
+* cli
+
+1. sh host
+2. clear line #
+3. xxx
+4. ctrl + shift + 6, x
+5. sh session
+6. disconnect
