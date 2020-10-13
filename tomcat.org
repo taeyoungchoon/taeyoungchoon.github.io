@@ -30,3 +30,42 @@ https://serverfault.com/questions/481259/tomcat-always-returns-status-code-400
 4. 구성한다. 
 5. tomcat을 구동한다.
 6. tomcat 동작여부를 확인한다.
+
+* DONE tomcat on the go
+
+wget https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.14/bin/apache-tomcat-9.0.14.tar.gz
+tar xvfz apache-tomcat-9.0.14.tar.gz
+mv apache-tomcat-9.0.14 /opt
+cd /opt
+ln -s apache-tomcat-9.0.14 tomcat
+cd tomcat/bin
+./startup.sh
+
+* TODO tomcat.service, mod required
+
+#+BEGIN_SRC 
+[Unit]
+Description=Tomcat 9 servlet container
+After=network.target
+
+[Service]
+Type=forking
+
+User=tomcat
+Group=tomcat
+
+Environment="JAVA_HOME=/usr/lib/jvm/jre"
+Environment="JAVA_OPTS=-Djava.security.egd=file:///dev/urandom"
+
+Environment="CATALINA_BASE=/opt/tomcat/latest"
+Environment="CATALINA_HOME=/opt/tomcat/latest"
+Environment="CATALINA_PID=/opt/tomcat/latest/temp/tomcat.pid"
+Environment="CATALINA_OPTS=-Xms512M -Xmx1024M -server -XX:+UseParallelGC"
+
+ExecStart=/opt/tomcat/latest/bin/startup.sh
+ExecStop=/opt/tomcat/latest/bin/shutdown.sh
+
+[Install]
+WantedBy=multi-user.target
+#+END_SRC
+* TODO session cluster with nginx

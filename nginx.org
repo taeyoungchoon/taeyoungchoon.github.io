@@ -1,0 +1,45 @@
+* DONE repo first at /etc/yum.repos.d/nginx.repo
+
+#+BEGIN_SRC 
+[nginx-stable]
+name=nginx stable repo
+baseurl=http://nginx.org/packages/centos/$releasever/$basearch/
+gpgcheck=1
+enabled=1
+gpgkey=https://nginx.org/keys/nginx_signing.key
+module_hotfixes=true
+
+[nginx-mainline]
+name=nginx mainline repo
+baseurl=http://nginx.org/packages/mainline/centos/$releasever/$basearch/
+gpgcheck=1
+enabled=0
+gpgkey=https://nginx.org/keys/nginx_signing.key
+module_hotfixes=true
+#+END_SRC
+
+* DONE make install
+
+yum install nginx
+systemctl status nginx
+systemctl start nginx
+tail /var/log/nginx/*.log
+ls /etc/sysconfig/nginx
+ls /etc/nginx/nginx.conf
+ls /etc/nginx/conf.d/default.conf
+
+* DONE make config to be with tomcat but localhost at /etc/nginx/conf.d/default.conf
+
+#+BEGIN_SRC 
+server {
+    location / {
+        proxy_pass http://localhost:8080;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Host $http_host;
+    }
+}
+
+#+END_SRC
+
+* TODO session cluster with tomcat
