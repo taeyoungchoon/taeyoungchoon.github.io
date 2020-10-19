@@ -27,3 +27,6 @@
 - DM Multipath, /etc/multipath.conf
 - LUN, Logical Unit Number
 
+* TODO lenovo thinksystem de series
+
+- Controller A/B

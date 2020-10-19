@@ -8,4 +8,11 @@ initiator
 
 * layers with all others, word
 
+- fs
+- lvm using pvs
+- dmsetup ls
+- multipath such /dev/mapper/mpatha
+- device such as /dev/sday, sdak, sdi, sdw from udev
+- san switch
+- storage
 

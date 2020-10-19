@@ -1,3 +1,7 @@
+* DONE windows (not only server) life cycle
+
+- 10 year
+
 * DONE permission then, systemsettingsadminflows.exe error
 
 ** symptom
