@@ -18,7 +18,7 @@
 - 네트워크관리사 2급
 - 감리사
 - 기술사
-- 컴활
+- [[file:computer-specialist-in-spreadsheet-and-database.org][컴활]]
 
 * note from isms-p.com/ismsp
 

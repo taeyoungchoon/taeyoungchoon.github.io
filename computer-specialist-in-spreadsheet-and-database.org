@@ -1,0 +1,28 @@
+* 컴퓨터활용능력2급, computer specialist in spreadsheet and database level-2
+
+- http://license.korcham.net/co/examguide.do?mm=21&cd=010
+ -https://www.comcbt.com/
+- using : ms office 2016
+- 연간 2회 시행
+
+** 필기 
+
+- 20,000
+- 객관식 40문항
+- 40분
+- 컴퓨터 일반, 스프레드시트 일반
+
+** 실기
+
+- 20,000
+- 컴퓨터 작업형
+- 40분
+- 스프레드시트 실무
+- 분석?
+  - 피벗테이블
+  - 변동 시나리오
+  - 목표값찾기
+  - 부분합
+- 기타!
+  - 매크로
+  - 차트
