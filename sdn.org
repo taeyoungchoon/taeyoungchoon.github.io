@@ -58,3 +58,10 @@
 - juniper contrail
 - atto-research > obelle fabric, obelle access
 - cisco > aci, sda
+
+* ts howto?
+
+기존에 네트워크 환경과 sdn 환경에서의 ts(troubleshooting) 방식은 다른가?
+sd-access라면 확실히 다르다
+atto obelle이라면
+또는 다른 솔루션이라면 다른 환경이라면 또 다르지 않을까?
