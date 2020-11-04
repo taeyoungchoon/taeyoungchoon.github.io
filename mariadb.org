@@ -1,35 +1,184 @@
-* 설치
-** make install
-** make secure
-** 테스트
+* DONE odbc, mariadb-connector-odbc-3.1.10-centos7-amd64
 
-* 설정
-** my.cnf - portal(512G, full) > innodb_buffer_pool_size 1/2
-** my.cnf - cloudera(256G, shared) > 1/3
-** my.cnf 설명
+create database foo;
+use foo;
+create table tbl (num integer);
+insert into tbl values (1);
+insert into tbl values (2);
+insert into tbl values (3);
+select * from tbl;
 
-* 시작과 종료
+select host, user, password from mysql.user;
+create user jack@'localhost' identified by '1113';
+# set password for jack@'localhost' =  password('1113');
+grant all privileges on foo.* to jack@'localhost';
 
-* 백업
-** make backup
+mysql -hlocalhost -ujack -p
+show grants;
 
+# yum install unixODBC -y
+yum install --downloadonly --downloaddir=. libtool-ltdl unixODBC
+yum localinstall unixODBC-2.3.1-14.el7.x86_64.rpm libtool-ltdl-2.4.2-22.el7_3.x86_64.rpm
 
-* 설정
-** 포탈
-** 클라우데라
-* 설치
-** 설정(my.cnf) 설정
-*** 포탈
-*** 클라우데라
-** 바이너리 설치 및 구성
-** 보안 적용
-** 백업 도구 생성
-** 확인
-* 운영
-** 시작과 종료
-*** 시작
-*** 종료
-** 백업
-*** 최초 백업
-*** 증분 백업
-*** 백업 확인
+Packages Altered:
+    Dep-Install libtool-ltdl-2.4.2-22.el7_3.x86_64 @base
+    Install     unixODBC-2.3.1-14.el7.x86_64       @base
+
+odbcinst -j
+odbcinst -q -s
+odbcinst -q -d
+
+#+BEGIN_SRC 
+[root@amy ~]# odbcinst -q -s
+odbcinst: SQLGetPrivateProfileString failed with .
+[root@amy ~]# odbcinst -q -d
+[PostgreSQL]
+[MySQL]
+#+END_SRC
+
+wget https://dlm.mariadb.com/1269799/Connectors/odbc/connector-odbc-3.1.10/mariadb-connector-odbc-3.1.10-centos7-amd64.tar.gz
+tar xvfz mariadb-connector-odbc-3.1.10-centos7-amd64.tar.gz
+
+https://mariadb.com/kb/en/about-mariadb-connector-odbc/
+
+chk! libmaodbc.so
+
+sudo install lib64/mariadb/libmaodbc.so /usr/lib64/
+sudo install -d /usr/lib64/mariadb/
+sudo install -d /usr/lib64/mariadb/plugin/
+sudo install lib64/mariadb/plugin/auth_gssapi_client.so /usr/lib64/mariadb/plugin/
+sudo install lib64/mariadb/plugin/caching_sha2_password.so /usr/lib64/mariadb/plugin/
+sudo install lib64/mariadb/plugin/client_ed25519.so /usr/lib64/mariadb/plugin/
+sudo install lib64/mariadb/plugin/dialog.so /usr/lib64/mariadb/plugin/
+sudo install lib64/mariadb/plugin/mysql_clear_password.so /usr/lib64/mariadb/plugin/
+sudo install lib64/mariadb/plugin/sha256_password.so /usr/lib64/mariadb/plugin/
+
+https://mariadb.com/kb/en/creating-a-data-source-with-mariadb-connectorodbc/
+
+#+BEGIN_SRC 
+[MariaDB ODBC 3.1.10 Driver]
+Description=MariaDB Connector/ODBC v.3.1.10
+Driver=/usr/lib64/libmaodbc.so
+#+END_SRC
+
+odbcinst -i -d -f MariaDB_odbc_driver_template.ini
+odbcinst: Driver installed. Usage count increased to 1.
+    Target directory is /etc
+
+#+BEGIN_SRC 
+[MariaDB-server]
+Description=MariaDB server
+Driver=MariaDB ODBC 3.1.10 Driver
+SERVER=127.0.0.1
+USER=jack
+PASSWORD=1113
+DATABASE=foo
+PORT=3306
+#+END_SRC
+
+odbcinst -i -s -l -f MariaDB_odbc_data_source_template.ini
+
+#+BEGIN_SRC 
+[root@amy mariadb-connector-odbc-3.1.10-centos7-amd64]# odbcinst -q -s
+[MariaDB-server]
+[root@amy mariadb-connector-odbc-3.1.10-centos7-amd64]# odbcinst -q -d
+[PostgreSQL]
+[MySQL]
+[MariaDB ODBC 3.1.10 Driver]
+#+END_SRC
+
+#+BEGIN_SRC 
+[root@amy mariadb-connector-odbc-3.1.10-centos7-amd64]# cat /etc/odbcinst.ini
+[PostgreSQL]
+Description=ODBC for PostgreSQL
+Driver=/usr/lib/psqlodbcw.so
+Setup=/usr/lib/libodbcpsqlS.so
+Driver64=/usr/lib64/psqlodbcw.so
+Setup64=/usr/lib64/libodbcpsqlS.so
+FileUsage=1
+
+[MySQL]
+Description=ODBC for MySQL
+Driver=/usr/lib/libmyodbc5.so
+Setup=/usr/lib/libodbcmyS.so
+Driver64=/usr/lib64/libmyodbc5.so
+Setup64=/usr/lib64/libodbcmyS.so
+FileUsage=1
+
+[MariaDB ODBC 3.1.10 Driver]
+Description=MariaDB Connector/ODBC v.3.1.10
+Driver=/usr/lib64/libmaodbc.so
+UsageCount=1
+
+[root@amy mariadb-connector-odbc-3.1.10-centos7-amd64]# cat /etc/odbc.ini
+[MariaDB-server]
+Description=MariaDB server
+Driver=MariaDB ODBC 3.1.10 Driver
+SERVER=127.0.0.1
+USER=jack
+PASSWORD=1113
+DATABASE=foo
+PORT=3306
+
+[root@amy mariadb-connector-odbc-3.1.10-centos7-amd64]#
+#+END_SRC
+
+#+BEGIN_SRC 
+# isql -v MariaDB-server
++---------------------------------------+
+| Connected!                            |
+|                                       |
+| sql-statement                         |
+| help [tablename]                      |
+| quit                                  |
+|                                       |
++---------------------------------------+
+SQL> show databases;
+SQL> use foo;
+SQL> show tables;
+SQL> select * from tbl;
+#+END_SRC
+
+#+BEGIN_SRC 
+[root@amy mariadb-connector-odbc-3.1.10-centos7-amd64]# isql -v MariaDB-Server
++---------------------------------------+
+| Connected!                            |
+|                                       |
+| sql-statement                         |
+| help [tablename]                      |
+| quit                                  |
+|                                       |
++---------------------------------------+
+SQL> show databases;
++-----------------------------------------------------------------+
+| Database                                                        |
++-----------------------------------------------------------------+
+| information_schema                                              |
+| foo                                                             |
+| test                                                            |
++-----------------------------------------------------------------+
+SQLRowCount returns 3
+3 rows fetched
+SQL> use foo;
+SQLRowCount returns 0
+SQL> show tables;
++--------------------------------------------------------------------------+
+| Tables_in_foo                                                            |
++--------------------------------------------------------------------------+
+| tbl                                                                      |
++--------------------------------------------------------------------------+
+SQLRowCount returns 1
+1 rows fetched
+SQL> select * from tbl;
++------------+
+| num        |
++------------+
+| 1          |
+| 2          |
+| 3          |
++------------+
+SQLRowCount returns 3
+3 rows fetched
+SQL> quit
+[root@amy mariadb-connector-odbc-3.1.10-centos7-amd64]#
+#+END_SRC

@@ -47,3 +47,77 @@ server {
 #+END_SRC
 
 * TODO session cluster with tomcat
+* TODO ssl pre
+
+openssl genrsa -des3 -out www.ucert.co.kr.key 2048
+openssl req -new -key www.ucert.co.kr.key -out www.ucert.co.kr.csr
+cat www.ucert.co.kr.csr
+
+* TODO nginx with ssl
+
+https://www.ucert.co.kr/wiki/w/Nginx_SSL_%ED%94%84%EB%A1%9C%ED%86%A0%EC%BD%9C_%EC%84%A4%EC%A0%95
+https://www.ucert.co.kr/wiki/w/Nginx_%EC%8B%B1%EA%B8%80_%EC%9D%B8%EC%A6%9D%EC%84%9C_%EC%84%A4%EC%B9%98
+https://www.ucert.co.kr/tech/service
+
+#+BEGIN_SRC 
+[root@localhost ssl]$ ll
+-rw-r--r--. 1 root root 1744 Jan 1 00:00 www.ucert.co.kr.pem
+-rw-r--r--. 1 root root 1931 Jan 1 00:00 www.ucert.co.kr.key
+-rw-r--r--. 1 root root 1744 Jan 1 00:00 password.txt
+#+END_SRC
+
+#+BEGIN_SRC 
+    server {
+        listen       443;
+        server_name  www.ucert.co.kr;
+
+        ssl                on;
+        ssl_certificate      /usr/local/nginx/ssl/www.ucert.co.kr.pem; 
+        ssl_certificate_key  /usr/local/nginx/ssl/www.ucert.co.kr.key;
+
+        ssl_session_cache    shared:SSL:1m;
+        ssl_session_timeout  5m;
+
+        ssl_ciphers  HIGH:!aNULL:!MD5;
+        ssl_prefer_server_ciphers  on;
+#+END_SRC
+
+netstat -nlp | grep nginx
+
+openssl s_client -connect localhost:443 | openssl x509 -out -dates 
+
+openssl s_client -connect 127.0.0.1:443 -ssl2
+openssl s_client -connect 127.0.0.1:443 -ssl3
+openssl s_client -connect 127.0.0.1:443 -tls1
+openssl s_client -connect 127.0.0.1:443 -tls1_1
+openssl s_client -connect 127.0.0.1:443 -tls1_2
+
+Secure Renegotiation IS NOT supported
+Secure Renegotiation IS supported
+
+#+BEGIN_SRC 
+ssl_protocols TLSv1.2 ;
+
+ssl_ciphers "ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-SHA:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA384"; 
+#+END_SRC
+
+#+BEGIN_SRC 
+ssl_protocols TLSv1.2 ;
+
+ssl_ciphers "ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-DSS-AES128-SHA256:DHE-DSS-AES256-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA:AES256-SHA:AES:CAMELLIA:!DES-CBC3-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3-SHA:!KRB5-DES-CBC3-SHA:!DHE-RSA-AES128-GCM-SHA256:!DHE-RSA-AES256-GCM-SHA384:!DHE-RSA-AES128-SHA256:!DHE-RSA-AES256-SHA:!DHE-RSA-AES128-SHA:!DHE-RSA-AES256-SHA256:!DHE-RSA-CAMELLIA128-SHA:!DHE-RSA-CAMELLIA256-SHA:!DHE-RSA-3DES"; 
+#+END_SRC
+
+#+BEGIN_SRC 
+server {
+        listen      80 ; 
+        server_name  www.ucert.co.kr;  
+
+        rewrite ^(.*) https://www.ucert.co.kr$1 permanent; 
+}
+server {
+        listen       443 ;  
+        server_name  www.ucert.co.kr; 
+
+        ssl                on;
+}
+#+END_SRC
