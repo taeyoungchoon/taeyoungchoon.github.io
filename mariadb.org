@@ -182,3 +182,23 @@ SQLRowCount returns 3
 SQL> quit
 [root@amy mariadb-connector-odbc-3.1.10-centos7-amd64]#
 #+END_SRC
+
+#+BEGIN_SRC 
+[root@amy vagrant]# echo "select * from foo.tbl;" | isql -v MariaDB-Server jack 1113 -d, -c -q
+
+SQL> select * from foo.tbl;
+num,name
+1,"jack"
+2,"raul"
+3,"dixie"
+SQL> [root@amy vagrant]#
+
+[root@amy vagrant]# echo "select * from foo.tbl;" | isql -v MariaDB-Server jack 1113 -c -x0x09
+
+SQL> select * from foo.tbl;
+num     name
+1       jack
+2       raul
+3       dixie
+SQL>
+#+END_SRC
