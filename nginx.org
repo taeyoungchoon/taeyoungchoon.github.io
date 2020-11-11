@@ -1,4 +1,4 @@
-* TODO download way
+* DONE download way, t
 
 wget http://nginx.org/packages/centos/7/x86_64/RPMS/nginx-1.18.0-1.el7.ngx.x86_64.rpm
 
@@ -52,6 +52,10 @@ server {
 openssl genrsa -des3 -out www.ucert.co.kr.key 2048
 openssl req -new -key www.ucert.co.kr.key -out www.ucert.co.kr.csr
 cat www.ucert.co.kr.csr
+
+and then, what about no password
+
+openssl rsa -in ssl.key -out ssl_nopass.key
 
 * TODO nginx with ssl
 
@@ -121,3 +125,4 @@ server {
         ssl                on;
 }
 #+END_SRC
+

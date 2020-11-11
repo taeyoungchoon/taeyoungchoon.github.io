@@ -1,0 +1,17 @@
+* windows 8 upgrade to 8.1
+
+wmic bios get serialnumber
+
+https://www.sterjosoft.com/key-finder.html , sterjo key finder
+
+wmic path SoftwareLicensingService get OA3xOriginalProductKey
+
+http://support.microsoft.com/kb/2871389 KB 2871839
+
+Download Windows 8.1 Disc Image (ISO File)
+
+https://www.microsoft.com/en-us/download/windows-usb-dvd-download-tool
+
+* and not but
+
+classic shell

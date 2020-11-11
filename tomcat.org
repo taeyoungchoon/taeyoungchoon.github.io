@@ -31,7 +31,7 @@ https://serverfault.com/questions/481259/tomcat-always-returns-status-code-400
 5. tomcat을 구동한다.
 6. tomcat 동작여부를 확인한다.
 
-* DONE tomcat on the go
+* DONE tomcat on the go, t
 
 wget https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.14/bin/apache-tomcat-9.0.14.tar.gz
 tar xvfz apache-tomcat-9.0.14.tar.gz
