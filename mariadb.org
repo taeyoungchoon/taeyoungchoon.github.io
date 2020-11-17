@@ -1,3 +1,4 @@
+* TODO administration
 * DONE odbc, mariadb-connector-odbc-3.1.10-centos7-amd64
 
 create database foo;
