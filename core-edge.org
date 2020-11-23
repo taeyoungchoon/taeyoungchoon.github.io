@@ -1,0 +1,31 @@
+! C3000-24 
+! C2000-28
+
+hostname hostname-x
+user admin-x privilege 15 password 7 pass-x
+ip ssh server
+
+spanning-tree mode rstp
+spanning-tree enable
+spanning-tree mst instance 0 priority 0
+
+ip route 192.168.10.0 255.255.255.0 192.168.99.1
+
+vlan 10,99
+
+interface vlan 10
+ip address 192.168.99.10 255.255.255.0
+exit
+
+interface gi 0/0 to gi 0/24
+swithcport mode trunk
+switchport trunk allowed vlan add 10
+exit
+
+interface gi 0/25
+swithcport mode trunk
+switchport trunk allowed vlan add 99
+exit
+
+
+write
