@@ -1,0 +1,9 @@
+* TODO fail to open network interface like that but NDIS?
+
+and it works well
+
+1. Open Windows Network Connections
+2. Right click on VirtualBox Host only adapter that created
+3. Choose properties
+4. Check "VirtualBox NDIS6 Bridged Networking driver"
+5. disable and Enable the adapter
