@@ -45,6 +45,19 @@
 - with nil of operating system, so
 - 그램을 충전하고 그램으로 충전하고
   양방향으로 충전할 수 있어 더 편리해 졌습니다.
+- 노트 :
+  - 내장 메모리는 Samsung MZ-NLN256C
+    - Manufacturer : Samsung
+    - Manufacturer Part : MZ-NLN256C
+    - Form Factor : M.2 2280
+    - Product Type : Internal Solid State Drive 
+    - Capacity : 256GB
+    - Flash Memory Technology : Triple Level Cell(TLC)
+    - Drive Interface Type : SATA 6.0 Gbps
+    - PM871b
+  - 추가 메모리는 WD Blue 3D M.2 SATA (250GB)
+    - M.2 2280, SATA3(6Gb/s), 3D낸드, 마벨, 550MB/s Read, 525MB/s Write, 2.38mm
+- [2020-12-01 Tue 09:10] 사용 중임
 
 * TODO and one more thing
 

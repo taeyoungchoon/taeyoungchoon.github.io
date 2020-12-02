@@ -1,0 +1,91 @@
+* msg 1 near original
+
+Mar 23 03:36:53 HOSTNAME ceilometer-polling: libvirt: QEMU Driver error : Domain not found: no domain with matching uuid 'c0662d35-64aa-45f6-9b58-1bd8586b136f'
+
+1. Mar 23 03:36:53 
+2. HOSTNAME 
+3. ceilometer-polling: libvirt: QEMU Driver error : 
+   - polling, poll
+   - libvirt then QEMU Driver
+4. Domain not found: 
+   - [d/D]omain
+5. no domain with matching uuid 'c0662d35-64aa-45f6-9b58-1bd8586b136f'
+   - uuid
+
+* what the ceilometer
+
+- part of openstack, openstack platform, OSP
+- do 'mon'(inoring) about and using interface libvirt/qemu
+  - mon called as telemetry service
+  - and using agent
+- split process, one is poll
+
+* process(es)
+
+- api and no more > aodh(alarm), gnocchi(metric, based on time), panko(event) service
+- [X] polling then 
+  - ceilometer-agent-compute, compute
+  - ceilometer-agent-ipmi, ipmi
+  - ceilometer-agent-x, x
+- [X] notification
+- collector and no more
+
+* config
+
+- /etc/ceilometer/ceilometer.conf
+- generated config using oslo-config-generator
+
+* log
+
+- /var/log/ceilometer/
+
+* cli
+
+- ceilometer meter-list
+- ceilometer meter-list --query resource=x
+- ceilometer sample-list --meter cpu
+- ceilometer event-list
+
+* python bind(ings)
+
+- import ceilometerclient.client
+
+* meter definition
+
+- /etc/ceilomenter/meters.d
+- ceilometer/data/meters.d/meters.yaml
+- about: cpu
+  - cpu
+  - cpu.delta
+  - cpu_util
+  - vcpus
+- about: hardware
+  - hardware.ipmi.fan
+  - hardware.ipmi.temperature
+- about: openstack identity
+  - identity.user.created
+- about: networking
+  - network
+  - subnet.create
+  - port.create
+  - router.create
+  - ip.floating
+- about: SDN controller(s)
+  - switch.port.receive.packets
+  - switch.port.receive.errors
+  - switch.table.active.entries
+  - switch.port.uptime
+- about: load balancer as a service
+  - network.services.lb.vip
+- about: orchestration
+  - stack.create
+
+* polling, poll, polling.yaml
+
+- ceilometer-polling --polling-namespaces ipmi
+
+* restart
+
+- service ceilometer-agent-compute status
+- service ceilometer-agent-compute restart
+- /var/log/ceilometer/ceilometer-agent-compute.log

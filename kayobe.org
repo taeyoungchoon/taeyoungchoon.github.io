@@ -1,0 +1,7 @@
+* on and on using but kayobe mix them
+
+| giant         | desc                   |
+|---------------+------------------------|
+| kolla-ansible | deploy                 |
+| kolla         | build container images |
+| bifrost       | discover and provision |

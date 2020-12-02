@@ -1,0 +1,5 @@
+@startuml
+ceilometer -> pango: event
+ceilometer -> gnocchi: metric
+gnocchi -> aodh: alarm
+@enduml

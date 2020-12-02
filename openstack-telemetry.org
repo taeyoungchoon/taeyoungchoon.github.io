@@ -1,0 +1,9 @@
+* combined
+
+| parts      | desc                                   |
+|------------+----------------------------------------|
+| ceilometer | with agent(s) pipe about event, metric |
+| panko      | event and api                          |
+| gnocchi    | metric and api                         |
+| aodh       | alarm                                  |
+
