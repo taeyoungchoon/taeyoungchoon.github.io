@@ -1,0 +1,18 @@
+* diablo 2 load of destruction with plugy
+
+and it works
+
+** download
+
+- Diablo II and Diablo II: Lord of Destruction from Blizzard
+- Official LOD patch 1.14c and 1.14d (http://plugy.free.fr/en/index.html)
+- PlugY version 12.00 updated for 1.14d (https://github.com/haxifix/PlugY)
+
+** steps
+
+1. install dia2 
+2. install dia2 ext
+3. patch 1.14c
+4. patch 1.14d
+5. extract plugy to d:\dia2\
+6. plug d:\dia2\plugyrun.exe
