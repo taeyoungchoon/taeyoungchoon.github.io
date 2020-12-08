@@ -1,0 +1,7 @@
+@startuml
+user -> lb: vip
+user -> conn: url
+conn -> logos: http
+logos -> repo: mysql
+logos -> repo: nfs
+@enduml
