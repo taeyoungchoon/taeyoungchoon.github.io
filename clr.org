@@ -1,0 +1,5 @@
+* (clr conn logos repo)
+
+- (conn httpd)
+- (logos (as was))
+- (repo filesystem database directory)
