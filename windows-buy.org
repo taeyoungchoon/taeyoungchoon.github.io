@@ -1,0 +1,48 @@
+* types
+
+1. FPP: Full Package Product
+   - physical but box
+2. PKC: Product Key Card
+   - physical but mail
+3. DSP: Delivery Services Package
+   - just once
+4. ESD: Electronic Software Distribution
+   - no physical
+5. OEM: Original Equipment Manufacturing
+   - with system
+
+* price 
+
+1. Windows 10 Honme
+   - 208,000
+2. Windows 10 Pro
+   - 324,600
+
+* cli
+
+slmgr /dlv
+
+* TODO upgrade 10 home to 10 pro, 165,000
+
+그럼 재설치 하면 로그인하고 그리고 그리고 말이다.
+참, 그런데 문제가 있다. home이 말이다. 그럼 home을 다시 사야하나?
+재설치를 무엇으로 하나? home 아니면 pro, just windows10.iso
+
+** purchasing account!?
+
+https://answers.microsoft.com/ko-kr/windows/forum/windows_10-windows_store/%EC%9C%88%EB%8F%84%EC%9A%B0-10-home/1ca3d753-6f47-41ad-9fe8-16e609321ee8?auth=1
+
+** and howto, Windows 10 Home에서 Windows 10 Pro로 업그레이드
+
+https://support.microsoft.com/ko-kr/office/windows-10-home%ec%97%90%ec%84%9c-windows-10-pro%eb%a1%9c-%ec%97%85%ea%b7%b8%eb%a0%88%ec%9d%b4%eb%93%9c-ef34d520-e73f-3198-c525-d1a218cc2818?ui=ko-KR&rs=ko-KR&ad=KR
+
+
+** 하드웨어 변경 후 Windows 10 다시 정품 인증
+
+https://support.microsoft.com/ko-kr/office/%ed%95%98%eb%93%9c%ec%9b%a8%ec%96%b4-%eb%b3%80%ea%b2%bd-%ed%9b%84-windows-10-%eb%8b%a4%ec%8b%9c-%ec%a0%95%ed%92%88-%ec%9d%b8%ec%a6%9d-2c0e962a-f04c-145b-6ead-fb3fc72b6665?ui=ko-KR&rs=ko-KR&ad=KR
+
+** windows 10 정품 인증 > 디지털 라이선스를 사용하여 정품 인증하기
+
+https://support.microsoft.com/ko-kr/office/windows-10-%EC%A0%95%ED%92%88-%EC%9D%B8%EC%A6%9D-c39005d4-95ee-b91e-b399-2820fda32227
+
+다시 설치하는 동안 제품 키를 입력하라는 메시지가 표시되는 경우 제품 키가 없음을 선택하여 이 단계를 건너뛸 수 있습니다. 설치가 완료된 후 Windows 10이 온라인에서 자동으로 정품 인증됩니다. 디지털 라이선스를 Microsoft 계정과 연결한 경우 디지털 라이선스와 연결된 Microsoft 계정에 로그인해야 합니다.   
