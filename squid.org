@@ -1,0 +1,17 @@
+* make install
+
+1. yum install squid -y
+2. edit /etc/squid/squid.conf
+   - from #cache_dir ufs /var/spool/squid 100 16 256
+   - to cache_dir ufs /var/spool/squid 7000 16 256
+3. systemctl start squid
+4. ss -lntpu | grep squid
+
+* user
+
+1. edit /etc/yum.conf
+   - add proxy=http://127.0.0.1:3128
+2. yum clean all
+3. watch du -hs /var/cache/squid ??
+4. yum install lynx -y
+5. yum upgrade -y

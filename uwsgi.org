@@ -1,0 +1,4 @@
+* lowercase is the protocol then? uWSGI?
+
+- uwsgi : binary protocol
+- uWSGI : server

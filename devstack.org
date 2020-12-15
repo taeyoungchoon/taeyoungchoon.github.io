@@ -1,3 +1,12 @@
+* history
+
+- [2020-12-09 Wed 15:36] trying 
+  - [X] ~/devstack/lib/apache say about uwsgi(web server gateway interface)
+  - [ ] yum install python3 about bandit
+    - wget first
+    - and more python-devel
+    - sudo python3 -m pip install bandit-1.6.3-py2.py3-none-any.whl
+
 * links
 
 https://zetawiki.com/wiki/Devstack_설치_실습
@@ -234,4 +243,5 @@ https://docs.openstack.org/devstack/latest/development.html
 https://docs.openstack.org/devstack/latest/systemd.html
 https://docs.openstack.org/devstack/latest/configuration.html
 https://docs.openstack.org/devstack/latest/configuration.html#logging
+
 * 2019-10-29 iptables -F to access horizon

@@ -1,0 +1,5 @@
+@startuml
+user -> nginx
+nginx -> uWSGI: uwsgi
+uWSGI -> Django: callable
+@enduml
