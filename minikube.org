@@ -1,10 +1,12 @@
-* DONE minikube alternatives  
+* history
+* see alao
 
-- such as k3s and
-- microk8s based on multipass maybe
+- kubernetes
+- k3s
+- microk8s
+- mininet
 
-* DONE minikube everywhere even windows 10 Home not Pro or Enterprise
-* TODO log
+* TODO to be a script
 
 #+BEGIN_SRC 
 choco install minikube
@@ -19,13 +21,3 @@ kubectl delete deployment hello-minikube
 minikube stop
 minikube delete
 #+END_SRC
-
-* TODO and again
-
-- choco install minikube
-- minikube start
-- minikube status
-
-
-
-

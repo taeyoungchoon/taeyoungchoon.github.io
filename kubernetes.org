@@ -1,27 +1,36 @@
-* atom
+* history
 
-- user
-- lb
+- [2020-12-20 Sun 01:42] 조금은 친숙해진다. 책을 봐서일까? 아니면 minikube라도 몇변 돌려봐서일까? 아니면 둘 다일까? 둘다이다. 그리고 말이다.
 
-* atom at workder node
+* see also
 
-- kub proxy
-- docker
-- pod
-- contained services
-- kublet, the agent
-- flannel or the other such as weave net, calico 
+- [[file:minikube.org][minikube]]
+
+* word(s) combined
+
+- service mesh, mesh
+- iptables nat kube-proxy proxy
+- agent kubelet
+- protocol grpc
+- docker container contained
+- service and that is
+
+* more about network
+
+- bgp
+- bpf
+
+* node
+
+- worker node
+- master node
 
 * atom at master node
 
-- api server
-- controller-manager
-- scheduler
-- etcd
-
-* atom, user
-
-- operator who using kubectl
+- api
+- etc
+- scheduling
+- control
 
 * networking and iptables
 
@@ -29,6 +38,6 @@
 - weave net at mid size
 - calico using bpg
 
-* service mesh
+* service mesh, all above the network layer
 
 - istio
