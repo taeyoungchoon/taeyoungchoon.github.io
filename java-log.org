@@ -1,0 +1,58 @@
+* before you go
+
+https://doc.orbeon.com/form-runner/advanced/monitoring-http-requests
+Monitoring HTTP requests
+
+wireshark
+tcpdump
+tcpdump, tcpdump -vvvs 1024 -l -A host foo.com
+tcpdump, tcpdump -vvvs 1500 -l -A host foo.com
+
+sudo tcpdump -A -s 10240 'tcp port 4080 and (((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0)' | egrep --line-buffered "^........(GET |HTTP\/|POST |HEAD )|^[A-Za-z0-9-]+: " | sed -r 's/^........(GET |HTTP\/|POST |HEAD )/\n\1/g'
+
+sudo stdbuf -oL -eL /usr/sbin/tcpdump -A -s 10240 "tcp port 4080 and (((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0)" | egrep -a --line-buffered ".+(GET |HTTP\/|POST )|^[A-Za-z0-9-]+: " | perl -nle 'BEGIN{$|=1} { s/.*?(GET |HTTP\/[0-9.]* |POST )/\n$1/g; print }'
+
+tshark -D
+ngrep -q -W byline -i "GET /" port 80
+
+* java.util.logging(JUL)
+
+https://tomcat.apache.org/tomcat-9.0-doc/config/filter.html#Request_Dumper_Filter
+
+WEB-INF/web.xml
+
+#+BEGIN_SRC 
+<!--filters-->
+<filter>
+    <filter-name>requestdumper</filter-name>
+    <filter-class>
+        org.apache.catalina.filters.RequestDumperFilter
+    </filter-class>
+</filter>
+<filter-mapping>
+<filter-name>requestdumper</filter-name>
+<url-pattern>*</url-pattern>
+</filter-mapping>
+#+END_SRC
+
+* log4j, Log4j
+* SLF4J(Simple Logging Facade)
+* logback
+
+logback.xml
+
+git clone git://github.com/qos-ch/logback-demo.git logback-demo
+mvn package jetty:run
+http://localhost:8080
+
+#+BEGIN_SRC 
+<configuration>
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>      
+      <pattern>%fullRequest%n%n%fullResponse</pattern>
+    </encoder>
+  </appender>
+
+  <appender-ref ref="STDOUT" />
+</configuration>
+#+END_SRC

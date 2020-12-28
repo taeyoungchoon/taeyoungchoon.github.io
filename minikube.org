@@ -22,10 +22,20 @@ minikube delete
 
 * TODO and again
 
-- choco install minikube
-- minikube start
-- minikube status
+choco install minikube
+minikube start
+minikube status
+minikube ssh
+ip a s eth1
 
+sshpass -p tcuser ssh docker@192.168.99.100
+docker ps
+docker exec -i -t 1b29 /bin/bash
+Ctrl + P, Q
 
+docker exec 1b29 date
 
+brctl show docker0
+brctl showmacs docker0
 
+docker network inspect bridge
