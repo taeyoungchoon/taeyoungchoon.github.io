@@ -21,7 +21,6 @@ kubectl delete deployment hello-minikube
 minikube stop
 minikube delete
 #+END_SRC
-<<<<<<< HEAD
 
 * TODO and again
 
@@ -42,5 +41,3 @@ brctl show docker0
 brctl showmacs docker0
 
 docker network inspect bridge
-=======
->>>>>>> 0d863116b89124634765feae1008b90e778895e8
