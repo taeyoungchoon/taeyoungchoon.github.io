@@ -1,0 +1,47 @@
+* cli
+
+#+BEGIN_SRC 
+ascii -x
+ascii LF
+ascii CR
+xxd dos-text-file
+file dos-text-file
+xxd unix-text-file
+file unix-text-file
+#+END_SRC
+
+* vim
+
+#+BEGIN_SRC
+:set ff=unix
+#+END_SRC
+
+* sed 
+
+#+BEGIN_SRC 
+man cat (-v, --show-nonprinting)
+cat -v dos-text-file
+cat dos-text-file | sed 's/\r$//' | cat -v
+#+END_SRC
+
+* perl
+
+* awk
+
+* tr
+
+* unix text file
+
+- 1 2 3 [ENTER]
+- 31 32 33 0a
+- so, ENTER from unix is the '0a'(hex 0a)(LF)
+- Line Feed is the Next Line from UNIX world
+- gg: teletypewriter line feed
+
+* dos-text-file
+
+- 1 2 3 [ENTER]
+- 31 32 33 0d 0a
+- so, ENTER from dos is the '0d0a'(hex 0d, hex 0a)(CR, LF)
+- Carriage Return then Line Feed is the Next Line from Windows, not world
+- gg: teletypewriter carriage return
