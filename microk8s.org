@@ -1,0 +1,7 @@
+* kubernetes mini called minikube, microk8s then and more
+
+- [X] minikube
+- [ ] microk8s
+- [ ] kubeadm
+- [ ] kops
+
