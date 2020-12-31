@@ -5,3 +5,51 @@
 - [ ] kubeadm
 - [ ] kops
 
+* later on
+
+- https://microk8s.io/docs/clustering
+
+* and it works like below and links
+
+** links
+
+- https://microk8s.io/docs
+- https://microk8s.io/docs/addon-dashboard
+
+** steps 1
+
+choco install virtualbox
+choco install vagrant
+vagrant init ubuntu/focal64
+vagrant up
+vagrant ssh
+sudo snap install microk8s --classic --channel=1.19
+sudo usermod -a -G microk8s $USER
+sudo chown -f -R $USER ~/.kube
+microk8s status --wait-ready
+microk8s kubectl get nodes
+microk8s kubectl get services
+echo "alias kubectl='microk8s kubectl'" >> ~/.bash_aliases
+echo "alias k='microk8s kubectl'" >> ~/.bash_aliases
+source ~/.bashrc
+microk8s enable dns storage
+microk8s enable dashboard
+token=$(microk8s kubectl -n kube-system get secret | grep default-token | cut -d " " -f1)
+microk8s kubectl -n kube-system describe secret $token
+
+** step 2, using port-forward
+
+microk8s kubectl port-forward -n kube-system service/kubernetes-dashboard 10443:443 --address 0.0.0.0
+ip -4 a s enp0s8
+https://192.168.84.120:10443
+
+** step 2, using NodePort and prefer
+
+kubectl -n kube-system edit service kubernetes-dashboard
+Change 'type: ClusterIP' to 'type: NodePort'
+kubectl -n kube-system get service kubernetes-dashboard
+https://192.168.84.120:31218
+
+** step 3, stop
+
+microk8s stop
