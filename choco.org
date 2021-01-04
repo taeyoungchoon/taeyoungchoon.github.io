@@ -1,0 +1,6 @@
+* with windows, what about the others?
+
+- apt-cyg update
+- choco upgrade
+- brew update
+- apt upgrade

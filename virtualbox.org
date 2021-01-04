@@ -7,3 +7,9 @@ and it works well
 3. Choose properties
 4. Check "VirtualBox NDIS6 Bridged Networking driver"
 5. disable and Enable the adapter
+
+* and with vagrant
+
+* version
+
+6.1.16

@@ -1,0 +1,149 @@
+? echo about extending filesystem nowaday year 2021
+about extending filesystem nowaday year 2021
+?
+? fdisk -l 
+Disk /dev/sda: 21.5 GB, 21474836480 bytes, 41943040 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk label type: dos
+Disk identifier: 0x000c8deb
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sda1   *        2048     2099199     1048576   83  Linux
+/dev/sda2         2099200    20971519     9436160   8e  Linux LVM
+
+Disk /dev/mapper/centos-root: 8585 MB, 8585740288 bytes, 16769024 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+
+
+Disk /dev/mapper/centos-swap: 1073 MB, 1073741824 bytes, 2097152 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+
+?
+? lsblk
+NAME            MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda               8:0    0   20G  0 disk
+├─sda1            8:1    0    1G  0 part /boot
+└─sda2            8:2    0    9G  0 part
+  ├─centos-root 253:0    0    8G  0 lvm  /
+  └─centos-swap 253:1    0    1G  0 lvm  [SWAP]
+sr0              11:0    1 1024M  0 rom
+?
+? df -T -h /
+Filesystem              Type  Size  Used Avail Use% Mounted on
+/dev/mapper/centos-root xfs   8.0G  1.3G  6.8G  16% /
+?
+? growpart /dev/sda 1
+NOCHANGE: partition 1 is size 2097152. it cannot be grown
+? growpart /dev/sda 2
+CHANGED: partition=2 start=2099200 old: size=18872320 end=20971520 new: size=39843807 end=41943007
+?
+? fdisk -l
+
+Disk /dev/sda: 21.5 GB, 21474836480 bytes, 41943040 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk label type: dos
+Disk identifier: 0x000c8deb
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sda1   *        2048     2099199     1048576   83  Linux
+/dev/sda2         2099200    41943006    19921903+  8e  Linux LVM
+
+Disk /dev/mapper/centos-root: 8585 MB, 8585740288 bytes, 16769024 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+
+
+Disk /dev/mapper/centos-swap: 1073 MB, 1073741824 bytes, 2097152 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+?
+? lsblk
+NAME            MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda               8:0    0   20G  0 disk
+├─sda1            8:1    0    1G  0 part /boot
+└─sda2            8:2    0   19G  0 part
+  ├─centos-root 253:0    0    8G  0 lvm  /
+  └─centos-swap 253:1    0    1G  0 lvm  [SWAP]
+sr0              11:0    1 1024M  0 rom
+?
+? df -T -h /
+Filesystem              Type  Size  Used Avail Use% Mounted on
+/dev/mapper/centos-root xfs   8.0G  1.3G  6.8G  16% /
+?
+? pvs
+  PV         VG     Fmt  Attr PSize  PFree
+  /dev/sda2  centos lvm2 a--  <9.00g    0
+? pvresize /dev/sda2
+  Physical volume "/dev/sda2" changed
+  1 physical volume(s) resized or updated / 0 physical volume(s) not resized
+? pvs
+  PV         VG     Fmt  Attr PSize   PFree
+  /dev/sda2  centos lvm2 a--  <19.00g 10.00g
+?
+? vgs
+  VG     #PV #LV #SN Attr   VSize   VFree
+  centos   1   2   0 wz--n- <19.00g 10.00g
+? lvs
+  LV   VG     Attr       LSize  Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert
+  root centos -wi-ao---- <8.00g
+  swap centos -wi-ao----  1.00g
+? lvextend -l +100%FREE /dev/centos/root
+  Size of logical volume centos/root changed from <8.00 GiB (2047 extents) to <18.00 GiB (4607 extents).
+  Logical volume centos/root successfully resized.
+? lvs
+  LV   VG     Attr       LSize   Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert
+  root centos -wi-ao---- <18.00g
+  swap centos -wi-ao----   1.00g
+?
+? lsblk
+NAME            MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda               8:0    0   20G  0 disk
+├─sda1            8:1    0    1G  0 part /boot
+└─sda2            8:2    0   19G  0 part
+  ├─centos-root 253:0    0   18G  0 lvm  /
+  └─centos-swap 253:1    0    1G  0 lvm  [SWAP]
+sr0              11:0    1 1024M  0 rom
+?
+? df -T -h /
+Filesystem              Type  Size  Used Avail Use% Mounted on
+/dev/mapper/centos-root xfs   8.0G  1.3G  6.8G  16% /
+?
+? xfs_growfs /dev/centos/root
+meta-data=/dev/mapper/centos-root isize=512    agcount=4, agsize=524032 blks
+         =                       sectsz=512   attr=2, projid32bit=1
+         =                       crc=1        finobt=0 spinodes=0
+data     =                       bsize=4096   blocks=2096128, imaxpct=25
+         =                       sunit=0      swidth=0 blks
+naming   =version 2              bsize=4096   ascii-ci=0 ftype=1
+log      =internal               bsize=4096   blocks=2560, version=2
+         =                       sectsz=512   sunit=0 blks, lazy-count=1
+realtime =none                   extsz=4096   blocks=0, rtextents=0
+data blocks changed from 2096128 to 4717568
+? lsblk
+NAME            MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda               8:0    0   20G  0 disk
+├─sda1            8:1    0    1G  0 part /boot
+└─sda2            8:2    0   19G  0 part
+  ├─centos-root 253:0    0   18G  0 lvm  /
+  └─centos-swap 253:1    0    1G  0 lvm  [SWAP]
+sr0              11:0    1 1024M  0 rom
+? df -T -h /
+Filesystem              Type  Size  Used Avail Use% Mounted on
+/dev/mapper/centos-root xfs    18G  1.3G   17G   7% /
+?
+? echo fine : knowing first then lvm and then filesystem
+fine : knowing first then lvm and then filesystem
+?
+
+
+
