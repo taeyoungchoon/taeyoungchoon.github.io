@@ -1,0 +1,63 @@
+* from mac os x
+
+https://neklaf.com/2020/03/08/qemu-on-macos-mojave-os-x/
+
+? brew install qemu
+? brew install libvirt
+? brew services start libvirt
+
+? brew install wget
+
+? wget --no-check-certificate \
+  https://cdimage.debian.org/debian-cd/10.7.0/amd64/iso-cd/debian-10.7.0-amd64-netinst.iso \
+  -O ~/qemu/images/debian-10.7.0-amd64-netinst.iso
+
+? cat > app.entitlements <<EOF
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>com.apple.security.hypervisor</key>
+    <true/>
+</dict>
+</plist>
+EOF
+
+? codesign -s - --entitlements app.entitlements --force /usr/local/bin/qemu-system-x86_64
+? qemu-img create -f qcow2 ~/qemu/debian-10.7.0-amd64.qcow2 10G
+? qemu-system-x86_64 \
+  -m 2048 \
+  -vga virtio \
+  -display default,show-cursor=on \
+  -usb \
+  -device usb-tablet \
+  -enable-kvm \
+  -cdrom ~/qemu/images/debian-10.7.0-amd64-netinst.iso \
+  -drive file=~/qemu/debian-10.7.0-amd64.qcow2,if=virtio \
+  -net user,hostfwd=tcp::2222-:22 -net nic \
+  -machine accel=hvf \
+  -cpu host
+
+debian installation
+
+SeaBIOS
+iPXE
+Booting from Hard Disk...
+
+? qemu-system-x86_64 \
+  -cdrom ~/qemu/images/debian-10.7.0-amd64-netinst.iso \
+  -boot d
+
+? qemu-system-x86_64 \
+  -m 2048 \
+  -vga virtio \
+  -display default,show-cursor=on \
+  -usb \
+  -device usb-tablet \
+  -enable-kvm \
+  -cdrom ~/qemu/images/debian-10.7.0-amd64-netinst.iso \
+  -drive file=~/qemu/debian-10.7.0-amd64.qcow2,if=virtio \
+  -net user,hostfwd=tcp::2222-:22 -net nic \
+  -machine accel=hvf \
+  -cpu host \
+  -boot menu=on
