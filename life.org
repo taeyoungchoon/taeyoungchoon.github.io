@@ -6,7 +6,8 @@
 * not that much or 
 * image of life
 
-[[file:life.jpg][life picture of my own]]
+- [[file:life.jpg][life picture of my own]]
+  - 그런데 30까지는 왜 바닥일까? 30에 무슨일이 있었을까? 논어를 접한 시점일까? 아니면 말이다. 년도는 (+ 1976 30) 2006 호~ 아이서브 한창 때군요. 중반을 넘어서 무언가 많은 아니 어떤 변화의 시기가 아니었나 싶다. 자세한 것은 기억하지 못한다. 
 
 * hmm
 
