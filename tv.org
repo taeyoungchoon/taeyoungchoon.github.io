@@ -1,0 +1,46 @@
+* display
+
+- (crt pdp lcd oled)
+- (lcd (lcd/ccfl lcd/led lcd/led/quantom-dot lcd/led/nano-cell))
+- (lcd/led/quantom-dot 2- nm)
+- (lcd/led/nano-cell 1 nm)
+
+* panel
+
+- va
+- ips
+
+* resolution
+
+- fhd 1920x1080
+- 4k uhd 3480x2160
+- 8k uhd 7680x4320
+
+* size
+
+- 163cm, 65inch
+
+* example
+
+- lg 65un7850kna 100~
+
+* words
+
+- crt : cathode-ray tube
+- pdp : plasma display panel
+- lcd : liquid crystal display
+- led : light emitting diode
+- oled : organic
+- tn : twisted nematic
+- va panel : vertical alignment
+- ips : in-plane switching
+- ccfl : cold cathod fluorescent lamp
+- amoled : active-matrix
+- mled : mini
+- quantom dot 
+- nanocell
+- qled : quantom dot
+- uhd : ultra high definition
+- sd : standard definition
+
+
