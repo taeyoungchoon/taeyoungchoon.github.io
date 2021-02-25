@@ -1,7 +1,18 @@
 * log include syslog and more
-* syslog
 * windows log called event log can be seen with eventvwr but more
 
 - (cons windows-log remote-syslogd :using (nxlog :charge 0))
 
 * swatch
+* DONE syslog, rsyslog and detail
+
+- [X] who, w+ using /var/run/utmp : now
+- [X] last using /var/log/wtmp : every say as history
+- [X] lastb using /var/log/btmp : failed only
+- [X] lastlog using /var/log/lastlog : recent last log only
+- utmpdump utmp|wtmp|btmp
+- pam_lastlog using /var/log/lastlog and /var/log/btmp
+- /var/run is the tmpfs
+- utmp.h say login(), logout()
+- logging by mingetty, /bin/login or sshd
+- [ ] who write /var/log/lastlog

@@ -1,5 +1,8 @@
 * security is
-* wep, wap/wap2 personal/enterprise
+
+- WEP provides encryption of packets, but not message integrity. Proposals for AES, TKIP, and WPA all support message integrity.
+
+* TODO wep, wap/wap2 personal/enterprise
 
 - none aka Open
 - wep 64/128
@@ -23,12 +26,16 @@
 * 802.1X, EAPOL
 * ac(wac)
 * ap(access point)
-* radius server
+* TODO radius server
+
+- ever using 'Static WEP Keys'
+- and 'Dynamic WEP Keys'
+
 * endpoint now STA
 * PMK, pairwise master key
-* PSK, pre-shared key
+* TODO PSK, pre-shared key
 * Authentication Protocol such PAP, Password AP, CHAP, Challenge-handshake AP then EAP
-* EAP, Extensible Authentication Protocol, framework
+* TODO EAP, Extensible Authentication Protocol, framework
 * MAB(MAC Authentication Bypass)
 * four-way handshake
 * WTP, wireless termination point
@@ -39,7 +46,7 @@
 - L2 Mode : Supported
 - with LWAP, lightweight access point
 
-* CAPWAP, Control and Provisioning of Wireless Access Point
+* TODO CAPWAP, Control and Provisioning of Wireless Access Point
 
 - based on LWAPP
 - 2009
