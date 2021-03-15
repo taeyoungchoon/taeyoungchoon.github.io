@@ -1,0 +1,10 @@
+* multi then single
+
+- SMF: Single Mode Fiber
+- MMF: Multi Mode Fiber
+
+* class?
+
+- cladding glass
+- core glass
+
