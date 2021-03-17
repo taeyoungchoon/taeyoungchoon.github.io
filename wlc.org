@@ -1,0 +1,12 @@
+* cli
+
+show inventory
+show sysinfo
+show interface summary
+show interface detailed 
+show port summary
+show stats port summary 1
+show stats port detailed 1
+show stats switch
+shwo stats switch summary
+shwo stats switch detailed

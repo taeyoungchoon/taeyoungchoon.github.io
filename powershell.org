@@ -1,13 +1,32 @@
 * so
 
-#+BEGIN_SRC 
-$PSVersionTable
+$PSVersionTable.PSVersion
+$env:USERNAME
+$env:COMPUTERNAME
 Get-ChildItem | Format-Wide
 Get-Acl | Format-List
-#+END_SRC
 
 * about Execution Policy
 
+Get-ExecutionPolicy
 Get-ExecutionPolicy -List
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 
+* todo
+
+- [ ] multiline
+  - gc -Raw file
+- [ ] regexp
+- [ ] files
+- [ ] echo
+  - write-host "hi"
+
+* cisco
+
+#+BEGIN_SRC powershell
+  foreach ($file in Get-Child  Item *.log)
+  {
+      write-host $file
+      gc $file | sls "hostname"
+  }
+#+END_SRC
