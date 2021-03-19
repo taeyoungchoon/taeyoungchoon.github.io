@@ -18,10 +18,12 @@
 - C-x o
 - C-x d
 - tmux attach
- 
-* TODO and more with mouse?
-* type to all window s
+
+* TODO type to all window s
 
 1. C-b :
 2. setw 
-   
+ 
+* TODO and more with mouse?
+
+* TODO book?

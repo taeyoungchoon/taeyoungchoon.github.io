@@ -1,0 +1,32 @@
+* set
+
+** server
+
+apt-get install apt-cacher-ng
+apt-get install avahi-daemon
+
+** client
+
+apt-get install squid-deb-proxy-client
+
+* test
+
+apt install emacs-nox
+
+* log
+
+** server
+
+/var/log/apt-cacher-ng/apt-cacher.log
+
+** web-ui
+
+http://192.168.25.201:3142/acng-report.html
+
+* doc
+
+https://wiki.debian.org/AptCacherNg
+
+* note
+
+avahi

@@ -33,3 +33,6 @@ make clean이라
 - math
 - network rel
 
+* history
+
+- [2021-03-19 Fri 10:02] 오늘의 파이썬, 뱀이다. 그리고, 다시금 printf/print 이 word는 어디서 왔을까?

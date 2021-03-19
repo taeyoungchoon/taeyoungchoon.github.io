@@ -32,3 +32,59 @@ L4, session
 alcatel-lucent
 cisco
 F5
+
+* is again
+
+- network is the words, concept and implementation
+- same as the others? what about, hmm. philosophy?
+- atom, list or list, atom, combined
+
+* words
+
+evpn ethernet vpn ether virtual private network private network
+sslvpn ipsec ssl
+bpdu stp rstp(2) mstp spanning tree root bridge switch repeater router routing table forward loop
+frame packet
+IEEE 802.3 Ethernet wireshark Logical Link Control DSAP SSAP Padding 
+root identifier root path cost bridge identifier port identifier hello time priority system id
+topology change acknowledgement learning port role designated(3) topology change
+IEEE 802.1D 802.3Q
+internet packet exchange arp address resolution protocol(opcode 0x0115)
+Who has 192.168.25.50? Tell 192.168.25.1
+192.168.25.1 is at 00:1b:c0:b7:fc:c9
+opcode: reply (2)
+eth.addr eq 00:1b:c0:b7:fc:c9 and eth.addr eq 88:36:6c:fc:1b:7c and arp
+eth.addr eq ff:ff:ff:ff:ff:ff
+Internet Protocol Version 4
+User datagram Protocol, Src Port: 137, Dst Port: 137
+NetBIOS Name Service
+Border Gateway Protocol OPEN Message(1) UPDATE(2) KEEPALIVE(4) ORIGIN NEXT_HOP 
+COMMUNITIES 65033:500 65033:600 Network Layer Reachability Information (NLRI) 10.0.0.0/8 prefix lengh 8
+BGP Identifier Version Marker My AS LOCAL_PREF ATOMIC_AGGREGATE AGGREGATOR ORIGINATOR_ID CLUSTER_LIST
+NLRI prefix lengh: 22 NLRI prefix: 192.168.4.0
+COMMUNITIES 65215:1 790:4 340:250 AS_PATH: {500, 500} 65211
+Destination Port: 179
+peer neighbor eBGP(external BGP) iBGP(internal BGP)
+Community AS Community value 
+AS Path segment AS_SET (1) AS_SEQUENCE (2) segment type segment length AS2
+show ip route bgp
+full mesh
+show ip bgp
+show ip bgp neighbors
+show ip bgp summary
+show tcp brief
+router eigrp 1
+redistribute bgp 234 metric 1000 1 1 1 1500
+router bgp 234
+no sync
+not synchronized
+best
+no redistribute bgp 234
+no router bgp 234
+next hop router
+routing loop split horizon rule
+route reflector
+confederation
+clear ip bgp *
+
+* and more words and concepts what about impl, gobgp like

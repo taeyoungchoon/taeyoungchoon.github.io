@@ -2,7 +2,6 @@
 
 Echo from the Greek mythology
 
-
 * echo two
 
 #+BEGIN_SRC sh
