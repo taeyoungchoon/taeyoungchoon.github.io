@@ -27,3 +27,7 @@
 * TODO and more with mouse?
 
 * TODO book?
+
+* zoom in and out
+
+- C-b z

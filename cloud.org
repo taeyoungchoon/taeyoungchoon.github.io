@@ -6,5 +6,52 @@
 내가 살고 있는 운정에는 구름이 있다
 아름답다
 구름 운이란다
+
 * @it and @keris
 
+* to the cloud, accessment then
+
+- [2021-03-22 Mon 15:51] 통화 중
+
+** TODO 프라이빗 클라우드에 대해서도 서비스를 하는지? 이전?
+
+- private cloud
+  - openstack like
+- public cloud
+  - aws
+  - azure
+  - google cloud
+- ?? networks.. 인사.. 나임네트웍스 / 2019년 5월 기사
+   - SDN, 파이오링크 자회사, 인천 유시티(빅스위치), 제주신화월드(뉴타닉스) SDDC 구축, 강원랜드
+   - 하이브리드 클라우드, 탱고(tango) the portal
+
+** TODO if private-cloud then 시스템 스펙과 성능 정보에 대한 추출은 어떻게?
+
+- lshw
+- sar
+- or using tool(s) made by megazone or aws made
+- legacy, cpu, presales.. xls.. 
+- presales.. 
+- I'm arch
+
+** TODO if private-cloud then 가상 장비와의 맵핑은 어떻게? cpu to vcpu like
+
+- using tool(s) by
+- or excel like
+
+*** data
+- cpu x2 usage 50%
+- memory 1G usage 50%
+
+*** exact
+
+- vcpu x1
+- memory 500M
+
+*** factor
+
+- cpu: core, cores(package), hyper-thread, intel/amd, not-intel, say intel-like nil-hz
+  - 4 core 3 ghz vs 6 core 2.2 ghz
+- mem: 
+- dsk: gp2/3, io1/2 as volume type even NVMe SSD, sc1, st1 and even more magnetic
+- net:

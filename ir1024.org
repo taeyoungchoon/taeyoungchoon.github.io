@@ -1,0 +1,5 @@
+* the canon printer, Canon iR  1024
+
+- driver :
+https://www.canon-europe.com/support/products/imagerunner/ir1024if.html?type=drivers&language=en&os=macos%2010.15%20(catalina)
+- install: lpd, select as 1024 
