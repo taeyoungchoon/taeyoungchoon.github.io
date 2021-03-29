@@ -1,3 +1,36 @@
+* lots of words such a like
+
+- [X] X Window System, X11, X11R7, X11R6.4, Motif, V W X X6 X9 X10 X11
+- [X] XFree86 > X.Org, X386 XFree86 4.8.0 XF86Config
+  David Dawes The means to an X for Linux
+- [X] X.Org xorg reference implementation xorg.conf X.Org Foundation
+- [X] Modeline EDID(Extended Display Identification Data) VESA(Video Electronics Standards Association)
+  DisplayID E-EDID
+- [X] freedesktop.org X Desktop Group XDG
+- Cygwin/X
+- [X] X server XServer
+- [X] window manager 
+  - GNOME's Mutter Metacity
+  - Xfce's Xfwm
+  - KDE's KWin
+  - Unity's Compiz
+- display server
+- Xlib XCB XDM(X Display Manager)
+- DIX DDX
+- XQuartz XWayland LightDM > GDM(GNOME DIsplay Manager) SDDM(Simple Desktop Display Manager)
+  KDE Display Manager
+- xterm
+- XDMCP
+- twm(Tab Window Manager)
+  fvwm(F Virtual Window Manager)
+  Afterstep
+  Enlightment
+  Xfce XFCE
+  WindowManager < NeXTSTEP < NeXT, Inc < Object-C > Swift
+  OpenStep OPENSTEP
+- [X] LXQt desktop environment < LXDE X Window System desktop environment(DE)
+  Cinnamon 
+
 * stop x11 from listening
 
 startx -- -nolisten tcp

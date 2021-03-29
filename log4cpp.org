@@ -1,0 +1,17 @@
+* then again, 그래 다시 로그다.
+
+- http://log4cpp.sourceforge.net/
+
+* install 
+
+#+BEGIN_SRC 
+./configure
+make
+make install
+#+END_SRC
+
+* config
+
+* sample code
+
+* then again, why?

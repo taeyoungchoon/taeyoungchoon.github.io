@@ -1,0 +1,5 @@
+* working
+
+#+BEGIN_SRC 
+cat mit-license.org | tr '[:upper:]' '[:lower:]' 
+#+END_SRC

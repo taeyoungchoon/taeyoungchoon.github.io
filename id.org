@@ -1,0 +1,5 @@
+* id management, identity and then password
+
+- facebook
+- google
+- and what

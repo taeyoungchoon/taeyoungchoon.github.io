@@ -1,0 +1,12 @@
+* mac os x default shell, now [2021-03-25 Thu] and since catalina
+
+- and oh my zsh
+- bash v3 is still GPL v2
+- zsh has an 'MIT-like' license
+  - MIT-like?
+    - MIT License
+- In 2020, Kali Linux adopted Zsh as the default shell since 2020.4 release
+
+#+BEGIN_SRC shell
+  chsh -s /bin/zsh
+#+END_SRC

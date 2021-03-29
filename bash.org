@@ -1,4 +1,5 @@
-* TODO config
+
+TODO config
 
 - but the beginning
 - user login using console, telnet or ssh
@@ -65,18 +66,44 @@
 * so what?
 * TODO BASH_REMATCH, match, re
 
-#+BEGIN_SRC 
-? cat go.sh
-#!/usr/bin/env bash
+- support since version 3 of bash (released in 2004)
+  - https://tldp.org/LDP/abs/html/bashver3.html
+    - On July 27, 2004, Chet Ramey released version 3 of Bash.
+    - A new, more generalized {a..z} brace expansion operator.
+    - The =~ Regular Expression matching operator within a double brackets test expression.
+      - Using the [[ ... ]] test construct, rather than [ ... ] can prevent many logic errors in scripts.
+        - There exists a dedicated command called [ (left bracket special character). 
+          -  It is a synonym for test, and a builtin for efficiency reasons.
+        - With version 2.02, Bash introduced the [[ ... ]] extended test command,
+          - Note that [[ is a keyword, not a command.
+            - As examples, for, while, do, and ! are keywords. 
+            - but a subunit of a command construct. 
+            - The type command can be useful for testing whether a certain command exists.
+      - The (( )) construct expands and evaluates an arithmetic expression. 
+        - The let command carries out arithmetic operations on variables.
+          - expr : All-purpose expression evaluator
 
-target=$1
-host=$target
+#+BEGIN_SRC shell
+  #host='GA2100SU-1A'
+  host='GA2100SU-3A'
 
-if [[ $host =~ ^([a-z]+)- ]]
-then
-        echo ${BASH_REMATCH[1]}
-fi
-? ./go.sh as-a1-c0-lgu2p
+  if [[ $host =~ ^([a-z0-9]+)-([a-z0-9]+) ]]
+  then
+          echo ${BASH_REMATCH[0]} = ${BASH_REMATCH[1]} - ${BASH_REMATCH[2]}
+  fi
+#+END_SRC
 
-as
+#+RESULTS:
+: GA2100SU-3A = GA2100SU - 3A
+
+* TODO case
+
+#+BEGIN_SRC shell
+  CHK=cc
+
+  case $CHK in
+      "aa") echo 'chk aa' ;;
+      "bb") echo 'chk bb' ;;
+      *) echo 'others' ;;
+  esac
 #+END_SRC
