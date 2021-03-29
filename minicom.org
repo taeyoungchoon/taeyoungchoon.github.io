@@ -1,0 +1,14 @@
+* minicom and such a like
+
+- tio
+- minicom
+- screen /dev/ttyS0 
+- femtocom : using cat and echo
+- socat
+- putty
+
+* link
+
+https://unix.stackexchange.com/questions/22545/how-to-connect-to-a-serial-port-as-simple-as-using-ssh/311680#311680
+
+
