@@ -4,9 +4,11 @@ http://jodies.de/ipcalc
 
 * vs ipv6 ever called ipng what about next ipv?
 
-* ip cli
+* TODO ip cli
 
+#+BEGIN_SRC 
 ip addr
 ip a
 ip -4 -o a
 ip -4 -o -c a
+#+END_SRC
