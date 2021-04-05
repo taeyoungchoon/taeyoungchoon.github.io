@@ -11,6 +11,19 @@ cd /home/ubuntu/ryu && ./bin/ryu-manager --verbose ryu/app/simple_switch_13.py
 mininet> h1 ping h3
 sudo ovs-ofctl dump-flows s1 -O OpenFlow13
 
+* DONE trying
+
+https://osrg.github.io/ryu-book/en/html/switching_hub.html
+from Ubuntu 18.04.5 LTS
+apt install expect
+apt install python3-pip
+pip3 install ryu
+pip3 show ryu
+ryu-manager --verbose ryu.app.example_switch_13
+sudo mn --topo single,3 --mac --controller remote --switch ovsk
+h1 ping h2
+tcpdump -en -i s1-eth1
+
 * more 
 
 http://sdnhub.org/resources/useful-mininet-setups/
