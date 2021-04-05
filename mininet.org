@@ -53,3 +53,7 @@ link s2 s11 up
 
 - it's not so
 - use namespace in pure with ovs
+
+* todo
+
+https://learning.knetsolutions.in/docs/ryu/
