@@ -161,6 +161,7 @@ To login as administrator:
 * links
 
 https://docs.okd.io/3.11/minishift/getting-started/quickstart.html
+
 * version
 
 - v3.11.0

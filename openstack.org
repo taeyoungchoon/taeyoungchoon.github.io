@@ -1,3 +1,9 @@
+* not the exam but today
+
+- [X] director : nic vs yaml
+- [X] director : so slow deployment, wait
+- [ ] director : package dep?
+
 * TODO redhat openstack exam
 
 #+BEGIN_SRC 
