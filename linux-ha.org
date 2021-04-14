@@ -58,8 +58,7 @@ https://www.redhat.com/en/services/training/ex436-rchoe-high-availability-cluste
 - stonith: Shoot The Other Node In The Head
 - ipmi
 - fencing, scsi3, gnbd, resource fencing, split brain, shared file system
-  https://www.slideshare.net/kerneltraining/red-hat-cluster-suite-1
-  https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/high_availability_add-on_overview/ch-fencing
+  https://www.slideshare.net/kerneltraining/red-hat-cluster-suite-1 https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/high_availability_add-on_overview/ch-fencing
 - drbd
 - scancore
 - quorum, vote, cluster stop working
