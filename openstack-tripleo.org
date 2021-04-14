@@ -1,0 +1,11 @@
+* tripleo
+
+- openstack over openstack
+- undercloud
+- overcloud
+- [ ] instack
+- puppet
+- ansible
+- pacemaker
+- haproxy
+- openstack heat
