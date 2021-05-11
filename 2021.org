@@ -48,7 +48,6 @@ lisp list processing and atom
 - ((linux os base) (emacs major minor) (lisp :aka list-processing (atom list)))
 - son.org 
 
+* [2021-05-11 Tue] 아프다. 그래 아프다. 산다. 아픔이다.
 
-
-
-
+아버지가 아프다. 나도 아프다. 관절이 아프다. 그리고 머리도 멍해진다. 
