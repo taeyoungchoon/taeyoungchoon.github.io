@@ -12,3 +12,104 @@
 - ip neigh
 - watch ip neigh (STALE - DELAY - REACHABLE)
 
+* enable lldp
+
+#+BEGIN_SRC shell
+
+  for i in `ls /sys/class/net/ | grep 'eth\|ens\|eno|enp'` ; do
+      echo "enabling lldp for interface: $i" ;
+      lldptool set-lldp -i $i adminStatus=rxtx ;
+      lldptool -T -i $i -V sysName enableTx=yes;
+      lldptool -T -i $i -V portDesc enableTx=yes ;
+      lldptool -T -i $i -V sysDesc enableTx=yes;
+  done
+
+#+END_SRC
+
+* one more thinkg about i40e, disable lldp agent on intel nic
+
+/sys/class/net/*
+
+/proc/net/dev
+
+mount -t debugfs none /sys/kernel/debug
+echo lldp stop > /sys/kernel/debug/i40e/0000\:5e\:00.0/command
+
+ethtool -i eth0
+driver: i40e
+
+#!/bin/bash
+for f in /sys/class/net/*; do
+    dev=$(basename $f)
+    driver=$(readlink $f/device/driver/module)
+    if [ $driver ]; then
+        driver=$(basename $driver)
+    fi
+    printf "%10s : %10s\n" "$dev" "$driver""
+done
+
+ethtool --set-priv-flags <eth name> disable-fw-lldp on 
+
+lldptool -i eth2 stat
+
+https://serverfault.com/questions/775980/disable-internal-intel-x710-lldp-agent
+
+As the ethtool toggle does not seems to be persistent across reboots we've setup following udev rule.
+
+/etc/udev/rules.d/10-disable-fw-lldp.rules:
+ACTION=="add", SUBSYSTEM=="net", ENV{INTERFACE}=="*", DRIVERS=="i40e", PROGRAM="/usr/sbin/ethtool --set-priv-flags $name disable-fw-lldp on"
+
+lldptool -S -i <if>
+
+[root@compute2 i40e]# for f in */command; do echo lldp start > $f; done
+
+[root@compute2 i40e]# ethtool --show-priv-flags ens2f0 | grep lldp
+disable-fw-lldp        : on
+[root@compute2 i40e]# ethtool --show-priv-flags ens2f1 | grep lldp
+disable-fw-lldp       : off
+[root@compute2 i40e]# ethtool --show-priv-flags ens5f0 | grep lldp
+disable-fw-lldp        : off
+[root@compute2 i40e]# ethtool --show-priv-flags ens5f1 | grep lldp
+disable-fw-lldp       : off
+[root@compute2 i40e]#
+
+#!/usr/bin/env bash
+
+for f in /sys/class/net/*; do
+    dev=$(basename $f);
+    driver=$(readlink $f/device/driver/module);
+    if [[ $driver =~ 'i40e' ]]; then
+        # printf "%15s : %10s\n" "$dev" "$driver";
+        ethtool --show-priv-flags $dev | grep lldp;
+        ethtool --set-priv-flags $dev disable-fw-lldp on;
+    fi;
+done
+
+
+LEAF-1#show lldp neighbors
+Last table change time   : 0:00:34 ago
+Number of table inserts  : 36
+Number of table deletes  : 20
+Number of table drops    : 0
+Number of table age-outs : 0
+
+Port            Neighbor Device ID       Neighbor Port ID    TTL 
+------------ ------------------------ ---------------------- --- 
+Et1             kvm1                     f8f2.1ed0.9d60      120 
+Et2             kvm2                     f8f2.1ed0.5ed0      120 
+Et3             f8f2.1ed0.8dc0           f8f2.1ed0.8dc0      121 
+Et5             compute1.cloud.sdn       f8f2.1ed0.8b10      120 
+Et6             f8f2.1ed0.aae0           f8f2.1ed0.aae0      121 
+Et7             ceph-storage             f8f2.1ed0.3240      120 
+Et21            kvm1                     f8f2.1ed0.9d61      120 
+Et22            kvm2                     f8f2.1ed0.5ed1      120 
+Et23            f8f2.1ed0.8dc1           f8f2.1ed0.8dc1      121 
+Et25            compute1.cloud.sdn       f8f2.1ed0.8b11      120 
+Et26            compute2.cloud.sdn       f8f2.1ed0.aae1      120 
+Et27            ceph-storage             f8f2.1ed0.3241      120 
+Et97/1          SPINE-1                  Ethernet49/1        120 
+Et98/1          SPINE-2                  Ethernet49/1        120 
+Et99/1          LEAF-2                   Ethernet99/1        120 
+Ma1             MGMT_SW                  533                 120 
+
+LEAF-1#

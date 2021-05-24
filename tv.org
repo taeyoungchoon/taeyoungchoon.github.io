@@ -43,4 +43,7 @@
 - uhd : ultra high definition
 - sd : standard definition
 
+* program, drama
 
+- lost
+- and others like below
