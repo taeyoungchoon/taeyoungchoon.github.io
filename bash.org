@@ -107,3 +107,10 @@ TODO config
       *) echo 'others' ;;
   esac
 #+END_SRC
+
+#+BEGIN_SRC shell
+  ls ~/ | wc -l
+#+END_SRC
+
+#+RESULTS:
+: 26
