@@ -14,7 +14,7 @@
 
 - &
 
-** statistics
+** TODO statistics
 
 AVERAGE
 AVERAGEA
@@ -35,7 +35,7 @@ STDEV
 MEDIAN
 MODE
 
-** math
+** DONE math
 
 SUM
 SUMIF
@@ -54,7 +54,7 @@ EXP
 POWER
 TRUNC
 
-** text
+** DONE text
 
 LEFT
 MID
@@ -68,7 +68,7 @@ FINDB
 SEARCH
 SEARCHB
 
-** date & time
+** DONE date & time
 
 YEAR
 MONTH
@@ -83,13 +83,12 @@ TIME
 DAY
 TODAY
 EDATE
-EMONTH
 WORKDAY
-YEARFRAC
 
-** logic
+** DONE logic
 
 IF
+IFS
 IFERROR
 NOT
 AND
@@ -97,7 +96,7 @@ OR
 FALSE
 TRUE
 
-** find & refer
+** TODO find & refer
 
 VLOOKUP
 HLOOKUP
@@ -108,7 +107,7 @@ COLUMNS
 ROW
 ROWS
 
-** database
+** DONE database
 
 DSUM
 DAVERAGE
