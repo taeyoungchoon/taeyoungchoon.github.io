@@ -51,3 +51,23 @@ lisp list processing and atom
 * [2021-05-11 Tue] 아프다. 그래 아프다. 산다. 아픔이다.
 
 아버지가 아프다. 나도 아프다. 관절이 아프다. 그리고 머리도 멍해진다. 
+
+* 2021.6.17 
+
+** kubernetes with aci, aci with kubernetes, and some other vmware esxi then vcenter / work space?
+
+- the edu
+- first day : docker
+- second day : kubernetes
+- third day : kubernetes then aci
+- 4th day : ingress then all but presentation
+
+** home space, family
+
+- jeonju
+
+** my space, me
+
+- book, 초교? 특공황비 초교전, 楚乔传, 책이다. 좋다. 흠, 조금 심하다.
+- 또 다른 4권의 책을 구매하다. 초교전 2권 포함이다.
+- 집에 읽지 않은 책도 많고 읽는 중인 책도 많다. 다시 읽는 책도 있고. 또 회사에도 많다. 해외에서 오고 있는 책도 있다. 
