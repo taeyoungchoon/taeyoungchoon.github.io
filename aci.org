@@ -1,0 +1,8 @@
+* cisco means
+
+- not pure
+- can't combine with such a like the other or pure one's
+
+* with kubernetes or what or alone
+
+- cni, plugin
