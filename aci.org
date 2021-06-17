@@ -6,3 +6,1749 @@
 * with kubernetes or what or alone
 
 - cni, plugin
+
+** config
+
+apic1# show running-config
+# Command: show running-config
+# Time: Thu Jun 17 09:22:09 2021
+  aaa banner 'Application Policy Infrastructure Controller'
+  aaa authentication login console
+    exit
+  aaa authentication login default
+    exit
+  aaa authentication login domain fallback
+    exit
+  bgp-fabric
+    asn 65000
+    route-reflector spine 201
+    route-reflector spine 202
+    evpn route-reflector spine 201
+    evpn route-reflector spine 202
+    exit
+  coop-fabric
+    exit
+  clock timezone p540_Asia-Seoul
+  no password pwd-strength-check
+  password change-during-interval disable
+  password history-count 0
+  crypto aes
+    exit
+  crypto webtoken
+    session-record-flags login,logout,refresh
+    exit
+  rbac security-domain "all"
+    exit
+  rbac security-domain "mgmt"
+    exit
+  rbac security-domain "common"
+    exit
+  rbac security-domain "Podx2-PHY-Domain"
+    exit
+  rbac security-domain "Pod35-vCS-Credential"
+    exit
+  rbac role "ops"
+    priv ops
+    exit
+  rbac role "read-all"
+    priv access-connectivity-l1,access-connectivity-l2,access-connectivity-l3,access-connectivity-mgmt,access-con                                                                              nectivity-util,access-equipment,access-protocol-l1,access-protocol-l2,access-protocol-l3,access-protocol-mgmt,acc                                                                              ess-protocol-ops,access-protocol-util,access-qos,fabric-connectivity-l1,fabric-connectivity-l2,fabric-connectivit                                                                              y-l3,fabric-connectivity-mgmt,fabric-connectivity-util,fabric-equipment,fabric-protocol-l1,fabric-protocol-l2,fab                                                                              ric-protocol-l3,fabric-protocol-mgmt,fabric-protocol-ops,fabric-protocol-util,nw-svc-device,nw-svc-devshare,nw-sv                                                                              c-policy,ops,tenant-connectivity-l1,tenant-connectivity-l2,tenant-connectivity-l3,tenant-connectivity-mgmt,tenant                                                                              -connectivity-util,tenant-epg,tenant-ext-connectivity-l1,tenant-ext-connectivity-l2,tenant-ext-connectivity-l3,te                                                                              nant-ext-connectivity-mgmt,tenant-ext-connectivity-util,tenant-ext-protocol-l1,tenant-ext-protocol-l2,tenant-ext-                                                                              protocol-l3,tenant-ext-protocol-mgmt,tenant-ext-protocol-util,tenant-network-profile,tenant-protocol-l1,tenant-pr                                                                              otocol-l2,tenant-protocol-l3,tenant-protocol-mgmt,tenant-protocol-ops,tenant-protocol-util,tenant-qos,tenant-secu                                                                              rity,vmm-connectivity,vmm-ep,vmm-policy,vmm-protocol-ops,vmm-security
+    exit
+  rbac role "nw-svc-admin"
+    priv nw-svc-device,nw-svc-devshare,nw-svc-policy
+    exit
+  rbac role "nw-svc-params"
+    priv nw-svc-params
+    exit
+  rbac role "tenant-ext-admin"
+    priv tenant-connectivity-l1,tenant-connectivity-l2,tenant-connectivity-l3,tenant-connectivity-mgmt,tenant-con                                                                              nectivity-util,tenant-epg,tenant-ext-connectivity-l1,tenant-ext-connectivity-l2,tenant-ext-connectivity-l3,tenant                                                                              -ext-connectivity-mgmt,tenant-ext-connectivity-util,tenant-ext-protocol-l1,tenant-ext-protocol-l2,tenant-ext-prot                                                                              ocol-l3,tenant-ext-protocol-mgmt,tenant-ext-protocol-util,tenant-network-profile,tenant-protocol-l1,tenant-protoc                                                                              ol-l2,tenant-protocol-l3,tenant-protocol-mgmt,tenant-protocol-ops,tenant-protocol-util,tenant-qos,tenant-security
+    exit
+  rbac role "admin"
+    priv admin
+    exit
+  rbac role "access-admin"
+    priv access-connectivity-l1,access-connectivity-l2,access-connectivity-l3,access-connectivity-mgmt,access-con                                                                              nectivity-util,access-equipment,access-protocol-l1,access-protocol-l2,access-protocol-l3,access-protocol-mgmt,acc                                                                              ess-protocol-ops,access-protocol-util,access-qos
+    exit
+  rbac role "tenant-admin"
+    priv aaa,access-connectivity-l1,access-connectivity-l2,access-connectivity-l3,access-connectivity-mgmt,access                                                                              -connectivity-util,access-equipment,access-protocol-l1,access-protocol-l2,access-protocol-l3,access-protocol-mgmt                                                                              ,access-protocol-ops,access-protocol-util,access-qos,fabric-connectivity-l1,fabric-connectivity-l2,fabric-connect                                                                              ivity-l3,fabric-connectivity-mgmt,fabric-connectivity-util,fabric-equipment,fabric-protocol-l1,fabric-protocol-l2                                                                              ,fabric-protocol-l3,fabric-protocol-mgmt,fabric-protocol-ops,fabric-protocol-util,nw-svc-device,nw-svc-devshare,n                                                                              w-svc-policy,ops,tenant-connectivity-l1,tenant-connectivity-l2,tenant-connectivity-l3,tenant-connectivity-mgmt,te                                                                              nant-connectivity-util,tenant-epg,tenant-ext-connectivity-l1,tenant-ext-connectivity-l2,tenant-ext-connectivity-l                                                                              3,tenant-ext-connectivity-mgmt,tenant-ext-connectivity-util,tenant-ext-protocol-l1,tenant-ext-protocol-l2,tenant-                                                                              ext-protocol-l3,tenant-ext-protocol-mgmt,tenant-ext-protocol-util,tenant-network-profile,tenant-protocol-l1,tenan                                                                              t-protocol-l2,tenant-protocol-l3,tenant-protocol-mgmt,tenant-protocol-ops,tenant-protocol-util,tenant-qos,tenant-                                                                              security,vmm-connectivity,vmm-ep,vmm-policy,vmm-protocol-ops,vmm-security
+    exit
+  rbac role "vmm-admin"
+    priv vmm-connectivity,vmm-ep,vmm-policy,vmm-protocol-ops,vmm-security
+    exit
+  rbac role "aaa"
+    priv aaa
+    exit
+  rbac role "fabric-admin"
+    priv fabric-connectivity-l1,fabric-connectivity-l2,fabric-connectivity-l3,fabric-connectivity-mgmt,fabric-con                                                                              nectivity-util,fabric-equipment,fabric-protocol-l1,fabric-protocol-l2,fabric-protocol-l3,fabric-protocol-mgmt,fab                                                                              ric-protocol-ops,fabric-protocol-util
+    exit
+  comm-policy default
+    ssh-service
+      admin-state-enable
+      passwd-auth-enable
+      exit
+    telnet
+      no admin-state-enable
+      exit
+    shellinabox
+      exit
+    http
+      no admin-state-enable
+      no redirect
+      no allow-credential
+      visore-access-enable
+      no cli-only-mode-enable
+      enable-throttle
+      exit
+    https
+      admin-state-enable
+      no allow-credential
+      visore-access-enable
+      no cli-only-mode-enable
+      enable-throttle
+      use-keyring default
+      no client-cert-state-enable
+      exit
+    exit
+  dns
+    address 172.20.11.2 preferred
+    use-vrf oob-default
+    exit
+  firmware
+    catalog-version aci-catalog-dk9.70.4.8.bin
+    controller-group
+      # "time start <date-time>" command is commented out to avoid upgrade during configuration replay
+      # time start 2014:Jan:01:09:00
+      exit
+    switch-group Leafspine-up
+      firmware-version aci-n9000-dk9.14.1.2g.bin
+      no compatibility-check
+      # "schedule <scheduler>" command is commented out to avoid upgrade during configuration replay
+      # schedule Leafspine-up
+      exit
+    switch-group os2
+      switch 101
+      switch 102
+      switch 201
+      switch 202
+      firmware-version aci-n9000-dk9.14.1.2g.bin
+      no compatibility-check
+      # "schedule <scheduler>" command is commented out to avoid upgrade during configuration replay
+      # schedule os2
+      exit
+    exit
+  license smart transport-mode smart-licensing
+  license smart hostname privacy disable
+#Configuring PODs via pod mode is no longer supported
+#Please use "show running-config pod-profile"
+  system cluster-size 3
+  system switch-id FDO21101P1J 202 Spine202 pod 1
+  system switch-id FDO21101P44 201 Spine201 pod 1
+  system switch-id SAL2007YNWR 101 Leaf101 pod 1
+  system switch-id SAL2008Z043 102 Leaf102 pod 1
+  system pod 1 tep-pool 10.0.0.0/16
+  no system use-infra-gipo enable
+  no system enforce-subnet-check
+  policy-map type data-plane default
+    exit
+  policy-map type control-plane-if default
+    exit
+  policy-map type control-plane-leaf default
+    profile-type default
+    exit
+  policy-map type port-authentication default
+    exit
+  policy-map type control-plane-spine default
+    profile-type default
+    exit
+  qos parameters level1
+    algo tail-drop
+      maxThreshold 0
+      minThreshold 0
+      probability 0
+      weight 0
+      ecn disabled
+      fwdNonEcn disabled
+      exit
+    exit
+  qos parameters level2
+    algo tail-drop
+      maxThreshold 0
+      minThreshold 0
+      probability 0
+      weight 0
+      ecn disabled
+      fwdNonEcn disabled
+      exit
+    exit
+  qos parameters level3
+    algo tail-drop
+      maxThreshold 0
+      minThreshold 0
+      probability 0
+      weight 0
+      ecn disabled
+      fwdNonEcn disabled
+      exit
+    exit
+  qos parameters level4
+    bandwidth 0
+    algo tail-drop
+      maxThreshold 0
+      minThreshold 0
+      probability 0
+      weight 0
+      ecn disabled
+      fwdNonEcn disabled
+      exit
+    exit
+  qos parameters level5
+    bandwidth 0
+    algo tail-drop
+      maxThreshold 0
+      minThreshold 0
+      probability 0
+      weight 0
+      ecn disabled
+      fwdNonEcn disabled
+      exit
+    exit
+  qos parameters level6
+    bandwidth 0
+    algo tail-drop
+      maxThreshold 0
+      minThreshold 0
+      probability 0
+      weight 0
+      ecn disabled
+      fwdNonEcn disabled
+      exit
+    exit
+  vlan-domain Pod01-vCenter-DVS dynamic type vmware
+    vlan-pool Pod01-VMM-VLAN
+    vlan 15-19 dynamic
+    exit
+  vlan-domain Pod02-vCenter-DVS dynamic type vmware
+    vlan-pool Pod02-VMM-VLAN
+    vlan 25-29 dynamic
+    exit
+  vlan-domain Pod03-vCenter-DVS dynamic type vmware
+    vlan-pool Pod03-VMM-VLAN
+    vlan 35-39 dynamic
+    exit
+  vlan-domain Pod04-vCenter-DVS dynamic type vmware
+    vlan-pool Pod04-VMM-VLAN
+    vlan 45-49 dynamic
+    exit
+  vlan-domain Pod05-vCenter-DVS dynamic type vmware
+    vlan-pool Pod05-VMM-VLAN
+    vlan 55-59 dynamic
+    exit
+  vlan-domain Pod07-vCenter-DVS dynamic type vmware
+    vlan-pool Pod07-VMM-VLAN
+    vlan 75-79 dynamic
+    exit
+  vlan-domain Pod08-1-L3-Domain type l3ext
+    exit
+  vlan-domain Pod11-vCenter-DVS dynamic type vmware
+    vlan-pool Pod11-VMM-VLAN
+    vlan 115-119 dynamic
+    exit
+  vlan-domain Pod12-vCenter-DVS dynamic type vmware
+    vlan-pool Pod12-VMM-VLAN
+    vlan 125-129 dynamic
+    exit
+  vlan-domain Pod14-vCenter-DVS dynamic type vmware
+    vlan-pool Pod14-VMM-VLAN
+    vlan 145-149 dynamic
+    exit
+  vlan-domain Pod15_vCecter_DVS dynamic type vmware
+    vlan-pool Pod15_VMM_Vlan
+    vlan 155-159 dynamic
+    exit
+  vlan-domain Pod16-vCenter-DVS dynamic type vmware
+    vlan-pool Pod16-VMM-VLAN
+    vlan 165-169 dynamic
+    exit
+  vlan-domain Pod17-vCenter-DVS dynamic type vmware
+    vlan-pool Pod17-VMM-VLAN
+    vlan 175-179 dynamic
+    exit
+  vlan-domain Pod18-vCenter-DVS dynamic type vmware
+    vlan-pool Pod18-VMM-VLAN
+    vlan 185-189 dynamic
+    exit
+  vlan-domain Pod31-vCenter-DVS dynamic type vmware
+    vlan-pool Pod31-VMM-VLAN
+    vlan 315-319 dynamic
+    exit
+  vlan-domain Pod32-vCenter-DVS dynamic type vmware
+    vlan-pool Pod32-VMM-VLAN
+    vlan 325-329 dynamic
+    exit
+  vlan-domain Pod34-vCenter-DVS dynamic type vmware
+    vlan-pool Pod34-VMM-VLAN
+    vlan 345-349 dynamic
+    exit
+  vlan-domain Pod35-vCenter-DVS dynamic type vmware
+    vlan-pool Pod35-VMM-VLAN
+    vlan 355-359 dynamic
+    exit
+  vlan-domain Pod36-vCenter-DVS dynamic type vmware
+    vlan-pool Pod36-VMM-VLAN
+    vlan 365-369 dynamic
+    exit
+  vlan-domain Pod37-vCenter-DVS dynamic type vmware
+    vlan-pool Pod37-VMM-VLAN
+    vlan 375-379 dynamic
+    exit
+  vlan-domain Pod38-vCenter-DVS dynamic type vmware
+    vlan-pool Pod38-VMM-VLAN
+    vlan 385-389 dynamic
+    exit
+  vlan-domain Pod8-vCenter-DVS dynamic type vmware
+    vlan-pool Pod8-VMM-VLAN
+    vlan 85-89 dynamic
+    exit
+  vlan-domain phys type phys
+    exit
+  scale-profile default
+    exit
+  link-failover-policy default
+    exit
+  spanning-tree mst configuration
+    exit
+  vmware-domain Pod01-vCenter-DVS
+    vlan-domain member Pod01-vCenter-DVS type vmware
+    vcenter 172.20.11.21 datacenter Datacenter
+      # username root
+      exit
+    configure-dvs
+      lldp both
+      exit
+    exit
+  vmware-domain Pod02-vCenter-DVS
+    vlan-domain member Pod02-vCenter-DVS type vmware
+    vcenter 172.20.11.22 datacenter Datacenter
+      # username root
+      exit
+    configure-dvs
+      lldp both
+      exit
+    exit
+  vmware-domain Pod03-vCenter-DVS
+    vlan-domain member Pod03-vCenter-DVS type vmware
+    vcenter 172.20.11.23 datacenter Datacenter
+      # username root
+      exit
+    configure-dvs
+      lldp both
+      exit
+    exit
+  vmware-domain Pod04-vCenter-DVS
+    vlan-domain member Pod04-vCenter-DVS type vmware
+    vcenter 172.20.11.24 datacenter Datacenter
+      # username root
+      exit
+    configure-dvs
+      lldp both
+      exit
+    exit
+  vmware-domain Pod05-vCenter-DVS
+    vlan-domain member Pod05-vCenter-DVS type vmware
+    vcenter 172.20.11.25 datacenter Datacenter
+      # username root
+      exit
+    configure-dvs
+      lldp both
+      exit
+    exit
+  vmware-domain Pod07-vCenter-DVS
+    vlan-domain member Pod07-vCenter-DVS type vmware
+    vcenter 172.20.11.27 datacenter Datacenter
+      # username root
+      exit
+    configure-dvs
+      exit
+    exit
+  vmware-domain Pod11-vCenter-DVS
+    vlan-domain member Pod11-vCenter-DVS type vmware
+    vcenter 172.20.11.21 datacenter Datacenter
+      # username root
+      exit
+    configure-dvs
+      lldp both
+      exit
+    exit
+  vmware-domain Pod12-vCenter-DVS
+    vlan-domain member Pod12-vCenter-DVS type vmware
+    vcenter 172.20.11.22 datacenter Datacenter
+      # username root
+      exit
+    configure-dvs
+      exit
+    exit
+  vmware-domain Pod14-vCenter-DVS
+    vlan-domain member Pod14-vCenter-DVS type vmware
+    vcenter 172.20.11.24 datacenter Datacenter
+      # username root
+      exit
+    configure-dvs
+      lldp both
+      exit
+    exit
+  vmware-domain Pod15_vCecter_DVS
+    vlan-domain member Pod15_vCecter_DVS type vmware
+    vcenter 172.20.11.25 datacenter Datacenter
+      # username root
+      exit
+    configure-dvs
+      lldp both
+      exit
+    exit
+  vmware-domain Pod16-vCenter-DVS
+    vlan-domain member Pod16-vCenter-DVS type vmware
+    vcenter 172.20.11.26 datacenter Datacenter
+      # username root
+      exit
+    configure-dvs
+      lldp both
+      exit
+    exit
+  vmware-domain Pod17-vCenter-DVS
+    vlan-domain member Pod17-vCenter-DVS type vmware
+    vcenter 172.20.11.27 datacenter Datacenter
+      # username root
+      exit
+    configure-dvs
+      lldp both
+      exit
+    exit
+  vmware-domain Pod18-vCenter-DVS
+    vlan-domain member Pod18-vCenter-DVS type vmware
+    vcenter 172.20.11.28 datacenter Datacenter
+      # username root
+      exit
+    configure-dvs
+      lldp both
+      exit
+    exit
+  vmware-domain Pod31-vCenter-DVS
+    vlan-domain member Pod31-vCenter-DVS type vmware
+    vcenter 172.20.11.21 datacenter Datacenter
+      # username root
+      exit
+    configure-dvs
+      exit
+    exit
+  vmware-domain Pod32-vCenter-DVS
+    vlan-domain member Pod32-vCenter-DVS type vmware
+    vcenter 172.20.11.22 datacenter Datacenter
+      # username root
+      exit
+    configure-dvs
+      lldp both
+      exit
+    exit
+  vmware-domain Pod34-vCenter-DVS
+    vlan-domain member Pod34-vCenter-DVS type vmware
+    vcenter 172.20.11.24 datacenter Datacenter
+      # username root
+      exit
+    configure-dvs
+      lldp both
+      exit
+    exit
+  vmware-domain Pod35-vCenter-DVS
+    vlan-domain member Pod35-vCenter-DVS type vmware
+    vcenter 172.20.11.25 datacenter 172.20.11.115
+      # username root
+      exit
+    configure-dvs
+      exit
+    exit
+  vmware-domain Pod36-vCenter-DVS
+    vlan-domain member Pod36-vCenter-DVS type vmware
+    vcenter 172.20.11.26 datacenter Datacenter
+      # username root
+      exit
+    configure-dvs
+      lldp both
+      exit
+    exit
+  vmware-domain Pod37-vCenter-DVS
+    vlan-domain member Pod37-vCenter-DVS type vmware
+    vcenter 172.20.11.27 datacenter Datacenter
+      # username root
+      exit
+    configure-dvs
+      lldp both
+      exit
+    exit
+  vmware-domain Pod38-vCenter-DVS
+    vlan-domain member Pod38-vCenter-DVS type vmware
+    vcenter 172.20.11.28 datacenter Datacenter
+      # username root
+      exit
+    configure-dvs
+      lldp both
+      exit
+    exit
+  vmware-domain Pod8-vCenter-DVS
+    vlan-domain member Pod8-vCenter-DVS type vmware
+    vcenter 172.20.11.28 datacenter Datacenter
+      # username root
+      exit
+    configure-dvs
+      lldp both
+      exit
+    exit
+  template bfd ip default
+    exit
+  template bfd ipv6 default
+    exit
+  cloudsec default
+    exit
+  template dhcp relay policy default
+    exit
+  template dwdm access policy default
+    exit
+  template dwdm fabric policy default
+    exit
+  template fc-fabric-policy default
+    exit
+  template fc-leaf-policy default
+    exit
+  template isis-fabric default
+    lsp-fast-flood
+    exit
+  template control-plane-policing-prefilter-leaf default
+    exit
+  template macsec access interface-policy default
+    no enable
+    exit
+  template macsec fabric interface-policy default
+    no enable
+    exit
+  template ntp-fabric default
+    server 172.20.11.2 prefer use-epg oob-default
+    exit
+  template pod-group default
+    inherit isis-fabric default
+    exit
+  template power-over-ethernet node-policy default
+    exit
+  template policy-group Pod01-IntProfile-ESX
+    cdp enable
+    vlan-domain member Pod01-vCenter-DVS type vmware
+    speed 1G
+    forward-error-correction cl74-fc-fec
+    exit
+  template policy-group Pod02-IntPolGroup-ESX
+    cdp enable
+    vlan-domain member Pod02-vCenter-DVS type vmware
+    speed 1G
+    exit
+  template policy-group Pod03-IntPolGroup-ESX
+    cdp enable
+    vlan-domain member Pod03-vCenter-DVS type vmware
+    speed 1G
+    exit
+  template policy-group Pod04-IntPolGroup-ESX
+    cdp enable
+    vlan-domain member Pod04-vCenter-DVS type vmware
+    exit
+  template policy-group Pod05-IntPolGroup-ESX
+    cdp enable
+    vlan-domain member Pod05-vCenter-DVS type vmware
+    exit
+  template policy-group Pod07-IntPolGroup-ESX
+    cdp enable
+    vlan-domain member Pod07-vCenter-DVS type vmware
+    exit
+  template policy-group Pod11-IntPolGroup-ESX
+    cdp enable
+    vlan-domain member Pod11-vCenter-DVS type vmware
+    speed 1G
+    exit
+  template policy-group Pod12-IntPolGroup-ESX
+    cdp enable
+    vlan-domain member Pod12-vCenter-DVS type vmware
+    speed 1G
+    exit
+  template policy-group Pod14-IntPolGroup-ESX
+    cdp enable
+    vlan-domain member Pod14-vCenter-DVS type vmware
+    speed 1G
+    exit
+  template policy-group Pod15_Int_PG_ESX
+    cdp enable
+    vlan-domain member Pod15_vCecter_DVS type vmware
+    speed 1G
+    exit
+  template policy-group Pod16-IntPolGroup-ESX
+    cdp enable
+    vlan-domain member Pod16-vCenter-DVS type vmware
+    exit
+  template policy-group Pod17-IntPolGroup-ESX
+    cdp enable
+    vlan-domain member Pod17-vCenter-DVS type vmware
+    speed 1G
+    exit
+  template policy-group Pod18-IntPolGroup-ESX
+    cdp enable
+    vlan-domain member Pod18-vCenter-DVS type vmware
+    speed 1G
+    exit
+  template policy-group Pod31-IntProfile-ESX
+    cdp enable
+    vlan-domain member Pod31-vCenter-DVS type vmware
+    speed 1G
+    exit
+  template policy-group Pod32-IntPolGroup-ESX
+    cdp enable
+    vlan-domain member Pod32-vCenter-DVS type vmware
+    speed 1G
+    exit
+  template policy-group Pod34-IntPolGroup-ESX
+    cdp enable
+    vlan-domain member Pod34-vCenter-DVS type vmware
+    speed 1G
+    exit
+  template policy-group Pod35-IntProfile-ESX
+    cdp enable
+    vlan-domain member Pod35-vCenter-DVS type vmware
+    speed 1G
+    exit
+  template policy-group Pod36-IntPolGroup-ESX
+    cdp enable
+    vlan-domain member Pod36-vCenter-DVS type vmware
+    speed 1G
+    exit
+  template policy-group Pod37-IntPolGroup-ESX
+    cdp enable
+    vlan-domain member Pod37-vCenter-DVS type vmware
+    speed 1G
+    exit
+  template policy-group Pod38-IntPolGroup-ESX
+    cdp enable
+    vlan-domain member Pod38-vCenter-DVS type vmware
+    speed 1G
+    exit
+  template policy-group Pod8-IntPolGroup-ESX
+    cdp enable
+    vlan-domain member Pod8-vCenter-DVS type vmware
+    exit
+  template policy-group Podxy-IntPolGroup-ESX
+    cdp enable
+    vlan-domain member Pod03-vCenter-DVS type vmware
+    speed 1G
+    exit
+  template snmp-fabric default
+    exit
+  template control-plane-policing-prefilter-spine default
+    exit
+  template twamp responder-policy default
+    exit
+  template twamp server-policy default
+    exit
+  template vsan-attribute default
+    exit
+  tenant common
+    access-list arp
+      match arp
+      exit
+    access-list default
+      match raw default
+      exit
+    access-list est
+      match raw est etherT ip prot 6 tcpRules est
+      exit
+    access-list icmp
+      match icmp
+      exit
+    contract default type deny
+      subject default
+        access-group default both
+        exit
+      exit
+    vrf context copy
+      exit
+    vrf context default
+      exit
+    l3out default
+      exit
+    bridge-domain default
+      exit
+    application default
+      exit
+    interface bridge-domain default
+      exit
+    policy-map type data-plane default
+      exit
+    policy-map type qos default
+      exit
+    rtr-cfg default
+      exit
+    security domain default
+    template dhcp option policy default
+      exit
+    template endpoint retention policy default
+      exit
+    template ip igmp interface-policy default
+      exit
+    template ip igmp snooping policy default
+      exit
+    template ip pim interface-policy default
+      exit
+    template ipv6 mld snooping policy default
+      exit
+    template ipv6 nd prefix policy default
+      exit
+    template ipv6 nd policy default
+      exit
+    flow record default
+      exit
+    flow monitor default
+      exit
+    ipsla-pol default
+      exit
+    first-hop-security
+      security-policy default
+        exit
+      trust-control default
+        exit
+      exit
+    keychain-policy default
+      exit
+    exit
+  tenant infra
+    vrf context ave-ctrl
+      exit
+    vrf context overlay-1
+      exit
+    bridge-domain ave-ctrl
+      endpoint retention policy ave-ctrl
+      vrf member ave-ctrl
+      exit
+    bridge-domain default
+      vrf member overlay-1
+      exit
+    application access
+      epg default
+        bridge-domain member default
+        exit
+      exit
+    application ave-ctrl
+      epg ave-ctrl
+        bridge-domain member ave-ctrl
+        exit
+      exit
+    interface bridge-domain ave-ctrl
+      exit
+    interface bridge-domain default
+      exit
+    template endpoint retention policy ave-ctrl
+      endpoint retention bounce-age-interval 150
+      endpoint retention hold-interval 5
+      endpoint retention local-age-interval 120
+      endpoint retention move-frequency 1
+      endpoint retention remote-age-interval 120
+      exit
+    template ip igmp snooping policy default
+      ip igmp snooping querier
+      exit
+    template ipv6 mld snooping policy default
+      ipv6 mld snooping querier
+      exit
+    qos dscp-map default
+      set dscp-code control CS0
+      set dscp-code level1 CS1
+      set dscp-code level2 CS2
+      set dscp-code level3 CS3
+      set dscp-code level4 AF11
+      set dscp-code level5 AF21
+      set dscp-code level6 AF31
+      set dscp-code span CS5
+      set dscp-code policy CS4
+      set dscp-code traceroute CS6
+      exit
+    exit
+  tenant mgmt
+    vrf context inb
+      exit
+    vrf context oob
+      dns label default
+      exit
+    bridge-domain inb
+      vrf member inb
+      exit
+    external-l3 epg default oob-mgmt
+      contract consumer default
+      exit
+    interface bridge-domain inb
+      exit
+    oob-mgmt epg default
+      exit
+    exit
+  tenant Pod01-Tenant
+    vrf context Pod01-VRF-1
+      exit
+    bridge-domain Pod01-BD-01
+      vrf member Pod01-VRF-1
+      exit
+    application Pod01-AP-01
+      epg Pod01-K8S
+        bridge-domain member Pod01-BD-01
+        vmware-domain member Pod01-vCenter-DVS push pre-provision
+          security allow-promiscuous accept
+          security mac-changes accept
+          security forged-transmits accept
+          exit
+        exit
+      exit
+    interface bridge-domain Pod01-BD-01
+      ip address 172.20.12.1/24 secondary
+      exit
+    exit
+  tenant Pod02-Tenant
+    vrf context Pod02-VRF1
+      exit
+    bridge-domain Pod02-BD1
+      vrf member Pod02-VRF1
+      exit
+    application Pod02-AP1
+      epg Pod02-EPG1
+        bridge-domain member Pod02-BD1
+        vmware-domain member Pod02-vCenter-DVS push pre-provision
+          security allow-promiscuous accept
+          security mac-changes accept
+          security forged-transmits accept
+          exit
+        exit
+      exit
+    interface bridge-domain Pod02-BD1
+      ip address 172.20.12.1/24 secondary
+      exit
+    exit
+  tenant Pod03-Tenant
+    vrf context Pod03-VRF-01
+      exit
+    bridge-domain Pod03-BD-01
+      vrf member Pod03-VRF-01
+      exit
+    application Pod03-AP-01
+      epg Pod03-K8S
+        bridge-domain member Pod03-BD-01
+        vmware-domain member Pod03-vCenter-DVS push pre-provision
+          security allow-promiscuous accept
+          security mac-changes accept
+          security forged-transmits accept
+          exit
+        exit
+      exit
+    interface bridge-domain Pod03-BD-01
+      ip address 172.20.12.1/24 secondary
+      exit
+    exit
+  tenant Pod04-Tenant
+    vrf context Pod04-VRF1
+      exit
+    bridge-domain Pod04-BD1
+      vrf member Pod04-VRF1
+      exit
+    application Pod04-AP1
+      epg Pod04-K8S
+        bridge-domain member Pod04-BD1
+        vmware-domain member Pod04-vCenter-DVS push pre-provision
+          security allow-promiscuous accept
+          security mac-changes accept
+          security forged-transmits accept
+          exit
+        exit
+      exit
+    interface bridge-domain Pod04-BD1
+      ip address 172.20.12.1/24 secondary
+      exit
+    exit
+  tenant Pod06-Tenant
+    exit
+  tenant Pod07-Tenant
+    vrf context Pod07-VRF1
+      exit
+    bridge-domain 172.20.12.1
+      vrf member Pod07-VRF1
+      exit
+    bridge-domain 200.7.1.1
+      vrf member Pod07-VRF1
+      exit
+    bridge-domain 200.7.2.1
+      vrf member Pod07-VRF1
+      exit
+    application Pod07-AP1
+      epg Pod07-EPG01
+        bridge-domain member 172.20.12.1
+        vmware-domain member Pod07-vCenter-DVS push pre-provision
+          exit
+        exit
+      epg Pod07-EPG02
+        bridge-domain member 172.20.12.1
+        vmware-domain member Pod07-vCenter-DVS push pre-provision
+          exit
+        exit
+      exit
+    interface bridge-domain 172.20.12.1
+      ip address 172.20.12.1/24 secondary scope public
+      ip shared address 172.20.12.1/24 consumer application any epg any
+      exit
+    interface bridge-domain 200.7.1.1
+      ip address 200.7.1.1/24 secondary scope public
+      ip shared address 200.7.1.1/24 consumer application any epg any
+      exit
+    interface bridge-domain 200.7.2.1
+      ip address 200.7.2.1/24 secondary scope public
+      ip shared address 200.7.2.1/24 consumer application any epg any
+      exit
+    exit
+  tenant Pod08-Tenant
+    vrf context Pod8-VRF1
+      exit
+    bridge-domain Pod8-BD1
+      vrf member Pod8-VRF1
+      exit
+    application Pod8-AP1
+      epg Pid8-EPG2
+        bridge-domain member Pod8-BD1
+        vmware-domain member Pod8-vCenter-DVS push on-demand
+          exit
+        exit
+      exit
+    application Pod8-EPG2
+      epg Pod8-EPG2
+        bridge-domain member Pod8-BD1
+        vmware-domain member Pod8-vCenter-DVS push on-demand
+          exit
+        exit
+      exit
+    interface bridge-domain Pod8-BD1
+      ip address 200.8.1.1/24 secondary
+      ip address 200.8.2.1/24 secondary
+      exit
+    exit
+  tenant Pod11-Tenant
+    vrf context Pod11-VRF-01
+      exit
+    bridge-domain Pod11-BD-01
+      vrf member Pod11-VRF-01
+      exit
+    application Pod11-AP1
+      epg Pod11-K8S
+        bridge-domain member Pod11-BD-01
+        vmware-domain member Pod11-vCenter-DVS push pre-provision
+          security allow-promiscuous accept
+          security mac-changes accept
+          security forged-transmits accept
+          exit
+        exit
+      exit
+    interface bridge-domain Pod11-BD-01
+      ip address 172.20.12.1/24 secondary
+      exit
+    exit
+  tenant Pod12-Tenant
+    vrf context Pod12-VRF1
+      exit
+    bridge-domain Pod12-BD1
+      vrf member Pod12-VRF1
+      exit
+    application Pod12-AP1
+      epg Pod12-EPG1
+        bridge-domain member Pod12-BD1
+        vmware-domain member Pod12-vCenter-DVS push pre-provision
+          security allow-promiscuous accept
+          security mac-changes accept
+          security forged-transmits accept
+          exit
+        exit
+      exit
+    interface bridge-domain Pod12-BD1
+      ip address 172.20.12.1/24 secondary
+      exit
+    exit
+  tenant Pod14-Tenant
+    vrf context Pod14-VRF-01
+      exit
+    bridge-domain Pod14-BD-01
+      vrf member Pod14-VRF-01
+      exit
+    application Pod14-AP-01
+      epg Pod14-K8S
+        bridge-domain member Pod14-BD-01
+        vmware-domain member Pod14-vCenter-DVS push pre-provision
+          security allow-promiscuous accept
+          security mac-changes accept
+          security forged-transmits accept
+          exit
+        exit
+      exit
+    interface bridge-domain Pod14-BD-01
+      ip address 172.20.12.1/24 secondary
+      exit
+    exit
+  tenant Pod15_Tenant
+    contract Pod15_Contract
+      subject Pod15_Contract
+        access-group default both
+        exit
+      exit
+    vrf context Pod15_VRF
+      exit
+    bridge-domain Pod15_BD
+      vrf member Pod15_VRF
+      exit
+    application Pod15_AP
+      epg Pod15_EPG1
+        bridge-domain member Pod15_BD
+        contract consumer Pod15_Contract
+        contract provider Pod15_Contract
+        vmware-domain member Pod15_vCecter_DVS push pre-provision
+          exit
+        exit
+      epg Pod15_EPG2
+        bridge-domain member Pod15_BD
+        contract consumer Pod15_Contract
+        contract provider Pod15_Contract
+        vmware-domain member Pod15_vCecter_DVS push pre-provision
+          exit
+        exit
+      exit
+    interface bridge-domain Pod15_BD
+      ip address 172.20.12.1/24 secondary
+      exit
+    exit
+  tenant Pod16-Tenant
+    vrf context Pod16-VRF1
+      exit
+    bridge-domain Pod16-BD1
+      vrf member Pod16-VRF1
+      exit
+    application Pod16-AP1
+      epg Pod16-K8S
+        bridge-domain member Pod16-BD1
+        vmware-domain member Pod16-vCenter-DVS push pre-provision
+          security allow-promiscuous accept
+          security mac-changes accept
+          security forged-transmits accept
+          exit
+        exit
+      exit
+    interface bridge-domain Pod16-BD1
+      ip address 172.20.12.1/24 secondary
+      exit
+    exit
+  tenant Pod17-Tenant
+    vrf context Pod17-VRF1
+      exit
+    bridge-domain Pod17-BD1
+      vrf member Pod17-VRF1
+      exit
+    application Pod17-AP1
+      epg Pod17-EPG1
+        bridge-domain member Pod17-BD1
+        vmware-domain member Pod17-vCenter-DVS push pre-provision
+          security allow-promiscuous accept
+          security mac-changes accept
+          security forged-transmits accept
+          exit
+        exit
+      epg Pod17-EPG2
+        bridge-domain member Pod17-BD1
+        exit
+      exit
+    interface bridge-domain Pod17-BD1
+      ip address 172.20.12.1/24 secondary
+      exit
+    exit
+  tenant Pod18-Tenant
+    vrf context Pod18-VRF1
+      exit
+    bridge-domain Pod18-BD1
+      vrf member Pod18-VRF1
+      exit
+    application Pod18-AP1
+      epg Pod18-EPG1
+        bridge-domain member Pod18-BD1
+        vmware-domain member Pod18-vCenter-DVS push pre-provision
+          exit
+        exit
+      epg Pod18-EPG2
+        bridge-domain member Pod18-BD1
+        vmware-domain member Pod18-vCenter-DVS push pre-provision
+          exit
+        exit
+      exit
+    interface bridge-domain Pod18-BD1
+      ip address 172.20.12.1/24 secondary
+      exit
+    exit
+  tenant Pod31-Tenant
+    vrf context Pod31-VRF
+      exit
+    bridge-domain Pod31-BD1
+      vrf member Pod31-VRF
+      exit
+    application Pod31-AP1
+      epg Pod31-EPG1
+        bridge-domain member Pod31-BD1
+        vmware-domain member Pod31-vCenter-DVS
+          security allow-promiscuous accept
+          security mac-changes accept
+          security forged-transmits accept
+          exit
+        exit
+      epg Pod31-EPG2
+        bridge-domain member Pod31-BD1
+        vmware-domain member Pod31-vCenter-DVS
+          security allow-promiscuous accept
+          security mac-changes accept
+          security forged-transmits accept
+          exit
+        exit
+      exit
+    interface bridge-domain Pod31-BD1
+      ip address 172.20.12.1/24 secondary scope public
+      exit
+    exit
+  tenant Pod32-Tenant
+    vrf context Pod32-VRF1
+      exit
+    bridge-domain Pod32-BD1
+      vrf member Pod32-VRF1
+      exit
+    application Pod32-AP1
+      epg Pod32-K8S
+        bridge-domain member Pod32-BD1
+        vmware-domain member Pod32-vCenter-DVS push pre-provision
+          security allow-promiscuous accept
+          security mac-changes accept
+          security forged-transmits accept
+          exit
+        exit
+      exit
+    interface bridge-domain Pod32-BD1
+      ip address 172.20.12.1/24 secondary
+      exit
+    exit
+  tenant Pod34-Tenant
+    vrf context Pod34-VRF-01
+      exit
+    bridge-domain Pod34-BD-01
+      vrf member Pod34-VRF-01
+      exit
+    application Pod34-AP-01
+      epg Pod34-K8S
+        bridge-domain member Pod34-BD-01
+        vmware-domain member Pod34-vCenter-DVS push pre-provision
+          security allow-promiscuous accept
+          security mac-changes accept
+          security forged-transmits accept
+          exit
+        exit
+      exit
+    interface bridge-domain Pod34-BD-01
+      ip address 172.20.12.1/24 secondary
+      exit
+    exit
+  tenant Pod35-Tenant
+    vrf context Pod3-VRF-01
+      exit
+    bridge-domain Pod35-BD-01
+      vrf member Pod3-VRF-01
+      exit
+    application Pod35-AP-01
+      epg Pod35-K8S
+        bridge-domain member Pod35-BD-01
+        vmware-domain member Pod35-vCenter-DVS push pre-provision
+          security allow-promiscuous accept
+          security mac-changes accept
+          security forged-transmits accept
+          exit
+        exit
+      exit
+    interface bridge-domain Pod35-BD-01
+      ip address 172.20.12.1/24 secondary
+      exit
+    exit
+  tenant Pod36
+    vrf context Pod36-VRF1
+      exit
+    bridge-domain Pod36-BD1
+      vrf member Pod36-VRF1
+      exit
+    application Pod36-AP1
+      epg Pod36-EPG1
+        bridge-domain member Pod36-BD1
+        vmware-domain member Pod36-vCenter-DVS push pre-provision
+          security allow-promiscuous accept
+          security mac-changes accept
+          security forged-transmits accept
+          exit
+        exit
+      exit
+    interface bridge-domain Pod36-BD1
+      ip address 172.20.12.1/24 secondary
+      exit
+    exit
+  tenant Pod37-Tenant
+    vrf context Pod37-VRF1
+      exit
+    bridge-domain Pod37-BD1
+      vrf member Pod37-VRF1
+      exit
+    application Pod37-AP1
+      epg Pod37-EPG1
+        bridge-domain member Pod37-BD1
+        vmware-domain member Pod37-vCenter-DVS push pre-provision
+          security allow-promiscuous accept
+          security mac-changes accept
+          security forged-transmits accept
+          exit
+        exit
+      epg Pod37-EPG2
+        bridge-domain member Pod37-BD1
+        vmware-domain member Pod37-vCenter-DVS push pre-provision
+          security allow-promiscuous accept
+          security mac-changes accept
+          security forged-transmits accept
+          exit
+        exit
+      exit
+    interface bridge-domain Pod37-BD1
+      ip address 172.20.12.1/24 secondary
+      exit
+    exit
+  tenant Pod38-Tenant
+    vrf context Pod38-VRF-01
+      exit
+    bridge-domain Pod38-BD-01
+      vrf member Pod38-VRF-01
+      exit
+    application Pod38-AP-01
+      epg Pod38-K8S
+        bridge-domain member Pod38-BD-01
+        vmware-domain member Pod38-vCenter-DVS push pre-provision
+          security allow-promiscuous accept
+          security mac-changes accept
+          security forged-transmits accept
+          exit
+        exit
+      exit
+    interface bridge-domain Pod38-BD-01
+      ip address 172.20.12.1/24 secondary
+      exit
+    exit
+  tenant Pod5-Tenant
+    vrf context Pod05-VRF1
+      exit
+    bridge-domain Pod05-BD1
+      vrf member Pod05-VRF1
+      exit
+    application Pod05-AP1
+      epg Pod05-EPG1
+        bridge-domain member Pod05-BD1
+        vmware-domain member Pod05-vCenter-DVS push on-demand
+          exit
+        exit
+      epg Pod05-EPG2
+        bridge-domain member Pod05-BD1
+        vmware-domain member Pod05-vCenter-DVS push on-demand
+          exit
+        exit
+      exit
+    interface bridge-domain Pod05-BD1
+      ip address 172.20.12.1/24 secondary
+      exit
+    exit
+  leaf-profile Pod-Leaf-ESX
+    leaf-group Pod8-Leaf-ESX
+      leaf 101-102
+      exit
+    leaf-interface-profile Pod8-IntProfile-ESX
+    exit
+  leaf-profile Pod01-Leaf-ESX
+    leaf-group Pod01-Leaf-ESX
+      leaf 101-102
+      exit
+    leaf-interface-profile Pod01-IntProfile-ESX
+    exit
+  leaf-profile Pod02-Leaf-ESX
+    leaf-group Podxy-Leaf-ESX
+      leaf 101-102
+      exit
+    leaf-interface-profile Pod02-IntProfile-ESX
+    exit
+  leaf-profile Pod03-Leaf-ESX
+    leaf-group Pod03-Leaf-ESX
+      leaf 101-102
+      exit
+    leaf-interface-profile Pod03-IntProfile-ESX
+    exit
+  leaf-profile Pod04-Leaf-ESX
+    leaf-group Pod04-Leaf-ESX
+      leaf 101-102
+      exit
+    leaf-interface-profile Pod04-IntProfile-ESX
+    exit
+  leaf-profile Pod05-Leaf-ESX
+    leaf-group Pod05-Leaf-ESX
+      leaf 101-102
+      exit
+    leaf-interface-profile Pod05-IntProfile-ESX
+    exit
+  leaf-profile Pod07-Leaf-ESX
+    leaf-group Pod07-Leaf-ESX
+      leaf 101-102
+      exit
+    leaf-interface-profile Pod07-IntProfile-ESX
+    exit
+  leaf-profile Pod11-Leaf-ESX
+    leaf-group Pod11-Leaf-ESX
+      leaf 101-102
+      exit
+    leaf-interface-profile Pod11-IntProfile-ESX
+    exit
+  leaf-profile Pod12-Leaf-ESX
+    leaf-group Pod12-Leaf-ESX
+      leaf 101-102
+      exit
+    leaf-interface-profile Pod12-IntProfile-ESX
+    exit
+  leaf-profile Pod14-Leaf-ESX
+    leaf-group Pod14-Leaf-ESX
+      leaf 101-102
+      exit
+    leaf-interface-profile Pod14-IntProfile-ESX
+    exit
+  leaf-profile Pod15_SW_Profile
+    leaf-group 101
+      leaf 101
+      exit
+    leaf-group 102
+      leaf 102
+      exit
+    leaf-interface-profile Pod15_Int_Profile
+    exit
+  leaf-profile Pod16-Leaf-ESX
+    leaf-group 101-102
+      leaf 101-102
+      exit
+    leaf-interface-profile Pod16-IntProfile-ESX
+    exit
+  leaf-profile Pod17-Leaf-ESX
+    leaf-group Pod17-Leaf-sec-ESX
+      leaf 101-102
+      exit
+    leaf-interface-profile Pod17-InProfile-ESX
+    exit
+  leaf-profile Pod18-Leaf-ESX
+    leaf-group Pod18-IntPolGroup-ESX
+      leaf 101-102
+      exit
+    leaf-interface-profile Pod18-IntProfile-ESX
+    exit
+  leaf-profile Pod31-Leaf-ESX
+    leaf-group 101-102
+      leaf 101-102
+      exit
+    leaf-interface-profile Pod31-IntProfile-ESX
+    exit
+  leaf-profile Pod32-Leaf-ESX
+    leaf-group Pod32-Leaf-ESX
+      leaf 101-102
+      exit
+    leaf-interface-profile Pod32-IntProfile-ESX
+    exit
+  leaf-profile Pod34-Leaf-ESX
+    leaf-group Pod34-Leaf-ESX
+      leaf 101-102
+      exit
+    leaf-interface-profile Pod34-IntProfile-ESX
+    exit
+  leaf-profile Pod35-Leaf-ESX
+    leaf-group Pod35-Leaf-ESX
+      leaf 101-102
+      exit
+    leaf-interface-profile Pod35-IntProfile-ESX
+    exit
+  leaf-profile Pod36-Leaf-ESX
+    leaf-group Pod36-Leaf-ESX
+      leaf 101-102
+      exit
+    leaf-interface-profile Pod36-IntProfile-ESX
+    exit
+  leaf-profile Pod37-Leaf-ESX
+    leaf-group Pod37-Leaf-ESX
+      leaf 101-102
+      exit
+    leaf-interface-profile Pod37-IntProfile-ESX
+    exit
+  leaf-profile Pod38-Leaf-ESX
+    leaf-group Pod38-Leaf-ESX
+      leaf 101-102
+      exit
+    leaf-interface-profile Pod38-IntProfile-ESX
+    exit
+  leaf-interface-profile default
+    exit
+  leaf-interface-profile Pod01-IntProfile-ESX
+    leaf-interface-group Pod01-IntProfile-ESX
+      interface ethernet 1/1
+      policy-group Pod01-IntProfile-ESX
+      exit
+    exit
+  leaf-interface-profile Pod02-IntProfile-ESX
+    leaf-interface-group Pod02-IntProfile-ESX
+      interface ethernet 1/2
+      policy-group Pod02-IntPolGroup-ESX
+      exit
+    exit
+  leaf-interface-profile Pod03-IntProfile-ESX
+    leaf-interface-group Pod03-IntPolGroup-ESX
+      interface ethernet 1/3
+      policy-group Pod03-IntPolGroup-ESX
+      exit
+    exit
+  leaf-interface-profile Pod04-IntProfile-ESX
+    leaf-interface-group Pod04-IntProfile-ESX
+      interface ethernet 1/4
+      policy-group Pod04-IntPolGroup-ESX
+      exit
+    exit
+  leaf-interface-profile Pod05-IntProfile-ESX
+    leaf-interface-group Pod05-IntProfile-ESX
+      interface ethernet 1/5
+      policy-group Pod05-IntPolGroup-ESX
+      exit
+    exit
+  leaf-interface-profile Pod07-IntProfile-ESX
+    leaf-interface-group Pod07-IntProfile-ESX
+      interface ethernet 1/7
+      policy-group Pod07-IntPolGroup-ESX
+      exit
+    exit
+  leaf-interface-profile Pod11-IntProfile-ESX
+    leaf-interface-group Pod11-IntProfile-ESX
+      interface ethernet 1/11
+      policy-group Pod11-IntPolGroup-ESX
+      exit
+    exit
+  leaf-interface-profile Pod12-IntProfile-ESX
+    leaf-interface-group Pod12
+      interface ethernet 1/12
+      policy-group Pod12-IntPolGroup-ESX
+      exit
+    exit
+  leaf-interface-profile Pod14-IntProfile-ESX
+    leaf-interface-group Pod14-IntProfile-ESX
+      interface ethernet 1/14
+      policy-group Pod14-IntPolGroup-ESX
+      exit
+    exit
+  leaf-interface-profile Pod15_Int_Profile
+    leaf-interface-group Eth15
+      interface ethernet 1/15
+      policy-group Pod15_Int_PG_ESX
+      exit
+    exit
+  leaf-interface-profile Pod16-IntProfile-ESX
+    leaf-interface-group Eth16
+      interface ethernet 1/16
+      policy-group Pod16-IntPolGroup-ESX
+      exit
+    exit
+  leaf-interface-profile Pod17-InProfile-ESX
+    leaf-interface-group Pod17-IntProfile-sec-ESX
+      interface ethernet 1/17
+      policy-group Pod17-IntPolGroup-ESX
+      exit
+    exit
+  leaf-interface-profile Pod18-IntProfile-ESX
+    leaf-interface-group Pod18-IntProfile-ESX
+      interface ethernet 1/18
+      policy-group Pod18-IntPolGroup-ESX
+      exit
+    exit
+  leaf-interface-profile Pod31-IntProfile-ESX
+    leaf-interface-group Pod31-IntProfile-ESX
+      interface ethernet 1/31
+      policy-group Pod31-IntProfile-ESX
+      exit
+    exit
+  leaf-interface-profile Pod32-IntProfile-ESX
+    leaf-interface-group Pod32-IntProfile-ESX
+      interface ethernet 1/32
+      policy-group Pod32-IntPolGroup-ESX
+      exit
+    exit
+  leaf-interface-profile Pod34-IntProfile-ESX
+    leaf-interface-group Pod34-IntProfile-ESX
+      interface ethernet 1/34
+      policy-group Pod34-IntPolGroup-ESX
+      exit
+    exit
+  leaf-interface-profile Pod35-IntProfile-ESX
+    exit
+  leaf-interface-profile Pod36-IntProfile-ESX
+    leaf-interface-group Pod36-IntProfile-ESX
+      interface ethernet 1/36
+      policy-group Pod36-IntPolGroup-ESX
+      exit
+    exit
+  leaf-interface-profile Pod37-IntProfile-ESX
+    leaf-interface-group Pod37-IntProfile-ESX
+      interface ethernet 1/37
+      policy-group Pod37-IntPolGroup-ESX
+      exit
+    exit
+  leaf-interface-profile Pod38-IntProfile-ESX
+    leaf-interface-group Pod38-IntProfile-ESX
+      interface ethernet 1/38
+      policy-group Pod38-IntPolGroup-ESX
+      exit
+    exit
+  leaf-interface-profile Pod8-IntProfile-ESX
+    leaf-interface-group Pod8-IntProfile-ESX
+      interface ethernet 1/8
+      policy-group Pod8-IntPolGroup-ESX
+      exit
+    exit
+  leaf-interface-profile Podxy-IntProfile-ESX
+    exit
+  spine-profile default
+    exit
+  flash-config default
+    exit
+  spine-interface-profile default
+    exit
+  fabric-internal
+    exit
+  pod-profile default
+    pods all
+      inherit pod-group default
+      exit
+    exit
+  leaf 101
+    interface ethernet 1/1
+      # policy-group Pod01-IntProfile-ESX
+      exit
+    interface ethernet 1/2
+      # policy-group Pod02-IntPolGroup-ESX
+      exit
+    interface ethernet 1/3
+      # policy-group Pod03-IntPolGroup-ESX
+      exit
+    interface ethernet 1/4
+      # policy-group Pod04-IntPolGroup-ESX
+      exit
+    interface ethernet 1/5
+      # policy-group Pod05-IntPolGroup-ESX
+      exit
+    interface ethernet 1/7
+      # policy-group Pod07-IntPolGroup-ESX
+      exit
+    interface ethernet 1/8
+      # policy-group Pod8-IntPolGroup-ESX
+      exit
+    interface ethernet 1/11
+      # policy-group Pod11-IntPolGroup-ESX
+      exit
+    interface ethernet 1/12
+      # policy-group Pod12-IntPolGroup-ESX
+      exit
+    interface ethernet 1/14
+      # policy-group Pod14-IntPolGroup-ESX
+      exit
+    interface ethernet 1/15
+      # policy-group Pod15_Int_PG_ESX
+      exit
+    interface ethernet 1/16
+      # policy-group Pod16-IntPolGroup-ESX
+      exit
+    interface ethernet 1/17
+      # policy-group Pod17-IntPolGroup-ESX
+      exit
+    interface ethernet 1/18
+      # policy-group Pod18-IntPolGroup-ESX
+      exit
+    interface ethernet 1/31
+      # policy-group Pod31-IntProfile-ESX
+      exit
+    interface ethernet 1/32
+      # policy-group Pod32-IntPolGroup-ESX
+      exit
+    interface ethernet 1/34
+      # policy-group Pod34-IntPolGroup-ESX
+      exit
+    interface ethernet 1/36
+      # policy-group Pod36-IntPolGroup-ESX
+      exit
+    interface ethernet 1/37
+      # policy-group Pod37-IntPolGroup-ESX
+      exit
+    interface ethernet 1/38
+      # policy-group Pod38-IntPolGroup-ESX
+      exit
+    exit
+  leaf 102
+    interface ethernet 1/1
+      # policy-group Pod01-IntProfile-ESX
+      exit
+    interface ethernet 1/2
+      # policy-group Pod02-IntPolGroup-ESX
+      exit
+    interface ethernet 1/3
+      # policy-group Pod03-IntPolGroup-ESX
+      exit
+    interface ethernet 1/4
+      # policy-group Pod04-IntPolGroup-ESX
+      exit
+    interface ethernet 1/5
+      # policy-group Pod05-IntPolGroup-ESX
+      exit
+    interface ethernet 1/7
+      # policy-group Pod07-IntPolGroup-ESX
+      exit
+    interface ethernet 1/8
+      # policy-group Pod8-IntPolGroup-ESX
+      exit
+    interface ethernet 1/11
+      # policy-group Pod11-IntPolGroup-ESX
+      exit
+    interface ethernet 1/12
+      # policy-group Pod12-IntPolGroup-ESX
+      exit
+    interface ethernet 1/14
+      # policy-group Pod14-IntPolGroup-ESX
+      exit
+    interface ethernet 1/15
+      # policy-group Pod15_Int_PG_ESX
+      exit
+    interface ethernet 1/16
+      # policy-group Pod16-IntPolGroup-ESX
+      exit
+    interface ethernet 1/17
+      # policy-group Pod17-IntPolGroup-ESX
+      exit
+    interface ethernet 1/18
+      # policy-group Pod18-IntPolGroup-ESX
+      exit
+    interface ethernet 1/31
+      # policy-group Pod31-IntProfile-ESX
+      exit
+    interface ethernet 1/32
+      # policy-group Pod32-IntPolGroup-ESX
+      exit
+    interface ethernet 1/34
+      # policy-group Pod34-IntPolGroup-ESX
+      exit
+    interface ethernet 1/36
+      # policy-group Pod36-IntPolGroup-ESX
+      exit
+    interface ethernet 1/37
+      # policy-group Pod37-IntPolGroup-ESX
+      exit
+    interface ethernet 1/38
+      # policy-group Pod38-IntPolGroup-ESX
+      exit
+    exit
+  switch 201
+    interface mgmt0
+      ip address 172.20.10.211/24 gateway 172.20.10.1
+      oob-mgmt epg default
+      exit
+    exit
+  switch 101
+    interface mgmt0
+      ip address 172.20.10.201/24 gateway 172.20.10.1
+      oob-mgmt epg default
+      exit
+    exit
+  switch 202
+    interface mgmt0
+      ip address 172.20.10.212/24 gateway 172.20.10.1
+      oob-mgmt epg default
+      exit
+    exit
+  switch 102
+    interface mgmt0
+      ip address 172.20.10.202/24 gateway 172.20.10.1
+      oob-mgmt epg default
+      exit
+    exit
+  flow record default
+    exit
+  flow monitor default
+    exit
+  flow node-policy default
+    exit
+  vpc domain explicit 100 leaf 101 102
+    exit
+  monitor virtual session default
+    exit
+  scheduler controller schedule ConstSchedP
+    absolute window ConstAbsWindowP
+      max concurrent nodes 1
+      max running time 01:00:00:00.000
+      # time start 2014:Jan:01:09:00
+      exit
+    exit
+  scheduler fabric schedule ConstSchedP
+    absolute window ConstAbsWindowP
+      max concurrent nodes 1
+      max running time 00:01:00:00.000
+      # time start 2014:Jan:01:09:00
+      exit
+    recurring window ConstRecWindowP
+      max concurrent nodes 1
+      max running time 00:01:00:00.000
+      time start weekly sunday 00:00
+      exit
+    exit
+  scheduler fabric schedule EveryEightHours
+    recurring window first
+      max running time 00:01:00:00.000
+      time start daily 01:00
+      exit
+    recurring window third
+      max running time 00:01:00:00.000
+      time start daily 17:00
+      exit
+    recurring window second
+      max running time 00:01:00:00.000
+      time start daily 09:00
+      exit
+    exit
+  scheduler fabric schedule ConstCatSchedP
+    absolute window ConstAbsWindowP
+      max concurrent nodes 1
+      max running time 00:01:00:00.000
+      # time start 2014:Jan:01:09:00
+      exit
+    exit
+  scheduler fabric schedule leaf-spine
+    exit
+  scheduler fabric schedule Leafspine-up
+    exit
+  scheduler fabric schedule os
+    exit
+  scheduler fabric schedule os2
+    exit
+  snapshot export DailyAutoBackup
+    schedule EveryEightHours
+    exit
+  troubleshoot eptoep session endpointcheck srcip 200.7.1.11 tenant Pod71-Tenant application Pod71-AP1 epg Pod71-                                                                              EPG1 destip 200.7.2.21 tenant Pod71-Tenant application Pod71-AP1 epg Pod72-EPG1
+  node-control policy default
+    feature telemetry
+    exit
+  zones
+    exit
+  mgmt-connectivity-pref inband
+apic1#
