@@ -9,6 +9,7 @@
 
 ** config
 
+#+BEGIN_SRC shell
 apic1# show running-config
 # Command: show running-config
 # Time: Thu Jun 17 09:22:09 2021
@@ -1752,3 +1753,4 @@ apic1# show running-config
     exit
   mgmt-connectivity-pref inband
 apic1#
+#+END_SRC
