@@ -11,3 +11,16 @@
 - show ip bgp neighbors
 - show ip bgp all
 - show ip bgp summary
+
+* parsing
+
+#+BEGIN_SRC 
+egrep '>' | grep -v snmp  | grep -v 'C-' | grep -v '<>' | cut -d'>' -f 1 | \
+uniq | cat -n
+#+END_SRC
+
+#+BEGIN_SRC 
+egrep '>|#' | grep -v snmp  | grep -v 'C-' | grep -v '<>' | grep -v desc | grep -v RPS | grep -v Watt | grep -v '\-\-' | grep -v '>en' | grep -v 'sh ver' | grep -v 'sh inv' | grep -v 'uptime' | grep -v 'sh env all' | grep -v 'ter len 0' | grep -v 'sh run' | \
+# cut -d'>' -d'#' -f 1 | uniq | cat -n
+cut -d'>' -f 1 | uniq | cat -n
+#+END_SRC

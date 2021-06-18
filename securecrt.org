@@ -1,0 +1,80 @@
+* log file
+
+- Options > Global Options
+- General > Default Session > Edit default settings
+- Terminal > Log File
+
+** log file name
+
+- T:\t-log\%H_%S_%Y%M%D_%h_%h_%m_%s.log
+
+** options
+
+- [X] Prompt for filename
+- [X] Start log upon connect
+- [X] Append to file
+
+* Shortcut? Button
+
+- View > Button Bar
+
+** id
+
+XXX\r
+
+** pass
+
+YYY\r
+en\r\p\p
+ZZZ\r
+
+** sh ver
+
+ter len 0\r
+sh ver\r
+
+** sh inv
+
+sh inv\r
+
+** more
+
+sh env all\r 
+sh run\r
+
+** sample
+
+show proc cpu\r
+q\r
+sho proc mem\r
+q\r
+ter le 0\r
+sh ver\r
+sh inv\r
+sh env all\r
+sh int desc\r
+sh int | in CRC\r
+sh ip int br\r
+sh ip route sum\r
+sh stan br\r
+sh run\r
+sh log\r
+
+** pure pass
+
+YYY\r
+
+** try
+
+RRR\r
+
+
+* Tip
+
+- Ctrl - F4
+- Ctrl - Tab
+- show module
+- config paging disable
+  - config paging enable
+- terminal length 0
+- logout vs exit
