@@ -1,0 +1,12 @@
+* plink
+
+- sessionlog
+- pw
+- l
+- m
+
+#+BEGIN_SRC 
+
+plink -l user -pw xxx -m chk.script -sessionlog foo.log targetHost 
+
+#+END_SRC
