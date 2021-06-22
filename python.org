@@ -1,38 +1,42 @@
-* with emacs but and then emacs 26.1 it works well
+* TODO COMMENT parts
 
-#+BEGIN_SRC
-Warning (python): 
-Your 'python-shell-interpreter' doesn't seem to support readline, yet 
-'python-shell-completion-native-enable' was t 
-and "python" is not part of the 'python-shell-completion-native-disabled-interpreters' list.  
-Native completions have been disabled locally.
-#+END_SRC
+- [ ] with emacs
+  1. [ ] sth?
+  2. C-c C-c
+- [X] with org mode
+  - C-c '
+- [X] emacs with tmux
+  1. tmux
+  2. C-b %
+  3. emacs foo.py
+  4. C-b o
+  5. while true; do python3 foo.py; sleep 3; done
+- [X] ipython
+- [X] if
+  #+BEGIN_SRC python
+    if True:
+	print(True)
+  #+END_SRC
 
-* is the snake? or what?
+- [X] for
+  #+BEGIN_SRC python
+    for i in range(3):
+	for j in range(3):
+	    print(i, j)
+  #+END_SRC
 
-뭐 개발언어 이기도 하다 요즘 아니 좀 오래전부터 (perl이나 lisp만큼은 아니지만)
-나는 아니다 했다 저는 말이죠 조금 old한 것을 사용하는 것으로 물론 지금도 사용하지 못하고 있지만
+- [ ] re
+- [X] list
+  #+BEGIN_SRC python
+    lt = [1, 2, 3]
+    print(lt)
+  #+END_SRC
+- [ ] hash
+- [ ] arg
+- [X] math
+  #+BEGIN_SRC python
+    import math
+    math.pi
+  #+END_SRC
 
-make clean이라
-
-* later and now
-
-이제 시작할까 생각 아니 시작입니다.
-
-* go
-
-- import
-- from
-- if elif else
-- :
-- ;
-- ,
-- os
-- sys
-- re
-- math
-- network rel
-
-* history
-
-- [2021-03-19 Fri 10:02] 오늘의 파이썬, 뱀이다. 그리고, 다시금 printf/print 이 word는 어디서 왔을까?
+- print?
