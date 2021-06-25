@@ -9,25 +9,86 @@
 ssh -t
 #+END_SRC
 
-* key
+* DONE cisco network device with ssh
 
-| key     | say                                        |
-|---------+--------------------------------------------|
-| rsa     | secure enough so ssh-keygen -t rsa -b 2048 |
-| dsa     | disabled on OpenSSH 7.0                    |
-| ecdsa   | compatibility headaches no more            |
-| ed25519 | compatibility headaches no more            |
+#+BEGIN_SRC 
+? cat .bashrc  |grep ssh
+alias ssh='ssh -F ~/.ssh/config'
 
-* note about ssh
+? cat ~/.ssh/config
+Host *
+        StrictHostKeyChecking no
+        KexAlgorithms +diffie-hellman-group1-sha1
+        Ciphers +aes256-cbc
+#+END_SRC
 
-- telnet alternative
-- being secure
+** detail
 
-* config
+ssh -v admin@192.168.25.11
+
+debug1: SSH2_MSG_KEXINIT sent
+debug1: SSH2_MSG_KEXINIT received
+debug1: kex: algorithm: (no match)
+Unable to negotiate with 192.168.25.11 port 22: no matching key exchange method found. Their offer: diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1
+
+ssh -Q kex
+ssh -Q cipher
+ssh -Q mac
+ssh -Q PubkeyAcceptedAlgorithms
+ssh -Q HostKeyAlgorithms
+
+ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 admin@192.168.25.11
+
+debug1: SSH2_MSG_KEXINIT sent
+debug1: SSH2_MSG_KEXINIT received
+debug1: kex: algorithm: diffie-hellman-group1-sha1
+debug1: kex: host key algorithm: ssh-rsa
+Unable to negotiate with 192.168.25.11 port 22: no matching cipher found. Their offer: aes128-cbc,3des-cbc,aes192-cbc,aes256-cbc
+
+ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 -c aes256-cbc admin@192.168.25.11
+
+debug1: SSH2_MSG_KEXINIT sent
+debug1: SSH2_MSG_KEXINIT received
+debug1: kex: algorithm: diffie-hellman-group1-sha1
+debug1: kex: host key algorithm: ssh-rsa
+debug1: kex: server->client cipher: aes256-cbc MAC: hmac-sha1 compression: none
+debug1: kex: client->server cipher: aes256-cbc MAC: hmac-sha1 compression: none
+debug1: expecting SSH2_MSG_KEX_ECDH_REPLY
+debug1: SSH2_MSG_KEX_ECDH_REPLY received
+debug1: Server host key: ssh-rsa SHA256:e/ra+fqZsSBADw776y8+58OVJBVo8ealQ8GkVG/t5hs
+debug1: Host '192.168.25.11' is known and matches the RSA host key.
+debug1: Found key in /home/jack/.ssh/known_hosts:34
+debug1: rekey out after 4294967296 blocks
+debug1: SSH2_MSG_NEWKEYS sent
+debug1: expecting SSH2_MSG_NEWKEYS
+debug1: SSH2_MSG_NEWKEYS received
+debug1: rekey in after 4294967296 blocks
+debug1: Will attempt key: /home/jack/.ssh/id_rsa RSA SHA256:juXnlC6iUErg11ldOoQUmhlAgLV8lo5tgzESak7S/x0
+debug1: Will attempt key: /home/jack/.ssh/id_dsa
+debug1: Will attempt key: /home/jack/.ssh/id_ecdsa
+debug1: Will attempt key: /home/jack/.ssh/id_ecdsa_sk
+debug1: Will attempt key: /home/jack/.ssh/id_ed25519
+debug1: Will attempt key: /home/jack/.ssh/id_ed25519_sk
+debug1: Will attempt key: /home/jack/.ssh/id_xmss
+debug1: SSH2_MSG_SERVICE_ACCEPT received
+debug1: Authentications that can continue: publickey,keyboard-interactive,password
+debug1: Next authentication method: publickey
+debug1: Offering public key: /home/jack/.ssh/id_rsa RSA SHA256:juXnlC6iUErg11ldOoQUmhlAgLV8lo5tgzESak7S/x0
+debug1: Authentications that can continue: publickey,keyboard-interactive,password
+debug1: Trying private key: /home/jack/.ssh/id_dsa
+debug1: Trying private key: /home/jack/.ssh/id_ecdsa
+debug1: Trying private key: /home/jack/.ssh/id_ecdsa_sk
+debug1: Trying private key: /home/jack/.ssh/id_ed25519
+debug1: Trying private key: /home/jack/.ssh/id_ed25519_sk
+debug1: Trying private key: /home/jack/.ssh/id_xmss
+
+debug1: Next authentication method: keyboard-interactive
+(admin@192.168.25.11) Password:
+* TODO config
 
 - StrictHostKeyChecking no
 
-* config about slow login
+* TODO config about slow login
 
 comment below at sshd_config
 
@@ -49,6 +110,15 @@ GSSAPIDelegateCredentials no
 - May 2006: Secure Shell use of GSSAPI standardised
   - SSH:GSSAPI:Kerberos
 
+* key
+
+| key     | say                                        |
+|---------+--------------------------------------------|
+| rsa     | secure enough so ssh-keygen -t rsa -b 2048 |
+| dsa     | disabled on OpenSSH 7.0                    |
+| ecdsa   | compatibility headaches no more            |
+| ed25519 | compatibility headaches no more            |
+
 * files
 
 - ~/.ssh/config
@@ -61,9 +131,9 @@ GSSAPIDelegateCredentials no
 - $HOME/.ssh/id_dsa
 - $HOME/.ssh/id_dsa.pub
 
-* ssh-keygen -R hostname
-* ssh -i ~/.ssh/id_rsa user@target
-* ssh-copy-id user@target
+* DONE ssh-keygen -R hostname
+* DONE ssh -i ~/.ssh/id_rsa user@target
+* DONE ssh-copy-id user@target
 
 #+BEGIN_EXAMPLE
 $ cat ~/.ssh/id_rsa.pub | ssh user@192.168.0.100 "mkdir -p ~/.ssh && cat >>  ~/.ssh/authorized_keys"

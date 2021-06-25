@@ -1,40 +1,23 @@
 * enable
 
-#+BEGIN_EXAMPLE
+terminal length 0
+show running-config | include username
 
-$ telnet 192.168.0.254
-Trying 192.168.0.254...
-Connected to 192.168.0.254 (192.168.0.254).
-Escape character is '^]'.
+show version 
 
-User Access Verification
+* configure
 
-Password:
-3F-2560-A>enable
-Password:
-3F-2560-A#
+hostname bar
+no ip domain-lookup
+shell processing full
+crypto key generate rsa modulus 2048
 
-#+END_EXAMPLE
+* ios.sh
 
-* configure terminal
+show running-config | grep ^username
+for i in 1 2 3; do echo $i; sleep 3; done
 
-#+BEGIN_EXAMPLE
+* tclsh
 
-3F-2560-A#configure terminal
-Enter configuration commands, one per line.  End with CNTL/Z.
-3F-2560-A(config)#exit
-3F-2560-A#
-
-#+END_EXAMPLE
-
-* hostname
-
-#+BEGIN_EXAMPLE
-
-foo#conf t
-Enter configuration commands, one per line.  End with CNTL/Z.
-foo(config)#hostname bar
-bar(config)#exit
-bar#
-
-#+END_EXAMPLE
+puts 'hi'
+ios_config "hostname foo"
