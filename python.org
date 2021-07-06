@@ -40,3 +40,24 @@
   #+END_SRC
 
 - print?
+* process
+  
+** subprocess
+
+https://docs.python.org/3/library/subprocess.html
+
+- communicate
+- [X] check_output
+
+subprocess.check_output("uname")
+
+- getoutput
+- getstatusoutput
+- [ ] popen, Popen
+- [ ] run
+
+output = subprocess.run("uname", capture_output=True, shell=True, text=True)
+if output.returncode == 0: print(output.stdout)
+
+- os.system
+- os.spawn
