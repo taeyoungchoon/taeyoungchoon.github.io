@@ -1,0 +1,24 @@
+* word
+
+rfc, 802.1q, ieee, ietf
+
+* gather
+
+(ietf rfc)
+(ieee 802.1q)
+
+* so
+
+(under (over internet))
+
+* say
+
+- IEEE, Institute of Electrical and Electronics Engineers
+  - Since 1963
+  - IEEE 802.1D : MAC Bridge standard which include Briding, Spanning Tree and others
+  - IEEE 802.1Q : Dot1q, virtual LANs (VLANs)
+  - IEEE 802.1X : port-based Network Access Control
+- IETF, Internet Engineering Task Force
+  - Since 1986
+  - RFC 959 : FILE TRANSFER PROTOCOL (FTP)
+  - RFC 1945 : Hypertext Transfer Protocol -- HTTP/1.0 

@@ -1,0 +1,64 @@
+* switch
+
+- MDC (multi-tenant Device Context) from H3C S12500 DataCenter Cloud Core Switch Series
+  using Comware 7
+  - VPN instances, VRF instances so
+
+* and so on
+
+http://www.kitt.co.kr/content/network
+관계사의 독립적인 네트워크 운영을 위해 단 한대의 장비를 최대 9대로 분리
+
+
+H3C Comware 7
+MDC Technology White Paper
+Network Operating System
+Comware and ProVision is the brand
+oriented H3C/HPE FlexNetwork switches (and on some old 3Com Switch too)
+H3C Switches, H3C Routers
+
+3Com, H3C, TippingPoint then Hewlett-Packard
+HPE and H3C, is the joint
+
+aruba
+
+https://packetpushers.net/virtual-toolbox/list-network-operating-systems/
+network operating system
+
+IOS IOS-XE NX-OS IOS-XR
+Junos Arista EOS
+SONiC
+Comware ProCurve
+Cumulus Linux
+Pica8 PicOS
+
+https://www.h3c.com/en/Products_Technology/Operating_System/ComwareV7/
+Virtualization > MDC (1:N virtualization)
+
+HP FlexFabric
+
+license
+
+Intelligent Resilient Framework (IRF)
+
+http://www.unicomp.com.tw/cmsAdmin/uploads/hpe-flexfabric-12500-switch-series.pdf
+
+https://support.hpe.com/hpesc/public/docDisplay?docId=emr_na-c03691913-1
+12500 Comware V7 is dedicated for Data Centre deployment, it provide “EVI, MDC, ISSU” features which are not supported by Comware V5.
+
+https://www.manualslib.com/manual/1131531/Hp-12500.html?page=215
+display mdc
+
+https://www.networkcomputing.com/cloud-infrastructure/hp-catches-cisco-private-cloud-networking
+HP Catches Up With Cisco on Private Cloud Networking
+HP's cloud networking and will be available free as a software upgrade in the fourth quarter for HP's FlexFabric A12500 switches
+
+HP says its A12500 core switch lists for $56,510, including EVI and MDC.
+According to the company, a comparable Nexus 7000 costs $68,000, plus an additional $60,000 in software including: an enterprise license at $15,000, a VDC license at $20,000 and an OTV license at $25,000.
+
+file:///C:/Users/jack/AppData/Local/Temp/MDC%20White%20Paper.pdf
+MDC Technology White Paper, Comware V7
+
+https://www.hpe.com/us/en/networking/comware.html
+HPE FlexFabric 12900E Switch Series
+only
