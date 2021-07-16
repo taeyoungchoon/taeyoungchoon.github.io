@@ -1,3 +1,4 @@
 * am I right? state machine?
 
 such as puppet(with agent), not ansible even k8s
+
