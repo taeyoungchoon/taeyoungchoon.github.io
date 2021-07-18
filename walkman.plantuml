@@ -1,0 +1,3 @@
+@startuml
+walkman -> computer: audio
+@enduml
