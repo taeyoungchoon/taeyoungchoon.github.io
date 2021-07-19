@@ -1,0 +1,32 @@
+* dcs, dc's, dc set, data center
+
+- dc designer
+- dc deployer
+- dc mon
+- 설계, 구축, 유지
+  - 인다.
+
+* dc designer
+
+- edit yaml with vi editor is hossible
+- network world's apsta-like web-ui
+- for example, tripleo openstack web-ui
+
+** about tripleo web-ui
+
+- The tripleo-ui is no longer available as of Stein. ([[https://access.redhat.com/documentation/en-us/red_hat_openstack_platform/11/html/director_installation_and_usage/chap-configuring_basic_overcloud_requirements_with_the_ui_tools][link 1]], [[https://docs.openstack.org/tripleo-docs/latest/install/deprecated/basic_deployment_ui.html][link 2]]) 
+- The GUI is no longer supported in OSP14. The last supported release for the GUI is OSP13.
+
+** about apstra-like web-ui
+
+- Juniper Apstra User Guide([[https://portal.apstra.com/docs/][link 1]])
+- to me, best shot([[https://i.vimeocdn.com/video/809642875_1280x720.jpg][link 1]])
+- [[https://apstra.com/wp-content/uploads/2019/12/whiteboard_10000_foot_view.png][detail]]
+
+* dc deployer
+
+- using the output of dc designer
+
+* dc mon
+
+- mon, itor the set
