@@ -1,3 +1,7 @@
+* keyboard
+
+- C-e : Exit game
+
 * east hut
 
 - Sin'Vraal serve the astaroth the shadowlord of hatred told what he saw the king below the earth

@@ -1,7 +1,12 @@
 * lisp
 
 #+BEGIN_SRC emacs-lisp
+(setf dhcp 'dhcp)
+(setf ftp '(tftp http))
 (cons dhcp ftp)
 #+END_SRC
+
+#+RESULTS:
+| dhcp | tftp | http |
   
 * with server type
