@@ -84,6 +84,7 @@ debug1: Trying private key: /home/jack/.ssh/id_xmss
 
 debug1: Next authentication method: keyboard-interactive
 (admin@192.168.25.11) Password:
+
 * TODO config
 
 - StrictHostKeyChecking no
