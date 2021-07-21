@@ -38,6 +38,7 @@
 
 ** TODO lg gram, 14ZD990-GX50K, 995g but adapter required
 
+- 2019.5.
 - core i5
 - 14 inch
 - 256GB
