@@ -52,7 +52,7 @@ lisp list processing and atom
 
 아버지가 아프다. 나도 아프다. 관절이 아프다. 그리고 머리도 멍해진다. 
 
-* 2021.6.17 
+* 2021.6.17
 
 ** kubernetes with aci, aci with kubernetes, and some other vmware esxi then vcenter / work space?
 
@@ -71,3 +71,11 @@ lisp list processing and atom
 - book, 초교? 특공황비 초교전, 楚乔传, 책이다. 좋다. 흠, 조금 심하다.
 - 또 다른 4권의 책을 구매하다. 초교전 2권 포함이다.
 - 집에 읽지 않은 책도 많고 읽는 중인 책도 많다. 다시 읽는 책도 있고. 또 회사에도 많다. 해외에서 오고 있는 책도 있다. 
+
+* [2021-07-24 Sat] 그리고 
+
+오늘도 꿈을 꾸었다. 단지 꿈이었다. 꿈 속에 있었다. 그렇게 있었다. 현실은 꿈과 차이를 갖는다.
+
+** so what will be
+
+let it
