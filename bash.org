@@ -1,5 +1,4 @@
-
-TODO config
+* TODO config
 
 - but the beginning
 - user login using console, telnet or ssh
@@ -108,9 +107,14 @@ TODO config
   esac
 #+END_SRC
 
+#+RESULTS:
+: others
+
 #+BEGIN_SRC shell
   ls ~/ | wc -l
 #+END_SRC
 
 #+RESULTS:
-: 26
+: 23
+
+
