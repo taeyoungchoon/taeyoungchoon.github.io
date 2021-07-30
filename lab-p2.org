@@ -1,0 +1,48 @@
+* something
+
+1. 인프라의 개별 파트의 컴포넌트화, 추상화
+2. 인프라의 표준화, template화 한다. 코드화 한다. 추후
+   - 관습
+   - best practice
+     - (raid-called-3ware (firmware driver cli))
+     - (pm vm xm)
+     - (pm port) 
+     - (port1 provisioning)
+     - (pm os raid1)
+     - (pm data (raid5 split))
+     - (pm (port 2 3) bond)
+     - (ntp 1 3)
+     - (dns)
+     - (shared-resource (ntp dns (fs repo)))
+     - net
+   - 물리적 실체, impl는 타겟마다 다르다. 
+     - 3ware라면
+     - dell, hp는 다르다. 
+     - mclag vlt(dell)
+3. 인프라 설계
+   - 인프라의 세트이 도출
+4. 설계된 인프라의 검증 툴
+5. 설계된 인프라를 public cloud에서 테스트
+   - 물리 장비의 구성이 필요없음
+6. 설계된 인프라를 private cloud에서 구축
+   - 물리 장비의 설치 및 기본 구성 작업이 필요함
+     - 자동화된 설치가 필요함, 난이도가 있음
+   - 서버는
+   - 네트워크 장비는, os, config
+   - 실 연동은 용이하지 않다.
+     - 드라이버의 성숙도, openstack slow down but kubernetes steady
+     - 드라이버만 있고 연동 관련은 문서로 있다. one click, nil
+       - 이는 어떠한 구현체도 지원할 수 있다는 말이지만, 컨설팅에 따라
+       - 일반 구성이 부제하다는 이야기다. 케이스도 적다면 이건 악이다.
+         - 코드가 충분히 테스트되지 못한다.
+7. 구축된 인프라의 상태를 모니터링하고 유지한다.
+   - trend, graph
+   - alert, nagios
+   - state machine
+   - kubernetes
+   - openstack vm count or ha-like
+
+* code, lisp
+
+
+

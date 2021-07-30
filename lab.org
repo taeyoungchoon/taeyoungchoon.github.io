@@ -39,56 +39,28 @@ https://tdhpe.techdata.eu/Documents/gap_analysis_uk/HP_Software_Defined_Infrastr
 
 당해 연구소가 연구활동을 수행하는 데 있어서 요구되는 전문적인 기술분야 및 기술분야의 연구개발 목표를 간략하 기재할 것
 
-openstack, kubernetes, 
-sdn : arista cloudviewion, juniper contrail, tungsten fabric
-open switch such as 
-baremetal provisioning using fai like
-monitor, nagios, prom-
-zeroconf, .local
-설치 자동화
-
-스위치도,
-
-mc, nc, sc, bc, fc/ec
-
-neural network, but other word
-provisioning network and ipmi network and management network
-(switch management
-(server ipmi provisioning
-(storage ssh
-(facility ssh, maybe, now a day, or c, socket
-
-heat ansible bash python
-server raid, pxe
-switch/network evpn vxlan vlan mclag vrf L2 L3 bgp ospf trunk SDN controller such as 
+- [ ] 자체적으로 SDDC 인프라를 설계할 수 있는 도구 개발
+- [X] 물리 서버, 운영체제, 인프라웨어, 네트워크 장비의 설치 및 운영의 best practice 분석
+- [X] 물리 서버의 운영체제 설치 및 기본 구성 자동화
+- [X] best practice에 기반한 운영체제 구성툴용 템플릿 개발
+- [X] 인프라웨어(openstack, kubernetes) 설치 자동화
+- [ ] 네트워크 장비의 운영체제 설치 및 기본 구성 자동화
+- [ ] 인프라의 상태를 모니터링 도구 개발
 
 ** 연구과제
 
 신고일로부터 향후 1년 동안 수행할 연구과제를 연구과제명, 연구내용, 연구개발비 항목으로 나누어 일목요연하게 기재할 것
 
-오픈스택 설치 자동화 
-< 
-- 표준화
-- template화 
--template의 다양화
-- ui/parameter화
-- auto discovery, such as security accessment
-- even zeroconf
-- since or from the baremetal < fai, iron-like
-
-soft switch 설치 자동화, physical
-
-ui design then
-- verify
-- config download and deployable
-- burn on amazon aws-like
-- build using (offline) kit
-
-ui component
-- machine, pm, vm, xm(container)
-  - not openstack or kubernetes
-- logical view, physical view and suggestion
-- network switch combined machine
-  - then mclag on
-
-
+- [X] 물리 서버, 운영체제, 인프라웨어, 네트워크 장비의 설치 및 운영의 best practice 분석
+  - 서버 : 운영체제 그리고 데이터 디스크의 구성, 네트워크 포트 구성, PXE 설정, 포트의 역할고 수량을 다룬다.
+  - 운영체제 : 단일 운영체제에 구성 요소 외에도 여러 장비에서 공통으로 사용하는 shared resource(ntp, dns, repository)에 대한 구성을 포함한다.
+  - 인프라웨어 : 물리 장비의 수에 따라 장비의 고가용성의 구성을 달리한다.
+  - 네트워크 장비 : 포트 그룹을 지정한다.
+- [X] 물리 서버의 운영체제 설치 및 기본 구성 자동화
+  - 인프라웨어인 openstack을 설치할때 tripleO를 사용하여 물리 서버의 운영체제 설치 및 기본 구성을 진행한다.
+- [X] best practice에 기반한 운영체제 구성툴용 템플릿 개발
+  - 인프라웨어인 openstack을 설치할때 tripleO를 사용하여 운영체제 설치 및 기본 구성을 진행한다. 
+- [X] 인프라웨어(openstack, kubernetes) 설치 자동화
+  - openstack을 tripleO로 설치한다.
+  - 설치에 사용되는 template에 best practice를 반영한다.
+  - 네트워크 장비 또는 SDN Controller와 연동되는 드라이버의 설치를 자동화 한다.
