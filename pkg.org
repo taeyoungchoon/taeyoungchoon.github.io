@@ -17,3 +17,13 @@ k8s
 - (cons t nil)
 - (cons 1 (cons 2 (cons 3)))
 - (list 1 2 3)
+
+* pkg cli
+
+- alias from windows 10
+
+#+BEGIN_SRC 
+new-alias -name pkg -value choco
+pkg upgrade all
+#+END_SRC
+
