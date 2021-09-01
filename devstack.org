@@ -1,3 +1,7 @@
+* DONE word
+
+DevStack is a series of extensible scripts used to quickly bring up a complete OpenStack environment
+
 * history
 
 - [2020-12-09 Wed 15:36] trying 

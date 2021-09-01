@@ -1,3 +1,33 @@
+* DONE word
+
+OpenStack is a free, open standard cloud computing platform. It is mostly deployed as infrastructure-as-a-service in both public and private clouds where virtual servers and other resources are made available to users.
+
+Written in: Python
+
+* TODO words
+
+** word.g(roup) but near pure openstack rel
+
+- ui called horizon
+- nova, abstact box, sdc, compute
+- neutron but contrail, sdn, network
+- cinder, pure
+- swift, object, s3, sds, storage
+- glance
+- ceph
+- ironic, baremetal 
+
+** openstack network, quantum, neutron
+
+- some kinds of
+
+** network
+
+- lldp
+- c class, 172.20.6.0/23 168.126.63.1 8.8.8.8 192.168.100.0/24 class
+- stp? why? rstrp bpdu
+
+- mon night
 * not the exam but today
 
 - [X] director : nic vs yaml
@@ -78,31 +108,6 @@
 2. network
 3. not the linux or not the network
 4. just let it go
-
-* words
-
-** word.g(roup) but near pure openstack rel
-
-- ui called horizon
-- nova, abstact box, sdc, compute
-- neutron but contrail, sdn, network
-- cinder, pure
-- swift, object, s3, sds, storage
-- glance
-- ceph
-- ironic, baremetal 
-
-** openstack network, quantum, neutron
-
-- some kinds of
-
-** network
-
-- lldp
-- c class, 172.20.6.0/23 168.126.63.1 8.8.8.8 192.168.100.0/24 class
-- stp? why? rstrp bpdu
-
-- mon night
 * network, network, network
 
 - bridge, tap?
