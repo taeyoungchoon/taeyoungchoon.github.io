@@ -30,3 +30,13 @@ Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
       gc $file | sls "hostname"
   }
 #+END_SRC
+
+* windows update
+
+#+BEGIN_SRC
+windows-key + 'x' then 'a' to execute windows powershell(admin)
+
+Install-Module -Name PSWindowsUpdate
+Get-WindowsUpdate
+Install-WindowsUpdate -AcceptAll
+#+END_SRC
