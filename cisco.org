@@ -85,3 +85,71 @@ show ip bgp all
 show route-map
 
 #+END_SRC
+
+* log
+
+** DONE No password set
+
+- [2021-09-16 목] 업체에서 보았다. enable 패스워드가 세팅되어 있지 않아서 'enable'이라고 치면 이와 같은 메시지가 나온다. 이후 'dir'과 같은 enable 상태에서만 사용할 수 있는 명령어를 실행하면 실패한다.
+
+#+BEGIN_SRC 
+#enable
+% No password set
+
+#dir
+Translating "dir"
+Unknown command or computer name, or unable to find computer address
+#+END_SRC
+
+** cpu utilization but cores
+
+#+BEGIN_SRC 
+Core 0: CPU utilization for five seconds: 5%; one minute: 7%; five minutes: 8%
+Core 1: CPU utilization for five seconds: 1%; one minute: 3%; five minutes: 3%
+Core 2: CPU utilization for five seconds: 0%; one minute: 1%; five minutes: 2%
+Core 3: CPU utilization for five seconds: 0%; one minute: 2%; five minutes: 1%
+#+END_SRC
+
+#+BEGIN_SRC 
+    if search("Core \d: CPU util", line):
+    #if search("Core 0: CPU util", line):
+        print(line)
+        mobj = search("seconds: (\d+)%; one minute: (\d+)%; five minutes: (\d+)%", line)
+        (five_seconds, one_minute, five_minutes) = (mobj.group(1), mobj.group(2), mobj.group(3))
+
+    if search("^CPU util", line):
+        mobj = search("seconds: (\d+)%/\d+%+; one minute: (\d+)%; five minutes: (\d+)%", line)
+        (five_seconds, one_minute, five_minutes) = (mobj.group(1), mobj.group(2), mobj.group(3))
+#+END_SRC
+
+#+BEGIN_SRC 
+    if search("Core 0: CPU util", line):
+        mobj = search("seconds: (\d+)%; one minute: (\d+)%; five minutes: (\d+)%", line)
+        five_seconds_list = []
+        one_minute_list = []
+        five_minutes_list = []
+        five_seconds_list.append(mobj.group(1))
+        one_minute_list.append(mobj.group(1))
+        five_minutes_list.append(mobj.group(1))
+
+    if search("Core 1: CPU util", line):
+        mobj = search("seconds: (\d+)%; one minute: (\d+)%; five minutes: (\d+)%", line)
+        five_seconds_list.append(mobj.group(1))
+        one_minute_list.append(mobj.group(1))
+        five_minutes_list.append(mobj.group(1))
+
+    if search("Core 2: CPU util", line):
+        mobj = search("seconds: (\d+)%; one minute: (\d+)%; five minutes: (\d+)%", line)
+        five_seconds_list.append(mobj.group(1))
+        one_minute_list.append(mobj.group(1))
+        five_minutes_list.append(mobj.group(1))
+
+    if search("Core 3: CPU util", line):
+        mobj = search("seconds: (\d+)%; one minute: (\d+)%; five minutes: (\d+)%", line)
+        five_seconds_list.append(mobj.group(1))
+        five_seconds = sum(five_seconds_list) / len(five_seconds_list)
+        one_minute_list.append(mobj.group(1))
+        one_minute = sum(one_minute_list) / len(one_minute_list)
+        five_minutes_list.append(mobj.group(1))
+        five_minutes = sum(five_minutes_list) / len(five_minutes_list)
+#+END_SRC
