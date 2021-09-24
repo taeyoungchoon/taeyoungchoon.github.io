@@ -14,4 +14,12 @@ user - client - webmail - smtp - smtp - spam - <pop3> - client - user
 
 #+END_EXAMPLE
 
+* kinds of
 
+- google gmail
+- kakao mail
+- ms outlook mail
+- apple icloud mail
+- yahoo mail
+- office mail
+  - hiworks
