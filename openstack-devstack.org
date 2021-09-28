@@ -1,0 +1,4 @@
+* DONE in a box with some more script
+
+- [2021-09-27 월 14:01] 됬다. 된다.
+- using virtualbox, vagrant, centos7, openstack queens, devstack, notebook

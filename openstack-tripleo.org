@@ -9,3 +9,6 @@
 - pacemaker
 - haproxy
 - openstack heat
+
+* TODO in a box
+
