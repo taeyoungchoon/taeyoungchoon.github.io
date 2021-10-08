@@ -1,0 +1,5 @@
+* on cloudvision
+* with cloud vision portal, cvp
+* TODO with cloud vision exchange, cve
+
+- on eos

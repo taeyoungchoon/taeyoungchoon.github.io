@@ -1,0 +1,5 @@
+* kinds of
+* eos
+* TODO veos, the first target and being cve
+* ceos
+* TODO and more?
