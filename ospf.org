@@ -1,0 +1,111 @@
+* ospf, Open Shortest Path First, ip routing protocol
+
+- link state
+
+* ospf but distribute
+
+- https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=voice45&logNo=221167007616
+
+* area
+
+- area 0, the backbone area
+
+* neighbor
+
+- adjacency neighbor
+
+* ospf router
+
+- internal router
+- backbone router
+- area boundary router
+- AS boundary router
+
+* area, the same so called Intra-Area
+
+show ip route ospf
+O
+
+* area but diff called Inter-Area
+
+show ip route ospf
+O IA
+
+* redistribute
+
+- [ ] E1: dynamic cost, called External Type 1
+- E2: static cost, called External Type 2
+- N1 called NSSA Type 1
+- N2 called NSSA Type 2
+
+* E1
+
+router ospf 1
+redistribute connected metric-type 1 subnets ;; metric-type 1 so E1 type redistribute
+
+show ip route ospf
+O E1 x.x.x.x [/21]
+
+show ip route x.x.x.x
+Route metric is 21
+
+redistribute static metric 50 metric-type 1 subnets
+
+set metric-type 1 (Cost of the external routes is equal to the sum of all internal costs and the external cost)
+
+* E2
+
+router ospf 1
+redistribute connected subnets ;; no metric-type then E2 so static
+
+show ip route ospf
+O E2 x.x.x.x [/20]
+
+show ip route x.x.x.x
+Route metric is 20
+
+* TODO arista E1 with metric
+
+show ip route
+O
+IA: Inter area
+E1
+E2
+
+https://eos.arista.com/eos-4-24-2f/ospf-conditional-default-originate/
+
+Arista(config-router-ospf)#default-information originate
+                           [ metric <metric-value> ] [ metric-type <metric-type-1-or-2> ]
+Arista(config-router-ospf)#default-information originate route-map <route-map-name>
+                           [ metric <metric-value> ] [ metric-type <metric-type-1-or-2> ]
+
+OSPF external routes may also be filtered by metric type or tag.
+
+https://www.arista.com/en/um-eos/eos-open-shortest-path-first-version-2#xx1153659
+
+redistribute ospf [ include [ leaked ] | match [ external | internal | nssa-external ] | route-map word ]
+
+Type 1 and 2 external routing
+
+OSPFv2 area types include:
+
+    Normal are accepts intra-area, inter-area, and external routes. The backbone is a normal area.
+Stub are does not receive router advertisements external to the AS. Stub area routing is based on a default route.
+
+switch(config-router-ospf)#redistribute ospf instance match external route-map rm1
+
+switch#route-map MAP_1 permit 20
+ match metric-type type-1
+ match as 100
+ 
+* TODO access-list route-map distribution-list prefix-list
+
+https://www.thenetworkdna.com/2020/06/network-traffic-filtering-access-lists.html
+
+- [X] packet vs prefix
+- [X] route map is the acl+
+  - with acl
+- [X] and then distribution list
+  - routing update
+  - in or out
+  - with acl
