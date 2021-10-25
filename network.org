@@ -1,3 +1,10 @@
+* network
+
+network, network, network
+network fabric
+server, network, 개념어
+
+
 * directory
 
 - network general, ipv4
