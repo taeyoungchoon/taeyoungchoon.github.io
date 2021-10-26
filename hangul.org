@@ -1,3 +1,17 @@
+* TODO 단지 한글을 표기하는 것에 대해서만 궁금한 것인가
+
+아니면 무엇이 필요할까? 한글, 맞춤법 그래 맞춤법이다. 살다보니 내가 바른 문법으로 문장을 썼는지 궁금할 때가 많다. 각종 문서를 많이는 아니지만 그래도 무엇가 문장이 되었을 때 잘 쓴 것일까? 하고 의문이 든다. 여기서도 '잘 쓴 것일까?' 하고로 감싸야 하는지? 문장은 바른 것인지도 궁금한다. 어근, 어간, 어미, 접미사, 형용사 등의 용어들. 주어와 동사 그리고 목적어만으로 부족하다는 느낌이 든다. 단순화 시키는 데는 성공했지만 문장은 그리고 글은 그것만으로 구성되는 것이 아니다.
+
+엉터리라도 아니 조금 이라도 노력하면서 여기에 기록하는 글이든, 종이에 적는 글이든 마음을 두고 신경을 써서 적을 필요가 있다. 그냥 내키는 대로, 데로 뭐가 맞는 거지? 그냥 적을 수도 있다. 있겠지만 있다. 때로는 그렇게 적고 또 어떤 때는 아니면 나중에 수정을 하던지 하는 방법도 있고, 그 무엇보다 좋은 글을 많이 보는 것이 좋을 것 같다. 내가 요즘 사용하고 있는 방법이다.
+
+2021년 10월 그리고 26일이다. 잠시 뒤면 27일 이고 내일라고 한다. 그리고 지금은 오늘이다. 
+
+2021.10.26. 이렇게 적어야 한단다. 2021년 10월 26일 이렇게 쓰라고 한다. 리눅스, 이맥스, 리스프는 제가 사용하는 도구입니다. 리눅스는 운영체제입니다. 이맥스는 텍스트 파일 편집기입니다. 텍스트 편집기입니다. 리스프는 프로그래밍 언어입니다. 
+
+오늘 아니 어제 KT에서 장애가 발생하였습니다. 장애 원인은 처음에는 DDOS 공격이라고 하였지만 이후 장비 설정 오류, 휴먼 에러라고 정정하였습니다. 발표하였습니다. 휴먼 에러라 조금 어렵다. 라우팅 또는 라우터라는 용어가 뉴스에 나왔다면 어땠을까? 참, 이 기회에 이야기 해보자. 라우팅 또는 라우터라는 용어가 특허 문서에 나온다면 어떨까? 나올 수 없는 것일까? 개념어라. 네트워크, 네트워크 장비, 보안 장비, 전송 장비, 전송 장비는 조금 다른 의미로 사용되지 않나. 라우터, 스위치, 허브, 브릿지, 어플라이언스, 물리 장비, 가상 장비, VNF, NFV 플랫폼(platform), SDN(Software Defined Network), Overlay-Underlay, Leaf-Spine Architecture, EVPN-VXLAN, 패브릭(fabric), ip fabric, vxlan fabric, STP(Spanning Tree Protocol), mstp, rstp(Rapid STP, Rapid Spanning Tree Protocol), 통신 규약(Protocol), MLAG, MCLAG, LAG, bond, team, port channel, trunk, access, cisco, juniper, arista, ASIC, NOS(Network Operating System, Network OS), eos, ceos, veos, ceos-lab, Arista Network, Kubernetes, K8S, k8s, 쿠버네티스, CLOS, sdn controller, network controller, control plane, data plane, management plane, pnac(port NAC), rfc, standard, 기재불비. 용어 그리고 용어의 정의. 용어를 사용하는 엔지니어, 그 수준의 범위는 어디까지로 정해야 하는가?
+
+청구항 1, 특허, 외국으로 가는 특허, 미국으로, 프랑스로, 아랍으로. 종속항, 배경설명, 기술-x
+
 * hangul
 
 오, 한글이다.
