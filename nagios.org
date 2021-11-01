@@ -86,10 +86,13 @@ windows도 ssh로 하려는 기억이 있는데 w2k나 w2k3 라니
 * sample
 
 #+BEGIN_SRC sh
-
 /usr/lib64/nagios/plugins/check_dns -H linux.com -s 168.126.63.1
 DNS OK: 0.180 seconds response time. linux.com returns 140.211.167.50,140.211.167.51|time=0.179655s;;;0.000000
+#+END_SRC
 
+#+BEGIN_SRC 
+# ./check_dns -H foo.com -s 192.168.25.211 -a 192.168.25.211
+DNS OK: 0.017 seconds response time. foo.com returns 192.168.25.211|time=0.017370s;;;0.000000
 #+END_SRC
 
 * nsclient++ with file
