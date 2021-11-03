@@ -1,0 +1,3 @@
+* key
+
+- Apple + Shift + 0 : Zoom
