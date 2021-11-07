@@ -65,3 +65,10 @@
 - SSD
   - M.2
   - 256GB
+- 14ZD990-GX50K's power adapter or
+- usb-c power adapter
+  - Power Delivery 20V / 2A Profile, USB Type-C
+    - 40W
+    - support from 5V / 2A
+    - 65W?
+    - USB 4 / 썬더볼트4?
