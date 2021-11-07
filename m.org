@@ -21,8 +21,16 @@
 
 - xen, virtualbox, kvm
 - with openstack
+- on mac called hyperkit then
 
 * xm
 
 - solaris containers, docker, lxc(linux container), chroot
 - with k8s, openshift
+- docker
+- [2021-11-06 Sat] 걸린다 걸린다 플랫폼에 걸린다 아래쪽에 걸린다 pm에 걸린다 또 vm에 걸린다 바로 아래다
+  - mac > multipass(hyperkit maybe) > ubuntu > docker > ceos
+    #+BEGIN_SRC 
+        - OCI runtime exec failed: exec failed: container_linux.go:380: starting container process caused: exec: "Cli": executable file not found in $PATH: unknown
+    #+END_SRC
+
