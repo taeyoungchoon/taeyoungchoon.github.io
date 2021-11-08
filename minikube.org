@@ -1,4 +1,7 @@
 * history
+
+- [2021-11-08 월] minikube start --driver=docker 뭐 나쁘지는 않다.
+
 * see alao
 
 - kubernetes
