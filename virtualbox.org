@@ -2,7 +2,9 @@
 
 - [2021-11-08 월] virtualbox에 대한 의존성이 높다는 것은 어떠한 의미인가? vagrant보다는 아래에 위치한다. 어디서는 동작하는 것 같지만 꼭 그런 것은 아니다. 윈도우즈는 hyper-v가 있다. virtualpc의 자식이다. wsl은 뭐라고 해야할까? 외자식? 
 
-- [2021-11-09 화] 6.1.27 works!
+- [2021-11-09 화] 6.1.27 works! on windows
+- [ ] what about mac os x?
+  - [ ] brew install virtalbox@6.1.27
 
 #+BEGIN_SRC 
 choco install virtualbox --version=6.1.27
