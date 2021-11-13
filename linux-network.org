@@ -32,4 +32,25 @@
 - (network-device (network-function (bridge switch router firewall)))
 - (protocol (control data) (mac ip))
 
+* TODO interface eth0@if2 like
 
+https://itectec.com/unixlinux/ubuntu-what-does-if1if2-mean-in-interface-name-in-output-of-ip-address-command-on-ubuntu/
+
+ip address
+ip link
+
+ip -o link show dev veth1
+link-netnsid
+ifindex
+@NONE
+/sys/class/net/<interface>/ifindex
+/sys/class/net/<interface>/iflink
+veth, macvlan, vlan(sub-interface)
+iflink == ifindex
+
+https://unix.stackexchange.com/questions/441876/how-to-find-the-network-namespace-of-a-veth-peer-ifindex
+DIG
+
+ip netns
+netnsid
+/var/run/netns

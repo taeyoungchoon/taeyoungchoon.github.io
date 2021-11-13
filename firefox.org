@@ -36,3 +36,24 @@ tor 와 연계되어 사용할 수도 있다던데 흠
 
 https://www.mozilla.org/en-US/firefox/organizations/faq/
 
+* The page you are trying to view cannot be shown because the authenticity of the received data could not be verified
+
+#+BEGIN_SRC 
+Secure Connection Failed
+
+An error occurred during a connection to www.141jav.com. PR_CONNECT_RESET_ERROR
+
+The page you are trying to view cannot be shown because the authenticity of the received data could not be verified.
+Please contact the website owners to inform them of this problem.
+#+END_SRC
+
+https://support.mozilla.org/en-US/questions/1236379
+
+about:config > security.tls.version.max
+
+and change the value from 4 to 3 then click ok. 
+
+1 means TLS 1.0 
+2 means TLS 1.1 
+3 means TLS 1.2 (default as of 27 to 59 Releases)
+4 means TLS 1.3 (default as of Fx 60.0)

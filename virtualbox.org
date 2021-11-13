@@ -10,6 +10,17 @@
 choco install virtualbox --version=6.1.27
 #+END_SRC
 
+- [2021-11-13 Sat] 6.1.28 works! on mac os x but some
+
+https://forums.virtualbox.org/viewtopic.php?f=39&t=104272
+
+#+BEGIN_SRC 
+sudo kextload -b org.virtualbox.kext.VBoxDrv
+sudo kextload -b org.virtualbox.kext.VBoxNetFlt
+sudo kextload -b org.virtualbox.kext.VBoxNetAdp
+sudo kextload -b org.virtualbox.kext.VBoxUSB
+#+END_SRC
+
 * TODO fail to open network interface like that but NDIS?
 
 and it works well
