@@ -1,24 +1,44 @@
 * history
 
 - [2021-11-08 월] minikube start --driver=docker 뭐 나쁘지는 않다.
+- [2021-11-15 월] 어디까지 알아야 할까. 많이 알지는 못하지만, 도구라고 부른다.
 
-* minikube start with driver
+* TODO cli but minikube or kubectl
+
+minikube addons list
+kubectl get nodes
+
+* TODO registry
+* TODO driver
 
 https://minikube.sigs.k8s.io/docs/drivers/
 
-minikube config set driver virtualbox
 minikube start --driver=virtualbox
+
+minikube config set driver virtualbox
+minikube config view
 minikube start
 
-* cpu and memory
+* TODO cpu and memory
 
 minikube start --memory 8192 --cpus 2
-minikube config set memory 8192
 minikube config set cpus 4
+minikube config set memory 8192
+minikube config view
 
 vboxmanage showvminfo minikube | grep "Memory size\|Number of CPUs"
 
 kubectl get node minikube -o jsonpath='{.status.capacity}'
+
+* TODO multi node
+
+https://minikube.sigs.k8s.io/docs/tutorials/multi_node/
+minikube start --nodes 2 -p multinode-demo
+kubectl get node
+
+* KubeVirt
+
+https://minikube.sigs.k8s.io/docs/tutorials/kubevirt/
 
 * see alao
 
@@ -62,3 +82,333 @@ brctl show docker0
 brctl showmacs docker0
 
 docker network inspect bridge
+* TODO with cni
+
+minikube node add
+kubectlt get nodes
+
+--cni string CNI plug-in to use.
+Valid options: auto, bridge, calico, cilium, flannel, kindnet, or path to a CNI manifest (default: auto)
+
+** DONE minikube stop; minikube delete; minikube start --network-plugin=cni --cni=bridge
+
+$ minikube ssh
+docker@minikube:~$ ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+2: tunl0@NONE: <NOARP> mtu 1480 qdisc noop state DOWN group default qlen 1000
+    link/ipip 0.0.0.0 brd 0.0.0.0
+3: sit0@NONE: <NOARP> mtu 1480 qdisc noop state DOWN group default qlen 1000
+    link/sit 0.0.0.0 brd 0.0.0.0
+4: docker0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default
+    link/ether 02:42:d0:41:23:9d brd ff:ff:ff:ff:ff:ff
+    inet 172.17.0.1/16 brd 172.17.255.255 scope global docker0
+       valid_lft forever preferred_lft forever
+5: bridge: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
+    link/ether 2e:70:65:12:c0:72 brd ff:ff:ff:ff:ff:ff
+    inet 10.244.0.1/16 brd 10.244.255.255 scope global bridge
+       valid_lft forever preferred_lft forever
+6: vethfe14add2@if5: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master bridge state UP group default
+    link/ether 3a:aa:5a:f7:1d:bc brd ff:ff:ff:ff:ff:ff link-netnsid 1
+30: eth0@if31: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default
+    link/ether 02:42:c0:a8:31:02 brd ff:ff:ff:ff:ff:ff link-netnsid 0
+    inet 192.168.49.2/24 brd 192.168.49.255 scope global eth0
+       valid_lft forever preferred_lft forever
+docker@minikube:~$
+
+$ kubectl get all -n kube-system
+NAME                                   READY   STATUS    RESTARTS   AGE
+pod/coredns-78fcd69978-fl65t           0/1     Running   0          4s
+pod/etcd-minikube                      1/1     Running   0          15s
+pod/kube-apiserver-minikube            1/1     Running   0          15s
+pod/kube-controller-manager-minikube   1/1     Running   0          15s
+pod/kube-proxy-7klkj                   1/1     Running   0          4s
+pod/kube-scheduler-minikube            1/1     Running   0          15s
+pod/storage-provisioner                1/1     Running   0          11s
+
+NAME               TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)                  AGE
+service/kube-dns   ClusterIP   10.96.0.10   <none>        53/UDP,53/TCP,9153/TCP   16s
+
+NAME                        DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR            AGE
+daemonset.apps/kube-proxy   1         1         1       1            1           kubernetes.io/os=linux   16s
+
+NAME                      READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/coredns   0/1     1            0           16s
+
+NAME                                 DESIRED   CURRENT   READY   AGE
+replicaset.apps/coredns-78fcd69978   1         1         0       4s
+
+** DONE minikube stop; minikube delete; minikube start --network-plugin=cni --cni=flannel
+
+docker@minikube:~$ ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+2: tunl0@NONE: <NOARP> mtu 1480 qdisc noop state DOWN group default qlen 1000
+    link/ipip 0.0.0.0 brd 0.0.0.0
+3: sit0@NONE: <NOARP> mtu 1480 qdisc noop state DOWN group default qlen 1000
+    link/sit 0.0.0.0 brd 0.0.0.0
+4: docker0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default
+    link/ether 02:42:08:40:60:d0 brd ff:ff:ff:ff:ff:ff
+    inet 172.17.0.1/16 brd 172.17.255.255 scope global docker0
+       valid_lft forever preferred_lft forever
+5: flannel.1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1450 qdisc noqueue state UNKNOWN group default
+    link/ether 52:2b:f4:62:31:7d brd ff:ff:ff:ff:ff:ff
+    inet 10.244.0.0/32 scope global flannel.1
+       valid_lft forever preferred_lft forever
+6: cni0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1450 qdisc noqueue state UP group default qlen 1000
+    link/ether 0a:e1:0d:66:cb:65 brd ff:ff:ff:ff:ff:ff
+    inet 10.244.0.1/24 brd 10.244.0.255 scope global cni0
+       valid_lft forever preferred_lft forever
+7: veth7f6a1c70@if5: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1450 qdisc noqueue master cni0 state UP group default
+    link/ether 66:b6:84:00:9f:e4 brd ff:ff:ff:ff:ff:ff link-netnsid 1
+37: eth0@if38: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default
+    link/ether 02:42:c0:a8:31:02 brd ff:ff:ff:ff:ff:ff link-netnsid 0
+    inet 192.168.49.2/24 brd 192.168.49.255 scope global eth0
+       valid_lft forever preferred_lft forever
+
+$ kubectl get all -n kube-system
+NAME                                   READY   STATUS              RESTARTS   AGE
+pod/coredns-78fcd69978-m582f           0/1     ContainerCreating   0          7s
+pod/etcd-minikube                      1/1     Running             0          24s
+pod/kube-apiserver-minikube            1/1     Running             0          22s
+pod/kube-controller-manager-minikube   1/1     Running             0          21s
+pod/kube-flannel-ds-amd64-5bwl7        0/1     Init:0/1            0          7s
+pod/kube-proxy-4ld6x                   1/1     Running             0          7s
+pod/kube-scheduler-minikube            1/1     Running             0          22s
+pod/storage-provisioner                1/1     Running             0          14s
+
+NAME               TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)                  AGE
+service/kube-dns   ClusterIP   10.96.0.10   <none>        53/UDP,53/TCP,9153/TCP   21s
+
+NAME                                     DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR            AGE
+daemonset.apps/kube-flannel-ds-amd64     1         1         0       1            0           <none>                   19s
+daemonset.apps/kube-flannel-ds-arm       0         0         0       0            0           <none>                   19s
+daemonset.apps/kube-flannel-ds-arm64     0         0         0       0            0           <none>                   19s
+daemonset.apps/kube-flannel-ds-ppc64le   0         0         0       0            0           <none>                   19s
+daemonset.apps/kube-flannel-ds-s390x     0         0         0       0            0           <none>                   18s
+daemonset.apps/kube-proxy                1         1         1       1            1           kubernetes.io/os=linux   21s
+
+NAME                      READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/coredns   0/1     1            0           21s
+
+NAME                                 DESIRED   CURRENT   READY   AGE
+replicaset.apps/coredns-78fcd69978   1         1         0       8s
+
+$ kubectl get all -n kube-system | grep flannel
+pod/kube-flannel-ds-amd64-5bwl7        1/1     Running   0          22s
+daemonset.apps/kube-flannel-ds-amd64     1         1         1       1            1           <none>                   34s
+daemonset.apps/kube-flannel-ds-arm       0         0         0       0            0           <none>                   34s
+daemonset.apps/kube-flannel-ds-arm64     0         0         0       0            0           <none>                   34s
+daemonset.apps/kube-flannel-ds-ppc64le   0         0         0       0            0           <none>                   34s
+daemonset.apps/kube-flannel-ds-s390x     0         0         0       0            0           <none>                   33s
+
+** DONE minikube stop; minikube delete; minikube start --network-plugin=cni --cni=calico
+
+docker@minikube:~$ ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+2: tunl0@NONE: <NOARP> mtu 1480 qdisc noop state DOWN group default qlen 1000
+    link/ipip 0.0.0.0 brd 0.0.0.0
+3: sit0@NONE: <NOARP> mtu 1480 qdisc noop state DOWN group default qlen 1000
+    link/sit 0.0.0.0 brd 0.0.0.0
+4: docker0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default
+    link/ether 02:42:4a:39:0e:4f brd ff:ff:ff:ff:ff:ff
+    inet 172.17.0.1/16 brd 172.17.255.255 scope global docker0
+       valid_lft forever preferred_lft forever
+5: cni0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default qlen 1000
+    link/ether 72:9c:29:a7:ea:8b brd ff:ff:ff:ff:ff:ff
+    inet 10.85.0.1/16 brd 10.85.255.255 scope global cni0
+       valid_lft forever preferred_lft forever
+44: eth0@if45: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default
+    link/ether 02:42:c0:a8:31:02 brd ff:ff:ff:ff:ff:ff link-netnsid 0
+    inet 192.168.49.2/24 brd 192.168.49.255 scope global eth0
+       valid_lft forever preferred_lft forever
+
+$ kubectl get all -n kube-system
+NAME                                           READY   STATUS    RESTARTS      AGE
+pod/calico-kube-controllers-58497c65d5-z96vg   1/1     Running   0             103s
+pod/calico-node-v9lbb                          1/1     Running   0             103s
+pod/coredns-78fcd69978-2nmvq                   1/1     Running   0             103s
+pod/etcd-minikube                              1/1     Running   0             114s
+pod/kube-apiserver-minikube                    1/1     Running   0             114s
+pod/kube-controller-manager-minikube           1/1     Running   0             114s
+pod/kube-proxy-s86dr                           1/1     Running   0             103s
+pod/kube-scheduler-minikube                    1/1     Running   0             114s
+pod/storage-provisioner                        1/1     Running   1 (80s ago)   108s
+
+NAME               TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)                  AGE
+service/kube-dns   ClusterIP   10.96.0.10   <none>        53/UDP,53/TCP,9153/TCP   116s
+
+NAME                         DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR            AGE
+daemonset.apps/calico-node   1         1         1       1            1           kubernetes.io/os=linux   113s
+daemonset.apps/kube-proxy    1         1         1       1            1           kubernetes.io/os=linux   116s
+
+NAME                                      READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/calico-kube-controllers   1/1     1            1           113s
+deployment.apps/coredns                   1/1     1            1           116s
+
+NAME                                                 DESIRED   CURRENT   READY   AGE
+replicaset.apps/calico-kube-controllers-58497c65d5   1         1         1       103s
+replicaset.apps/coredns-78fcd69978                   1         1         1       103s
+
+$ kubectl get all -n kube-system | grep calico
+pod/calico-kube-controllers-58497c65d5-z96vg   1/1     Running   0             2m1s
+pod/calico-node-v9lbb                          1/1     Running   0             2m1s
+daemonset.apps/calico-node   1         1         1       1            1           kubernetes.io/os=linux   2m11s
+deployment.apps/calico-kube-controllers   1/1     1            1           2m11s
+replicaset.apps/calico-kube-controllers-58497c65d5   1         1         1       2m1s
+
+** TODO minikube stop; minikube delete; minikube start --network-plugin=cni --cni=cilium but CrashLoopBackOff
+
+$ minikube ssh
+docker@minikube:~$ ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+2: tunl0@NONE: <NOARP> mtu 1480 qdisc noop state DOWN group default qlen 1000
+    link/ipip 0.0.0.0 brd 0.0.0.0
+3: sit0@NONE: <NOARP> mtu 1480 qdisc noop state DOWN group default qlen 1000
+    link/sit 0.0.0.0 brd 0.0.0.0
+4: docker0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default
+    link/ether 02:42:1d:37:bc:69 brd ff:ff:ff:ff:ff:ff
+    inet 172.17.0.1/16 brd 172.17.255.255 scope global docker0
+       valid_lft forever preferred_lft forever
+5: cni0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default qlen 1000
+    link/ether ae:6c:b0:5a:39:59 brd ff:ff:ff:ff:ff:ff
+    inet 10.85.0.1/16 brd 10.85.255.255 scope global cni0
+       valid_lft forever preferred_lft forever
+79: eth0@if80: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default
+    link/ether 02:42:c0:a8:31:02 brd ff:ff:ff:ff:ff:ff link-netnsid 0
+    inet 192.168.49.2/24 brd 192.168.49.255 scope global eth0
+       valid_lft forever preferred_lft forever
+
+$ kubectl get all -n kube-system
+NAME                                   READY   STATUS              RESTARTS       AGE
+pod/cilium-cg2l6                       0/1     CrashLoopBackOff    2 (10s ago)    2m3s
+pod/cilium-operator-689d4755c8-z2x54   1/1     Running             0              2m3s
+pod/coredns-78fcd69978-xzmtd           0/1     ContainerCreating   0              2m3s
+pod/etcd-minikube                      1/1     Running             0              2m19s
+pod/kube-apiserver-minikube            1/1     Running             0              2m17s
+pod/kube-controller-manager-minikube   1/1     Running             0              2m16s
+pod/kube-proxy-vqnzw                   1/1     Running             0              2m3s
+pod/kube-scheduler-minikube            1/1     Running             0              2m18s
+pod/storage-provisioner                1/1     Running             1 (101s ago)   2m10s
+
+NAME               TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)                  AGE
+service/kube-dns   ClusterIP   10.96.0.10   <none>        53/UDP,53/TCP,9153/TCP   2m16s
+
+NAME                        DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR            AGE
+daemonset.apps/cilium       1         1         0       1            0           <none>                   2m13s
+daemonset.apps/kube-proxy   1         1         1       1            1           kubernetes.io/os=linux   2m16s
+
+NAME                              READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/cilium-operator   1/1     1            1           2m13s
+deployment.apps/coredns           0/1     1            0           2m16s
+
+NAME                                         DESIRED   CURRENT   READY   AGE
+replicaset.apps/cilium-operator-689d4755c8   1         1         1       2m3s
+replicaset.apps/coredns-78fcd69978           1         1         0       2m3s
+
+$ kubectl get all -n kube-system | grep cilium
+pod/cilium-cg2l6                       0/1     CrashLoopBackOff    2 (27s ago)    2m20s
+pod/cilium-operator-689d4755c8-z2x54   1/1     Running             0              2m20s
+daemonset.apps/cilium       1         1         0       1            0           <none>                   2m30s
+deployment.apps/cilium-operator   1/1     1            1           2m30s
+replicaset.apps/cilium-operator-689d4755c8   1         1         1       2m20s
+
+** DONE minikube stop; minikube delete; minikube start --network-plugin=cni --cni=kindnet
+
+$ minikube ssh
+docker@minikube:~$ ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+2: tunl0@NONE: <NOARP> mtu 1480 qdisc noop state DOWN group default qlen 1000
+    link/ipip 0.0.0.0 brd 0.0.0.0
+3: sit0@NONE: <NOARP> mtu 1480 qdisc noop state DOWN group default qlen 1000
+    link/sit 0.0.0.0 brd 0.0.0.0
+4: docker0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default
+    link/ether 02:42:4f:f2:67:44 brd ff:ff:ff:ff:ff:ff
+    inet 172.17.0.1/16 brd 172.17.255.255 scope global docker0
+       valid_lft forever preferred_lft forever
+5: veth0277c15f@if5: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default
+    link/ether 42:e5:41:f6:ed:8a brd ff:ff:ff:ff:ff:ff link-netnsid 1
+    inet 10.244.0.1/32 scope global veth0277c15f
+       valid_lft forever preferred_lft forever
+72: eth0@if73: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default
+    link/ether 02:42:c0:a8:31:02 brd ff:ff:ff:ff:ff:ff link-netnsid 0
+    inet 192.168.49.2/24 brd 192.168.49.255 scope global eth0
+       valid_lft forever preferred_lft forever
+
+$ kubectl get all -n kube-system
+NAME                                   READY   STATUS    RESTARTS   AGE
+pod/coredns-78fcd69978-f9p9r           0/1     Pending   0          20s
+pod/etcd-minikube                      1/1     Running   0          32s
+pod/kindnet-lbqc5                      1/1     Running   0          20s
+pod/kube-apiserver-minikube            1/1     Running   0          32s
+pod/kube-controller-manager-minikube   1/1     Running   0          32s
+pod/kube-proxy-424kc                   1/1     Running   0          20s
+pod/kube-scheduler-minikube            1/1     Running   0          32s
+pod/storage-provisioner                0/1     Pending   0          28s
+
+NAME               TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)                  AGE
+service/kube-dns   ClusterIP   10.96.0.10   <none>        53/UDP,53/TCP,9153/TCP   34s
+
+NAME                        DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR            AGE
+daemonset.apps/kindnet      1         1         1       1            1           <none>                   32s
+daemonset.apps/kube-proxy   1         1         1       1            1           kubernetes.io/os=linux   34s
+
+NAME                      READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/coredns   0/1     1            0           34s
+
+NAME                                 DESIRED   CURRENT   READY   AGE
+replicaset.apps/coredns-78fcd69978   1         1         0       20s
+
+$ kubectl get all -n kube-system | grep kindnet
+pod/kindnet-lbqc5                      1/1     Running             0          29s
+daemonset.apps/kindnet      1         1         1       1            1           <none>                   41s
+
+** TODO minikube stop; minikube delete; minikube start --network-plugin=cni --cni=auto
+** TODO minikube stop; minikube delete; minikube start --network-plugin=cni then weave
+
+minikube start --network-plugin=cni
+
+$ kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
+serviceaccount/weave-net created
+clusterrole.rbac.authorization.k8s.io/weave-net created
+clusterrolebinding.rbac.authorization.k8s.io/weave-net created
+role.rbac.authorization.k8s.io/weave-net created
+rolebinding.rbac.authorization.k8s.io/weave-net created
+daemonset.apps/weave-net created
+
+$ kubectl get all -n kube-system
+NAME                                   READY   STATUS    RESTARTS      AGE
+pod/coredns-78fcd69978-x7k88           1/1     Running   0             59s
+pod/etcd-minikube                      1/1     Running   0             68s
+pod/kube-apiserver-minikube            1/1     Running   0             68s
+pod/kube-controller-manager-minikube   1/1     Running   0             68s
+pod/kube-proxy-qxd29                   1/1     Running   0             58s
+pod/kube-scheduler-minikube            1/1     Running   0             68s
+pod/storage-provisioner                1/1     Running   0             65s
+pod/weave-net-5cswk                    2/2     Running   1 (22s ago)   38s
+
+NAME               TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)                  AGE
+service/kube-dns   ClusterIP   10.96.0.10   <none>        53/UDP,53/TCP,9153/TCP   71s
+
+NAME                        DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR            AGE
+daemonset.apps/kube-proxy   1         1         1       1            1           kubernetes.io/os=linux   71s
+daemonset.apps/weave-net    1         1         1       1            1           <none>                   38s
+
+NAME                      READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/coredns   1/1     1            1           71s
+
+NAME                                 DESIRED   CURRENT   READY   AGE
+replicaset.apps/coredns-78fcd69978   1         1         1       59s
