@@ -41,3 +41,10 @@
 * service mesh, all above the network layer
 
 - istio
+
+* TODO kubernetes bootstrappers aka deployment tools
+
+- kubeadn
+- kops
+- kubespray = ansible + kubeadm
+  

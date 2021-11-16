@@ -2,11 +2,19 @@
 
 - [2021-11-08 월] minikube start --driver=docker 뭐 나쁘지는 않다.
 - [2021-11-15 월] 어디까지 알아야 할까. 많이 알지는 못하지만, 도구라고 부른다.
+- [2021-11-16 Tue] 시작은 결국 minikube 인가?
 
 * TODO cli but minikube or kubectl
 
 minikube addons list
 kubectl get nodes
+
+minikube start -v 8 --vm-driver=hyperkit --alsologtostderr --logtostderr
+minikube start -v 8 --alsologtostderr --logtostderr
+kubectl get pod --all-namespaces
+kubectl get svc --all-nameservices
+minikube tunnel (loadbalancer-x)
+kubectl run nginx --image nginx
 
 * TODO registry
 * TODO driver
