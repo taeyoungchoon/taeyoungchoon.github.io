@@ -1,0 +1,11 @@
+* cisco intersight is the mgmt cisco's
+
+- cisco 
+- ucs manager but cloud
+- more and more even container
+
+시스코는 모든 것을 다 한다. 그런데 시스코 제품만을 한다. Apstra는 Juniper로 가면서 결국 Juniper만이 되어간다. 둘 사이를 이해할 있는 누군가가 필요하다.
+둘, 사이, 대화 결국 바벨의 문제이다. interface하는 부분에 발생하는 각종 잡음들, 각자 떠드는 이야기 서로를 이해하지 못한다. 
+아쉽지만 이건 신의 벌이다.
+다른 세계, 세상에서 이 문제는 해결될 것인가? 홍수 그리고 아니 그 이상의 것인가? 
+환경 재해, 환경 문제, AI, 기계의 반란, 인간을 닮지 않은 기계, 인간을 닮지 않으면 되나? 로봇이 아니면 되는가?

@@ -1,0 +1,34 @@
+* TODO [2021-11-22 월] testing on wsl
+
+https://containerlab.srlinux.dev/quickstart/#fn:2
+
+[2021-11-22 월] 요즘 virtualbox가 동작을 안해서 고생하고 있다.
+
+https://containerlab.srlinux.dev/install/
+say about wsl
+
+install docker-ce
+
+curl -L https://gist.githubusercontent.com/hellt/e8095c1719a3ea0051165ff282d2b62a/raw/1dffb71d0495bb2be953c489cd06a25656d974a4/docker-install.sh | \
+bash
+
+THEN
+
+bash -c "$(curl -sL https://get-clab.srlinux.dev)"
+mkdir ~/clab-quickstart
+cd ~/clab-quickstart
+cp /etc/containerlab/lab-examples/srlceos01/* .
+cp /mnt/t/t-archive/2021.11.05\ cloudeos\ from\ arista\ korea/cEOS-lab-4.27.0F.tar .
+docker import cEOS-lab-4.27.0F.tar ceos:4.27.0F
+docker images
+sudo containerlab deploy --topo srlceos01.clab.yml
+
+CLI
+
+ssh admin@172.20.20.3
+docker exec -it <name> sr_cli
+docker exec -it <name> Cli
+
+CLEAR
+
+containerlab destroy --topo srlceos01.clab.yml
