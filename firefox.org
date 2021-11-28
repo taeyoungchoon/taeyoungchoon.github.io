@@ -57,3 +57,7 @@ and change the value from 4 to 3 then click ok.
 2 means TLS 1.1 
 3 means TLS 1.2 (default as of 27 to 59 Releases)
 4 means TLS 1.3 (default as of Fx 60.0)
+
+* and more
+
+ssl_override_behavior
