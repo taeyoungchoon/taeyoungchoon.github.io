@@ -1,0 +1,75 @@
+* TODO product and license using
+
+- 무엇을 언제까지 어디에서 어디를 통해서, 장비에서 확인
+  - 무엇: bpg(in network advantage)
+  - 언제까지: 3년간(subscription license)
+  - 어디에서: smart account로 cisco smart sofeware manager(CSSM)으로 라이센스를 관리
+  - 어디를 통해서: Cisco Smart License Utility(CSLU), windows 10에서 돌아가는 유틸. 장비와는 netconf로 통신하기도 한다.
+    예전에는 여기를 통해서: Satellite
+  - 확인: show license all
+
+* TODO smart-x
+
+- [ ] pak(Product Activation Key)
+- smart license
+- [ ] smart licensing
+- [ ] smart licensing using policy
+  
+* DONE license types, pacakage
+
+- Network Essentials
+- Network Advantage
+- Cisco DNA Essentials
+- Cisco DNA Advantage
+- Cisco DNA Premier
+
+- Perpetual license
+  - with expiration date
+- subscription license
+  - term-based
+
+- The perpetual licensing package includes the Network Essentials and Network Advantage licensing options that are tied to the hardware.
+- The subscription licensing package includes the Cisco DNA Essentials and Cisco DNA Advantage options.
+
+* DONE manaing license with smart account
+  
+- Cisco Smart Software Manager (CSSM, SSM)
+
+* DONE license index and word
+  
+- CSSM Cisco Smart Software Manager, Smart Account, Virtual Account
+- CSLU Cisco Smart License Utility
+- flow: cisco product - cslu - cssm
+- On-Prem Satellite, Cisco Smart Software Manager satellite
+- SLR, Air-Gapped
+- Unregistered/Eval expired
+- PI: Product Instances
+
+* TODO smart licensing
+
+- ever PAK(제품 정품 인증 키)
+- smart account
+  - virtual account
+- license conversion: pak to token
+  https://video.cisco.com/video/5317544973001
+- Smart Account Licensing and Tokens
+https://www.cisco.com/c/ko_kr/support/docs/smb/routers/cisco-rv-series-small-business-routers/Smart-Account-Overview-RV34x.html
+
+* TODO smart licensing using policy
+
+https://www.cisco.com/c/ko_kr/support/docs/switches/catalyst-9300-series-switches/216545-smart-licensing-using-policy-on-catalyst.html
+
+* TODO 9300
+
+https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-9300-series-switches/nb-06-cat9300-ser-data-sheet-cte-en.html
+
+내일, 
+
+* TODO excel, Smart License Enabled Product Familise
+
+https://community.cisco.com/t5/smart-licensing-enterprise/smart-license-enabled-product-families/ta-p/3652497
+
+* TODO smart acount
+
+https://www.cisco.com/c/ko_kr/products/software/smart-accounts.html#~stickynav=2
+https://nexpert.tistory.com/679
