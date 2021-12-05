@@ -30,3 +30,24 @@
 * dc mon
 
 - mon, itor the set
+
+** can do
+
+- gathering
+- configure
+
+*** using
+
+- ansible
+- python
+- expect
+
+*** with
+
+- inventory
+- authen
+
+*** post processing
+
+- gather then parsing it, to see/use it later on
+
