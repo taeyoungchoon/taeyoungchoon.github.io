@@ -1,0 +1,15 @@
+* linux namespace and so on
+
+- linux inside linux
+- some kinds of space, name on it.
+- for what
+  - network
+    - it's own linux network stack, hmm.
+    - what about routing table and ip address
+    - and interface, nic
+  - mount
+    - as ever, chroot
+  - process
+    - what about 0, 1 like
+    - and from the host
+  - and so on
