@@ -1,0 +1,73 @@
+* condition
+
+- [X] dell r740
+- [X] centos/rhel 7.6
+
+- [ ] raid controller h750
+
+* dell raid perc, 
+
+https://linux.dell.com/files/supportmatrix/RHEL_Support_Matrix.pdf
+
+RHEL 7.6 and R740 work but
+Fully Supported
+
+H750/HBA350i/HBA355e require RHEL 7.9 minimum
+
+R740 R740xd
+
+R740xd2
+PERC H330, H730P, HBA330
+External Controller(RAID): 12Gbps SAS HBA
+
+* H750
+
+https://www.dell.com/support/manuals/en-us/poweredge-r6525/perc11_ug/technical-specifications-of-perc-11-cards?guid=guid-aaaf8b59-903f-49c1-8832-f3997d125edf&lang=en-us
+
+Technical specifications of PERC 11 cards
+
+See Dell Technologies Enterprise operating systems support for a list of supported operating systems by a specific server for the PERC 11 cards.
+
+https://www.dell.com/support/manuals/en-us/poweredge-r6525/perc11_ug/features-of-perc-h750-adapter?guid=guid-abe77010-d466-45b7-b64d-8668cbaf0ff9&lang=en-us
+
+* 7.3 with h740 raid
+
+https://www.dell.com/support/kbdoc/en-us/000179561/installation-of-red-hat-enterprise-linux-7-3-on-device-with-h740-h740p-raid-controller
+
+megaraid_sas-07.700.52.00_el7.3-2.x86_64.iso.gz
+
+https://docs.delltechnologies.com/bundle/VXF_KNOW/page/GUID-65B00AE6-1BD8-434C-B38A-EE8D57FA8E55.html
+
+Driver Version: 07.700.52.00 and above
+Driver Name: megaraid_sas
+
+https://serverfault.com/questions/908209/how-to-add-a-dud-driver-to-centos-rhel-7-media-without-network
+
+How to add a DUD driver to CentOS/RHEL 7 media (without network)?
+
+https://github.com/npf/megaraid_sas
+
+* linux/drivers/scsi/megaraid/megaraid_sas.h
+
+https://github.com/torvalds/linux/blob/master/drivers/scsi/megaraid/megaraid_sas.h
+
+Copyright (c) 2003-2013  LSI Corporation
+Copyright (c) 2013-2016  Avago Technologies
+Copyright (c) 2016-2018  Broadcom Inc.
+
+#define MEGASAS_VERSION				"07.719.03.00-rc1"
+#define MEGASAS_RELDATE				"Sep 29, 2021"
+
+* PowerEdge Server-Storage Controllers (PERC & SAS HBA) Series 11
+
+H750 Adapter
+
+* CentOS 8
+
+https://centos.pkgs.org/8/elrepo-x86_64/kmod-megaraid_sas-07.707.50.00-1.el8_0.elrepo.x86_64.rpm.html
+
+07.707.50.00
+
+* so
+
+다른 사이트 os/centos
