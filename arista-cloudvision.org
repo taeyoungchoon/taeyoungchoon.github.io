@@ -1,5 +1,10 @@
 * on cloudvision
 * with cloud vision portal, cvp
+
+- on kvm using 'Automated CloudVision on KVM Deployment'
+- CVP OVA on ESX, 회사에 ESX가 있는데 여기는 어떤가?
+
 * TODO with cloud vision exchange, cve
 
 - on eos
+
