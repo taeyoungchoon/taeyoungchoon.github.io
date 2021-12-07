@@ -60,4 +60,6 @@ and change the value from 4 to 3 then click ok.
 
 * and more
 
-ssl_override_behavior
+ssl_override_behavior 0
+
+browser.xul.error_pages.enabled false
