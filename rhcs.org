@@ -4,3 +4,14 @@
 - Corosync Cluster Engine
 - Linux-HA heartbeat, nil
 - and GFS2
+
+* cli from rocky linux 8.4
+
+https://jwb-systems.com/the-centos-dilemma-and-ways-out/
+
+- dnf repolist --all
+- [X] dnf config-manager --set-enabled ha
+- dnf config-manager --set-enabled HighAvailability
+- STEPS
+- pcs status
+- pcs resource status

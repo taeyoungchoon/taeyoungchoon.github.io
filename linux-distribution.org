@@ -64,4 +64,13 @@ cat /etc/redhat-release
 
 * history
 
-[2021-12-07 화] 어제 또 slackware를 언급했다. 06 또는 08 학번에게 올해는 2021년이다. 2006년으로 치면 늦어도 그리고 리눅스 보다는 유닉스 였다는 그랬다는 다른 분에게 sunos를 solaris를 언급했다. 조금 구식인가? 지금은 또 어떤 시대인가? 여전히 리눅스 배포판을 이야기하는가 리눅스를 이야기하는가 리눅스는 리눅스의 배포판의 형태로 사람들의 눈 앞에 보인다 linux from scatch(old)는 보기 어렵다. 일부다. 일부 소수의 캐랙터들만이. 어쨌거나 slackware라니. slack이라.
+- [2021-12-07 화] 어제 또 slackware를 언급했다. 06 또는 08 학번에게 올해는 2021년이다. 2006년으로 치면 늦어도 그리고 리눅스 보다는 유닉스 였다는 그랬다는 다른 분에게 sunos를 solaris를 언급했다. 조금 구식인가? 지금은 또 어떤 시대인가? 여전히 리눅스 배포판을 이야기하는가 리눅스를 이야기하는가 리눅스는 리눅스의 배포판의 형태로 사람들의 눈 앞에 보인다 linux from scatch(old)는 보기 어렵다. 일부다. 일부 소수의 캐랙터들만이. 어쨌거나 slackware라니. slack이라.
+- [2021-12-09 목] 오늘은 rocky linux다. centos 후속이다. 좋아보인다. 좋아질 것이다. HighAvailability > ha
+
+#+BEGIN_SRC
+dnf repolist --all
+dnf group list
+dnf config-manager --set-enabled ha
+dnf update
+dnf search pcs
+#+END_SRC
