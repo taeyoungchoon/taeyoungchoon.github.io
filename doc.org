@@ -41,3 +41,32 @@
 x에서 계약자료 중 첨부자료로 '4대 사회보험 사업자 가입자 명부' 제출 요청 받았습니다.
 
 
+** 직무수행계획서
+
+https://m.post.naver.com/viewer/postView.nhn?volumeNo=29160794&memberNo=9353678
+
+** 사업수행계획서
+
+사업수행계획서 작성요령 및 양식
+프로젝트 수행계획 
+http://www.313.co.kr/confluence/pages/viewpage.action?pageId=602941
+https://goorada.tistory.com/88
+
+프로젝트 개요
+수행내역
+수행조직 및 업무분장
+프로젝트 일정 계획
+품질 보증 및 관리 계획
+보고 및 검토 계획
+프로젝트 슬로건
+
+https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=mogni&logNo=70185122269
+웹기획
+
+** 프로젝트, 산출물
+
+- 사업수행계획서
+- 제안 물품에 대한 ‘제조사 제품공급 및 기술지원 확약서’
+- 추진방향, 사업내용, 기대효과, 추진체계, 추진일정, 교육계획, 유지보수, 사업 수행자 명단 등 구체적인 사업수행계획서
+ - 보안서약서 등 기타 사업수행에 필요한 제반서류
+
