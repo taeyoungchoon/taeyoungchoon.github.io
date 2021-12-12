@@ -1,0 +1,29 @@
+* linux
+
+- vi
+- ntp? chrony or ntpd
+- fs? xfs ext4
+- fdisk? cfdisk parted
+- grub? lilo loadlin
+- screen or tmux
+- redhat or debian/ubuntu
+- public cloud, you are using/testing
+- openstack or kubernetes
+- nmap, tcpdump/wireshark
+- strace
+- dns a record, ns
+- nslookup, host, dig
+- kernel compile
+- mysql, oracle
+- sql, select, insert, join, update, delete, crud, database
+- programming, coding, c, c++, bash, python, perl and so on
+- linux?
+- monitoring, nagios, zabbix
+- cluster
+- lvm
+- selinux
+- raid
+- crontab
+- operating systems, windows and freebsd?
+- servers, dell, fujitsu, hp
+
