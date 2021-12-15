@@ -1,48 +1,83 @@
-* linux
+* general
 
-- cisco, juniper, arista
+- intro you and I, the company
+- [ ] covid 19 vaccinated
+- [ ] driver license
 
-- vi
-- screen or tmux
+* linux+, system engineer, what about devops-like
 
-- linux?
-- redhat or debian/ubuntu
-- kernel compile
+- linux distribution or
+  - redhat or debian
+  - kernel compile
+  - freebsd
+- editor
+  - vi
+- env
+  - screen or tmux
+- boot
+  - grub
+  - lilo, loadlin
+- time
+  - ntp
+    - chrony
+    - ntpd
+- scheduling
+  - crontab
+- filesystem
+  - xfs, ext4
+  - lvm
+  - raid5
+- network
+  - bonding
+  - nmap
+  - dns record, a, ns, mx
+  - nslookup, host, dig
+  - whois, is
+- database
+- monitoring
+  - nagios, zabbix
+- scripting
+- troubleshooting
+  - magic key, rseub
+  - strace
+- security
+  - selinux
+- machine
+  - physical machine
+  - vm
+  - container-world/generation
 
-- ntp? chrony or ntpd
+* cloud/cluster engineer
 
-- grub? lilo loadlin
+- tools
+  - vmware-like
+  - vm, kvm
+  - hci
+  - cluster, lvs
+  - rhcs
+  - openstack
+  - kubernetes
+  - public cloud, you are using/testing
 
-- monitoring, nagios, zabbix
-
-- ts howto rseub magic-key
-- strace
-
-- nmap, tcpdump/wireshark
-- dns a record, ns
-- nslookup, host, dig
-
-- fs? xfs ext4
-- fdisk? cfdisk parted
-- lvm
-
-- raid
-- crontab
-- operating systems, windows and freebsd?
-
-- selinux
-
-- mysql, oracle
-- sql, select, insert, join, update, delete, crud, database
-
-- programming, coding, c, c++, bash, python, perl and so on
+* (pure) server/box engineer?
 
 - servers, dell, fujitsu, hp
 
-- cluster, lvs
+* network+, network engineer, devops-like
 
-- public cloud, you are using/testing
+- cisco, juniper, arista
+- the next
+  - sdn
+  - nfv, vnf
+  - api
+  - python
 
-- openstack
+* developer+ with system and network, devops-like
 
-- kubernetes
+- devel/code
+  - python
+  - bash
+  - programming, coding, c, c++, bash, python, perl and so on
+- database
+  - using mysql, oracle
+  - sql, select, insert, join, update, delete, crud, database
