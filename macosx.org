@@ -28,3 +28,19 @@ Aug 20 20:32:59 mba com.apple.MobileSoftwareUpdate.UpdateBrainService[655]: objc
 Aug 20 20:33:05 mba com.apple.xpc.launchd[1] (com.apple.AccountProfileRemoteViewService[635]): Service exited due to SIGKILL | sent by AccountProfileRemoteViewService[635]
 Aug 20 20:33:05 mba com.apple.xpc.launchd[1] (com.apple.preferences.softwareupdate.remoteservice[646]): Service exited due to SIGKILL | sent by com.apple.preferences.softwareup[646]
 
+* mac os x update to macOS Monterey Version 12.0.1
+
+- using usb thumb drive
+
+** after that
+
+*** case 1. xcrun: error: invalid active developer path
+
+- msg
+
+git 
+xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun
+
+- solution
+
+xcode-select --install
