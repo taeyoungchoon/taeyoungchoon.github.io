@@ -4,12 +4,28 @@
 - 어지럽다
 - org-mode 도
 - 어쨌거나 기본은 텍스트이다 english냐 아니면 한글이냐는 지금 당장은 혼용으로 결론 짓는다 
+- [2021-12-15 수] 누군가와 함께인가. 코드는 git는.
 
 * redmine?
 
-- 나는 붉은 광산이라고 한다 참 좋은 이슈 추적기다 trac 으로 시작했는데 지금은 붉으 광산으로 
+- 나는 붉은 광산이라고 한다 참 좋은 이슈 추적기다 trac 으로 시작했는데 지금은 붉은 광산으로 
 - 문제는 언제나 버전이다 
 - v1.0에서 v 1.x로 끝날 수는 없을까? 
 - v1.0이 아니면 사용하지 않는다
 - v2.0이 되면 많은 변화가 생겼다는 것을 의미하고 플랫폼에 대한 고민을 하게 한다
 - 역시나 텍스트 그리고 영어로 귀결되는 이유인가? 한글은 또 또 또 
+- [2021-12-15 수] version, 성숙도. 숙성도.
+  - 잠시 보니, 쓸만한 상태이다.
+
+* think
+
+- [ ] external and secure how
+- [ ] backup
+- [ ] users, user
+- [ ] docker-like
+  - https://registry.hub.docker.com/_/redmine/
+  - https://blog.naver.com/cdw0424/222431843816
+  - https://blog.naver.com/senshig/222582450795
+- [ ] store
+- [ ] with versioning system such a like git then github
+  
