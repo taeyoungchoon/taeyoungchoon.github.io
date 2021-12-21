@@ -47,3 +47,15 @@
 2. 일정 잡고 대기 중 입니다.
 
 * HP 케어팩 서비스
+
+* TODO recent, 2021
+
+- HPE ProLiant Gen10 Servers - Software and Driver Download
+  - os: windows 2012 r2, 2016, 2019
+  - firmware
+  - driver
+    - [ ] raid
+  - bios
+  - application
+  - utility
+  - software
