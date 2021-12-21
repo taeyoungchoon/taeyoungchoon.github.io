@@ -1,0 +1,1 @@
+Get-Process | Where-Object { $_.ProcessName -like "PClientUI" } | Stop-Process
