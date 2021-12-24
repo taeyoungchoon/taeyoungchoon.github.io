@@ -59,3 +59,24 @@
   - application
   - utility
   - software
+
+* word and one more thing
+
+- boot: legacy, uefi
+
+#+BEGIN_SRC 
+Boot Mode: Legacy BIOS
+#+END_SRC
+
+- one time boot
+
+#+BEGIN_SRC 
+Booting in Legacy BIOS mode
+AHCI SATA Controller
+#+END_SRC
+
+- rack, rail, mount
+
+https://support.hpe.com/hpesc/public/docDisplay?docId=emr_na-a00018803en_us
+
+HPE rail kits contain telescoping rails which allow for In-Rack serviceability, HPE recommends that a minimum of 2 people are required for all rack server installations.
