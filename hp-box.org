@@ -60,7 +60,7 @@
   - utility
   - software
 
-* word and one more thing
+* TODO word and one more thing
 
 - boot: legacy, uefi
 
@@ -80,3 +80,5 @@ AHCI SATA Controller
 https://support.hpe.com/hpesc/public/docDisplay?docId=emr_na-a00018803en_us
 
 HPE rail kits contain telescoping rails which allow for In-Rack serviceability, HPE recommends that a minimum of 2 people are required for all rack server installations.
+* TODO flow
+
