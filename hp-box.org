@@ -80,5 +80,80 @@ AHCI SATA Controller
 https://support.hpe.com/hpesc/public/docDisplay?docId=emr_na-a00018803en_us
 
 HPE rail kits contain telescoping rails which allow for In-Rack serviceability, HPE recommends that a minimum of 2 people are required for all rack server installations.
+
 * TODO flow
 
+* DONE os driver update using smartupdate cli
+
+1. install operating system, windows 2019 standard
+2. cp spp.iso to Desktop
+3. mount spp.iso
+4. cmd
+5. e:
+6. cd package
+7. smartupdate /s /softwareonly
+8. WAIT
+9. devmgmt.msc
+
+** log
+
+https://support.hpe.com/hpesc/public/docDisplay?docId=emr_na-a00026884en_us
+
+E:\packages>smartupdate /s /softwareonly
+E: is a CD-ROM Drive
+iLO Channel Interface (CHIF) Driver will be installed on Windows nodes, if it is not already present. This will help ensure complete inventory and recommended updates.
+sum_service_x64.exe started successfully on port 63001 and secure port 63002. FTP is disabled.
+Deploy completed on Node - localhost
+Deployment done.
+Sending Shutdown request to engine
+Waiting for engine to shutdown
+Successfully shutdown the service.
+
+E:\packages>
+
+C:\Users\Administrator\AppData\Local\sum\localhost
+sum_detail_log
+sum_log
+
+eventvwr
+System
+Smart Update Manager System Log
+
+devmgmt.msc
+all device is working!
+
+* DONE os driver update using, hpsum /s /softwareonly cli
+
+- https://support.hpe.com/hpesc/public/docDisplay?docId=c04945984&docLocale=en_US
+- echo Calling smartupdate.bat
+
+* TODO os driver update using gui but spp's sum(smart update manager)
+
+https://content.spiceworksstatic.com/service.community/p/post_attachments/0000160903/533523dd/attached_file/Driver_and_firmware_update_for_HP_ProLiant_servers.pdf
+
+https://support.hpe.com/hpesc/public/docDisplay?docId=mmr_kc-0106599-6
+
+1. e:
+2. cd packages
+3. smartupdate
+4. browser pop out
+   1) inventory of baseline
+      - Gen10 Service Pack for Proliant
+        - baseline successfully added
+          - total components 1165
+   2) inventory of localhost
+      - inventory started
+      - inventory in progress
+        - Performing self inventory on cp049303.exe  Online ROM Flash Component for Windows (x64) - HPE Smart Array P824i-p MR Gen10.
+        - and lots more
+      - Inventory completed
+        - Update required
+   3) Next
+   4) Deploy
+      1) Deployment in progress
+         - Deploying PICGen10-1.0.8-1.fwpkg ROM Flash Firmware Package - Advanced Power Capping Microcontroller Firmware for HPE Gen10 and Gen10 Plus Servers
+         - Deploying cp047026.exec HPE Intel Online Firmware UPgrade Utility for Windows Server x64 Editions
+      2) Deployment completed
+         - Deployment done.
+      3) Reboot
+         - Yes, Reboot
