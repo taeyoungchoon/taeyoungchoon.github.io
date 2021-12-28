@@ -157,3 +157,33 @@ https://support.hpe.com/hpesc/public/docDisplay?docId=mmr_kc-0106599-6
          - Deployment done.
       3) Reboot
          - Yes, Reboot
+* TODO manufacturing date calc
+
+- xxx abc xxxx
+- 146
+  - 1: 2021 or 2011 or 2001
+  - 46: 46 week(s)
+
+** calculator
+
+https://stackoverflow.com/questions/2600775/how-to-get-week-number-in-python
+
+#+BEGIN_SRC python
+
+import datetime
+datetime.date(2021, 11, 15).strftime("%V")
+
+#+END_SRC
+
+#+RESULTS:
+: None
+
+- 46
+
+** links
+
+https://community.hpe.com/t5/ProLiant-Servers-ML-DL-SL/How-can-Know-what-year-was-manufacturing-my-server-Hp-Proliant/td-p/5739433#.Ycr1_y8RppQ
+https://serial-number-decoder.co.uk/hp-calculator/hp-calculator.htm
+https://time-and-calendar.com/weeks-to-months/46
+
+
