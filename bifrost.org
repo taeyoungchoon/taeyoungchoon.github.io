@@ -35,3 +35,9 @@ Bare Metal Server Discovery with Salt Proxy Minions
 
 https://www.youtube.com/watch?v=qBtCT96OCfg
 SaltStack is Not Configuration Management (It's So Much More)
+
+https://www.youtube.com/results?search_query=fai+fully+automatic+installation
+fai
+
+https://www.youtube.com/watch?v=ndHi1sQWuH4
+Automated Debian Install with Preseeding

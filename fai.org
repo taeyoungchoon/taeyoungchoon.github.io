@@ -1,0 +1,10 @@
+* compare with the other friends
+
+- bifrost? the ironic sub project
+- cobbler
+- foreman
+
+* go
+
+- https://fai-project.org/fai-guide/
+- https://wiki.fai-project.org/index.php/VirtualBox_for_your_first_FAI_installation
