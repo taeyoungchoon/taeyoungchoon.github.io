@@ -1,0 +1,29 @@
+* TODO slmgr /i
+
+- slmgr /dlv
+
+* TODO dism, live conversion
+
+DISM /Online /Set-Edition:ServerStandard /ProductKey:XXX /AcceptEula
+DISM /online /Get-CurrentEdition
+DISM /online /Get-TargetEditions
+
+* TODO kms, key management service
+
+- slmgr /ipk <product key>
+- but KMS host required
+
+https://docs.microsoft.com/en-us/answers/questions/58587/windows-server-2019-activation-from-evaluation.html
+https://m.blog.naver.com/wow_press/221912871966
+https://pastimelife.com/1646
+https://m.blog.daum.net/gift20111/2070
+https://docs.microsoft.com/ko-kr/windows-server/get-started/kms-client-activation-keys
+https://www.sysnet.pe.kr/2/0/11074
+
+- Windows 정품 라이선스를 KMS 클라이언트로 변환
+  (Converting a retail license of Windows to a KMS client)
+  - KMS(키 관리 서비스) 정품 인증 호스트를 만드는 방법
+
+- Windows Server(LTSC 버전)
+  - KMS 클라이언트 제품 키
+    - Windows Server 2019 Standard: N69G4-B89J2-4G8F4-WWYCC-J464C
