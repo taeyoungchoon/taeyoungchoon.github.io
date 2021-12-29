@@ -1,0 +1,37 @@
+* using and say bifrost, bi frost, ironc sub-project
+
+https://docs.openstack.org/kolla-ansible/latest/reference/deployment-and-bootstrapping/bifrost.html
+Bifrost - Standalone Ironic
+
+https://wiki.lfnetworking.org/display/LN/Kubernetes+Bare-Metal+Install+and+Configuration
+Kubernetes Bare-Metal Install and Configuration
+
+https://www.youtube.com/watch?v=GvbUj5AQuMC
+Bare Metal In The Cloud: Isn’t it Ironic? Explaining OpenStack bare metal provisioning service
+
+https://www.youtube.com/watch?v=d03xg2PKOPg
+How to install OpenShift 4 on Bare Metal - User Provisioned Infrastructure (UPI)
+
+https://www.youtube.com/watch?v=-cn_tVr6-yA
+Baremetal Provisioning using salt-call --local state.highstate > provisioning.log 2>&1
+
+onetime-pxe
+
+https://github.com/dkilcy/saltstack-base
+Salt tools for bare-metal provisioning
+
+https://www.reddit.com/r/saltstack/comments/2iurhf/provisioning_bare_metal/
+pxe booting, cobbler, kickstart, salt minion, runa highstate on a firstboot?
+foreman, MaaS, razor, fai, saltstack
+
+https://www.youtube.com/watch?v=kqqCcbOrCXM
+Automating Bare-Metal Infrastructure with SaltStack and HPE OneView
+
+https://www.upguard.com/blog/foreman-vs-saltstack
+foreman vs saltstack
+
+https://www.youtube.com/watch?v=PgU_dSbF2aw
+Bare Metal Server Discovery with Salt Proxy Minions
+
+https://www.youtube.com/watch?v=qBtCT96OCfg
+SaltStack is Not Configuration Management (It's So Much More)
