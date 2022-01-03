@@ -8,3 +8,34 @@
 
 - https://fai-project.org/fai-guide/
 - https://wiki.fai-project.org/index.php/VirtualBox_for_your_first_FAI_installation
+
+* TODO [2022-01-03 월] fai again
+
+- [2022-01-03 월 15:31] with fai cd
+  - client standalone installation
+  - boot os from first partition on first disk
+  - rescue system, no installation
+  - fai server installation - using external dhcp server
+  - fai server installation - using internal dhcp and a fixed ip
+
+* TODO fai server installation - using internal dhcp and a fixed ip
+
+- [ ] fai01 is the fai server
+  - with host-only adapter / virtualbox 
+- [ ] fai02 is the fai client
+
+* TODO fai server installation - using external dhcp server
+
+- [ ] fai01 is the fai server
+  - with bridged adapter / virtualbox 
+ 
+#+BEGIN_SRC 
+[FAILED] Failed to start LSB: DHCP server.
+=================================
+Setting up the FAI install server
+This will take a few minutes
+=================================
+#+END_SRC
+
+rc.local
+  

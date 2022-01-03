@@ -1,0 +1,13 @@
+* software such as
+
+- teamviewer
+- anydesk
+- chrome remote desktop
+- vnc, Virtual Network Computing
+
+* software but microsoft
+
+- remote desktop connection(mstsc)
+  - remote desktop
+- remote desktop connection manager(rdcman)
+  

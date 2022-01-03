@@ -1,0 +1,7 @@
+* or teamviewer, vnc like
+
+https://blog.naver.com/ho0zzang91/222082164487
+
+- security
+  - [X] enable unattended access
+    - set password for unattended access

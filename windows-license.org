@@ -1,3 +1,19 @@
+* TODO note
+
+- digital license
+
+https://www.samsungsvc.co.kr/solution/39556
+
+- product key
+- open license
+- retail, fpp(full package product)
+- vlk
+- kms(key management service)
+  - kms client, kms host, SVR RR
+- mak(multiple activation key) 
+- coem, dsp(delivery service pack)
+- oem
+
 * TODO slmgr /i
 
 - slmgr /dlv
@@ -27,3 +43,32 @@ https://www.sysnet.pe.kr/2/0/11074
 - Windows Server(LTSC 버전)
   - KMS 클라이언트 제품 키
     - Windows Server 2019 Standard: N69G4-B89J2-4G8F4-WWYCC-J464C
+
+* words
+
+- KMS: Key Management Servcies
+- KMS client
+  - KMS activationn are valid for 180 days
+- volume license
+- retail license
+- [X] license conversion
+
+* one way
+
+정식 라이센스(YYY)만 가지고 등록하기
+
+1. DISM /Online /Set-Edition: /ProductKey:YYY /AcceptEula
+2. DISM /Online /Set-Edition:ServerStandard /ProductKey:YYY /AcceptEula
+3. make check
+   - slmgr /dli (prefer) or slmgr /dlv
+
+* the other way, the second
+
+eval을 KMS client(XXX)로, 그리고 정식(YYY)으로 등록하기
+
+1. DISM /Online /Set-Edition:ServerStandard /ProductKey:XXX /AcceptEula
+2. DISM /Online /Set-Edition:ServerStandard /ProductKey:YYY /AcceptEula
+
+** more
+
+- slmgr /xpr
