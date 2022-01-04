@@ -3,6 +3,19 @@
 - 그래 아마도 노트북이 남지 않을까? 앏은 몇 페이지의 노트북, 노트의 묶음 말이다
 - 노트북 그리고 충전기
 
+* and one more thing, the disk
+
+- SSD
+  - M.2
+  - 256GB
+- 14ZD990-GX50K's power adapter or
+- usb-c power adapter
+  - Power Delivery 20V / 2A Profile, USB Type-C
+    - 40W
+    - support from 5V / 2A
+    - 65W?
+    - USB 4 / 썬더볼트4?
+
 * list
 
 ** thinkpad 701c butterfly
@@ -41,11 +54,11 @@
 - 2019.5.
 - core i5
 - 14 inch
-- 256GB
+- 256GB, the disk
 - 1920x1080(FHD)
 - with nil of operating system, so
-- 그램을 충전하고 그램으로 충전하고
-  양방향으로 충전할 수 있어 더 편리해 졌습니다.
+- [ ] 그램을 충전하고 그램으로 충전하고
+  양방향으로 충전할 수 있어 더 편리해 졌습니다?
 - 노트 :
   - 내장 메모리는 Samsung MZ-NLN256C
     - Manufacturer : Samsung
@@ -59,16 +72,32 @@
   - 추가 메모리는 WD Blue 3D M.2 SATA (250GB)
     - M.2 2280, SATA3(6Gb/s), 3D낸드, 마벨, 550MB/s Read, 525MB/s Write, 2.38mm
 - [2020-12-01 Tue 09:10] 사용 중임
+- [2022-01-04 화] not enough memory, 16g
+- 130만원 이상
+** the next
 
-* TODO and one more thing
+*** req
 
-- SSD
-  - M.2
-  - 256GB
-- 14ZD990-GX50K's power adapter or
-- usb-c power adapter
-  - Power Delivery 20V / 2A Profile, USB Type-C
-    - 40W
-    - support from 5V / 2A
-    - 65W?
-    - USB 4 / 썬더볼트4?
+1. linux support, redhat-type and/or debian-type
+2. big memory, 128g or 64g or less
+3. CVP(CloudVision Portal): 22g / single node instance as lab environment
+
+*** thinkpad
+
+https://support.lenovo.com/us/en/solutions/pd031426-linux-for-personal-systems
+T15p support by RHEL 8.3 and Ubuntu 20.04(OEM Kernel)
+T15p lots of memory, and enough
+
+1. [ ] T15: max 43g
+2. [X] T15p: max 64g
+   - 레노버 씽크패드 T15p 20TNS00D00, 219만원 over
+3. [ ] T15g
+4. [ ] T15 Gen 2: max 43g
+   - 레노버 씽크패드 T15 G2 20W4S00500, 219만원 over
+5. [ ] T15p Gen 2: max 64g
+   - 레노버 씽크패드 T15p G2 21A7S00100, 239만원 over
+6. [ ] T15g Gen 2: max 128g
+
+*** lg ultragear
+
+
