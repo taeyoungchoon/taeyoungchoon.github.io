@@ -6,3 +6,25 @@
 * and later
 
 하나가 있고 하나고 없고 일까? 아니면 하나의 흐름일까? 하나의 흐름이다. 
+
+* 임시선별검사소
+
+https://news.seoul.go.kr/welfare/archives/512553
+https://www.mohw.go.kr/react/popup_200128_7.html
+
+** 9a
+
+- [x] 남구로역 > 대림역: 대림동 임시선별검사소/영등포구보건소
+  - https://www.ydp.go.kr/health/contents.do?key=5386
+- [ ] 가산디지털단지역 > 금천구청역: 금천구보건소 
+- [ ] 가산디지털단지역 > 구로역: 광장 
+- [ ] 운정 임시선별검사소
+  - https://www.paju.go.kr/www/news/rectify_news/rectify_news_04/rectify_news_04_03.jsp
+
+** 13a
+
+- [ ] 가리봉주민센터
+
+** 15a
+
+- [X] 구로리공원
