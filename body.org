@@ -102,3 +102,6 @@
 
 https://health.cdc.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=3828
 * 언제대장갑
+* TODO 항생제내성균, 항생제, 내성균
+
+https://www.kdca.go.kr/nohas/aboutOH/straindef.do?menuCtg=ctg01&menuId=menu01_1

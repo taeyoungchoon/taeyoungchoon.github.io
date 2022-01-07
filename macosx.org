@@ -30,7 +30,14 @@ Aug 20 20:33:05 mba com.apple.xpc.launchd[1] (com.apple.preferences.softwareupda
 
 * mac os x update to macOS Monterey Version 12.0.1
 
-- using usb thumb drive
+1. make space on mac drive
+   - music to thumb drive
+   - brew cleanup --prune=all -s
+   - rm -rf "$(brew --cache)"
+2. search 'macos monterey' from appstore
+3. download 'Install macOS Monterey'
+4. mv 'Install macOS Montery' to thumbdrive
+5. using usb thumb drive
 
 ** after that
 
