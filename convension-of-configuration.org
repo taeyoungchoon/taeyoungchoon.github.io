@@ -1,0 +1,31 @@
+* word one, conversion
+
+https://www.lesstif.com/laravelprog/coc-28607056.html
+
+관례를 모르면 어떻게 동작하는지 이해를 할 수가 없으므로 관례를 따르지 않을 경우(레거시 데이타베이스 등) 나 커스터마이징시 많은 어려움을 겪을 수 있으며 어디에서 관례를 찾아야 하는지 알기 힘들다는 점입니다.
+
+https://zetawiki.com/wiki/설정보다_관습_CoC
+
+convention over configuration; CoC, coding by convention
+설정보다 관습, 설정보다 관례, 설정보다 규약, 설정보다 컨벤션
+
+https://en.wikipedia.org/wiki/Ruby_on_Rails
+
+Philosophy and design
+Ruby on Rails is intended to emphasize Convention over Configuration (CoC), and
+
+https://en.wikipedia.org/wiki/Convention_(norm)
+
+"unwritten law" of custom (for example, the manner in which people greet each other, such as by shaking each other's hands)
+
+- define member
+  - make members
+  - make functions related to member and members
+  - make database table
+    - field: id, member
+  - make web-ui with CRUD operations
+  - all above automatically
+
+foo.com
+
+CoC가 적용이 되어져 있다면 , 적용되어져 있는 구역은 Convention(관례)에 따라 개발 시에는 별도의 설정이 필요 없다. 관례에서 벗어나는 코드'만'
