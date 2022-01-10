@@ -1,0 +1,18 @@
+* hw
+
+https://en.wikipedia.org/wiki/List_of_PowerEdge_servers
+https://www.dell.com/support/kbdoc/en-us/000143479/list-of-poweredge-models-and-generation
+
+- R740
+- R740xd
+- R740xd2
+
+* TODO Products & Services > Ecosystem > Certified Hardware > PowerEdge R740
+
+https://access.redhat.com/ecosystem/hardware/2941711
+
+View all Certifications for PowerEdge R740
+
+* TODO LC(Lifecycle Controller)
+
+https://www.dell.com/support/manuals/ko-kr/redhat-enterprise-linux-v8.0/rhel_8_ig_pub/install-rhel-8-with-lifecycle-controller?guid=guid-2ee72a2a-38d1-4667-b492-1a67d0483fed
