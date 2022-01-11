@@ -89,15 +89,15 @@ T15p support by RHEL 8.3 and Ubuntu 20.04(OEM Kernel)
 T15p lots of memory, and enough
 
 1. [ ] T15: max 43g
-2. [X] T15p: max 64g
+2. [X] T15p: max 64g > Gen 2, hard to buy, the days are gone
    - 레노버 씽크패드 T15p 20TNS00D00, 219만원 over
 3. [ ] T15g
-4. [ ] T15 Gen 2: max 43g
+4. [X] T15 Gen 2: max 43g
    - 레노버 씽크패드 T15 G2 20W4S00500, 219만원 over
-5. [ ] T15p Gen 2: max 64g
+5. [X] T15p Gen 2: max 64g
    - 레노버 씽크패드 T15p G2 21A7S00100, 239만원 over
 6. [ ] T15g Gen 2: max 128g
 
 *** lg ultragear
 
-
+nil
