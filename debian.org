@@ -1,0 +1,9 @@
+* DONE hangul on debian 
+
+[2022-01-13 Thu 19:40] 
+
+https://ms-dev.tistory.com/62
+
+1. apt install fonts-nanum
+2. apt install ibus-hangul
+3. settings > region & language > input sources > + > Korean(Hangul)
