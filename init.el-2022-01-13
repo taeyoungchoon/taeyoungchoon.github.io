@@ -1,0 +1,165 @@
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages/"))
+(package-initialize)
+
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+(setq inhibit-splash-screen t)
+(load-theme 'wombat)
+(setq default-directory "c:/home")
+;; (setq temporary-file-directory "c:/Users/jack/Local Settings/Temp")
+(setq default-input-method "korean-hangul3f")
+(global-set-key (kbd "S-SPC") 'toggle-input-method)
+(prefer-coding-system 'utf-8-unix)
+(set-frame-font "나눔고딕코딩-12:normal" t t)
+
+(recentf-mode 1)
+(global-set-key (kbd "<f7>") 'recentf-open-files)
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("b89a4f5916c29a235d0600ad5a0849b1c50fab16c2c518e1d98f0412367e7f97" "830877f4aab227556548dc0a28bf395d0abe0e3a0ab95455731c9ea5ab5fe4e1" "285d1bf306091644fb49993341e0ad8bafe57130d9981b680c1dbd974475c5c7" "13a8eaddb003fd0d561096e11e1a91b029d3c9d64554f8e897b2513dbf14b277" "c433c87bd4b64b8ba9890e8ed64597ea0f8eb0396f4c9a9e01bd20a04d15d358" "2809bcb77ad21312897b541134981282dc455ccd7c14d74cc333b6e549b824f3" "0fffa9669425ff140ff2ae8568c7719705ef33b7a927a0ba7c5e2ffcfac09b75" default)))
+ '(debug-on-error nil)
+ '(package-selected-packages
+   (quote
+    (powershell emms-soundcloud emms graphviz-dot-mode use-package plantuml-mode company-ansible ansible indent-tools highlight-indent-guides highlight-indentation restart-emacs htmlize fullframe go-mode alarm-clock elgrep json-mode dictionary 2048-game dot-mode ## magit ssh scp make-color helm-make helm-ispell helm-gtags helm-git helm-dired-history 0blayout helm-books helm-circe smart-compile slack slime helm yaml-mode))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+(setq printer-name "//127.0.0.1/Printer")
+(setq ps-lpr-command "c:/Program Files/gs/gs9.53.3/bin/gswin64c.exe")
+(setq ps-lpr-switches '("-q" "-dNOPAUSE" "-dBATCH" "-sDEVICE=mswinpr2"))
+(setq ps-printer-name t)
+(setq ps-multibyte-buffer nil)
+
+(setq inferior-lisp-program "clisp")
+;;(require 'slime-autoloads)
+;;(add-to-list 'slime-contribs 'slime-fancy)
+
+(global-set-key (kbd "<f8>") 'dictionary-lookup-definition)
+
+(setq org-latex-packages-alist '())
+(add-to-list 'org-latex-packages-alist '("" "kotex" t))
+;;(org-babel-do-load-languages ‘org-babel-load-languages ‘((plantuml . t)))
+;;(org-babel-do-load-languages ‘org-babel-load-languages ‘((shell . t)))
+;; (add-hook 'yaml-mode-hook #'highlight-indentation-mode)
+
+(add-hook 'yaml-mode-hook #'highlight-indent-guides-mode)
+
+;;(line-number-mode 1)
+;;(column-number-mode 1)
+
+(setq-default indent-tabs-mode nil)
+
+(setq default-tab-width 2)
+(setq tab-width 2)
+
+(setq-default show-trailing-whitespace nil)
+
+(global-visual-line-mode t)
+
+;; Enable plantuml-mode for PlantUML files
+;;(setq plantuml-jar-path "c:/home/plantuml.jar")
+(setq org-plantuml-jar-path (expand-file-name "c:/home/plantuml.jar"))
+;;debugging
+;;(add-to-list 'org-src-lang-modes '("plantuml" . plantuml))
+
+(setq plantuml-default-exec-mode 'jar)
+;; (setq plantuml-output-type "txt")
+(setq plantuml-output-type "png")
+;;(setq plantuml-options "-charset UTF-8")
+
+;; enable plantuml-mode for plantuml files
+(add-to-list 'auto-mode-alist '("\\.plantuml\\'" . plantuml-mode))
+
+;; (org-babel-do-load-languages 'org-babel-load-languages '((plantuml . t)))
+
+(org-babel-do-load-languages 'org-babel-load-languages
+    '(
+      (shell . t)
+      (plantuml . t)
+    )
+)
+
+(use-package graphviz-dot-mode
+  :ensure t
+  :config
+  (setq graphviz-dot-indent-width 4))
+
+(use-package company-graphviz-dot
+  )
+
+;; use only one desktop
+(setq desktop-path '("~/.emacs.d/"))
+(setq desktop-dirname "~/.emacs.d/")
+(setq desktop-base-file-name "emacs-desktop")
+
+;; remove desktop after it's been read
+(add-hook 'desktop-after-read-hook
+	  '(lambda ()
+	     ;; desktop-remove clears desktop-dirname
+	     (setq desktop-dirname-tmp desktop-dirname)
+	     (desktop-remove)
+	     (setq desktop-dirname desktop-dirname-tmp)))
+
+(defun saved-session ()
+  (file-exists-p (concat desktop-dirname "/" desktop-base-file-name)))
+
+;; use session-restore to restore the desktop manually
+(defun session-restore ()
+  "Restore a saved emacs session."
+  (interactive)
+  (if (saved-session)
+      (desktop-read)
+    (message "No desktop found.")))
+
+;; use session-save to save the desktop manually
+(defun session-save ()
+  "Save an emacs session."
+  (interactive)
+  (if (saved-session)
+      (if (y-or-n-p "Overwrite existing desktop? ")
+	  (desktop-save-in-desktop-dir)
+	(message "Session not saved."))
+  (desktop-save-in-desktop-dir)))
+
+;; ask user whether to restore desktop at start-up
+(add-hook 'after-init-hook
+	  '(lambda ()
+	     (if (saved-session)
+		 (if (y-or-n-p "Restore desktop? ")
+		     (session-restore)))))
+
+;; (require 'emms)
+;; (require 'emms-player-simple)
+;; (require 'emms-source-file)
+;; (require 'emms-player-mplayer)
+;; (require 'emms-source-playlist)
+;; (setq emms-player-list '(emms-player-mpg321 
+;; 			 emms-player-ogg123
+;; 			 emms-player-mplayer)
+;;       emms-source-list '((emms-directory-tree "T:/archive/songs")))
+(add-to-list 'exec-path "C:/ProgramData/chocolatey/bin")
+
+;; python
+(setenv "IPY_TEST_SIMPLE_PROMPT" "1")
+(setq python-shell-interpreter "python3"
+      python-shell-interpreter-args "-i")
+
+(setq explicit-shell-file-name "C:/cygwin64/bin/bash.exe")
+(setq shell-file-name "bash")
+(setq explicit-bash.exe-args '("--noediting" "--login" "-i"))
+(setenv "SHELL" shell-file-name)
+(add-hook 'comint-output-filter-functions 'comint-strip-ctrl-m)
