@@ -1,0 +1,54 @@
+* choco
+
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+
+PS C:\Users\jane> choco list --localonly
+Chocolatey v0.11.3
+cyg-get 1.2.1
+Cygwin 3.3.3
+Firefox 96.0
+git 2.34.1
+GoogleChrome 97.0.4692.71
+notepadplusplus 8.2
+putty 0.76
+rufus 3.17
+vagrant 2.2.19
+vim 8.2.4065
+virtualbox 6.1.30
+vscode 1.63.2
+windirstat 1.1.2.20161210
+
+* env
+
+HOME
+T:\home
+
+* env for vagrant
+
+VAGRANT_HOME
+T:\vm\VAGRANT_HOME
+
+* t:\home\_vimrc
+
+set langmenu=en_US
+let $LANG = 'en_US'
+source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/menu.vim
+
+set tabstop=4
+set expandtab
+
+set guifont=D2Coding\ ligature:h12
+
+* vscode
+
+manage > setting > text editor > font
+D2Coding, Consolas, 'Courier New', monospace
+
+* virtualbox - 환경설정 - 일반 - 기본머신폴더
+
+T:\vm\store
+
+* cygcheck -c | grep -v ^lib
+
+cyg-get dos2unix
