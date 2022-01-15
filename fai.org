@@ -10,7 +10,7 @@
 - https://wiki.fai-project.org/index.php/VirtualBox_for_your_first_FAI_installation
 
 * TODO [2022-01-03 월] fai again
-
+  
 - [2022-01-03 월 15:31] with fai cd
   - client standalone installation
   - boot os from first partition on first disk
@@ -39,3 +39,39 @@ This will take a few minutes
 
 rc.local
   
+* TODO [2022-01-15 Sat] work
+
+1. lg gram
+2. dual boot to debian 11(bullseye)
+   - wireless network
+3. install virt-manager
+4. create network33
+   - network: 192.168.33.0/24
+   - dhcp range: disabled
+   - forwarding: nat
+5. download fai-cd from https://fai-project.org/fai-cd/
+   - large
+   - small
+   - autodiscover
+6. open https://fai-project.org/fai-guide/
+7. fai0 with large, internal dhcpd and fixed ip
+   1) enable sshd with 'PermitRootLogin yes'
+   2) ssh fai0(192.168.33.250)
+   3) invoke-rc.d isc-dhcp-server start
+      - (optional) rm /var/run/dhcpd.pid
+   4) add demohost to /etc/hosts
+   5) dhcp-edit demohost 52:54:00:66:74:db
+      - gather mac address using tcpdump or virt-x
+   6) fai-chboot -IFv -u nfs://faiserver/srv/fai/config demohost
+8. boot fai1 with autodiscover or network boot using pxe
+9. fai0 with one more thing
+   1) cd /srv/fai/config/files/etc/motd/
+   2) edit 'FAIBASE' file
+   3) cd /srv/fai/config/package_config/
+   4) add emacs to 'DEBIAN' file
+   5) cd /srv/tftp/fai/pxelinux.cfg/
+   6) edit x.disable file with 'reboot'
+   7) mv x.disable x
+10. reboot fai1
+    1) root / fai
+    2) emacs
