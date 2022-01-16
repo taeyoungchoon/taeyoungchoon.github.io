@@ -1,0 +1,34 @@
+all: status 
+
+status: check-taeyoungchoon.github.io check-t-shell check-ylit21
+
+check-taeyoungchoon.github.io:
+	@cd taeyoungchoon.github.io; basename $$(pwd); git status -s
+
+check-t-shell:
+	@cd t-shell; basename $$(pwd); git status -s
+
+check-ylit21:
+	@cd ylit21; basename $$(pwd); git status -s
+
+pull: pull-taeyoungchoon.github.io pull-t-shell pull-ylit21
+
+pull-taeyoungchoon.github.io:
+	@cd taeyoungchoon.github.io; basename $$(pwd); git pull
+
+pull-t-shell:
+	@cd t-shell; basename $$(pwd); git pull
+
+pull-ylit21:
+	@cd ylit21; basename $$(pwd); git pull
+
+push: push-taeyoungchoon.github.io push-t-shell push-ylit21
+
+push-taeyoungchoon.github.io:
+	@cd taeyoungchoon.github.io; basename $$(pwd); git push
+
+push-t-shell:
+	@cd t-shell; basename $$(pwd); git push
+
+push-ylit21:
+	@cd ylit21; basename $$(pwd); git push
