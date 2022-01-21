@@ -1,0 +1,491 @@
+* DONE eigrp
+  CLOSED: [2022-01-21 금 17:32]
+
+** DONE internet#show running-config | section eigrp
+   CLOSED: [2022-01-21 금 17:28]
+
+internet#show running-config | section eigrp
+router eigrp 100
+ network 11.0.0.0
+ auto-summary
+internet#
+
+** DONE internet#show ip route
+   CLOSED: [2022-01-21 금 17:28]
+
+internet#show ip route
+Codes: C - connected, S - static, I - IGRP, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+       i - IS-IS, L1 - IS-IS level-1, L2 - IS-IS level-2, ia - IS-IS inter area
+       * - candidate default, U - per-user static route, o - ODR
+       P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+     11.0.0.0/27 is subnetted, 5 subnets
+C       11.1.1.0 is directly connected, FastEthernet0/0
+D       11.1.1.32 [90/30720] via 11.1.1.2, 00:01:32, FastEthernet0/0
+D       11.1.1.64 [90/30720] via 11.1.1.2, 00:01:32, FastEthernet0/0
+D       11.1.1.96 [90/30720] via 11.1.1.3, 00:01:32, FastEthernet0/0
+D       11.1.1.128 [90/30720] via 11.1.1.3, 00:01:32, FastEthernet0/0
+
+internet#show ip eigrp neighbors 
+IP-EIGRP neighbors for process 100
+H   Address         Interface      Hold Uptime    SRTT   RTO   Q   Seq
+                                   (sec)          (ms)        Cnt  Num
+0   11.1.1.2        Fa0/0          10   00:01:37  40     1000  0   6
+1   11.1.1.3        Fa0/0          11   00:01:37  40     1000  0   6
+
+internet#show ip eigrp topology 
+IP-EIGRP Topology Table for AS 100/ID(11.1.1.1)
+
+Codes: P - Passive, A - Active, U - Update, Q - Query, R - Reply,
+       r - Reply status
+
+P 11.1.1.0/27, 1 successors, FD is 28160
+         via Connected, FastEthernet0/0
+P 11.1.1.32/27, 1 successors, FD is 30720
+         via 11.1.1.2 (30720/28160), FastEthernet0/0
+P 11.1.1.64/27, 1 successors, FD is 30720
+         via 11.1.1.2 (30720/28160), FastEthernet0/0
+P 11.1.1.96/27, 1 successors, FD is 30720
+         via 11.1.1.3 (30720/28160), FastEthernet0/0
+P 11.1.1.128/27, 1 successors, FD is 30720
+         via 11.1.1.3 (30720/28160), FastEthernet0/0
+internet
+** DONE R1#show running-config | section eigrp
+   CLOSED: [2022-01-21 금 17:30]
+
+R1#show running-config | section eigrp
+router eigrp 100
+ network 11.0.0.0
+ auto-summary
+R1#
+
+** DONE R1#show ip route
+   CLOSED: [2022-01-21 금 17:30]
+   
+R1#show ip route
+Codes: C - connected, S - static, I - IGRP, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+       i - IS-IS, L1 - IS-IS level-1, L2 - IS-IS level-2, ia - IS-IS inter area
+       * - candidate default, U - per-user static route, o - ODR
+       P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+     11.0.0.0/27 is subnetted, 5 subnets
+C       11.1.1.0 is directly connected, FastEthernet0/0
+C       11.1.1.32 is directly connected, FastEthernet0/1
+C       11.1.1.64 is directly connected, FastEthernet1/0
+D       11.1.1.96 [90/30720] via 11.1.1.3, 00:02:57, FastEthernet0/0
+D       11.1.1.128 [90/30720] via 11.1.1.3, 00:02:57, FastEthernet0/0
+
+R1#show ip eigrp nei
+R1#show ip eigrp neighbors 
+IP-EIGRP neighbors for process 100
+H   Address         Interface      Hold Uptime    SRTT   RTO   Q   Seq
+                                   (sec)          (ms)        Cnt  Num
+0   11.1.1.1        Fa0/0          13   00:03:06  40     1000  0   10
+1   11.1.1.3        Fa0/0          12   00:03:06  40     1000  0   6
+
+R1#show ip eigrp topology 
+IP-EIGRP Topology Table for AS 100/ID(11.1.1.65)
+
+Codes: P - Passive, A - Active, U - Update, Q - Query, R - Reply,
+       r - Reply status
+
+P 11.1.1.0/27, 1 successors, FD is 28160
+         via Connected, FastEthernet0/0
+P 11.1.1.32/27, 1 successors, FD is 28160
+         via Connected, FastEthernet0/1
+P 11.1.1.64/27, 1 successors, FD is 28160
+         via Connected, FastEthernet1/0
+P 11.1.1.96/27, 1 successors, FD is 30720
+         via 11.1.1.3 (30720/28160), FastEthernet0/0
+P 11.1.1.128/27, 1 successors, FD is 30720
+         via 11.1.1.3 (30720/28160), FastEthernet0/0
+R1#
+** DONE R2#show running-config | section eigrp
+   CLOSED: [2022-01-21 금 17:32]
+
+R2#show running-config | section eigrp
+router eigrp 100
+ network 11.0.0.0
+ auto-summary
+R2#
+
+** DONE R2#show ip route
+   CLOSED: [2022-01-21 금 17:32]
+
+R2#show ip route
+Codes: C - connected, S - static, I - IGRP, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+       i - IS-IS, L1 - IS-IS level-1, L2 - IS-IS level-2, ia - IS-IS inter area
+       * - candidate default, U - per-user static route, o - ODR
+       P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+     11.0.0.0/27 is subnetted, 5 subnets
+C       11.1.1.0 is directly connected, FastEthernet0/0
+D       11.1.1.32 [90/30720] via 11.1.1.2, 00:04:56, FastEthernet0/0
+D       11.1.1.64 [90/30720] via 11.1.1.2, 00:04:56, FastEthernet0/0
+C       11.1.1.96 is directly connected, FastEthernet0/1
+C       11.1.1.128 is directly connected, FastEthernet1/0
+
+R2#show ip eigrp nei
+R2#show ip eigrp neighbors 
+IP-EIGRP neighbors for process 100
+H   Address         Interface      Hold Uptime    SRTT   RTO   Q   Seq
+                                   (sec)          (ms)        Cnt  Num
+0   11.1.1.1        Fa0/0          13   00:05:08  40     1000  0   10
+1   11.1.1.2        Fa0/0          12   00:05:08  40     1000  0   6
+
+R2#show ip eigr
+R2#show ip eigrp top
+R2#show ip eigrp topology 
+IP-EIGRP Topology Table for AS 100/ID(11.1.1.129)
+
+Codes: P - Passive, A - Active, U - Update, Q - Query, R - Reply,
+       r - Reply status
+
+P 11.1.1.0/27, 1 successors, FD is 28160
+         via Connected, FastEthernet0/0
+P 11.1.1.32/27, 1 successors, FD is 30720
+         via 11.1.1.2 (30720/28160), FastEthernet0/0
+P 11.1.1.64/27, 1 successors, FD is 30720
+         via 11.1.1.2 (30720/28160), FastEthernet0/0
+P 11.1.1.96/27, 1 successors, FD is 28160
+         via Connected, FastEthernet0/1
+P 11.1.1.128/27, 1 successors, FD is 28160
+         via Connected, FastEthernet1/0
+R2#
+* DONE ospf
+  CLOSED: [2022-01-21 금 17:17]
+  
+** DONE internet#show running-config | section interface
+   CLOSED: [2022-01-21 금 17:17]
+
+ internet#show running-config | section interface
+ interface FastEthernet0/0
+  ip address 11.1.1.1 255.255.255.224
+  duplex auto
+  speed auto
+ interface FastEthernet0/1
+  no ip address
+  duplex auto
+  speed auto
+ interface FastEthernet1/0
+  no ip address
+  duplex auto
+  speed auto
+ interface FastEthernet1/1
+  no ip address
+  duplex auto
+  speed auto
+ internet#
+
+** DONE internet#show running-config | section ospf
+   CLOSED: [2022-01-21 금 17:13]
+
+ internet#show running-config | section ospf
+ router ospf 12
+  log-adjacency-changes
+  network 0.0.0.0 255.255.255.255 area 0
+ internet#
+
+** DONE internet#show ip route
+   CLOSED: [2022-01-21 금 17:14]
+
+ internet#show ip route
+ Codes: C - connected, S - static, I - IGRP, R - RIP, M - mobile, B - BGP
+	D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+	N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+	E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+	i - IS-IS, L1 - IS-IS level-1, L2 - IS-IS level-2, ia - IS-IS inter area
+	* - candidate default, U - per-user static route, o - ODR
+	P - periodic downloaded static route
+
+ Gateway of last resort is not set
+
+      11.0.0.0/27 is subnetted, 5 subnets
+ C       11.1.1.0 is directly connected, FastEthernet0/0
+ O       11.1.1.32 [110/2] via 11.1.1.2, 00:11:17, FastEthernet0/0
+ O       11.1.1.64 [110/2] via 11.1.1.2, 00:11:17, FastEthernet0/0
+ O       11.1.1.96 [110/2] via 11.1.1.3, 00:11:17, FastEthernet0/0
+ O       11.1.1.128 [110/2] via 11.1.1.3, 00:11:17, FastEthernet0/0
+
+ internet#show ip ospf neighbor 
+
+
+ Neighbor ID     Pri   State           Dead Time   Address         Interface
+ 11.1.1.65         1   FULL/BDR        00:00:38    11.1.1.2        FastEthernet0/0
+ 11.1.1.129        1   FULL/DR         00:00:37    11.1.1.3        FastEthernet0/0
+ internet#show ip ospf database
+             OSPF Router with ID (11.1.1.1) (Process ID 12)
+
+                 Router Link States (Area 0)
+
+ Link ID         ADV Router      Age         Seq#       Checksum Link count
+ 11.1.1.65       11.1.1.65       694         0x80000004 0x0045f2 3
+ 11.1.1.129      11.1.1.129      694         0x80000004 0x006fc6 3
+ 11.1.1.1        11.1.1.1        689         0x80000002 0x00dd3c 1
+
+                 Net Link States (Area 0)
+ Link ID         ADV Router      Age         Seq#       Checksum
+ 11.1.1.3        11.1.1.129      689         0x80000002 0x0027a6
+ internet#
+
+** DONE R1#show running-config | section interface
+   CLOSED: [2022-01-21 금 17:12]
+
+ R1#show running-config | section interface
+ interface FastEthernet0/0
+  ip address 11.1.1.2 255.255.255.224
+  duplex auto
+  speed auto
+ interface FastEthernet0/1
+  ip address 11.1.1.33 255.255.255.224
+  duplex auto
+  speed auto
+ interface FastEthernet1/0
+  ip address 11.1.1.65 255.255.255.224
+  duplex auto
+  speed auto
+ interface FastEthernet1/1
+  no ip address
+  duplex auto
+  speed auto
+ R1#
+
+** DONE R1#show running-config | section ospf
+   CLOSED: [2022-01-21 금 17:10]
+
+ R1#show running-config | section ospf
+ router ospf 12
+  log-adjacency-changes
+  network 0.0.0.0 255.255.255.255 area 0
+ R1#
+
+** DONE R1#show ip route
+   CLOSED: [2022-01-21 금 17:11]
+
+ R1#show ip route 
+ Codes: C - connected, S - static, I - IGRP, R - RIP, M - mobile, B - BGP
+	D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+	N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+	E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+	i - IS-IS, L1 - IS-IS level-1, L2 - IS-IS level-2, ia - IS-IS inter area
+	* - candidate default, U - per-user static route, o - ODR
+	P - periodic downloaded static route
+
+ Gateway of last resort is not set
+
+      11.0.0.0/27 is subnetted, 5 subnets
+ C       11.1.1.0 is directly connected, FastEthernet0/0
+ C       11.1.1.32 is directly connected, FastEthernet0/1
+ C       11.1.1.64 is directly connected, FastEthernet1/0
+ O       11.1.1.96 [110/2] via 11.1.1.3, 00:08:48, FastEthernet0/0
+ O       11.1.1.128 [110/2] via 11.1.1.3, 00:08:48, FastEthernet0/0
+
+ R1#show ip ospf neighbor 
+
+
+ Neighbor ID     Pri   State           Dead Time   Address         Interface
+ 11.1.1.1          1   FULL/DROTHER    00:00:38    11.1.1.1        FastEthernet0/0
+ 11.1.1.129        1   FULL/DR         00:00:38    11.1.1.3        FastEthernet0/0
+ R1#show ip ospf database 
+             OSPF Router with ID (11.1.1.65) (Process ID 12)
+
+                 Router Link States (Area 0)
+
+ Link ID         ADV Router      Age         Seq#       Checksum Link count
+ 11.1.1.65       11.1.1.65       542         0x80000004 0x0045f2 3
+ 11.1.1.129      11.1.1.129      542         0x80000004 0x006fc6 3
+ 11.1.1.1        11.1.1.1        537         0x80000002 0x00dd3c 1
+
+                 Net Link States (Area 0)
+ Link ID         ADV Router      Age         Seq#       Checksum
+ 11.1.1.3        11.1.1.129      537         0x80000002 0x0027a6
+ R1#
+
+** DONE R2#show running-config | section interface
+   CLOSED: [2022-01-21 금 17:06]
+
+ R2#show running-config | section interface
+ interface FastEthernet0/0
+  ip address 11.1.1.3 255.255.255.224
+  duplex auto
+  speed auto
+ interface FastEthernet0/1
+  ip address 11.1.1.97 255.255.255.224
+  duplex auto
+  speed auto
+ interface FastEthernet1/0
+  ip address 11.1.1.129 255.255.255.224
+  duplex auto
+  speed auto
+ interface FastEthernet1/1
+  no ip address
+  duplex auto
+  speed auto
+ R2#
+
+** DONE R2#show running-config | section ospf
+   CLOSED: [2022-01-21 금 17:06]
+
+ R2#show running-config | section ospf
+ router ospf 12
+  log-adjacency-changes
+  network 0.0.0.0 255.255.255.255 area 0
+ R2#
+
+** DONE R2#show ip route
+   CLOSED: [2022-01-21 금 17:06]
+
+ R2#show ip route
+ Codes: C - connected, S - static, I - IGRP, R - RIP, M - mobile, B - BGP
+	D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+	N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+	E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+	i - IS-IS, L1 - IS-IS level-1, L2 - IS-IS level-2, ia - IS-IS inter area
+	* - candidate default, U - per-user static route, o - ODR
+	P - periodic downloaded static route
+
+ Gateway of last resort is not set
+
+      11.0.0.0/27 is subnetted, 5 subnets
+ C       11.1.1.0 is directly connected, FastEthernet0/0
+ O       11.1.1.32 [110/2] via 11.1.1.2, 00:01:11, FastEthernet0/0
+ O       11.1.1.64 [110/2] via 11.1.1.2, 00:01:11, FastEthernet0/0
+ C       11.1.1.96 is directly connected, FastEthernet0/1
+ C       11.1.1.128 is directly connected, FastEthernet1/0
+
+ R2#show ip ospf neighbor 
+
+ Neighbor ID     Pri   State           Dead Time   Address         Interface
+ 11.1.1.65         1   FULL/BDR        00:00:35    11.1.1.2        FastEthernet0/0
+ 11.1.1.1          1   FULL/DROTHER    00:00:35    11.1.1.1        FastEthernet0/0
+ R2#show ip ospf database 
+             OSPF Router with ID (11.1.1.129) (Process ID 12)
+
+                 Router Link States (Area 0)
+
+ Link ID         ADV Router      Age         Seq#       Checksum Link count
+ 11.1.1.129      11.1.1.129      87          0x80000004 0x006fc6 3
+ 11.1.1.65       11.1.1.65       87          0x80000004 0x0045f2 3
+ 11.1.1.1        11.1.1.1        82          0x80000002 0x00dd3c 1
+
+                 Net Link States (Area 0)
+ Link ID         ADV Router      Age         Seq#       Checksum
+ 11.1.1.3        11.1.1.129      82          0x80000002 0x0027a6
+ R2#
+
+
+* DONE bgp
+  CLOSED: [2022-01-21 금 21:07]
+
+** DONE R1#show running-config | section bgp
+   CLOSED: [2022-01-21 금 20:56]
+
+R1#show running-config | section bgp
+router bgp 100
+ bgp log-neighbor-changes
+ no synchronization
+ neighbor 11.1.1.3 remote-as 200
+ network 11.1.1.0 mask 255.255.255.224
+ network 11.1.1.32 mask 255.255.255.224
+ network 11.1.1.64 mask 255.255.255.224
+
+** DONE R1#show ip route
+   CLOSED: [2022-01-21 금 20:56]
+
+R1#show ip route 
+Codes: C - connected, S - static, I - IGRP, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+       i - IS-IS, L1 - IS-IS level-1, L2 - IS-IS level-2, ia - IS-IS inter area
+       * - candidate default, U - per-user static route, o - ODR
+       P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+     11.0.0.0/27 is subnetted, 5 subnets
+C       11.1.1.0 is directly connected, FastEthernet0/0
+C       11.1.1.32 is directly connected, FastEthernet0/1
+C       11.1.1.64 is directly connected, FastEthernet1/0
+B       11.1.1.96 [20/0] via 11.1.1.3, 00:00:00
+B       11.1.1.128 [20/0] via 11.1.1.3, 00:00:00
+
+** DONE R1#show ip bgp
+   CLOSED: [2022-01-21 금 20:56]
+   
+R1#show ip bgp
+BGP table version is 6, local router ID is 11.1.1.65
+Status codes: s suppressed, d damped, h history, * valid, > best, i - internal,
+              r RIB-failure, S Stale
+Origin codes: i - IGP, e - EGP, ? - incomplete
+
+   Network          Next Hop            Metric LocPrf Weight Path
+*> 11.1.1.0/27       0.0.0.0                  0     0 32768 i
+*> 11.1.1.32/27      0.0.0.0                  0     0 32768 i
+*> 11.1.1.64/27      0.0.0.0                  0     0 32768 i
+*> 11.1.1.96/27      11.1.1.3                 0     0     0 200 i
+*> 11.1.1.128/27     11.1.1.3                 0     0     0 200 i
+
+R1#
+
+** DONE R2#show running-config | section bgp
+   CLOSED: [2022-01-21 금 20:57]
+
+R2#show running-config | section bgp
+router bgp 200
+ bgp log-neighbor-changes
+ no synchronization
+ neighbor 11.1.1.2 remote-as 100
+ network 11.1.1.96 mask 255.255.255.224
+ network 11.1.1.128 mask 255.255.255.224
+
+** DONE R2#show ip route
+   CLOSED: [2022-01-21 금 20:57]
+
+R2#show ip route 
+Codes: C - connected, S - static, I - IGRP, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+       i - IS-IS, L1 - IS-IS level-1, L2 - IS-IS level-2, ia - IS-IS inter area
+       * - candidate default, U - per-user static route, o - ODR
+       P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+     11.0.0.0/27 is subnetted, 5 subnets
+C       11.1.1.0 is directly connected, FastEthernet0/0
+B       11.1.1.32 [20/0] via 11.1.1.2, 00:00:00
+B       11.1.1.64 [20/0] via 11.1.1.2, 00:00:00
+C       11.1.1.96 is directly connected, FastEthernet0/1
+C       11.1.1.128 is directly connected, FastEthernet1/0
+
+R2#show ip bgp 
+BGP table version is 6, local router ID is 11.1.1.129
+Status codes: s suppressed, d damped, h history, * valid, > best, i - internal,
+              r RIB-failure, S Stale
+Origin codes: i - IGP, e - EGP, ? - incomplete
+
+   Network          Next Hop            Metric LocPrf Weight Path
+*> 11.1.1.32/27      11.1.1.2                 0     0     0 100 i
+*> 11.1.1.64/27      11.1.1.2                 0     0     0 100 i
+*> 11.1.1.96/27      0.0.0.0                  0     0 32768 i
+*> 11.1.1.128/27     0.0.0.0                  0     0 32768 i
+
+R2#
+
