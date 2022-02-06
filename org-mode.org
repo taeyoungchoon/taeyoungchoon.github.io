@@ -1,5 +1,26 @@
 #+TITLE: about emacs org-mode softly
 
+* TODO indent
+
+;; https://orgmode.org/manual/Hard-indentation.html
+(setq org-adapt-indentation nil
+      org-hide-leading-stars nil
+      org-odd-levels-only nil)
+
+* TODO with source
+
+** DONE '<s' not working
+
+https://orgmode.org/manual/Structure-Templates.html
+(require 'org-tempo)
+
+** TODO python
+
+#+begin_src python
+  print('hi')
+
+#+end_src
+
 * font
 
 ** win
