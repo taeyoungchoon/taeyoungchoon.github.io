@@ -1,0 +1,49 @@
+* dig in
+
+https://aristanetworks.force.com/AristaCommunity/s/question/0D52I00007ERqJgSAL/qos-per-ip
+https://www.arista.com/en/um-eos/eos-quality-of-service#xx1486580
+
+switch#configure terminal
+switch(config)#policy-map [type qos] policy-name
+switch(config-pmap)#class { class-name }
+switch(config-pmap-c)#[no] police cir [{bps|kbps|mbps}] bc committed-burst-size [{bytes|kbytes|mbytes}]
+
+Transmit Queues and Port Shaping
+
+switch(config)#class-map type qos match-any class1
+switch(config-cmap-class1)#match ip access-group acl1
+switch(config-cmap-class1)#exit
+
+switch(config)#policy-map type quality-of-service policy1
+switch(config-pmap)#class class1
+switch(config-pmap-c)#police cir 512000 bc 96000
+switch(config-pmap-c)#exit
+switch(config-pmap)#
+
+https://www.arista.com/en/um-eos/eos-quality-of-service
+
+* in the real
+
+#+begin_src 
+!
+ip access-list qos-acl
+   10 permit ip host 8.8.8.8 any
+!
+class-map type qos match-any qos-class-map
+   match ip access-group qos-acl
+!
+policy-map type quality-of-service t
+   class nil
+      police cir 512000 bps bc 9600 bytes
+   !
+   class class-default
+!
+qos profile pro
+   qos cos 3
+   priority-flow-control on
+   service-policy type qos input t
+!
+interface Ethernet1
+   service-profile pro
+!
+#+end_src
