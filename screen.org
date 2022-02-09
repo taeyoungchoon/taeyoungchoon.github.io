@@ -1,6 +1,23 @@
-* sharing session
+* history
+
+휴, 어제나저제나 또 다시 사용하게 된다. tmux는 안되는 걸까? 안되는 것 같다. 그럼 minicom은 어떤가? 1995년도 사용했던 것 같은데, picocom?
+
+* DONE sharing session
 
 1. A: screen -S sharing
 2. B: screen -ls
 3. B: screen -x sharing
 4. A: C-a d
+
+* DONE screen with console
+
+screen /dev/ttyUSB0
+
+* TODO screen howto
+
+screen /dev/ttyUSB0
+C-a C-d
+pgrep -i screen
+screen -ls
+screen -r
+C-a : THEN quit

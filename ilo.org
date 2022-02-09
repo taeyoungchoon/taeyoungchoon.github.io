@@ -1,3 +1,59 @@
+* TODO [2022-02-09 수] not just power on and off, boot order like
+
+- [ ] what about ipmi usig dhcp
+- network boot(pxe) from nic1
+
+* DONE [2022-02-09 수] power on and off using cli/ssh , and sshpass
+
+$ ssh -F .ssh/config administrator@192.168.25.51
+
+ssh \
+-o HostKeyAlgorithms=+ssh-dss \
+-o Ciphers=+aes256-cbc \
+-o KexAlgorithms=+diffie-hellman-group1-sha1 \
+administrator@192.168.25.51
+
+root@t006:~# cat .ssh/config
+Host *
+        HostKeyAlgorithms +ssh-dss
+        StrictHostKeyChecking no
+        KexAlgorithms +diffie-hellman-group1-sha1
+        Ciphers +aes256-cbc
+
+root@t006:~# sshpass -p hpinvent ssh administrator@192.168.25.51
+
+root@t006:~# sshpass -p 1234qwer ssh jack@0 "date;date"
+Wed 09 Feb 2022 02:48:04 PM KST
+Wed 09 Feb 2022 02:48:04 PM KST
+
+#+begin_src 
+root@t006:~# sshpass -p hpinvent ssh administrator@192.168.25.51 "power"
+power
+status=0
+status_tag=COMMAND COMPLETED
+Wed Feb  9 05:50:52 2022
+
+power: server power is currently: Off
+
+root@t006:~# sshpass -p hpinvent ssh administrator@192.168.25.51 "power on"
+power on
+status=0
+status_tag=COMMAND COMPLETED
+Wed Feb  9 05:51:10 2022
+
+Server powering on .......
+
+root@t006:~# sshpass -p hpinvent ssh administrator@192.168.25.51 "power"
+power
+status=0
+status_tag=COMMAND COMPLETED
+Wed Feb  9 05:51:18 2022
+
+power: server power is currently: On
+
+root@t006:~#
+#+end_src
+
 * DONE how to enter and do more, F8
 
 - same as CIMC, F8
