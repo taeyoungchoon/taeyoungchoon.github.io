@@ -2,7 +2,6 @@
 
 https://zkim0115.tistory.com/1711
 
-
 * 오프라인을 통한 정품 인증 방법, Slui 4, 1577-9700
 * Microsoft 계정 with 디지털 라이센스
 * 하드웨어 변경 후 Windows 다시 정품 인증하기
@@ -107,4 +106,5 @@ eval을 KMS client(XXX)로, 그리고 정식(YYY)으로 등록하기
 ** more
 
 - slmgr /xpr
+
 
