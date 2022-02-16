@@ -16,6 +16,14 @@ jack@jack:~$ xrdb ~/.Xresources
 #+END_SRC
 
 * TODO font
+
+jack@jack:~$ dpkg -l | egrep "nanum|d2coding"
+ii  fonts-nanum                           20200506-1                         all          Nanum Korean fonts
+ii  fonts-nanum-coding                    2.5-3                              all          transitional package
+ii  fonts-naver-d2coding                  1.3.2-2                            all          D2Coding fixed-width Korean font
+jack@jack:~$ 
+
+
 #+BEGIN_SRC emacs-lisp
 (when (eq system-type 'gnu/linux)
   ;; (set-fontset-font t 'hangul (font-spec :name "NanumGothicCoding"))
