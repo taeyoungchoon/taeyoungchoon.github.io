@@ -16,3 +16,9 @@ jack@jack:~$ xrdb ~/.Xresources
 #+END_SRC
 
 * TODO font
+#+BEGIN_SRC emacs-lisp
+(when (eq system-type 'gnu/linux)
+  ;; (set-fontset-font t 'hangul (font-spec :name "NanumGothicCoding"))
+  (set-fontset-font t 'hangul (font-spec :name "D2Coding ligature"))
+)
+#+END_SRC
