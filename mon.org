@@ -1,7 +1,7 @@
 * links
 
+아래 링크 모두 살아 있다. 아직 죽지 않았다. 파일은 오래되었다. 이거 클러스팀에 있을 때 그 이후에도 사용했는데 깔끔한데 아름다운데 이 프로젝트와 비교하면 이 프로세스와 비교하면 nagios는 어떠한가 그 외의 또 swatch 이건 살아 있나? 코드는 죽는가? 동면하는가 또 다시 살아나는가 다른 피를 수혈 받는가 go로 쓰면 perl 아니면 python로 다시 쓰면 다른가 뭐 그랬다. 그랬고, 지금은 또 어떠한가 다시 한번 생각해본다. 생각해본다. 아마 다시 돌아올 것 같다. 2022년 2월 그리고 16일 인
+
 http://sourceforge.net/projects/mon/
-
-* links but old, not using
-
 https://www.kernel.org/pub/software/admin/mon/
+
