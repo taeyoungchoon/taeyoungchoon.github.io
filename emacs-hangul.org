@@ -4,3 +4,12 @@
 (setq default-input-method "korean-hangul3f")
 (global-set-key (kbd "S-SPC") 'toggle-input-method)
 #+END_SRC
+
+* from linux 
+
+https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=jodi999&logNo=221256569685
+
+jack@jack:~$ cat .Xresources 
+Emacs*useXIM: false
+jack@jack:~$ xrdb ~/.Xresources 
+
