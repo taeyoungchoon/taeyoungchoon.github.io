@@ -1,3 +1,7 @@
+* 한글
+
+쉽지 않은 주제다. 그리고  다른 주제와 결합되면서 문제를 크게 만든다. 파이를 크게 만든다. 리눅스와 운영체제의 일종이다. 윈도우즈 여도 또 삼벌식을 세벌식이라고 해야하나, 도 문제가 되는데. 여기에 다시 편집기까지 한글이 보이는 것과 한글와 영어 타이핑에 방식의 전환에 이르기까지 말이다. 출판/출력까지 가면 정말이지 한숨이 나온다. 몇 년째인지? 
+
 * enable
 
 #+BEGIN_SRC 
@@ -17,12 +21,13 @@ jack@jack:~$ xrdb ~/.Xresources
 
 * TODO font
 
+#+BEGIN_SRC
 jack@jack:~$ dpkg -l | egrep "nanum|d2coding"
 ii  fonts-nanum                           20200506-1                         all          Nanum Korean fonts
 ii  fonts-nanum-coding                    2.5-3                              all          transitional package
 ii  fonts-naver-d2coding                  1.3.2-2                            all          D2Coding fixed-width Korean font
 jack@jack:~$ 
-
+#+END_SRC
 
 #+BEGIN_SRC emacs-lisp
 (when (eq system-type 'gnu/linux)
