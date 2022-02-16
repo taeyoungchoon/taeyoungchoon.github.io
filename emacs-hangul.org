@@ -9,7 +9,10 @@
 
 https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=jodi999&logNo=221256569685
 
+#+BEGIN_SRC 
 jack@jack:~$ cat .Xresources 
 Emacs*useXIM: false
 jack@jack:~$ xrdb ~/.Xresources 
+#+END_SRC
 
+* TODO font
