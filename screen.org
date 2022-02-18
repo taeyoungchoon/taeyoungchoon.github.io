@@ -11,6 +11,13 @@
 
 * DONE screen with console
 
+#+begin_src 
+root@s001:~# chmod o+rw /dev/ttyUSB0
+root@s001:~# ls -al /dev/ttyUSB0
+crw-rw-rw- 1 root dialout 188, 0 Feb 17 13:18 /dev/ttyUSB0
+root@s001:~#
+#+end_src
+
 screen /dev/ttyUSB0
 
 * TODO screen howto

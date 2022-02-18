@@ -5,3 +5,9 @@
 - 이맥스와 쓰기에는 나눔고딕코딩인가, 지금 쓰고 있다. 
 - 상업용 무료 폰트 vs 비상업적인
 - ((TTF (apple microsoft)) (OTF (adobe microsoft)))
+
+* fonts
+
+- 나눔 고딕 코딩
+- D2 coding
+- consolas

@@ -11,4 +11,22 @@
 
 https://unix.stackexchange.com/questions/22545/how-to-connect-to-a-serial-port-as-simple-as-using-ssh/311680#311680
 
+* DONE minicom -D /dev/ttyUSB0
 
+- minicom -s
+- C-A Z , q
+- save setup as dfl
+  
+#+begin_src
+root@s001:~# cat /etc/minicom/minirc.dfl
+# Machine-generated file - use "minicom -s" to change parameters.
+pu port             /dev/ttyUSB0
+pu baudrate         9600
+
+root@s001:~# cat .minirc.dfl
+# Machine-generated file - use setup menu in minicom to change parameters.
+pu baudrate         9600
+pu bits             8
+pu parity           N
+pu stopbits         1
+#+end_src
