@@ -1,0 +1,6 @@
+#!/usr/bin/env expect
+
+spawn su - -c id
+expect "Password:"
+send "1234qwer\n"
+interact
