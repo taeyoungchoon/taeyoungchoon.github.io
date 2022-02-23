@@ -68,4 +68,25 @@ ExecStop=/opt/tomcat/latest/bin/shutdown.sh
 [Install]
 WantedBy=multi-user.target
 #+END_SRC
+
 * TODO session cluster with nginx
+* DONE tomcat log full
+
+https://stackoverflow.com/questions/21754274/how-to-correct-delete-catalina-out
+https://blog.devez.net/6540
+
+#+begin_src 
+? [[ ! -e foo ]] && touch foo
+? ls -l foo
+-rw-r--r-- 1 jack 없음 0 Feb 22 13:18 foo
+? dd if=/dev/zero of=foo bs=1024 count=1024
+1024+0 records in
+1024+0 records out
+1048576 bytes (1.0 MB, 1.0 MiB) copied, 0.0132573 s, 79.1 MB/s
+? ls -l foo
+-rw-r--r-- 1 jack 없음 1048576 Feb 22 13:19 foo
+? cat /dev/null > foo
+? ls -l foo
+-rw-r--r-- 1 jack 없음 0 Feb 22 13:19 foo
+?
+#+end_src

@@ -1,0 +1,22 @@
+* effective when logout and login again
+
+* did
+
+#+begin_src 
+usermod -aG sudo $USER
+#+end_src
+
+#+begin_src 
+root@t007:~# cat /etc/sudoers | grep -i NOPASS
+%sudo   ALL=(ALL:ALL) NOPASSWD:ALL
+#+end_src
+
+* debian type and if
+
+%sudo ALL=(ALL:ALL) ALL
+
+* redhat type and if
+
+%wheel ALL=(ALL) ALL
+
+* includedir /etc/sudoers.d
