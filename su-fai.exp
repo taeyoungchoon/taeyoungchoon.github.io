@@ -1,0 +1,8 @@
+#!/usr/bin/env expect
+
+spawn sshpass -p fai ssh demo@192.168.33.101
+expect "$"
+send "su - -c 'apt -y install expect git'\n"
+expect "Password:"
+send "fai\n"
+interact
