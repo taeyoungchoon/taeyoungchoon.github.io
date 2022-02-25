@@ -74,3 +74,5 @@ dnf config-manager --set-enabled ha
 dnf update
 dnf search pcs
 #+END_SRC
+
+- [2022-02-25 Fri] still centos, centos stream, red, the redhat, ibm, rocky linux and t
