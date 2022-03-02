@@ -47,8 +47,9 @@ D2Coding, Consolas, 'Courier New', monospace
 
 * virtualbox - 환경설정 - 일반 - 기본머신폴더
 
-T:\vm\store
+- T:\vm\store
+- 또는 T:\vm
 
 * cygcheck -c | grep -v ^lib
 
-cyg-get dos2unix
+cyg-get.bat dos2unix

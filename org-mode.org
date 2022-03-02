@@ -1,5 +1,43 @@
 #+TITLE: about emacs org-mode softly
 
+* TODO date, insert
+
+- C-c .
+- C-c ! : inactive time
+- <2003-09-16 Tue>
+- <2003-09-16 Tue 09:39>
+- <2003-09-16 Tue 12:00-12:30>
+- org-display-custom-times
+- org-time-stamp-custom-formats
+- <2022-03-02 ¼ö> 
+- %a
+
+#+BEGIN_SRC 
+%a is the locale’s abbreviated name of the day of week, %A the full name.
+#+END_SRC
+
+- M-x describe-variable RET org-time-stamp-custom-formats
+
+#+BEGIN_SRC 
+org-time-stamp-custom-formats is a variable defined in ‘org.el’.
+Its value is ("<%m/%d/%y %a>" . "<%m/%d/%y %a %H:%M>")
+
+Documentation:
+Custom formats for time stamps.  See ‘format-time-string’ for the syntax.
+These are overlaid over the default ISO format if the variable
+‘org-display-custom-times’ is set.  Time like %H:%M should be at the
+end of the second format.  The custom formats are also honored by export
+commands, if custom time display is turned on at the time of export.
+
+You can customize this variable.
+#+END_SRC
+
+#+BEGIN_SRC 
+(custom-set-variables
+ ;; ...
+ '(org-time-stamp-custom-formats (quote ("<%d/%m/%Y %a>" . "<%d %m %Y  %a [%H:%M]>"))))
+#+END_SRC
+
 * TODO indent
 
 ;; https://orgmode.org/manual/Hard-indentation.html
