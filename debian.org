@@ -1,3 +1,7 @@
+* history of debian to me and others
+
+과거에서 불려오다. 그 과거로 회귀 전에 ubuntu도 있다. debian unstable에 기반한 것으로 알고 있다. 그 과거의 전에는 redhat이 있었다. 또 그 전도 있다. 
+
 * DONE hangul on debian 
 
 [2022-01-13 Thu 19:40] 
