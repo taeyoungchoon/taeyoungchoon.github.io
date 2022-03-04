@@ -75,7 +75,10 @@
 - [2020-12-01 Tue 09:10] 사용 중임
 - [2022-01-04 화] not enough memory, 16g
 - 130만원 이상
-** the next
+
+** the next, Thinkpad T15p gen 2
+
+- 2022.2.
 
 *** req
 
