@@ -1,6 +1,7 @@
 * history
 
-[2015-12-14 Mon 22:58] now the before 23:00
+- [2015-12-14 Mon 22:58] now the before 23:00
+- [2022-03-05 Sat 23:57] 이제 잠에 들 시간이다. 잠에 들다. 자자, 코.
 
 * have to
 * and I'll do it now
