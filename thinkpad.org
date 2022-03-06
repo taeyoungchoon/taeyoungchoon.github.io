@@ -39,3 +39,5 @@ https://github.com/vmatare/thinkfan
 
 https://blog.monosoul.dev/2021/10/17/how-to-control-thinkpad-p14s-fan-speed-in-linux/
 
+echo level 0 > /proc/acpi/ibm/fan
+
