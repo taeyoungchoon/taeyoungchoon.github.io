@@ -26,7 +26,16 @@ Name
 C:\Users\see>c:\windows\system32\wbem\wmic.exe csproduct get identifyingnumber
 IdentifyingNumber
 R8YR9M9
+
 ** read
 
 https://forums.lenovo.com/t5/ThinkPad-T400-T500-and-newer-T/Product-number-or-machine-type-and-model-identification/ta-p/453835
+
+* fan control
+
+https://www.thinkwiki.org/wiki/How_to_control_fan_speed
+
+https://github.com/vmatare/thinkfan
+
+https://blog.monosoul.dev/2021/10/17/how-to-control-thinkpad-p14s-fan-speed-in-linux/
 
