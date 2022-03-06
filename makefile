@@ -1,4 +1,4 @@
-all:
+all: help
 
-clean:
-	rm *~
+help:
+	@cat makefile | grep ^[a-z]
