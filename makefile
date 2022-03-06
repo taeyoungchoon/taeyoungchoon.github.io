@@ -4,7 +4,7 @@ help:
 	@cat makefile | grep ^[a-z]
 
 status:
-	@git status
+	@git status --short
 
 pull:
 	@git pull

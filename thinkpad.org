@@ -31,7 +31,7 @@ R8YR9M9
 
 https://forums.lenovo.com/t5/ThinkPad-T400-T500-and-newer-T/Product-number-or-machine-type-and-model-identification/ta-p/453835
 
-* fan control
+* TODO fan control
 
 https://www.thinkwiki.org/wiki/How_to_control_fan_speed
 
@@ -41,3 +41,4 @@ https://blog.monosoul.dev/2021/10/17/how-to-control-thinkpad-p14s-fan-speed-in-l
 
 echo level 0 > /proc/acpi/ibm/fan
 
+[2022-03-06 Sun 21:31] 과연 꺼도 될까? 지금 끄기는 했는데 말이다. 
