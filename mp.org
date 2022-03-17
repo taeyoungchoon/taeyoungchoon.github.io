@@ -1,3 +1,53 @@
 * mp, machine provisioning
 
 machine, physical, logical include can it be virtual or more 
+
+* debian preseed kvm
+
+virt-install
+https://blog.entek.org.uk/technology/2020/06/04/kvm-setup.html
+--location
+--initrd-inject=preseed.cfg
+--noautoconsole
+https://github.com/pin/debian-vm-install/blob/master/install.sh
+--network bridge=br0,mac=${MAC},model=virtio
+--network bridge=br0
+--extra-args="auto=true hostname="${1}" domain="${DOMAIN}" console=tty0
+--extra-args "auto-install/enable=true netcfg/get_hostname=new-vm netcfg/get_domain=$( hostname -d ) preseed/url=http://debian-preseed.$( hostname -d )/d-i/buster/./preseed-vm.cfg console=ttyS0" console=ty0,115200n8 serial"
+download preseed file
+m first, n first
+virsh --connect qemu:///system console x
+apt-get install qemu-kvm libvirt-clients libvirt-daemon-system virtinst bridge-utils
+d-i
+https://www.server-world.info/en/note?os=Debian_11&p=kvm&f=2
+https://www.server-world.info/en/note?os=Debian_11&p=kvm&f=1
+br0
+bridge_ports enp1s0
+bridge_stp off
+https://computingforgeeks.com/how-to-install-kvm-virtualization-on-debian/
+https://computingforgeeks.com/how-to-provision-vms-on-kvm-with-terraform/
+sudo virsh net-dhcp-leases default 
+vim cloud_init.cfg
+
+* vagrant dhcp
+* TODO born then
+
+- go.sh
+  - download debian
+  - make vm using kvm and preseed
+  - then born chain, process this time
+    - dhcp rel
+    - ntp rel
+    - fs
+    - network, L2
+    - fai
+      - born this time real
+- 의미하는 바는?
+- 요구사항은?
+  - debian 11, bullseye, August 14th, 2021 
+  - network
+    - 192.168.33.x/24 (predefined)
+  - box type: host
+- kvm with lots
+
+* mp란
