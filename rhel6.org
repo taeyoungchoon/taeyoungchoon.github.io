@@ -1,0 +1,60 @@
+* DONE install base
+
+- 'server with gui' not exist
+- default, Basic Server
+  - no windows
+- [ ] iptaDesktop
+  - chkconfig --list NetworkManager 
+- Software Development Workstation
+
+* DONE network
+
+system-config-network
+nm-connecdtion-editor
+
+* DONE firewall
+
+system-config-firewall-tui
+iptables -nL
+/etc/sysconfig/iptables
+iptables-save
+system-config-firewall
+
+* DONE scp, sftp
+
+scp boot.iso root@192.168.25.124:/root
+sftp root@192.168.25.124
+put dvd.iso
+
+* DONE service control
+
+service
+ntsysv
+chkconfig --list iptables
+
+* DONE repo
+
+yum-config-manager --add-repo file:///mnt
+echo 'gpgcheck=0' >> /etc/yum.repos.d/mnt.repo
+yum repolist
+yum install lynx -y
+
+* DONE selinux
+
+/etc/selinux/config
+sestatus
+
+* TODO repo, disk, partition, lvm
+
+- lvs, pvs, vgs
+- cfdisk
+- parted
+
+** TODO lvm
+
+- fdisk 8e
+- pvcreate /dev/sdb1
+- vgextend vg_r1 /dev/sdb1
+- lvextend /dev/vg_r1/lv_root /dev/sdb1
+- resize2fs /dev/vg_r1/lv_root
+

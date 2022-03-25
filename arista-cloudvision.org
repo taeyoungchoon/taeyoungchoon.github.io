@@ -1,10 +1,63 @@
 * on cloudvision
-* with cloud vision portal, cvp
-
-- on kvm using 'Automated CloudVision on KVM Deployment'
-- CVP OVA on ESX, 회사에 ESX가 있는데 여기는 어떤가?
 
 * TODO with cloud vision exchange, cve
 
 - on eos
 
+* with cloud vision portal, cvp
+
+- on kvm using 'Automated CloudVision on KVM Deployment'
+- CVP OVA on ESX
+
+* TODO [2022-03-25 금] cvp
+
+https://www.arista.com/en/cg-cv/cv-cvp-virtual-appliance
+
+Hypervisor 	Version
+VMware ESX 	5.5
+Linux RHEL 	6.5-7.0 
+
+The CVP virtual appliance is a packaged ova file that consists of 
+Base OS packages, 
+Hadoop, 
+HBase, 
+Apache Tomcat, 
+JAVA jdk 
+and the CVP web application. 
+
+https://www.arista.com/en/cg-cv/cv-cvp-cluster-mechanism
+
+CVP consists of distributed components such as 
+Zookeeper, 
+Hadoop/HDFS and HBase.
+
+https://www.arista.com/en/cg-cv/cv-cv-cue
+
+CV-CUE is containerized within the CV whether it's CVA (CV on a CV appliance) or a standalone CV VM. 
+
+https://www.arista.com/en/cg-cv/cv-deploying-cvp-on-kvm
+
+Deploying CVP on KVM
+
+https://www.arista.com/en/cg-cv/cv-shell-based-configuration
+
+Accept the default or choose a custom “internal cluster network”, for the internal kubernetes clustering.
+
+Running : /bin/sudo /bin/systemctl enable kube-cluster.path
+Running : /bin/sudo /bin/systemctl start kube-cluster.path
+
+https://www.arista.com/en/cg-cv/cv-shell-reconfiguration-of-single-node-multi-node-systems
+
+You can change some, but not all of the configuration settings during the reconfiguration. The configuration parameters you cannot change are read-only after the initial configuration.
+
+https://www.arista.com/en/cg-cv/cv-upgrading-cloudvision-portal-cvp
+
+Note: Upgrade to 2021.1.0 and newer requires the configuration of a kubernetes cluster network. 
+
+https://aristanetworks.force.com/AristaCommunity/s/article/cvp-to-k8s
+
+CVP to K8s: full-scale production network simulation
+
+https://www.arista.com/assets/data/pdf/user-manual/um-books/CV_Config_Guide_2021.2.0.pdf
+
+rsync -rtvp 172.31.0.161:/cvpi/tls/certs/kube-cert.pem /cvpi/tls/certs
