@@ -28,3 +28,61 @@ https://www.mohw.go.kr/react/popup_200128_7.html
 ** 15a
 
 - [X] 구로리공원
+* TODO 코로나19 후유증, ing
+
+코로나19 후유증 회복 치료센터
+
+** 기침
+
+https://news.sbs.co.kr/news/endPage.do?news_id=N1006638975
+
+호홉 관리
+기침 무언가 삼키기가 힘들다
+기침이 멎지 않는다
+
+https://korean.cdc.gov/coronavirus/2019-ncov/long-term-effects/index.html
+
+기침
+
+https://korean.cdc.gov/coronavirus/2019-ncov/long-term-effects/care-post-covid.html
+
+COVID 후유증 영향을 완화하는데 도움이 될지 현재 연구중
+
+- 심호홉, 스트레칭, 명상, 마음챙김 연습
+- 건강하고 균형 잡힌 식사
+- 가능한 경우 운동하기 - 몸의 신호에 귀를 기울이세요
+- [X] 충분한 수면
+- 술이나 약물 삼가기
+
+폐 손상
+
+https://www.chosun.com/culture-life/health/2022/03/16/WQHGFFH3WZH3VFKCBZHJXXKOLI/
+
+long corona syndrome
+
+https://www.yourcovidrecovery.nhs.uk/
+https://www.yourcovidrecovery.nhs.uk/managing-the-effects/effects-on-your-body/cough/
+
+Why do I still have a cough?
+
+A cough is usually a reflex action to clear dust, phlegm and other irritants from your lungs and windpipe. Whilst recovering from COVID you may continue to experience a dry cough for some time.
+
+Over time, a cough can develop into a cycle, where excessive coughing causes irritation and inflammation, which worsens the cough. A dry cough may have no obvious cause and using the advice below will help to prevent this cough.
+
+A problematic cough can also make you breathe through your mouth, which means that lots of dry, fast flowing air enters the lungs, affecting the delicate airway membranes and causing further coughing.
+
+ 
+How can I control my cough?
+
+    Practise a ‘normal’ breathing pattern – gentle, quiet, diaphragmatic (tummy breathing- feeling the tummy rise and fall as you breathe in and out), nose breathing at rest to start with. Aim to practise this little and often so that it becomes habit. Progress this by practising with gentle activity as you are able.
+
+Other techniques to help with reducing your cough:
+
+    Close your mouth and swallow.
+    Gently breathe in and out through your nose, until the urge to cough goes away.
+    Sip drinks regularly (hot or cold).
+    Suck boiled sweets or lozenges.
+
+Using a combination of the above techniques is more effective at reducing your cough – pick the techniques that work best for you!
+
+It can be very difficult to control your cough but keep practising.
