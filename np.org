@@ -1,3 +1,16 @@
 * np, network provisioning
 
-network include network device and network wide, network fabric
+- network include network device and network wide, network fabric
+
+* tasks
+
+- remote power on if
+- deploy startup config
+- build fabic
+  - parts
+  - make check
+  - using
+    - ansible
+    - puppet if
+    - api call using python-like, logos-like, code-like
+- gather information all the time, always

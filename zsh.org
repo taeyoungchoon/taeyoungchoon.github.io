@@ -10,3 +10,7 @@
 #+BEGIN_SRC shell
   chsh -s /bin/zsh
 #+END_SRC
+
+* so
+
+나는 여전히 bash를 사용한다. 호환이라. 

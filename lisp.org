@@ -38,3 +38,8 @@
 
 http://www.gigamonkeys.com/book/
 practical common lisp
+
+* so
+
+여전히 관심이 남아 있고, 회사에도 집에도 책이 있다.
+

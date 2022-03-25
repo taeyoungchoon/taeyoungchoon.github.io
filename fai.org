@@ -88,3 +88,5 @@ rc.local
 10. reboot fai1
     1) root / fai
     2) emacs
+
+* TODO fai.sh, fai.go, make fai, make mp

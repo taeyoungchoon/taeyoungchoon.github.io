@@ -1,4 +1,8 @@
 * code but more
+
+logic logos even emotion
+the code dsl, any
+
 * stamp, id as a key, left
 
 #+BEGIN_SRC emacs-lisp

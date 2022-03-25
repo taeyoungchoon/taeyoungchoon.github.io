@@ -18,3 +18,7 @@ systemctl status serial-getty@ttyS0.service
 #+BEGIN_SRC 
 grubby --update-kernel=ALL --args="console=ttyS0"
 #+END_SRC
+
+* so
+
+조금 맘에 들지 않는다. 꼭 그럴 필요가 있을까 싶지만
