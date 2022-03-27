@@ -127,3 +127,79 @@ parted /dev/vdb print
 mkdir -p /oracle/app
 mkdir -p /oracle/ora_redo
 mkdir -p /oracle/ora_undo
+* TODO and oracle but hugepages
+
+[root@r1 ~]# free -m
+             total       used       free     shared    buffers     cached
+Mem:          3830        164       3665          0         12         61
+-/+ buffers/cache:         91       3739
+Swap:          815          0        815
+[root@r1 ~]# uname -a
+Linux r1 2.6.32-573.el6.x86_64 #1 SMP Wed Jul 1 18:23:37 EDT 2015 x86_64 x86_64 x86_64 GNU/Linux
+[root@r1 ~]# vi /etc/grub.conf
+[root@r1 ~]# cat /proc/meminfo | grep -i hugepages_total
+HugePages_Total:       0
+[root@r1 ~]# cat /sys/kernel/mm/transparent_hugepage/enabled
+[always] madvise never
+[root@r1 ~]# sh h.sh
+Recommended setting within the kernel boot command line: hugepages = 1
+Recommended setting setting within /etc/security/limits.d/99-grid-oracle-limits.conf: oracle soft memlock 2048
+Recommended setting setting within /etc/security/limits.d/99-grid-oracle-limits.conf: oracle hard memlock 2048
+[root@r1 ~]# cat /etc/grub.conf | grep huge
+        kernel /vmlinuz-2.6.32-573.el6.x86_64 ro root=/dev/mapper/vg_r1-lv_root rd_NO_LUKS LANG=en_US.UTF-8 rd_NO_MD rd_LVM_LV=vg_r1/lv_root
+ SYSFONT=latarcyrheb-sun16 crashkernel=auto rd_LVM_LV=vg_r1/lv_swap  KEYBOARDTYPE=pc KEYTABLE=us rd_NO_DM rhgb quiet hugepages=1 transparent
+_hugepage=never
+[root@r1 ~]#
+
+* /etc/security/limits.conf with hugepages rel
+
+https://docs.oracle.com/cd/E11882_01/server.112/e10839/appi_vlm.htm#UNXAR396
+http://board.theko.co.kr/bbs/board.php?bo_table=B11&wr_id=268
+
+oracle soft nproc 16384
+oracle hard nproc 16384
+oracle soft nofile 1024
+oracle hard nofile 65536
+oracle soft stack 10240
+oracle hard stack 32768
+oracle soft memlock <value-provided-by-script>
+oracle hard memlock <value-provided-by-script>
+
+[root@r1 ~]# !377
+cat /proc/meminfo | grep -i hugepages_total
+HugePages_Total:       1
+[root@r1 ~]# !378
+cat /sys/kernel/mm/transparent_hugepage/enabled
+always madvise [never]
+[root@r1 ~]#
+
+ulimit -l ;; as user 'oracle'
+
+---
+* TODO sysctl -p /etc/sysctl.conf
+
+# https://docs.oracle.com/en/database/oracle/oracle-database/19/cwlin/minimum-parameter-settings-for-installation.html#GUID-CDEB89D1-4D48-41D9-9AC2-6AD9B0E944E3
+# half physical memory, Half the size of physical memory in bytes
+# 16 * 1024 * 1024 * 1024 /2
+# 8589934592
+kernel.shmmax = 8589934592
+# 40% of physical memory
+# 16 * 1024 * 1024 * 1024 * 40 / 100
+# 6871947673
+kernel.shmall = 6871947673
+kernel.shmmni = 4096
+kernel.sem = 250 32000 100 128
+fs.file-max = 6815744
+# fs.aio-max-nr = 1048576 from manual
+fs.aio-max-nr = 8192000
+net.ipv4.ip_local_port_range = 9000 65500
+net.core.rmem_default = 262144
+net.core.rmem_max = 4194304
+net.core.wmem_default = 262144
+net.core.wmem_max = 1048576
+# 0.5%
+# (/ (/ (* 16 1024 1024) 100) 2)
+# 83886
+vm.min_free_kbytes = 83886
+kernel.randomize_va_space = 0
+kernel.sysrq = 1
