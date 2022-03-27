@@ -1,0 +1,117 @@
+* mkpart
+
+parted --script /dev/vdb \
+unit GiB \
+mklabel gpt \
+mkpart app       0       1GiB \
+mkpart ora_redo  1GiB    2GiB \
+mkpart ora_undo  2GiB    3GiB \
+mkpart data_temp 3GiB    4GiB \
+mkpart ora_data  4GiB    5GiB \
+mkpart data_pump 5GiB    6GiB \
+print
+
+* rm
+
+parted --script /dev/vdb \
+unit GiB \
+mklabel gpt \
+rm 1 \
+rm 2 \
+rm 3 \
+rm 4 \
+rm 5 \
+rm 6 \
+print
+
+* post
+
+parted /dev/vdb print
+for p in /dev/vdb[0-9]; do echo $p; mkfs.ext4 $p; done
+parted /dev/vdb print
+blkid | grep vdb
+blkid /dev/vdb1
+
+[root@localhost ~]# blkid  | grep vdb | sort
+/dev/vdb1: UUID="fefc6392-3288-47c1-9377-21a02cb0cac4" TYPE="ext4" 
+/dev/vdb2: UUID="508c5a8b-cad5-42ac-85d6-ba46ff425d62" TYPE="ext4" 
+/dev/vdb3: UUID="6c362d67-e8d3-4b2e-b29e-27e4076c5920" TYPE="ext4" 
+/dev/vdb4: UUID="f3c826ea-ec88-4060-bba5-ce344e3484b1" TYPE="ext4" 
+/dev/vdb5: UUID="70a9282e-ec65-40a8-b675-9a3a762956ea" TYPE="ext4" 
+/dev/vdb6: UUID="20630bb1-3719-4f4e-abc2-b0f645a0e6d3" TYPE="ext4" 
+
+[root@localhost ~]# blkid /dev/vdb1
+/dev/vdb1: UUID="fefc6392-3288-47c1-9377-21a02cb0cac4" TYPE="ext4" 
+[root@localhost ~]# 
+
+* logos
+
+vdb1 /oracle/app
+vdb2 /oracle/ora_redo
+
+blkid /dev/vdb1
+uuid
+UUID="uuid" /oracle/app ext4 defaults 1 2
+
+* code
+
+import subprocess
+
+device="/dev/vdb1"
+proc = subprocess.Popen(['blkid', '-o', 'value', device], stdout=subprocess.PIPE)
+out, err = proc.communicate()
+uuid=out.split()[0]
+
+mount="/oracle/app"
+print("UUID=%s %s ext4 defaults 1 2" % (uuid, mount))
+
+* data
+
+d = { '/dev/vdb1': '/oracle/app',
+      '/dev/vdb2': '/oracle/ora_redo' }
+
+* loop with dic/kv
+
+for k in d:
+  print(d.get(k))
+
+* combine
+
+import subprocess
+
+d = { '/dev/vdb1': '/oracle/app',
+      '/dev/vdb2': '/oracle/ora_redo' }
+
+for k in d:
+  device = k
+  mount = d.get(k)
+  proc = subprocess.Popen(['blkid', '-o', 'value', device], stdout=subprocess.PIPE)
+  out, err = proc.communicate()
+  uuid=out.split()[0]
+  print("UUID=%s %s ext4 defaults 1 2" % (uuid, mount))
+
+* func
+
+def fstab(device, mount):
+  proc = subprocess.Popen(['blkid', '-o', 'value', device], stdout=subprocess.PIPE)
+  out, err = proc.communicate()
+  uuid=out.split()[0]
+  print("UUID=%s %s ext4 defaults 1 2" % (uuid, mount))
+
+* refactor
+
+import subprocess
+
+d = { '/dev/vdb1': '/oracle/app',
+      '/dev/vdb2': '/oracle/ora_redo' }
+
+def fstab(device, mount):
+  proc = subprocess.Popen(['blkid', '-o', 'value', device], stdout=subprocess.PIPE)
+  out, err = proc.communicate()
+  uuid=out.split()[0]
+  print("UUID=%s %s ext4 defaults 1 2" % (uuid, mount))
+
+for k in d:
+  device = k
+  mount = d.get(k)
+  fstab(device, mount)

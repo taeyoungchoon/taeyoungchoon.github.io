@@ -1,11 +1,29 @@
-* DONE install base
+* DONE install base, nop Desktop
+  CLOSED: [2022-03-27 Sun 12:00]
 
 - 'server with gui' not exist
-- default, Basic Server
-  - no windows
-- [ ] iptaDesktop
+- [ ] default, Basic Server
+  - 664 pkg
+  - no window
+  - yum groupinstall "X Window System" ;; is not enough
+    - yum install gdm
+      - is not enough
+- [X] Desktop
+  - 1155 pkg
   - chkconfig --list NetworkManager 
-- Software Development Workstation
+- [ ] Software Development Workstation
+
+* DONE change hostname
+  CLOSED: [2022-03-27 Sun 12:00]
+
+/etc/sysconfig/network
+HOSTNAME
+
+* DONE timezone
+  CLOSED: [2022-03-27 Sun 11:43]
+
+/etc/sysconfig/clock
+tzdata-update  
 
 * DONE network
 
@@ -34,18 +52,47 @@ chkconfig --list iptables
 
 * DONE repo
 
-yum-config-manager --add-repo file:///mnt
-echo 'gpgcheck=0' >> /etc/yum.repos.d/mnt.repo
+mount -o loop rhel-server-6.-x86_64-dvd.iso /mnt
+mkdir -p /data/dvd/
+cp -a /mnt/* /data/dvd/
+yum-config-manager --add-repo file:///data/dvd
+echo 'gpgcheck=0' >> /etc/yum.repos.d/data_dvd.repo
 yum repolist
 yum install lynx -y
+yum groupinstall "x window system" -y
 
 * DONE selinux
 
 /etc/selinux/config
 sestatus
 
-* TODO repo, disk, partition, lvm
+* DONE partition at first
+  CLOSED: [2022-03-27 Sun 11:45]
 
+/boot 300G
+swap 16G 16384
+/ others
+
+* DONE sr0, the cdrom
+  CLOSED: [2022-03-27 Sun 11:45]
+
+mount /dev/sr0 /mnt
+
+* DONE X
+  CLOSED: [2022-03-27 Sun 11:55]
+
+1. [X] yum groupinstall "x windows system"
+2. [X] yum groupinstall desktop
+3. [ ] yum install gdm
+* DONE user
+  CLOSED: [2022-03-27 Sun 11:58]
+
+groupadd -g 500 dba
+useradd -u 300 -g 500 oracle
+echo "oracle:1234qwer" | chpasswd
+
+* TODO repo, disk, partition, lvm
+  
 - lvs, pvs, vgs
 - cfdisk
 - parted
@@ -58,3 +105,25 @@ sestatus
 - lvextend /dev/vg_r1/lv_root /dev/sdb1
 - resize2fs /dev/vg_r1/lv_root
 
+** TODO parted, gpt
+
+parted --script /dev/vdb \
+unit GiB \
+mklabel gpt \
+mkpart app       0       5GiB 
+mkpart ora_redo  5GiB    15GiB
+mkpart ora_undo  15GiB   45GiB
+mkpart data_temp 45GiB   75GiB
+mkpart ora_data  75GiB   1575GiB
+mkpart data_pump 1575GiB 3075GiB
+print
+
+mkfs.ext4 /dev/vdb1
+mkfs.ext4 /dev/vdb2
+
+blkid | grep vdb
+parted /dev/vdb print
+
+mkdir -p /oracle/app
+mkdir -p /oracle/ora_redo
+mkdir -p /oracle/ora_undo
