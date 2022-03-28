@@ -4,3 +4,11 @@
 - choco upgrade
 - brew update
 - apt upgrade
+- t-pkg upgrade
+
+* cli
+
+choco update all -y
+choco list -l
+choco search -e vlc
+choco search vim
