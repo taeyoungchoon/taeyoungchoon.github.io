@@ -108,3 +108,25 @@ eval을 KMS client(XXX)로, 그리고 정식(YYY)으로 등록하기
 - slmgr /xpr
 
 
+* DONE slmgr /rearm
+
+- 최초 구성하고, 5번 연장하면 거의 3년간 사용할 수 있다고 한다
+- windows server evalution, extending
+
+#+BEGIN_SRC emacs-lisp
+
+(* 180 6)
+
+#+END_SRC
+
+#+RESULTS:
+: 1080
+
+#+BEGIN_SRC emacs-lisp
+
+(* 365 3)
+
+#+END_SRC
+
+#+RESULTS:
+: 1095
