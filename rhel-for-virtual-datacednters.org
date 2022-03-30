@@ -1,0 +1,16 @@
+* DONE buy 
+
+https://www.redhat.com/en/store/red-hat-enterprise-linux-virtual-datacenters
+
+- [X] Red Hat Enterprise Linux for Virtual Datacenters
+- [X] allows for the deployment of unlimited guests 
+- [X] in dense virtualized environments 
+- [X] on supported hypervisors, like Openshift Virtualization, Red Hat Virtualization, VMware, and Microsoft HyperV.
+
+* TODO howto
+
+- https://access.redhat.com/solutions/3243071 , Using RHEL Virtual Data Center Subscription
+- Virtual Data Center(VDC) subscription
+- virt-who
+- offline environment
+

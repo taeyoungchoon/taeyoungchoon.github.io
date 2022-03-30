@@ -31,7 +31,6 @@
 - (cable (map (inside outside) compute))
 - (network-device (network-function (bridge switch router firewall)))
 - (protocol (control data) (mac ip))
-
 * TODO interface eth0@if2 like
 
 https://itectec.com/unixlinux/ubuntu-what-does-if1if2-mean-in-interface-name-in-output-of-ip-address-command-on-ubuntu/
@@ -54,3 +53,18 @@ DIG
 ip netns
 netnsid
 /var/run/netns
+* TODO linux network
+
+** config
+
+- legacy
+- netplan
+- network manager
+- networkd
+
+* bonding
+
+- bonding with or without mclag
+
+https://help.ubuntu.com/community/UbuntuBonding
+/etc/network/interfaces
