@@ -1,0 +1,38 @@
+* various
+
+- bcdedit
+  - boot configuration data store editor
+  - EasyBCD, BOOTICE, Visual BCD Editor
+- msconfig > boot 
+- bootrec
+  - bootrec /fixmbr
+  - bootrec /fixboot
+  - bootrec /rebuildbcd
+  - bootrec /scanos
+- EFI
+  - EasyUEFI
+- [ ] Trinity Rescue Kit
+- windows boot manager aka bootmgr use BCD
+  - identifier: {bootmgr}
+  - device: partition=\Device\HarddiskVolume4
+  - path: \EFI\Microsoft\Boot\bootmgfw.efi
+- windows boot loader aka winload.exe
+  - identifier: {current}
+  - device: partition=C:
+  - path: \Windows\system32\winload.efi
+- diskpart
+  - list disk
+  - list volume
+  - list partition
+  - select disk 2
+- windows kernel
+- NT
+- NTLDR to bootmgr since windows vista use boot.ini
+- windows nt 6 startup process, ever called booting process
+- windows nt booting process
+  - NTLDR
+    - boot.ini
+  - ntdetect.com
+  - ntoskrnel.exe
+  - hal.dll
+  - registry
