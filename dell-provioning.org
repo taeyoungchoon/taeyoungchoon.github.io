@@ -1,0 +1,8 @@
+* idrac redfish, python
+
+https://www.youtube.com/watch?v=XI8net5mB60
+https://www.youtube.com/watch?v=9tAXBvuyXJU
+
+* powershell
+
+Enable-iDRACAccessHostRoute -status true -port 2345

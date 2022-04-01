@@ -1,3 +1,7 @@
+* with
+
+- apis, https://www.hpe.com/us/en/servers/restful-api.html
+
 * TODO [2022-02-09 수] not just power on and off, boot order like
 
 - [ ] what about ipmi usig dhcp

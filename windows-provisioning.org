@@ -1,0 +1,11 @@
+* mdt(Microsoft Deployment Toolkit)
+
+- https://docs.microsoft.com/en-us/mem/configmgr/mdt/use-the-mdt
+- MDT performs deployments by using the Lite Touch Installation (LTI), Zero Touch Installation (ZTI), and User-Driven Installation (UDI) deployment methods. 
+- Only MDT is used in LTI deployments, while ZTI and UDI deployments are performed using MDT with Microsoft System Center 2012 R2 Configuration Manager.
+- compute
+  1) reference computer
+  2) deployment share
+  3) target computers
+
+

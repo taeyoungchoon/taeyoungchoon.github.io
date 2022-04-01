@@ -1,0 +1,10 @@
+* intelligent provisioning
+
+- https://m.blog.naver.com/wayfater/222001920432
+- https://www.youtube.com/watch?v=26gcaAgGgTw
+- HP ProLiant Rapid Deployment Pack
+- os
+  - Microsoft Windows (64–bit)
+  - VMware ESXi
+  - Red Hat Enterprise Linux
+

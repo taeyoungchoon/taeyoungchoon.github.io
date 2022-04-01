@@ -1,0 +1,14 @@
+* can do
+
+- https://www.youtube.com/watch?v=9tAXBvuyXJU
+- configure oob controller
+  - user, network settings
+- [X] configure hardware raid
+- change boot mode to UEFI
+- http://github.com/dmtf
+- and ansible
+- https://github.com/dell/redfish-ansible-module
+- from hp, https://www.youtube.com/watch?v=ur9UKRV_0S8
+- The iLO 2.30 release in September 2015 was the beginning of convergence with the Redfish standard. 
+  https://developer.hpe.com/blog/getting-started-with-ilo-restful-api-redfish-api-conformance/
+- https://en.wikipedia.org/wiki/Redfish_(specification)
