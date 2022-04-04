@@ -1,3 +1,175 @@
+* history
+
+- [2022-04-04 월 08:25] 오늘 또 다시 cygwin을 관리자 모드로 띠우고, 아니 이번에는 powershell을 관리자 모드로 띠우고 초코를 맛보고 있다. 
+
+#+BEGIN_SRC 
+You have chocolatey v1.0.1 installed. Version 1.1.0 is available based on your source(s).
+Progress: Downloading chocolatey 1.1.0... 100%
+
+chocolatey v1.1.0
+chocolatey package files upgrade completed. Performing other installation steps.
+Creating ChocolateyInstall as an environment variable (targeting 'Machine')
+  Setting ChocolateyInstall to 'C:\ProgramData\chocolatey'
+WARNING: It's very likely you will need to close and reopen your shell
+  before you can use choco
+Restricting write permissions to Administrators
+We are setting up the Chocolatey package repository.
+The packages themselves go to 'C:\ProgramData\chocolatey\lib'
+  (i.e. C:\ProgramData\chocolatey\lib\yourPackageName).
+A shim file for the command line goes to 'C:\ProgramData\chocolatey\bin'
+  and points to an executable in 'C:\ProgramData\chocolatey\lib\yourPackageName'.
+
+Creating Chocolatey folders if they do not already exist.
+
+WARNING: You can safely ignore errors related to missing log files when
+  upgrading from a version of Chocolatey less than 0.9.9.
+  'Batch file could not be found' is also safe to ignore.
+  'The system cannot find the file specified' - also safe.
+WARNING: Not setting tab completion: Profile file does not exist at 'C:\Users\jack\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1'.
+Chocolatey (choco.exe) is now ready.
+You can call choco from anywhere, command line or powershell by typing choco.
+Run choco /? for a list of functions.
+You may need to shut down and restart powershell and/or consoles
+ first prior to using choco.exi
+#+END_SRC
+
+- (i)python에서 부르기라니, 되는 군요. 다음에는 system()이나라 다른 방법을 써야 할까요. 어떻게 생각하시나요.
+
+#+BEGIN_SRC 
+In [9]: os.system('choco upgrade all -y')
+Chocolatey v1.1.0
+Upgrading the following packages:
+all
+By upgrading, you accept licenses for the packages.
+7zip v21.7 is the latest version available based on your source(s).
+#+END_SRC
+
+- python one liner 쓰기
+
+#+BEGIN_SRC 
+PS C:\Windows\system32> python -c "import os; os.system('choco list -l')"
+Chocolatey v1.1.0
+7zip 21.7
+7zip.install 21.7
+autoruns 14.09
+#+END_SRC
+
+- subprocess 많이 깨지네, 이유는
+
+#+BEGIN_SRC 
+In [6]: sp.check_output('dir')
+---------------------------------------------------------------------------
+FileNotFoundError                         Traceback (most recent call last)
+Input In [6], in <cell line: 1>()
+----> 1 sp.check_output('dir')
+
+File C:\Python310\lib\subprocess.py:420, in check_output(timeout, *popenargs, **kwargs)
+    417         empty = b''
+    418     kwargs['input'] = empty
+--> 420 return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+    421            **kwargs).stdout
+
+File C:\Python310\lib\subprocess.py:501, in run(input, capture_output, timeout, check, *popenargs, **kwargs)
+    498     kwargs['stdout'] = PIPE
+    499     kwargs['stderr'] = PIPE
+--> 501 with Popen(*popenargs, **kwargs) as process:
+    502     try:
+    503         stdout, stderr = process.communicate(input, timeout=timeout)
+
+File C:\Python310\lib\subprocess.py:966, in Popen.__init__(self, args, bufsize, executable, stdin, stdout, stderr, preexec_fn, close_fds, shell, cwd, env, universal_newlines, startupinfo, creationflags, restore_signals, start_new_session, pass_fds, user, group, extra_groups, encoding, errors, text, umask, pipesize)
+    962         if self.text_mode:
+    963             self.stderr = io.TextIOWrapper(self.stderr,
+    964                     encoding=encoding, errors=errors)
+--> 966     self._execute_child(args, executable, preexec_fn, close_fds,
+    967                         pass_fds, cwd, env,
+    968                         startupinfo, creationflags, shell,
+    969                         p2cread, p2cwrite,
+    970                         c2pread, c2pwrite,
+    971                         errread, errwrite,
+    972                         restore_signals,
+    973                         gid, gids, uid, umask,
+    974                         start_new_session)
+    975 except:
+    976     # Cleanup if the child failed starting.
+    977     for f in filter(None, (self.stdin, self.stdout, self.stderr)):
+
+File C:\Python310\lib\subprocess.py:1435, in Popen._execute_child(self, args, executable, preexec_fn, close_fds, pass_fds, cwd, env, startupinfo, creationflags, shell, p2cread, p2cwrite, c2pread, c2pwrite, errread, errwrite, unused_restore_signals, unused_gid, unused_gids, unused_uid, unused_umask, unused_start_new_session)
+   1433 # Start the process
+   1434 try:
+-> 1435     hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+   1436                              # no special security
+   1437                              None, None,
+   1438                              int(not close_fds),
+   1439                              creationflags,
+   1440                              env,
+   1441                              cwd,
+   1442                              startupinfo)
+   1443 finally:
+   1444     # Child is launched. Close the parent's copy of those pipe
+   1445     # handles that only the child should have open.  You need
+   (...)
+   1448     # pipe will not close when the child process exits and the
+   1449     # ReadFile will hang.
+   1450     self._close_pipe_fds(p2cread, p2cwrite,
+   1451                          c2pread, c2pwrite,
+   1452                          errread, errwrite)
+
+FileNotFoundError: [WinError 2] The system cannot find the file specified
+
+In [7]:
+#+END_SRC
+
+- cygwin에서는 잘 되는군요. color가 활성화 되면 powershell에서부터 활성화된 것으로 보이는데 잘 안보임. 
+
+#+BEGIN_SRC 
+PS C:\Windows\system32> cygwin
+
+jack@think ~
+$ ipython
+Python 3.10.4 (tags/v3.10.4:9d38120, Mar 23 2022, 23:13:41) [MSC v.1929 64 bit (AMD64)]
+Type 'copyright', 'credits' or 'license' for more information
+IPython 8.1.1 -- An enhanced Interactive Python. Type '?' for help.
+
+In [1]: import subprocess as sp
+
+In [2]: sp.check_output('dir')
+Out[2]: b'gdrive\thome  makefile\ttaeyoungchoon.github.io  tmp  t-shell  vm  ylit\n'
+
+In [3]:
+#+END_SRC
+
+- subprocess(sing), Popen, communicate
+
+#+BEGIN_SRC 
+In [9]: import subprocess; subprocess.Popen('choco list -l | head -3', stdout=subprocess.PIPE).communicate()[0]
+Out[9]: b'Chocolatey v1.1.0\r\nchocolatey 1.1.0\r\ngit 2.35.1.2\r\ngit.install 2.35.1.2\r\nrufus 3.18\r\n4 packages installed.\r\n'
+#+END_SRC
+
+- subprocess(sing)
+
+#+BEGIN_SRC 
+In [22]: subprocess.Popen('choco upgrade sbcl -y')
+Out[22]: <Popen: returncode: None args: 'choco upgrade sbcl -y'>
+
+In [23]: Chocolatey v1.1.0
+Upgrading the following packages:
+sbcl
+By upgrading, you accept licenses for the packages.
+sbcl v2.2.2 is the latest version available based on your source(s).
+#+END_SRC
+
+- subprocess, near real 그리고 Popen과 communicate를 쓰는 이유는 python2에 대한 호환성을 유지하기 위해서이다. print문도 format이나 f-string이 아닌 %를 사용하는 것도 말이다. 
+
+#+BEGIN_SRC 
+In [25]: proc = subprocess.Popen('choco upgrade sbcl -y', stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+In [29]: output, error = proc.communicate()
+In [31]: output
+Out[31]: b'Chocolatey v1.1.0\r\nUpgrading the following packages:\r\nsbcl\r\nBy upgrading, you accept licenses for the packages.\r\nsbcl v2.2.2 is the latest version available based on your source(s).\r\n\r\nChocolatey upgraded 0/1 packages. \r\n See the log for details (C:\\ProgramData\\chocolatey\\logs\\chocolatey.log).\r\n'
+
+In [32]: error
+Out[32]: b''
+#+END_SRC
+
 * with windows, what about the others?
 
 - apt-cyg update
