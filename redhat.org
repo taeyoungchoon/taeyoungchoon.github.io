@@ -37,3 +37,38 @@
 - partner?
   - [ ] tech, Certified Technology Portal
   - biz
+* Which Red Hat products are you most interested in? (choose up to 3)
+
+- [2022-04-06 수] (now)
+
+Red Hat Enterprise Linux
+Red Hat 3scale API Management
+Red Hat Advanced Cluster Management for Kubernetes
+Red Hat AMQ
+Red Hat Ansible Automation Platform
+Red Hat Ceph Storage
+Red Hat Certificate System
+Red Hat Cloud Suite
+Red Hat CodeReady Studio
+Red Hat Data Grid
+Red Hat Decision Manager
+Red Hat Directory Server
+Red Hat Fuse
+Red Hat Fuse Online
+Red Hat Gluster Storage
+Red Hat Hyperconverged Infrastructure
+Red Hat Insights
+Red Hat Integration
+Red Hat JBoss Enterprise Application Platform
+Red Hat JBoss Web Server
+Red Hat OpenShift
+Red Hat OpenShift Container Storage
+Red Hat OpenStack Platform
+Red Hat Process Automation
+Red Hat Process Automation Manager
+Red Hat Quay
+Red Hat Runtimes
+Red Hat Satellite
+Red Hat Services
+Red Hat Smart Management
+Red Hat Virtualization
