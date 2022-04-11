@@ -1,0 +1,17 @@
+* mysql high availability, Yoshinori Matsunobu 
+
+https://github.com/yoshinorim/mha4mysql-manager/
+http://yoshinorimatsunobu.blogspot.com/
+automating master failover and fast master switch
+
+* issues, 
+
+https://github.com/redsnapper8t8/mysql-master-ha/issues/3
+
+- 8 Nov 2011 at 9:54 , Currently MHA does not have an option to set ssh port. A recommended approach is setting Port parameter in /etc/ssh/ssh_config (ssh client parameter). 
+- 9 Nov 2011 at 9:54 , I've implemented and pushed to the GitHub tree. Please use ssh_host and/or ssh_port parameters.
+
+* code
+
+https://github.com/yoshinorim/mha4mysql-manager
+https://github.com/yoshinorim/mha4mysql-node
