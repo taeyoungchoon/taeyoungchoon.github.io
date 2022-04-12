@@ -1,3 +1,8 @@
+* ha, 프락치
+
+- фракция, Fraktsiya, proxy
+- 서울대 프락치 사건
+
 * list
 
 - mysql proxy
