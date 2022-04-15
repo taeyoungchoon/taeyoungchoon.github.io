@@ -1,3 +1,9 @@
+* version
+
+[2022-04-15 금 10:15] 지금 보니 v99.0.1 이다. netscape에서 mozilla로 그리고 firebird인가에서 firefox로 이름도 다양했지만, 버전이 정말 무시무시하다.
+
+Samsung Galaxy S22도 그렇고, 시간이다. 그리고 시간이 지나면 어떠한 일이 일어날까? 공간 속에서 시간을 시간을 공간 속에서 뒤섞다. 벗어나다. 떠나다. 안녕히. 그럼 그러면 말이다. 상념을 한다. 상상이다.
+
 * firefox with keyboard
 * combined with
 
