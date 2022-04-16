@@ -2,6 +2,7 @@
 
 - 그래 아마도 노트북이 남지 않을까? 앏은 몇 페이지의 노트북, 노트의 묶음 말이다
 - 노트북 그리고 충전기
+- 노트북의 버림, 비움. 저 위의 노트 또는 moleskine도
 
 * and one more thing, the disk
 
@@ -75,10 +76,16 @@
 - [2020-12-01 Tue 09:10] 사용 중임
 - [2022-01-04 화] not enough memory, 16g
 - 130만원 이상
+- [2022-04-16 Sat] not using
 
-** the next, Thinkpad T15p gen 2
+** TODO the next, Thinkpad T15p gen 2
 
 - 2022.2.
+- [2022-04-16 Sat] using it
+  - noisy
+  - and powerful
+  - [ ] linux
+    - [ ] 지금 debian을 사용하고 있는데 외장 모니터로 출력을 보내지 못하고 있다. 해결 방안은, 중요하다.
 
 *** req
 
