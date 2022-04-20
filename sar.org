@@ -1,0 +1,17 @@
+* aka sar
+* (sar interface)
+
+- sar
+  - include sadf
+  - http://sebastien.godard.pagesperso-orange.fr/
+  - [ ] translate
+    - https://translationproject.org/domain/sysstat.html
+- ksar
+  - code
+    - https://github.com/vlsi/ksar
+    - https://sourceforge.net/projects/ksar/
+    - https://www.koreascience.or.kr/article/JAKO201330251817288.pdf
+  - howto
+    - https://www.cyberciti.biz/tips/identifying-linux-bottlenecks-sar-graphs-with-ksar.html
+    - https://www.blackmoreops.com/2014/06/24/ksar-sar-grapher/
+
