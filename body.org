@@ -48,6 +48,11 @@
 - struvite stone
 - cystine stone
 
+* TODO chronic prostatitis, 만성 전립선염
+
+- N411
+- 회음부(perineum, !) 통증
+
 * blood cancer, 혈액암
 * 중증근무력증(Myasthenia Gravis)
 * hip joint, 고관절
