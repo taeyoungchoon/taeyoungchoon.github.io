@@ -64,7 +64,7 @@ Running (JUST GUESSING) : Linux 2.6.X|2.4.X (95%), Gemtek embedded (90%), Siemen
 
 #+BEGIN_SRC 
 $ nmap -n -sn -oG - 192.168.25.0/24
-# Nmap 7.92 scan initiated Thu Apr 28 03:17:23 2022 as: "C:\\Program Files (x86)\\Nmap\\nmap.exe" -n -sn -oG - 192.168.25.0/24
+# Nmap 7.92 scan initiated Thu Apr 28 03:17:23 2022 as: "C:\\Nmap\\nmap.exe" -n -sn -oG - 192.168.25.0/24
 Host: 192.168.25.1 ()   Status: Up
 Host: 192.168.25.10 ()  Status: Up
 Host: 192.168.25.30 ()  Status: Up
@@ -95,7 +95,7 @@ $ nmap -n -sn -oG - 192.168.25.0/24  | grep ^Host | awk '{ print $2 }' > ips.txt
 
 #+BEGIN_SRC 
 $ nmap -n -sn -iL ips.txt -oG -
-# Nmap 7.92 scan initiated Thu Apr 28 03:30:41 2022 as: "C:\\Program Files (x86)\\Nmap\\nmap.exe" -n -sn -iL ips.txt -oG -
+# Nmap 7.92 scan initiated Thu Apr 28 03:30:41 2022 as: "C:\\Nmap\\nmap.exe" -n -sn -iL ips.txt -oG -
 Host: 192.168.25.1 ()   Status: Up
 Host: 192.168.25.10 ()  Status: Up
 Host: 192.168.25.30 ()  Status: Up
@@ -128,7 +128,7 @@ Host: 192.168.25.118 () Status: Up
 
 #+BEGIN_SRC 
 $ watch 'nmap -n -v -sn -iL ips.txt -oG - | grep ^Host'
-Every 2.0s: nmap -n -v -sn -iL ips.txt -oG - | grep ^Host            think: Thu Apr 28 13:45:33 2022
+Every 2.0s: nmap -n -v -sn -iL ips.txt -oG - | grep ^Host think: Thu Apr 28 13:45:33 2022
 Host: 192.168.25.1 ()   Status: Up
 Host: 192.168.25.10 ()  Status: Up
 Host: 192.168.25.30 ()  Status: Up
