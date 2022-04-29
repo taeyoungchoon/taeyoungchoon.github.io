@@ -1,4 +1,4 @@
-* TODO cloud, vision exchange aka cvx
+* DONE cloud, vision exchange aka cvx
 
 - EOS-4.28.0F-Manual.pdf . Arista EOS version 4.28.0F User Manual
 - https://www.arista.com/en/um-eos/eos-cloudvision-exchange-cvx
@@ -39,13 +39,13 @@
   - [X] that provides the point of integration
   - between individual vendor firewalls or a firewall manager and the Arista network fabric.
 
-* TODO Arista Macro Segmentation Service Integration With Fortinet
+* DONE Arista Macro Segmentation Service Integration With Fortinet
 
 - July, 7 2021
 - VXLAN is enabled and configured on CVX and leaf switches
 
-* TODO openstack
-* TODO NSX-T
+* DONE openstack, nil
+* DONE NSX-T, nil
 * DONE Arista , CVX VCS as DIC
 
 - JULY 14, 2017
