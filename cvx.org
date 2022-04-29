@@ -1,0 +1,55 @@
+* TODO cloud, vision exchange aka cvx
+
+- EOS-4.28.0F-Manual.pdf . Arista EOS version 4.28.0F User Manual
+- https://www.arista.com/en/um-eos/eos-cloudvision-exchange-cvx
+- CVX Services
+  - OpenStack Service
+    - [X] Openstack Neutron share state with CVX
+  - VXLAN Control Service
+    - [X] allow hardware VXLAN tunnel endpoints share state with each other without the need of multicast
+  - Hardware Switch Controller(HSC) Service
+    - integration point between OVSDB controllers and the VXLAN control service
+    - [X] allowing exchange of state information among virtual and hardware switches
+  - Network Topology Service
+  - Static Topology Service
+    - show network physical-topology
+    - servers does not enable LLDP on interfaces connecting hosts to switches
+    - the topology information does not appear on CVX
+    - [ ] static Topology enables the topology configuration statically 
+      - using the service topology command on CVX
+      - without running LLDP on the servers connected to switches.
+
+* DONE bugs export to JSON format then to internal agent(BugAlert Service Agent) on CVX
+
+- Open Arista SDDC Architectures and Solutions TREX Workshop 2018
+- https://www.arista.com/en/support/toi/eos-4-28-0f/13799-bug-alerts
+  - Updated on June 29, 2016 
+- bugalertUpdate.py - IS DEPRECATED - Script to install and update the Bug Alert Database on CVX
+  - https://github.com/coreyhines/Arista
+  - Compliance Dashboard
+    - compliance status
+    - The CVP 2020.2.0 release comes packaged with a file named AlertBase.json
+    - Bugs and CVEs, Device Configuration, and End Of Life
+    - https://www.arista.com/en/cg-cv/cv-compliance-dashboard
+
+* DONE Data Plane Security > Macro-Segmentation Service (CVX)
+
+- EOS-4.28.0F-Manual.pdf . Arista EOS version 4.28.0F User Manual
+  - Arista MSS is designed as a service in CloudVision
+  - [X] that provides the point of integration
+  - between individual vendor firewalls or a firewall manager and the Arista network fabric.
+
+* TODO Arista Macro Segmentation Service Integration With Fortinet
+
+- July, 7 2021
+- VXLAN is enabled and configured on CVX and leaf switches
+
+* TODO openstack
+* TODO NSX-T
+* DONE Arista , CVX VCS as DIC
+
+- JULY 14, 2017
+- Arista datacenter design
+  - two active/active datacenters within 5ms of each other
+  - refer: Arista DCI Design Guide
+- testing CVX’s VCS (Cloudvision’s VXLAN Control-Plane), and it works within the datacenter
