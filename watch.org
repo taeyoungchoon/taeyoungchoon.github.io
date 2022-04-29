@@ -1,3 +1,10 @@
+* command
+
+- watch
+- swatch
+- watch 4 folder
+   - http://leelusoft.altervista.org/watch-4-folder.html
+
 * hmm, what the
 
 watch0 is just a watch
