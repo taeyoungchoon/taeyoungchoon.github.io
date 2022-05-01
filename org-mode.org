@@ -54,10 +54,10 @@ https://orgmode.org/manual/Structure-Templates.html
 
 ** TODO python
 
-#+begin_src python
-  print('hi')
+#+BEGIN_SRC python
+print('hi')
 
-#+end_src
+#+END_SRC
 
 * font
 
@@ -83,7 +83,7 @@ C-x C--
 
 (setq face-font-rescale-alist
       '((".*hiragino.*" . 1.2)
-        ("NanumGothic" . 1.2307692307692308)))
+	("NanumGothic" . 1.2307692307692308)))
 #+END_SRC
 
 * read words about it
@@ -104,7 +104,7 @@ C-x C--
 #+END_SRC
 
 #+BEGIN_SRC 
-#+ATTR_HTML: :border 2 :rules all :frame border
+,#+ATTR_HTML: :border 2 :rules all :frame border
 #+END_SRC
 
 | x | y | z | sum using vsum |
@@ -145,3 +145,44 @@ C-x C--
 ** this is the more							:tag:
 ** and more							   :love:tag:
 ** some of							       :love:
+* TODO with graphviz aka dot
+
+** stacking view with dot
+
+- dc designer에서 서버 개체를 추가했을 경우
+
+#+BEGIN_SRC dot :file dcs.png :cmdline -Kdot -Tpng
+digraph dcs {
+
+	edge[fontsize=12,dir=none]
+	graph[fontsize=8]
+	node[fontsize=14]
+
+	nodesep=0.2
+	ratio=compress
+
+	seed -> state -> mon
+}
+#+END_SRC
+
+#+RESULTS:
+[[file:dcs.png]]
+
+
+
+#+BEGIN_SRC dot :file dcs2.png :cmdline -Kdot -Tpng
+digraph dcs2 {
+
+	edge[fontsize=12,dir=none]
+	graph[fontsize=8]
+	node[fontsize=14]
+
+	nodesep=0.2
+	ratio=compress
+
+	mon -> roles
+	designer -> roles
+}
+#+END_SRC
+
+
