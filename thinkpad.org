@@ -42,3 +42,26 @@ https://blog.monosoul.dev/2021/10/17/how-to-control-thinkpad-p14s-fan-speed-in-l
 echo level 0 > /proc/acpi/ibm/fan
 
 [2022-03-06 Sun 21:31] 과연 꺼도 될까? 지금 끄기는 했는데 말이다. 
+* with thinkpad t15p gen2
+
+https://ubuntu.com/certified/202107-29314/20.04%20LTS
+Lenovo ThinkPad T15p Gen 2 certified on Ubuntu 20.04 LTS > Hardware details
+
+Video 	
+
+nVidia TU117M (10de:1f99 17aa:22da)
+Intel Corp. TigerLake-H GT1 [UHD Graphics] (8086:9a60 17aa:22da)
+
+https://nouveau.freedesktop.org/CodeNames.html
+nouveau/ CodeName
+
+NV160 family (Turing)
+
+Code name 	Official Name
+NV167 (TU117) 	GeForce GTX 1650
+
+https://download.lenovo.com/pccbbs/mobiles_pdf/tp_p1_gen2_ubuntu_18.04_lts_installation_v1.0.pdf
+Ubuntu Linux Setup Guide
+For THinkpad P1 Gen2
+
+Official support of Ubuntu 18.04 LTS and later

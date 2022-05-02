@@ -25,3 +25,8 @@
   - [Windows 64bit] imageRUNNER 1024A/1024F/1020 MFDrivers (UFR II rinter/ FAX / ScanGear)
 
 
+* TODO Samsung SL-T2270W
+
+- 이런 랜포트가 없다.
+  - USB로 노트북에 프린터를 연결하고, 
+- 잉크 넣기는 나름 쉽다.
