@@ -8,7 +8,8 @@
 (setq inhibit-splash-screen t)
 (display-time)
 (load-theme 'wombat)
-(setq default-directory "t:/home")
+(when (eq system-type 'windows-nt)
+  (setq default-directory "t:/home"))
 
 ; about backup & auto-save
 ; http://www.gnu.org/software/emacs/manual/html_node/elisp/Auto_002dSaving.html
@@ -116,10 +117,14 @@
  ;; If there is more than one, they won't work right.
  '(display-time-mode t)
  '(elfeed-feeds
-   '("https://lwn.net/headlines/rss" "http://www.50ply.com/atom.xml" "http://nullprogram.com/feed/" "http://www.terminally-incoherent.com/blog/feed/")))
+   '("https://lwn.net/headlines/rss" "http://www.50ply.com/atom.xml" "http://nullprogram.com/feed/" "http://www.terminally-incoherent.com/blog/feed/"))
+ '(package-selected-packages '(slime)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "D2Coding ligature" :foundry "RIXF" :slant normal :weight normal :height 158 :width normal)))))
+ '(default ((t (:family "D2Coding ligature" :foundry "RIXF" :slant normal :weight normal :height 143 :width normal)))))
+
+(when (eq system-type 'gnu/linux)
+  (set-fontset-font t 'hangul (font-spec :name "D2Coding ligature")))
