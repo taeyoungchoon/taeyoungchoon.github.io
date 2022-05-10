@@ -1,3 +1,8 @@
+* DONE cherry keyboard, disable Functional Fn key using Ctrl + Fn
+
+- https://gall.dcinside.com/mgallery/board/view/?id=mechanicalkeyboard&no=775181
+- C-Fn 이걸로 충분하다
+
 * now, [2020-05-16 Sat]
 
 - 지금 키보드를 치고 있다. 노트북에 내장되어 있는 키보드이다.
