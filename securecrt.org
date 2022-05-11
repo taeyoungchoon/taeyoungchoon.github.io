@@ -6,7 +6,7 @@
 
 ** log file name
 
-- T:\t-log\%H_%S_%Y%M%D_%h_%h_%m_%s.log
+- T:\date\t-log\%H_%S_%Y%M%D_%h_%h_%m_%s.log
 
 ** options
 
@@ -67,7 +67,6 @@ YYY\r
 ** try
 
 RRR\r
-
 
 * Tip
 

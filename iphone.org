@@ -1,2 +1,4 @@
 * phone made by apple
 * face recognition at thn iPhone X
+* TODO hotspotting over the Wi-Fi
+* TODO tethering via USB cable
