@@ -1,0 +1,17 @@
+* make upgrade
+
+- upload image using [[file:winscp.org][winscp]]
+- upgrade
+
+* upgrade
+
+https://www.arista.com/en/um-eos/eos-standard-upgrades-and-downgrades
+conf t
+boot system flash:EOS-4.28.0.swi
+show boot-config
+write
+reload
+
+https://www.arista.com/en/um-eos/eos-upgradedowngrade-commands
+
+

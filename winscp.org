@@ -1,0 +1,12 @@
+* winscp with eos
+
+https://www.edwardum.com/blog/2019/9/24/scp-into-arista-eos
+
+** eos
+
+- username edward privilege 15 secret edward
+- aaa authorization exec default local
+
+** winscp
+
+- SCP/Shell's Shell to 'bash'
