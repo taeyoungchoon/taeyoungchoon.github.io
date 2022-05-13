@@ -1,3 +1,21 @@
+* TODO [2022-05-13 Fri] more that that 
+
+- satellite over, satellite is the dcs
+- wrap the sphere
+- satellite spread dna to the other satellite, how many
+- using tile (on football, hexagon tile)
+- two pharse commit, 3 copies only, done
+- dna is the data structure aka format
+- (mn m n)
+- compute on it
+- compute run process
+- uplink and downlink
+
+** more, term
+
+- lisp
+- then others, python-like
+
 * dcs, dc's, dc set, data center
 
 - dc designer
