@@ -13,6 +13,14 @@ Capslock::Ctrl
 
 #+END_EXAMPLE
 
+#+BEGIN_SRC 
+F12::LWin
+#+END_SRC
+
+#+BEGIN_SRC 
+LAlt::LWin
+#+END_SRC
+
 * refer 
 
 - imacro from firefox
