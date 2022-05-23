@@ -1,0 +1,10 @@
+* list of docs
+
+- Arista 7050X3 Series Switch Architecture
+- 7050X3 Series datasheet
+
+* site
+
+https://www.arista.com/en/products/7050x3-series
+
+* ex, DCS-7050SX3-48YC8-F
