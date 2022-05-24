@@ -32,3 +32,42 @@ docker exec -it <name> Cli
 CLEAR
 
 containerlab destroy --topo srlceos01.clab.yml
+* TODO [2022-05-24 화] then again on debian 22.04 LTS
+
+# download srlinux using docker, simply
+docker pull ghcr.io/nokia/srlinux
+docker images
+
+# dig in later with below strings
+# 
+# https://qiita.com/h9803660/items/2d9ab958e93a361cff71
+# docker create --name=ceos --privileged -p 443:443 -e CEOS=1 -e container=docker -e EOS_PLATFORM=ceoslab -e SKIP_ZEROTOUCH_BARRIER_IN_SYSDBINIT=1 -e ETBA=1 -e INTFTYPE=eth -i -t ceos:latest /sbin/init
+# docker network create net1
+# docker network create net2
+# docker network connect net1 ceos
+# docker network connect net2 ceos
+# docker start ceos
+# docker exec -it ceos Cli
+
+# download ceos image from arista.com, manually
+#   arista.com > Software Download > EOS > cEOS-lab > EOS-4.27.4M > cEOS-lab-4.27.4M.tar.xz
+docker import cEOS-lab-4.27.4M.tar.xz ceos:4.27.4M
+docker image ls
+
+# make containerlab using example, stream edit cfg based on ceos image
+mkdir ~/clab-quickstart
+cd ~/clab-quickstart
+cp -a /etc/containerlab/lab-examples/srlceos01/* .
+cat /etc/containerlab/lab-examples/srlceos01/srlceos01.clab.yml | sed 's/4.25.0F/4.27.4M/' > srlceos01.clab.yml
+diff /etc/containerlab/lab-examples/srlceos01/srlceos01.clab.yml srlceos01.clab.yml 
+
+# start
+sudo containerlab deploy  --topo srlceos01.clab.yml
+
+# test
+echo test
+docker exec -it clab-srlceos01-srl1 sr_cli
+docker exec -it clab-srlceos01-ceos Cli
+
+# stop
+sudo containerlab destroy --topo srlceos01.clab.yml 
