@@ -46,3 +46,10 @@ dpkg-reconfigure tzdata
 tzselect
 timedatectl set-timezone Asia/Seoul
 
+** dual boot
+
+- from linux
+  timedatectl set-local-rtc 1 --adjust-system-clock
+- or from windows
+  https://wiki.archlinux.org/title/System_time#UTC_in_Windows
+  reg add "HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation" /v RealTimeIsUniversal /d 1 /t REG_DWORD /f
