@@ -61,3 +61,10 @@ CVP to K8s: full-scale production network simulation
 https://www.arista.com/assets/data/pdf/user-manual/um-books/CV_Config_Guide_2021.2.0.pdf
 
 rsync -rtvp 172.31.0.161:/cvpi/tls/certs/kube-cert.pem /cvpi/tls/certs
+* histo
+
+eos with nd(network device)
+openstack cvx
+nsx cvx
+cvp
+more cloud
