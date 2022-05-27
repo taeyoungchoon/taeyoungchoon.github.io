@@ -61,6 +61,7 @@ CVP to K8s: full-scale production network simulation
 https://www.arista.com/assets/data/pdf/user-manual/um-books/CV_Config_Guide_2021.2.0.pdf
 
 rsync -rtvp 172.31.0.161:/cvpi/tls/certs/kube-cert.pem /cvpi/tls/certs
+
 * histo
 
 eos with nd(network device)
@@ -68,3 +69,41 @@ openstack cvx
 nsx cvx
 cvp
 more cloud
+* TODO with ztp
+
+https://www.arista.com/en/cg-cv/cv-dhcp-service-for-zero-touch-provisioning-ztp-setup
+CloudVision - DHCP Service for Zero Touch Provisioning (ztp) Setup 
+
+The ZTP process relies on a DHCP server to get devices registered with CVP. The DHCP server can be on the CVP, but is more commonly an external DHCP server. 
+
+** doc
+
+https://www.arista.com/en/cg-cv/cv-device-bootstrap-process?searchword=ztp
+Device Bootstrap Process 
+
+The URL with IP address will be like this//ipaddress/ztp/bootstrap
+
+https://www.arista.com/en/cg-cv/cv-replacing-switches-using-the-ztr-feature?searchword=ztp
+Replacing Switches Using the ZTR Feature
+
+** ansible way
+
+https://avd.sh/en/stable/docs/how-to/ztp.html
+ansible some
+
+** people talks
+
+https://aristanetworks.force.com/AristaCommunity/s/question/0D52I00007ERqNXSA1/how-is-ztp-service-hosted-on-cvp-server
+The URL to specify is http:// <ip of cvp server>/ztp/bootstrap
+
+kubectl get pod -l app=ztp -o wide
+
+https://aristanetworks.force.com/AristaCommunity/s/question/0D52I00007ERqRZSA1/ztp-bootstrap-script-file
+detail
+
+https://aristanetworks.force.com/AristaCommunity/s/article/ztp-boot-process-with-cloudvision
+ZTP Boot Process with CloudVision
+
+In this setup, CloudVision ZTP service and the switch are on different IP subnets, 192.168.1.0/24 and 10.1.1.0/24 respectively.  
+A Palo Alto FW acts as both a layer 3 routing device and a DHCP server providing a DHCP option 67 to the location of the bootfile.
+Option 67 -Bootstrap URL is: http://192.168.1.248/ztp/bootstrap
