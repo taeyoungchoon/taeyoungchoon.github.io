@@ -100,3 +100,18 @@ https://www.redhat.com/en/services/training/ex407-red-hat-certified-specialist-i
 * yaml
 * editor
 * tree
+* TODO ansible pure
+
+#+BEGIN_SRC 
+ansible localhost -m shell -a uptime
+ansible localhost -m shell -a uptime -b -k -u root
+ansible localhost -m shell -a uptime --list-hosts
+#+END_SRC
+
+* TODO ansible-doc
+
+#+BEGIN_SRC 
+ansible-doc -l
+ansbiel-doc -l 2>/dev/null | grep arista
+ansible-doc arista.eos.eos_command
+#+END_SRC
