@@ -1,0 +1,29 @@
+* DONE nos, network operating system
+
+- bind/map to hardware/box, so called appliance
+  - such as eos
+- and others
+  - on vm(virtual machine)
+    - such as veos
+  - from contained environment
+    - such as ceos
+
+* DONE list of implementation
+
+- cisco ios , IOS
+  - CatOS , Catalyst operating system
+  - NX-OS
+  - IOS XE
+  - IOS XR
+- dell x , DNOS
+  - DNOS 9.x/NetBSD
+- juniper junos , Junos OS
+- arista eos , Extensible Operating System , EOS
+- microsoft sonic , SONiC
+- nokia sr linux , SR Linux
+- nvidia cumulus linux , Cumulus Linux
+- VyOS/Debian
+
+* DONE related one(s)
+
+- ONIE , Open Network Install Environment 
