@@ -5,3 +5,25 @@
 * more memory and cpu
 
 https://www.atpeaz.com/change-multipass-instance-memory-and-cpu-allocation-after-launch/
+
+* with docker
+
+https://randomds.com/2022/04/15/multipass-and-portainer-to-develop-with-docker/
+
+https://multipass.run/docs/networks-command
+
+https://jybaek.tistory.com/934
+
+** load image, ceos image
+
+https://stackoverflow.com/questions/54499389/cant-load-docker-from-saved-tar-image
+
+#+BEGIN_SRC 
+? docker import cEOS-lab-4.27.4M.tar.xz
+open cEOS-lab-4.27.4M.tar.xz: no such file or directory
+#+END_SRC
+
+docker load < cEOS-lab-4.27.4M.tar.xz
+
+https://kevin-wang-xin.medium.com/how-to-use-arista-ceos-to-build-a-topology-to-test-features-49d316110b98
+

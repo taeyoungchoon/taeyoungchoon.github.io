@@ -34,3 +34,7 @@
 * install
 
 * orchestration using kubernetes, openshift, docker-compose
+
+* with mac os x
+
+brew install --cask docker
