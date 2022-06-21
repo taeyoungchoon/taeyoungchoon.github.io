@@ -2,6 +2,8 @@
 
 휴, 어제나저제나 또 다시 사용하게 된다. tmux는 안되는 걸까? 안되는 것 같다. 그럼 minicom은 어떤가? 1995년도 사용했던 것 같은데, picocom?
 
+[2022-06-22 수] 다시 또 다시 언제나 처럼인가? 이다.
+
 * DONE sharing session
 
 1. A: screen -S sharing
@@ -28,3 +30,8 @@ pgrep -i screen
 screen -ls
 screen -r
 C-a : THEN quit
+
+* TODO multiple
+* DONE kill
+
+C-A k
