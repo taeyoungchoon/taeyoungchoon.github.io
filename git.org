@@ -100,30 +100,38 @@ The file will have its original line endings in your working directory.
   - clean
 * TODO git log
 
-- (HEAD -> master)
-  (origin/master, origin/HEAD)
-- (HEAD -> master, origin/master, origin/HEAD)
+** flow
 
-? git log --oneline -5
-a3020f2 (HEAD -> master) git log, parse
-ecc1079 (origin/master, origin/HEAD) talk about git server
-cf0d97c d
-ef3e684 d
-a6629f9 d
+1. old (HEAD -> master, origin/master, origin/HEAD)
+2. git commit
+3. new (HEAD -> master)
+   old (origin/master, origin/HEAD)
+4. git push
+5. new (HEAD -> master, origin/master, origin/HEAD)
+   old nil
+  
+** log
 
-? git push
-Enumerating objects: 5, done.
-Counting objects: 100% (5/5), done.
-Delta compression using up to 16 threads
-Compressing objects: 100% (3/3), done.
-Writing objects: 100% (3/3), 687 bytes | 687.00 KiB/s, done.
-Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
-remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
-To https://github.com/taeyoungchoon/taeyoungchoon.github.io.git
-   ecc1079..a3020f2  master -> master
-
-? git log --oneline -5
+#+BEGIN_SRC 
+? git log --oneline -3
 a3020f2 (HEAD -> master, origin/master, origin/HEAD) git log, parse
 ecc1079 talk about git server
+cf0d97c d
+
+? git add git.org
+? git commit -m t
+
+? git log --oneline -3
+1425093 (HEAD -> master) t
+a3020f2 (origin/master, origin/HEAD) git log, parse
+ecc1079 talk about git server
+
+? git push
+
+? git log --oneline -3
+1425093 (HEAD -> master, origin/master, origin/HEAD) t
+a3020f2 git log, parse
+ecc1079 talk about git server
+#+END_SRC
 
 
