@@ -98,3 +98,42 @@ The file will have its original line endings in your working directory.
   - make start
   - stop
   - clean
+* TODO git log
+
+- (HEAD -> master)
+  (origin/master, origin/HEAD)
+- (HEAD -> master, origin/master, origin/HEAD)
+
+#+BEGIN_SRC 
+$ git log
+commit ecc107988f14d4dc21eb7d16304f8e541aba55fd (HEAD -> master)
+Author: taeyoungchoon <taeyoungchoon@gmail.com>
+Date:   Thu Jun 23 15:14:41 2022 +0900
+
+    talk about git server
+
+    - known git servers
+    - build using pure
+
+commit cf0d97c2462846bbaf508379a2a43435c39d4393 (origin/master, origin/HEAD)
+Author: taeyoungchoon <taeyoungchoon@gmail.com>
+Date:   Wed Jun 22 00:41:08 2022 +0100
+
+    d
+$ git push
+$ git log 
+commit ecc107988f14d4dc21eb7d16304f8e541aba55fd (HEAD -> master, origin/master, origin/HEAD)
+Author: taeyoungchoon <taeyoungchoon@gmail.com>
+Date:   Thu Jun 23 15:14:41 2022 +0900
+
+    talk about git server
+
+    - known git servers
+    - build using pure
+
+commit cf0d97c2462846bbaf508379a2a43435c39d4393
+Author: taeyoungchoon <taeyoungchoon@gmail.com>
+Date:   Wed Jun 22 00:41:08 2022 +0100
+
+    d
+#+END_SRC
