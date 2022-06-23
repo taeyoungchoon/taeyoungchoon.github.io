@@ -83,3 +83,18 @@ almost init then type username then password
 
 warning: LF will be replaced by CRLF in abc.pl.
 The file will have its original line endings in your working directory.
+* TODO git server
+
+- [ ] git daemon
+- github
+- [ ] gitlab
+- bitbucket
+
+* TODO git server using git daemon, pure
+
+- cd vm
+  - vagrant up using make start 
+- make
+  - make start
+  - stop
+  - clean
