@@ -83,14 +83,16 @@ almost init then type username then password
 
 warning: LF will be replaced by CRLF in abc.pl.
 The file will have its original line endings in your working directory.
+
 * TODO git server
 
 - [ ] git daemon
 - github
 - [ ] gitlab
 - bitbucket
+- using sshd only
 
-* TODO git server using git daemon, pure
+** git server using git daemon, pure
 
 - cd vm
   - vagrant up using make start 
@@ -98,6 +100,7 @@ The file will have its original line endings in your working directory.
   - make start
   - stop
   - clean
+
 * TODO git log
 
 ** flow
@@ -134,4 +137,9 @@ a3020f2 git log, parse
 ecc1079 talk about git server
 #+END_SRC
 
+* DONE amend
 
+해보니까 알겠다. 그럼 되는 거다.
+
+1. git commit
+2. git commit -m amend
