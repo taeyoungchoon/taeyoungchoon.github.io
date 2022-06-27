@@ -1,0 +1,22 @@
+* DONE or the other and about network
+
+- lshw, dmidecode, hwinfo, lspci, lscpu, /proc
+
+  #+begin_src 
+  lshw -short | grep network
+  lshw -class network
+  #+end_src
+
+  #+begin_src 
+  lshw -short | grep proc
+  lshw -class processor
+  sudo dmidecode -s processor-manufacturer
+  hwinfo --cpu
+  hwinfo --cpu --short
+  lspci -vmm | grep Class
+  lscpu
+  lspci | grep -i processor
+  lspci | grep -i network
+  cat /proc/cpuinfo
+  #+end_src
+
