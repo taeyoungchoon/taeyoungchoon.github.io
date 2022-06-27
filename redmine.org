@@ -29,3 +29,6 @@
 - [ ] store
 - [ ] with versioning system such a like git then github
   
+* TODO issue tracker, this one
+
+- and docker or the other
