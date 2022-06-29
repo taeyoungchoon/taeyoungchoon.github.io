@@ -1,0 +1,33 @@
+help:
+	@cat makefile | grep ^[a-z]
+
+status:
+	cd home; git status
+	cd ylit; git status
+	cd taeyoungchoon.github.io; git status
+	cd t-shell; git status
+
+sync-backward:
+	rclone sync -P gdrive:repo/home1.git ~/repo/home
+	rclone sync -P gdrive:repo/ylit20.git ~/repo/ylit
+
+sync-forward:
+	rclone sync -P ~/repo/home gdrive:repo/home1.git
+	rclone sync -P ~/repo/ylit gdrive:repo/ylit20.git
+
+pull:
+	make sync-backward
+	cd home; git pull
+	cd ylit; git pull
+	cd taeyoungchoon.github.io; git pull
+	cd t-shell; git pull
+
+push:
+	cd home; git push
+	cd ylit; git push
+	cd taeyoungchoon.github.io; git push
+	cd t-shell; git push
+	make sync-forward
+
+clean:
+	rm *~
