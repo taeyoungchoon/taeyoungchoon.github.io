@@ -42,7 +42,7 @@
 - 994,000
 - not using
 
-** TODO macbook air part 2, 1.34 kg
+** TODO macbook air part 2, 1.34 kg, since 2017
 
 - Mid 2017 (June) then Oct 11, 2017 and now 2021-1-27 battery out, 3 years
 - 13.3", native 1440 × 900 (16:10). Lower resolutions supported
@@ -50,8 +50,9 @@
 - 12.8 in (33 cm) wide × 8.94 in (22.7 cm) deep × 0.11 in (0.3 cm) to 0.68 in (1.7 cm) high (13")
 - 1,180,000 (교육 할인) > 1,250,000
 - https://support.apple.com/kb/SP753?locale=en_US
+- 전원을 연결하는 부위. 그 근처 케이블 색이 노랗고, 딱딱하졌다. 
 
-** TODO lg gram, 14ZD990-GX50K, 995g but adapter required
+** DONE lg gram, 14ZD990-GX50K, 995g but adapter required
 
 - 2019.5.
 - core i5
@@ -83,9 +84,11 @@
 - 2022.2.
 - [2022-04-16 Sat] using it
   - noisy
+  - heavy, 정말 무겁다.
   - and powerful
-  - [ ] linux
-    - [ ] 지금 debian을 사용하고 있는데 외장 모니터로 출력을 보내지 못하고 있다. 해결 방안은, 중요하다.
+  - [X] linux
+    - [X] 지금 debian을 사용하고 있는데 외장 모니터로 출력을 보내지 못하고 있다. 해결 방안은, 중요하다.
+      - ubuntu 설치하고, 된다.
 
 *** req
 
