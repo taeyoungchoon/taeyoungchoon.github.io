@@ -1,3 +1,5 @@
 * gslb history
 
 - 2020 at kma using F5 BIG-IP
+
+* L4
