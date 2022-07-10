@@ -3,3 +3,14 @@
 - [[file:makefile][makefile]] is required
 - mother(not father) of all configuration management such cfengine, puppet and ansible
 - [2019-12-17 화 10:56] still using 
+
+* DONE case : no rule to make target 
+
+- [2022-07-08 금 13:47] dos2unix solve
+
+#+BEGIN_SRC 
+$ bash ./go.sh
+'.  Stop. No rule to make target 'clean
+'.  Stop. No rule to make target 'start
+'.  Stop. No rule to make target 'ssh
+#+END_SRC
