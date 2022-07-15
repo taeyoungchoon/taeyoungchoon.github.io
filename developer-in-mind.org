@@ -1,0 +1,26 @@
+* TODO to be done, before you
+
+1. vscode, the editor
+   1) how to use it
+   2) install python extension
+2. python, the programming language for general purpose
+   1) print()
+   2) if
+   3) for
+   4) import random
+   5) def
+3. git, welknown versioning system
+   1) github
+   2) make repository
+   3) git cli
+      - git clone
+      - git status
+      - git pull
+      - git commit
+      - git push
+      - git log
+4. aws, wellknown public cloud service
+   1) how to use aws management console
+   2) ec2, launch instance
+      - ssh to it
+   3) hear about vpc
