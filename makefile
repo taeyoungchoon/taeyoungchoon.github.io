@@ -6,6 +6,9 @@ help:
 status:
 	@git status --short
 
+fetch:
+	@git fetch
+
 pull:
 	@git pull
 
