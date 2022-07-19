@@ -14,4 +14,8 @@ reload
 
 https://www.arista.com/en/um-eos/eos-upgradedowngrade-commands
 
+* enable zero touch provisioning
+
+arista1> enable
+arista1# run write erase now ; reload now
 
