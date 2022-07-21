@@ -171,16 +171,16 @@ Option 67 -Bootstrap URL is: http://192.168.1.248/ztp/bootstrap
 : map mac address 'aa' to hostname 'leaf1' then provide ip '1.1'
 
 #+BEGIN_SRC python
-  kv = {'aa': ['leaf1', '1.1'],
-	'bb': ['leaf2', '2.2']}
+  network_device = {'aa:bb:cc': ['leaf1', '1.1'],
+		    'bb:cc:dd': ['leaf2', '2.2']}
 
-  request = 'bb'
+  request = 'bb:cc:dd'
 
   def lookup(mac_address):
-      if kv.get(mac_address):
-	  hn = kv[mac_address][0]
-	  ip = kv[mac_address][1]
-	  output = "map mac address '{}' to hostname '{}' then provide ip '{}'".format(mac_address, hn, ip)
+      if network_device.get(mac_address):
+	  hostname = network_device[mac_address][0]
+	  ip = network_device[mac_address][1]
+	  output = "map '{}' to hostname '{}' then provide management ip to '{}'".format(mac_address, hostname, ip)
 	  return output
 
   print(lookup(request))
