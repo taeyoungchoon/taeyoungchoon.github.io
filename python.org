@@ -61,4 +61,18 @@ if output.returncode == 0: print(output.stdout)
 
 - os.system
 - os.spawn
-* 이건 해야만 하는 것인가
+
+* def func
+
+#+BEGIN_SRC python
+  def say(word):
+      return word
+
+  if __name__ == "__main__":
+      output = say('hi')
+      print(output)
+
+#+END_SRC
+
+#+RESULTS:
+: None
