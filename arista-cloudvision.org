@@ -107,7 +107,7 @@ ZTP Boot Process with CloudVision
 In this setup, CloudVision ZTP service and the switch are on different IP subnets, 192.168.1.0/24 and 10.1.1.0/24 respectively.  
 A Palo Alto FW acts as both a layer 3 routing device and a DHCP server providing a DHCP option 67 to the location of the bootfile.
 Option 67 -Bootstrap URL is: http://192.168.1.248/ztp/bootstrap
-* with code
+* TODO with code
 
 #+BEGIN_SRC python
   hostname = 'leaf1'
@@ -135,3 +135,36 @@ Option 67 -Bootstrap URL is: http://192.168.1.248/ztp/bootstrap
 | xx | leaf1 | 1.1 |
 | yy | leaf2 | 2.2 |
 | zz | leaf3 | 3.3 |
+
+#+BEGIN_SRC python
+  kv = {1: [2, 3],
+	5: [6, 7]}
+  req = 1
+
+  if kv.get(req):
+      mc = req
+      hn = kv[1][0]
+      ip = kv[1][1]
+      return "{} {} {}".format(mc, hn, ip)
+#+END_SRC
+
+#+RESULTS:
+: 1 2 3
+
+#+BEGIN_SRC python
+  kv = {'aa': ['leaf1', '1.1'],
+	'bb': ['leaf2', '2.2']}
+
+  req = 'aa'
+
+  if kv.get(req):
+      mc = req
+      hn = kv[req][0]
+      ip = kv[req][1]
+      output = "map mac address '{}' to hostname '{}' then provide ip '{}'".format(mc, hn, ip)
+      print(output)
+      return output
+#+END_SRC
+
+#+RESULTS:
+: map mac address 'aa' to hostname 'leaf1' then provide ip '1.1'
