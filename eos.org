@@ -14,8 +14,132 @@ reload
 
 https://www.arista.com/en/um-eos/eos-upgradedowngrade-commands
 
-* enable zero touch provisioning
+* DONE enable zero touch provisioning
 
 arista1> enable
 arista1# run write erase now ; reload now
+
+or more using below
+
+run delete startup-config now ; reload now
+
+* DONE get system mac address
+
+arista1#show tech-support | inc 82
+Hardware MAC address: 001c.7357.4682
+System MAC address: 001c.7357.4682
+
+arista1#show version
+Arista DCS-7050SX-128-F
+Hardware version: 02.00
+Serial number: JPE14073114
+Hardware MAC address: 001c.7357.4682
+System MAC address: 001c.7357.4682
+
+* TODO bootstrap analysis
+
+** raw
+
+Jul 20 05:17:48 sw-192 ZeroTouch: %ZTP-6-RETRY: Retrying Zero Touch Provisioning from the beginning (attempt 15)
+Jul 20 05:18:04 sw-192 ZeroTouch: %ZTP-6-DHCPv4_QUERY: Sending DHCPv4 request on  [ Ethernet3, Management1 ] (option 67)
+Jul 20 05:18:06 localhost ZeroTouch: %ZTP-6-DHCPv4_SUCCESS: DHCPv4 response received on Management1  [ Ip Address: 192.168.25.116/24; Nameserver: 192.168.25.211; Domain: t.com; Gateway: 192.168.25.1; Boot File: http://192.168.25.208/ztp/bootstrap ] (option 67)
+Jul 20 05:18:11 localhost ZeroTouch: %SZTP-6-BOOTSTRAP_DOWNLOAD: Attempting to download SZTP bootstrap information from http://192.168.25.208/ztp/bootstrap
+Jul 20 05:18:12 localhost ZeroTouch: %ZTP-6-CONFIG_DOWNLOAD_SUCCESS: Successfully downloaded config script from http://192.168.25.208/ztp/bootstrap
+Jul 20 05:18:12 localhost ZeroTouch: %ZTP-6-EXEC_SCRIPT: Executing the downloaded config script
+Jul 20 05:18:13 localhost cvIps = 192.168.25.208
+Jul 20 05:18:13 localhost cvpNotifyIntvl = 60
+Jul 20 05:18:13 localhost configPollIntvl = 2
+Jul 20 05:18:13 localhost cvpUrl = https://192.168.25.208/cvpservice/services/ztp/config
+Jul 20 05:18:13 localhost cvpUser = cvptemp
+Jul 20 05:18:13 localhost cvAddr = 192.168.25.208:9910
+Jul 20 05:18:13 localhost cvAuth = token,/tmp/token
+Jul 20 05:18:13 localhost Removing temporary files
+Jul 20 05:18:13 localhost ['192.168.25.116']
+Jul 20 05:18:13 localhost hostname sw-192.168.25.116 ipAddrs ['192.168.25.116']
+Jul 20 05:18:13 localhost Applying Base EOS configuration
+Jul 20 05:18:15 sw-192 running commands enable#012configure#012control-plane#012no service-policy input copp-system-policy#012end errMsg #012> control-plane#012#012% Unavailable command (This command is deprecated by 'system control-plane') at line 3#012#012> no service-policy input copp-system-policy#012#012% Invalid input at line 4
+Jul 20 05:18:15 sw-192 status code=9 msg=failed in applying EOS configuration on the box, DisableThrottlingConfigConfig Failed, errMsg: #012> control-plane#012#012% Unavailable command (This command is deprecated by 'system control-plane') at line 3#012#012> no service-policy input copp-system-policy#012#012% Invalid input at line 4
+Jul 20 05:18:15 sw-192 TerminAttr version is valid. Skipping upgrade
+Jul 20 05:18:15 sw-192 status code=7 msg=EOS running newer version of terminAttr than defaultterminAttr version, current version is valid
+Jul 20 05:18:16 sw-192 waiting for Eos configuration
+Jul 20 05:18:16 sw-192 Sending request to https://192.168.25.208/cvpservice/services/ztp/config [0]
+Jul 20 05:18:21 sw-192 status code=11 msg=Successfully requested CVP for config
+g the downloaded config script after 900 seconds
+Jul 20 05:33:11 sw-192 ZeroTouch: %ZTP-6-RETRY: Retrying Zero Touch Provisioning from the beginning (attempt 16)
+Jul 20 05:33:27 sw-192 ZeroTouch: %ZTP-6-DHCPv4_QUERY: Sending DHCPv4 request on  [ Ethernet3, Management1 ] (option 67)
+Jul 20 05:33:29 localhost ZeroTouch: %ZTP-6-DHCPv4_SUCCESS: DHCPv4 response received on Management1  [ Ip Address: 192.168.25.116/24; Nameserver: 192.168.25.211; Domain: t.com; Gateway: 192.168.25.1; Boot File: http://192.168.25.208/ztp/bootstrap ] (option 67)
+Jul 20 05:33:34 localhost ZeroTouch: %SZTP-6-BOOTSTRAP_DOWNLOAD: Attempting to download SZTP bootstrap information from http://192.168.25.208/ztp/bootstrap
+Jul 20 05:33:35 localhost ZeroTouch: %ZTP-6-CONFIG_DOWNLOAD_SUCCESS: Successfully downloaded config script from http://192.168.25.208/ztp/bootstrap
+Jul 20 05:33:35 localhost ZeroTouch: %ZTP-6-EXEC_SCRIPT: Executing the downloaded config script
+Jul 20 05:33:36 localhost cvIps = 192.168.25.208
+Jul 20 05:33:36 localhost cvpNotifyIntvl = 60
+Jul 20 05:33:36 localhost configPollIntvl = 2
+Jul 20 05:33:36 localhost cvpUrl = https://192.168.25.208/cvpservice/services/ztp/config
+Jul 20 05:33:36 localhost cvpUser = cvptemp
+Jul 20 05:33:36 localhost cvAddr = 192.168.25.208:9910
+Jul 20 05:33:36 localhost cvAuth = token,/tmp/token
+Jul 20 05:33:36 localhost Removing temporary files
+Jul 20 05:33:36 localhost ['192.168.25.116']
+Jul 20 05:33:36 localhost hostname sw-192.168.25.116 ipAddrs ['192.168.25.116']
+Jul 20 05:33:36 localhost Applying Base EOS configuration
+Jul 20 05:33:38 sw-192 running commands enable#012configure#012control-plane#012no service-policy input copp-system-policy#012end errMsg #012> control-plane#012#012% Unavailable command (This command is deprecated by 'system control-plane') at line 3#012#012> no service-policy input copp-system-policy#012#012% Invalid input at line 4
+Jul 20 05:33:38 sw-192 status code=9 msg=failed in applying EOS configuration on the box, DisableThrottlingConfigConfig Failed, errMsg: #012> control-plane#012#012% Unavailable command (This command is deprecated by 'system control-plane') at line 3#012#012> no service-policy input copp-system-policy#012#012% Invalid input at line 4
+Jul 20 05:33:40 sw-192 TerminAttr version is valid. Skipping upgrade
+Jul 20 05:33:40 sw-192 status code=7 msg=EOS running newer version of terminAttr than defaultterminAttr version, current version is valid
+Jul 20 05:33:40 sw-192 waiting for Eos configuration
+Jul 20 05:33:40 sw-192 Sending request to https://192.168.25.208/cvpservice/services/ztp/config [0]
+Jul 20 05:33:46 sw-192 status code=11 msg=Successfully requested CVP for config
+Jul 20 05:49:01 sw-192 running commands enable#012configure#012control-plane#012no service-policy input copp-system-policy#012end errMsg #012> control-plane#012#012% Unavailable command (This command is deprecated by 'system control-plane') at line 3#012#012> no service-policy input copp-system-policy#012#012% Invalid input at line 4
+Jul 20 05:49:01 sw-192 status code=9 msg=failed in applying EOS configuration on the box, DisableThrottlingConfigConfig Failed, errMsg: #012> control-plane#012#012% Unavailable command (This command is deprecated by 'system control-plane') at line 3#012#012> no service-policy input copp-system-policy#012#012% Invalid input at line 4
+Jul 20 05:49:03 sw-192 TerminAttr version is valid. Skipping upgrade
+Jul 20 05:49:03 sw-192 status code=7 msg=EOS running newer version of terminAttr than defaultterminAttr version, current version is valid
+Jul 20 05:49:04 sw-192 waiting for Eos configuration
+Jul 20 05:49:04 sw-192 Sending request to https://192.168.25.208/cvpservice/services/ztp/config [0]
+Jul 20 05:49:08 sw-192 status code=11 msg=Successfully requested CVP for config
+g the downloaded config script after 900 seconds
+Jul 20 06:03:59 sw-192 ZeroTouch: %ZTP-6-RETRY: Retrying Zero Touch Provisioning from the beginning (attempt 18)
+Jul 20 06:04:15 sw-192 ZeroTouch: %ZTP-6-DHCPv4_QUERY: Sending DHCPv4 request on  [ Ethernet3, Management1 ] (option 67)
+Jul 20 06:04:17 localhost ZeroTouch: %ZTP-6-DHCPv4_SUCCESS: DHCPv4 response received on Management1  [ Ip Address: 192.168.25.116/24; Nameserver: 192.168.25.211; Domain: t.com; Gateway: 192.168.25.1; Boot File: http://192.168.25.208/ztp/bootstrap ] (option 67)
+Jul 20 06:04:22 localhost ZeroTouch: %SZTP-6-BOOTSTRAP_DOWNLOAD: Attempting to download SZTP bootstrap information from http://192.168.25.208/ztp/bootstrap
+Jul 20 06:04:23 localhost ZeroTouch: %ZTP-6-CONFIG_DOWNLOAD_SUCCESS: Successfully downloaded config script from http://192.168.25.208/ztp/bootstrap
+Jul 20 06:04:23 localhost ZeroTouch: %ZTP-6-EXEC_SCRIPT: Executing the downloaded config script
+Jul 20 06:04:24 localhost cvIps = 192.168.25.208
+Jul 20 06:04:24 localhost cvpNotifyIntvl = 60
+Jul 20 06:04:24 localhost configPollIntvl = 2
+Jul 20 06:04:24 localhost cvpUrl = https://192.168.25.208/cvpservice/services/ztp/config
+Jul 20 06:04:24 localhost cvpUser = cvptemp
+Jul 20 06:04:24 localhost cvAddr = 192.168.25.208:9910
+Jul 20 06:04:24 localhost cvAuth = token,/tmp/token
+Jul 20 06:04:24 localhost Removing temporary files
+Jul 20 06:04:24 localhost ['192.168.25.116']
+Jul 20 06:04:24 localhost hostname sw-192.168.25.116 ipAddrs ['192.168.25.116']
+Jul 20 06:04:24 localhost Applying Base EOS configuration
+Jul 20 06:04:26 sw-192 running commands enable#012configure#012control-plane#012no service-policy input copp-system-policy#012end errMsg #012> control-plane#012#012% Unavailable command (This command is deprecated by 'system control-plane') at line 3#012#012> no service-policy input copp-system-policy#012#012% Invalid input at line 4
+Jul 20 06:04:26 sw-192 status code=9 msg=failed in applying EOS configuration on the box, DisableThrottlingConfigConfig Failed, errMsg: #012> control-plane#012#012% Unavailable command (This command is deprecated by 'system control-plane') at line 3#012#012> no service-policy input copp-system-policy#012#012% Invalid input at line 4
+Jul 20 06:04:26 sw-192 TerminAttr version is valid. Skipping upgrade
+Jul 20 06:04:26 sw-192 status code=7 msg=EOS running newer version of terminAttr than defaultterminAttr version, current version is valid
+Jul 20 06:04:27 sw-192 waiting for Eos configuration
+Jul 20 06:04:27 sw-192 Sending request to https://192.168.25.208/cvpservice/services/ztp/config [0]
+Jul 20 06:04:32 sw-192 status code=11 msg=Successfully requested CVP for config
+
+** dig in
+
+$ cat see  | grep "Successfully downloaded"
+Jul 20 05:18:12 localhost ZeroTouch: %ZTP-6-CONFIG_DOWNLOAD_SUCCESS: Successfully downloaded config script from http://192.168.25.208/ztp/bootstrap
+Jul 20 05:33:35 localhost ZeroTouch: %ZTP-6-CONFIG_DOWNLOAD_SUCCESS: Successfully downloaded config script from http://192.168.25.208/ztp/bootstrap
+Jul 20 06:04:23 localhost ZeroTouch: %ZTP-6-CONFIG_DOWNLOAD_SUCCESS: Successfully downloaded config script from http://192.168.25.208/ztp/bootstrap
+
+_Every 15m try to download and download then apply_
+
+jack@think ~/tmp
+$ bc -q
+33-18
+15
+quit
+
+sw-192.168.25.116#show uptime
+ 06:08:12 up  4:31,  1 user,  load average: 0.86, 0.70, 0.65
+sw-192.168.25.116#
+
+
 
