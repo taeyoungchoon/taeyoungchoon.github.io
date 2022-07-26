@@ -107,3 +107,58 @@ ZTP Boot Process with CloudVision
 In this setup, CloudVision ZTP service and the switch are on different IP subnets, 192.168.1.0/24 and 10.1.1.0/24 respectively.  
 A Palo Alto FW acts as both a layer 3 routing device and a DHCP server providing a DHCP option 67 to the location of the bootfile.
 Option 67 -Bootstrap URL is: http://192.168.1.248/ztp/bootstrap
+* DONE remove switch from cvp
+
+https://aristanetworks.force.com/AristaCommunity/s/question/0D52I00007ERqS4SAL/remove-a-switch-from-cvp
+
+https://www.arista.com/en/cg-cv/cv-troubleshooting
+
+** kill terminator to do
+
+- [ ] kill terminator, nop TerminAttr
+
+switch (config)# daemon TerminAttr
+switch (config-daemon-TerminAttr)# show active
+switch (config-daemon-TerminAttr)# shutdown 
+
+WAIT
+
+log appear:
+arista1#reload nowJul 25 00:35:20 arista1 ZeroTouch: %ZTP-4-EXEC_SCRIPT_TIMEOUT: Timed out executing the downloaded config script after 900 seconds
+Jul 25 00:35:20 arista1 ZeroTouch: %ZTP-6-RETRY: Retrying Zero Touch Provisioning from the beginning (attempt 1)
+
+** reload with ztp enabled status
+
+- [ ] reload with zerotouch enabled status by that
+
+switch# del startup-config
+switch# reload now
+
+** at this time, at the CVP
+
+- [ ] remove from provisioning
+- [ ] decommission device
+
+WAIT
+
+** log, hostname from reverse dns lookup record
+
+Jul 25 00:41:37 localhost ZeroTouch: %ZTP-6-DHCPv4_SUCCESS: DHCPv4 response received on Management1  [ Ip Address: 192.168.25.251/24; Nameserver: 192.168.25.211; Domain: t.com; Gateway: 192.168.25.1; Boot File: https://192.168.25.208/ztp/bootstrap ] (option 67)
+Jul 25 00:42:02 localhost hostname arista1-by-in-addr ipAddrs ['192.168.25.251']
+
+localhost login: admin
+arista1-by-in-addr>
+
+** cvp as arista1-by-in-addr, haha
+** configlet-s , ztp part 2 started
+
+1) move
+2) and map configlet-s
+
+** so what will be
+
+arista1 login: cvpadmin
+Password:
+arista1>
+
+
