@@ -46,3 +46,74 @@
 /admin1-> racadm serveraction powerstatus
 /admin1-> racadm serveraction powercycle
 #+END_SRC
+
+* idrac license
+
+Idrac 라이센스 없으면
+Ipmi 원격 접속 기능에 제한이 있습니다
+
+보통 중고 서버들은  idrac license 가 들어 있는 경우가 많으며  idrac license 도 몇가지 등급이 있을 것입니다..
+
+IDRAC 라이센스는 EXPRESS와 ENTERPRISE가 있고  EXPRESS는 VIRTUAL KVM, VIRTUAL MEDIA가 없습니다 
+
+(중고 $15 수준) 
+
+R720 T620이면 따로 애드온 카드 필요 없이 처음 부터 보드에 iDrac 포트 있습니다~
+
+* r series
+
+https://en.wikipedia.org/wiki/List_of_PowerEdge_servers
+
+- r730
+- r740
+  https://www.delltechnologies.com/asset/en-us/products/servers/technical-support/Dell_EMC_PowerEdge_R740_Spec_Sheet.pdf
+  Up to two 2nd Generation Intel Xeon Scalable processors, up to 28 cores per processor
+- r750
+
+* to be with
+
+https://www.arista.com/en/cg-cv/cv-system-requirements
+
+** production deployment
+
+- CPUs: 28 cores
+- RAM: Recommended 52 GB
+- Disk: 1 TB
+- Disk Throughput: 40 MB/s
+
+** lab deployment(< 25 devices)
+
+- CPUs: 16 cores
+- RAM: 32 GB
+- Disk: 200 GB (use RPM installer)
+- Disk Throughput: 20 MB/s
+
+** at the s003, too much less
+
+- vcpus: 8 cores
+- ram: 22g
+- disk: 200g
+
+#+BEGIN_SRC 
+[root@cv home]# cvpi resources
+
++--------------------------------+---------------------------+
+|              NODE              |          PRIMARY          |
++--------------------------------+---------------------------+
+| N/w bandwidth to all nodes     | 2.43 MB/s                 |
+| CPU Count                      | 8                         |
+| Disk Throughput for /data      | 19.915 MB/s               |
+| Total Memory                   | 21.5G                     |
+| N/w latency to all nodes       | 0.07 ms                   |
+| NTP Status                     | synchronized              |
+| Size of root(/) filesystem     | 23.3G (11.2G)             |
+| (free)                         |                           |
+| Size of /data (free)           | 1023.6G                   |
+|                                | (954.8G)                  |
+| System Time                    | 2022-07-29T09:03:17+09:00 |
++--------------------------------+---------------------------+
+#+END_SRC
+
+[root@s003 ~]# df -h | grep home
+/dev/mapper/centos_s003-home  251G  235G   16G  94% /home
+

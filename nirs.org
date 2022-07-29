@@ -4,3 +4,23 @@
 - 2020년 제1차 범정부 정보자원 통합구축 HW2사업(대전본원)
 - 2020년 제1차 범정부 정보자원 통합구축 HW3사업(광주센터)
 - 2020년 제1차 범정부 정보자원 통합구축 HW4사업(광주센터) 
+
+* links
+
+https://www.nirs.go.kr/ncia_MJS/board/dev/board/board.jsp?id=data_202
+일반자료
+
+- [ ] G-클라우드 S존 설계 기준(248)
+- [X] G-클라우드 개요, 운영, 전환, 발전 모델, 전환 현황 및 사례(164-167)
+- [ ] G-클라우드 운영 자동화 추진 계획(224)
+- [ ] 2022 클라우드 컴퓨팅 동향(249)
+- [ ] 오픈스택 플랫폼(112), egg
+- [X] nSIMS 소개자료(111)
+- [X] 스토리지 유지관리 가이드(41)
+
+* G-클라우드, gcloud
+
+- http://wiki.hash.kr/index.php/G-%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C
+  - G-클라우드 관리시스템(G-CMS)
+  - G-클라우드 성능 모니터링 시스템(G-Cloud Application Management System)
+
