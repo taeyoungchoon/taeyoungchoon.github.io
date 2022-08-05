@@ -6,3 +6,7 @@
 4. template call puppet
 
 * packed with cloud-init
+* TODO cloud-init with ubuntu and gns3
+
+https://github.com/asenci/gns3-ubuntu-cloud-init-data
+https://www.gns3.com/marketplace/appliances

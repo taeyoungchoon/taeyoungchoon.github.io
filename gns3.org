@@ -1,0 +1,8 @@
+* TODO cloud-init with ubuntu and gns3
+
+https://github.com/asenci/gns3-ubuntu-cloud-init-data
+https://www.gns3.com/marketplace/appliances
+
+* history
+
+- [2022-08-04 목] not working on it, windows10, wsl2 and hyper-v enabled env
