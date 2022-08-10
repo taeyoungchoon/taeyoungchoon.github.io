@@ -1,0 +1,109 @@
+* about live migration
+
+- https://en.wikipedia.org/wiki/Live_migration
+
+* think
+
+- memory
+- shared storage
+- network
+
+** DONE memory
+
+- off
+- on
+
+*** on but size, matters
+
+- if under 100g
+- if over 100g
+
+** DONE network
+
+- possible
+  - umount
+  - mount
+
+** TODO the dsk, disk, operating system disk, where are you?
+
+- local disk, physically
+- looks-like local but mounted from the fast(san)
+- looks-like local but mounted from the distributed storage(ceph-like)
+
+*** DONE physically local disk
+
+- block migration
+
+*** DONE san disk
+
+- if san-ed but connected to all servers then
+  - umount
+  - mount
+
+*** DONE distributed storage disk, dfs, distributed file system
+
+- if dfs-ed but connected to all servers then
+  - umount
+  - mount
+
+** data disk
+
+- umount
+- mount
+
+* at vmotion
+
+- using seperate network
+- https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vcenterhost.doc/GUID-3B41119A-1276-404B-8BFB-A32409052449.html
+  - Configure each host with at least one network interface for vMotion traffic. 
+- https://www.dell.com/support/kbdoc/ko-kr/000140474/vsphere-vmotion-recommended-networking-best-practices?lang=en
+
+* at openstack
+
+** links
+
+- [ ] https://01.org/sites/default/files/dive_into_vm_live_migration_2.pdf
+- https://docs.openstack.org/nova/pike/configuration/config.html
+- https://docs.openstack.org/ocata/config-reference/compute/config-options.html
+- https://access.redhat.com/documentation/en-us/red_hat_openstack_platform/10/html/director_installation_and_usage/migrating-vms-between-compute-nodes-osp-director
+- https://docs.openstack.org/newton/admin-guide/compute-configuring-migrations.html
+- [ ] https://docs.openstack.org/nova/yoga/admin/configuring-migrations.html
+  - [X] block live migration
+  - [X] shared storage based live migration
+    - nfs, lun, ceph, glusterfs
+  - [ ] volume backed live migration
+    - cinder is a block storage
+      - Measuring performance of Cinder with Ceph backend
+    - Configure multiple-storage back ends
+      - nfs
+	- /etc/cinder/cinder.conf
+	  - volume_driver = cinder.volume.drivers.nfs.NfsDriver
+** words
+
+- iscsi or fibre channel
+- /etc/nova/nova.conf
+  - live_migration_flag=VIR_MIGRATE_LIVE
+- /var/lib/nova/instances
+- ceph
+- block migration
+- live_migration_uri
+  - This option is deprecated for removal since 15.0.0. Its value may be silently ignored in the future.
+- live_migration_scheme will be qemu+tcp://%s/system
+  - virt-type: kvm(default)
+- nova.conf
+  - live_migration_uri = qemu+tcp://%s/system
+    - using management network
+- nova.conf then
+  - live_migration_uri = qemu+tcp://%s-lm/system
+  - Set up your DNS to resolve hostnames with -lm suffix to IPs in your dedicated network.
+    - using LM network
+
+** cli
+
+https://cloud.garr.it/support/kb/openstack/manual_VM_host_migration/
+
+#+BEGIN_SRC 
+nova migrate --poll 679511f2-4df1-44cc-883d-b3a37402e976
+openstack server migrate 27924a4a-b48e-4e3a-9786-955284d21e88
+openstack server migrate --live-migration --block-migration 27924a4a-b48e-4e3a-9786-955284d21e88
+#+END_SRC

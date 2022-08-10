@@ -1,0 +1,2 @@
+* DONE vmware vsan, vSAN is one of dfs, one of HCI
+

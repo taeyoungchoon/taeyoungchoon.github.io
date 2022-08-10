@@ -1,0 +1,63 @@
+* eos-downloader by 
+
+- https://github.com/titom73/eos-downloader
+- Thomas Grimonet 
+
+* howto use eos-downloader
+
+** python first
+
+#+BEGIN_SRC 
+apt-get install python3
+apt-get install python3-pip
+pip3 install virtualenv
+#+END_SRC
+
+** build env
+
+#+BEGIN_SRC 
+python3 -m virtualenv eos-downloader
+source eos-downloader/bin/activate
+pip3 install eos-downloader
+eos-download -h
+#+END_SRC
+
+** try to download
+
+- acquire token from 
+  1. https://www.arista.com/en/users/profile
+  2. Portal Access > Access Token
+
+- optional
+
+#+BEGIN_SRC 
+export ARISTA_TOKEN=xyz
+#+END_SRC  
+
+- to download EOS.swi, say nil
+
+#+BEGIN_SRC 
+eos-download --version 4.27.5M --token xyz
+#+END_SRC
+
+- to download vEOS-lab.vmdk, say vEOS-lab
+
+#+BEGIN_SRC 
+eos-download --image vEOS-lab --version 4.27.5M --token xyz
+#+END_SRC
+
+- to download vEOS-lab.swi, say vEOS only and odd
+
+#+BEGIN_SRC 
+eos-download --image vEOS --version 4.27.5M --token xyz
+#+END_SRC
+
+- to download cEOS-lab.txz, say cEOS-lab
+
+#+BEGIN_SRC 
+eos-download --image cEOS-lab --version 4.27.5M --token xyz
+#+END_SRC
+
+** types
+
+- https://github.com/titom73/eos-downloader/blob/main/eos_downloader/data.py

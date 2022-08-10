@@ -1,0 +1,10 @@
+* diagram
+
+- https://docs.openstack.org/security-guide/_images/1aa-network-domains-diagram.png
+- https://docs.openstack.org/security-guide/networking/architecture.html
+
+* word
+
+- management network
+- api network
+- external network
