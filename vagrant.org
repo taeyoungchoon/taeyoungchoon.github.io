@@ -473,3 +473,65 @@ Host jo
   IdentitiesOnly yes
   LogLevel FATAL
 #+END_SRC
+* today
+* DONE box
+
+vagrant box list
+vagrant box add hashicorp/bionic64
+
+* TODO with vmware workstation player
+
+vagrant up --provider vmware_desktop
+
+https://www.vagrantup.com/docs/providers/vmware/vagrant-vmware-utility
+Vagrant VMware Utility Installation
+
+* TODO with virtualbox
+
+** try 
+
+$ vagrant init bento/centos-7.9
+$ vagrant up --provider virtualbox
+An active machine was found with a different provider. Vagrant
+currently allows each machine to be brought up with only a single
+provider at a time. A future version will remove this limitation.
+Until then, please destroy the existing machine to up with a new
+provider.
+
+Machine name: default
+Active provider: vmware_desktop
+Requested provider: virtualbox
+
+** TODO rmdir then again
+
+$ vagrant init bento/centos-7.9
+$ vagrant up --provider virtualbox
+
+Detected CPU family 6 model 141 stepping 1
+Warning: Intel Processor - this hardware has not undergone upstream testing.
+Please consult http://wiki.centos.org/FAQ for more information
+
+** so
+
+rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
+yum install -y http://www.elrepo.org/elrepo-release-7.0-3.el7.elrepo.noarch.rpm
+yum install -y yum-utils
+yum-config-manager --enable elrepo-kernel
+yum remove -y kernel-{devel,tools,tools-libs}
+yum install -y kernel-ml kernel-ml-{devel,tools,tools-libs} grub2-tools
+yum install -y dkms gcc redhat-lsb-languages
+grub2-mkconfig -o /boot/grub2/grub.cfg
+grep vmlinuz /boot/grub2/grub.cfg
+grub2-set-default 0
+
+출처: https://ryusstory.tistory.com/entry/CentOS-7-등-리눅스-커널에서-스레드리퍼-지원-커널-업그레이드
+
+로그는 없어졌지만, 멈춰있는 느낌이다.
+
+SELinux: CONFIG_SECURITY_SELINUX_CHECKREQPROT_VALUE is non-zero.
+This is deprecated and will be rejected in a future kernel release.
+SELinux: https://github.com/SELinuxProject/selinux-kernel/wiki/DEPRECATE-checkreqprot
+Spectre V2 : WARNING: Unprivileged eBPF is enabled with eIBRS on, data leaks possible via Spectre v2 BHB attacks!
+
+멈춰 있는 느낌은 같다.
+
