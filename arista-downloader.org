@@ -1,0 +1,70 @@
+* eos_download.py by diegolima
+
+- http://https://github.com/diegolima/eos-scripts
+- cvp-in-aws
+  - use cvp-ansible-provisioning
+    - use eos_download.py to download cvp-rpm-installer
+
+* DONE alternatives
+
+- [[file:eos-downloader.org][eos-downloader]]
+
+* manual
+
+#+BEGIN_SRC 
+$ python eos_download.py -h
+usage: eos_download.py [-h] --api API --ver VER [--img IMG] [--cvp CVP] [--rootpw ROOTPW] [--cvp_user CVP_USER]
+                       [--cvp_passwd CVP_PASSWD] [--eve] [--overwrite] [--disable_ztp]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --api API             arista.com user API key
+  --ver VER             EOS and swix iamges to download, repeat --ver option for each file. EOS images should be in
+                        the form 4.22.1F, cvp-2020.1.1 for CVP and TerminAttr-1.7.4 for TerminAttr files
+  --img IMG             Type of EOS image required, INT, 64 (64-bit), 2GB (for 2GB flash platforms), 2GB-INT, vEOS,
+                        vEOS-lab, vEOS64-lab, cEOS, cEOS64, RN (to download the Release Notes) or source (to download
+                        the source files). If none specified assumes normal EOS image for switches. For CVP, specify
+                        kvm, ova, rpm or upgrade for the img flag. For CVP Applications, specify remedy, ipam or
+                        cloudbuilder
+  --cvp CVP             IP address of CVP server
+  --rootpw ROOTPW       Root password of CVP server
+  --cvp_user CVP_USER   CVP WebUI Username
+  --cvp_passwd CVP_PASSWD
+                        CVP WebUI Password
+  --eve                 Use this option if you're running this on Eve-NG to create a qcow2 image
+  --overwrite           Use this option if you would like to overwrite any previously downloaded files
+  --disable_ztp         Disable ZTP mode for vEOS-lab images running in Eve-NG
+#+END_SRC
+
+* cli
+
+#+BEGIN_SRC 
+  399  python3 -m virtualenv arista-downloader
+  400  source arista-downloader/bin/activate
+
+  418  git clone https://github.com/diegolima/eos-scripts.git
+
+(arista-downloader) jack@think:~/arista-downloader/eos-scripts$ cat requirements.txt
+paramiko
+requests
+scp
+tqdm
+
+  450  pip install -r requirements.txt
+#+END_SRC
+
+#+BEGIN_SRC 
+(arista-downloader) jack@think:~/arista-downloader/eos-scripts$ python eos_download.py --api xyx  --ver 4.27.4.2M --cvp cv.t.com --rootpw xyz --cvp_user xyz --cvp_passwd xyz
+EOS-4.27.4.2M.swi is currently downloading....
+100%|#############################################################################################################| 1.12G/1.12G [00:44<00:00, 25.3MB/s]
+SHA512 checksum correct
+
+Uploading EOS-4.27.4.2M.swi to CVP
+100%|#############################################################################################################| 1.12G/1.12G [00:44<00:00, 25.3MB/s]
+
+File copied to CVP server
+Now importing EOS-4.27.4.2M.swi into HDBase.
+
+Upload complete
+(arista-downloader) jack@think:~/arista-downloader/eos-scripts$
+#+END_SRC

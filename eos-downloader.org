@@ -3,6 +3,10 @@
 - https://github.com/titom73/eos-downloader
 - Thomas Grimonet 
 
+* DONE alternatives
+
+- [[file:arista-downloader.org][arista-downloader]]
+
 * howto use eos-downloader
 
 ** python first

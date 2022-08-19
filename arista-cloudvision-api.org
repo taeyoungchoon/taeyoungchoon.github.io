@@ -1,0 +1,32 @@
+* curl to cvp
+
+#+BEGIN_SRC 
+-b, --cookie <data|filename> Send cookies from string/file
+#+END_SRC
+
+* refer
+
+- https://aristanetworks.force.com/AristaCommunity/s/article/using-the-cloudvision-api-with-service-accounts
+  - Using the CloudVision API with Service Accounts
+- https://aristanetworks.force.com/AristaCommunity/s/article/cloudvision-portal-restful-api-client
+  - CloudVision Portal RESTful API Client
+- https://aristanetworks.github.io/cloudvision-apis/connecting/
+  - Token Based Authentication
+
+
+* howto
+
+#+BEGIN_SRC 
+token=`curl -k -s -X 'POST' 'https://cv.t.com/cvpservice/login/authenticate.do' -H 'accept: application/json' -H 'Content-Type: application/json' -d '{
+  "password": "1234qwer",
+  "userId": "cvpadmin"
+}' | jq ".cookie.Value"`
+
+alias curl='curl -k -s -b access_token=$token'
+
+curl -X 'GET'   'https://cv.t.com/cvpservice/image/getImageBundles.do?startIndex=0&endIndex=0'   -H 'accept: application/json' | jq .data[0]
+
+curl -X 'POST' 'https://cv.t.com/cvpservice/login/logout.do' -H 'accept: application/json' -d ''
+#+END_SRC
+
+
