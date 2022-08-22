@@ -13,7 +13,6 @@
 - https://aristanetworks.github.io/cloudvision-apis/connecting/
   - Token Based Authentication
 
-
 * howto
 
 #+BEGIN_SRC 
@@ -29,4 +28,17 @@ curl -X 'GET'   'https://cv.t.com/cvpservice/image/getImageBundles.do?startIndex
 curl -X 'POST' 'https://cv.t.com/cvpservice/login/logout.do' -H 'accept: application/json' -d ''
 #+END_SRC
 
+* howto using cvpmgr
 
+#+BEGIN_SRC 
+token=`curl -k -s -X 'POST' 'https://cv.t.com/cvpservice/login/authenticate.do' -H 'accept: application/json' -H 'Content-Type: application/json' -d '{
+  "password": "1234qwer",
+  "userId": "cvpmgr"
+}' | jq ".cookie.Value"`
+
+alias curl='curl -k -s -b access_token=$token'
+
+curl -X 'GET'   'https://cv.t.com/cvpservice/image/getImageBundles.do?startIndex=0&endIndex=0'   -H 'accept: application/json' | jq .data[0]
+
+curl -X 'POST' 'https://cv.t.com/cvpservice/login/logout.do' -H 'accept: application/json' -d ''
+#+END_SRC
