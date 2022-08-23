@@ -1,0 +1,7 @@
+* 이건 규칙이다. protocol이다. 
+
+- 안녕하세요. 안녕하세요. 안녕. hello, world. hi. 
+- protocol. routing protocol. ospf, eigrp, bgp then mp-bgp, evpn, EVPN, vxlan
+- 한글, 한자, 영어, 중국어, 라틴어, 히랍어, 불어, 독일어, 고대 영어, 최신 한글, 앞으로의 한글
+- 안녕하세요. 요세하녕안. 녕안. 안녕. 아ㄴㄴㅕㅇ. 
+- 규칙의 탑. 규칙을 쌓다. 규칙의 층.

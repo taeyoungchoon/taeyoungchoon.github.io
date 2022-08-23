@@ -1,0 +1,8 @@
+* 7, 7.9(2009) aka 7.9.2009 but 30 June 2024 say 2024.6.30.
+* alternatives
+
+- oracle linux
+- rocky linux
+- centos stream
+- rhel
+- ubuntu

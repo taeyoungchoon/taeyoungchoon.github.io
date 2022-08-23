@@ -1,0 +1,80 @@
+* cli with vagrant
+
+** TODO generic/rocky8 at ssh
+
+#+BEGIN_SRC 
+$ vagrant init generic/rocky8
+$ vagrant up --provider=virtualbox
+$ vagrant ssh
+vagrant@127.0.0.1: Permission denied (publickey,gsapi-keyex,gssapi-with-mic).
+#+END_SRC
+
+** DONE bento/rockylinux-8.6 but hostname still localhost
+
+#+BEGIN_SRC 
+$ vagrant init bento/rockylinux-8.6
+$ vagrant up --provider=virtualbox
+$ vagrant ssh
+#+END_SRC
+
+* can do/be with cli
+
+- [X] dnf update -y using other repo so I can install emacs-nox so fast
+- [ ] startx
+  - dnf group list
+  - dnf groupinstall "Server with GUI" -y
+  - systemctl set-default graphical
+- [ ] external repo but 8
+- [ ] kvm but cli
+- [ ] kvm but gui
+- [ ] network handling using nmcli
+- [ ] network handling using iproute2
+- [ ] network handling using gui
+- [ ] network handling using config files
+
+* DONE repository, dnf update then dnf install
+
+- http://mirror.navercorp.com/rocky/
+
+#+BEGIN_SRC 
+? cat Rocky-BaseOS.repo | grep -v \# | sed '/^$/d'
+[baseos]
+name=Rocky Linux $releasever - BaseOS
+baseurl=http://mirror.navercorp.com/rocky/$releasever/BaseOS/$basearch/os/
+gpgcheck=1
+enabled=1
+countme=1
+gpgkey=http://mirror.navercorp.com/rocky/RPM-GPG-KEY-Rocky-8
+
+? cat Rocky-AppStream.repo | grep -v \# | sed '/^$/d'
+[appstream]
+name=Rocky Linux $releasever - AppStream
+baseurl=http://mirror.navercorp.com/rocky/$releasever/AppStream/$basearch/os/
+gpgcheck=1
+enabled=1
+countme=1
+gpgkey=http://mirror.navercorp.com/rocky/RPM-GPG-KEY-Rocky-8
+
+? cat Rocky-Extras.repo | grep -v \# | sed '/^$/d'
+[extras]
+name=Rocky Linux $releasever - Extras
+baseurl=http://mirror.navercorp.com/rocky/$releasever/extras/$basearch/os/
+gpgcheck=1
+enabled=1
+countme=1
+gpgkey=http://mirror.navercorp.com/rocky/RPM-GPG-KEY-Rocky-8
+?
+#+END_SRC
+* TODO mouse hidden so virtualbox guest addition
+
+- https://www.how2shout.com/linux/two-ways-to-install-virtualbox-guest-addtions-on-rocky-linux-8/
+- https://kifarunix.com/install-virtualbox-guest-additions-on-rocky-linux-8/
+  Install VirtualBox Guest Additions on Rocky Linux 8
+
+  170  wget https://download.virtualbox.org/virtualbox/6.1.32
+  171  file VirtualBox-6.1.32-149290-Linux_amd64.run
+  172  hostnamectl set-hostname rocky8bento
+
+sudo sh ./VBoxLinuxAdditions.run --nox11
+
+lsmod | grep vbox
