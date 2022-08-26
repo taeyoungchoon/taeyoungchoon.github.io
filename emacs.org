@@ -1,3 +1,10 @@
+* DONE query and replace to enter(newline character)
+
+1. query-replace(%)
+2. C-q C-j
+   - C-q: isearch-quote-char
+   - C-j: Dec 10 from ASCII Table means, Linefeed or Newline
+
 * tips
 
 http://emacsblog.org

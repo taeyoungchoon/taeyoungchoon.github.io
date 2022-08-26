@@ -68,3 +68,7 @@ Now importing EOS-4.27.4.2M.swi into HDBase.
 Upload complete
 (arista-downloader) jack@think:~/arista-downloader/eos-scripts$
 #+END_SRC
+
+#+BEGIN_SRC 
+python eos_download.py --api 0287d90d54ad728efce035cfa932dccc --ver 4.27.5M --img vEOS-lab
+#+END_SRC

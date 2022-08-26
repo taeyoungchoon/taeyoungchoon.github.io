@@ -279,3 +279,118 @@ Permanent HW addr: 10:60:4b:9c:a2:a4
 Slave queue ID: 0
 [root@s003 ~]#
 #+END_SRC
+
+* TODO bond.options with Mode 4(802.3ad)
+
+- https://docs.rackspace.com/blog/lacp-bonding-and-linux-configuration/
+- https://access.redhat.com/solutions/71883
+- http://www.uni-koeln.de/~pbogusze/posts/LACP_configuration_using_iproute2.html
+- https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide/sec-using_channel_bonding
+- https://backdrift.org/lacp-configure-network-bonding-linux
+- https://help.onapp.com/hc/en-us/articles/222048108-LACP-4-NICS-bond-Mode-4-traffic-goes-through-1-NIC-instead-of-4
+
+- xmit_hash_policy
+
+| types    | desc                     | note           |
+|----------+--------------------------+----------------|
+| layer2   | src and dest mac         | default policy |
+| layer2+3 | src and dest mac and ip  |                |
+| layer3+4 | src and dest port and ip |                |
+
+#+BEGIN_SRC 
+? nmcli con mod id bond0 bond.options mode=802.3ad,miimon=100,lacp_rate=fast,xmit_hash_policy=layer2+3
+? nmcli con mod id bond0 802-3-ethernet.mtu 9000
+#+END_SRC
+
+#+BEGIN_SRC 
+BONDING_OPTS="miimon=100 mode=802.3ad lacp_rate=fast xmit_hash_policy=layer2+3"
+BONDING_OPTS="mode=802.3ad lacp_rate=fast xmit_hash_policy=layer2+3"
+BONDING_OPTS="mode=802.3ad lacp_rate=fast"
+BONDING_OPTS="mode=802.3ad"
+BONDING_OPTS="miimon=100 mode=802.3ad"
+#+END_SRC
+
+https://help.onapp.com/hc/en-us/articles/222048108-LACP-4-NICS-bond-Mode-4-traffic-goes-through-1-NIC-instead-of-4
+
+#+BEGIN_SRC 
+? ifdown onappstorebond 
+? "layer3+4" > /sys/class/net/onappstorebond/bonding/xmit_hash_policy 
+? ifup onappstorebond 
+#+END_SRC
+
+#+BEGIN_SRC 
+modprobe bonding miimono=100 mode=802.3ad lacp_rate=slow
+
+ip link set dev eth0 down
+ip link set dev eth1 down
+ip link set dev bond0 down
+
+ip link set dev eth0 master bond0
+ip link set dev eth1 master bond0
+
+ip link set dev eth0 up
+ip link set dev eth1 up
+ip link set dev bond0 up
+
+ip link set bond0 up
+
+ifenslave bond0 eth0 eth1
+
+dmesg
+#+END_SRC
+
+#+BEGIN_SRC 
+show lacp nei
+#+END_SRC
+
+* DONE lacp_rate
+
+- slow: check lacp nei every 30 sec, default value
+- fast: every 1 sec
+
+* DONE miimon=time_in_milliseconds
+
+- 0: default, off
+- 100: starting point
+
+* TODO so
+
+BONDING_OPTS="miimon=100 mode=802.3ad lacp_rate=fast xmit_hash_policy=layer2+3"
+
+nmcli con mod id bond0 bond.options mode=802.3ad,miimon=100,lacp_rate=fast,xmit_hash_policy=layer2+3
+nmcli con mod id bond0 802-3-ethernet.mtu 9000
+
+modprobe bonding miimono=100 mode=802.3ad lacp_rate=slow
+
+nmcli connection down bridge0
+
+ip link set virbr0 down
+ip link set bridge0 down
+ip link set enp0s8 down
+ip link set enp0s9 down
+ip link set bond0 down
+
+ip link delete virbr0
+ip link delete bridge0
+
+ip link add bond0 type bond
+ip link add br0 type bridge
+
+ip link set enp0s8 master bond0
+ip link set enp0s9 master bond0
+
+ip link set enp0s8 up
+ip link set enp0s9 up
+
+ip link set bond0 up
+
+ifenslave bond0 eth0 eth1
+
+systemctl status NetworkManager
+
+ip addr add 192.168.123.133 dev bond0
+
+* logs
+
+- br0: received packet on eth0 with own address as source address
+

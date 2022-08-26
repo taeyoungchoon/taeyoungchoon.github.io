@@ -1,0 +1,64 @@
+* is then make it so
+
+- hypervisor(vmware, kvm) 환경에서 cvp 이미지만 올려서 사용한다.
+- 어플라이언스를 구매해서 사용한다.
+- 어플라이언스와 유사하게 호스트 운영체제 구성해서 사용한다.
+  - 파티션
+  - 파일시스템
+  - 네트워크 구성
+
+* upgrade host os
+
+#+BEGIN_SRC 
+$ file upgradeCva-v5.0.1
+upgradeCva-v5.0.1: Bourne-Again shell script executable (binary data)
+
+  515  file upgradeCva-v5.0.1
+  516  bash upgradeCva-v5.0.1
+
+$ python upgradeCva.py --help
+Traceback (most recent call last):
+  File "C:\tools\cygwin\tmp\selfextract.KjV4no\upgradeCva.py", line 19, in <module>
+    import cvaDiskUtil
+  File "C:\tools\cygwin\tmp\selfextract.KjV4no\cvaDiskUtil.py", line 49
+    print "Disk '{}' is already in raw format, nothing to do.".format( name )
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: Missing parentheses in call to 'print'. Did you mean print(...)?
+
+$ tree -d -L 2
+.
+├── RPMS
+└── racadm
+
+3 directories
+
+$ cd /tmp/selfextract.KjV4no
+
+$ ls -l
+total 477
+drwxr-xr-x 1 jack None     0 Aug 19 00:54 RPMS
+-rw-r--r-- 1 jack None 40056 Aug 19 00:54 arista-dca-200-veos-5.0.1-mfg.tgz
+-rw-r--r-- 1 jack None 24269 Aug 19 00:54 cva-kvmtest-5.0.1_1660838064.x86_64.rpm
+-rwxr-xr-x 1 jack None  8928 Aug 19 00:54 cvaDiskUtil.py
+-rw-r--r-- 1 jack None 40769 Aug 19 00:54 cvaLib.py
+drwxr-xr-x 1 jack None     0 Aug 24 16:28 mfg
+drwxr-xr-x 1 jack None     0 Aug 19 00:54 racadm
+-rw-r--r-- 1 jack None  5891 Aug 19 00:54 skuinfo.json
+-rwxr-xr-x 1 jack None 17330 Aug 19 00:54 upgradeCva.py
+-rw-r--r-- 1 jack None     6 Aug 19 00:54 version.txt
+
+$ cd /tmp/selfextract.KjV4no/mfg
+
+$ ls -al
+total 168
+drwxr-xr-x 1 jack None     0 Aug 24 16:28 .
+drwx------ 1 jack None     0 Aug 24 16:29 ..
+-rw-r--r-- 1 jack None 40769 Aug 19 00:54 cvaLib.py
+-rwxr-xr-x 1 jack None 10846 Aug 19 00:54 dca-200-veos-setup-net.sh
+-rwxr-xr-x 1 jack None 38099 Aug 19 00:54 dca-200-veos-setup-vm.py
+-rwxr-xr-x 1 jack None  5666 Aug 19 00:54 dca-200-veos-setup.sh
+-rwxr-xr-x 1 jack None 22499 Aug 19 00:54 dca-200-veos-test-nics.py
+-rwxr-xr-x 1 jack None  6437 Aug 19 00:54 dca-200-veos-test.sh
+-rw-r--r-- 1 jack None 28292 Aug 19 00:54 dca_install_lib.py
+
+#+END_SRC
