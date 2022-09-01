@@ -561,7 +561,7 @@ systemctl restart network
 ** DONE active but slim
    CLOSED: [2022-09-01 목 14:55]
 
-   #+begin_src 
+#+begin_src 
 nmcli connection add type bond ifname cluster0 con-name cluster0 ipv4.method disabled ipv6.method ignore
 nmcli connection add type ethernet ifname eth0 con-name cluster0-slave-eth0 master cluster0
 nmcli connection add type ethernet ifname eth1 con-name cluster0-slave-eth1 master cluster0
@@ -573,11 +573,12 @@ nmcli connection add type bridge con-name clusterbr
 nmcli connection modify cluster0 master clusterbr slave-type bridge
 nmcli connection up cluster0
 
-   #+end_src
+#+end_src
+
 ** DONE deactive
    CLOSED: [2022-09-01 목 14:55]
 
-   #+begin_src 
+#+begin_src 
 nmcli connection down clusterbr
 sleep 1
 nmcli connection delete clusterbr
@@ -585,7 +586,7 @@ nmcli connection delete cluster0
 nmcli connection delete cluster0-slave-eth0
 nmcli connection delete cluster0-slave-eth1
 
-   #+end_src
+#+end_src
 
 ** chk
 
@@ -599,3 +600,9 @@ ping 8.8.8.8
    #+end_src
 
 
+   
+
+** TODO much more arch about (nmcli bond bridge)
+
+- [ ] ip to bond
+  - ip to bridge is so slow
