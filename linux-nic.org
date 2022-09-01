@@ -394,3 +394,208 @@ ip addr add 192.168.123.133 dev bond0
 
 - br0: received packet on eth0 with own address as source address
 
+* TODO using nmcli about bond
+
+- https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide/sec-network_bonding_using_the_networkmanager_command_line_tool_nmcli
+
+** pre
+
+# ONBOOT=no
+nmcli connection down nic1
+nmcli connection down nic2
+nmcli connection modify id nic1 connection.autoconnect no
+nmcli -g connection.autoconnect connection show nic1
+cat /etc/sysconfig/network-scripts/ifcfg-nic1 | grep -i onboot
+nmcli connection modify id nic2 connection.autoconnect no
+nmcli -g connection.autoconnect connection show nic2
+cat /etc/sysconfig/network-scripts/ifcfg-nic2 | grep -i onboot
+nmcli connection
+
+** active 
+
+nmcli connection add type bond ifname cluster0 con-name cluster0
+# nmcli connection add type bond ifname cluster0 con-name cluster0 ipv4.method none
+nmcli -g bond.options connection show cluster0
+nmcli connection modify id cluster0 bond.options mode=1,miimon=100
+nmcli -g bond.options connection show cluster0
+
+# nmcli con mod id cluster0 bond.options mode=802.3ad,miimon=100,lacp_rate=fast,xmit_hash_policy=layer2+3
+# nmcli con mod id cluster0 802-3-ethernet.mtu 9000
+nmcli connection add type ethernet ifname eth0 con-name cluster0-slave-eth0 master cluster0
+nmcli connection add type ethernet ifname eth1 con-name cluster0-slave-eth1 master cluster0
+
+nmcli connection
+nmcli device
+ip -br a
+cat /proc/net/bonding/cluster0
+sleep 3
+ping -c 3 8.8.8.8
+
+** deactive
+
+nmcli connection down cluster0-slave-eth0
+nmcli connection down cluster0-slave-eth1
+nmcli connection delete cluster0-slave-eth0
+nmcli connection delete cluster0-slave-eth1
+nmcli connection down cluster0
+sleep 1
+nmcli connection delete cluster0
+nmcli connection
+nmcli device
+ip -br a
+cat /proc/net/bonding/cluster0
+ping -c 3 8.8.8.8
+
+** as ever, restore
+
+nmcli connection modify id nic1 connection.autoconnect yes
+nmcli -g connection.autoconnect connection show nic1
+cat /etc/sysconfig/network-scripts/ifcfg-nic1 | grep -i onboot
+nmcli connection modify id nic2 connection.autoconnect yes
+nmcli -g connection.autoconnect connection show nic2
+cat /etc/sysconfig/network-scripts/ifcfg-nic2 | grep -i onboot
+
+nmcli connection up nic1
+nmcli connection up nic2
+
+nmcli connection
+
+** chk
+
+nmcli c
+nmcli d
+ip -br a
+ip r
+
+* TODO then using nmcli about bridge
+
+- https://www.cyberciti.biz/faq/how-to-add-network-bridge-with-nmcli-networkmanager-on-linux/
+
+** pre
+
+# ONBOOT=no
+nmcli connection down nic1
+nmcli connection down nic2
+nmcli connection modify id nic1 connection.autoconnect no
+nmcli -g connection.autoconnect connection show nic1
+cat /etc/sysconfig/network-scripts/ifcfg-nic1 | grep -i onboot
+nmcli connection modify id nic2 connection.autoconnect no
+nmcli -g connection.autoconnect connection show nic2
+cat /etc/sysconfig/network-scripts/ifcfg-nic2 | grep -i onboot
+nmcli connection
+
+** active
+
+nmcli connection add type bridge con-name clusterbr
+nmcli connection add type bridge-slave ifname eth0 con-name clusterbr-slave-eth0 master clusterbr
+
+nmcli connection
+nmcli device
+ip -br a
+
+
+** deactive
+
+nmcli connection down clusterbr-slave-eth0
+nmcli connection down clusterbr
+sleep 1
+nmcli connection delete clusterbr-slave-eth0
+nmcli connection delete clusterbr
+
+nmcli connection
+# connecting (getting IP configuration) then connected
+nmcli device
+ip -br a
+
+* DONE combined all using nmcli with bond and bridge, ip later on
+  CLOSED: [2022-09-01 목 14:55]
+
+** active
+
+   #+begin_src 
+nmcli connection add type bond ifname cluster0 con-name cluster0 ipv4.method disabled ipv6.method ignore
+nmcli -g bond.options connection show cluster0
+nmcli connection modify id cluster0 bond.options mode=1,miimon=100
+nmcli -g bond.options connection show cluster0
+
+# nmcli con mod id cluster0 bond.options mode=802.3ad,miimon=100,lacp_rate=fast,xmit_hash_policy=layer2+3
+# nmcli con mod id cluster0 802-3-ethernet.mtu 9000
+nmcli connection add type ethernet ifname eth0 con-name cluster0-slave-eth0 master cluster0
+nmcli connection add type ethernet ifname eth1 con-name cluster0-slave-eth1 master cluster0
+
+# nmcli connection
+# nmcli device
+# ip -br a
+# cat /proc/net/bonding/cluster0
+# sleep 3
+# ping -c 3 8.8.8.8
+
+nmcli connection add type bridge con-name clusterbr
+
+# nmcli connection add type bridge con-name clusterbr \
+# ipv4.method disabled ipv6.method ignore
+
+# nmcli connection add type bridge con-name clusterbr \
+# ipv4.method static ipv4.address 192.168.25.200/24 ipv4.gateway 192.168.25.1 \
+# ipv4.dns 192.168.25.211 \
+# ipv6.method ignore
+
+# nmcli connection add type bridge-slave ifname cluster0 con-name clusterbr-slave-cluster0 master clusterbr
+
+# nmcli connection modify cluster0 slave-type bridge master clusterbr
+nmcli connection modify cluster0 master clusterbr slave-type bridge
+
+systemctl restart network
+
+# yum install bridge-utils
+
+# nmcli connection
+# nmcli device
+# ip -br a
+# brctl show
+# bridge fdb
+# ping 8.8.8.8
+
+   #+end_src
+
+** DONE active but slim
+   CLOSED: [2022-09-01 목 14:55]
+
+   #+begin_src 
+nmcli connection add type bond ifname cluster0 con-name cluster0 ipv4.method disabled ipv6.method ignore
+nmcli connection add type ethernet ifname eth0 con-name cluster0-slave-eth0 master cluster0
+nmcli connection add type ethernet ifname eth1 con-name cluster0-slave-eth1 master cluster0
+nmcli connection add type bridge con-name clusterbr
+# nmcli connection add type bridge con-name clusterbr \
+# ipv4.method static ipv4.address 192.168.25.200/24 ipv4.gateway 192.168.25.1 \
+# ipv4.dns 192.168.25.211 \
+# ipv6.method ignore
+nmcli connection modify cluster0 master clusterbr slave-type bridge
+nmcli connection up cluster0
+
+   #+end_src
+** DONE deactive
+   CLOSED: [2022-09-01 목 14:55]
+
+   #+begin_src 
+nmcli connection down clusterbr
+sleep 1
+nmcli connection delete clusterbr
+nmcli connection delete cluster0
+nmcli connection delete cluster0-slave-eth0
+nmcli connection delete cluster0-slave-eth1
+
+   #+end_src
+
+** chk
+
+   #+begin_src 
+brctl show
+nmcli device
+ip a
+ip r
+ping 8.8.8.8
+   
+   #+end_src
+
+
