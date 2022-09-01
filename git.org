@@ -100,6 +100,29 @@ The file will have its original line endings in your working directory.
   - make start
   - stop
   - clean
+* DONE git server, real one
+  CLOSED: [2022-09-02 금 08:15]
+
+** cloning first
+
+   #+begin_src 
+git clone ssh://git@git.t.com:/repo/np.git
+cd np
+git log
+   
+   #+end_src
+
+** add something then push
+
+   #+begin_src 
+git config user.name "raul" 
+git config user.email "raul@t.com" 
+touch foo
+git add foo
+git commit -m 'add foo'
+git push
+   
+   #+end_src
 
 * TODO git log
 
