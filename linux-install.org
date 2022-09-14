@@ -1,0 +1,43 @@
+* swap
+
+https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/ch-swapspace
+
+using org-mode using key, C-c | and kill column using key, M-S-Left
+
+| Amount of RAM in the system | Recommended swap space     |
+|-----------------------------+----------------------------|
+| < 2 GB                      | 2 times the amount of RAM  |
+| > 2 GB – 8 GB               | Equal to the amount of RAM |
+| > 8 GB – 64 GB              | At least 4 GB              |
+| > 64 GB                     | At least 4 GB              |
+
+#+BEGIN_SRC emacs-lisp
+(* 4 3)
+#+END_SRC
+
+#+RESULTS:
+: 12
+
+* /boot
+
+A /boot/ partition (250 MB)
+
+The partition mounted on /boot/ contains the operating system kernel (which allows your system to boot Red Hat Enterprise Linux), along with files used during the bootstrap process. For most users, a 250 MB boot partition is sufficient. 
+
+#+BEGIN_SRC emacs-lisp
+(* 250 3)
+#+END_SRC
+
+#+RESULTS:
+: 750
+
+* /boot/efi
+
+UEFI systems should contain a 50-150MB /boot/efi partition with an EFI System Partition filesystem. 
+
+#+BEGIN_SRC emacs-lisp
+(* 150 3)
+#+END_SRC
+
+#+RESULTS:
+: 450
