@@ -1,3 +1,9 @@
+* DONE and gov, doc
+
+- 주요정보통신기반시설_기술적_취약점_분석ㆍ평가_방법_상세가이드.pdf
+- at https://www.krcert.or.kr/data/guideView.do?bulletin_writing_sequence=35988
+
+
 * DONE security, secure, sec but about how? and think about it
 
 - is not a product but a process that build policy
