@@ -1,0 +1,18 @@
+* lots but less
+* TODO work with tclsh
+* TODO debug
+* TODO syntax
+
+- spawn
+- expect
+- send
+- send_user
+- lindex for arg
+- set
+- [ ] lisp, son
+- log_user 0/1
+- re
+- if
+- interact
+- expect eof
+
