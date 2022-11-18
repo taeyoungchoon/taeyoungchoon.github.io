@@ -117,4 +117,23 @@
 #+RESULTS:
 : 23
 
+* DONE if again
 
+#+BEGIN_SRC bash
+if [[ $(date) ]]; then echo t; fi
+
+#+END_SRC
+
+#+RESULTS:
+: t
+
+* DONE function again
+
+#+BEGIN_SRC bash
+function sum() { echo $(( $1 + $2 )); }
+sum 1 2
+
+#+END_SRC
+
+#+RESULTS:
+: 3
