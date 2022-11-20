@@ -40,3 +40,11 @@ Install-Module -Name PSWindowsUpdate
 Get-WindowsUpdate
 Install-WindowsUpdate -AcceptAll
 #+END_SRC
+
+* if
+* variable
+* net
+
+Get-NetAdapter
+Get-NetIPAddress -InterfaceIndex 91 -AddressFamily ipv4
+(Get-NetIPAddress -InterfaceIndex 91 -AddressFamily ipv4).IPAddress
