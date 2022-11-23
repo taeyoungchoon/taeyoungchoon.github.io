@@ -1,0 +1,120 @@
+* DONE general
+
+#+BEGIN_SRC 
+auth = { 'username':'admin', 'password':'admin' }
+resp = requests.post('http://192.168.25.252/login', json=auth)
+
+help(requests.post)
+
+Help on function post in module requests.api:
+
+post(url, data=None, json=None, **kwargs)
+    Sends a POST request.
+
+    :param url: URL for the new :class:`Request` object.
+    :param data: (optional) Dictionary, list of tuples, bytes, or file-like
+        object to send in the body of the :class:`Request`.
+    :param json: (optional) json data to send in the body of the :class:`Request`.
+    :param \*\*kwargs: Optional arguments that ``request`` takes.
+    :return: :class:`Response <Response>` object
+    :rtype: requests.Response
+#+END_SRC
+
+https://www.w3schools.com/python/ref_requests_post.asp
+
+* DONE code
+
+#+BEGIN_SRC 
+import requests
+
+session = requests.session()
+
+auth = { 'username':'admin', 'password':'admin' }
+resp = session.post('http://192.168.25.252/login', json=auth)
+resp.ok
+#+END_SRC
+
+* DONE code but json, working
+
+#+BEGIN_SRC 
+import requests
+import json
+
+session = requests.session()
+
+data = '{ "username":"admin", "password":"admin" }'
+resp = session.post('http://192.168.25.252/login', json=json.loads(data))
+resp.ok
+
+data = """
+{
+  "jsonrpc": "2.0",
+  "method": "runCmds",
+  "params": {
+    "version": 1,
+    "cmds": [
+      "show version"
+    ],
+    "format": "json",
+    "timestamps": false,
+    "autoComplete": false,
+    "expandAliases": false,
+    "stopOnError": true,
+    "streaming": false,
+    "includeErrorDetail": false
+  },
+  "id": "EapiExplorer-1"
+}
+"""
+
+resp = session.post('http://192.168.25.252/command-api', json=json.loads(data))
+resp.ok
+
+info = resp.json()['result'][0]
+print('version: {}'.format( info['version'] ))
+print('systemMacAddress: {}'.format( info['systemMacAddress'] ))
+#+END_SRC
+
+* DONE code but json, split
+
+#+BEGIN_SRC 
+import requests
+import json
+
+session = requests.session()
+
+username = 'admin'
+password = 'admin'
+data = '{ "username": $username, "password":"admin" }'
+resp = session.post('http://192.168.25.252/login', json=json.loads(data))
+resp.ok
+
+data = """
+{
+  "jsonrpc": "2.0",
+  "method": "runCmds",
+  "params": {
+    "version": 1,
+    "cmds": [
+      "show version"
+    ],
+    "format": "json",
+    "timestamps": false,
+    "autoComplete": false,
+    "expandAliases": false,
+    "stopOnError": true,
+    "streaming": false,
+    "includeErrorDetail": false
+  },
+  "id": "EapiExplorer-1"
+}
+"""
+
+resp = session.post('http://192.168.25.252/command-api', json=json.loads(data))
+resp.ok
+
+info = resp.json()['result'][0]
+print('version: {}'.format( info['version'] ))
+print('systemMacAddress: {}'.format( info['systemMacAddress'] ))
+
+#+END_SRC
