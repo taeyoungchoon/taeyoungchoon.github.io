@@ -1,0 +1,21 @@
+* with tar
+
+  #+begin_src bash
+    mkdir d
+    touch d/a
+    touch d/b
+    tar -cvf d.tar d
+    rm d/a d/b
+    rmdir d
+    base64 d.tar > d.tar.base64
+    rm d.tar
+
+  #+end_src
+
+  #+begin_src bash
+    base64 -d d.tar.base64 > d.tar
+    rm d.tar.base64
+    tar -xvf d.tar
+    rm d.tar
+    ls -lR d
+  #+end_src

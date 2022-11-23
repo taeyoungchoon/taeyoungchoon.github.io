@@ -66,3 +66,24 @@ cat /etc/grub2-efi.cfg  | grep ^menuentry | cut -d "'" -f2 | cat -n
 grub2-editenv list
 grub2-set-default 4
 grub2-editenv list
+
+* TODO change grub order
+
+- 어떻게 하여 그렇게 바꾸었다.
+
+** how to
+
+/etc/default/grub
+update-grub
+
+*** dig in
+
+? awk -F\' '/^menuentry / {print $2}' /boot/grub/grub.cfg | cat -n | awk '{ print $1-1, $1="", $0 }'
+0   Ubuntu
+1   Windows Boot Manager (on /dev/nvme1n1p1)
+2   UEFI Firmware Settings
+
+? paste -d:  <(seq 0 2) <(awk -F\' '/^menuentry / {print $2}' /boot/grub/grub.cfg)
+
+? egrep ^menuentry /boot/grub/grub.cfg | awk -F\' '{ print NR-1, $2 }'
+
