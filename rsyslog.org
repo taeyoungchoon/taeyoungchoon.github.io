@@ -1,0 +1,213 @@
+* DONE rsyslog with journal
+** DONE env
+
+ CentOS Linux release 7.9.2009 (Core)
+
+** DONE config
+
+ /etc/rsyslog.conf
+ cat /etc/rsyslog.conf | awk '/ModLoad imjournal|IMJournalStateFile|OmitLocalLogging/'
+
+#+BEGIN_SRC bash
+    function check_rsyslog_config () 
+    {
+
+	cat /etc/rsyslog.conf | grep -q '^$ModLoad imjournal'  && module=1  || module=0
+	cat /etc/rsyslog.conf | grep -q '^$IMJournalStateFile' && state=1   || state=0
+	cat /etc/rsyslog.conf | grep -q 'OmitLocalLogging on'  && locally=0 || locally=1
+
+	printf "module: $module state: $state locally=$locally\n"
+
+	if (( module == 1 && state == 1 && locally == 0 ))
+	then
+	    echo log to journal then rsyslog
+	elif (( module == 0 && state == 0 && locally == 0 ))
+	then
+	    echo log to journal only
+	elif (( module == 0 && state == 0 && locally == 1 ))
+	then
+	    echo log to journal and rsyslog
+	else
+	    echo can not define status of logging systems
+	fi
+    }
+
+#+END_SRC
+
+** DONE restart service
+   
+ systemctl restart rsyslogd
+
+#+BEGIN_SRC bash
+  function restart_rsyslog_service ()
+  {
+      systemctl restart rsyslog
+  }
+#+END_SRC
+
+** DONE log to journal then journal to rsyslog(normal case)
+
+ log > journal > rsyslog, log_to_journal_then_rsyslog
+
+ $ModLoad imjournal
+ $OmitLocalLogging on
+ $IMJournalStateFile imjournal.state
+
+ sed -i \
+     -e 's/^#$ModLoad imjournal/$ModLoad imjournal/' \
+     -e 's/^#$IMJournalStateFile/$IMJournalStateFile/' \
+     -e 's/$OmitLocalLogging off/$OmitLocalLogging on/' \
+     /etc/rsyslog.conf
+
+#+BEGIN_SRC bash
+  function log_to_journal_then_rsyslog () 
+  {
+      sed -i \
+	  -e 's/^#$ModLoad imjournal/$ModLoad imjournal/' \
+	  -e 's/^#$IMJournalStateFile/$IMJournalStateFile/' \
+	  -e 's/$OmitLocalLogging off/$OmitLocalLogging on/' \
+	  /etc/rsyslog.conf
+  }
+#+END_SRC
+
+** DONE log to journal only(ex. cvp)
+
+ log > journal, log_to_journal_only
+
+ #$ModLoad imjournal
+ $OmitLocalLogging on
+ #$IMJournalStateFile imjournal.state
+
+ sed -i \
+     -e 's/^$ModLoad imjournal/#$ModLoad imjournal/' \
+     -e 's/^$IMJournalStateFile/#$IMJournalStateFile/' \
+     -e 's/$OmitLocalLogging off/$OmitLocalLogging on/' \
+     /etc/rsyslog.conf
+
+#+BEGIN_SRC bash
+  function log_to_journal_only ()
+  {
+      sed -i \
+	  -e 's/^$ModLoad imjournal/#$ModLoad imjournal/' \
+	  -e 's/^$IMJournalStateFile/#$IMJournalStateFile/' \
+	  -e 's/$OmitLocalLogging off/$OmitLocalLogging on/' \
+	  /etc/rsyslog.conf
+  }
+#+END_SRC
+
+** DONE log to each, journal and rsyslog(manual, just if)
+
+ log > journal, log > rsyslog, log_to_journal_and_rsyslog
+
+ #$ModLoad imjournal
+ $OmitLocalLogging off
+ #$IMJournalStateFile imjournal.state
+
+ sed -i \
+     -e 's/^$ModLoad imjournal/#$ModLoad imjournal/' \
+     -e 's/^$IMJournalStateFile/#$IMJournalStateFile/' \
+     -e 's/$OmitLocalLogging on/$OmitLocalLogging off/' \
+     /etc/rsyslog.conf
+
+#+BEGIN_SRC bash
+  function log_to_journal_and_rsyslog ()
+  {
+      sed -i \
+	  -e 's/^$ModLoad imjournal/#$ModLoad imjournal/' \
+	  -e 's/^$IMJournalStateFile/#$IMJournalStateFile/' \
+	  -e 's/$OmitLocalLogging on/$OmitLocalLogging off/' \
+	  /etc/rsyslog.conf
+  }
+#+END_SRC
+
+** TODO script design
+
+logcfg
+-h help
+-c check rsyslog configuration related to journal
+-r restart rsyslog
+-n log to journal then rsyslog
+-1 log to journal only
+-2 log to each logging system
+
+#+BEGIN_SRC bash
+  #!/usr/bin/env bash
+
+  function help ()
+  {
+      echo "$0 [crn12h]"
+
+      exit 1
+  }
+
+  function check_rsyslog_config () 
+  {
+
+      cat /etc/rsyslog.conf | grep -q '^$ModLoad imjournal'  && module=1  || module=0
+      cat /etc/rsyslog.conf | grep -q '^$IMJournalStateFile' && state=1   || state=0
+      cat /etc/rsyslog.conf | grep -q 'OmitLocalLogging on'  && locally=0 || locally=1
+
+      # printf "module: $module state: $state locally=$locally\n"
+
+      if (( module == 1 && state == 1 && locally == 0 ))
+      then
+	  echo log to journal then rsyslog
+      elif (( module == 0 && state == 0 && locally == 0 ))
+      then
+	  echo log to journal only
+      elif (( module == 0 && state == 0 && locally == 1 ))
+      then
+	  echo log to journal and rsyslog
+      else
+	  echo can not define status of logging systems
+      fi
+  }
+
+  function restart_rsyslog_service ()
+  {
+      systemctl restart rsyslog
+      sleep 3
+      systemctl status rsyslog | grep Active
+  }
+
+  function log_to_journal_then_rsyslog () 
+  {
+      sed -i \
+	  -e 's/^#$ModLoad imjournal/$ModLoad imjournal/' \
+	  -e 's/^#$IMJournalStateFile/$IMJournalStateFile/' \
+	  -e 's/$OmitLocalLogging off/$OmitLocalLogging on/' \
+	  /etc/rsyslog.conf
+  }
+
+  function log_to_journal_only ()
+  {
+      sed -i \
+	  -e 's/^$ModLoad imjournal/#$ModLoad imjournal/' \
+	  -e 's/^$IMJournalStateFile/#$IMJournalStateFile/' \
+	  -e 's/$OmitLocalLogging off/$OmitLocalLogging on/' \
+	  /etc/rsyslog.conf
+  }
+
+  function log_to_journal_and_rsyslog ()
+  {
+      sed -i \
+	  -e 's/^$ModLoad imjournal/#$ModLoad imjournal/' \
+	  -e 's/^$IMJournalStateFile/#$IMJournalStateFile/' \
+	  -e 's/$OmitLocalLogging on/$OmitLocalLogging off/' \
+	  /etc/rsyslog.conf
+  }
+
+  while getopts 'csn12h' opt
+  do
+      case $opt in
+	  c ) check_rsyslog_config ;;
+	  r ) restart_rsyslog_service ;;
+	  n ) log_to_journal_then_rsyslog ;;
+	  1 ) log_to_journal_only ;;
+	  2 ) log_to_journal_and_rsyslog ;;
+	  h ) help ;;
+      esac
+  done
+
+  shift $(($OPTIND - 1))
+#+END_SRC
