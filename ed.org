@@ -33,3 +33,17 @@ w
 q
 
 #+END_SRC
+
+* TODO ed inside bash
+
+  #+begin_src bash
+    echo '
+    0
+    i
+    hello
+    hi
+    .
+    w
+    q
+    ' | ed -s foo
+  #+end_src

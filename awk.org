@@ -4,7 +4,6 @@
 
 man awk | col -b
 The number of fields in the current input record
-
 ** sample
 
 cat call.list | grep Registered | awk '{ print $NF }'
@@ -12,3 +11,10 @@ cat call.list | grep Registered | awk '{ print $NF }'
 * read including FNR
 
 http://www.thegeekstuff.com/2010/01/8-powerful-awk-built-in-variables-fs-ofs-rs-ors-nr-nf-filename-fnr/
+
+* TODO read book called, effective awk programming
+
+multiple-line records
+
+
+
