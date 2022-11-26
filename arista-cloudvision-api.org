@@ -42,3 +42,8 @@ curl -X 'GET'   'https://cv.t.com/cvpservice/image/getImageBundles.do?startIndex
 
 curl -X 'POST' 'https://cv.t.com/cvpservice/login/logout.do' -H 'accept: application/json' -d ''
 #+END_SRC
+
+* post jon
+
+https://reqbin.com/req/4rwevrqh/post-json-example
+
