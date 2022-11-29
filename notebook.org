@@ -88,7 +88,7 @@
   - and powerful
   - [X] linux
     - [X] 지금 debian을 사용하고 있는데 외장 모니터로 출력을 보내지 못하고 있다. 해결 방안은, 중요하다.
-      - ubuntu 설치하고, 된다.
+      - ubuntu 설치하고, 된다. https://ubuntu.com/certified/202107-29314 20.04 LTS
 
 *** req
 

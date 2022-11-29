@@ -48,3 +48,7 @@ Install-WindowsUpdate -AcceptAll
 Get-NetAdapter
 Get-NetIPAddress -InterfaceIndex 91 -AddressFamily ipv4
 (Get-NetIPAddress -InterfaceIndex 91 -AddressFamily ipv4).IPAddress
+
+* key binding using emacs
+
+Set-PSReadLineOption -EditMode Emacs

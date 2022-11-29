@@ -104,6 +104,15 @@ q
 #+END_SRC
 
 #+BEGIN_SRC 
+echo '
+/enabled
+s/1/0/
+w
+q
+' | ed -s /etc/yum/pluginconf.d/subscription-manager.conf
+#+END_SRC
+
+#+BEGIN_SRC 
 [root@localhost ~]# cat subscription-manager.conf.ed | ed /etc/yum/pluginconf.d/subscription-manager.conf &>/dev/null
 [root@localhost ~]# cat /etc/yum/pluginconf.d/subscription-manager.conf | grep enabled
 enabled=0
@@ -112,16 +121,18 @@ enabled=0
 No repositories available
 #+END_SRC
 
-* DONE repo
+* DONE repo add
 
 ** steps
 
 https://access.redhat.com/solutions/3776721
 
+#+BEGIN_SRC 
 mkdir -p /data/repo
-mv rhel-8.6-x86_64-dvd.iso /data
+mv /tmp/rhel-8.6-x86_64-dvd.iso /data
 mount -o loop /data/rhel-8.6-x86_64-dvd.iso /media
 cp -a /media/* /data/repo/
+#+END_SRC
 
 #+BEGIN_SRC 
 [root@localhost repo]# cat > /etc/yum.repos.d/local.repo <<EOF
@@ -161,6 +172,23 @@ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
 #+END_SRC
 
 #+BEGIN_SRC 
+echo '
+[local-BaseOS]
+name=DVD for RHEL - BaseOS
+baseurl=file:///data/repo/BaseOS
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
+
+[local-AppStream]
+name=DVD for RHEL - AppStream
+baseurl=file:///data/repo/AppStream
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
+' > /etc/yum.repos.d/local.repo
+#+END_SRC
+#+BEGIN_SRC 
 [root@localhost repo]# yum clean all
 0 files removed
 
@@ -197,3 +225,22 @@ ONBOOT=yes
 ONBOOT=yes
 [root@localhost network-scripts]#
 #+END_SRC
+* DONE repo delete
+
+#+BEGIN_SRC 
+? yum repolist all
+#+END_SRC
+
+#+BEGIN_SRC 
+subscription-manager repos --disable=rhel-8-for-x86_64-appstream-rpms
+subscription-manager repos --disable=rhel-8-for-x86_64-baseos-rpms
+#+END_SRC
+
+https://access.redhat.com/solutions/265523
+
+#+BEGIN_SRC 
+? subscription-manager config --rhsm.manage_repos=0
+? subscription-manager repos --list
+Repositories disabled by configuration.
+#+END_SRC
+

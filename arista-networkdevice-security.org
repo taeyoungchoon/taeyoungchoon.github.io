@@ -1,0 +1,316 @@
+* DONE [3/3] account
+
+** DONE use password and encrypt
+
+#+BEGIN_SRC 
+arista1#conf
+arista1(config)#enable password P@ssw0rd
+arista1(config)#username admin secret P@ssw0rd
+arista1(config)#exit
+arista1#exit
+
+arista1#show running-config | awk '/enable/ || /username/ { print substr($0, 1, 80)}'
+enable password sha512 $6$hq/7iUOMk6x8GMnd$VnhO/snn7B47mMRloIP0JmDmsR8hXyiWkhyjn
+username admin role network-admin secret sha512 $6$m7SxwKiLZf0ov6tw$puV7/RQdCcPr
+#+END_SRC
+
+** DONE password length
+
+#+BEGIN_SRC 
+arista1#show running-config all section management security | grep length
+   no password minimum length
+
+#+END_SRC
+
+#+BEGIN_SRC 
+arista1#conf
+arista1(config)#management security
+arista1(config-mgmt-security)#password minimum length 9
+arista1(config-mgmt-security)#exit
+arista1(config)#exit
+arista1#
+
+#+END_SRC
+
+#+BEGIN_SRC 
+arista1#show running-config all section management security | grep length
+   password minimum length 9
+arista1#
+
+#+END_SRC
+
+** DONE roles
+
+#+BEGIN_SRC 
+show users roles
+#+END_SRC
+
+#+BEGIN_SRC 
+arista1#show users roles
+The default role is network-operator
+
+role: network-admin
+        10 permit command .*
+role: network-operator
+        10 deny mode exec command configure|bash|python-shell|\|
+        20 permit mode exec command .*
+role: qualys
+        10 permit mode exec command show logging
+        11 permit mode exec command show banner login
+        12 permit mode exec command show banner motd
+        14 permit mode exec command show running-config all
+        15 permit mode exec command show vlan
+        25 permit mode exec command show int.* .*
+arista1#
+
+#+END_SRC
+
+* DONE [4/4] access
+
+** DONE acl
+
+#+BEGIN_SRC 
+arista1#conf t
+arista1(config)#ip access-list vtyacl
+arista1(config-acl-vtyacl)#10 permit tcp 192.168.25.0/24 any eq 22
+arista1(config-acl-vtyacl)#exit
+arista1(config)#exit
+arista1#
+
+#+END_SRC
+
+#+BEGIN_SRC 
+arista1#show ip access-lists vtyacl
+IP Access List vtyacl
+        10 permit tcp 192.168.25.0/24 any eq ssh
+
+arista1#
+
+#+END_SRC
+
+#+BEGIN_SRC 
+arista1#conf t
+arista1(config)#management ssh
+arista1(config-mgmt-ssh)#ip access-group vtyacl in
+
+#+END_SRC
+
+** DONE timeout
+
+#+BEGIN_SRC 
+arista1#show running-config all section management console | grep timeout
+   idle-timeout 0
+arista1#
+
+#+END_SRC
+
+#+BEGIN_SRC 
+arista1#conf
+arista1(config)#management console
+arista1(config-mgmt-console)#idle-timeout 5
+arista1(config-mgmt-console)#exit
+arista1(config)#exit
+arista1#
+#+END_SRC
+
+#+BEGIN_SRC 
+arista1#show running-config section management console
+management console
+   idle-timeout 5
+arista1#
+
+#+END_SRC
+
+#+BEGIN_SRC 
+arista1#show running-config all section management ssh | egrep 'idle|port'
+   idle-timeout 0
+   server-port 22
+arista1#
+
+#+END_SRC
+
+** DONE use ssh and port
+
+#+BEGIN_SRC 
+arista1#show running-config all section management ssh | egrep 'idle|port'
+   idle-timeout 0
+   server-port 22
+arista1#
+
+#+END_SRC
+
+** DONE banner
+
+#+BEGIN_SRC 
+arista1(config)#banner login
+Enter TEXT message. Type 'EOF' on its own line to end.
+warning
+EOF
+arista1(config)
+#+END_SRC
+
+#+BEGIN_SRC 
+arista1#show banner login
+warning
+
+arista1#
+
+#+END_SRC
+
+* DONE [1/1] patch
+
+** DONE software
+
+#+BEGIN_SRC 
+arista1#show version | grep Software
+Software image version: 4.27.1.1FX-KC
+
+#+END_SRC
+
+* DONE [5/5] log
+
+** DONE logging server
+
+- logging trap notification
+
+#+BEGIN_SRC 
+logging host 192.168.25.213
+#+END_SRC
+
+** DONE buffer
+
+#+BEGIN_SRC 
+arista1#show running-config | grep 'logging b'
+logging buffered 4096
+
+#+END_SRC
+
+** DONE policy
+
+#+BEGIN_SRC 
+logging facility local6
+
+#+END_SRC
+
+** DONE timestamp
+
+#+BEGIN_SRC 
+arista1#show logging | tail -1
+Nov 29 14:45:17 arista1 ConfigAgent: %SYS-5-CONFIG_I: Configured from console by admin on vty5 (192.168.25.118)
+#+END_SRC
+
+#+BEGIN_SRC 
+arista1#show running-config all | grep 'logging format timestamp'
+logging format timestamp traditional
+#+END_SRC
+
+** DONE ntp
+
+#+BEGIN_SRC 
+arista1#show running-config section ntp
+ntp server 192.168.25.161 prefer 
+#+END_SRC
+
+* DONE [4/4] function
+** DONE cdp/lldp
+
+#+BEGIN_SRC 
+arista1#conf
+arista1(config)#no lldp run
+#+END_SRC
+
+#+BEGIN_SRC 
+arista1#show running-config section lldp
+no lldp run
+#+END_SRC
+
+** DONE inteface
+
+#+BEGIN_SRC 
+arista1#conf
+arista1(config)#interface ethernet 31 - 33
+arista1(config-if-Et31-33)#shutdown
+arista1(config-if-Et31-33)#exit
+arista1(config)#exit
+arista1#
+#+END_SRC
+
+#+BEGIN_SRC 
+arista1#show interfaces status disabled
+Port       Name   Status       Vlan     Duplex Speed  Type         Flags Encapsulation
+Et31              disabled     1        full   10G    Not Present
+Et32              disabled     1        full   10G    Not Present
+Et33              disabled     1        full   10G    Not Present
+
+#+END_SRC
+
+*** if lots
+
+- to disable
+
+#+BEGIN_SRC 
+[admin@arista1 ~]$ { printf 'conf\n\n' ; Cli -c 'show interfaces status notconnect' | awk '/Et/ { print $1 }' | while read intf; do printf "interface $intf\n"; printf "shutdown\n"; printf "exit\n\n"; done } | Cli -
+[admin@arista1 ~]$ Cli -c 'show interfaces status notconnect' | grep ^Et | wc -l
+0
+[admin@arista1 ~]$ Cli -c 'show interfaces status disabled' | grep ^Et | wc -l
+104
+[admin@arista1 ~]$ Cli -c 'show interfaces status disabled' | head -10
+Port       Name   Status       Vlan     Duplex Speed  Type         Flags Encapsulation
+Et1               disabled     routed   a-full a-1G   1000BASE-SX
+Et2               disabled     1        full   10G    Not Present
+Et3               disabled     trunk    a-full a-1G   1000BASE-SX
+Et4               disabled     1        full   10G    Not Present
+Et5               disabled     1        full   10G    Not Present
+Et6               disabled     1        full   10G    Not Present
+Et7               disabled     1        full   10G    Not Present
+Et8               disabled     1        full   10G    Not Present
+Et9               disabled     1        full   10G    Not Present
+
+#+END_SRC
+
+- to notconnect
+
+#+BEGIN_SRC 
+[admin@arista1 ~]$ { printf 'conf\n\n' ; Cli -c 'show interfaces status disabled' | awk '/Et/ { print $1 }' | while read intf; do printf "interface $intf\n"; printf "no shutdown\n"; printf "exit\n\n"; done } | Cli -
+[admin@arista1 ~]$ Cli -c 'show interfaces status notconnect' | grep ^Et | wc -l
+104
+[admin@arista1 ~]$ Cli -c 'show interfaces status disabled' | grep ^Et | wc -l
+0
+[admin@arista1 ~]$ Cli -c 'show interfaces status notconnect' | head -10
+Port       Name   Status       Vlan     Duplex Speed  Type         Flags Encapsulation
+Et1               notconnect   routed   a-full a-1G   1000BASE-SX
+Et2               notconnect   1        full   10G    Not Present
+Et3               notconnect   trunk    a-full a-1G   1000BASE-SX
+Et4               notconnect   1        full   10G    Not Present
+Et5               notconnect   1        full   10G    Not Present
+Et6               notconnect   1        full   10G    Not Present
+Et7               notconnect   1        full   10G    Not Present
+Et8               notconnect   1        full   10G    Not Present
+Et9               notconnect   1        full   10G    Not Present
+[admin@arista1 ~]$
+
+#+END_SRC
+
+** DONE web-ui
+
+#+BEGIN_SRC 
+arista1#show running-config section management api
+arista1#
+
+#+END_SRC
+
+** DONE snmp
+
+- show snmp community
+
+#+BEGIN_SRC 
+ip access-list standard snmp-allow
+   10 permit 192.168.25.0/24
+   20 deny any
+#+END_SRC
+
+#+BEGIN_SRC 
+snmp-server community arista2022ro! ro snmp-allow
+snmp-server host 192.168.25.213 version 2c arista2022ro!
+#+END_SRC
+

@@ -1,0 +1,44 @@
+* TODO arista cvp의 /var/log/messages 활성화
+
+- systemd의 journal data를 가져올 수 있도록 아래와 같은 작업 수행합니다.
+- arista에서 작업하지 않은 원본 파일을 /etc/rsyslog.conf에 있습니다. 참고바랍니다.
+
+** 작업 절차
+
+1. 아래 파일을 연다.
+
+   - /etc/systemd/system/rsyslog.service.d/rsyslog.conf
+
+2. 21번째 줄을 아래와 같이 수정한다.
+
+   - $ModLoad imjournal # provides access to the systemd journal
+
+3. 54번째 줄을 아래와 같이 수정한다.
+
+   - $IMJournalStateFile imjournal.state
+
+4. rsyslog 데몬을 재시작한다. 
+
+   - (optional) systemctl daemon-reload
+   - systemctl restart rsyslog
+
+5. /var/log/messages를 확인한다.
+
+   - tail -f /var/log/messages
+
+** 노트
+
+- head -10 /etc/systemd/system/rsyslog.service.d/rsyslog.conf
+
+#+BEGIN_SRC 
+# Copyright (c) 2015 Arista Networks, Inc.  All rights reserved.
+# Arista Networks, Inc. Confidential and Proprietary.
+
+#We are tampering this config file since we dont want rsyslog to barf
+#journal log to var/log/messages
+#imjournal and imuxsock are two modules that can be used to achieve this
+#By default imjournal is used and imuxsock ability is disabled
+
+#We are commenting out the imjournal module import and $IMJournalStateFile
+#which needs imjournal. With this rsyslog wont get journal log
+#+END_SRC
