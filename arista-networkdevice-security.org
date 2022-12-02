@@ -314,3 +314,99 @@ snmp-server community arista2022ro! ro snmp-allow
 snmp-server host 192.168.25.213 version 2c arista2022ro!
 #+END_SRC
 
+* TODO summary, script
+
+** backup before
+
+- [ ] sw1
+- [ ] sw2
+
+#+BEGIN_SRC 
+terminal length 0
+sh run
+sh int status
+#+END_SRC
+
+** configure
+
+- [ ] sw1
+- [ ] sw2
+
+#+BEGIN_SRC 
+enable password P@ss
+username admin secret P@ss
+management security
+password minimum length 9
+logging buffered 4096
+ntp server 192.168.0.100 prefer 
+no lldp run
+no ip icmp redirect
+management api http-commands
+shutdown
+#+END_SRC
+
+** interface shutdown
+
+- [ ] sw1
+
+#+BEGIN_SRC 
+interface Et3/6/1 - Et3/31/1
+interface Et4/1/1 - Et4/30/1
+interface Ma2/1, Ma2/2
+#+END_SRC
+
+#+BEGIN_SRC 
+sh users
+sh int Et3/6/1 - Et3/31/1,Et4/1/1  - Et4/30/1 status
+int Et3/6/1 - Et3/31/1,Et4/1/1  - Et4/30/1
+shutdown
+
+sh int Ma1/2, Ma2/1, Ma2/2 status
+int Ma2/1, Ma2/2
+shutdown
+#+END_SRC
+
+** show
+
+- [ ] sw1
+- [ ] sw2
+
+#+BEGIN_SRC 
+terminal length 0
+bash sleep 3
+sh run | egrep 'username|enable' | cut -b 1-72
+sh run all sec management security | grep length
+sh run | egrep 'username|enable' | cut -b 1-72
+sh users roles
+sh ip access-lists vtyacl
+sh run sec management ssh | grep access-group
+sh run all sec management console | grep idle-timeout
+sh run all sec management ssh | grep idle-timeout
+sh run sec management ssh
+sh run all sec management ssh | grep port
+sh banner login
+sh version | egrep -I 'image|build'
+sh logging | grep 'logging host'
+sh run | grep 'logging buffer'
+sh run all sec logging | egrep 'console|facility'
+sh run sec ntp
+sh run all section logging | grep 'logging format timestamp'
+sh run sec snmp
+sh snmp community
+sh run sec access-list 10
+sh run sec snmp | grep 'community'
+sh run all sec management api http-commands | grep shutdown
+sh run all sec lldp | grep 'lldp run'
+sh run all | egrep "^interface [EMVP]|no ip proxy-arp"
+sh run all | grep 'ip icmp redirect'
+#+END_SRC
+
+** backup after
+
+- [ ] sw1
+- [ ] sw2
+
+#+BEGIN_SRC 
+sh run
+sh int status
+#+END_SRC

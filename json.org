@@ -3,9 +3,40 @@
 python -m json.tool
 
 #+BEGIN_SRC 
-$ echo '{"one":1,"two":2}' | python -mjson.tool
+$ echo '{"one":1,"two":2}' | python -m json.tool
 {
     "one": 1,
     "two": 2
 }
+#+END_SRC
+
+* DONE json and bash
+
+#+BEGIN_SRC bash
+value=5
+
+req=$(cat <<EOF
+{"series": [
+  {"metric": "zeus.E_ConnModelCountryDaily",
+   "type":1,
+   "points":[
+     {
+       "timestamp": 1669955338
+       "value":$value
+     }
+   ],
+   "tags":["ccode:MU"]
+  }
+]}
+EOF
+)
+
+curl -s https://api.datadoghq.com/api/v2/series -X POST --header "Content-Type: application/json" -d $req
+
+#+END_SRC
+
+#+BEGIN_SRC 
+$ sh datadog.txt
+{"errors":["No API key specified in DD-API-KEY header"]}
+
 #+END_SRC
