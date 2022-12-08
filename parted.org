@@ -11,6 +11,15 @@ mkpart ora_data  4GiB    5GiB \
 mkpart data_pump 5GiB    6GiB \
 print
 
+* mkpart with kickstart
+
+parted --script /dev/sda \
+unit MiB \
+mklabel gpt \
+mkpart boot       0      750MiB \
+mkpart boot_efi   750MiB 250MiB \
+print
+
 * rm
 
 parted --script /dev/vdb \
