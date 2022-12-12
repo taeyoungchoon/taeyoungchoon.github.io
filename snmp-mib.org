@@ -1,0 +1,112 @@
+* DONE general
+
+- https://aristanetworks.force.com/AristaCommunity/s/article/introduction-to-managing-eos-devices-monitoring#Comm_Kna_ka08C0000008Tu2QAE_66
+  - The CPU and Memory status can also be found using SNMP. Under the HOST-RESOURCES MIB,
+  - switch#sh snmp mib walk 1.3.6.1.2.1.25
+
+* DONE cpu
+
+#+BEGIN_SRC 
+arista1#sh snmp mib walk hrDeviceDescr
+HOST-RESOURCES-MIB::hrDeviceDescr[1] = STRING: Intel(R) Pentium(R) CPU  @ 1.50GHz
+HOST-RESOURCES-MIB::hrDeviceDescr[2] = STRING: Core 1
+HOST-RESOURCES-MIB::hrDeviceDescr[3] = STRING: Core 2
+HOST-RESOURCES-MIB::hrDeviceDescr[4] = STRING: Core 3
+HOST-RESOURCES-MIB::hrDeviceDescr[5] = STRING: Core 4
+
+arista1#sh snmp mib translate hrDeviceDescr
+.1.3.6.1.2.1.25.3.2.1.3
+
+arista1#sh snmp mib walk hrProcessorLoad
+HOST-RESOURCES-MIB::hrProcessorLoad[1] = INTEGER: 8
+HOST-RESOURCES-MIB::hrProcessorLoad[2] = INTEGER: 9
+HOST-RESOURCES-MIB::hrProcessorLoad[3] = INTEGER: 8
+HOST-RESOURCES-MIB::hrProcessorLoad[4] = INTEGER: 8
+HOST-RESOURCES-MIB::hrProcessorLoad[5] = INTEGER: 9
+
+arista1#sh snmp mib translate hrProcessorLoad
+.1.3.6.1.2.1.25.3.3.1.2
+arista1#
+
+#+END_SRC
+
+* DONE mem
+
+#+BEGIN_SRC 
+arista1#sh snmp mib walk hrStorageDescr
+HOST-RESOURCES-MIB::hrStorageDescr[1] = STRING: RAM
+HOST-RESOURCES-MIB::hrStorageDescr[2] = STRING: RAM (Buffers)
+HOST-RESOURCES-MIB::hrStorageDescr[3] = STRING: RAM (Cache)
+HOST-RESOURCES-MIB::hrStorageDescr[4] = STRING: Flash
+HOST-RESOURCES-MIB::hrStorageDescr[5] = STRING: Tmp
+HOST-RESOURCES-MIB::hrStorageDescr[6] = STRING: Root
+HOST-RESOURCES-MIB::hrStorageDescr[7] = STRING: Log
+HOST-RESOURCES-MIB::hrStorageDescr[8] = STRING: Core
+HOST-RESOURCES-MIB::hrStorageDescr[100] = STRING: RAM (Unavailable)
+
+arista1#sh snmp mib translate hrStorageDescr
+.1.3.6.1.2.1.25.2.3.1.3
+
+arista1#sh snmp mib walk hrStorageSize
+HOST-RESOURCES-MIB::hrStorageSize[1] = INTEGER: 8171992
+HOST-RESOURCES-MIB::hrStorageSize[2] = INTEGER: 8171992
+HOST-RESOURCES-MIB::hrStorageSize[3] = INTEGER: 8171992
+HOST-RESOURCES-MIB::hrStorageSize[4] = INTEGER: 856123
+HOST-RESOURCES-MIB::hrStorageSize[5] = INTEGER: 16384
+HOST-RESOURCES-MIB::hrStorageSize[6] = INTEGER: 306450
+HOST-RESOURCES-MIB::hrStorageSize[7] = INTEGER: 204300
+HOST-RESOURCES-MIB::hrStorageSize[8] = INTEGER: 204300
+HOST-RESOURCES-MIB::hrStorageSize[100] = INTEGER: 8171992
+
+arista1#sh snmp mib translate hrStorageSize
+.1.3.6.1.2.1.25.2.3.1.5
+
+arista1#sh snmp mib walk hrStorageUsed
+HOST-RESOURCES-MIB::hrStorageUsed[1] = INTEGER: 5203548
+HOST-RESOURCES-MIB::hrStorageUsed[2] = INTEGER: 294224
+HOST-RESOURCES-MIB::hrStorageUsed[3] = INTEGER: 3457488
+HOST-RESOURCES-MIB::hrStorageUsed[4] = INTEGER: 728017
+HOST-RESOURCES-MIB::hrStorageUsed[5] = INTEGER: 0
+HOST-RESOURCES-MIB::hrStorageUsed[6] = INTEGER: 24591
+HOST-RESOURCES-MIB::hrStorageUsed[7] = INTEGER: 31995
+HOST-RESOURCES-MIB::hrStorageUsed[8] = INTEGER: 0
+HOST-RESOURCES-MIB::hrStorageUsed[100] = INTEGER: 1847116
+
+arista1#sh snmp mib translate hrStorageUsed
+.1.3.6.1.2.1.25.2.3.1.6
+
+#+END_SRC
+
+* DONE temp
+
+#+BEGIN_SRC 
+arista1#sh snmp mib walk entPhysicalDescr | grep -i 10000600
+ENTITY-MIB::entPhysicalDescr[100006001] = STRING: Digital Temperature Sensor on cpu0
+ENTITY-MIB::entPhysicalDescr[100006002] = STRING: Digital Temperature Sensor on cpu1
+ENTITY-MIB::entPhysicalDescr[100006003] = STRING: Digital Temperature Sensor on cpu2
+ENTITY-MIB::entPhysicalDescr[100006004] = STRING: Digital Temperature Sensor on cpu3
+ENTITY-MIB::entPhysicalDescr[100006005] = STRING: Supervisor temp sensor
+ENTITY-MIB::entPhysicalDescr[100006006] = STRING: Supervisor front-panel temp sensor
+ENTITY-MIB::entPhysicalDescr[100006007] = STRING: Supervisor back-panel temp sensor
+ENTITY-MIB::entPhysicalDescr[100006008] = STRING: CPU VRM temp sensor 0
+ENTITY-MIB::entPhysicalDescr[100006009] = STRING: CPU VRM temp sensor 1
+ENTITY-MIB::entPhysicalDescr[1100006000] = STRING: Sensor Container
+
+arista1#sh snmp mib translate entPhysicalDescr
+.1.3.6.1.2.1.47.1.1.1.1.2
+
+arista1#sh snmp mib walk entPhySensorValue | grep 10000600
+ENTITY-SENSOR-MIB::entPhySensorValue[100006001] = INTEGER: 340
+ENTITY-SENSOR-MIB::entPhySensorValue[100006002] = INTEGER: 370
+ENTITY-SENSOR-MIB::entPhySensorValue[100006003] = INTEGER: 370
+ENTITY-SENSOR-MIB::entPhySensorValue[100006004] = INTEGER: 370
+ENTITY-SENSOR-MIB::entPhySensorValue[100006005] = INTEGER: 310
+ENTITY-SENSOR-MIB::entPhySensorValue[100006006] = INTEGER: 266
+ENTITY-SENSOR-MIB::entPhySensorValue[100006007] = INTEGER: 250
+ENTITY-SENSOR-MIB::entPhySensorValue[100006008] = INTEGER: 320
+ENTITY-SENSOR-MIB::entPhySensorValue[100006009] = INTEGER: 320
+
+arista1#sh snmp mib translate entPhySensorValue
+.1.3.6.1.2.1.99.1.1.1.4
+
+#+END_SRC
