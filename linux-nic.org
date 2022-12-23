@@ -657,3 +657,29 @@ ping 8.8.8.8
    34  cat /proc/net/bonding/bond0 | grep Mode
 
 #+END_SRC
+
+* TODO nic simply mad
+
+어떻게 하면 만족할 수 있을까? 이게 그렇게 어려운 것일까? 환상인가? 꿈인가? 소망하면 이루어지는 것일까? 아니면 무엇이 필요할까?
+
+** nmci, specific command/cli
+** wrapper nic-wrapper t-nic
+
+*** build interface design, bond
+
+- nic bond nic1 eno1 eno2
+- nic bond nic1 mode 1 primary eno1 downdelay 0 updelay 0 miimon 100
+  - with default option
+    - default mode 1 primary eno1 downdelay 0 updelay 0 miimon 100
+- [ ] nic bond intf0 intf1 intf2
+      
+*** build interface design, ip only
+
+- nic ip eno1 192.168.25.101 255.255.255.0 192.168.25.1 8.8.8.8 8.8.8.9
+- nic ip eno1 192.168.25.101 255.255.255.0 192.168.25.1 8.8.8.8
+- nic ip eno1 192.168.25.101 255.255.255.0
+- nic ip nic1 192.168.25.101 255.255.255.0
+- [ ] nic ip intf ip nm gw ns1 ns2
+- nic ip intf0 ip nm gw ns1
+- nic ip intf0 ip nm gw
+
