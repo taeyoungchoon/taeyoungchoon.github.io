@@ -599,10 +599,61 @@ ping 8.8.8.8
    
    #+end_src
 
-
-   
-
 ** TODO much more arch about (nmcli bond bridge)
 
 - [ ] ip to bond
   - ip to bridge is so slow
+
+* TODO then again with nmcli, simple but lots
+
+- input two to bond and name on it
+- test with persistent 
+- clean interface
+- restart
+- route or do not, such a default
+
+  - https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_networking/managing-the-default-gateway-setting_configuring-and-managing-networking
+    - 19.7. Setting the default gateway on an existing connection when using the legacy network scripts
+- ip 
+
+#+BEGIN_SRC 
+# nmcli connection add type bridge con-name clusterbr \
+# ipv4.method static ipv4.address 192.168.25.200/24 ipv4.gateway 192.168.25.1 \
+# ipv4.dns 192.168.25.211 \
+# ipv6.method ignore
+
+#+END_SRC
+
+#+BEGIN_SRC 
+    4  nmcli connection
+    5  nmcli connection delete Wired\ connection\
+    6  nmcli connection delete Wired\ connection\ 1
+    7  nmcli connection delete Wired\ connection\ 2
+    8  nmcli connection delete System\ eth1
+    9  nmcli connection delete System\ eth2
+   10  nmcli connection
+   11  ip a
+   13  nmcli c
+   14  ip link
+   15  nmcli connection
+   16  nmcli device
+   17  nmcli connection add type bond ifname bond0 con-name b0 mode 1 primary eth1 miimon 100 updelay 0 downdelay 0
+   18  nmcli connection
+   19  nmcli device
+   20  nmcli connection add type bond-slave ifname eth1 con-name b0-slave-eth1 master bond0
+   21  nmcli connection add type bond-slave ifname eth2 con-name b0-slave-eth2 master bond0
+   22  nmcli device
+   23  nmcli connection
+   24  cat /proc/net/bonding/bond0
+   25  nmcli connection down eth1
+   26  nmcli connection down b0-slave-eth1
+   27  cat /proc/net/bonding/bond0 | grep Current
+   28  nmcli connection up b0-slave-eth1
+   29  cat /proc/net/bonding/bond0 | grep Current
+   30  nmcli connection down b0-slave-eth2
+   31  cat /proc/net/bonding/bond0 | grep Current
+   32  nmcli connection up b0-slave-eth2
+   33  cat /proc/net/bonding/bond0 | grep Current
+   34  cat /proc/net/bonding/bond0 | grep Mode
+
+#+END_SRC
