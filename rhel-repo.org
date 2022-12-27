@@ -1,0 +1,46 @@
+* repo
+
+- https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/performing_an_advanced_rhel_8_installation/creating-a-remote-repository_installing-rhel-as-an-experienced-user
+- Performing an advanced RHEL 8 installation
+  - Chapter 15. Creating a remote repository
+
+** build
+
+
+
+** add rpm then update all
+
+cp 
+createrepo -v /var/www/html/rhel8/BaseOS
+
+cp openssh-askpass-8.0p1-16.el8.x86_64.rpm /var/www/html/rhel8/AppStream/Packages/
+createrepo -v /var/www/html/rhel8/AppStream/
+
+** from the client
+
+[root@localhost ~]# dnf info openssh | egrep 'Source|Repository'
+Source       : openssh-8.0p1-13.el8.src.rpm
+Repository   : @System
+Source       : openssh-8.0p1-16.el8.src.rpm
+Repository   : BaseOS_repo_http
+
+[root@localhost ~]# dnf info openssh-askpass | grep Source
+Source       : openssh-8.0p1-13.el8.src.rpm
+
+[root@localhost ~]# dnf clean all
+12 files removed
+
+[root@localhost ~]# dnf info openssh-askpass | grep Source
+Source       : openssh-8.0p1-13.el8.src.rpm
+Source       : openssh-8.0p1-16.el8.src.rpm
+[root@localhost ~]#
+
+[root@localhost ~]# dnf update openssh
+Upgraded:
+openssh-8.0p1-16.el8.x86_64        
+openssh-askpass-8.0p1-16.el8.x86_64
+openssh-clients-8.0p1-16.el8.x86_64        
+openssh-server-8.0p1-16.el8.x86_64
+
+[root@localhost ~]# dnf info openssh | grep Source
+Source       : openssh-8.0p1-16.el8.src.rpm

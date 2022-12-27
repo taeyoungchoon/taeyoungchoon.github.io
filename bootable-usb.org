@@ -1,0 +1,14 @@
+* say
+
+- almost all about linux and windows
+- not about mac os x 
+  - [2022-12-27 화] [[https://support.apple.com/en-mz/HT201372][Create a bootable installer for macOS]]
+    - 지금 집에서 돌고 있다. with macbook air not that old one, 2017
+
+* list
+
+1. rufus
+2. etcher
+3. ventoy
+4. unetbootin
+   - 호감이 올라가는 중에, apple silicon이 출현하여.

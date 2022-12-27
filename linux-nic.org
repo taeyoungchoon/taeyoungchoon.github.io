@@ -683,3 +683,55 @@ ping 8.8.8.8
 - nic ip intf0 ip nm gw ns1
 - nic ip intf0 ip nm gw
 
+* TODO nic > bond
+
+#+BEGIN_SRC 
+ip -o link show type bond | cut -b '8'
+cat /proc/net/bonding/bond0
+bond nic1 eth1 eth2
+nmcli connection add type bond ifname bond0 con-name nic1 mode 1
+nmcli connection add type bond-slave ifname eth1 con-name nic1-slave-eth1 master bond0
+nmcli connection add type bond-slave ifname eth2 con-name nic1-slave-eth2 master bond0
+
+#+END_SRC
+
+- bond.sh vintf pintf1 pintf2
+
+#+BEGIN_SRC 
+? nmcli connection show nic1-slave-eth1 | grep slave-type
+connection.slave-type:                  bond
+
+? nmcli connection show nic1 | grep connection.type
+connection.type:                        bond
+
+#+END_SRC
+
+#+BEGIN_SRC 
+$ nmcli con add type bond ifname mybond0 mode active-backup
+$ nmcli con add type ethernet ifname eth1 master mybond0
+$ nmcli con add type ethernet ifname eth2 master mybond0
+#+END_SRC
+
+#+BEGIN_SRC 
+$ nmcli con add con-name my-con-em1 ifname em1 type ethernet \
+  ip4 192.168.100.100/24 gw4 192.168.100.1 ip4 1.2.3.4 ip6 abbe::cafe
+$ nmcli con mod my-con-em1 ipv4.dns "8.8.8.8 8.8.4.4"
+$ nmcli con mod my-con-em1 +ipv4.dns 1.2.3.4
+$ nmcli con mod my-con-em1 ipv6.dns "2001:4860:4860::8888 2001:4860:4860::8844"
+$ nmcli -p con show my-con-em1
+#+END_SRC
+
+#+BEGIN_SRC shell
+  for intf in $(nmcli connection show | sed '1d' | awk '/slave/ { print $1 }'); do
+      nmcli con del $intf;
+  done
+#+END_SRC
+
+#+BEGIN_SRC shell
+  for intf in $(nmcli connection show | sed '1d' | awk '{ print $1 }'); do
+      type=$(nmcli -g connection.type con show $intf);
+      if [[ $type =~ bond ]]; then
+	  nmcli con del $intf
+      fi
+  done
+#+END_SRC

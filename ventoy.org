@@ -1,0 +1,3 @@
+* ventoy vs rufus
+
+- [ ] with partition, fat32 to be used as but it can not

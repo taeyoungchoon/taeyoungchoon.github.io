@@ -1,0 +1,5 @@
+* with macbook pro, recent
+
+- [2022-12-27 화]
+- intel processor vs apple silicon
+- Apple M2: ARM-based

@@ -40,3 +40,6 @@ apt-cyg listfiles wget
 * and setting for more such like korean
 
 nil
+* [2022-12-27 화] cygwin today
+
+오늘 그리고 cygwin 업데이트 중이다. 그리고 다른 친구들도 함께. 언제부터 였을까? 또 다른 이들도 언제부터 였을까? 또 언제까지 일까? centos도 rockylinux도 slackware도 emacs, vi, sed, ed, vim, tc(turbo c), mdir, nc, (me body (if soul))

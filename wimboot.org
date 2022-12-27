@@ -1,0 +1,6 @@
+* not winboot
+
+- booting from wim file, since windows 8.1
+- wim: windows image file
+- with with ventoy
+
