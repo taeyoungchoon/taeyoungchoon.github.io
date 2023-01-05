@@ -43,3 +43,25 @@ multiple-line records
 
 ?
 #+END_SRC
+
+* FNR(File's Number of Record) vs NR(Number of Record)
+
+- The input record number in the current input file
+
+#+BEGIN_SRC 
+? cat foo
+header
+data
+? cat bar
+header
+data
+? diff -e foo bar
+? awk 'NR==2 { print NF, NR, "---", FNR }' foo bar
+1 2 --- 2
+? awk 'FNR==2 { print NF, NR, "---", FNR }' foo bar
+1 2 --- 2
+1 4 --- 2
+? man awk
+?
+
+#+END_SRC

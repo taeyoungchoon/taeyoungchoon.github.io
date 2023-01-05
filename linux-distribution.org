@@ -76,3 +76,14 @@ dnf search pcs
 #+END_SRC
 
 - [2022-02-25 Fri] still centos, centos stream, red, the redhat, ibm, rocky linux and t
+- [2023-01-05 목] 어제 그리고 그 전날도 리눅스 배포판에 대한 이야기를 나누었다. 어떤 이유였을까? redhat, debian, ubuntu, slackware 그리고 패키지 관리 체계, 시스템도 이야기를 했다. deb, tgz, rpm 그리고 yum, dnf, apt 또 신세대에 대해서 말이다.
+  - redhat debian slackware
+  - deb rpm tgz
+  - (yum dnf) apt
+    - network generation
+    - dnf is the yum ver 2
+  - code level
+  - image based, then again 또 다시 그래 또 다시 source, package, image에 대해서 이야기한다. source에서 어디까지 갈것인가. freebsd는 소스에서 시작한다. 신세대는 조금 다르다. 지금도 일까? 지금도 소스일까 아니면. 이제는 설치라는 단계가 필요없는 것일까? 실 사용자 레벨에서는 말이다. download, bum. that's it. 인 것일까? 
+    - snap like
+    - docker like
+      
