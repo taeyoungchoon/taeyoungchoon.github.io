@@ -4,6 +4,7 @@
 
 man awk | col -b
 The number of fields in the current input record
+
 ** sample
 
 cat call.list | grep Registered | awk '{ print $NF }'
@@ -16,5 +17,29 @@ http://www.thegeekstuff.com/2010/01/8-powerful-awk-built-in-variables-fs-ofs-rs-
 
 multiple-line records
 
+* TODO for example
 
+- refer: https://www.thegeekstuff.com/2010/01/8-powerful-awk-built-in-variables-fs-ofs-rs-ors-nr-nf-filename-fnr/
 
+#+BEGIN_SRC 
+? cat foo
+1,2,3
+4,5,6
+7,8,9
+0,1,2
+?
+? cat -n foo
+     1  1,2,3
+     2  4,5,6
+     3  7,8,9
+     4  0,1,2
+?
+? sender="hello"; cat foo | awk -v receiver=$sender 'BEGIN { FS=","; OFS="---"; ORS="\n\n" } /[23]/ { print NF, NR, $0, receiver } END { print NR }'
+3---1---1,2,3---hello
+
+3---4---0,1,2---hello
+
+4
+
+?
+#+END_SRC
