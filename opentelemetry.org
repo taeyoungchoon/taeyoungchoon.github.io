@@ -1,0 +1,9 @@
+* combined
+
+- tracing
+- metrics
+- logs
+
+** from Modern Observability with OpenTelemetry
+
+- https://www.youtube.com/watch?v=_OXYCzwFd1Y&list=PLOTLHDLkVbIBFFuusnNGMv60jIY4V4y5t&index=50

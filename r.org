@@ -49,3 +49,41 @@ I added the database to System DSN and now it works where before it was only in 
 
 - http://www.r-project.org/
 - http://r-project.kr
+* TODO rstudio with rhel86
+
+- rhel86 without gui(aka server)
+- download rstudio from https://posit.co/download/rstudio-desktop/#download
+- rstudio vs rstudio server and R
+
+** dig in, on stream machine, centos stream like redhat like
+
+sudo yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+sudo dnf config-manager --set-enabled PowerTools
+sudo bash -c "$(curl -L https://rstd.io/r-install)"
+
+** DONE dig in, on rockylinux 8
+
+https://www.golinuxcloud.com/install-r-on-rocky-linux/
+R and Rstudio
+
+epel-release-8-18.el8.noarch installed
+sudo yum config-manager --set-enabled powertools
+dnf install R
+393 package installed, too much
+R
+
+** TODO dig in, on rhel 8
+
+https://posit.co/download/rstudio-server/
+https://docs.posit.co/resources/install-r/
+
+
+** TODO dig in, on rhel 8 and offline
+
+https://access.redhat.com/solutions/10154
+How to use yum to download a package without installing it
+
+yum install --downloadonly --downloaddir=<directory> <package>
+/var/cache/yum/ in rhel-{arch}-channel/packages
+yum install yum-utils
+yumdownloader <package>
