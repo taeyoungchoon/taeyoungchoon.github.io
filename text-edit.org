@@ -1,0 +1,24 @@
+* text using or with editor
+
+- ed
+  - what about before ed
+- sed
+  - sed only
+  - and awk, programmable editor
+- vim
+- emacs
+- vscode
+- visual studio code
+
+* text format
+
+- text
+- ini-like
+- yaml
+- json
+- sqlite
+
+* using editor or more
+
+- cfengine's
+- ansible's
