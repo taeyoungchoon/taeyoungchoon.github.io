@@ -7,3 +7,38 @@
 ** from Modern Observability with OpenTelemetry
 
 - https://www.youtube.com/watch?v=_OXYCzwFd1Y&list=PLOTLHDLkVbIBFFuusnNGMv60jIY4V4y5t&index=50
+
+* doc
+
+* opentelemetry with nagios can do
+
+** arch
+
+- nagios > telegraf > influxdb > nagios
+
+** links
+
+https://docs.influxdata.com/telegraf/v1.17/data_formats/input/nagios/
+nagios input data format from influxdata
+
+data_format = "nagios"
+
+https://exchange.nagios.org/directory/Documentation/Nagios-with-InfluxDB,-nagflux-and-Grafana/details
+Nagios with InfluxDB, nagflux and Grafana
+
+https://stackoverflow.com/questions/68850736/problem-with-multiple-devices-telegraf-nagios-plugin
+Problem with multiple devices telegraf nagios plugin
+
+https://devconnected.com/how-to-setup-telegraf-influxdb-and-grafana-on-linux/
+How To Setup Telegraf InfluxDB and Grafana on Linux
+
+How to Install TIG stack (Telegraf, Influx and Grafana) on Ubuntu
+
+** collector?
+
+https://observiq.com/blog/how-to-install-and-configure-an-opentelemetry-collector/
+
+https://www.google.com/search?client=firefox-b-d&q=opentelemetry+linux+cpu+mem+usage
+
+https://opentelemetry.io/docs/collector/getting-started/#linux-packaging
+

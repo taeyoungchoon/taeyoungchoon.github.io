@@ -15,3 +15,6 @@
 * merge using alpdf or
 
 https://www.adobe.com/acrobat/online/merge-pdf.html
+
+* split
+* convert
