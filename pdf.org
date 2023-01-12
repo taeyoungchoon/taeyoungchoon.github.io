@@ -1,4 +1,4 @@
-* pdf
+]11;rgb:0000/0000/0000* pdf
 
 [[file:text.org][text]] 에 대한 대안이다
 표현력도 충분하다
@@ -16,5 +16,5 @@
 
 https://www.adobe.com/acrobat/online/merge-pdf.html
 
-* split
-* convert
+* DONE split using pdfsam
+* DONE convert using alpdf
