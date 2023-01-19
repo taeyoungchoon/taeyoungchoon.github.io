@@ -1,0 +1,4 @@
+* yang, openconfig
+
+- model
+- [ ] network only

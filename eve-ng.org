@@ -1,0 +1,11 @@
+* based on ubuntu
+
+- [2023-01-13 금] fail to install
+- root / eve
+
+* offline install
+
+https://www.lesstif.com/lpt/apt-get-118096015.html
+
+sudo apt reinstall --download-only -y eve-ng
+sudo apt install /var/cache/apt/archives/*.deb

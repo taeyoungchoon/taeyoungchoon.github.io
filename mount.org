@@ -1,0 +1,7 @@
+* cli
+
+#+BEGIN_SRC 
+mount --bind /cdrom /target/cdrom
+
+#+END_SRC
+

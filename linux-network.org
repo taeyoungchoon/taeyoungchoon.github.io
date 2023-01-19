@@ -53,14 +53,16 @@ DIG
 ip netns
 netnsid
 /var/run/netns
+
 * TODO linux network
 
 ** config
 
-- legacy
-- netplan
-- network manager
-- networkd
+1. redhat network-scripts
+2. network manager
+3. /etc/network/interfaces
+4. netplan
+5. systemd networkd
 
 * bonding
 
