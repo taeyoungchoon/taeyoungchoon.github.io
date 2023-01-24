@@ -1,0 +1,5 @@
+* TODO designer with
+
+- seed only
+- intent
+- simulate on aws-like one or just math

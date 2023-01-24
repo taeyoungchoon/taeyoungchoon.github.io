@@ -1,3 +1,14 @@
+* dcs, parts
+
+- [[m.org][m]] [[file:n.org][n]]
+- [[mp.org][mp]] np sr
+- pe
+- binder-ng, api, binder, ibs
+- designer
+- mon
+- man
+- portal
+
 * TODO [2022-05-13 Fri] more that that 
 
 - satellite over, satellite is the dcs

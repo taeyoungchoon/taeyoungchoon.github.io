@@ -1,0 +1,13 @@
+* TODO n with
+
+- network?
+  - network device
+    - even virtual, and too much xn
+  - network fabric
+    - layered
+    - spread, dc level
+- over the earth or galactic using the ansible
+- nf: network fabric
+- nd: network device
+- nc: network control
+

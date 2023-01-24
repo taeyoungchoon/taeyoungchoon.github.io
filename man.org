@@ -1,0 +1,3 @@
+* TODO man with
+
+- just proxy name of the state manager, binder-ng(state manager)

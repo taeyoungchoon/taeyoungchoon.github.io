@@ -1,0 +1,9 @@
+* TODO binder-ng with
+
+- ever binder, now binder v2 aka binder-ng
+- api gateway
+- center or it
+- talk with all
+- gather in truth(SSOT platform)
+- state manager
+  ((m n) state)

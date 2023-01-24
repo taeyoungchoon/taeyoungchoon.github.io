@@ -1,3 +1,10 @@
+* TODO mp with
+
+- machine provisioning, mp
+- caring various (m (born t))
+- ex. fai, cobbler/satellite, vmware with types
+  - with aws-like too or not
+
 * mp, machine provisioning
 
 machine, physical, logical include can it be virtual or more 

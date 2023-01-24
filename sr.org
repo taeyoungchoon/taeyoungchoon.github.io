@@ -1,0 +1,6 @@
+* TODO sr with
+
+- shared resources
+- such as time service, various file service, name service
+- impl: ntp, name server using bind
+- api-able required, like all the others

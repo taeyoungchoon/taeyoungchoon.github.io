@@ -1,3 +1,10 @@
+* TODO np with
+
+- network provisioning
+- with or without bridge, aka controller, sdn, cvp, aci, contrail, apstra
+  - directly to network device
+  - or using/pass through network controller
+  
 * np, network provisioning
 
 - network include network device and network wide, network fabric
