@@ -1,0 +1,6 @@
+* moba xterm x term, moba?
+
+- MobaXterm free Xserver and tabbed SSH client for Windows
+- [ ] free?
+- [ ] name from, moba?
+  - 모르겠다.

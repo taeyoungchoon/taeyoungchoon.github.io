@@ -9,3 +9,33 @@ https://www.lesstif.com/lpt/apt-get-118096015.html
 
 sudo apt reinstall --download-only -y eve-ng
 sudo apt install /var/cache/apt/archives/*.deb
+
+* TODO with veos
+
+1) pre: upload two file
+   - vEOS-lab-4.27.5M.vmdk
+   - Aboot-veos-serial-8.0.1.iso
+2) post
+
+#+BEGIN_SRC 
+nos=vEOS-lab-4.27.5M.vmdk
+aboot=Aboot-veos-serial-8.0.1.iso
+target=echo ${nos%.*} | tr '[:upper:]' '[:lower:]'
+
+mkdir abc
+mv $nos $aboot abc
+cd abc
+/opt/qemu/bin/qemu-img convert -f vmdk -O qcow2 ${nos} hda.qcow2
+mkdir -p /opt/unetlab/addons/qemu/${target}
+mv hda.qcow2 /opt/unetlab/addons/qemu/${target}
+mv $aboot /opt/unetlab/addons/qemu/${taeget}/cdrom.iso
+cd ..
+rm -rf abc
+/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+#+END_SRC
+
+* DONE -bash: /opt/unetlab/wrappers/unl_wrapper: Permission denied
+
+- no way out
+- chmod +x
+  - why?

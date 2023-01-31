@@ -1,23 +1,94 @@
-* repo
+* DONE repo
 
 - https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/performing_an_advanced_rhel_8_installation/creating-a-remote-repository_installing-rhel-as-an-experienced-user
-- Performing an advanced RHEL 8 installation
-  - Chapter 15. Creating a remote repository
+  - Performing an advanced RHEL 8 installation
+    - Chapter 15. Creating a remote repository
 
-** build
+- https://access.redhat.com/documentation/ko-kr/red_hat_enterprise_linux/9/html/performing_a_standard_rhel_9_installation/creating-a-remote-repository_creating-a-remote-repository
+  - Performing a standard RHEL 9 installation
+    - 2.6. Creating a remote repository
 
+** summary based on rhel 9.1
 
+*** from server
 
+#+BEGIN_SRC 
+subscription-manager register
+#+END_SRC
+
+#+BEGIN_SRC 
+ProductNumber=9.1
+#+END_SRC
+
+#+BEGIN_SRC 
+dnf install httpd -y
+systemctl enable httpd
+systemctl start httpd
+echo Apache on RHEL ${ProductNumber} > /var/www/html/index.html
+firewall-cmd --add-service=http --permanent
+firewall-cmd --add-service=http
+chk, http://<the-apache-ip-address>
+
+#+END_SRC
+
+#+BEGIN_SRC 
+mkdir /mnt/rhel${ProductNumber}
+mount -o loop,ro rhel-${ProductNumber}-x86_64-dvd.iso /mnt/rhel{ProductNumber}/
+cp -r /mnt/rhel${ProductNumber}/ /var/www/html/
+umount  /mnt/rhel${ProductNumber}
+
+#+END_SRC
+
+*** from client
+
+#+BEGIN_SRC 
+vi /etc/yum.repos.d/rhel_http_repo.repo
+
+[BaseOS_repo_http]
+name=RHEL_9_x86_64_HTTP BaseOS
+baseurl="http://myhost/rhel9/BaseOS"
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
+
+[AppStream_repo_http]
+name=RHEL_9_x86_64_HTTP AppStream
+baseurl="http://myhost/rhel9/AppStream"
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
+
+dnf repolist
+dnf install emacs-nox -y
+#+END_SRC
+
+* DONE mirror
+
+- https://access.redhat.com/solutions/23016#rhel89
+  - How to create a local mirror of the latest update for Red Hat Enterprise Linux 5, 6, 7, 8 and 9 without using Satellite server? 
+
+#+BEGIN_SRC 
+yum install yum-utils createrepo
+
+subscription-manager release --set=9.1 && rm -rf /var/cache/dnf
+reposync -p /var/www/html/9.1 --download-metadata --repo=rhel-9-for-x86_64-baseos-rpms
+reposync -p /var/www/html/9.1 --download-metadata --repo=rhel-9-for-x86_64-appstream-rpms
+
+#+END_SRC
+
+* TODO case-s
 ** add rpm then update all
 
+#+BEGIN_SRC 
 cp 
 createrepo -v /var/www/html/rhel8/BaseOS
 
 cp openssh-askpass-8.0p1-16.el8.x86_64.rpm /var/www/html/rhel8/AppStream/Packages/
 createrepo -v /var/www/html/rhel8/AppStream/
 
+#+END_SRC
+
 ** from the client
 
+#+BEGIN_SRC 
 [root@localhost ~]# dnf info openssh | egrep 'Source|Repository'
 Source       : openssh-8.0p1-13.el8.src.rpm
 Repository   : @System
@@ -44,3 +115,5 @@ openssh-server-8.0p1-16.el8.x86_64
 
 [root@localhost ~]# dnf info openssh | grep Source
 Source       : openssh-8.0p1-16.el8.src.rpm
+
+#+END_SRC

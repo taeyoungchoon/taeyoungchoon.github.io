@@ -1,0 +1,45 @@
+* 성년후견제도
+
+- https://ko.wikipedia.org/wiki/성년후견제도
+- 종류
+  - 성년후견, 능력의 여부, 없음
+  - 한정후견, 능력의 불충분
+  - 특정후견, 일시적
+- 법
+  - 민법, 제9조 성년후견개시의 심판
+
+* guardian, guardian ship, conservatorship
+
+- https://lawandstory.com/후견인guardian-종류
+- to adult, child, incapaiciated
+- family court
+- ward aka guardianee, 피보호자
+- guardian, 후견인
+- informed consent
+- cognitive capicity
+- guardian of the person, 법정후견
+- guardian of the property, 재산관리 
+- annual report about the property, 재정보고서
+- guardian of the person and property
+- from conservatorship, conserve, serve
+
+* about 법무사
+
+- 법률관련전문자격사
+- 법무사 시험
+  - 1차
+    - 헌법, 상법
+    - 민법, 가족관계의 등록 등에 관한 법률
+    - 민사집행법, 상업등기법 및 비송사건절차법
+    - 부동산등기법, 공탁법
+  - 2차
+    - 민법
+    - 형법, 형사소송법
+    - 민사소송법, 민사사건관련서류의 작성
+    - 부동산등기법, 등가신청서류의 작성
+  - 합격의 연령 평균, 45세
+  - 대한법무사협회
+- 등기업무
+  - 부동산등기
+  - 법인등기
+  - 후견등기

@@ -2,3 +2,25 @@
 
 - model
 - [ ] network only
+
+* DONE memory
+
+** openconfig-system
+
+https://openconfig.net/projects/models/schemadocs/yangdoc/openconfig-system.html
+https://openconfig.net/projects/models/schemadocs/yangdoc/openconfig-system.html#system-memory-state-physical
+https://openconfig.net/projects/models/schemadocs/yangdoc/openconfig-system.html#system-memory-state-reserved
+https://openconfig.net/projects/models/schemadocs/yangdoc/openconfig-system.html#system-memory-state-used
+https://openconfig.net/projects/models/schemadocs/yangdoc/openconfig-system.html#system-memory-state-free
+/system/memory/state/physical
+/system/memory/state/reserved
+/system/memory/state/used
+/system/memory/state/free
+
+** openconfig-platform
+
+https://openconfig.net/projects/models/schemadocs/yangdoc/openconfig-platform.html
+https://openconfig.net/projects/models/schemadocs/yangdoc/openconfig-platform.html#components-component-state-memory-available
+https://openconfig.net/projects/models/schemadocs/yangdoc/openconfig-platform.html#components-component-state-memory-utilized
+/components/component/state/memory/available
+/components/component/state/memory/utilizedw

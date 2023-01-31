@@ -3,3 +3,29 @@
 * TODO veos, the first target and being cve
 * ceos
 * TODO and more?
+* DONE ip
+
+#+BEGIN_SRC 
+zerotouch cancel
+conf t
+interface management 1
+ip address 192.168.25.160/24
+exit
+ip route 0.0.0.0/0 192.168.25.1
+exit
+wr
+#+END_SRC
+
+* DONE hostname
+
+#+BEGIN_SRC 
+hostname v160
+#+END_SRC
+* TODO about time
+
+#+BEGIN_SRC 
+clock timezone Asia/Seoul
+ntp server 192.168.25.211 prefer
+#+END_SRC
+
+

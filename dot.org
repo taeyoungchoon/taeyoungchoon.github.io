@@ -44,3 +44,126 @@ digraph sample {
 
 #+RESULTS:
 [[file:dot.png]]
+* on web
+
+http://www.webgraphviz.com/?source=techstories.org
+https://dreampuf.github.io/GraphvizOnline
+
+* on web, others
+
+- https://www.quora.com/How-can-I-put-the-dynamic-graphs-in-website
+- https://observablehq.com/@d3/gallery
+  D3
+- https://williaster.github.io/data-ui
+- https://github.com/airbnb/visx
+- https://github.com/ant-design/ant-design
+- https://github.com/d3/d3-force
+
+* on web(cvp), others and more
+
+https://cvp0.t.com/cv/settings/general > Legal > Open-Source Licenses
+
+** list using awk
+
+https://gerrit.corp.arista.io/event-viewer
+https://github.com/GoogleChromeLabs/jsbi
+https://github.com/Gozala/events
+https://github.com/Gozala/querystring
+https://github.com/Inist-CNRS/node-csv-string
+https://github.com/JedWatson/classnames
+https://github.com/Microsoft/monaco-editor
+https://github.com/ReactTraining/history
+https://github.com/STRML/react-grid-layout
+https://github.com/Stuk/jszip
+https://github.com/YouCanBookMe/react-datetime
+https://github.com/adamwdraper/Numeral-js
+https://github.com/agraboso/redux-api-middleware
+https://github.com/ai/nanoid
+https://github.com/alexreardon/memoize-one
+https://github.com/ant-design/ant-design
+https://github.com/antlr/antlr4
+https://github.com/aristanetworks/cloudvision
+https://github.com/atlassian/react-beautiful-dnd
+https://github.com/axios/axios
+https://github.com/babel/babel
+https://github.com/beaugunderson/ip-address
+https://github.com/benjamine/jsondiffpatch
+https://github.com/biggora/express-useragent
+https://github.com/blakeembrey/pluralize
+https://github.com/brianloveswords/base64url
+https://github.com/bvaughn/react-virtualized
+https://github.com/caiogondim/fast-memoize
+https://github.com/casesandberg/react-color
+https://github.com/caseywebdev/react-list
+https://github.com/d3/d3
+https://github.com/d3/d3-force
+https://github.com/d3/d3-selection
+https://github.com/d3/d3-shape
+https://github.com/d3/d3-zoom
+https://github.com/drcmda/react-spring
+https://github.com/eligrey/FileSaver.js
+https://github.com/eseb/request-state
+https://github.com/exupero/saveSvgAsPng
+https://github.com/facebook/draft-js
+https://github.com/facebook/react
+https://github.com/facebook/regenerator/tree/master/packages/runtime
+https://github.com/formidablelabs/victory
+https://github.com/getsentry/sentry-javascript
+https://github.com/getsentry/sentry-webpack-plugin
+https://github.com/gka/chroma.js
+https://github.com/goldenyz/react-perfect-scrollbar
+https://github.com/hshoff/vx
+https://github.com/improbable-eng/grpc-web
+https://github.com/jmlweb/isMounted
+https://github.com/juliangruber/stream
+https://github.com/kitten/wonka
+https://github.com/kpdecker/jsdiff
+https://github.com/lodash/lodash
+https://github.com/moment/moment
+https://github.com/moment/moment-timezone
+https://github.com/nkbt/react-copy-to-clipboard
+https://github.com/nodeca/js-yaml
+https://github.com/otakustay/react-diff-view
+https://github.com/protocolbuffers/protobuf/tree/master/js
+https://github.com/rafgraph/fscreen
+https://github.com/react-component/image
+https://github.com/react-component/steps
+https://github.com/react-dnd/react-dnd
+https://github.com/react-grid-layout/react-resizable
+https://github.com/react-monaco-editor/react-monaco-editor
+https://github.com/reactivex/rxjs
+https://github.com/reactjs/react-transition-group
+https://github.com/reduxjs/react-redux
+https://github.com/reduxjs/redux
+https://github.com/reduxjs/redux-devtools
+https://github.com/reduxjs/redux-thunk
+https://github.com/reduxjs/reselect
+https://github.com/remarkjs/react-markdown
+https://github.com/rmariuzzo/react-new-window
+https://github.com/rogierschouten/async-lock
+https://github.com/rufman/fetch-script
+https://github.com/rufman/ts-rws
+https://github.com/silverwind/cidr-regex
+https://github.com/silverwind/port-numbers
+https://github.com/simple-statistics/simple-statistics
+https://github.com/sindresorhus/escape-string-regexp
+https://github.com/sindresorhus/ip-regex
+https://github.com/sindresorhus/p-cancelable
+https://github.com/sindresorhus/query-string
+https://github.com/stacktracejs/stacktrace.js
+https://github.com/substack/json-stable-stringify
+https://github.com/substantial/updeep
+https://github.com/swagger-api/swagger-ui
+https://github.com/syntax-tree/unist-util-visit
+https://github.com/theaqua/redux-logger
+https://github.com/thebuilder/react-intersection-observer
+https://github.com/toomuchdesign/re-reselect
+https://github.com/tsayen/dom-to-image
+https://github.com/uber-common/react-vis
+https://github.com/unshiftio/url-parse
+https://github.com/uuidjs/uuid
+https://github.com/validatorjs/validator.js
+https://github.com/williaster/data-ui
+https://github.com/wrakky/react-html-parser
+https://github.com/yiminghe/async-validator
+https://github.com/zemirco/json2csv

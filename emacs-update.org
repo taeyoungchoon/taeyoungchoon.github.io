@@ -1,0 +1,6 @@
+* howto update by command
+
+1. M-x list-packages
+2. U
+3. x
+4. y
