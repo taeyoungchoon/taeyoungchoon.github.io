@@ -74,6 +74,20 @@ reposync -p /var/www/html/9.1 --download-metadata --repo=rhel-9-for-x86_64-appst
 
 #+END_SRC
 
+#+BEGIN_SRC 
+[root@s001 9.1]# date
+Wed Feb  1 09:49:12 AM KST 2023
+[root@s001 9.1]# du -hs
+27G     .
+[root@s001 9.1]# du -hs *
+24G     rhel-9-for-x86_64-appstream-rpms
+3.1G    rhel-9-for-x86_64-baseos-rpms
+[root@s001 9.1]# history | grep reposync
+   51  reposync -p /var/www/html/9.1 --download-metadata --repo=rhel-9-for-x86_64-baseos-rpms
+   52  reposync -p /var/www/html/9.1 --download-metadata --repo=rhel-9-for-x86_64-appstream-rpms
+
+#+END_SRC
+
 * TODO case-s
 ** add rpm then update all
 
