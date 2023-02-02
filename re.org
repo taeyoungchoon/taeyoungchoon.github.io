@@ -1,0 +1,123 @@
+* regular expression
+
+** aka
+
+- regular expression
+- regexp
+- regex
+- re
+- 정규표현식
+
+** mean
+
+- symbolic pattern of text
+
+** ex
+
+- lkajsd : \s+
+- 0123456789 : \d+
+- 0 or 1 : [01]
+- 0101 : [01]{4}
+- abcdefABCDEF : [a-fA-F]{10}
+- blank line : ^$
+- x only : ^x$
+
+** real world examples
+
+*** access-list
+
+- https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=printf7&logNo=220556946885
+- http://www.powerfast.net/bgp/Routing_Pol9.html
+- https://www.cisco.com/c/en/us/td/docs/ios/12_2/dial/configuration/guide/dafaapre.html#wp1020128
+- https://www.arista.com/en/um-eos/eos-command-line-interface-cli
+
+#+BEGIN_SRC 
+ip as-path access-list 1 permit ^$
+ip as-path access-list 1 permit .*
+ip as-path access-list 1 permit 2$
+
+#+END_SRC 
+
+*** yang typedef using pattern
+
+- https://ieee802.org/1/files/public/YANGs/ieee802-dot1q-cfm-types.yang
+
+#+BEGIN_SRC 
+  typedef unicast-mac-address-type {
+    type string {
+      pattern "[0-9a-fA-F]{2}(-[0-9a-fA-F]{2}){5}";
+    }
+  }
+
+#+END_SRC
+
+*** perl so much native, pcre
+
+#+BEGIN_SRC perl
+for $line (<>) {
+    if ($line =~ /h[a|e]llo, (.*)/) {
+        printf("say to $1 \n");
+    }
+}
+
+__END__
+
+hi, minho
+hello, yang
+hallo, jack
+
+#+END_SRC
+
+*** python with re module
+
+- https://docs.python.org/3/library/re.html
+
+#+BEGIN_SRC 
+import re
+
+line = "this is the line and the"
+match = re.search('the', line)
+print(match.group(0))
+
+#+END_SRC
+
+*** python with re module and using extension notation
+
+#+BEGIN_SRC 
+import re
+
+line = "x/eno1/z"
+# match = re.search('the', line)
+match = re.search('(?P<intf>eno[0-9])', line)
+print(match.group(0))
+print(match.group('intf'))
+
+#+END_SRC
+
+*** python care mac address format
+
+#+BEGIN_SRC 
+import re
+
+line = "00-00-00-00-00-00"
+# match = re.search('(?P<pair>[0-9a-fA-F]{2})(-(?P=pair)){5}', line)
+match = re.search('(?P<mac>(?P<pair>[0-9a-fA-F]{2})(-(?P=pair)){5})', line)
+print(match.group(0))
+print(match.group('pair'))
+print(match.group('mac'))
+
+#+END_SRC
+
+*** bash with BASH_REMATCH
+
+- http://molk.ch/tips/gnu/bash/rematch.html
+
+#+BEGIN_SRC 
+host='GA2100SU-3A'
+
+if [[ $host =~ ^([A-Z0-9]+)-([A-Z0-9]+) ]]
+then
+    echo ${BASH_REMATCH[0]} = ${BASH_REMATCH[1]} - ${BASH_REMATCH[2]}
+fi
+
+#+END_SRC
