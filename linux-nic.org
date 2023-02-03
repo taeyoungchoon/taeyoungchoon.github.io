@@ -735,3 +735,110 @@ $ nmcli -p con show my-con-em1
       fi
   done
 #+END_SRC
+
+* TODO bond options
+
+#+BEGIN_SRC 
+nmcli con modify id bond0 bond.options
+mod=802.3ad,miimon=100,lacp_rate=fast,xmit_hash_policy=layer2+3
+
+#+END_SRC
+
+* TODO mtu 9000
+
+#+BEGIN_SRC 
+   94  nmcli connection add type ethernet ifname eth1 con-name service
+   95  nmcli c
+   96  ip a
+   97  nmcli connection modify id service 802-3-ethernet.mtu 9000
+
+? nmcli -g 802-3-ethernet.mtu connection show service
+9000
+? nmcli con up service
+? ip a | grep 9000
+3: eth1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 9000 qdisc fq_codel state UP group de
+fault qlen 1000
+?
+
+#+END_SRC
+
+* TODO rename
+
+** /etc/udev/rules.d/
+** using net.ifnames
+
+- https://unixcop.com/change-network-interface-name-to-etho0-on-centos/
+  How to change network interface name to eth0 on CentOS 8 / RHEL 8
+
+#+BEGIN_SRC 
+net.ifnames=0
+
+#+END_SRC
+
+** using ip link set eno1 name eth0
+
+#+BEGIN_SRC 
+ip link set eno1 down
+using ip link set eno1 name eth0 
+ip link set eno1 down
+
+#+END_SRC
+
+** TODO nmcli
+
+- https://www.thegeekdiary.com/how-to-set-a-custom-interface-name-with-networkmanager-in-centos-rhel-7/
+
+#+BEGIN_SRC 
+nmcli connection modify "Wired connection 1" connection.interface-name "external-2"
+
+#+END_SRC
+
+#+BEGIN_SRC 
+nmcli connection add type ethernet mac "52:54:00:73:59:15" ifname "internal-1"
+
+#+END_SRC
+** ip link set x name y with nmcli
+
+#+BEGIN_SRC 
+    3  nmcli connection
+    4  nmcli connection delete System\ eth1
+    5  nmcli connection delete System\ eth2
+    6  nmcli connection delete System\ eth3
+    7  nmcli connection
+    8  nmcli connection delete Wired\ connection\ 1
+    9  nmcli connection delete Wired\ connection\ 2
+   10  nmcli connection delete Wired\ connection\ 3
+   11  nmcli connection
+
+#+END_SRC
+
+#+BEGIN_SRC 
+ip link set eth1 down
+ip link set eth1 name service
+ip link set service up
+
+#+END_SRC
+** refer
+
+#+BEGIN_SRC 
+nmcli con add type ethernet ifname eno1 con-name mgmt
+nmcli con add type ethernet ifname enp0f1 con-name backup
+nmcli con add type bond ifname service mode 1 miimon 100 updelay 0 downdelay 0 con-name service
+nmcli con add type bond-slave ifname enp0f0 con-name service-slave-enp0f0 master service
+nmcli con add type bond-slave ifname enp7f0 con-name service-slave-enp7f0 master service
+
+#+END_SRC
+
+#+BEGIN_SRC 
+nmcli connection modify id eth0 con-name mgmt
+
+#+END_SRC
+
+#+BEGIN_SRC 
+nmcli con add type ethernet ifname eth0 con-name mgmt
+nmcli con add type ethernet ifname eth con-name backup
+nmcli con add type bond ifname service mode 1 miimon 100 updelay 0 downdelay 0 con-name service
+nmcli con add type bond-slave ifname enp0f0 con-name service-slave-enp0f0 master service
+nmcli con add type bond-slave ifname enp7f0 con-name service-slave-enp7f0 master service
+
+#+END_SRC
