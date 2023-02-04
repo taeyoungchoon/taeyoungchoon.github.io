@@ -1,0 +1,11 @@
+* dc, data center
+* why?
+
+- it combines lots
+- lots: compute aka logos with up and down
+- up: link, said network like, aka connection/conn
+- down: repo, storage, filesystem, records
+- (cons t nil)
+  (connection logos repo) ;; clr
+- lots of it
+  such a like aws edge with nitro
