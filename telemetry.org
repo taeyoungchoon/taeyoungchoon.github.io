@@ -1,0 +1,20 @@
+* snmp to telemetry
+
+| source    | weight | sensors       | analysable | troubleshooting | future expectable |
+|-----------+--------+---------------+------------+-----------------+-------------------|
+| telemetry | light  | many and much | yes        | yes             | yes               |
+| snmp      | heavy  | few and less  | no         | no, using cli   | not so much       |
+
+* from the world of linux system
+
+- sar
+
+* from the world of enterprise
+
+- hp openview
+- so many and much
+
+* from medical, MRI
+
+- analysable but need someone can do
+

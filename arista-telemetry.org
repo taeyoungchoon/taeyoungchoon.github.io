@@ -1,0 +1,35 @@
+* TODO telegraf agent on nd(network device)
+
+- https://www.arista.com/en/support/toi/eos-4-25-2f/14735-influxdb-telemetry-streaming
+  - InfluxDB telemetry streaming, it works
+
+* TODO octsdb agent on nd(network device)
+
+- https://aristanetworks.force.com/AristaCommunity/s/article/streaming-eos-telemetry-states-to-influxbd
+
+#+BEGIN_SRC 
+go get github.com/aristanetworks/goarista/cmd/octsdb
+cd $GOPATH/src/github.com/aristanetworks/goarista/cmd/octsdb
+GOOS=linux GOARCH=amd64 go build
+scp $GOPATH/src/github.com/aristanetworks/goarista/cmd/octsdb/octsdb admin@<switch-MGMT-IP>:/mnt/flash/
+
+#+END_SRC
+
+- https://github.com/grahamneville/octsbd
+- https://github.com/aristanetworks/goarista/tree/master/cmd/octsdb
+  - octsdb source at aristanetwork/goarista
+  - OpenConfig clients(oc*)
+    - gnmi
+    - ockafka
+    - ocprometheus
+    - ocredis
+    - ocsplunk
+    - openconfigbeat
+
+* TODO telegraf outside
+
+- https://github.com/arista-netdevops-community/arista_eos_streaming_telemetry_with_gnmi_and_telegraf
+- https://aristanetworks.force.com/AristaCommunity/s/article/graphing-arista-eos-with-grafanatelegraf-and-influxdb
+  - 2017, old enough and mature
+
+

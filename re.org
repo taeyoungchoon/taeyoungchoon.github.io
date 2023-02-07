@@ -6,15 +6,15 @@
 - regexp
 - regex
 - re
-- 정규표현식
 
 ** mean
 
 - symbolic pattern of text
+- https://perldoc.perl.org/perlrequick
 
 ** ex
 
-- lkajsd : \s+
+- lka007ABC : \w+
 - 0123456789 : \d+
 - 0 or 1 : [01]
 - 0101 : [01]{4}
@@ -119,5 +119,17 @@ if [[ $host =~ ^([A-Z0-9]+)-([A-Z0-9]+) ]]
 then
     echo ${BASH_REMATCH[0]} = ${BASH_REMATCH[1]} - ${BASH_REMATCH[2]}
 fi
+
+#+END_SRC
+
+*** lisp with cl-ppcre
+
+#+BEGIN_SRC 
+(require "~/quicklisp/setup.lisp")
+(ql:quickload :cl-ppcre)
+
+(with-open-stream (st (run-program "uptime" :arguments nil :output :stream))
+  (let ((s (read-line st nil nil)))
+    (print (cl-ppcre:split "\\s+" s))))
 
 #+END_SRC
