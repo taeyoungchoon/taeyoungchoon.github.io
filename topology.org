@@ -1,0 +1,16 @@
+* topology, network topology
+
+- html5, ever java-like
+- programmable, sep data
+
+* ex
+
+- grafana node graph
+- grafana diagram
+- cisco evolved programmable network manager
+- at the cloudvision portal
+
+* library
+
+- d3.js
+- dot(graphviz)

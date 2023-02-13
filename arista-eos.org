@@ -21,11 +21,24 @@ wr
 #+BEGIN_SRC 
 hostname v160
 #+END_SRC
-* TODO about time
+
+* DONE about time
 
 #+BEGIN_SRC 
 clock timezone Asia/Seoul
 ntp server 192.168.25.211 prefer
+#+END_SRC
+
+* DONE password
+
+- https://www.arista.com/assets/data/pdf/qsg/qsg-7500-series/Chapters/qsg-7500-series_05_Configuring_the_Switch.pdf
+
+#+BEGIN_SRC 
+username admin secret pxq123
+
+username john secret x245
+
+enable password xyrt1
 #+END_SRC
 
 
