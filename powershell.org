@@ -52,3 +52,12 @@ Get-NetIPAddress -InterfaceIndex 91 -AddressFamily ipv4
 * key binding using emacs
 
 Set-PSReadLineOption -EditMode Emacs
+
+* loop
+
+#+BEGIN_SRC shell
+  while ($true) { 
+	    (Get-NetAdapter -InterfaceIndex 24).LinkSpeed;
+	    sleep 1
+	}
+#+END_SRC
