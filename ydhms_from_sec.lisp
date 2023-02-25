@@ -1,4 +1,9 @@
 ;; report ydhms from seconds
+;;
+;; (nil (* 365 24 60 60) (* 24 60 60) (* 60 60) 60)
+;; (+ (round (/ 62 60)) 3)
+;; (mod 62 60)
+;;
 
 (defvar val)
 (setf val (+ (* 365 24 60 60) 3602))
