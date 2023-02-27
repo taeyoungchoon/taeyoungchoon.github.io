@@ -1,0 +1,27 @@
+* visual, data analysis tool called grafana
+
+- grafana < graph
+- history, https://grafana.com/blog/2019/09/03/the-mostly-complete-history-of-grafana-ux/
+
+* and with others
+
+앞과 뒤, 위와 아래
+그라파나는 본다
+보고 또 보여준다
+
+* the best
+
+https://grafana.com/docs/grafana/latest/dashboards/build-dashboards/best-practices/
+
+* share using
+
+- https://grafana.com/docs/grafana/latest/dashboards/share-dashboards-panels/
+- direct link
+- snapshot
+- embedded link for panels
+  - iframe
+    - https://www.itpanther.com/embedding-grafana-in-iframe/
+    - https://jhoplin7259.tistory.com/71
+- export link for dashboard
+
+* what about with api
