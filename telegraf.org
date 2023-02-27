@@ -1,0 +1,10 @@
+* with snmp 
+
+- https://www.influxdata.com/blog/telegraf-best-practices-snmp-plugi/n
+- https://www.influxdata.com/integration/snmp/
+- https://github.com/influxdata/telegraf/blob/master/plugins/inputs/snmp/README.md
+- https://not-to-be-reset.tistory.com/30
+
+* and trap
+
+- https://github.com/influxdata/telegraf/blob/master/plugins/inputs/snmp_trap/README.md
