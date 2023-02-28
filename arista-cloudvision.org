@@ -244,3 +244,36 @@ arista1>
 #+END_SRC
 
 #+RESULTS:
+* TODO [2023-02-28 화] spec requirement
+
+- 무겁다
+- 그건 변하지 않는다
+- 변할 수 있다
+- [ ] latency requirements가 생겼다. 예전에는 보지 못했던 것이다. 기억의 오류일까.
+  - cvp node와 eos device의 latency는 500 ms 이하여야 한다.
+  - 물리 어플라이언스 장비는 하나의 랙에 두기를 권고한다.
+    - 아니더라도 latency는 충분히 보장되어야 한다.
+    - 가상 어플라이언스 장비도 마찬가지다.
+  
+** lab deployment
+
+- cpu 16 unit: Core
+- ram 32 unit: GB
+- dsk  1 unit: TB
+- dsk.throughput 20 unit: MB/s
+
+** production deployment
+
+- cpu 28 unit: Core
+- ram 52 unit: GB
+- dsk  1 unit: TB
+- dsk.throughput 40 unit: MB/s
+
+#+BEGIN_SRC 
+python generateXmlForKvm.py -n cvp1 --device-bridge br0 -k 5 -i cvpTemplate.xml -x disk1.qcow2 -y disk2.qcow2 -b 53248 -p 28 -e /usr/libexec/qemu-kvm -o cvp1.xml
+
+#+END_SRC
+
+* TODO [2023-02-28 화] simply as monitor, yes
+
+but how
