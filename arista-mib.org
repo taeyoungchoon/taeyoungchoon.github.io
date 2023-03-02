@@ -1,0 +1,87 @@
+* trap
+
+v175(config)#show snmp notification | grep link
+snmp                  link-down                              Yes (Global default)
+snmp                  link-up                                Yes (Global default)
+
+v175(config)#show snmp trap
+  trap  This command is deprecated by 'show snmp notification'
+
+v175(config)#
+
+* pure, arista mib
+
+v175#show snmp mib | grep arista | cut -d ":" -f 1 | awk '!seen[$0]++'
+ARISTA-SW-IP-FORWARDING-MIB
+ARISTA-BRIDGE-EXT-MIB
+ARISTA-ACL-MIB
+ARISTA-QUEUE-MIB
+ARISTA-CONFIG-COPY-MIB
+ARISTA-REDUNDANCY-MIB
+ARISTA-CONFIG-MAN-MIB
+ARISTA-PFC-MIB
+ARISTA-ENTITY-SENSOR-MIB
+ARISTA-QOS-MIB
+ARISTA-IF-MIB
+ARISTA-DAEMON-MIB
+ARISTA-VRF-MIB
+ARISTA-XCVR-DWDM-MIB
+ARISTA-NEXTHOP-GROUP-MIB
+ARISTA-HARDWARE-UTILIZATION-MIB
+ARISTA-FIB-STATS-MIB
+ARISTA-GENERAL-MIB
+ARISTA-EXTERNAL-ALARM-MIB
+ARISTA-IP-MIB
+ARISTA-VXLAN-MIB
+ARISTA-ASIC-COUNTERS-MIB
+ARISTA-TAPAGG-MIB
+ARISTA-BGP4V2-MIB
+v175#
+
+* generic
+
+v175#show snmp mib | grep -i snmpv2
+SNMPv2-MIB::sysDescr
+SNMPv2-MIB::sysObjectID
+SNMPv2-MIB::sysUpTime
+SNMPv2-MIB::sysContact
+SNMPv2-MIB::sysName
+SNMPv2-MIB::sysLocation
+SNMPv2-MIB::sysServices
+SNMPv2-MIB::sysORLastChange
+SNMPv2-MIB::sysORTable
+SNMPv2-MIB::snmp
+SNMPv2-MIB::snmpEnableAuthenTraps.0
+SNMPv2-MIB::snmpSetSerialNo
+
+v175#show snmp mib | grep -i host
+HOST-RESOURCES-MIB::hrSystemUptime
+HOST-RESOURCES-MIB::hrSystemDate
+HOST-RESOURCES-MIB::hrSystemNumUsers
+HOST-RESOURCES-MIB::hrSystemProcesses
+HOST-RESOURCES-MIB::hrSystemMaxProcesses
+HOST-RESOURCES-MIB::hrMemorySize
+HOST-RESOURCES-MIB::hrStorageTable
+HOST-RESOURCES-MIB::hrDeviceTable
+HOST-RESOURCES-MIB::hrProcessorTable
+
+v175#show snmp mib | grep IF-MIB
+IF-MIB::ifNumber
+IF-MIB::ifTable
+IF-MIB::ifXTable
+IF-MIB::ifStackTable
+IF-MIB::ifTableLastChange
+IF-MIB::ifStackLastChange
+ARISTA-IF-MIB::aristaIfTable
+
+* cli
+
+  show snmp mib
+  show snmp mib| grep arista
+  show snmp mib walk ARISTA-IP-MIB::aristaIpIfStatsTable
+  show snmp mib table IF-MIB::ifTable
+  show snmp mib walk IF-MIB::ifTable
+
+* TODO download mib from arista switch
+
+
