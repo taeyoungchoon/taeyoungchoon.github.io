@@ -1,41 +1,43 @@
-InfluxDB v1.7.7
+* TODO install
+* remotable
 
-OS X (via Homebrew)
+#+BEGIN_SRC 
+/etc/default/influxdb2
+ARG1="--http-bind-address :8087"
+#+END_SRC
 
-brew update
-brew install influxdb
-Docker Image
+* TODO config
 
-docker pull influxdb
-Ubuntu & Debian 
+** cli but interactive
 
-wget https://dl.influxdata.com/influxdb/releases/influxdb_1.7.7_amd64.deb
-sudo dpkg -i influxdb_1.7.7_amd64.deb
-RedHat & CentOS 
+#+BEGIN_SRC 
+root@s003:/etc/influxdb# influx setup
+> Welcome to InfluxDB 2.0!
+? Please type your primary username admin
+? Please type your password ********
+? Please type your password again ********
+? Please type your primary organization name world
+? Please type your primary bucket name korea
+? Please type your retention period in hours, or 0 for infinite 0
+? Setup with these parameters?
+  Username:          admin
+  Organization:      world
+  Bucket:            korea
+  Retention Period:  infinite
+ Yes
+User    Organization    Bucket
+admin   world           korea
+root@s003:/etc/influxdb#
 
-wget https://dl.influxdata.com/influxdb/releases/influxdb-1.7.7.x86_64.rpm
-sudo yum localinstall influxdb-1.7.7.x86_64.rpm
-Mac OS X
+#+END_SRC
 
-https://dl.influxdata.com/influxdb/releases/influxdb-1.7.7_darwin_amd64.tar.gz
-tar zxvf influxdb-1.7.7_darwin_amd64.tar.gz
-Windows Binaries (64-bit) 
+** scriptable
 
-https://dl.influxdata.com/influxdb/releases/influxdb-1.7.7_windows_amd64.zip
-unzip influxdb-1.7.7_windows_amd64.zip
-Linux Binaries (64-bit) 
-
-wget https://dl.influxdata.com/influxdb/releases/influxdb-1.7.7_linux_amd64.tar.gz
-tar xvfz influxdb-1.7.7_linux_amd64.tar.gz
-Linux Binaries (64-bit, static) 
-
-wget https://dl.influxdata.com/influxdb/releases/influxdb-1.7.7-static_linux_amd64.tar.gz
-tar xvfz influxdb-1.7.7-static_linux_amd64.tar.gz
-Linux Binaries (32-bit) 
-
-wget https://dl.influxdata.com/influxdb/releases/influxdb-1.7.7_linux_i386.tar.gz
-tar xvfz influxdb-1.7.7_linux_i386.tar.gz
-Linux Binaries (ARM) 
-
-wget https://dl.influxdata.com/influxdb/releases/influxdb-1.7.7_linux_armhf.tar.gz
-tar xvfz influxdb-1.7.7_linux_armhf.tar.gz
+#+BEGIN_SRC 
+influx setup \
+  --org example-org \
+  --bucket example-bucket \
+  --username example-user \
+  --password ExAmPl3PA55W0rD \
+  --force  
+#+END_SRC
