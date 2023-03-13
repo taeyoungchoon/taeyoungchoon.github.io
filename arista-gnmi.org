@@ -1,0 +1,4 @@
+* gnmi not the gnmic
+
+https://github.com/aristanetworks/goarista/tree/master/cmd/gnmi
+https://github.com/arista-netdevops-community/cloudvision-automation

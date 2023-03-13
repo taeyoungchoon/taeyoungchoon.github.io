@@ -1,43 +1,28 @@
 * TODO install
-* remotable
+* TODO remotable
 
 #+BEGIN_SRC 
 /etc/default/influxdb2
-ARG1="--http-bind-address :8087"
+ARG1="--http-bind-address :8086"
 #+END_SRC
 
 * TODO config
-
-** cli but interactive
-
-#+BEGIN_SRC 
-root@s003:/etc/influxdb# influx setup
-> Welcome to InfluxDB 2.0!
-? Please type your primary username admin
-? Please type your password ********
-? Please type your password again ********
-? Please type your primary organization name world
-? Please type your primary bucket name korea
-? Please type your retention period in hours, or 0 for infinite 0
-? Setup with these parameters?
-  Username:          admin
-  Organization:      world
-  Bucket:            korea
-  Retention Period:  infinite
- Yes
-User    Organization    Bucket
-admin   world           korea
-root@s003:/etc/influxdb#
-
-#+END_SRC
 
 ** scriptable
 
 #+BEGIN_SRC 
 influx setup \
-  --org example-org \
-  --bucket example-bucket \
-  --username example-user \
-  --password ExAmPl3PA55W0rD \
+  --org earth \
+  --bucket korea \
+  --username admin \
+  --password password \
   --force  
 #+END_SRC
+
+* TODO docker
+
+#+BEGIN_SRC 
+docker run --rm -d -p 8086:8086/tcp influxdb:latest
+#+END_SRC
+
+

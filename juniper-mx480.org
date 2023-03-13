@@ -1,0 +1,166 @@
+* DONE say
+
+- (interface switching-capacity forwarding-performance)
+- (table (mac arp))
+
+| stack                  | comment             |
+|------------------------+---------------------|
+| forwarding performance |                     |
+| switching capacity     |                     |
+| arp table              | map L2-addr L3-addr |
+| mac address table      | mac intf L2-addr    |
+| interface              |                     |
+
+* TODO interface
+* DONE mac(intf with L2 address)
+
+- https://www.juniper.net/documentation/us/en/software/junos/multicast-l2/topics/ref/statement/mac-table-size-edit-bridge-domains-edit-switch-options.html
+- Range: 16 through 1,048,575 MAC addresses
+  - 1M
+
+** word
+
+- mac address table
+
+* DONE arp(L2 address with L3 address)
+
+- https://community.juniper.net/communities/community-home/digestviewer/viewthread?MID=70482
+  - 2M
+
+#+BEGIN_SRC 
+its 2M max for high end mx such mx480, mx960 and above.
+
+It's editable from junos 16.1 onwards:
+
+re0# set system arp-system-cache-limit ?
+Possible completions:
+  <arp-system-cache-limit>  Set max system cache size for ARP nexthops (200..2000000)
+{master}[edit]
+#+END_SRC
+
+** refer
+
+- https://en.it-dialog.pl/products/routers/juniper-mx104.html
+  - mx104
+- https://en.it-dialog.pl/products/routers/juniper-mx480.html
+  - mx480
+
+** word
+
+- arp table
+
+* DONE switching bandwidth, switching capacity throughput with bps/Tbps
+
+- https://www.juniper.net/content/dam/www/assets/datasheets/us/en/routers/mx-series-universal-routing-platforms-datasheet.pdf
+  - 7.5 Tbps
+
+** word 
+
+- bps, bit per seconds
+- Tbps, Gbps
+
+* TODO forwarding performance with pps
+
+** word
+
+- pps, packets per seconds
+- Bpps, Mpps
+- forwarding rate
+- packet forwarding rate
+
+** dig in
+
+- 1 bit takes 0.1ms from ethernet
+- 1 packet = 84byte
+- https://forum.huawei.com/enterprise/en/forwarding-performance-and-switching-capacity/thread/570609-861
+- then the packet forwarding rate of the Gigabit Ethernet interface is 1.488Mpps, and the packet forwarding rate of the 10G Ethernet interface is 14.88Mpps.
+- A 24-port 100 Mbit/s switch must have a forwarding performance of 3.5712Mpps and a switching capacity of 4.8 Gbps.
+** calc
+
+- capacity = ports * rate * 2(full duplex)
+
+#+BEGIN_SRC emacs-lisp
+(+ (* 1 2 48) (* 10 2 4)) 
+#+END_SRC
+
+#+RESULTS:
+: 176
+
+- https://www.arista.com/en/products/7010-series
+  - arista 7010
+    - 10/100/1000 Mbps (RJ-45) & four 1/10 GbE uplinks (SFP+)
+    - [X] Wire speed layer 2/3 switching up to 176 Gbps
+    - [ ] 132 Mpps
+
+- https://community.arubanetworks.com/community-home/digestviewer/viewthread?MID=23864
+  - gbps to mpps
+  - ( gbps / 2) x 1.488
+
+#+BEGIN_SRC emacs-lisp
+(* (/ 176 2) 1.488)
+
+#+END_SRC
+
+#+RESULTS:
+: 130.944
+
+** calc with cisco
+
+- https://www.andovercg.com/datasheets/cisco-sge2000-24-port-gigabit-switch.pdf
+- cisco sge2000
+- 10/100/1000 24 port
+- 4 gigabit ethernet expansion
+- 48 gbps
+- 35.7 mpps
+
+#+BEGIN_SRC emacs-lisp
+
+(+ (* 1 2 48) (* 1 2 4))
+
+#+END_SRC
+
+#+RESULTS:
+: 104
+
+- near half, why? low price one
+- switching capacity
+- up to 48 gbps, nonblocking
+
+#+BEGIN_SRC emacs-lisp
+(* (/ 48 2) 1.488)
+
+#+END_SRC
+
+#+RESULTS:
+: 35.712
+
+- based on spec, right
+- based on 64-byte packets)
+- up uto 35.7 mpps
+
+** calc with cisco C9300L-48T-4G
+
+- [X] 104 Gbps
+- [ ] 77.38 Mpps
+
+** calc with cisco C9300L-48T-4X
+
+- [ ] 176 Gbps
+- [X] 130.95 Mpps
+
+** calc with cisco C9300-24T
+
+- [ ] 208 Gbps
+- [ ] 154.76 Mpps
+
+
+** calc with cisco C9300-48T
+
+- [ ] 256 Gbps
+- [ ] 190.47 Mpps
+
+** calc with netgear JGS724
+
+- [ ] 48 Gbps
+- [ ] 1000 Mbps ports: 1,488,000 frames/sec
+- [ ] latency(using 64 byte packets): 15 us(max)

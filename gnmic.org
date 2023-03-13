@@ -1,0 +1,6 @@
+* not just gnmic client
+
+- inc 'gnmi server' feature
+- https://netdevops.me/2020/gnmic-gnmi-cli-client-and-collector/
+
+

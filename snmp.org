@@ -1,4 +1,4 @@
-* cli
+ cli
 
 snmpget -v 1 -c public x.x.x.x sysUpTime.0
 snmpwalk -v 1 -c public x.x.x.x
@@ -20,20 +20,6 @@ snmpwalk -v 1 -c public x.x.x.x
 
 - manager at client
 - agent at server
-
-* with arista device
-
-https://docs.pulsesecure.net/WebHelp/PPS/9.1R5/AG/pps_admin_guide/PPS_L2Enforcement/PPS_Policy_Enforcement_SNMP_SSH/Configuration_Commands_for_Arista.htm
-
-#+BEGIN_SRC 
-snmp-server community public rw
-snmp-server host 10.96.xx.xx version 2c public
-snmp-server enable traps snmp authentication
-snmp-server enable traps snmp link-down
-snmp-server enable traps snmp link-up
-#+END_SRC
-
-https://www.arista.com/en/um-eos/eos-snmp
 
 * tools
 

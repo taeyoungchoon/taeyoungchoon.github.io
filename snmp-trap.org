@@ -1,0 +1,72 @@
+* with arista device
+
+https://arista.my.site.com/AristaCommunity/s/article/how-to-test-snmp-traps-on-an-arista-7130-device
+
+https://docs.pulsesecure.net/WebHelp/PPS/9.1R5/AG/pps_admin_guide/PPS_L2Enforcement/PPS_Policy_Enforcement_SNMP_SSH/Configuration_Commands_for_Arista.htm
+
+https://www.arista.com/en/um-eos/eos-snmp
+
+* try
+
+- config
+
+#+BEGIN_SRC 
+snmp-server community public ro
+snmp-server host 127.0.0.1 version 2c public
+snmp-server enable traps snmp authentication
+snmp-server enable traps snmp link-down
+snmp-server enable traps snmp link-up
+#+END_SRC
+
+- snmpdtrapd.conf
+
+#+BEGIN_SRC 
+echo 'authCommunity log public' > /mnt/flash/snmptrapd.conf
+
+#+END_SRC
+
+- start snmptrapd
+
+#+BEGIN_SRC 
+bash sudo snmptrapd -f -Lo -C -c /mnt/flash/snmptrapd.conf
+
+#+END_SRC
+
+
+- shut
+
+#+BEGIN_SRC 
+v174#conf t
+v174(config)#int ethernet 1
+v174(config-if-Et1)#shutdown
+
+#+END_SRC
+
+- shut then log
+
+#+BEGIN_SRC 
+2023-03-13 01:05:10 localhost.localdomain [UDP: [127.0.0.1]:51324->[127.0.0.1]:162]:
+SNMPv2-MIB::sysUpTime.0 = Timeticks: (41739503) 4 days, 19:56:35.03     SNMPv2-MIB::snmpTrapOID.0 = OID: IF-MIB::linkDown       IF-MIB::ifIndex.1 = INTEGER: 1  IF-MIB::ifAdminStatus.1 = INTEGER: down(2)      IF-MIB::ifOperStatus.1 = INTEGER: up(1)  IF-MIB::ifDescr.1 = STRING: Ethernet1   IF-MIB::ifAlias.1 = STRING:     SNMPv2-SMI::enterprises.30065.3.15.1.1.1.10.1 = ""      SNMPv2-MIB::snmpTrapEnterprise.0 = OID: SNMPv2-SMI::enterprises.8072.3.2.10
+
+2023-03-13 01:05:12 localhost.localdomain [UDP: [127.0.0.1]:51324->[127.0.0.1]:162]:
+SNMPv2-MIB::sysUpTime.0 = Timeticks: (41739713) 4 days, 19:56:37.13     SNMPv2-MIB::snmpTrapOID.0 = OID: SNMPv2-SMI::mib-2.131.0.1      SNMPv2-SMI::mib-2.131.1.1.1.2.100100001 = INTEGER: 2    SNMPv2-SMI::mib-2.131.1.1.1.5.100100001 = Hex-STRING: 80         SNMPv2-SMI::mib-2.47.1.1.1.1.2.100100001 = STRING: "Ethernet1"
+
+#+END_SRC
+
+- no shut
+
+#+BEGIN_SRC 
+v174(config-if-Et1)#no shutdown
+
+#+END_SRC
+
+- no shut then log
+
+#+BEGIN_SRC 
+2023-03-13 01:06:21 localhost.localdomain [UDP: [127.0.0.1]:51324->[127.0.0.1]:162]:
+SNMPv2-MIB::sysUpTime.0 = Timeticks: (41746537) 4 days, 19:57:45.37     SNMPv2-MIB::snmpTrapOID.0 = OID: IF-MIB::linkUp IF-MIB::ifIndex.1 = INTEGER: 1  IF-MIB::ifAdminStatus.1 = INTEGER: up(1)        IF-MIB::ifOperStatus.1 = INTEGER: up(1)  IF-MIB::ifDescr.1 = STRING: Ethernet1   IF-MIB::ifAlias.1 = STRING:     SNMPv2-MIB::snmpTrapEnterprise.0 = OID: SNMPv2-SMI::enterprises.8072.3.2.10
+
+2023-03-13 01:06:24 localhost.localdomain [UDP: [127.0.0.1]:51324->[127.0.0.1]:162]:
+SNMPv2-MIB::sysUpTime.0 = Timeticks: (41746914) 4 days, 19:57:49.14     SNMPv2-MIB::snmpTrapOID.0 = OID: SNMPv2-SMI::mib-2.131.0.1      SNMPv2-SMI::mib-2.131.1.1.1.2.100100001 = INTEGER: 4    SNMPv2-SMI::mib-2.131.1.1.1.5.100100001 = Hex-STRING: 80         SNMPv2-SMI::mib-2.47.1.1.1.1.2.100100001 = STRING: "Ethernet1"
+
+#+END_SRC

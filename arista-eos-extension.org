@@ -1,0 +1,56 @@
+* links
+
+- https://arista.my.site.com/AristaCommunity/s/article/packaging-and-installing-eos-extensions
+- https://www.arista.com/en/um-eos/eos-managing-eos-extensions
+
+* say, zip file
+
+- extension directory:  /mnt/flash/.extensions
+
+* config
+
+- /mnt/flash/boot-extensions
+- rc.eos like
+
+* cli
+
+#+BEGIN_SRC 
+copy src extension:something.swix
+extension something.swix
+show extensions
+no extension something.swix
+#+END_SRC
+
+#+BEGIN_SRC 
+show installed-extensions
+copy installed-extensions boot-extensions
+show boot-extensions
+#+END_SRC
+
+* chk
+
+#+BEGIN_SRC 
+#show extensions
+Name                          Version/Release      Status      Extension
+----------------------------- -------------------- ----------- ---------
+TerminAttr-1.19.5-1.swix      v1.19.5/1            A, NI       1
+
+A: available | NA: not available | I: installed | NI: not installed | F: forced
+S: valid signature | NS: invalid signature
+The extensions are stored on internal flash (flash:)
+
+#show installed-extensions
+No extensions are installed
+
+#show boot-extensions
+TerminAttr-1.19.5-1.swix
+
+#+END_SRC
+#+BEGIN_SRC 
+$ cat boot-extensions
+TerminAttr-1.19.5-1.swix  no formatSwix
+$ cd .extensions/
+$ ls
+TerminAttr-1.19.5-1.swix
+
+#+END_SRC
