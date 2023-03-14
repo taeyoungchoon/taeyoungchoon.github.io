@@ -1,4 +1,8 @@
-* with snmp 
+* TODO with snmp
+
+- [ ] https://github.com/influxdata/telegraf/tree/master/plugins/inputs/snmp
+  - plugin 개발자가 작성한 글을 보면, 우리는 모두 한마음을 가지고 있다.
+    - join two table from the start, magic the gathering
 
 - https://www.influxdata.com/blog/telegraf-best-practices-snmp-plugi/n
 - https://www.influxdata.com/integration/snmp/
