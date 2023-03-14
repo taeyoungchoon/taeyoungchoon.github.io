@@ -139,3 +139,75 @@ https://arista.my.site.com/AristaCommunity/s/article/snmp-if-mib
 
 https://www.arista.com/assets/data/docs/MIBS/ARISTA-IF-MIB.txt
 http://www.circitor.fr/Mibs/Html/A/ARISTA-IF-MIB.php
+
+* show snmp mib table IF-MIB::ifTable
+
+#+BEGIN_SRC 
+v174#show snmp mib table IF-MIB::ifTable
+SNMP table: IF-MIB::ifTable
+
+   index ifIndex     ifDescr         ifType ifMtu    ifSpeed ifPhysAddress
+     [1]       1   Ethernet1 ethernetCsmacd  9214 4294967295  50:1:0:1:0:1
+     [2]       2   Ethernet2 ethernetCsmacd  9214 4294967295  50:1:0:1:0:2
+     [3]       3   Ethernet3 ethernetCsmacd  9214 4294967295  50:1:0:1:0:3
+     [4]       4   Ethernet4 ethernetCsmacd  9214 4294967295  50:1:0:1:0:4
+     [5]       5   Ethernet5 ethernetCsmacd  9214 4294967295  50:1:0:1:0:5
+     [6]       6   Ethernet6 ethernetCsmacd  9214 4294967295  50:1:0:1:0:6
+     [7]       7   Ethernet7 ethernetCsmacd  9214 4294967295  50:1:0:1:0:7
+     [8]       8   Ethernet8 ethernetCsmacd  9214 4294967295  50:1:0:1:0:8
+[999001]  999001 Management1 ethernetCsmacd  1500 1000000000  50:1:0:1:0:0
+
+SNMP table IF-MIB::ifTable, part 2
+
+   index ifAdminStatus ifOperStatus  ifLastChange ifInOctets ifInUcastPkts
+     [1]            up           up 4:19:57:45.38          0             0
+     [2]            up           up  0:0:01:09.27          0             0
+     [3]            up           up  0:0:01:09.27          0             0
+     [4]            up           up  0:0:01:09.27          0             0
+     [5]            up           up  0:0:01:09.27          0             0
+     [6]            up           up  0:0:01:09.27          0             0
+     [7]            up           up  0:0:01:09.27          0             0
+     [8]            up           up  0:0:01:09.27          0             0
+[999001]            up           up  0:0:00:00.00  109073863       1686740
+
+SNMP table IF-MIB::ifTable, part 3
+
+   index ifInNUcastPkts ifInDiscards ifInErrors ifInUnknownProtos ifOutOctets
+     [1]              0            0          0                 0    28310652
+     [2]              0            0          0                 0    28319019
+     [3]              0            0          0                 0    28319019
+     [4]              0            0          0                 0    28319019
+     [5]              0            0          0                 0    28319019
+     [6]              0            0          0                 0    28319019
+     [7]              0            0          0                 0    28319019
+     [8]              0            0          0                 0    28319142
+[999001]        1681771            0          0                 0     2421307
+
+SNMP table IF-MIB::ifTable, part 4
+
+   index ifOutUcastPkts ifOutNUcastPkts ifOutDiscards ifOutErrors ifOutQLen
+     [1]              0          225328             0           0         0
+     [2]              0          225395             0           0         0
+     [3]              0          225395             0           0         0
+     [4]              0          225395             0           0         0
+     [5]              0          225395             0           0         0
+     [6]              0          225395             0           0         0
+     [7]              0          225395             0           0         0
+     [8]              0          225396             0           0         0
+[999001]          15635           14187             0           0         0
+
+SNMP table IF-MIB::ifTable, part 5
+
+   index          ifSpecific
+     [1] EtherLike-MIB::dot3
+     [2] EtherLike-MIB::dot3
+     [3] EtherLike-MIB::dot3
+     [4] EtherLike-MIB::dot3
+     [5] EtherLike-MIB::dot3
+     [6] EtherLike-MIB::dot3
+     [7] EtherLike-MIB::dot3
+     [8] EtherLike-MIB::dot3
+[999001] EtherLike-MIB::dot3
+v174#
+
+#+END_SRC
