@@ -32,3 +32,20 @@
 * TODO issue tracker, this one
 
 - and docker or the other
+
+* issue/ticket flow
+
+1. open
+2. assigned
+3. resolved
+   - reopened
+     - assigned
+4. closed
+   - reopened
+     - assigned
+
+* backup
+
+* alternatives
+
+

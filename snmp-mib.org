@@ -110,3 +110,121 @@ arista1#sh snmp mib translate entPhySensorValue
 .1.3.6.1.2.1.99.1.1.1.4
 
 #+END_SRC
+
+* timetick and uptime
+
+- seconds * 100 issue
+- to ~497 days
+- https://arista.my.site.com/AristaCommunity/s/article/Monitoring-System-Uptime-via-SNMP
+  - This article provides a way to set up a custom OID with datatype as a 64-bit unsigned integer (Counter64) to use for system uptime. Counter64 will give us ~5.8 billion years before showing a garbled value.
+- SNMPv2-MIB::sysUpTime (.1.3.6.1.2.1.1.3.0)
+- RFC3418 defines SNMPv2-MIB::sysUpTime (.1.3.6.1.2.1.1.3.0)
+- https://www.circitor.fr/Mibs/Html/D/DISMAN-EVENT-MIB.php#sysUpTimeInstance
+
+#+BEGIN_SRC 
+arista1#show snmp mib get SNMPv2-MIB::sysUpTime.0
+DISMAN-EVENT-MIB::sysUpTimeInstance = Timeticks: (8842543) 1 day, 0:33:45.43
+
+#+END_SRC
+
+#+BEGIN_SRC 
+arista1#show snmp mib translate DISMAN-EVENT-MIB::sysUpTimeInstance
+.1.3.6.1.2.1.1.3.0
+
+#+END_SRC
+
+- https://kb.paessler.com/en/topic/61249-why-does-the-snmp-system-uptime-sensor-report-wrong-values
+  - Wrong uptime values because of 32-bit counters
+
+** uptime called sysUpTime
+
+https://datatracker.ietf.org/doc/html/rfc3418
+
+#+BEGIN_SRC 
+ 102:           sysUpTime OBJECT-TYPE
+ 103:               SYNTAX  TimeTicks
+ 104:               ACCESS  read-only
+ 105:               STATUS  mandatory
+ 106:               DESCRIPTION
+ 107:                       "The time (in hundredths of a second) since the
+ 108:                       network management portion of the system was last
+ 109:                       re-initialized."
+ 110:               ::= { system 3 }
+#+END_SRC
+
+** timetick
+
+https://datatracker.ietf.org/doc/html/rfc2578
+
+#+BEGIN_SRC 
+7.1.8.  TimeTicks
+
+   The TimeTicks type represents a non-negative integer which represents
+   the time, modulo 2^32 (4294967296 decimal), in hundredths of a second
+   between two epochs.  When objects are defined which use this ASN.1
+   type, the description of the object identifies both of the reference
+   epochs.
+
+   For example, [3] defines the TimeStamp textual convention which is
+   based on the TimeTicks type.  With a TimeStamp, the first reference
+   epoch is defined as the time when sysUpTime [5] was zero, and the
+   second reference epoch is defined as the current value of sysUpTime.
+
+   The TimeTicks type may not be sub-typed.
+
+#+END_SRC
+
+#+BEGIN_SRC 
+        ObjectSyntax       DEFVAL clause
+        ----------------   ------------
+        Integer32          DEFVAL { 1 }
+                           -- same for Gauge32, TimeTicks, Unsigned32
+#+END_SRC
+
+** integer32
+
+#+BEGIN_SRC 
+7.1.1.  Integer32 and INTEGER
+
+   The Integer32 type represents integer-valued information between
+   -2^31 and 2^31-1 inclusive (-2147483648 to 2147483647 decimal).  This
+   type is indistinguishable from the INTEGER type.  Both the INTEGER
+   and Integer32 types may be sub-typed to be more constrained than the
+   Integer32 type.
+
+   The INTEGER type (but not the Integer32 type) may also be used to
+   represent integer-valued information as named-number enumerations.
+   In this case, only those named-numbers so enumerated may be present
+   as a value.  Note that although it is recommended that enumerated
+   values start at 1 and be numbered contiguously, any valid value for
+   Integer32 is allowed for an enumerated value and, further, enumerated
+   values needn't be contiguously assigned.
+
+   Finally, a label for a named-number enumeration must consist of one
+   or more letters or digits, up to a maximum of 64 characters, and the
+   initial character must be a lower-case letter.  (However, labels
+   longer than 32 characters are not recommended.)  Note that hyphens
+   are not allowed by this specification (except for use by information
+   modules converted from SMIv1 which did allow hyphens).
+
+#+END_SRC
+
+** counter64
+
+https://datatracker.ietf.org/doc/html/rfc2856
+
+#+BEGIN_SRC 
+-- for counters that wrap in less than one hour with only 32 bits
+Counter64 ::=
+    [APPLICATION 6]
+        IMPLICIT INTEGER (0..18446744073709551615)
+
+#+END_SRC
+
+** sysUpTime vs hrSystemUptime
+
+https://kb.paessler.com/en/topic/61249-why-does-the-snmp-system-uptime-sensor-report-wrong-values
+
+This is per the requirements of the sysUpTime (as found in e.g. RFC 1213), which are that it reflects the uptime of the SNMP Agent, not that of the managed entity itself.
+
+In contrast, hrSystemUptime is supposed to reflect the actual system uptime.

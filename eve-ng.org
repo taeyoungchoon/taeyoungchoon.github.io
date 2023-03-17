@@ -39,3 +39,48 @@ rm -rf abc
 - no way out
 - chmod +x
   - why?
+
+* TODO network but network with ping and more
+
+#+BEGIN_SRC 
+ip nei | grep 17 | sort
+
+192.168.25.170 dev eth0 lladdr 50:00:00:01:00:00 REACHABLE
+192.168.25.171 dev eth0 lladdr 50:00:00:02:00:00 REACHABLE
+
+192.168.25.174 dev eth0 lladdr 50:01:00:01:00:00 STALE
+192.168.25.175 dev eth0 FAILED
+
+192.168.25.174 dev eth0 FAILED
+192.168.25.175 dev eth0 lladdr 50:01:00:02:00:00 REACHABLE
+
+192.168.25.174 dev eth0 lladdr 50:01:00:01:00:00 REACHABLE
+192.168.25.175 dev eth0 lladdr 50:01:00:02:00:00 REACHABLE
+
+192.168.25.174 dev eth0 FAILED
+192.168.25.175 dev eth0 lladdr 50:01:00:02:00:00 PROBE
+
+#+END_SRC
+
+* ts
+
+** arping, work
+
+#+BEGIN_SRC 
+arping 192.168.25.174
+
+#+END_SRC
+
+** static arp, not working
+
+#+BEGIN_SRC 
+sudo arp -s 10.0.0.2 00:0c:29:c0:94:bf
+sudo arp -s 192.168.25.174 50:01:00:01:00:00
+#+END_SRC
+
+** nmap on windows, work
+
+#+BEGIN_SRC 
+while true; do nmap -sP -PR 192.168.25.174; sleep 0.3; done
+
+#+END_SRC
