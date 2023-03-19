@@ -7,4 +7,10 @@ data = generate.from(
     stop: 2021-01-02T00:00:00Z,
 )
 
-data |> duplicate(column: "_value", as: "vv") |> pivot(rowKey: ["_time"], columnKey: ["vv"], valueColumn: "_value")
+data 
+    |> duplicate(column: "_value", as: "vv") 
+    |> pivot(rowKey: ["_time"], columnKey: ["vv"], valueColumn: "_value")
+
+
+
+
