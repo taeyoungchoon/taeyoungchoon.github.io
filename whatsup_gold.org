@@ -1,0 +1,5 @@
+* whatsup gold 2022 setup
+
+- progress whatup gold, progress
+- standard installation
+  - install whatsup gold using default settings with a dedicated instance of SQL Server Express as well as Elasticsearch, if your license include Log Management.

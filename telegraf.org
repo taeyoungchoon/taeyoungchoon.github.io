@@ -12,3 +12,118 @@
 * and trap
 
 - https://github.com/influxdata/telegraf/blob/master/plugins/inputs/snmp_trap/README.md
+
+* DONE telegraf with syslog
+
+- [2023-03-21 화] make it so
+
+** TODO flow
+
+*** TODO think about it
+
+- [ ] it doesn't work
+
+#+BEGIN_SRC 
+network_device -> telegraf:514
+
+#+END_SRC
+
+*** DONE later on
+
+#+BEGIN_SRC 
+network_device -> rsyslog:514 -> telegraf:6514
+
+#+END_SRC
+
+** DONE network device
+
+*** configure to log to syslog daemon
+
+#+BEGIN_SRC 
+logging console notifications
+logging host 192.168.25.190
+logging source-interface Management1
+
+#+END_SRC
+
+*** test
+
+#+BEGIN_SRC 
+send log level alert message then again just sent make
+
+#+END_SRC
+
+** DONE rsyslog, as a syslog daemon and proxy(pass through)
+
+*** DONE configure to receive syslog, called syslog daemon
+
+- https://www.xmodulo.com/configure-syslog-server-linux.html
+
+#+BEGIN_SRC 
+module(load="imudp") # needs to be done just once
+input(type="imudp" port="514")
+
+#+END_SRC
+
+*** DONE log forward to 127.0.0.1:6514(telegraf)
+
+- cat 50-telegraf.conf
+
+#+BEGIN_SRC 
+$ActionQueueType LinkedList # use asynchronous processing
+$ActionQueueFileName srvrfwd # set file name, also enables disk mode
+$ActionResumeRetryCount -1 # infinite retries on insert failure
+$ActionQueueSaveOnShutdown on # save in-memory data if rsyslog shuts down
+
+# forward over tcp with octet framing according to RFC 5425
+*.* @@(o)127.0.0.1:6514;RSYSLOG_SyslogProtocol23Format
+
+# uncomment to use udp according to RFC 5424
+#*.* @127.0.0.1:6514;RSYSLOG_SyslogProtocol23Format
+
+#+END_SRC
+
+*** DONE test
+
+#+BEGIN_SRC 
+logger -n 127.0.0.1 -P 6514 jack
+
+#+END_SRC
+
+** DONE query from influx
+
+*** DONE build query
+
+#+BEGIN_SRC 
+from(bucket: "x_bucket")
+  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
+  |> filter(fn: (r) => r["_measurement"] == "syslog")
+  |> filter(fn: (r) => r._field == "message")
+  |> aggregateWindow(every: v.windowPeriod, fn: last, createEmpty: false)
+  |> group()
+
+#+END_SRC
+
+#+BEGIN_SRC 
+from(bucket: "ylit_bucket")
+  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
+  |> filter(fn: (r) => r["_measurement"] == "syslog")
+  |> filter(fn: (r) => r._field == "message")
+  |> filter(fn: (r) => r.hostname !~ /localdomain/)
+  |> group()
+  |> drop(columns: ["_field","_measurement","appname","host","source"])
+
+#+END_SRC
+
+*** DONE query result
+
+#+BEGIN_SRC 
+#group,false,false,true,true,false,false,false,false,false
+#datatype,string,long,dateTime:RFC3339,dateTime:RFC3339,dateTime:RFC3339,string,string,string,string
+#default,_result,,,,,,,,
+,result,table,_start,_stop,_time,_value,facility,hostname,severity
+,,0,2023-03-21T06:39:14.117197103Z,2023-03-21T07:39:14.117197103Z,2023-03-21T07:12:28.627991318Z,test,user,example.org,notice
+,,0,2023-03-21T06:39:14.117197103Z,2023-03-21T07:39:14.117197103Z,2023-03-21T07:15:14.727405834Z,test2,user,example.org,notice
+
+
+#+END_SRC
