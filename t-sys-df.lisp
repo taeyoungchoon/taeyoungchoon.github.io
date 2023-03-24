@@ -1,4 +1,4 @@
-(with-open-stream (st (run-program "df" :arguments (list "-h") :output :stream))
+(with-open-stream (st (run-program "df" :arguments (list "-Pk") :output :stream))
   (loop
      (let ((line (read-line st nil)))
        (if line
