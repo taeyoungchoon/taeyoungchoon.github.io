@@ -13,29 +13,69 @@
 
 - https://github.com/influxdata/telegraf/blob/master/plugins/inputs/snmp_trap/README.md
 
-* DONE telegraf with syslog
+* TODO telegraf with syslog sensor on network device
 
-- [2023-03-21 화] make it so
+- [2023-03-21 화] in progress
+- [2023-03-23 목] wait until reorg the platform(operating system)
 
-** TODO flow
+** TODO concept
 
-*** TODO think about it
+*** DONE initial, fail to work
 
-- [ ] it doesn't work
+- it doesn't work
 
 #+BEGIN_SRC 
 network_device -> telegraf:514
 
 #+END_SRC
 
-*** DONE later on
+*** TODO developed
 
 #+BEGIN_SRC 
 network_device -> rsyslog:514 -> telegraf:6514
 
 #+END_SRC
 
-** DONE network device
+** DONE network device, to send log(syslog) to remote server
+
+*** send using cli from network device
+
+#+BEGIN_SRC 
+arsiat4-Telemety#send log level alert message hi
+arsiat4-Telemety
+
+#+END_SRC
+
+*** receive using tcpdump from server
+
+#+BEGIN_SRC 
+[root@rocky8 log]# !1859
+tcpdump -vv  port 514
+dropped privs to tcpdump
+tcpdump: listening on eth0, link-type EN10MB (Ethernet), capture size 262144 bytes
+Mar 23 02:09:52 rocky8.localdomain kernel: device eth0 entered promiscuous mode
+Mar 23 02:09:52 rocky8 kernel: device eth0 entered promiscuous mode
+02:09:55.635855 IP (tos 0x0, ttl 64, id 21627, offset 0, flags [none], proto UDP (17), length 147)
+    192.168.25.179.32022 > rocky8.localdomain.syslog: [udp sum ok] SYSLOG, length: 119
+        Facility local4 (20), Severity alert (1)
+        Msg: Mar 23 11:09:54 arsiat4-Telemety ConfigAgent: %SYS-1-LOGMSG_ALERT: Message from admin on vty3 (192.168.2
+5.101): hi
+        0x0000:  3c31 3631 3e4d 6172 2032 3320 3131 3a30
+        0x0010:  393a 3534 2061 7273 6961 7434 2d54 656c
+        0x0020:  656d 6574 7920 436f 6e66 6967 4167 656e
+        0x0030:  743a 2025 5359 532d 312d 4c4f 474d 5347
+        0x0040:  5f41 4c45 5254 3a20 4d65 7373 6167 6520
+        0x0050:  6672 6f6d 2061 646d 696e 206f 6e20 7674
+        0x0060:  7933 2028 3139 322e 3136 382e 3235 2e31
+        0x0070:  3031 293a 2068 69
+^C
+1 packet captured
+1 packet received by filter
+0 packets dropped by kernel
+[root@rocky8 log]# 
+#+END_SRC
+
+** TODO network device, to send log(syslog) to remote syslog daemon
 
 *** configure to log to syslog daemon
 
@@ -83,7 +123,7 @@ $ActionQueueSaveOnShutdown on # save in-memory data if rsyslog shuts down
 
 #+END_SRC
 
-*** DONE test
+*** DONE test howto
 
 #+BEGIN_SRC 
 logger -n 127.0.0.1 -P 6514 jack
@@ -94,6 +134,8 @@ logger -n 127.0.0.1 -P 6514 jack
 
 *** DONE build query
 
+**** working code
+
 #+BEGIN_SRC 
 from(bucket: "x_bucket")
   |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
@@ -103,6 +145,8 @@ from(bucket: "x_bucket")
   |> group()
 
 #+END_SRC
+
+**** enhanced
 
 #+BEGIN_SRC 
 from(bucket: "ylit_bucket")
@@ -125,5 +169,16 @@ from(bucket: "ylit_bucket")
 ,,0,2023-03-21T06:39:14.117197103Z,2023-03-21T07:39:14.117197103Z,2023-03-21T07:12:28.627991318Z,test,user,example.org,notice
 ,,0,2023-03-21T06:39:14.117197103Z,2023-03-21T07:39:14.117197103Z,2023-03-21T07:15:14.727405834Z,test2,user,example.org,notice
 
-
 #+END_SRC
+
+** DONE note
+
+- directly
+- telegraf agent on network device(arista)
+- syslog sensor on server
+  - server -> telegraf at server -> influx
+- [ ] rfc3164(bsd syslog protocol)
+- [ ] rfc5424(syslog protocol), default
+- rfc5425
+- tls
+- show logging

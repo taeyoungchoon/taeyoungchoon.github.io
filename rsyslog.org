@@ -9,28 +9,28 @@
  cat /etc/rsyslog.conf | awk '/ModLoad imjournal|IMJournalStateFile|OmitLocalLogging/'
 
 #+BEGIN_SRC bash
-    function check_rsyslog_config () 
-    {
+  function check_rsyslog_config () 
+  {
 
-	cat /etc/rsyslog.conf | grep -q '^$ModLoad imjournal'  && module=1  || module=0
-	cat /etc/rsyslog.conf | grep -q '^$IMJournalStateFile' && state=1   || state=0
-	cat /etc/rsyslog.conf | grep -q 'OmitLocalLogging on'  && locally=0 || locally=1
+      cat /etc/rsyslog.conf | grep -q '^$ModLoad imjournal'  && module=1  || module=0
+      cat /etc/rsyslog.conf | grep -q '^$IMJournalStateFile' && state=1   || state=0
+      cat /etc/rsyslog.conf | grep -q 'OmitLocalLogging on'  && locally=0 || locally=1
 
-	printf "module: $module state: $state locally=$locally\n"
+      printf "module: $module state: $state locally=$locally\n"
 
-	if (( module == 1 && state == 1 && locally == 0 ))
-	then
-	    echo log to journal then rsyslog
-	elif (( module == 0 && state == 0 && locally == 0 ))
-	then
-	    echo log to journal only
-	elif (( module == 0 && state == 0 && locally == 1 ))
-	then
-	    echo log to journal and rsyslog
-	else
-	    echo can not define status of logging systems
-	fi
-    }
+      if (( module == 1 && state == 1 && locally == 0 ))
+      then
+	  echo log to journal then rsyslog
+      elif (( module == 0 && state == 0 && locally == 0 ))
+      then
+	  echo log to journal only
+      elif (( module == 0 && state == 0 && locally == 1 ))
+      then
+	  echo log to journal and rsyslog
+      else
+	  echo can not define status of logging systems
+      fi
+  }
 
 #+END_SRC
 
@@ -210,4 +210,56 @@ logcfg
   done
 
   shift $(($OPTIND - 1))
+#+END_SRC
+* TODO rsyslog for remote logging
+
+- [2023-03-23 목] in progress
+
+#+BEGIN_SRC 
+? cat /etc/redhat-release
+Rocky Linux release 8.7 (Green Obsidian)
+? cat /etc/rocky-release
+Rocky Linux release 8.7 (Green Obsidian)
+? rpm -q rsyslog
+rsyslog-8.2102.0-10.el8.x86_64
+? cat /etc/sysconfig/rsyslog | grep -i deprecated
+# Syslogd options are deprecated since rsyslog v3.
+?
+#+END_SRC
+
+- https://itnixpro.com/configure-syslog-server-on-rocky-linux-8/
+- https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/assembly_configuring-a-remote-logging-solution_configuring-basic-system-settings
+
+#+BEGIN_SRC 
+? rsyslogd -N 1
+rsyslogd: version 8.2102.0-10.el8, config validation run (level 1), master config /etc/rsyslog.conf
+rsyslogd: End of config validation run. Bye.
+?
+? ss -4lntpu  | grep 514
+?
+#+END_SRC
+
+#+BEGIN_SRC 
+? cat /etc/rsyslog.d/10-remote-logging.conf
+module(load="imudp")
+input(type="imudp" port="514")
+
+$template remote-incoming-logs, "/var/log/remote/%HOSTNAME%".log
+*.* ?remote-incoming-logs
+?
+? systemctl restart rsyslog
+?
+? ss -4lntpu  | grep 514
+udp   UNCONN 0      0            0.0.0.0:514       0.0.0.0:*    users:(("rsyslogd",pid=200134,fd=4))
+tcp   LISTEN 0      25           0.0.0.0:514       0.0.0.0:*    users:(("rsyslogd",pid=200134,fd=6))
+?
+#+END_SRC
+
+* TODO debugging
+
+https://www.rsyslog.com/doc/master/troubleshooting/howtodebug.html
+
+#+BEGIN_SRC 
+$DebugFile /var/log/rsyslog.debug
+$DebugLevel 2
 #+END_SRC

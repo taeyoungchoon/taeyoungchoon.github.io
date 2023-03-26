@@ -20,3 +20,17 @@ Cli -c 'show port-channel summary' | grep Po[0-9]
 Cli -c 'show ip route ospf' | grep -n "[0-9].[0-9]" | cat -n
 Cli -c 'show ip route'| grep "[0-9].[0-9]" | cat -n
 Cli -c 'show interface port-channel 1-2' | grep "  Full-duplex"
+
+* TODO syslog
+
+#+BEGIN_SRC 
+logging console notifications
+logging host 192.168.25.190
+logging source-interface Management1
+
+#+END_SRC
+
+#+BEGIN_SRC 
+send log level alert message hi
+
+#+END_SRC
