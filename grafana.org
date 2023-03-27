@@ -25,3 +25,32 @@ https://grafana.com/docs/grafana/latest/dashboards/build-dashboards/best-practic
 - export link for dashboard
 
 * what about with api
+
+* DONE export dashboard 
+
+- share > export > save to file
+
+* DONE [2/2] extract query from exported dashboard file
+
+** DONE on emacs
+
+*** using query-replace
+
+- M-x query-replace RET \r\n RET C-q C-j
+- M-x query-replace RET \" RET "
+
+*** using query-replace-regexp
+
+- M-x query-replace-regexp RET \\r\\n RET C-q C-j
+- M-x query-replace-regexp RET \\" RET "
+
+*** note
+
+- C-q for quoted-insert
+- C-j is a newline
+
+** DONE with sed
+
+#+BEGIN_SRC 
+sed -e 's/\\r\\n/\n/g' -e 's/\\"/"/g' 
+#+END_SRC
