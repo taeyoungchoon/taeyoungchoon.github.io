@@ -41,4 +41,7 @@ username john secret x245
 enable password xyrt1
 #+END_SRC
 
+* TODO enable scp
+
+aaa authorization exec default local
 

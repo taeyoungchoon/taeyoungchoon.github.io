@@ -1,0 +1,27 @@
+? cat /etc/redhat-release
+Red Hat Enterprise Linux release 9.1 (Plow)
+? cat /etc/os-release | egrep ^(ID|VERSION_ID)"
+ID="rhel"
+ID_LIKE="fedora"
+VERSION_ID="9.1"
+
+? cat /etc/redhat-release
+Rocky Linux release 8.7 (Green Obsidian)
+? cat /etc/rocky-release
+Rocky Linux release 8.7 (Green Obsidian)
+? cat /etc/os-release | egrep "^(ID|VERSION_ID)"
+ID="rocky"
+ID_LIKE="rhel centos fedora"
+VERSION_ID="8.7"
+
+? cat /etc/debian_version
+bullseye/sid
+? cat /etc/os-release | grep "^(ID|VERSION_ID)"
+ID=ubuntu
+ID_LIKE=debian
+VERSION_ID="20.04"
+
+? cat /etc/redhat-release
+CentOS Linux release 7.9.2009 (AltArch)
+? cat /etc/centos-release
+Arista Networks EOS 4.27.5M
