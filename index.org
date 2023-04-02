@@ -58,11 +58,32 @@
 책은 책은 말이다
 #+END_SRC
 
-- 사피엔스에서 (사실 아직 보는 중이다) 다시 논어로
-- 우주만화
+- [X] 우주만화
+- [X] 삼국지 조조전
+- [ ] 사피엔스에서 (사실 아직 보는 중이다) 다시 논어로
+  - 시작은 있고, 그 끝은 알 수 없다.
+  - 삼국지 조조전에서 풀어낸 논어 그리고 그 이외의 전장에서
+- [ ] 신비의 섬
+  - 1권이다. 참 교육적인다. 목적에 부합한다.
 
 * I love you, lang
+
+- 한글, 한국어, 문장, 문서, 시
+- 영어
+- 중국어, 한자
+- 라틴어
+- 러시아어
+- 이탈리아어
+- 독일어
+- 불어
+- c, c++, rust, go, perl, ruby, python, awk, sed, ed, javascript, typescript
+  - 그 차이는, 언어와 언어의 차이는 어디서 오는가?
+
 * t-mac.do
+
+어떠한 용도로 또는 어떠한 목적을 가지고 작성하는가, 작성 되었는가. 맥이라. mac os x인지. apple mac 인지. mac address인지. 잠시 다시 보니 mac address로 보인다.
+
+** range
 
 - win : https://goo.gl/ncEN2q 
 - aix : https://goo.gl/2jLHzm
