@@ -1,7 +1,8 @@
- cli
+* cli
 
-snmpget -v 1 -c public x.x.x.x sysUpTime.0
-snmpwalk -v 1 -c public x.x.x.x
+- snmpget  -v 1 -c public x.x.x.x sysUpTime.0
+- snmpwalk -v 1 -c public x.x.x.x
+- [X] snmpget  -v 2c -c public juniper1.t.com sysName.0
 
 * trap
 
@@ -27,3 +28,17 @@ snmpwalk -v 1 -c public x.x.x.x
   mib views
 
 - https://www.dnsstuff.com/snmp-monitoring-tools
+
+* DONE snmp on wsl env
+
+#+BEGIN_SRC 
+sudo apt install snmp-mibs-downloader
+ls -lR /var/lib/snmp/mibs/ | wc -l
+
+#+END_SRC
+
+#+BEGIN_SRC 
+cat /etc/snmp/snmp.conf | grep 'mibs :'
+#mibs :
+
+#+END_SRC

@@ -1,6 +1,16 @@
 #+SETUPFILE: theme-readtheorg.setup
 #+OPTIONS: html-postamble:nil
 
+* be
+
+- book
+- (lisp emacs linux)
+- ((eros logos) (ds alg))
+- walk work
+- body < Fe(Ferrum)
+- moleskine, franklin planner
+- imdb trailers.apple.com kyobo
+
 * re-init
 
 - C-c C-e h o

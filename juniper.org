@@ -27,3 +27,24 @@ https://www.juniper.net/kr/kr/contact-us/
   - screenos EOL, ScreenOS, 6.2.0, 6.2.0r18 Rev 2 / 10-18-13
 - NetScreen Series
   - 5, 25, 50, 200, 500, 5000
+
+* cli
+
+#+BEGIN_SRC 
+configure
+set system host-name juniper1
+show | compare
+commit check
+commit
+
+#+END_SRC
+
+#+BEGIN_SRC 
+rolleback
+commit comfirmed
+#+END_SRC
+
+#+BEGIN_SRC 
+set snmp community public authorization read-only
+show snmp mib get sysName.0
+#+END_SRC
