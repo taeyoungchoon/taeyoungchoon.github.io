@@ -1,20 +1,23 @@
 * TODO Cherry G80-3000S TKL
 
-1. disable Functional Fn key using Ctrl + Fn
+1. Fn + F9 : windows lock
+2. disable Functional Fn key using Ctrl + Fn
    - https://gall.dcinside.com/mgallery/board/view/?id=mechanicalkeyboard&no=775181
    - C-Fn 이걸로 충분하다
-2. Win not working, so now work with autohotkey
+3. Win not working, so now work with autohotkey
    - LAlt::LWin
    - 이런 emacs에 meta키로 사용하는 군요.
      - ESC를 누르면 되지 뭐, 하하
    - 스위치 교체 가능이라는 것이 다나와의 상품 상세정보의 부가기능에 표시되어 있다
-3. 수리는 피씨디렉트에서, 서울 고객지원센터
+4. 수리는 피씨디렉트에서, 서울 고객지원센터
    - 1588-3877
    - 10a to 5p
      - 12p to 1p 이건 점심
    - 서울시 용산구 청파로 74, 전자랜드 신관 5층 501호
    - 2021년 10월 11일에 베스트와이에서 주문하신 상품이
    - [2022-05-17 화 10:08] call, receive sms msg
+5. software
+   - https://www.cherry-world.com/service/software/utility
 
 * now, [2020-05-16 Sat]
 

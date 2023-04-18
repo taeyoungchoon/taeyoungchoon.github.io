@@ -24,3 +24,20 @@ egrep '>|#' | grep -v snmp  | grep -v 'C-' | grep -v '<>' | grep -v desc | grep 
 # cut -d'>' -d'#' -f 1 | uniq | cat -n
 cut -d'>' -f 1 | uniq | cat -n
 #+END_SRC
+
+* DONE enable routing from cisco 2960s
+
+#+BEGIN_SRC 
+configure terminal
+sdm prefer lanbase-routing
+reload now
+#+END_SRC
+
+#+BEGIN_SRC 
+ip routing
+ip route 9.9.9.0 255.255.255.0 Null0
+#+END_SRC
+
+#+BEGIN_SRC 
+show ip route
+#+END_SRC
