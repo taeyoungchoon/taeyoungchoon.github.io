@@ -1,0 +1,7 @@
+* alternative called perf trace
+
+#+BEGIN_SRC 
+perf trace ls
+perf trace -p PID
+#+END_SRC
+

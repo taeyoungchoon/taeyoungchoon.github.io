@@ -1,0 +1,6 @@
+* i love this on windows
+* and linux?
+
+- https://github.com/Sysinternals/ProcMon-for-Linux
+- and using ebpf
+
