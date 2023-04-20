@@ -48,3 +48,17 @@ commit comfirmed
 set snmp community public authorization read-only
 show snmp mib get sysName.0
 #+END_SRC
+
+#+BEGIN_SRC 
+start shell
+#+END_SRC
+
+#+BEGIN_SRC 
+show system storage | except md | except jail | except procfs | except devfs
+
+Filesystem              Size       Used      Avail  Capacity   Mounted on
+/dev/da0s1a             183M       112M        57M       66%  /
+/dev/da0s3e             123M       6.9M       106M        6%  /var
+/dev/da0s3d             369M       188K       339M        0%  /var/tmp
+/dev/da0s4d              62M       164K        57M        0%  /config
+#+END_SRC

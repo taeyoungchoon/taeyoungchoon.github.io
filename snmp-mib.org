@@ -228,3 +228,20 @@ https://kb.paessler.com/en/topic/61249-why-does-the-snmp-system-uptime-sensor-re
 This is per the requirements of the sysUpTime (as found in e.g. RFC 1213), which are that it reflects the uptime of the SNMP Agent, not that of the managed entity itself.
 
 In contrast, hrSystemUptime is supposed to reflect the actual system uptime.
+
+* DONE snmptranslate with custom mibs
+
+- https://net-snmp.sourceforge.io/wiki/index.php/TUT:Using_and_loading_MIBS
+
+#+BEGIN_SRC 
+[root@localhost mibs]# cat /etc/snmp/snmp.conf
+mibs +ALL
+
+[root@localhost mibs]# snmptranslate 1.3.6.1.4.1.9.9.48
+CISCO-MEMORY-POOL-MIB::ciscoMemoryPoolMIB
+
+[root@localhost mibs]# ls -al /usr/share/snmp/mibs/CISCO-MEMORY-POOL-MIB.txt
+-rw-r--r-- 1 root root 16687 Apr 20 15:28 /usr/share/snmp/mibs/CISCO-MEMORY-POOL-MIB.txt
+[root@localhost mibs]#
+
+#+END_SRC
