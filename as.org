@@ -1,0 +1,20 @@
+* in network, 
+* refer
+
+- http://krnic.or.kr
+- https://www.myip.com/
+- https://www.ripe.net/manage-ips-and-asns/as-numbers/request-an-as-number
+- https://bgp.he.net/AS17858#_asinfo
+
+* guide
+
+- [ ] https://www.catchpoint.com/network-admin-guide/ip-transit
+- [ ] https://www.ipxo.com/blog/what-is-ip-transit/
+
+* word
+
+- [ ] IP Transit
+
+* dig in
+
+- gg: AS BGP routing  policy isp

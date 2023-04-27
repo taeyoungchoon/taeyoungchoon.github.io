@@ -1,0 +1,36 @@
+* octet is the 8bit
+
+#+BEGIN_SRC 
+  |> filter(fn: (r) => r["_field"] == "in_octets")
+  |> difference(nonNegative: true, columns: ["_value"])
+  |> map(fn: (r) => ({ r with _value: int(v: r._value) * 8 / 10 / 1024 / 1024 }))
+#+END_SRC
+
+* refer
+
+https://m.convert-me.com/en/convert/computer/byte/byte-to-mebibyte.html
+Convert Byte (octet) to Megabyte [mebibyte] (Mb [MiB])
+
+* think
+
+in_octets is bytes
+octet is byte
+1 octet is 1 byte
+
+https://www.baeldung.com/cs/octet-strings
+Octets is an 8-bit integer.
+
+https://www.convert-me.com/en/convert/computer/byte.html?u=byte&v=1
+1 byte(octet) to bit 8
+x * 8 / 1024 to be kilobit
+
+1024 octet to kibi-bit
+kilo-bit
+
+https://www.calculand.com/unit-converter/?gruppe=Bit+rate&einheit=Octet+per+second+%5Bo%2Fs%5D
+octets/sec is same with byte/sec
+
+in_octets is the the bytes/sec 
+then by 8 to get bits
+but divide by 1024 to get from bits to kilobits
+but divide by 1024 to get to megabits

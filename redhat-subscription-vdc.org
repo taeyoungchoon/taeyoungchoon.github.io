@@ -1,0 +1,13 @@
+* vdc
+
+- https://www.redhat.com/en/store/red-hat-enterprise-linux-virtual-datacenters
+- red hat enterprise linux for virtual datacenters
+- allow, unlimited guests
+
+* with, without red hat satellite
+
+- https://access.redhat.com/solutions/2391313
+  - virt-who
+- https://access.redhat.com/articles/6463781
+- https://access.redhat.com/solutions/65300
+  - How to access Red Hat Subscription Manager (RHSM) through a firewall or proxy 

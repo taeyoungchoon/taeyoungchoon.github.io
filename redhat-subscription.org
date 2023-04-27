@@ -1,0 +1,6 @@
+* TODO offline and online but offline
+
+https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=1192222&logNo=221519854216
+https://access.redhat.com/solutions/253273
+
+About > Subscription : System Not Registered

@@ -1,0 +1,6 @@
+* with excel
+
+- C3-B3+1
+- SUMIF(E3:E22,"연차",D3:D22)
+- SUM(D3:D7)
+- INT(RIGHT(CELL("filename",A1), LEN(CELL("filename",A1)) - SEARCH("]", CELL("filename",A1)))) - INT(YEAR($B$25)) + 13
