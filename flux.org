@@ -1,0 +1,67 @@
+* env 
+
+- influxdb: data explorer
+- vscode with Flux language extension
+
+* req
+
+- 24h per 30m
+
+* DONE cpu
+
+#+BEGIN_SRC 
+from(bucket: "bucket")
+  |> range(start: -24h)
+  |> filter(fn: (r) => r["_measurement"] == "cpu")
+  |> filter(fn: (r) => r["cpu"] == "cpu-total")
+  |> filter(fn: (r) => r["_field"] == "usage_system" or r["_field"] == "usage_user")
+  |> aggregateWindow(every: 30m, fn: mean, createEmpty: false)
+  |> pivot(rowKey: ["_time"], columnKey: ["_field"], valueColumn: "_value")
+  |> map(fn: (r) => ({ r with _value: r.usage_system + r.usage_user }))
+  |> keep(columns: ["_time","host","_value"])
+#+END_SRC
+
+* DONE mem
+
+#+BEGIN_SRC 
+from(bucket: "bucket")
+  |> range(start: -24h)
+  |> filter(fn: (r) => r["_measurement"] == "mem")
+  |> filter(fn: (r) => r["_field"] == "used_percent")
+  |> aggregateWindow(every: 30m, fn: mean, createEmpty: false)
+  |> keep(columns: ["_time","host","_value"])
+#+END_SRC
+
+* DONE dsk
+
+#+BEGIN_SRC 
+from(bucket: "bucket")
+  |> range(start: -24h)
+  |> filter(fn: (r) => r["_measurement"] == "disk")
+  |> filter(fn: (r) => r["_field"] == "used_percent")
+  |> aggregateWindow(every: 30m, fn: mean, createEmpty: false)
+  |> keep(columns: ["_time","host","path","_value"])
+#+END_SRC
+
+* TODO net
+
+** telegraf
+
+#+BEGIN_SRC 
+[[inputs.net]]
+
+#+END_SRC
+
+** flux 
+
+#+BEGIN_SRC 
+from(bucket: "bucket")
+  |> range(start: -24m)
+  |> filter(fn: (r) => r["_measurement"] == "net")
+  |> filter(fn: (r) => r["_field"] == "bytes_recv" or r["_field"] == "bytes_sent")
+  |> aggregateWindow(every: 30m, fn: mean, createEmpty: false)
+  |> keep(columns: ["_time","host","interface", "_field", "_value"])
+
+#+END_SRC
+
+* TODO syslog
