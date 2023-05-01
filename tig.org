@@ -1,0 +1,280 @@
+* DONE cpu history
+CLOSED: [2023-05-01 Mon 21:42]
+
+** flux
+
+from(bucket: "b")
+  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
+  |> filter(fn: (r) => r["_measurement"] == "cpu")
+  |> filter(fn: (r) => r["_field"] == "usage_system" or r["_field"] == "usage_user")
+  |> filter(fn: (r) => r["cpu"] == "cpu-total")
+  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)
+  |> yield(name: "mean")
+
+** grafana
+
+*** template
+
+- time series
+
+*** add field from calculation
+
+- mode: reduce row
+- field name: time, usage_system, usage_user
+- calculation: total
+- replace all fields: t
+
+*** panel options
+
+- panel options
+  - title: cpu history
+* DONE cpu usage
+CLOSED: [2023-05-01 Mon 21:42]
+
+** flux
+
+from(bucket: "b")
+  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
+  |> filter(fn: (r) => r["_measurement"] == "cpu")
+  |> filter(fn: (r) => r["_field"] == "usage_system" or r["_field"] == "usage_user")
+  |> filter(fn: (r) => r["cpu"] == "cpu-total")
+  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)
+  |> yield(name: "mean")
+
+** grafana
+
+*** template
+
+- gauge
+
+*** add field from calculation
+
+- mode: reduce row
+- field name: time, usage_system, usage_user
+- calculation: total
+- replace all fields: t
+
+*** panel options
+
+- panel options
+  - title: cpu usage
+- standard options
+  - max: 100
+* DONE memory history
+CLOSED: [2023-05-01 Mon 21:43]
+
+** flux
+
+from(bucket: "b")
+  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
+  |> filter(fn: (r) => r["_measurement"] == "mem")
+  |> filter(fn: (r) => r["_field"] == "used_percent")
+  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)
+  |> yield(name: "mean")
+
+** grafana
+
+*** template
+
+- time series
+
+*** panel options
+
+- panel options
+  - title: memory history
+* DONE memory usage
+CLOSED: [2023-05-01 Mon 21:45]
+
+** flux
+
+from(bucket: "b")
+  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
+  |> filter(fn: (r) => r["_measurement"] == "mem")
+  |> filter(fn: (r) => r["_field"] == "used_percent")
+  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)
+  |> yield(name: "mean")
+
+** grafana
+
+*** template
+
+- gauge
+
+*** panel options
+
+- panel options
+  - title: memory usage
+- standard options
+  - max: 100
+* DONE disk history
+CLOSED: [2023-05-01 Mon 21:46]
+
+** flux
+
+from(bucket: "b")
+  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
+  |> filter(fn: (r) => r["_measurement"] == "disk")
+  |> filter(fn: (r) => r["_field"] == "used_percent")
+  |> filter(fn: (r) => r["device"] == "disk3s1s1")
+  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)
+  |> yield(name: "mean")
+
+** grafana
+
+*** template
+
+- time series
+
+*** panel options
+
+- panel options
+  - title: disk history
+
+* DONE disk usage
+CLOSED: [2023-05-01 Mon 21:47]
+
+** flux
+
+from(bucket: "b")
+  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
+  |> filter(fn: (r) => r["_measurement"] == "disk")
+  |> filter(fn: (r) => r["_field"] == "used_percent")
+  |> filter(fn: (r) => r["device"] == "disk3s1s1")
+  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)
+  |> yield(name: "mean")
+
+** grafana
+
+*** template
+
+- gauge
+
+*** panel options
+
+- panel options
+  - title: disk usage
+- standard options
+  - max: 100
+* DONE uptime using grafana
+CLOSED: [2023-05-01 Mon 21:49]
+
+** flux
+
+from(bucket: "b")
+  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
+  |> filter(fn: (r) => r["_measurement"] == "system")
+  |> filter(fn: (r) => r["_field"] == "uptime")
+  |> last()
+
+** grafana
+
+*** template
+
+- stat
+
+*** panel options
+
+- panel options
+  - title: uptime using grafana
+- standard options
+  - unit: second(s)
+    
+* DONE hostname
+CLOSED: [2023-05-01 Mon 21:50]
+
+** flux
+
+from(bucket: "b")
+  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
+  |> filter(fn: (r) => r["_measurement"] == "cpu")
+  |> filter(fn: (r) => r["_field"] == "usage_system")
+  |> filter(fn: (r) => r["cpu"] == "cpu-total")
+  |> map(fn: (r) => ({ r with _value: r.host }))  
+  |> last()
+
+** grafana
+
+*** template
+
+- stat
+
+*** panel options
+
+- panel options
+  - title: hostname
+- value options
+  - fields: usage_system
+    
+* DONE network history
+CLOSED: [2023-05-01 Mon 21:54]
+
+** flux
+
+from(bucket: "b")
+  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
+  |> filter(fn: (r) => r["_measurement"] == "net")
+  |> filter(fn: (r) => r["_field"] == "bytes_recv" or r["_field"] == "bytes_sent")
+  |> filter(fn: (r) => r["interface"] == "en0")
+  |> difference(nonNegative: false, columns: ["_value"])  
+  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)
+  |> yield(name: "mean")
+
+** grafana
+
+*** template
+
+- time series
+
+*** panel options
+
+- panel options
+  - title: network history
+- standard options
+  - unit: bytes/sec(SI)
+*** add field from calculation
+
+- mode: binary operation
+- operation: bytes_recv / 10
+- alias: MB/s(recv)
+
+*** add field from calculation
+
+- mode: binary operation
+- operation: bytes_sent / 10
+- alias: MB/s(sent)
+- organize fields
+  - [X] time
+  - [X] MB/s(recv)
+  - [X] MB/s(sent)
+
+
+* DONE uptime using flux
+CLOSED: [2023-05-01 Mon 22:23]
+
+** flux
+
+from(bucket: "b")
+  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
+  |> filter(fn: (r) => r["_measurement"] == "system")
+  |> filter(fn: (r) => r["_field"] == "uptime")
+  |> last()
+  |> map(fn: (r) => ({ r with _value:
+  string(v: r._value / (24 * 60 * 60)) + "d " + 
+  string(v: r._value % (24 * 60 * 60) / (60 * 60)) + "h " +
+  string(v: r._value % (24 * 60 * 60) % (60 * 60) / 60) + "m " +
+  string(v: r._value % (24 * 60 * 60) % (60 * 60) % 60) + "s "
+  }))
+
+** grafana
+
+*** template
+
+- stat
+
+*** panel options
+
+- panel options
+  - title: uptime using flux
+- value options
+  - fields: uptime 
+  

@@ -25,7 +25,6 @@ https://grafana.com/docs/grafana/latest/dashboards/build-dashboards/best-practic
 - export link for dashboard
 
 * what about with api
-
 * DONE export dashboard 
 
 - share > export > save to file
