@@ -38,3 +38,25 @@ mount /dev/volumegroup/logicalvolume /mnt/somewhere
 * one more thing
 
 - [ ] active?
+
+* DONE lvm with two disk
+
+1. parted --script /dev/sdb mklabel gpt mkpart primary 0% 100% set 1 lvm on
+   - 첫번째 디스크에 lvm용도의 partition 생성
+2. pvcreate /dev/sdb1 
+   - 첫번째 디스크를 pv로 구성
+3. parted --script /dev/sdc mklabel gpt mkpart primary 0% 100% set 1 lvm on
+   - 두번째 디스크에 lvm용도의 partition 생성
+4. pvcreate /dev/sdc1
+   - 두번째 디스크를 pv로 구성
+5. vgcreate vg /dev/sdb1 /dev/sdb2
+   - 두개의 디스크를 vg로 구성
+6. lvcreate -n lv_data -l 100%FREE -y vg
+   - vg를 lv로 구성
+7. mkfs.xfs /dev/mapper/lv_data
+   - lv에 파일시스템 생성
+8. mkdir /data
+   - mount 포인트 생성
+9. mount /dev/mapper/lv_data /data
+   - mount 진행
+

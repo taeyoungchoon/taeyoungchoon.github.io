@@ -1,0 +1,55 @@
+* tablespace like that
+* undo retention 
+
+- https://sksggg123.github.io/db/undo-retention/
+- https://www.dba-oracle.com/t_undo_retention.htm
+
+* ocr, oracle cluster registry but RAC
+* ogg, oracle goldengate
+* emc powerpath
+* diskgroup
+
+- https://www.oracle.com/technetwork/database/asm-on-emc-5-3-134797.pdf
+
+* flow
+
+** part 1
+
+- select tablespace_name, file_name from dba_data_files;
+- select member from v$logfile;
+- select NAME from v$controlfile;
+- ocrcheck
+
+** part 2
+
+- $ORACLE_HOME/bin/rawutil -s /dev/raw/raw1
+
+** part 3
+
+- select tablespace_name, file_name from dba_data_files;
+- alter tablesace UNDOTBS1 add datafile '/dev/raw/raw4' size xyz;
+- alter tablesace UNDOTBS2 add datafile '/dev/raw/raw5' size xyz;
+
+** part 4
+
+*** node 1
+
+- alter system set undo_retention=xyz scope=both;
+
+*** node 2
+
+- alter system set undo_retention=xyz scope=both;
+
+* asm
+* with lvm
+
+- Oracle can use any sized raw device file, https://community.hpe.com/t5/hp-ux-general/add-raw-device-as-datafile-to-oracle-on-hp-ux/td-p/3220579#.ZFCnPM5BxaQ
+* oracle asm
+
+- raw to asm
+
+* oracle diskgroup
+
+- say as ASM Diskgroup
+
+* oracle asm vs diskgroup

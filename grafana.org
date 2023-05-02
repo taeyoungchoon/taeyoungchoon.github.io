@@ -25,10 +25,6 @@ https://grafana.com/docs/grafana/latest/dashboards/build-dashboards/best-practic
 - export link for dashboard
 
 * what about with api
-* DONE export dashboard 
-
-- share > export > save to file
-
 * DONE [2/2] extract query from exported dashboard file
 
 ** DONE on emacs
@@ -53,3 +49,43 @@ https://grafana.com/docs/grafana/latest/dashboards/build-dashboards/best-practic
 #+BEGIN_SRC 
 sed -e 's/\\r\\n/\n/g' -e 's/\\"/"/g' 
 #+END_SRC
+* DONE export dashboard 
+
+- share > export > save to file
+
+* DONE export dashboard is not enough, import
+
+1. export with care
+   - export for sharing externally
+2. pre import
+   - [X] bucket name
+     - pre
+       - b
+     - post
+       - bucket
+   - datasource
+3. [X] network interface name
+   - pre
+     - en0
+   - post
+     - enp0s3
+4. [X] disk name
+   - pre
+     - sth
+   - post
+     - sda1
+5. [X] test using
+   - install at rockylinux
+     #+BEGIN_SRC 
+  1009  dnf config-manager --set-enabled powertools
+  1010  dnf install epel-release
+  1011  yum install bmon
+  1012  yum install iftop
+     #+END_SRC
+   - list
+     - bmon(MiB)
+     - iftop(Mb)
+     - scp os.iso
+
+
+

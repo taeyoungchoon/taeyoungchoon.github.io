@@ -14,7 +14,7 @@
 - [X] local repo
   https://www.centlinux.com/2019/07/configure-local-yum-dnf-repository-in-rhel-8.html
 
-* DONE This system is not registered to Red Hat Subscription Management. 
+* DONE This system is not registered to Red Hat Subscription Management. :working:
 
 ** msg
 
@@ -61,7 +61,7 @@ No repositories available
 printf "%b" 'H\n/enabled=1\ns/1/0/\nw\nq' | ed -s /etc/yum/pluginconf.d/subscription-manager.conf
 #+END_SRC
 
-* DONE repo add
+* DONE repo add                                                     :working:
 
 ** steps
 
@@ -164,7 +164,7 @@ ONBOOT=yes
 ONBOOT=yes
 [root@localhost network-scripts]#
 #+END_SRC
-* DONE repo delete
+* DONE repo delete                                                  :working:
 
 #+BEGIN_SRC 
 ? yum repolist all
@@ -227,45 +227,11 @@ No existing configuration detected.
 
 #+BEGIN_SRC
 $ ssh root@192.168.25.122
-The authenticity of host '192.168.25.122 (192.168.25.122)' can't be established.ECDSA key fingerprint is SHA256:3ag2awpB9f8pIA91zM8cViAFtIjxr3P9gm
-m0H/Mzeow.
-Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
-Warning: Permanently added '192.168.25.122' (ECDSA) to the list of known hosts.
-root@192.168.25.122's password:
-Activate the web console with: systemctl enable --now cockpit.socket
-
-Register this system with Red Hat Insights: insights-client --register
-
-[root@localhost ~]# cat /etc/xdg/autostart/org.gnome.SettingsDaemon.Subscription.desktop |grep -i gsd-subman
+? cat /etc/xdg/autostart/org.gnome.SettingsDaemon.Subscription.desktop |grep -i gsd-subman
 Exec=/usr/libexec/gsd-subman
-[root@localhost ~]# ed /etc/xdg/autostart/org.gnome.SettingsDaemon.Subscription.desktop
-246
 
-?
-/gsd-subman
-Exec=/usr/libexec/gsd-subman
- subscription-manager-cockpit                    noarch                    1.28.29-3.el8                       @anaconda                    3.7 M
+#+END_SRC
+#+BEGIN_SRC 
+? yum remove subscription-manager-cockpit -y
 
-Transaction Summary
-==================================================================================================================================================
-Remove  1 Package
-
-Freed space: 3.7 M
-Is this ok [y/N]: y
-Running transaction check
-Transaction check succeeded.
-Running transaction test
-Transaction test succeeded.
-Running transaction
-  Preparing        :                                                                                                                          1/1
-  Erasing          : subscription-manager-cockpit-1.28.29-3.el8.noarch                                                                        1/1
-  Running scriptlet: subscription-manager-cockpit-1.28.29-3.el8.noarch                                                                        1/1
-  Verifying        : subscription-manager-cockpit-1.28.29-3.el8.noarch                                                                        1/1
-Installed products updated.
-
-Removed:
-  subscription-manager-cockpit-1.28.29-3.el8.noarch
-
-Complete!
-[root@localhost ~]#
 #+END_SRC

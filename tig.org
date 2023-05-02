@@ -247,7 +247,6 @@ from(bucket: "b")
   - [X] MB/s(recv)
   - [X] MB/s(sent)
 
-
 * DONE uptime using flux
 CLOSED: [2023-05-01 Mon 22:23]
 
