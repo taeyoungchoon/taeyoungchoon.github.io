@@ -1,3 +1,71 @@
+* How to modify the partition table to GPT when newly installing the RHEL 7,8? 
+
+- https://access.redhat.com/solutions/2210981
+
+** TODO for system using legacy bios
+
+- inst.gpt at the end of the vmlinux line
+
+** for system using uefi with bios
+
+- inst.gpt at the end of the linxuefi line
+
+* one-liner samples
+
+#+BEGIN_SRC 
+parted --script /dev/sdb mklabel gpt mkpart primary 0% 100% set 1 lvm on 
+#+END_SRC
+
+#+BEGIN_SRC 
+parted /dev/sda unit MiB print
+expr 30727 + 1024
+parted --script /dev/sda mkpart primary 30727MiB 30751MiB set 3 lvm on 
+parted --script /dev/sda mkpart primary 30751MiB 31775MiB set 4 lvm on 
+parted --script /dev/sda mkpart primary 31775MiB 32799MiB set 5 lvm on 
+parted --script /dev/sda mkpart primary 31775MiB 32799MiB set 6 lvm on 
+parted /dev/sda unit MiB print
+#+END_SRC
+
+* parition table called msdos
+
+- primary
+- extended
+- logical
+
+* partition table called gpt
+
+- primary * 128, enough
+
+* with lvm
+
+#+BEGIN_SRC 
+set 1 lvm on
+#+END_SRC
+
+* mkpart list
+
+- mkpart part-type name fs-type start end
+- msdos 
+  - cli
+    #+BEGIN_SRC 
+    unit MiB
+    mkpart primary 1MiB 3MiB
+    #+END_SRC
+- gpt
+  - cli
+    #+BEGIN_SRC 
+    unit MiB
+    mkpart 1MiB 3MiB
+    #+END_SRC
+
+* unit
+
+- s
+- B
+- KiB
+- MiB
+- GiB
+
 * mkpart
 
 parted --script /dev/vdb \

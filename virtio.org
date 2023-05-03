@@ -1,0 +1,5 @@
+* list 
+
+- https://yh-kr.tistory.com/30
+- https://www.linux-kvm.org/page/Virtio
+  - IO virtulization for KVM

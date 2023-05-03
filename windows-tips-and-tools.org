@@ -1,3 +1,8 @@
+* shortcuts
+
+- ncpa.cpl
+- firewall.cpl
+
 * list
 
 - executor
