@@ -11,4 +11,5 @@ ip addr
 ip a
 ip -4 -o a
 ip -4 -o -c a
+ip -br link show | cut -d ' ' -f 1 | grep -v lo
 #+END_SRC

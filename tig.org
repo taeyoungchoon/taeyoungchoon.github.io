@@ -11,6 +11,17 @@ from(bucket: "b")
   |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)
   |> yield(name: "mean")
 
+** flux deep
+
+import "strings"
+from(bucket: "b")
+  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
+  |> filter(fn: (r) => r["_measurement"] == "mem")
+  |> filter(fn: (r) => r["_field"] == "used_percent")
+  |> pivot(rowKey:["_time"], columnKey: ["_field"], valueColumn: "_value")
+  |> map(fn: (r) => ({ r with host: strings.split(v: r.host, t: ".")[0] }))  
+  |> keep(columns: ["_time","used_percent"])
+
 ** grafana
 
 *** template
@@ -82,6 +93,10 @@ from(bucket: "b")
 
 - panel options
   - title: memory history
+- standard options
+  - unit: percent(0-100)
+  - max: 100
+
 * DONE memory usage
 CLOSED: [2023-05-01 Mon 21:45]
 
