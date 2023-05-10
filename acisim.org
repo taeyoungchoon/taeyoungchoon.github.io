@@ -1,0 +1,19 @@
+* acisim
+
+- https://ciscolicense.com/blog/cisco-acisim-introduction/
+
+* acism-6.0-2h
+
+- ubuntu 64bit
+- 12 cpu
+- 32g mem
+
+* vs virtualbox
+
+- watchdog: BUG: soft lockup - CPU#0 stuck for 22s! [kworker/0:1:13
+- watchdog: BUG: soft lockup - CPU#0 stuck for 23s! [swapper/0:0]
+- watchdog: BUG: soft lockup - CPU#0 stuck for 24s! [ksoftirqd/0:10]
+
+* dmesg
+
+- lxbr-br1: failed to start userspace STP (256)

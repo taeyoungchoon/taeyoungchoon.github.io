@@ -1,0 +1,15 @@
+* fec, forwarding equivalence classes (FECs) 
+
+- https://www.arista.com/en/um-eos/eos-ipv4
+- https://arista.my.site.com/AristaCommunity/s/question/0D52I00007EzLVJSA3/how-to-retrieve-routing-tables-from-cvp-api
+- https://github.com/aristanetworks/cloudvision-python/tree/trunk/examples/Connector
+- https://github.com/freedge/cloudvision-python/blob/getroutes/examples/Connector/get_routes.py#L46
+
+#+BEGIN_SRC 
+    /Smash/routing/vrf/status/{vrfName}/route
+    /Smash/forwarding/vrf/status/{vrfName}/fec
+#+END_SRC
+
+#+BEGIN_SRC 
+arista1#show platform trident l3 software routes | grep 0.0.0.0
+#+END_SRC

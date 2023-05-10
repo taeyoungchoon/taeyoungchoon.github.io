@@ -14,3 +14,26 @@ major.minor.serial
 (2 6 32 68)
 
 it's not so easy as what I think
+
+* file format
+
+** ova
+
+- https://wiki.hackzine.org/sysadmin/kvm-import-ova.html
+- tar
+  - tar xvf foo.ova
+
+#+BEGIN_SRC 
+$ ls
+acisim-6.0-2h.ova
+
+$ tar xvf acisim*
+acisim-6.0-2h.ovf
+acisim-6.0-2h.mf
+acisim-6.0-2h-disk1.vmdk
+
+$ ls
+acisim-6.0-2h-disk1.vmdk  acisim-6.0-2h.mf  acisim-6.0-2h.ova  acisim-6.0-2h.ovf
+
+$ qemu-img convert -O qcow2 acisim-6.0-2h-disk1.vmdk acisim-6.0-2h-disk1.qcow2
+#+END_SRC
