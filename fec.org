@@ -1,0 +1,3 @@
+*  fec(Forwarding Equivalence Class) table
+
+https://www.arista.com/assets/data/pdf/Whitepapers/7280R3-Platform-Architecture-WP.pdf
