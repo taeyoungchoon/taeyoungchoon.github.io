@@ -1,0 +1,22 @@
+* greenhouse gas emissions
+* refer
+
+- https://www.epa.gov/ghgemissions/sources-greenhouse-gas-emissions
+- https://www.posco.co.kr/homepage/docs/kor6/jsp/dn/irinfo/POSCO_2012CarbornReport_kor.pdf
+  - CO2 배출
+    - 구입 원료 이송에 따른 CO2 배출량
+    - 임직원 출퇴근 및 출장 이동에 따른 CO2 배출량
+- https://www.epa.gov/climateleadership/scope-1-and-scope-2-inventory-guidance
+
+* scope 1, 2, 3
+
+- Scope 1: 탄소 함유 물질의 유입과 유출을 고려한 직접배출
+  - 고정연소
+  - 이동연소
+  - 직접배출(direct)
+- Scope 2: 구입전력, 스팀판매 등을 고려한 간접배출
+  - 전기사용
+  - 간접배출(indirect)
+- Scope 3: 구입한 원료를 사업장으로 이송하는 과정, 임직원 이동 등에 따른 간접배출
+  - 기타 온실가스
+  - 기타
