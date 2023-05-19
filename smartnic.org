@@ -1,0 +1,17 @@
+* about
+
+- https://codilime.com/blog/what-are-smartnics-the-different-types-and-features/
+- https://www.techtarget.com/searchnetworking/post/Compare-smartNIC-products-and-use-caseshttps://www.techtarget.com/searchnetworking/post/Compare-smartNIC-products-and-use-cases
+- https://www.thelec.kr/news/articleView.html?idxno=15724
+* kakao smartnic with xilinx
+
+- nic with ovs
+
+* nvidia's called connectx
+
+- nvidia: mellanox's parent, 2020
+
+
+
+
+

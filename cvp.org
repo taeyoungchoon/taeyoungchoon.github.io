@@ -1,0 +1,176 @@
+* TODO what is
+
+- https://www.arista.com/assets/data/pdf/Whitepapers/CloudVision_WP.pdf
+
+* TODO f > studio
+
+- provisioning > studios
+
+* TODO api, the interface about f
+
+- studio
+- metric
+
+* TODO list of something
+
+- https://github.com/aristanetworks/openmgmt
+- https://github.com/aristanetworks/EosSdk
+
+* TODO rac(RESTful API Client), cvprac
+
+- outside to cvp
+- https://github.com/aristanetworks/cvprac
+- https://github.com/aristanetworks/go-cvprac
+- https://arista.my.site.com/AristaCommunity/s/question/0D52I00007ERqFKSA1/rest-api-client
+
+* TODO eapi, Arista EOS command API, eAPI
+
+- from outside and to the eos as e means
+- https://buildmedia.readthedocs.org/media/pdf/pyeapi/latest/pyeapi.pdf
+- https://github.com/aristanetworks/goeapi
+- https://saidvandeklundert.net/2019-08-06-arista-eapi-using-pyeapi/
+- https://www.arista.com/assets/data/pdf/Whitepapers/Arista_eAPI_FINAL.pdf
+
+* TODO netops
+
+- https://www.youtube.com/watch?v=DCotdzo7LPI
+- https://www.youtube.com/watch?v=0idTsBB_9h4
+- http://www.howfunky.com/2021/09/arista-open-source-network-automation.html
+- https://www.bitsinflight.com/arista-networks-nfd26/
+- [ ] https://www.youtube.com/watch?v=nzFeUN_eR94
+
+* DONE studio using 'arista cloudvision python library'
+
+- inside job
+- https://github.com/aristanetworks/cloudvision-python
+  - with ctx
+    #+BEGIN_SRC bash
+      ? pwd
+      ~/cloudvision-python-trunk/cloudvision-python-trunk/cloudvision/cvlib
+      ? ls -l context.py
+      -rw-r--r-- 1 jack 197121 30335 May 19 14:08 context.py
+      ?
+    #+END_SRC
+
+- [ ] https://aristanetworks.github.io/cloudvision-apis/rpcs/
+
+#+BEGIN_SRC 
+from cloudvision.Connector.grpc_client import GRPCClient, create_query
+import cloudvision.cvlib as cvlib
+import ipaddress
+import re
+import time
+from collections import Counter, OrderedDict
+import tagsearch_python.tagsearch_pb2_grpc as tsgr
+import tagsearch_python.tagsearch_pb2 as tspb
+from arista.tag.v2.tag_pb2 import TagKey, \
+    TagAssignmentKey
+from arista.tag.v2.services import TagConfigServiceStub, \
+    TagAssignmentConfigServiceStub, \
+    TagConfigSetRequest, \
+    TagAssignmentConfigSetRequest
+#+END_SRC 
+
+* TODO get_token.py and get_events.py
+
+- https://github.com/aristanetworks/cloudvision-python/tree/trunk/examples
+
+#+BEGIN_SRC 
+  558  sudo pip3 install cvprac
+  561  sudo pip3 install arista
+  568  sudo pip3 install networking-arista
+  575  sudo pip3 install cloudvision
+#+END_SRC
+
+#+BEGIN_SRC 
+  507  wget https://raw.githubusercontent.com/aristanetworks/cloudvision-python/trunk/examples/get_token.py
+  555  wget https://raw.githubusercontent.com/aristanetworks/cloudvision-python/trunk/examples/resources/event/get_events.py
+#+END_SRC
+
+#+BEGIN_SRC 
+? python get_token.py --server cvp1.t.com --username cvpadmin --password 1234qwer -ssl &>/dev/null
+? ls
+cvp.crt  get_events.py  get_token.py  token.txt
+#+END_SRC
+
+- https://pypi.org/project/cvprac/
+- https://pypi.org/project/cloudvisio/
+- https://arista.my.site.com/AristaCommunity/s/article/Understanding-CloudVIsion-APIs-and-accessing-NetDB-data
+
+#+BEGIN_SRC 
+? python3 get_events.py --server cvp1.t.com --token-file token.txt --cert-file cvp.crt
+selecting events that match the filter partial_eq_filter {
+}
+
+value {
+  key {
+    key {
+      value: "5473c5eb9c6556b"
+    }
+    timestamp {
+      seconds: 1679970676
+      nanos: 608912553
+    }
+  }
+#+END_SRC
+
+* DONE get_versions.py
+
+#+BEGIN_SRC 
+wget https://raw.githubusercontent.com/aristanetworks/cloudvision-python/trunk/examples/resources/inventory/get_versions.py
+#+END_SRC
+
+#+BEGIN_SRC 
+? python3 get_versions.py --server cvp1.t.com --token-file token.txt --cert-file cvp.crt
+Hostname                 EOS Version
+
+arista1                  4.27.5M
+#+END_SRC
+
+* DONE lookup_device.py
+
+#+BEGIN_SRC 
+wget https://raw.githubusercontent.com/aristanetworks/cloudvision-python/trunk/examples/resources/inventory/lookup_device.py
+#+END_SRC
+
+#+BEGIN_SRC 
+? python3 lookup_device.py --server cvp1.t.com --token-file token.txt --cert-file cvp.crt --hostname arista1
+value {
+  software_version {
+    value: "4.27.5M"
+  }
+  hostname {
+    value: "arista1"
+  }
+  domain_name {
+  }
+#+END_SRC
+
+* DONE example_utility.py
+
+#+BEGIN_SRC 
+ wget https://raw.githubusercontent.com/aristanetworks/cloudvision-python/trunk/examples/resources/inventory/example_utility.py
+#+END_SRC
+
+#+BEGIN_SRC
+? python3 example_utility.py --server cvp1.t.com --token-file token.txt --cert-file cvp.crt --inactive | grep Leaf | sort
+Leaf3                    64D3D5201301F4D4A22A805958EC4B68
+Leaf4                    7C1DAD1BD37725FB0914A9503280603C
+Leaf5                    1284FF4684184FD2D66BD3FDBF110D32
+Leaf6                    DA73DA847166A7297FDFD736F06F2D81
+?
+#+END_SRC
+* TODO Connector rel
+
+- https://github.com/aristanetworks/cloudvision-python/tree/trunk/examples/Connector
+#+BEGIN_SRC 
+  612  wget https://raw.githubusercontent.com/aristanetworks/cloudvision-python/trunk/examples/Connector/parser.py
+  613  wget https://raw.githubusercontent.com/aristanetworks/cloudvision-python/trunk/examples/Connector/utils.py
+  614  wget https://raw.githubusercontent.com/aristanetworks/cloudvision-python/trunk/examples/Connector/get_intf_status.py
+#+END_SRC
+
+#+BEGIN_SRC 
+? python3 get_intf_status.py --apiserver cvp1.t.com --auth=token,token.txt,cvp.crt --deviceId JPE14073114 | grep linkUp
+Ethernet10               linkUp
+Management1              linkUp
+#+END_SRC

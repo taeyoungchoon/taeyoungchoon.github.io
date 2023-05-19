@@ -1,0 +1,46 @@
+* is
+
+- https://www.youtube.com/watch?v=QAIAoNheX-8
+- https://www.youtube.com/watch?v=QTHSGmPhVEs
+- https://www.youtube.com/watch?v=ztNV6DqsZl8
+- https://www.youtube.com/watch?v=w_CkMjH8tm4
+- https://www.youtube.com/watch?v=o_noqdK5Sdc
+
+* but more about RoCE and SmartNIC
+
+- dma: direct memory access
+- rdma over the network(Remote Direct Memory Access)
+- roce: rdma over the converged ethernet(RoCE)
+- converged ethernet
+- infiniband over ethernet(IBoE)
+
+* with redhat
+
+- https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/html/configuring_infiniband_and_rdma_networks/configuring-roce_configuring-infiniband-and-rdma-networks
+
+* with arista
+
+- https://www.arista.com/assets/data/pdf/Broadcom-RoCE-Deployment-Guide.pdf
+- https://enterprise-support.nvidia.com/s/article/roce-configuration-for-arista-switches
+
+* roce version 1 and 2
+
+- RoCE v1 support L2
+- RoCE v2 support L3, routable
+
+* converged ethernet so protocols such as
+
+** list of
+
+- FCoE
+  - Fibre Channel over
+- iSCSI
+  - internet SCSI
+
+** converge
+
+- move toward one point and join together
+
+* smartnic
+
+- to the smartnic

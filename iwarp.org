@@ -1,0 +1,11 @@
+* internet wide area rdma protocol called iWARP
+
+- using standard ethernet switch
+- soft-iwarp(six)
+- https://github.com/zrlio/softiwarp
+
+* with nfs
+
+- https://linux-nfs.org/wiki/index.php/NFS_over_soft_iWARP_setup
+
+
