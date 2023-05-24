@@ -174,3 +174,162 @@ Leaf6                    DA73DA847166A7297FDFD736F06F2D81
 Ethernet10               linkUp
 Management1              linkUp
 #+END_SRC
+* TODO cvplibrary at configlet
+
+- https://www.arista.com/en/cg-cv/cv-creating-configlets
+
+#+BEGIN_SRC 
+[root@cvp1 cvpi]# grep -r cvplibrary *
+apps/cvp/logs/cvp-backend/catalina.out:[Loaded cvplibrary.CVPGlobalVariables from file:/usr/local/tomcat/work/Catalina/localhost/cvpservice/eclipse/plugins/com.arista.cvp.services.pythonExecutor-1.0.0-SNAPSHOT.jar]
+pythonlab/Lib/ssl.py:            from cvplibrary import CVPCertPathHolder as pathHolder
+pythonlab/Lib/jsonrpclib/SSLCertificate.py:#Read the isDCAEnabled from cvplibrary
+pythonlab/Lib/jsonrpclib/SSLCertificate.py:from cvplibrary import CVPCertPathHolder
+resources/initData.json:                  "data": "import os\r\nimport cvp\r\nfrom cvplibrary import Form, CVPGlobalVariables, GlobalVariableNames\r\n\r\ndef terminAttrCertEnabled():\r\n   ''' Returns True if TerminAttr cert is enabled.\r\n    Otherwise returns False.\r\n    '''\r\n   server = cvp.Cvp( os.environ.get( 'CURRENT_NODE_IP', '127.0.0.1' ) )\r\n   sid = CVPGlobalVariables.getValue( GlobalVariableNames.CVP_SESSION_ID )\r\n   server.sessionIs( sid )\r\n   return server.getTerminattrCertEnable()\r\n\r\ndef getIngestAuth( ingestKey ):\r\n   ''' Returns the ingest auth option string.\r\n   '''\r\n   ingestAuth = 'key,' + ingestKey\r\n   if terminAttrCertEnabled():\r\n      ingestAuth = 'token,/tmp/token'\r\n   return ingestAuth\r\n\r\n# Using the CVP device interface for receiving telemetry data\r\nip_list = [ os.environ.get('PRIMARY_DEVICE_INTF_IP', None),\r\n            os.environ.get('SECONDARY_DEVICE_INTF_IP', None),\r\n            os.environ.get('TERTIARY_DEVICE_INTF_IP', None) ]\r\ningest_grpc = ','.join( [ '%s:9910' % ip for ip in ip_list if ip ] )\r\n\r\n# Getting the Ingest Key\r\n# Note: Changing the ingest key requires restarting CVP for the builder to take it.\r\ningest_key = os.environ.get('AERIS_INGEST_KEY', '')\r\n\r\n# Smash tables to exclude\r\nsmash_exclude_list = ['ale',\r\n                      'flexCounter',\r\n                      'hardware',\r\n                      'kni',\r\n                      'pulse',\r\n                      'strata']\r\nsmash_exclude = ','.join(smash_exclude_list)\r\n\r\n# Get Management VRF (allow blank form for default vrf)\r\ningest_vrf = Form.getFieldById( 'vrf' ).getValue()\r\nif not ingest_vrf:\r\n   ingest_vrf = 'default'\r\n\r\n# Print the config\r\nprint 'daemon TerminAttr'\r\nprint '  exec /usr/bin/TerminAttr -smashexcludes=%s ' \\\r\n      '-cvaddr=%s -cvauth=%s' \\\r\n      % (smash_exclude, ingest_grpc, getIngestAuth( ingest_key )) \\\r\n      + ((' -cvvrf=%s -taillogs' % ingest_vrf) if (ingest_vrf != 'default') else '')\r\nprint '  no shutdown'\r\n",
+[root@cvp1 cvpi]# pwd
+/cvpi
+[root@cvp1 cvpi]#
+#+END_SRC
+
+#+BEGIN_SRC 
+apps/cvp/logs/cvp-backend/catalina.out:[Loaded cvplibrary.CVPGlobalVariables
+file:/usr/local/tomcat/work/Catalina/localhost/cvpservice/eclipse/plugins/com.arista.cvp.services.pythonExecutor-1.0.0-SNAPSHOT.jar]
+#+END_SRC
+
+- apps/cvp/logs/cvp-backend/catalina.out:
+  - [Loaded cvplibrary.CVPGlobalVariables from file:
+    - /usr/local/tomcat/work/Catalina/localhost/cvpservice/eclipse/plugins/com.arista.cvp.services.pythonExecutor-1.0.0-SNAPSHOT.jar
+      - /usr/local/tomcat/work/Catalina/localhost
+      - cvpservice/eclipse/plugins/
+      - com.arista.cvp.services.pythonExecutor-1.0.0-SNAPSHOT.jar
+
+#+BEGIN_SRC 
+[root@cvp1 data]# find . -name com.arista.cvp.services.pythonExecutor-1.0.0-SNAPSHOT.jar
+./containerd/lib/io.containerd.snapshotter.v1.overlayfs/snapshots/169533/fs/usr/local/tomcat/webapps/cvpservice/WEB-INF/eclipse/plugins/com.arista.cvp.services.pythonExecutor-1.0.0-SNAPSHOT.jar
+./containerd/lib/io.containerd.snapshotter.v1.overlayfs/snapshots/169533/fs/usr/local/tomcat/work/Catalina/localhost/cvpservice/eclipse/plugins/com.arista.cvp.services.pythonExecutor-1.0.0-SNAPSHOT.jar
+./containerd/lib/io.containerd.snapshotter.v1.overlayfs/snapshots/168714/fs/usr/local/tomcat/webapps/cvpservice/WEB-INF/eclipse/plugins/com.arista.cvp.services.pythonExecutor-1.0.0-SNAPSHOT.jar
+./containerd/lib/io.containerd.snapshotter.v1.overlayfs/snapshots/168714/fs/usr/local/tomcat/work/Catalina/localhost/cvpservice/eclipse/plugins/com.arista.cvp.services.pythonExecutor-1.0.0-SNAPSHOT.jar
+./containerd/run/io.containerd.runtime.v2.task/k8s.io/b232d3508e9e217623bddc470cfd918b5aa98c3a003b3c94f3a60b8310501a65/rootfs/usr/local/tomcat/webapps/cvpservice/WEB-INF/eclipse/plugins/com.arista.cvp.services.pythonExecutor-1.0.0-SNAPSHOT.jar
+./containerd/run/io.containerd.runtime.v2.task/k8s.io/b232d3508e9e217623bddc470cfd918b5aa98c3a003b3c94f3a60b8310501a65/rootfs/usr/local/tomcat/work/Catalina/localhost/cvpservice/eclipse/plugins/com.arista.cvp.services.pythonExecutor-1.0.0-SNAPSHOT.jar
+[root@cvp1 data]# pwd
+/data
+#+END_SRC
+
+#+BEGIN_SRC 
+[root@cvp1 foo]# tree -d
+.
+├── com
+│   └── arista
+│       └── cvp
+│           └── services
+│               └── python
+│                   └── executor
+│                       ├── helper
+│                       └── service
+│                           └── impl
+├── cvplibrary
+├── lib
+├── META-INF
+│   └── maven
+│       └── com.arista.cvp.services
+│           └── com.arista.cvp.services.pythonExecutor
+└── proto
+
+16 directories
+[root@cvp1 foo]#
+
+#+END_SRC
+
+#+BEGIN_SRC 
+[root@cvp1 foo]# tree
+.
+├── com
+│   └── arista
+│       └── cvp
+│           └── services
+│               └── python
+│                   └── executor
+│                       ├── Activator.class
+│                       ├── helper
+│                       │   ├── PythonHelper.class
+│                       │   └── ResponseCreator.class
+│                       └── service
+│                           ├── impl
+│                           │   ├── GRPCPythonExecutor$Action.class
+│                           │   ├── GRPCPythonExecutor.class
+│                           │   ├── Result.class
+│                           │   ├── ScriptExecutorClient.class
+│                           │   ├── ScriptExecutorGrpc.class
+│                           │   ├── ScriptExecutorGrpc$MethodHandlers.class
+│                           │   ├── ScriptExecutorGrpc$ScriptExecutorBaseDescriptorSupplier.class
+│                           │   ├── ScriptExecutorGrpc$ScriptExecutorBlockingStub.class
+│                           │   ├── ScriptExecutorGrpc$ScriptExecutorFileDescriptorSupplier.class
+│                           │   ├── ScriptExecutorGrpc$ScriptExecutorFutureStub.class
+│                           │   ├── ScriptExecutorGrpc$ScriptExecutorImplBase.class
+│                           │   ├── ScriptExecutorGrpc$ScriptExecutorMethodDescriptorSupplier.class
+│                           │   ├── ScriptExecutorGrpc$ScriptExecutorStub.class
+│                           │   ├── ScriptExecutorProto$BatchRequest$1.class
+│                           │   ├── ScriptExecutorProto$BatchRequest$Builder.class
+│                           │   ├── ScriptExecutorProto$BatchRequest.class
+│                           │   ├── ScriptExecutorProto$BatchRequestOrBuilder.class
+│                           │   ├── ScriptExecutorProto$BatchResponse$1.class
+│                           │   ├── ScriptExecutorProto$BatchResponse$Builder.class
+│                           │   ├── ScriptExecutorProto$BatchResponse.class
+│                           │   ├── ScriptExecutorProto$BatchResponseOrBuilder.class
+│                           │   ├── ScriptExecutorProto.class
+│                           │   ├── ScriptExecutorProto$Control$1.class
+│                           │   ├── ScriptExecutorProto$Control$Builder.class
+│                           │   ├── ScriptExecutorProto$Control.class
+│                           │   ├── ScriptExecutorProto$ControlOrBuilder.class
+│                           │   ├── ScriptExecutorProto$Form$1.class
+│                           │   ├── ScriptExecutorProto$Form$Builder.class
+│                           │   ├── ScriptExecutorProto$Form.class
+│                           │   ├── ScriptExecutorProto$FormOrBuilder.class
+│                           │   ├── ScriptExecutorProto$NetElementFields$1.class
+│                           │   ├── ScriptExecutorProto$NetElementFields$Builder.class
+│                           │   ├── ScriptExecutorProto$NetElementFields.class
+│                           │   ├── ScriptExecutorProto$NetElementFieldsOrBuilder.class
+│                           │   ├── ScriptExecutorProto$Request$1.class
+│                           │   ├── ScriptExecutorProto$Request$Action$1.class
+│                           │   ├── ScriptExecutorProto$Request$Action.class
+│                           │   ├── ScriptExecutorProto$Request$Builder.class
+│                           │   ├── ScriptExecutorProto$Request.class
+│                           │   ├── ScriptExecutorProto$RequestOrBuilder.class
+│                           │   ├── ScriptExecutorProto$Response$1.class
+│                           │   ├── ScriptExecutorProto$Response$Builder.class
+│                           │   ├── ScriptExecutorProto$Response.class
+│                           │   ├── ScriptExecutorProto$ResponseOrBuilder.class
+│                           │   ├── SessionVariables.class
+│                           │   └── SessionVariables$NetElementFields.class
+│                           ├── PythonExecutor.class
+│                           └── PythonExecutorFactory.class
+├── com.arista.cvp.services.pythonExecutor-1.0.0-SNAPSHOT.jar
+├── cvplibrary
+│   ├── CVPGlobalVariables.class
+│   └── GlobalVariableNames.class
+├── lib
+│   ├── grpc-context.jar
+│   ├── grpc-core.jar
+│   ├── grpc-netty.jar
+│   ├── grpc-protobuf.jar
+│   ├── grpc-protobuf-lite.jar
+│   ├── grpc-stub.jar
+│   ├── guava.jar
+│   ├── netty-all.jar
+│   ├── netty-buffer.jar
+│   ├── netty-common.jar
+│   ├── netty-transport.jar
+│   ├── opencensus-api.jar
+│   ├── opencensus-contrib-grpc-metrics.jar
+│   ├── protobuf-java.jar
+│   ├── protobuf-java-util.jar
+│   └── proto-google-common-protos.jar
+├── META-INF
+│   ├── MANIFEST.MF
+│   └── maven
+│       └── com.arista.cvp.services
+│           └── com.arista.cvp.services.pythonExecutor
+│               ├── pom.properties
+│               └── pom.xml
+└── proto
+
+#+END_SRC

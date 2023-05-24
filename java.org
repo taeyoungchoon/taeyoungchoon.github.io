@@ -67,3 +67,7 @@ JAVA6HOME
    lslpp -l
 
 ** download, where can I get that package?
+* TODO java decompiler
+
+- http://java-decompiler.github.io/
+- https://mkyong.com/java/how-to-decompile-class-in-java/

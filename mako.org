@@ -1,0 +1,16 @@
+* mako template
+
+- https://docs.makotemplates.org/en/latest/syntax.html
+- https://docs.makotemplates.org/en/latest/usage.html
+
+#+BEGIN_SRC 
+from mako.template import Template
+
+mytemplate = Template("hello world!")
+print(mytemplate.render())
+#+END_SRC
+
+- https://trypyramid.com/
+- https://en.wikipedia.org/wiki/Mako_(template_engine)
+- https://old.reddit.com/r/redditdev/comments/fewoh/a_beginners_guide_to_the_reddit_source_code_part/
+- https://techspot.zzzeek.org/
