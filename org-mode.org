@@ -52,6 +52,10 @@ You can customize this variable.
 https://orgmode.org/manual/Structure-Templates.html
 (require 'org-tempo)
 
+#+begin_src
+  C-c C-,
+#+end_src
+
 ** TODO python
 
 #+BEGIN_SRC python
