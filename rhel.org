@@ -1,0 +1,59 @@
+* redhat, rhel, download and package specific
+
+- https://access.redhat.com/downloads/content/rhel
+- https://access.redhat.com/downloads/content/package-browser
+
+** openssh: 8.0p1-16(openssh, openssh-clients, openssh-server, openssh-askpass) / 16 packages
+
+*** TODO OpenSSH 9.3 released March 15, 2023 
+
+*** TODO 2023-04-06 Dmitry Belyavskiy <dbelyavs@redhat.com> - 8.7p1-29
+
+- openssh-8.7p1-29.el9_2.x86_64.rpm
+
+*** DONE 2022-12-20 Dmitry Belyavskiy - 8.0p1-71
+
+- openssh-8.0p1-17.el8.x86_64.rpm 
+- default at rhel 8.6 > 8.0p1-16 > 8.0p1-17
+
+** openssl: 1.1.1k-7(openssl, openssl-libs) / 37 packages
+
+- https://www.redhat.com/en/blog/experience-bringing-openssl-30-rhel-and-fedora
+
+*** TODO openssh 3.1.1 and 1.1.1u
+
+- Stable: 3.1.1 / 30 May 2023
+- LTS: 1.1.1u / 30 May 2023 (EOL 2023-09-11)
+  - post LTS 1.0.2(22 Jan 2015) until 1.0.2u(20 Dec 2019)
+
+*** TODO 2023-05-04 Dmitry Belyavskiy <dbelyavs@redhat.com> - 1:1.1.1k-9
+
+- openssl-1.1.1k-9.el8_6.x86_64.rpm 
+- openssl-libs-1.1.1k-9.el8_6.x86_64.rpm
+- default at rhel 8.6 > 1.1.1k7 > 1.1.1k-9
+
+* support
+
+- https://access.redhat.com/product-life-cycles?product=Red%20Hat%20Enterprise%20Linux
+- https://access.redhat.com/support/policy/updates/errata/
+- general availability
+- full support(5y) ends
+- maintenance support 1 ends
+- maintenance support(5y) or maintenance support 2 ends
+- extended life cycle support(ELS) add-on ends
+- extended life phase ends
+- final minor release
+
+** so rhel 8 and 8.6
+
+- general availability: May 7, 2019
+- full support(5y) ends: May 31, 2024
+- maintenance support(5y) ends: May 31, 2029
+
+* fips
+
+- Federal Information Processing Standard (FIPS) Publication 140-2
+  - https://csrc.nist.gov/publications/fips
+  - https://en.wikipedia.org/wiki/FIPS_140-2
+  - https://en.wikipedia.org/wiki/FIPS_140-3
+- https://access.redhat.com/solutions/137833
