@@ -1,0 +1,31 @@
+* refer
+
+- https://www.cisco.com/c/en/us/support/docs/ip/simple-network-management-protocol-snmp/15217-copy-configs-snmp.html
+  How To Copy Configurations To and From Cisco Devices Using SNMP
+- https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=cometrue0319&logNo=222284636196&categoryNo=11&proxyReferer
+  [정보보안] SNMP - TFTP
+- https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=eqelizer&logNo=20134264918
+- https://community.cisco.com/t5/networking-knowledge-base/how-to-copy-configuration-files-to-and-from-the-cisco-ios/ta-p/3127752
+- https://jrams.wordpress.com/2013/05/23/download-cisco-configuration-with-snmpget-via-tftp/
+- https://chat.openai.com/
+- https://www.cisco.com/c/en/us/td/docs/ios/security/configuration/guide/sec_cfg_copy_mib_scs.html
+
+* and arista
+* mib-s
+
+- CISCO-CONFIG-COPY-MIB
+- https://www.circitor.fr/Mibs/Html/C/CISCO-CONFIG-MAN-MIB.php
+- https://www.arista.com/assets/data/docs/MIBS/ARISTA-CONFIG-COPY-MIB.txt
+
+* cli
+
+- https://www.dell.com/community/Networking-General/How-to-save-configuration-files-from-Switch-to-tftp-Server/td-p/4108485
+
+* ansible
+
+- https://networklore.com/how-to-save-ios_config/
+
+* expect
+
+- https://stackoverflow.com/questions/21650587/shell-script-with-expect-module-to-backup-running-config-of-router-via-console
+- https://github.com/dvandooren/expect-backups

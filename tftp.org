@@ -1,0 +1,9 @@
+* tftp
+
+- put with permission allowed, too much
+
+* tftp server
+
+- https://www.sobyte.net/post/2022-08/centos-tfpserver/
+
+
