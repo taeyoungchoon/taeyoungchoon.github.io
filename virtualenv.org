@@ -9,12 +9,25 @@
 - https://docs.python-guide.org/dev/virtualenvs/
 - https://towardsdatascience.com/create-virtual-environment-using-virtualenv-and-add-it-to-jupyter-notebook-6e1bf4e03415
 
-* venv
+* DONE venv
+CLOSED: [2023-06-10 Sat 23:54]
 
-#+BEGIN_SRC 
-python3 -m venv venv
-source venv/bin/activate
-
-python -m pip list
-
+#+BEGIN_SRC shell
+  python3 -m venv venv
+  source venv/bin/activate
+  pip list
+  deactivate
 #+END_SRC
+
+* DONE virtualenv
+CLOSED: [2023-06-10 Sat 23:54]
+
+#+begin_src shell
+  pip3 install virtualenv
+
+  virtualenv env
+  source env/bin/activate
+  pip3 list
+  deactivate
+#+end_src
+
