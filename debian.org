@@ -11,3 +11,20 @@ https://ms-dev.tistory.com/62
 1. apt install fonts-nanum
 2. apt install ibus-hangul
 3. settings > region & language > input sources > + > Korean(Hangul)
+
+* TODO apt update on debian woody, nop bullseye
+
+- [2023-06-16 금] hmm
+
+#+BEGIN_SRC 
+? apt update
+
+N: Repository 'http://ftp.kr.debian.org/debian bullseye InRelease' changed its 'Version' value from '11.2' to '11.7'
+N: Repository 'http://ftp.kr.debian.org/debian bullseye InRelease' changed its 'Suite' value from 'stable' to 'oldstable'
+N: Repository 'http://security.debian.org/debian-security bullseye-security InRelease' changed its 'Suite' value from 'stable-security' to 'oldstable-security'
+N: Repository 'http://ftp.kr.debian.org/debian bullseye-updates InRelease' changed its 'Suite' value from 'stable-updates' to 'oldstable-updates'
+
+? cat /etc/debian_version
+11.2
+
+#+END_SRC

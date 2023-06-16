@@ -263,6 +263,7 @@ https://www.rsyslog.com/doc/master/troubleshooting/howtodebug.html
 $DebugFile /var/log/rsyslog.debug
 $DebugLevel 2
 #+END_SRC
+
 * DONE to remote
 
 ** /etc/rsyslog.conf
