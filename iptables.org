@@ -51,41 +51,120 @@ $ ping -c 3 8.8.8.8
 #+END_EXAMPLE
 
 * iptables vs cisco way, access-list
-* TODO log
+* DONE iptables log howto
 
 - [2023-06-27 화] log and drop
 
-** duo
+** DONE env
 
-  #+begin_src bash
-    iptables -I INPUT -p icmp --icmp-type echo-request -j LOG --log-prefix 'iptables drop this : '
-    iptables -I INPUT -p icmp --icmp-type echo-request -j DROP
+#+BEGIN_SRC bash
+  ? cat /etc/redhat-release
+  Red Hat Enterprise Linux release 8.6 (Ootpa)
+#+END_SRC
 
-  #+end_src
+** DONE config
 
-** uno
+- N: New chain
+- A: Append
+- j: Jump
 
-  #+begin_src bash
-    iptables -N LOG_AND_DROP
-    iptables -A LOG_AND_DROP -j LOG --log-prefix 'iptables drop this : '
-    iptables -A LOG_AND_DROP -j DROP
-  #+end_src
+#+begin_src bash
+  iptables -N LOG_AND_DROP
+  iptables -A LOG_AND_DROP -j LOG --log-prefix 'iptables drop this : '
+  iptables -A LOG_AND_DROP -j DROP
+#+end_src
 
-** uno with action
+- check
 
-  #+begin_src bash
-    iptables -I INPUT -p icmp --icmp-type echo-request -j LOG_AND_DROP
-  #+end_src
+#+BEGIN_SRC bash
+  iptables -L LOG_AND_DROP --line-numbers
+#+END_SRC
 
-** word
+** DONE test
+
+- I: Insert
+- p: Protocol
+- L: List
+
+#+begin_src bash
+  iptables -I INPUT -p icmp --icmp-type echo-request -j LOG_AND_DROP
+#+end_src
+
+- check
+
+#+BEGIN_SRC bash
+  iptables -L INPUT --line-numbers
+  iptables -nL
+  ping 0
+  journalctl -f
+#+END_SRC
+
+** DONE to file
+
+#+BEGIN_SRC bash
+? cat /etc/rsyslog.conf | grep kern.warn
+kern.warn                                               /var/log/iptables
+
+? systemctl restart rsyslog
+
+? tail -f /var/log/iptables
+#+END_SRC
+
+** DONE word
 
 - netfilter hook
 - chain
   - INPUT, OUTPUT, FORWARD
   - user-defined chain(LOG_AND_DROP)
-- target
+- target(ACCEPT, DROP, REJECT, LOG)
   - terminating target
   - non-terminating target
     - jumping target(LOG_AND_DROP)
       - pass back to calling chain if the end of rule list is reached
 
+** DONE enhancing with limit
+
+#+begin_src bash
+  iptables -N LOG_AND_DROP
+  iptables -A LOG_AND_DROP -m limit --limit 2/min -j LOG --log-prefix 'iptables drop this : '
+  iptables -A LOG_AND_DROP -j DROP
+#+end_src
+
+#+begin_src bash
+  iptables -I INPUT -p icmp --icmp-type echo-request -j LOG_AND_DROP
+#+end_src
+
+** DONE result
+
+#+BEGIN_SRC 
+? iptables -nL --line-numbers
+Chain INPUT (policy ACCEPT)
+num  target     prot opt source               destination
+1    LOG_AND_DROP  icmp --  0.0.0.0/0            0.0.0.0/0            icmptype 8
+
+Chain FORWARD (policy ACCEPT)
+num  target     prot opt source               destination
+
+Chain OUTPUT (policy ACCEPT)
+num  target     prot opt source               destination
+
+Chain LOG_AND_DROP (1 references)
+num  target     prot opt source               destination
+1    LOG        all  --  0.0.0.0/0            0.0.0.0/0            limit: avg 2/min burst 5 LOG flags 0 level 4 prefix "iptables drop this : "
+2    DROP       all  --  0.0.0.0/0            0.0.0.0/0
+#+END_SRC
+
+#+BEGIN_SRC 
+? tail -f /var/log/iptables
+Jun 27 10:41:56 rh01 kernel: iptables drop this : IN=enp0s3 OUT= MAC=08:00:27:26:37:93:08:00:27:db:ac:35:08:00 SRC=192.168.25.127 DST=192.168.25.124 LEN=84 TOS=0x00 PREC=0x00 TTL=64 ID=4200 DF PROTO=ICMP TYPE=8 CODE=0 ID=5 SEQ=1
+Jun 27 10:41:57 rh01 kernel: iptables drop this : IN=enp0s3 OUT= MAC=08:00:27:26:37:93:08:00:27:db:ac:35:08:00 SRC=192.168.25.127 DST=192.168.25.124 LEN=84 TOS=0x00 PREC=0x00 TTL=64 ID=4292 DF PROTO=ICMP TYPE=8 CODE=0 ID=5 SEQ=2
+Jun 27 10:41:58 rh01 kernel: iptables drop this : IN=enp0s3 OUT= MAC=08:00:27:26:37:93:08:00:27:db:ac:35:08:00 SRC=192.168.25.127 DST=192.168.25.124 LEN=84 TOS=0x00 PREC=0x00 TTL=64 ID=5281 DF PROTO=ICMP TYPE=8 CODE=0 ID=5 SEQ=3
+Jun 27 10:42:00 rh01 kernel: iptables drop this : IN=enp0s3 OUT= MAC=08:00:27:26:37:93:08:00:27:db:ac:35:08:00 SRC=192.168.25.127 DST=192.168.25.124 LEN=84 TOS=0x00 PREC=0x00 TTL=64 ID=5940 DF PROTO=ICMP TYPE=8 CODE=0 ID=5 SEQ=4
+Jun 27 10:42:01 rh01 kernel: iptables drop this : IN=enp0s3 OUT= MAC=08:00:27:26:37:93:08:00:27:db:ac:35:08:00 SRC=192.168.25.127 DST=192.168.25.124 LEN=84 TOS=0x00 PREC=0x00 TTL=64 ID=6839 DF PROTO=ICMP TYPE=8 CODE=0 ID=5 SEQ=5
+
+Jun 27 10:42:27 rh01 kernel: iptables drop this : IN=enp0s3 OUT= MAC=08:00:27:26:37:93:08:00:27:db:ac:35:08:00 SRC=192.168.25.127 DST=192.168.25.124 LEN=84 TOS=0x00 PREC=0x00 TTL=64 ID=19160 DF PROTO=ICMP TYPE=8 CODE=0 ID=5 SEQ=31
+
+Jun 27 10:42:57 rh01 kernel: iptables drop this : IN=enp0s3 OUT= MAC=08:00:27:26:37:93:08:00:27:db:ac:35:08:00 SRC=192.168.25.127 DST=192.168.25.124 LEN=84 TOS=0x00 PREC=0x00 TTL=64 ID=33726 DF PROTO=ICMP TYPE=8 CODE=0 ID=5 SEQ=60
+
+Jun 27 10:43:27 rh01 kernel: iptables drop this : IN=enp0s3 OUT= MAC=08:00:27:26:37:93:08:00:27:db:ac:35:08:00 SRC=192.168.25.127 DST=192.168.25.124 LEN=84 TOS=0x00 PREC=0x00 TTL=64 ID=47177 DF PROTO=ICMP TYPE=8 CODE=0 ID=5 SEQ=89
+#+END_SRC
