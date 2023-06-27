@@ -51,3 +51,41 @@ $ ping -c 3 8.8.8.8
 #+END_EXAMPLE
 
 * iptables vs cisco way, access-list
+* TODO log
+
+- [2023-06-27 화] log and drop
+
+** duo
+
+  #+begin_src bash
+    iptables -I INPUT -p icmp --icmp-type echo-request -j LOG --log-prefix 'iptables drop this : '
+    iptables -I INPUT -p icmp --icmp-type echo-request -j DROP
+
+  #+end_src
+
+** uno
+
+  #+begin_src bash
+    iptables -N LOG_AND_DROP
+    iptables -A LOG_AND_DROP -j LOG --log-prefix 'iptables drop this : '
+    iptables -A LOG_AND_DROP -j DROP
+  #+end_src
+
+** uno with action
+
+  #+begin_src bash
+    iptables -I INPUT -p icmp --icmp-type echo-request -j LOG_AND_DROP
+  #+end_src
+
+** word
+
+- netfilter hook
+- chain
+  - INPUT, OUTPUT, FORWARD
+  - user-defined chain(LOG_AND_DROP)
+- target
+  - terminating target
+  - non-terminating target
+    - jumping target(LOG_AND_DROP)
+      - pass back to calling chain if the end of rule list is reached
+
