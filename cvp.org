@@ -333,3 +333,26 @@ file:/usr/local/tomcat/work/Catalina/localhost/cvpservice/eclipse/plugins/com.ar
 └── proto
 
 #+END_SRC
+* TODO api to cvp
+
+- https://arista.my.site.com/AristaCommunity/s/question/0D52I00007ERrHSSA1/cvp-telemetry-data-to-external-nms
+- https://arista.my.site.com/AristaCommunity/s/question/0D52I00007ERqNRSA1/forwarding-telemetry-data-from-cvp-to-external-system
+
+** so
+
+- https://github.com/aristanetworks/cloudvision/tree/trunk
+  - [X] CloudVision Connector
+    - The CloudVision Connector is a simple JavaScript module using WebSockets that enables you to transmit data over an open connection with the CloudVision API server. The CloudVision Connector supports subscribing to data, which lets clients receive streaming updates as data changes in real-time.
+  - [ ] cloudvision-grpc-web
+    - A grpc-web client for requesting CloudVision data from the frontend. This libraries exposed functions and utils that convert the grpc-web calls to Observable streams that can be manipulated using RXJS
+- https://aristanetworks.github.io/cloudvision/modules/cloudvision_connector.html
+  - manual
+
+** what about this
+
+- https://github.com/aristanetworks/cloudvision-python
+  - cloudvision-python
+    - API Documentation for this library can be found here.
+    - Documentation for CloudVision's Resource APIs can be found here.
+    - [X] Documentation for generic access to CloudVision can be found at CloudVision Connector.
+      

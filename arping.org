@@ -1,0 +1,55 @@
+* cli
+
+ 1016  arping -I eth0 192.168.25.191 -b -c 3
+ 1017  arping -I eth0 192.168.25.191 -c 3
+
+* others, nping since 2009
+
+nping 192.168.25.0/24 --arp-target-mac ff:ff:ff:ff:ff:ff -c 1000000 --arp --delay 0.001 ms --rate 1000000
+
+TIMING AND PERFORMANCE:
+  Options which take <time> are in seconds, or append 'ms' (milliseconds),
+  's' (seconds), 'm' (minutes), or 'h' (hours) to the value (e.g. 30m, 0.25h).
+  --delay <time>                   : Adjust delay between probes.
+  --rate  <rate>                   : Send num packets per second.
+
+* ip keeper
+
+* arp.sh
+
+** sender
+
+? ip -4 a s eth0
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    inet 192.168.25.162/24 brd 192.168.25.255 scope global eth0
+       valid_lft forever preferred_lft forever
+
+? cat arp.sh
+nohup arping -I eth0 192.168.25.201 -b -c 1 &
+
+? for i in $(seq 1 3); do sh arp.sh;  done
+
+** catcher
+
+? tcpdump -i eth0 ether host 52:54:00:1d:99:25
+
+00:11:13.794713 ARP, Request who-has 192.168.25.201 (Broadcast) tell cvp1.t.com, length 28
+00:11:13.794713 ARP, Request who-has 192.168.25.201 (Broadcast) tell cvp1.t.com, length 28
+00:11:13.796433 ARP, Request who-has 192.168.25.201 (Broadcast) tell cvp1.t.com, length 28
+
+** note
+
+? date > log; for i in $(seq 1 3); do sh arp.sh;  done; date >> log
+
+* TODO with code, perl or python
+
+* TODO scapy
+
+- https://scapy.readthedocs.io/en/latest/usage.html
+
+#+BEGIN_SRC 
+? scapy
+>>> ans, unans = srp(Ether(dst="ff:ff:ff:ff:ff:ff")/ARP(pdst="192.168.25.0/24"), timeout=2)
+>>> ans.summary(lambda s,r: r.sprintf("%Ether.src% %ARP.psrc%") )
+
+#+END_SRC
