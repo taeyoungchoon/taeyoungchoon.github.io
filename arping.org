@@ -45,11 +45,81 @@ nohup arping -I eth0 192.168.25.201 -b -c 1 &
 
 * TODO scapy
 
+- https://scapy.readthedocs.io/en/latest/introduction.html
 - https://scapy.readthedocs.io/en/latest/usage.html
+- Scapy is a Python program that enables the user to send, sniff and dissect and forge network packets. 
+- This capability allows construction of tools that can probe, scan or attack networks.
 
 #+BEGIN_SRC 
 ? scapy
 >>> ans, unans = srp(Ether(dst="ff:ff:ff:ff:ff:ff")/ARP(pdst="192.168.25.0/24"), timeout=2)
 >>> ans.summary(lambda s,r: r.sprintf("%Ether.src% %ARP.psrc%") )
 
+#+END_SRC
+
+#+BEGIN_SRC 
+[root@t001 ~]# scapy
+>>> srp(Ether(dst="ff:ff:ff:ff:ff:ff")/ARP(pdst="192.168.25.201"), timeout=2)
+Begin emission:
+Finished sending 1 packets.
+*
+Received 1 packets, got 1 answers, remaining 0 packets
+(<Results: TCP:0 UDP:0 ICMP:0 Other:1>,
+ <Unanswered: TCP:0 UDP:0 ICMP:0 Other:0>)
+>>> srp(Ether(dst="ff:ff:ff:ff:ff:ff")/ARP(pdst="192.168.25.202"), timeout=2)
+Begin emission:
+Finished sending 1 packets.
+*
+Received 1 packets, got 1 answers, remaining 0 packets
+(<Results: TCP:0 UDP:0 ICMP:0 Other:1>,
+ <Unanswered: TCP:0 UDP:0 ICMP:0 Other:0>)
+>>> srp(Ether(dst="ff:ff:ff:ff:ff:ff")/ARP(pdst="192.168.25.203"), timeout=2)
+Begin emission:
+Finished sending 1 packets.
+*
+Received 1 packets, got 1 answers, remaining 0 packets
+(<Results: TCP:0 UDP:0 ICMP:0 Other:1>,
+ <Unanswered: TCP:0 UDP:0 ICMP:0 Other:0>)
+>>>
+#+END_SRC
+
+#+BEGIN_SRC 
+[root@s001 ~]# tcpdump -nn host t001.t.com
+15:49:37.914093 ARP, Request who-has 192.168.25.201 tell 192.168.25.211, length 46
+15:49:37.914126 ARP, Reply 192.168.25.201 is-at 10:60:4b:9c:61:bc, length 28
+15:49:44.923829 ARP, Request who-has 192.168.25.202 tell 192.168.25.211, length 46
+15:49:49.379525 ARP, Request who-has 192.168.25.203 tell 192.168.25.211, length 46
+^C
+#+END_SRC
+
+#+BEGIN_SRC 
+>>> sendp(Ether(dst="ff:ff:ff:ff:ff:ff")/ARP(pdst="192.168.25.201"), loop=1, count=1000)
+..............................................................
+Sent 1000 packets.
+>>>
+#+END_SRC
+
+* scapy
+
+- Scapy is a packet manipulation tool for computer networks, originally written in Python by Philippe Biondi.
+
+#+BEGIN_SRC python
+  #!/usr/bin/env python3
+
+  from scapy.all import *
+  import time
+
+  start = time.time()
+  sendp(Ether(dst="ff:ff:ff:ff:ff:ff")/ARP(pdst="192.168.25.201"), loop=1, count=1000)
+  end = time.time()
+
+  gap = end - start
+  print("{:.2}s".format(gap))
+#+END_SRC
+
+#+BEGIN_SRC 
+[root@t001 scapy]# python3 barp.py
+.....................................................................................
+Sent 1000 packets.
+0.71s
 #+END_SRC
