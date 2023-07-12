@@ -1,0 +1,20 @@
+* emacs lisp
+
+** advice-add
+
+- https://www.gnu.org/software/emacs/manual/html_node/elisp/Advising-Functions.htlm
+- standard method combination from CLOS
+- python decorator
+  - https://peps.python.org/pep-3124/
+
+#+BEGIN_SRC emacs-lisp
+  (defun my-double (x)
+    (* x 2))
+  (defun my-increase (x)
+    (+ x 1))
+  (advice-add 'my-double :filter-return #'my-increase)
+  (my-double 3)
+#+END_SRC
+
+#+RESULTS:
+: 7
