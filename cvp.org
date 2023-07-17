@@ -362,3 +362,299 @@ file:/usr/local/tomcat/work/Catalina/localhost/cvpservice/eclipse/plugins/com.ar
     - Documentation for CloudVision's Resource APIs can be found here.
     - [X] Documentation for generic access to CloudVision can be found at CloudVision Connector.
       
+* at school
+
+- https://www.fastlanetraining.ca/course/arista-cvp
+
+* ---
+* list to be Arista CloudVision Portal Specialist
+
+** process 
+
+*** before
+
+**** steps
+
+1. understanding Arista network design(arista validated design)
+   - network essential first
+   - this is the best practice from the arista network engineer
+2. know about CloudVision Portal
+   - means know about what it it and how to use
+3. know about CloudVision Portal's Studio to deploy
+   - automate using studio
+
+*** in the middle to modify Studio
+
+**** steps
+
+1. Cloudvision API is
+2. using Arista Cloudvision Python Libraries x 3
+   - Python first, depth
+   - dependencies on the following python libraries x 37
+
+*** automate out of the studio, using Ansble
+
+- learn about collections and deploy samples enough to know
+  - be a practical ansible user first
+  - link back to 'Arista Design and Deployment Guides'
+    - https://avd.arista.com
+
+**** steps
+
+- arista.eos collection include x 34 modules
+- arista.cvp collection include x11 modules
+- arista.avd collection include x 8 modules
+
+** DONE Design Guide
+
+- https://www.arista.com/en/solutions/design-guides
+- aka avd, arista validated design
+
+*** list
+
+- [ ] Arista Universal Cloud Network Design Guide 
+- [ ] Layer 3 Leaf & Spine Design and Deployment Guide 
+- [ ] EVPN Deployment Guide 
+- Layer 2 Leaf & Spine Design and Deployment Guide 
+- Arista Cognitive Campus Design Guide 
+
+** DONE know about cvp
+
+- https://www.arista.com/assets/data/pdf/Whitepapers/CloudVision_WP.pdf
+- https://www.arista.com/en/solutions/design-guides
+- Arista CloudVision Portal (CVP) for Day 2 Network Operations Design Guide
+
+** DONE cvp > provisioning > studio
+
+- https://github.com/arista-netdevops-community/CloudVisionPortal-Examples/tree/master/CloudVision_Studios
+
+*** list
+
+- [ ] ACLs QOS_Studio
+- Campus Fabric v2
+- Connected Endpoints
+- Create SNMPv3_Users
+- DCI & L3 Edge
+- EVPN Services
+- Enterprise Routing_Studio
+- InterOp Examples_for_Studios
+- Interface Manager
+- L3 Leaf Spine No BFD
+- [ ] L3 Leaf-Spine
+- MPLS Fabric
+- Service Provisioning
+- Tag Manager_Script
+- VPWS Services
+
+** cvp > provisioning > configlet
+
+- https://github.com/arista-netdevops-community/CloudVisionPortal-Examples/tree/master/CloudVision_ConfigletBuilders
+
+*** list
+
+- Build MLAG_Stack
+- DeployDataCenter
+- EX0 TestGlobalsBuilder
+- EX10 EVPN
+- EX11 IPSECTunnelvRouter
+- EX12 FabricBuilder
+- EX13 deviceAPI_MgmtIntBuilder
+- EX14 Day2_Operations_Overlay_Interfaces
+- EX15 SelfSignedCertificate
+- EX1 Form_MgmtIntBuilder
+- EX2 eAPI_MgmtIntBuilder
+- EX3 SSH_MgmtIntBuilder
+- EX4 mySQL_MgmtIntBuilder
+- EX5 VxlanBuilder
+- EX6 BasicBuilder
+- EX7 BuildMLAG
+- EX8 LeafBuilder
+- EX9 SingleVXLANandVLANProvisioning
+- Interface Shutdown
+- MLAG Stack_Builder
+- PasswordChange
+- SNMP Localised_Users
+- ServiceOption
+- Update vEOS_Serial_Numbers
+- free ports
+- parse configlet_export.py
+- rest client
+- servicesDB
+
+** DONE Cloudvision API
+
+- https://github.com/aristanetworks/cloudvision-apis
+- Cloudvision APIs are state based, resource-oriented APIs in which resources are divided into configuration data models (known as config) and operational and/or derived state models (known as state). Resources are modeled in Protobuf and accessed over gRPC with a standardized set of RPCs.
+
+** DONE Python code/library
+
+*** TODO Arista CloudVision Python Library
+
+- The Arista CloudVision Python library provides access to Arista's CloudVision APIs for use in Python applications.
+- https://github.com/aristanetworks/cloudvision-python/tree/trunk
+
+**** list
+
+- cloudvision package
+- arista package
+- fmp package
+
+*** TODO Arista Cloudvision Portal RESTful API Client(cvprac)
+
+- This module provides a RESTful API client for Cloudvision® Portal (CVP) which can be used for building applications that work with Arista CVP.
+- https://github.com/aristanetworks/cvprac
+
+**** list
+
+- cvp package
+- cvp client package
+
+*** TODO CloudVision Connector
+
+- https://aristanetworks.github.io/cloudvision/modules/cloudvision_connector.html
+- https://github.com/aristanetworks/cloudvision
+- https://github.com/aristanetworks/cloudvision-python/tree/trunk/examples/Connector
+
+**** list
+
+- a-msgpack
+- cloudvision-connector
+  - The CloudVision Connector is a simple JavaScript module using WebSockets that enables you to transmit data over an open connection with the CloudVision API server. The CloudVision Connector supports subscribing to data, which lets clients receive streaming updates as data changes in real-time.
+- cloudvision-grpc-web
+  - A grpc-web client for requesting CloudVision data from the frontend. This libraries exposed functions and utils that convert the grpc-web calls to Observable streams that can be manipulated using RXJS.
+
+** DONE Python modules, dependencies on the following python libraries
+
+- argparse
+- builtins
+- collections
+- concurrent
+- copy
+- cryptography
+- csv
+- datetime
+- dst_parser
+- enum
+- functools
+- google/protobuf
+- grpc
+- io
+- json
+- logging
+- msgpack
+- notification
+- numpy
+- os
+- parser
+- pathlib
+- pytest
+- requests
+- setuptools
+- sharding
+- signal
+- ssl
+- sys
+- time
+- typing
+- typing_extensions
+- unittest
+- urllib3
+- utils
+- uuid
+- yaml
+
+** DONE essential about python
+
+- python, practical
+  - data structure
+  - decorator
+  - pytest
+    
+** DONE essential about ansible
+
+- ansible
+  - optional, ansible tower(alternative awx)
+
+** additional requirement 
+
+- grpc/protobuf
+- mako template
+    
+** TODO ansible modules about avd and to be used
+
+- link back to avd doc
+
+*** arista.avd x 8
+
+- https://github.com/aristanetworks/ansible-avd/tree/devel/ansible_collections/arista/avd
+- https://avd.arista.com
+
+**** list
+
+- arista.avd.eos_designs - Opinionated Data model to assist with the deployment of Arista Validated Designs.
+- arista.avd.eos_cli_config_gen - Generate Arista EOS cli syntax and device documentation.
+- arista.avd.eos_config_deploy_cvp - Deploys intended configuration via CloudVision.
+- arista.avd.eos_config_deploy_eapi - Deploys intended configuration via eAPI.
+- arista.avd.cvp_configlet_upload - Uploads configlets from a local folder to CloudVision Server.
+- arista.avd.eos_validate_state - Validate operational states of Arista EOS devices.
+- arista.avd.eos_snapshot - Collect commands on EOS devices and generate reports.
+- arista.avd.dhcp_provisioner - Configure an ISC-DHCP server to provide ZTP services and CloudVision registration.
+
+*** arista.eos x 34
+
+- https://docs.ansible.com/ansible/latest/collections/arista/eos/index.html
+
+**** list
+
+- eos_acl_interfaces module – ACL interfaces resource module
+- eos_acls module – ACLs resource module
+- eos_banner module – Manage multiline banners on Arista EOS devices
+- eos_bgp module – (deprecated, removed after 2023-01-29) Configure global BGP protocol settings on Arista EOS.
+- eos_bgp_address_family module – Manages BGP address family resource module
+- eos_bgp_global module – Manages BGP global resource module
+- eos_command module – Run arbitrary commands on an Arista EOS device
+- eos_config module – Manage Arista EOS configuration sections
+- eos_eapi module – Manage and configure Arista EOS eAPI.
+- eos_facts module – Collect facts from remote devices running Arista EOS
+- eos_hostname module – Manages hostname resource module
+- eos_interfaces module – Interfaces resource module
+- eos_l2_interfaces module – L2 interfaces resource module
+- eos_l3_interfaces module – L3 interfaces resource module
+- eos_lacp module – LACP resource module
+- eos_lacp_interfaces module – LACP interfaces resource module
+- eos_lag_interfaces module – LAG interfaces resource module
+- eos_lldp module – Manage LLDP configuration on Arista EOS network devices
+- eos_lldp_global module – LLDP resource module
+- eos_lldp_interfaces module – LLDP interfaces resource module
+- eos_logging module – Manage logging on network devices
+- eos_logging_global module – Manages logging resource module
+- eos_ntp_global module – Manages ntp resource module
+- eos_ospf_interfaces module – OSPF Interfaces Resource Module.
+- eos_ospfv2 module – OSPFv2 resource module
+- eos_ospfv3 module – OSPFv3 resource module
+- eos_prefix_lists module – Manages Prefix lists resource module
+- eos_route_maps module – Manages Route Maps resource module
+- eos_snmp_server module – Manages snmp_server resource module
+- eos_static_routes module – Static routes resource module
+- eos_system module – Manage the system attributes on Arista EOS devices
+- eos_user module – Manage the collection of local users on EOS devices
+- eos_vlans module – VLANs resource module
+- eos_vrf module – Manage VRFs on Arista EOS network devices
+
+*** arista.cvp x 11
+
+- https://cvp.avd.sh/en/stable/
+
+**** list
+
+- arista.cvp.cv_configlet_v3 - Manage configlet configured on CVP.
+- arista.cvp.cv_container_v3 - Manage container topology and attach configlet and devices to containers.
+- arista.cvp.cv_device_v3 - Manage devices configured on CVP
+- arista.cvp.cv_task_v3 - Run tasks created on CVP.
+- arista.cvp.cv_facts_v3 - Collect information from CloudVision.
+- arista.cvp.cv_image_v3 - Create EOS images and bundles on CloudVision.
+- arista.cvp.cv_tag_v3 - Create, delete, assign and unassign tags on CloudVision.
+- arista.cvp.cv_validate_v3 - Configlet validation
+- arista.cvp.cv_change_control_v3 - Manage change controls on CloudVision.
+- arista.cvp.dhcp_configuration - Configure DHCPD service on a CloudVision server or any dhcpd service.
+- arista.cvp.configlet_sync - Synchronize configlets between multiple CloudVision servers.
