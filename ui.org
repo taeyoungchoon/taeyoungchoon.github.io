@@ -1,0 +1,11 @@
+* list
+
+- cli
+  - unix
+    - ls -ltr
+  - cisco
+    - ip a s eth0
+    - ip -4 -o addr
+- tui
+  - ncurses(new)
+- wui aka web user interface
