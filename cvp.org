@@ -417,7 +417,7 @@ file:/usr/local/tomcat/work/Catalina/localhost/cvpservice/eclipse/plugins/com.ar
 - [ ] EVPN Deployment Guide 
 - Layer 2 Leaf & Spine Design and Deployment Guide 
 - Arista Cognitive Campus Design Guide 
-
+  
 ** DONE know about cvp
 
 - https://www.arista.com/assets/data/pdf/Whitepapers/CloudVision_WP.pdf

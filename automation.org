@@ -1,0 +1,18 @@
+* automation, automate, robot, bio-robot
+* half automation
+* full automation
+* script
+
+- copy and paste
+- scp then execute
+
+* loop with scripting
+
+- ansible tower, container, contained, agent, policy
+
+* abstraction of list
+
+- powershell, get-children
+- dos, dir
+- unix, ls
+
