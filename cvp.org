@@ -658,3 +658,22 @@ file:/usr/local/tomcat/work/Catalina/localhost/cvpservice/eclipse/plugins/com.ar
 - arista.cvp.cv_change_control_v3 - Manage change controls on CloudVision.
 - arista.cvp.dhcp_configuration - Configure DHCPD service on a CloudVision server or any dhcpd service.
 - arista.cvp.configlet_sync - Synchronize configlets between multiple CloudVision servers.
+
+* TODO ctx
+
+- [ ] https://github.com/colinmacgiolla/cvp-actions
+- [ ] https://www.arista.com/en/support/toi/cvp-2021-3-0/14901-ui-for-custom-action-scripts
+
+The script execution environment provides a context object (ctx) for use in action scripts. This context object holds a number of fields and helper functions to assist with script creation, such as the ability to access script arguments and create CloudVision resource API clients. The fields and methods described in the ctx object are described in the following section.
+
+Functions
+Below is a list of ctx functions:
+
+ctx.getDevice(): Returns the device associated with the context. Returns None if there is 0, or more than 1 device associated to the context
+ctx.runDeviceCmds(command list): Takes a list of commands to run on the device associated with the context, and returns returns list of JSON objects containing the outputs of the commands
+ctx.alog(message): Takes a string message and posts it to the alog with the message encoded in the body
+ctx.getApiClient(stub): Instantiates and returns a CloudVision client to the service server based on the current user auth token and the provided resource stub
+ctx.getCvClient(): Instantiates and returns a CloudVision connector client to the cv database based on the current user auth token. For further information on the connector client and its uses, please visit the cloudvision-python github
+ctx.changeControl.getStartTime(cv client): Uses the provided CloudVision connector client to query the DB and get the change control's start time as a Unix timestamp
+
+
