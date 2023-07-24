@@ -535,3 +535,6 @@ Spectre V2 : WARNING: Unprivileged eBPF is enabled with eIBRS on, data leaks pos
 
 멈춰 있는 느낌은 같다.
 
+* samples
+
+https://github.com/hashicorp/vagrant/issues/11432
