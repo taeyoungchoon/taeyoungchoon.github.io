@@ -21,7 +21,7 @@ else
     free -m | awk '/cache:/ { print $3*100/($3+$4) }'
 fi
 # p9: disk usage
-df -Ph | column -t | sed 's/%//' | sort -k5 -r
+df -Ph | column -t | sed 's/%//' | sort -k5 -r -n
 # p10: system log
 #-journalctl -b --no-pager -p crit(2), err(3), warning(4) -p 2..4
 if which journalctl &>/dev/null; then
@@ -40,3 +40,7 @@ last | head -3 | cat -n
 ip r | awk '/^default/ { system("ip a s " $5) }' | awk '/inet / { print $2 }'
 ip r | awk '/^default/ { system("ping -c 3 " $3) }'
 # fine ----------------------------------------------------------------------
+# uname -a
+# 
+#
+
