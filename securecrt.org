@@ -68,12 +68,28 @@ YYY\r
 
 RRR\r
 
-* Tip
+* TODO Tip
 
-- Ctrl - F4
-- Ctrl - Tab
+- [X] Ctrl + F4 to close tab
+- [ ] Ctrl + Tab to switchh between tabs
+  - Ctrl + Tab, Ctrl + Shift + Tab
+  - Alt + 1 ~ 0
 - show module
 - config paging disable
   - config paging enable
 - terminal length 0
 - logout vs exit
+
+* TODO tip from of vandyke software securecrt help
+
+- [2023-07-26 수 08:34] 외장 키보드에서 먹지 않았다. 이런
+
+** list
+
+- CTRL+TAB takes you through multiple SecureCRT session tabs.
+- CTRL+SHIFT+TAB cycles backwards through the sessions.
+- CTRL+F4 closes the active tab.
+- ALT+1 (2, 3, 4, 5, 6, 7, 8, 9, & 0) allows you to jump directly to one of the first ten tabs.
+
+** Keymap Functions
+** Keymap Editor

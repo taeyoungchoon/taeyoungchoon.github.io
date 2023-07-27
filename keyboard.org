@@ -1,9 +1,12 @@
 * TODO Cherry G80-3000S TKL
 
-1. Fn + F9 : windows lock
-2. disable Functional Fn key using Ctrl + Fn
+1. disable Functional Fn key using Ctrl + Fn
    - https://gall.dcinside.com/mgallery/board/view/?id=mechanicalkeyboard&no=775181
+   - https://blog.ham1.co.uk/2020/10/12/cherry-mx-1-0-fn-lock/
    - C-Fn 이걸로 충분하다
+   - [2023-07-26 수 08:13] 오늘 또 한번 겪었다. 기억이 나지 않고, keyboard에서 그리고 맨 처음 글에서 도움을 얻었다. 참고로 왼쪽 Ctrl 키(LCtrl)다.
+     - so 'LCtrl + Fn'
+2. Fn + F9 : windows lock
 3. Win not working, so now work with autohotkey
    - LAlt::LWin
    - 이런 emacs에 meta키로 사용하는 군요.
