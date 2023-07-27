@@ -1,0 +1,10 @@
+* TODO mssql, ms sql server 2016
+
+- [ ] sql server 2016
+- [ ] sql server management studio, not included
+
+* history
+
+- sql server 2016
+- sql server 2019
+- sql server 2022
