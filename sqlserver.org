@@ -1,10 +1,47 @@
-* TODO mssql, ms sql server 2016
-
-- [ ] sql server 2016
-- [ ] sql server management studio, not included
-
 * history
 
 - sql server 2016
 - sql server 2019
 - sql server 2022
+
+* TODO [2023-07-28 금] mssql, ms sql server 2016
+
+1. Please select your SQL Server 2016 download 
+   - https://www.microsoft.com/en-us/evalcenter/download-sql-server-2016
+2. SQL Server Installation Center from Windows 10
+   - sql server 2016
+     1) installation edition
+        - [X] evaluation
+	- [ ] developer
+     2) features
+	- [X] database engine services
+     3) [X] instance 'Default instance'
+	- maybe set 'Instance ID' as 'MSSQLSERVER'
+     4) Service Accounts
+	- [X] SQL Server Agent as Manual
+	- [X] SQL Server Database Engine as Automatic
+	- SQL Server Browser as Disabled
+     5) Server Configuration
+	- Authentication Mode
+	  - [X] Windows authentication mode
+	    - Add Current User
+	      - THINK\jack (jack)
+	  - [ ] Mixed Mode (SQL Server auth and Windows auth)
+     6) log
+	- Microsoft SQL Server 2016 Setup
+	  - The following error has occurred:
+	    - Could not find the Database Engine Startup handle.
+	- Sql Server Configuration Manager
+	  - SQL Server Services
+	    - SQL Server
+	      - Stopped
+	- SQL Server Installation Center
+	  - Maintenance
+	    - Repair
+   - [ ] sql server management studio, not include
+3. SQL Server Installation Center from Windows Server 2016(vm)
+   - [X] but more with internet explorer security
+   - [X] dotnet first
+   - [X] installing
+
+* with R
