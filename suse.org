@@ -43,7 +43,18 @@ yast -i emacs-nox
 https://www.novell.com/support/kb/doc.php?id=3594951
 https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions
 
-* suse for SAP
+* TODO suse for SAP
 
 - https://documentation.suse.com/sles-sap/15-SP1/html/SLES4SAP-guide/cha-s4s-about.html
 - https://answers.sap.com/questions/12092943/sles-enterprise-vs-sles-enterprise-for-sap.html
+
+* TODO target
+
+- [ ] suse 12 sp5
+- [ ] suse 12 sp5 for sap
+
+* TODO alternative
+
+- [ ] opensuse
+
+* TODO suse vs opensuse

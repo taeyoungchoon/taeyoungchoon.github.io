@@ -45,3 +45,12 @@
    - [X] installing
 
 * with R
+* TODO ma
+
+- [X] with
+- [X] or without permission(sa/t)
+
+* TODO target
+
+- [X] [2023-07-29 Sat] sql server 2016
+- [X] [2023-07-29 Sat] sql server 2017

@@ -1,4 +1,4 @@
-* cli
+* TODO cli
 
 winver
 taskmgr
@@ -21,10 +21,11 @@ wuapp
 wusa
 https://superuser.com/questions/462425/can-i-invoke-windows-update-from-the-command-line
 
-* target
+* TODO target
 
-windows 2003
-windows 2008
+- windows 2003
+- windows 2008
+- [X] [2023-07-29 Sat] windows 2016
 
 * more
 
@@ -40,7 +41,7 @@ powershell
 cscript
 wsh, windows script host
 
-* swap
+* TODO swap
 
 Get-Counter '\Paging File(*)\% Usage'
 Get-Counter '\Process(_total)\Page File Bytes'
@@ -49,7 +50,7 @@ taskmgr > total paging file size for all drivers
 msinfo32 /categories +systemsummary
 typeperf -qx "\Memory"
 
-* uptime
+* TODO uptime
 
 chcp 437
 systeminfo | findstr /i time
@@ -59,7 +60,7 @@ Event ID 6005
 net stats workstation / svr
 taskmgr > perf > up time
 
-** gui
+** TODO gui
 
 1. Performance Monitor (perfmon)
 2. Add Counters (The button with the "+" icon, 8th over, left of the X") 
@@ -70,7 +71,7 @@ taskmgr > perf > up time
 
 http://people.virginia.edu/~rtg2t/winadmin/wmic.html
 
-* disk
+* TODO disk
 
 diskpart
 select disk 1
