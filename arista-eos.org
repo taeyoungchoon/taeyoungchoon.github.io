@@ -45,3 +45,49 @@ enable password xyrt1
 
 aaa authorization exec default local
 
+* TODO upgrade
+
+- download
+  - [2023-07-31 월] EOS-4.29.4M.swi
+    - 32bit
+    - with M not F
+      - https://www.arista.com/en/support/product-documentation/eos-life-cycle-policy
+- https://www.arista.com/en/um-eos/eos-standard-upgrades-and-downgrade
+
+** steps
+
+dir flash1:
+dir usb1:
+copy usb1:/EOS-4.29.4M.swi flash:/EOS-4.29.4M.swi
+dir flash:
+show boot-config
+conf t
+boot system flash:/EOS-4.13.2.swi
+show boot-config
+write
+reload
+show version | grep Software
+
+* usb mount and eject
+
+- mount automatically
+- eject usb1
+
+* text file
+
+- copy terminal: usb1:/eos_up.txt
+
+* ssh
+
+#+BEGIN_SRC bash
+bash
+Cli -p 15 -c 'show ip access-list default-control-plane-acl' > default-control-plane-acl
+cat default-control-plane-acl |sed -e 's/\[.*\]//' -e 's/default-control-plane-acl/ssh-control-plane-acl2/' -e 's/Access List/access-list/'
+#+END_SRC
+
+#+BEGIN_SRC 
+show ip access-lists default-control-plane-acl | sed -e 's/\[.*\]//' -e 's/default-control-plane-acl/ssh-control-plane-acl2/' -e 's/Access List/access-list/'
+arista1(config-acl-ssh-control-plane-acl2)#permit tcp any any eq 2022
+#+END_SRC
+
+

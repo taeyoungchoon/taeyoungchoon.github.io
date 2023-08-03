@@ -1,0 +1,3 @@
+* made by rsyslog team
+
+- https://www.winsyslog.com/

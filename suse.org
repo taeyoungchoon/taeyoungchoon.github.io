@@ -2,10 +2,6 @@
 
 - Software und System Entwicking ( software and systems development )
 
-* opensuse
-
-http://mirrors.vbi.vt.edu/linux/opensuse/discontinued/distribution/10.3/iso/cd./
-
 * 20170911_1
 
 시작인가? 흠
@@ -58,3 +54,29 @@ https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions
 - [ ] opensuse
 
 * TODO suse vs opensuse
+* TODO suse linux enterprise high availability extension
+
+- https://documentation.suse.com/sles-sap/15-SP1/html/SLES4SAP-guide/cha-s4s-about.html
+- include in SAP hana cluster
+- SUSE High Availability Cluster Services
+* TODO opensuse
+
+- tumbleweed like stream version, rolling release
+- leap, regular
+- https://en.wikipedia.org/wiki/OpenSUSE
+- opensuse leap 15.0 and 15.1 used kernel 4.12
+  - release date: 2019.5.22.
+- https://en.wikipedia.org/wiki/SUSE_Linux_Enterprise
+- sles version 12 lastest sp 5
+  - release date: 2014.10.27
+  - SP5 release: 2019.12.9.
+- slse version 15
+  - release date: 2018.7.16.
+- so what?
+  - [ ] opensuse leap 13.2
+    - release date: 2014.11.4.
+  - [X] opensuse leap 42.1, 42.2, 42.3
+    - release date: 2015.11.4.
+    - so, so, so 42.3
+    - [X] https://app.vagrantup.com/bento/boxes/opensuse-leap-42.3
+

@@ -1,0 +1,15 @@
+* rhel cluster, redhat cluster (suite)
+
+- The High Availability Add-On is Red Hat's implementation of Linux-HA.
+- https://en.wikipedia.org/wiki/Red_Hat_cluster_suite
+
+* tool-s
+
+- crm but pacemaker
+- crm status
+
+* rhel 8.2
+
+- gg: rhel 8.2 ha cluster
+- https://unixcop.com/pacemaker-ha-cluster-setup-on-centos8-rhel8/
+

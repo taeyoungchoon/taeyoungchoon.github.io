@@ -1,0 +1,38 @@
+* impl
+
+- redhat ha cluster
+- suse ha cluster
+
+* tool-s and word-s
+
+- STONITH
+- nfs
+- shared storage
+- pacemaker
+- corosync
+- fense
+- gfs
+- network power switch do power control
+- heartbeat
+
+* stack
+
+| layers         | desc                |
+|----------------+---------------------|
+| virtual ip     |                     |
+| service        | SAP HANA            |
+| cluster suite  | pacemaker, corosync |
+| linux          | suse                |
+| shared storage |                     |
+
+* cli
+
+- pcs status resources
+- pcs status cluster
+- pcs status groups
+- pcs status nodes
+- pcs status pcsd
+
+* cli but
+
+- crm

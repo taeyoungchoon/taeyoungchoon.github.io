@@ -1,0 +1,19 @@
+* TODO what the, fail
+
+- https://www.meinbergglobal.com/english/sw/ntp.htm
+- C:\Program Files (x86)\NTP\etc\ntp.conf
+
+#+BEGIN_SRC 
+restrict 127.0.0.1 
+restrict -6 ::1 
+restrict 192.168.25.0 mask 255.255.255.0 
+driftfile "C:\Program Files (x86)\NTP\etc\ntp.drift"
+server 127.127.1.0
+fudge 127.127.1.0 stratum 21
+#+END_SRC
+
+- services.msc from taskmgr
+
+* TODO some others
+
+- https://nts.softros.com/downloads/

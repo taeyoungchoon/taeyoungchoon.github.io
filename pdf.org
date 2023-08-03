@@ -1,4 +1,4 @@
-]11;rgb:0000/0000/0000* pdf
+* pdf
 
 [[file:text.org][text]] 에 대한 대안이다
 표현력도 충분하다
@@ -17,4 +17,17 @@
 https://www.adobe.com/acrobat/online/merge-pdf.html
 
 * DONE split using pdfsam
-* DONE convert using alpdf
+* TODO convert using alpdf
+
+- select files
+  - right click 
+    - convert to
+      - 일괄편집
+	- 변환
+	  - 추출 형식: JPG
+- select file
+  - right click
+    - edit with alpdf
+      - page
+	- rotate to right
+	  - save

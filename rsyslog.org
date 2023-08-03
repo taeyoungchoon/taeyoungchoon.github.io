@@ -247,6 +247,7 @@ input(type="imudp" port="514")
 $template remote-incoming-logs, "/var/log/remote/%HOSTNAME%".log
 *.* ?remote-incoming-logs
 ?
+? mkdir -p /var/log/remote
 ? systemctl restart rsyslog
 ?
 ? ss -4lntpu  | grep 514

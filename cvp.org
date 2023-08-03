@@ -676,4 +676,57 @@ ctx.getApiClient(stub): Instantiates and returns a CloudVision client to the ser
 ctx.getCvClient(): Instantiates and returns a CloudVision connector client to the cv database based on the current user auth token. For further information on the connector client and its uses, please visit the cloudvision-python github
 ctx.changeControl.getStartTime(cv client): Uses the provided CloudVision connector client to query the DB and get the change control's start time as a Unix timestamp
 
+* TODO [2023-08-01 화] cvp dhcpd.conf
 
+#+BEGIN_SRC 
+option domain-name "t.com";
+option domain-name-servers 192.168.25.20;
+option ntp-servers 192.168.25.116;
+
+default-lease-time 600;
+max-lease-time 7200;
+
+ddns-update-style none;
+
+subnet 192.168.25.0 netmask 255.255.255.0 {
+  option subnet-mask 255.255.255.0;
+  option broadcast-address 192.168.25.255;
+  option routers 192.168.25.1;
+  option bootfile-name "http://192.168.25.208/ztp/bootstrap";
+  pool {
+    range 192.168.25.110 192.168.25.130;
+  }
+}
+
+host arista1 {
+  # hardware ethernet 00:1c:73:57:46:82; <- system mac
+  # hhardware ethernet 00:1c:73:57:46:80; <- ma1
+  # sserver-name "ylit-arista1";
+  option dhcp-client-identifier 00:1c:73:57:46:82;
+  # fixed-address arista1.t.com;
+  fixed-address 192.168.25.251;
+  option bootfile-name "https://192.168.25.191/ztp/bootstrap";
+}
+#+END_SRC
+
+* TODO [2023-08-01 화] cvp related ntp.conf
+
+#+BEGIN_SRC 
+? diff ntp.conf.orig ntp.conf
+21,24c21,24
+< pool 0.ubuntu.pool.ntp.org iburst
+< pool 1.ubuntu.pool.ntp.org iburst
+< pool 2.ubuntu.pool.ntp.org iburst
+< pool 3.ubuntu.pool.ntp.org iburst
+---
+> #pool 0.ubuntu.pool.ntp.org iburst
+> #pool 1.ubuntu.pool.ntp.org iburst
+> #pool 2.ubuntu.pool.ntp.org iburst
+> #pool 3.ubuntu.pool.ntp.org iburst
+27c27,29
+< pool ntp.ubuntu.com
+---
+> #pool ntp.ubuntu.com
+> server 127.127.1.0 prefer
+> fudge 127.127.1.0 stratum 10
+#+END_SRC
