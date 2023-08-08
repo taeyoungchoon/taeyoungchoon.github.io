@@ -14,3 +14,11 @@ ws에서 한글팩을 추가하려하니 권한이 없다는 메시지가 뜬다
 2. Local Policies->Security Options 
 3. Enable "User Account Control: Admin Approval Mode for the Built-in Administrator account" which is set to Not Defined.
 
+* TODO windows server 2016
+
+- virtualbox
+  - memory: 20g
+  - bridged adapter
+- windows server 2016 standard evaluation (desktop experience)
+  - architecture: x64
+  - password: 123$qweR for complexity

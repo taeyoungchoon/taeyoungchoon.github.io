@@ -1,0 +1,10 @@
+* sharing
+
+- t:\tmp
+  - properties
+    - advanced sharing
+      - [X] share this folder
+    - password protection
+      - network and sharing center
+	- password protected sharing
+	  - [X] turn off password protected sharing

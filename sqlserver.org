@@ -4,7 +4,7 @@
 - sql server 2019
 - sql server 2022
 
-* TODO [2023-07-28 금] mssql, ms sql server 2016
+* DONE [2023-07-28 금] mssql, ms sql server 2016
 
 1. Please select your SQL Server 2016 download 
    - https://www.microsoft.com/en-us/evalcenter/download-sql-server-2016
@@ -45,12 +45,22 @@
    - [X] installing
 
 * with R
-* TODO ma
-
-- [X] with
-- [X] or without permission(sa/t)
 
 * TODO target
 
 - [X] [2023-07-29 Sat] sql server 2016
 - [X] [2023-07-29 Sat] sql server 2017
+* DONE SSMS, SQL Server Management Studio
+
+- with .net 4.7.2
+
+* TODO ma
+
+- [X] with
+- [X] or without permission(sa/t)
+
+* version
+
+- https://learn.microsoft.com/en-us/troubleshoot/sql/releases/find-my-sql-version
+
+

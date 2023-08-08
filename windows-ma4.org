@@ -1,0 +1,115 @@
+* cli and gui
+
+** interface for windows(win) and sql server
+
+*** 시스템 정보
+
+- 모듈명
+  - [X] DBMS
+- 하드웨어:
+  - CPU: 3.5 GHz
+    - systeminfo > Processor
+  - Memory: 32 GB
+    - systeminfo > Total Physical Memory
+  - HDD
+    - C: 200 GB
+    - D: 731 GB
+    - diskmgmt > Volume, Capacity
+- OS
+  - [X] Windows 2016
+  - 버전: Standard
+    - systeminfo > 'OS Name'
+- [ ] DBMS
+  - [X] MS-SQL 2016
+  - [X] MS-SQL 2017
+  - Win > Microsoft SQL Server 2016 > configuration manager
+    - sql server servies > name, state
+      - 2016의 상태가 보인다.
+  - Win > Microsoft SQL Server 2017 > configuration manager
+    - sql server servies > name, state
+      - 2016과 2017이 다 보인다
+  - Program Files\Microsoft SQL Server\MSSQL13\MSSQL\LOG\ERRORLOG
+    - Microsoft SQL Server 2016
+  - Program Files\Microsoft SQL Server\MSSQL14\MSSQL\LOG\ERRORLOG
+    - Microsoft SQL Server 2017
+  - select @@version
+- Hostname: 
+  - systeminfo > Host Name
+- IP: 3.4
+  - ipconfig
+  - taskmgr > performance > ethernet > IPv4 address
+- [ ] SID: nil
+
+*** 시스템 관련
+
+- CPU 사용량: 23%
+  - taskmgr > performance > cpu > utilization
+- 메모리 사용량
+  - [ ] 메모리 확보 여유분(Physical): 731 MB
+    - systeminfo > Available Physical Memory
+  - 할당된 메모리 사용량(사용량/전체): 13G / 16G
+    - taskmgr > performance > memory
+- 디스크 사용량(DISK 여유 공간 확인)
+  - C: 106 GB
+  - D: 168 GB
+  - diskmgmt > Volume, Free Space
+- 이벤트 로그: 이상 없음
+  - eventvwr > windows logs > Application
+- OS 패치: 필요 없음
+  - update
+- MS-SQL Server
+  - 리소스 사용량(CPU/Memory): 7% / 24%
+    - taskmgr > processes > SQL Server Windows NT
+      - Resource values > memory > percents
+  - MS-SQL 및 SQL-Agent 동작 여부 확인
+    - mssql: 실행 중
+    - agent: 중지됨
+    - services
+      - SQL Server
+      - SQL Server Agent
+    - taskmgr > services
+      - MSSQLSERVER
+      - SQLSERVERAGENT
+    - taskmgr > details
+      - sqlservr.exe
+    - Win > Microsoft SQL Server 2016 > configuration manager
+      - sql server servies > name, state
+
+* cli
+
+** real
+
+- cpu and mem usage using taskmgr, it's better to go
+
+#+BEGIN_SRC 
+Get-Host
+#+END_SRC
+
+#+BEGIN_SRC 
+Get-ComputeInfo | select CsName, CsModel
+Get-ComputeInfo | select CsProcessors
+Get-ComputeInfo | select *memory*
+#OsTotalVisibleMeorySize, OsFreePhysicalMemory
+#+END_SRC
+
+#+BEGIN_SRC 
+Get-NetIPAddress -AddressFamily IPv4
+Get-Netroute -AddressFamily IPv4
+Test-Connection -ComputerName 1.2.3.4 -Count 3
+#+END_SRC
+
+#+BEGIN_SRC 
+Get-Volume
+#+END_SRC
+
+#+BEGIN_SRC 
+Get-Process | Select-String -Pattern sqlservr
+Get-Process | Select-String -Pattern SQLAGENT
+Get-Process sqlserver -FileVersionInfo
+Get-Process SQLAGENT -FileVersionInfo
+#+END_SRC
+
+#+BEGIN_SRC 
+Get-EventLog -list
+Get-EventLog Application -Newest 3
+#+END_SRC

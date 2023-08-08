@@ -61,3 +61,45 @@ Set-PSReadLineOption -EditMode Emacs
 	    sleep 1
 	}
 #+END_SRC
+
+* from windows 2016 server
+
+- get-volume
+- get-computeinfo
+- get-process
+- get-eventlog
+
+** real
+
+#+BEGIN_SRC 
+Get-Host
+#+END_SRC
+
+#+BEGIN_SRC 
+Get-ComputeInfo | select CsName, CsModel
+Get-ComputeInfo | select CsProcessors
+Get-ComputeInfo | select *memory*
+#OsTotalVisibleMeorySize, OsFreePhysicalMemory
+#+END_SRC
+
+#+BEGIN_SRC 
+Get-NetIPAddress -AddressFamily IPv4
+Get-Netroute -AddressFamily IPv4
+Test-Connection -ComputerName 1.2.3.4 -Count 3
+#+END_SRC
+
+#+BEGIN_SRC 
+Get-Volume
+#+END_SRC
+
+#+BEGIN_SRC 
+Get-Process | Select-String -Pattern sqlservr
+Get-Process | Select-String -Pattern SQLAGENT
+Get-Process sqlserver -FileVersionInfo
+Get-Process SQLAGENT -FileVersionInfo
+#+END_SRC
+
+#+BEGIN_SRC 
+Get-EventLog -list
+Get-EventLog Application -Newest 3
+#+END_SRC
