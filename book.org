@@ -282,5 +282,22 @@ I my me mine
 * 책 속에서 그래 책 속에서 찾을 수 있을까 아니면
 * TODO 리스본 쟁탈전 , 주제 사라마구
 
-historia do cerco de lisboa
-jose saramago
+- historia do cerco de lisboa
+- jose saramago
+- 아직이다. 주제 사라마구님의 책은 쉬이 쉽게 읽을 수 있는 책이 아니다. 의식의 흐름을 여럿으로 분리하고 다시 결합하면서 이야기를 풀어간다. 그 흐름에 작가도 포함된다. 
+
+* DONE 거미집으로 가는 오솔길 , 이탈로 칼비노
+
+- IL SENTIERO DEI NIDI DI RAGNO 
+  - THE PATH OF SPIDER'S NESTS
+  - il: the
+  - sentiero < sentieri: path
+    - sentier < sēmita
+  - dei: di i
+  - nidi < nido < nīdus
+  - di: of
+  - ragno < arāneus: spider
+- by Italo Calvino
+- [2023-08-09 수] 다 읽었다. 오늘 아침에 커피숍에서. 이제 작가의 말과 작품 해설이 남아 있다. 읽거나 또는 말거니 이다. 그럼 점심 식사 후에는 무슨 책을 읽을까? 읽지 않을까? 듣게 될까? 명상을 하게 될까? 아니면 다른 검은 책을 보게 될까? 검은 책이라. 유닉스 시스템 프로그래밍에 관련된 책의 코드명이 블랙북인 것이 있었다. 작고 표지가 검은 귀여운 책이었다. 마치 c progammaing language와 같은 깜찍함을 가지고 있었다.
+
+* TODO 또 다른 책을 펼치고 있었다. 여기서 기록되지 않았을 뿐이다. 여기는.

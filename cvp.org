@@ -730,3 +730,28 @@ host arista1 {
 > server 127.127.1.0 prefer
 > fudge 127.127.1.0 stratum 10
 #+END_SRC
+* links
+
+** case
+
+- https://github.com/aristanetworks/netdevops-examples
+
+** avd
+
+- https://github.com/aristanetworks/ansible-cvp
+- https://github.com/arista-netdevops-community/ansible-avd-cloudvision-demo
+- https://cvp.avd.sh/en/stable/
+- https://github.com/arista-netdevops-community/ansible-cvp-avd-toi
+
+** cvp
+
+- https://github.com/aristanetworks/cloudvision-python
+- https://github.com/aristanetworks/cvprac
+- https://github.com/aristanetworks/cloudvision-apis
+- https://github.com/arista-netdevops-community/CloudVisionPortal-Examples
+- https://github.com/aristanetworks/cloudvision-python/tree/trunk/examples/resources/event
+- https://github.com/aristanetworks/cloudvision-python/blob/trunk/examples/Connector/get_switches.py
+
+* eapi
+
+- https://github.com/arista-eosplus/pyeapi

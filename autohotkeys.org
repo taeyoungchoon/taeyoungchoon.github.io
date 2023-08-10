@@ -21,6 +21,10 @@ F12::LWin
 LAlt::LWin
 #+END_SRC
 
+#+BEGIN_SRC 
+Capslock::lWin
+#+END_SRC
+
 * refer 
 
 - imacro from firefox

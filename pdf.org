@@ -17,7 +17,9 @@
 https://www.adobe.com/acrobat/online/merge-pdf.html
 
 * DONE split using pdfsam
-* TODO convert using alpdf
+* DONE convert using alpdf
+
+** process
 
 - select files
   - right click 
@@ -31,3 +33,7 @@ https://www.adobe.com/acrobat/online/merge-pdf.html
       - page
 	- rotate to right
 	  - save
+
+* DONE [2023-08-08 화] edit with alpdf
+
+- it's working
