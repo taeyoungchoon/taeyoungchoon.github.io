@@ -128,3 +128,95 @@ STARTUP;
 - ps -ef |  grep pmon | grep -v grep | wc -l
 
 ** oracle internal
+* TODO oracle with docker
+
+- windows 10 pro
+- docker desktop
+- https://github.com/MaksymBilenko/docker-oracle-12c
+
+#+BEGIN_SRC 
+docker pull quay.io/maksymbilenko/oracle-12c
+docker run -d --name ora -p 8080:8080 -p 1521:1521 quay.io/maksymbilenko/oracle-12c
+docker ps
+docker logs ora
+#+END_SRC
+
+#+BEGIN_SRC 
+docker stop ora
+docker rm ora
+#+END_SRC
+
+#+BEGIN_SRC 
+docker rm $(docker ps -qa)
+#+END_SRC
+
+- https://yooloo.tistory.com/27
+
+#+BEGIN_SRC 
+docker exec -it ora bash
+sqlplus /nolog
+
+SQL> connect
+Enter user-name: system
+Enter password: oracle
+Connected.
+SQL> select name from v$database;
+#+END_SRC
+
+#+BEGIN_SRC 
+sqlplus sys as sysdba
+SQL> shutdown immediate
+#+END_SRC
+
+#+BEGIN_SRC 
+sqlplus system/oracle
+#+END_SRC
+
+#+BEGIN_SRC 
+select * from v@version;
+#+END_SRC
+
+#+BEGIN_SRC 
+[root@d2f192bb05e0 /]# tnsping localhost
+
+TNS Ping Utility for Linux: Version 12.2.0.1.0 - Production on 11-AUG-2023 06:45:29
+
+Copyright (c) 1997, 2016, Oracle.  All rights reserved.
+
+Used parameter files:
+
+Used HOSTNAME adapter to resolve the alias
+Attempting to contact (DESCRIPTION=(CONNECT_DATA=(SERVICE_NAME=))(ADDRESS=(PROTOCOL=TCP)(HOST=127.0.0.1)(PORT=1521)))
+OK (0 msec)
+[root@d2f192bb05e0 /]#
+#+END_SRC
+
+#+BEGIN_SRC 
+[root@d2f192bb05e0 /]# nc 127.0.0.1 1521 </dev/null
+[root@d2f192bb05e0 /]# nc -vz 127.0.0.1 1521 </dev/null
+Ncat: Version 7.50 ( https://nmap.org/ncat )
+Ncat: Connected to 127.0.0.1:1521.
+Ncat: 0 bytes sent, 0 bytes received in 0.00 seconds.
+[root@d2f192bb05e0 /]#
+#+END_SRC
+
+#+BEGIN_SRC 
+jack@think:~$ nc -vz 127.0.0.1 1521 </dev/null
+Connection to 127.0.0.1 1521 port [tcp/*] succeeded!
+jack@think:$~
+#+END_SRC
+
+#+BEGIN_SRC 
+jack@think ~
+$ nc -vz 127.0.0.1 1521 </dev/null
+Connection to 127.0.0.1 1521 port [tcp/*] succeeded!
+
+jack@think ~
+$
+#+END_SRC
+
+#+BEGIN_SRC 
+docker pull ghcr.io/oracle/oraclelinux8-instantclient:21
+docker run -it ghcr.io/oracle/oraclelinux8-instantclient:21 bash
+yum install nc -y
+#+END_SRC
