@@ -220,3 +220,14 @@ docker pull ghcr.io/oracle/oraclelinux8-instantclient:21
 docker run -it ghcr.io/oracle/oraclelinux8-instantclient:21 bash
 yum install nc -y
 #+END_SRC
+
+* oracle from mac os x, apple m's
+
+- https://shanepark.tistory.com/400
+- https://devmoony.tistory.com/110
+  - jdbc:oracle:think:@localhost:1521:XE
+
+* sql developer from mac os x, apple m's
+
+- https://blog.francium.tech/how-to-run-oracle-sql-developer-on-m1-abe91329240d
+- or https://dbeaver.io
