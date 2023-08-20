@@ -224,6 +224,9 @@ yum install nc -y
 * oracle from mac os x, apple m's
 
 - https://shanepark.tistory.com/400
+  - docker context ls
+  - colima start --memory 4 --arch x86_64
+  - docker run --restart unless-stopped --name ora -e ORACLE_PASSWORD=pass -p 1521:1521 -d gvenzl/oracle-xe
 - https://devmoony.tistory.com/110
   - jdbc:oracle:think:@localhost:1521:XE
 

@@ -50,9 +50,13 @@ https://www.overleaf.com/learn/latex/Page_size_and_margins
 
 #+END_SRC
 
-* TODO [2/3] org-mode with code
-** DONE emacs-lisp
-   CLOSED: [2018-02-06 Tue 11:50]
+* DONE org-mode with code
+CLOSED: [2023-08-20 Sun 22:19]
+
+- C-c C-,
+  - call org-insert-structure-template
+  
+** emacs-lisp
 
 - C-'
 - C-c C-c
