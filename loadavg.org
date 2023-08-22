@@ -1,0 +1,87 @@
+* with others
+
+* cisco
+
+- https://www.cisco.com/c/en/us/support/docs/ip/simple-network-management-protocol-snmp/15215-collect-cpu-util-snmp.html
+- https://iphostmonitor.com/mib/CISCO-PROCESS-MIB.html
+
+#+BEGIN_SRC 
+router#show processes cpu
+CPU utilization for five seconds: 8%/4%; one minute: 6%; five minutes: 5% 
+
+#+END_SRC
+
+- [X] cpmCPUTotal5sec: The overall CPU busy percentage in the last 5 second period.
+- [ ] cpmCPUTotal1min: The overall CPU busy percentage in the last 1 minute period.
+- [ ] cpmCPUTotal5min: The overall CPU busy percentage in the last 5 minutes period.
+
+- [X] cpmCPULoadAvg1min: The overall CPU load Average in the last 1 minute period
+- [X] cpmCPULoadAvg5min: The overall CPU load Average in the last 5 minutes period
+- [X] cpmCPULoadAvg15min: The overall CPU load Average in the last 15 minutes period
+
+* arista
+
+- https://arista.my.site.com/AristaCommunity/s/article/understanding-cpu-utilization
+- [ ] https://arista.my.site.com/AristaCommunity/s/article/troubleshooting-high-cpu-utilization
+- https://arista.my.site.com/AristaCommunity/s/article/introduction-to-managing-eos-devices-monitoring
+
+#+BEGIN_SRC 
+arista1#sh proc top once | head -3
+top - 15:05:15 up  7:11,  2 users,  load average: 1.00, 1.25, 1.17
+Tasks: 211 total,   1 running, 210 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  1.5 us,  1.5 sy,  0.0 ni, 97.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+arista1#
+
+#+END_SRC
+
+#+BEGIN_SRC 
+arista1#show snmp mib walk HOST-RESOURCES-MIB::hrProcessorLoad
+HOST-RESOURCES-MIB::hrProcessorLoad[1] = INTEGER: 10
+HOST-RESOURCES-MIB::hrProcessorLoad[2] = INTEGER: 10
+HOST-RESOURCES-MIB::hrProcessorLoad[3] = INTEGER: 10
+HOST-RESOURCES-MIB::hrProcessorLoad[4] = INTEGER: 11
+HOST-RESOURCES-MIB::hrProcessorLoad[5] = INTEGER: 10
+arista1#
+
+#+END_SRC
+
+- http://www.net-snmp.org/docs/mibs/ucdavis.html
+
+#+BEGIN_SRC 
+arista1#show snmp mib walk UCD-SNMP-MIB::laTable
+UCD-SNMP-MIB::laNames[1] = STRING: Load-1
+UCD-SNMP-MIB::laNames[2] = STRING: Load-5
+UCD-SNMP-MIB::laNames[3] = STRING: Load-15
+UCD-SNMP-MIB::laLoad[1] = STRING: 0.73
+UCD-SNMP-MIB::laLoad[2] = STRING: 0.76
+UCD-SNMP-MIB::laLoad[3] = STRING: 0.93
+UCD-SNMP-MIB::laLoadInt[1] = INTEGER: 73
+UCD-SNMP-MIB::laLoadInt[2] = INTEGER: 76
+UCD-SNMP-MIB::laLoadInt[3] = INTEGER: 93
+UCD-SNMP-MIB::laLoadFloat[1] = Opaque: Float: 0.730000
+UCD-SNMP-MIB::laLoadFloat[2] = Opaque: Float: 0.760000
+UCD-SNMP-MIB::laLoadFloat[3] = Opaque: Float: 0.930000
+
+arista1#
+
+#+END_SRC
+
+* linux
+
+- same as arista
+
+* loadavg, calc_load func
+
+- https://fmyson.tistory.com/389
+- https://www.atatus.com/blog/load-average-in-linux/
+
+* hack
+
+- [ ] https://www.brendangregg.com/blog/2017-08-08/linux-load-averages.html
+- [ ] https://segmentfault.com/a/1190000041776926/en
+- Rather than trying to troubleshoot load averages, I'm used to looking at a few other metrics. These metrics will be covered later in the chapter "Better Metrics".
+- But it should be noted that these three numbers are not really "average"
+- reflect the average load
+- Its a silly number but people think its important.
+- https://www.fortra.com/resources/guides/unix-load-average-part-1-how-it-works
+- The 'load' is not the utilization but the total queue length.
