@@ -1,0 +1,28 @@
+* products
+
+- https://www.belden.com/products/By-Brand/Hirschmann
+- http://www.doc.hirschmann.com/
+
+* industrial switch and belden then monitoring with hivision
+
+- https://www.belden.com/products/Industrial-Networking-Cybersecurity/Software-Solutions/Network-Management-Software/Industrial-HiVision-Network-Management-Software#numberOfResults=25
+- https://grafana.com/orgs/hirschmann/dashboards
+- https://www.youtube.com/playlist?list=PL87T2Tsr4v6a68UYxRTnrHccvlVWiV1GE
+- https://www.youtube.com/playlist?list=PL87T2Tsr4v6bitlKQUwigOIpOVejPDRyN
+
+* snmp
+
+- https://www.youtube.com/watch?v=YQtqdwnP040
+- https://www.youtube.com/watch?v=EX3w4ZughZA
+- HM2-DEVMGMT-MIB
+- HM2-DIAGNOSTIC-MIB
+- HM2-L2REDUNDANCY-MIB
+- HM2-NETCONFIG-MIB
+- HM2-PWRMGMT-MIB
+- HM2-TC-MIB.MIB
+- IP-MIB.MIB
+- https://www.circitor.fr/Mibs/Mibs.php
+
+* HiOS
+
+- https://www.belden.com/products/Industrial-Networking-Cybersecurity/Software-Solutions/Device-Software/HiOS-Switch-Software#sort=%40catalogitemwebdisplaypriority%20ascending&numberOfResults=25
