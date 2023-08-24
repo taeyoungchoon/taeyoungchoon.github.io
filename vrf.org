@@ -1,0 +1,6 @@
+* words and more, much more
+
+- https://arista.my.site.com/AristaCommunity/s/article/virtual-routing-and-forwarding-vrf-fundamentals
+- sh vrf
+
+* fec and vrf?

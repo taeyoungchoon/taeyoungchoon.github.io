@@ -1,3 +1,4 @@
+* TODO v3
 * cli
 
 - snmpget  -v 1 -c public x.x.x.x sysUpTime.0
@@ -42,3 +43,18 @@ cat /etc/snmp/snmp.conf | grep 'mibs :'
 #mibs :
 
 #+END_SRC
+* and company
+
+** juniper
+
+- https://apps.juniper.net/mib-explorer/
+- https://www.juniper.net/documentation/us/en/software/junos/network-mgmt/topics/topic-map/snmp-mibs-and-traps-supported-by-junos-os.html
+- juniper-mibs-12.3R1.7.zip.txt
+
+** cisco
+
+- https://github.com/cisco/cisco-mibs/blob/main/supportlists/cat2960/cat2960-supportlist.html
+
+** arista
+
+- https://www.arista.com/en/support/product-documentation/arista-snmp-mibs

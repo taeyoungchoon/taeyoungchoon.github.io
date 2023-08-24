@@ -13,7 +13,9 @@
 * snmp
 
 - https://www.youtube.com/watch?v=YQtqdwnP040
+  - Finding Hirschmann SNMP OIDs
 - https://www.youtube.com/watch?v=EX3w4ZughZA
+  - Monitoring Hirschmann HiOS Devices in Zabbix
 - HM2-DEVMGMT-MIB
 - HM2-DIAGNOSTIC-MIB
 - HM2-L2REDUNDANCY-MIB
@@ -22,6 +24,8 @@
 - HM2-TC-MIB.MIB
 - IP-MIB.MIB
 - https://www.circitor.fr/Mibs/Mibs.php
+  - MIB files repository
+- [ ] https://www.doc.hirschmann.com/pdf/AN_SNMP-OID_OWL-Family_01_1021_en_2021-10-19.pfd
 
 * HiOS
 
