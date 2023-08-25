@@ -1,0 +1,112 @@
+* frinx with elisa polystar
+
+- slovak telecom network automation software supplier
+- gerhard wieser
+- elisa polystar
+
+* youtube
+
+- https://www.youtube.com/watch?v=n0SBR2UI0eg&list=PLQ2GwwrvIDrE90Ywa_A5SdQ2t4XRUF8w7&index=2
+  - frinx videos
+
+* detail
+
+- frinx machine 1.7
+- graphql
+- swagger api
+- uniconfig
+- yang, model driven
+- blueprint, juniper like
+- network automation
+- docker service ls
+- ansible shell
+- netconf
+- workflow
+- jq
+- kafka
+- inventory
+- network control
+- analysis with grafana
+- docker, sonic
+  - * frinx with elisa polystar
+
+- slovak telecom network automation software supplier
+- gerhard wieser
+- elisa polystar
+
+* youtube
+
+- https://www.youtube.com/watch?v=n0SBR2UI0eg&list=PLQ2GwwrvIDrE90Ywa_A5SdQ2t4XRUF8w7&index=2
+  - frinx videos
+
+* detail
+
+- frinx machine 1.7
+- graphql
+- swagger api
+- uniconfig
+- yang, model driven
+- blueprint, juniper like
+- network automation
+- docker service ls
+- ansible shell
+- netconf
+- workflow
+- jq
+- kafka
+- inventory
+- network control
+- analysis with grafana
+- docker, sonic
+  - https://www.youtube.com/watch?v=1Umeyg-Woa0&list=PLQ2GwwrvIDrE90Ywa_A5SdQ2t4XRUF8w7&index=9
+- postman
+- openconfig yang
+- uniconfig template
+- apstra, cheap, telecom
+- odl, store
+  - opendaylight as a yang
+    - https://github.com/openconfig/public/issues/119
+- rpc
+- task
+- ios, ios xr, vrp, junos
+- graphviz, dot
+- acl with openconfig
+  - compile to any
+    - device specific
+  - https://www.youtube.com/watch?v=TB4NexR5gvQ&list=PLQ2GwwrvIDrE90Ywa_A5SdQ2t4XRUF8w7&index=13
+- java
+- intellj
+- org.opendaylight.yangttools.yang
+- frinx based on opendaylight, first
+- [ ] frinx in 2 minutes
+  - https://www.youtube.com/watch?v=7xsqmm35pN0&list=PLQ2GwwrvIDrE90Ywa_A5SdQ2t4XRUF8w7&index=17
+- and ansible, 5 years ago
+  - https://www.youtube.com/watch?v=Gy1dPfD476c&list=PLQ2GwwrvIDrE90Ywa_A5SdQ2t4XRUF8w7&index=17
+  - commit uniconfig
+  - show uniconfig calculate-diff
+- https://www.youtube.com/watch?v=bN3t7toJrCs&list=PLQ2GwwrvIDrE90Ywa_A5SdQ2t4XRUF8w7&index=18
+  - lldp and dot
+- [ ] https://www.youtube.com/watch?v=2xv0f3KeN60&list=PLQ2GwwrvIDrE90Ywa_A5SdQ2t4XRUF8w7&index=19
+  - frinx machine intro, in one
+    - frinx opendaylight
+    - frinx conductor
+    - elastic search
+    - https://conductor.netflix.com/devguide/concepts/index.html
+      - conductor for workflow
+    - kibana
+    - redis/dynomite(workflow state)
+    - config > openconfig > config
+- https://frinx.io/
+  - https://frinx.io/careers
+- https://www.youtube.com/watch?v=Ayvxmg4HQUU
+  - L2VPN Network Automation with Frinx machine
+- [ ] https://www.youtube.com/watch?v=4FgDV5161bY
+  - mount
+  - bgp l3vpn demo
+  - reconcile
+  - openconfig format
+  - intent first, desired
+- [ ] https://www.youtube.com/watch?v=IJ3ZgHnzPRI
+  - L3 VPN Service Automation
+    - yang model
+      - service, middle(network), until device
