@@ -1,3 +1,35 @@
+* sum
+
+- apstra without agent
+- cvp with openconfig only, only
+  - not an cli
+    - what the
+- fully dep on openconfig/yang
+- supported devices
+  - https://docs.frinx.io/frinx-uniconfig/supported-devices/
+- https://github.com/FRINXio
+- backend: java
+- frontend: node.js(typescript)
+- https://github.com/FRINXio/ansible-frinxodl
+  - ansible but 5y ago
+- https://docs.frinx.io/
+  - Welcome to FRINX Documentation!
+- https://docs.frinx.io/frinx-machine/use-cases/frinx-machine-demo-manual/
+- https://services.frinx.io/frinxui/
+- frinx products
+  - frix machine
+  - uniconfig
+    - https://docs.frinx.io/frinx-uniconfig/getting-started/
+    - simply, network controller based on YANG data models
+      - REST northbound API(JSON)
+      - NETCONFIG, CLI and gRPC/gNMI connectivity to network devices
+    - Translates between CLI, vendor native, and industry standard data models (i.e. OpenConfig)
+    - Reads and stores vendor native data models from mounted network devices (i.e YANG models)
+  - workflow manager
+    - cloudvision studio like
+  - resource manager
+    - netbox like
+
 * frinx with elisa polystar
 
 - slovak telecom network automation software supplier
