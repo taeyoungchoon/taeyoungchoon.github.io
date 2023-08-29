@@ -1,0 +1,53 @@
+* diskpart is
+
+- and powershell
+  - https://www.thomasmaurer.ch/2012/04/replace-diskpart-with-windows-powershell-basic-storage-cmdlets/
+
+* TODO scripts
+
+- [ ] input variable
+
+** DONE check_disk.script
+
+- diskpart /s check_disk.script
+
+#+BEGIN_SRC 
+list vol
+list disk
+select disk 2
+list part
+exit
+#+END_SRC
+
+** DONE make_cisco_compatible_drive.script
+
+- diskpart /s make_cisco_compatible_drive.script
+
+#+BEGIN_SRC 
+select disk 2
+select partition 1
+delete partition
+clean
+convert mbr 
+create part primary size=4000
+format quick fs=fat noerr
+assign letter=D
+exit
+#+END_SRC
+
+** DONE recover_drive.script
+
+- diskpart /s recover_drive.script
+
+#+BEGIN_SRC 
+select disk 2
+select partition 1
+delete partition
+clean
+convert mbr
+convert gpt 
+create part primary
+format quick fs=fat32 noerr
+assign letter=D
+exit
+#+END_SRC

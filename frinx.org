@@ -108,7 +108,7 @@
   - https://www.youtube.com/watch?v=TB4NexR5gvQ&list=PLQ2GwwrvIDrE90Ywa_A5SdQ2t4XRUF8w7&index=13
 - java
 - intellj
-- org.opendaylight.yangttools.yang
+  - org.opendaylight.yangttools.yang
 - frinx based on opendaylight, first
 - [ ] frinx in 2 minutes
   - https://www.youtube.com/watch?v=7xsqmm35pN0&list=PLQ2GwwrvIDrE90Ywa_A5SdQ2t4XRUF8w7&index=17

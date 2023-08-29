@@ -1,0 +1,12 @@
+* and connector
+
+- https://en.wikipedia.org/wiki/IEC_60320
+
+** list
+
+- Input Connector: IEC 320-C13
+  - 7010X
+  - C13/C14 coupler
+- Input Connector: IEC 320-C16
+  - CCS 702XP
+  - C15/C16 coupler
