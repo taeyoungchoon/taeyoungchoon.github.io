@@ -1,0 +1,77 @@
+* korean say, no
+
+- https://kujung.tistory.com/109
+- similar to 'arp spoofing' process
+
+* test using packet tracer
+
+#+BEGIN_SRC emacs-lisp
+  (r0 :using 2901
+   (sw0 :using 2960
+    pc0 pc1)
+   (sw1
+    pc2))
+
+  (r0
+   (ge0/0 (192.168.0.1 255.255.255.0))
+   (ge0/1 (192.168.1.1 255.255.255.0)))
+  (sw0
+   (pc0 (192.168.0.100 255.255.0.0))
+   (pc1 (192.168.0.101 255.255.0.0)))
+  (sw1
+   (pc2 (192.168.1.100 255.255.0.0)))
+
+#+END_SRC
+
+#+BEGIN_SRC 
+!
+interface GigabitEthernet0/0
+ ip address 192.168.0.1 255.255.255.0
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1
+ ip address 192.168.1.1 255.255.255.0
+ duplex auto
+ speed auto
+!
+#+END_SRC
+
+#+BEGIN_SRC 
+Router#show ip interface brief 
+Interface              IP-Address      OK? Method Status                Protocol 
+GigabitEthernet0/0     192.168.0.1     YES manual up                    up 
+GigabitEthernet0/1     192.168.1.1     YES manual up                    up 
+Vlan1                  unassigned      YES unset  administratively down down
+Router#
+#+END_SRC
+
+#+BEGIN_SRC 
+C:\>ipconfig
+
+FastEthernet0 Connection:(default port)
+
+   Connection-specific DNS Suffix..: 
+   Link-local IPv6 Address.........: FE80::230:F2FF:FE40:D770
+   IPv6 Address....................: ::
+   IPv4 Address....................: 192.168.1.100
+   Subnet Mask.....................: 255.255.0.0
+   Default Gateway.................: ::
+                                     0.0.0.0
+
+C:\>ping 192.168.0.100
+
+Pinging 192.168.0.100 with 32 bytes of data:
+
+Reply from 192.168.0.100: bytes=32 time<1ms TTL=127
+Reply from 192.168.0.100: bytes=32 time=3ms TTL=127
+Reply from 192.168.0.100: bytes=32 time<1ms TTL=127
+Reply from 192.168.0.100: bytes=32 time<1ms TTL=127
+
+Ping statistics for 192.168.0.100:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 3ms, Average = 0ms
+
+C:\>
+#+END_SRC
