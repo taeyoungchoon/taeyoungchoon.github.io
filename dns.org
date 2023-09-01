@@ -34,3 +34,40 @@ https://www.freeipa.org/page/Howto/DNS_updates_and_zone_transfers_with_TSIG
 - S2DNS at inimax.co.kr, ipkeeper
 
 
+* TODO singler with chroot
+
+*** task
+
+yum install -y bind bind-chroot
+systemctl start named-chroot
+
+*** file of /etc/named.conf
+
+#+BEGIN_SRC 
+zone "t.com" IN {
+        type master;
+        file "t.com.db";
+};
+
+#+END_SRC
+
+*** file of /var/named/t.com.db
+
+#+BEGIN_SRC 
+$TTL 3H
+@       IN SOA  @ rname.invalid. (
+                                        0       ; serial
+                                        1D      ; refresh
+                                        1H      ; retry
+                                        1W      ; expire
+                                        3H )    ; minimum
+        NS      @
+        A       127.0.0.1
+        AAAA    ::1
+foo     IN      A 1.1.1.1
+bar     IN      A 1.1.1.2
+#+END_SRC
+
+* TODO secondry again
+
+
