@@ -1,0 +1,55 @@
+* generic, general
+
+- https://go.antamedia.com/help/hotspot-standalone-open-dhcp-server/
+
+* opendhcp.ini
+
+- https://github.com/ss-plus/Open-DHCP-Server/blob/master/opendhcp.ini
+- https://github.com/ss-plus/Open-DHCP-Server
+- https://dhcpserver.sourceforge.net/
+- https://sourceforge.net/p/dhcpserver/discussion/885120/thread/41f9a649/
+
+#+BEGIN_SRC 
+[LISTEN_ON]
+#Default is All Interfaces
+;192.168.0.1
+192.168.25.100
+
+[LOGGING]
+#LogLevel can be set as None, Errors or All
+;LogLevel=None
+LogLevel=Normal
+;LogLevel=All
+
+[RANGE_SET]
+DHCPRange=192.168.0.101-192.168.0.200
+SubnetMask=255.255.255.0
+;DomainServer=8.8.8.8
+;Router=192.168.0.1
+
+[GLOBAL_OPTIONS]
+;BootFileName=BootFileName.ini
+;BootFileOption=BootFileOption.ini
+BootFileName="http://192.168.25.100/ztp-switch-script"
+BootFileOption="http://192.168.25.100/ztp-switch-script"
+#+END_SRC
+
+* bootfilename, BootFileName
+
+- The value is sent in DHCP Option 67 (Bootfile Name).
+  - https://techdocs.audiocodes.com/session-border-controller-sbc/mediant-software-sbc/user-manual/version-740/Content/UM/Configuring%20the%20DHCP%20Server.htm
+
+* dhcp port 67
+
+* tcpdump
+
+#+BEGIN_SRC 
+tcpdump -n -i etth0 port bootps
+tcpdump -i eth0 port 67 or port 68 -e -n -vv
+tcpdump -i eth0 port 67 or port 68 -pvn
+tcpdump -i eth0 port 67 or port 68 -vvv
+tcpdump -i eth0 -n -vv '(udp port 546 or port 547)'
+#+END_SRC
+
+- https://www.linux.com/training-tutorials/troubleshooting-connection-problems-tcpdump-dhcp/
+- [ ]  https://unix.stackexchange.com/questions/640166/how-do-i-filter-bootp-dhcp-request-out-in-tcpdump

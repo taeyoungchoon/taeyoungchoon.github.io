@@ -1,0 +1,31 @@
+* being public
+- [ ] https://learn.microsoft.com/en-us/windows/wsl/networking
+- https://serverfault.com/questions/1060307/accessing-wsl2-from-public-ip-address
+- https://gist.github.com/stormwild/f464fae904212d4334b3905655a2218c
+- https://stackoverflow.com/questions/49835559/access-a-web-server-which-is-running-on-wsl-windows-subsystem-for-linux-from-t
+- https://stackoverflow.com/questions/61002681/connecting-to-wsl2-server-via-local-network
+- https://dev.to/aitorsol/wsl2-windows-linux-subsystem-a-guide-to-install-a-local-web-server-ubuntu-20-04-apache-php8-y-mysql8-3bbk
+
+* wsl network
+* with apache
+
+#+BEGIN_SRC 
+apt update
+apt install apache2
+#+END_SRC
+
+#+BEGIN_SRC 
+netsh interface portproxy add v4tov4 listenport=80 listenaddress=0.0.0.0 connectport=80 connectaddress=127.0.0.1
+netsh interface portproxy show all
+netsh interface portproxy reset
+#+END_SRC
+
+* path from file explorer
+
+* path from wsl
+
+- /mnt/c
+
+* with dhcp
+
+- https://askubuntu.com/questions/1402382/setting-up-a-dhcp-server-on-ubuntu-wsl-to-connect-to-a-raspberry-pi
