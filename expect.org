@@ -16,3 +16,36 @@
 - interact
 - expect eof
 
+* TODO show clock
+
+#+BEGIN_SRC 
+jack@think:~/exp$ expect show_clock.exp
+spawn ssh -l admin arista2.t.com
+Password:
+Last login: Fri Sep  8 09:23:57 2023 from 192.168.25.101
+arista2>show clock
+Fri Sep  8 09:24:53 2023
+Timezone: Asia/Seoul
+Clock source: NTP server (192.168.25.211)
+arista2>exit
+Connection to arista2.t.com closed.
+jack@think:~/exp$
+#+END_SRC
+
+#+BEGIN_SRC 
+#!/bin/env expect
+
+set target arista2.t.com
+set password admin
+
+spawn ssh -l admin arista2.t.com
+
+expect "Password:"
+send "$password\n"
+
+expect ">"
+send "show clock\n"
+
+send "exit\n"
+interact
+#+END_SRC
