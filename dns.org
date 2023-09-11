@@ -33,8 +33,13 @@ https://www.freeipa.org/page/Howto/DNS_updates_and_zone_transfers_with_TSIG
 - infoblox
 - S2DNS at inimax.co.kr, ipkeeper
 
-
 * TODO singler with chroot
+
+- 예전 구현체와 지금의 구현체
+  - 구현 방식은 다소 다르지만 결국 의도하는 바는 동일하다. 목적하는 것.
+    - mount --bind
+      - 아직, 여전히 어색하다. 이것도 다음으로 연기한다.
+      - 언제가 그 다음인가.
 
 *** task
 
@@ -69,5 +74,16 @@ bar     IN      A 1.1.1.2
 #+END_SRC
 
 * TODO secondry again
+
+- 초기 구현
+  - refresh with serial
+    - 문제의 발생, 탭은 아니다.
+- 지금의 구현
+  - notify
+- 두가지의 구현 방식은, 그 둘은 무엇을 가져왔나.
+
+* TODO about serial
+* TODO about soa
+* TODO about rndc
 
 

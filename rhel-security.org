@@ -1,0 +1,231 @@
+* gg: redhat package security update
+
+- https://access.redhat.com/security/security-updates/security-advisories?q=&p=1&sort=portal_publication_date+desc&portal_advisory_type=Security+Advisory&documentKind=Errata&portal_product=Red+Hat+Enterprise+Linux&portal_product_version=8.6&portal_architecture=x86_64
+
+- https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_and_monitoring_security_updates/installing-security-updates_managing-and-monitoring-security-updates
+  - yum update --security
+  - yum needs-restarting
+
+- without kernel
+  - https://access.redhat.com/solutions/10185
+    - yum update --exclude=kernel*
+
+- download only
+  - https://access.redhat.com/solutions/10154
+    - yum install --downloadonly --downloaddir=<directory> <package>
+
+* process
+
+- pure install rhel 8.6 server
+- clone
+- mkdir sec; cd sec
+- yum update --security --exclude=kernel* --downloadonly --downloaddir=sec
+
+** what will be
+
+- install 7 upgrade 257
+- install 1 upgrade 65 51M
+  - yum install *.rpm from sec directory
+- yum needs-restarting
+
+#+BEGIN_SRC 
+1 : /usr/lib/systemd/systemd --system --deserialize 20
+541 : /usr/lib/systemd/systemd-journald
+627 : /usr/bin/rpcbind -w -f
+639 : /sbin/auditd
+674 : /usr/bin/dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+676 : /usr/sbin/sssd -i --logger=files
+677 : /usr/lib/polkit-1/polkitd --no-debug
+683 : /usr/sbin/chronyd
+698 : /usr/libexec/platform-python -Es /usr/sbin/tuned -l -P
+701 : /usr/sbin/gssproxy -D
+702 : /usr/libexec/sssd/sssd_be --domain implicit_files --uid 0 --gid 0 --logger=files
+711 : /usr/libexec/sssd/sssd_nss --uid 0 --gid 0 --logger=files
+736 : /usr/lib/systemd/systemd-logind
+751 : /usr/sbin/crond -n
+755 : /usr/sbin/atd -f
+773 : /usr/sbin/rsyslogd -n
+2301 : /usr/sbin/VBoxService --pidfile /var/run/vboxadd-service.sh
+3183 : /usr/lib/systemd/systemd --user
+3189 : (sd-pam)
+6404 : /usr/sbin/NetworkManager --no-daemon
+6847 : sshd: vagrant [priv]
+6851 : sshd: vagrant@pts/0
+6880 : sudo -i
+#+END_SRC
+
+#+BEGIN_SRC 
+yum update --security --help
+
+  --security            Include security relevant packages, in updates
+  --advisory ADVISORY, --advisories ADVISORY
+                        Include packages needed to fix the given advisory, in
+                        updates
+  --bz BUGZILLA, --bzs BUGZILLA
+                        Include packages needed to fix the given BZ, in
+                        updates
+  --cve CVES, --cves CVES
+                        Include packages needed to fix the given CVE, in
+                        updates
+  --sec-severity {Critical,Important,Moderate,Low}, --secseverity x
+                        Include security relevant packages matching the
+                        severity, in updates
+#+END_SRC
+
+yum update --security --sec-severity Critical
+yum update --security --sec-severity Important
+yum update --security --sec-severity Moderate
+yum update --security --sec-severity Low
+
+https://access.redhat.com/solutions/4291641
+
+#+BEGIN_SRC 
+[root@r81 ~]# yum updateinfo list updates --sec-severity=Important --exclude=kernel*
+Last metadata expiration check: 1:26:56 ago on Sun 10 Sep 2023 09:19:03 PM KST.
+RLSA-2023:3584 Important/Sec. c-ares-1.13.0-6.el8_8.2.x86_64
+RLSA-2022:7928 Important/Sec. kpartx-0.8.4-28.el8_7.1.x86_64
+RLSA-2022:8638 Important/Sec. krb5-libs-1.18.2-22.el8_7.x86_64
+RLSA-2022:7089 Important/Sec. libksba-1.3.5-8.el8_6.x86_64
+RLSA-2023:0625 Important/Sec. libksba-1.3.5-9.el8_7.x86_64
+RLSA-2023:1252 Important/Sec. nss-3.79.0-11.el8_7.x86_64
+RLSA-2023:1252 Important/Sec. nss-softokn-3.79.0-11.el8_7.x86_64
+RLSA-2023:1252 Important/Sec. nss-softokn-freebl-3.79.0-11.el8_7.x86_64
+RLSA-2023:1252 Important/Sec. nss-sysinit-3.79.0-11.el8_7.x86_64
+RLSA-2023:1252 Important/Sec. nss-util-3.79.0-11.el8_7.x86_64
+RLSA-2023:4419 Important/Sec. openssh-8.0p1-19.el8_8.x86_64
+RLSA-2023:4419 Important/Sec. openssh-clients-8.0p1-19.el8_8.x86_64
+RLSA-2023:4419 Important/Sec. openssh-server-8.0p1-19.el8_8.x86_64
+RLSA-2023:1405 Important/Sec. openssl-1:1.1.1k-9.el8_7.x86_64
+RLSA-2023:1405 Important/Sec. openssl-libs-1:1.1.1k-9.el8_7.x86_64
+RLSA-2023:3591 Important/Sec. platform-python-3.6.8-51.el8_8.1.rocky.0.x86_64
+RLSA-2023:3591 Important/Sec. python3-libs-3.6.8-51.el8_8.1.rocky.0.x86_64
+RLSA-2023:0101 Important/Sec. python3-perf-4.18.0-425.10.1.el8_7.x86_64
+RLSA-2023:0832 Important/Sec. python3-perf-4.18.0-425.13.1.el8_7.x86_64
+RLSA-2023:1566 Important/Sec. python3-perf-4.18.0-425.19.2.el8_7.x86_64
+RLSA-2023:0284 Important/Sec. sudo-1.8.29-8.el8_7.1.x86_64
+
+[root@r81 ~]# yum updateinfo list updates --exclude=kernel* --sec-severity=Important  | wc -l
+22
+
+#+END_SRC
+
+#+BEGIN_SRC 
+[root@r81 ~]# yum updateinfo list updates --exclude=kernel* --sec-severity=Moderate
+Last metadata expiration check: 1:28:47 ago on Sun 10 Sep 2023 09:19:03 PM KST.
+RLSA-2023:1140 Moderate/Sec. curl-7.61.1-25.el8_7.3.x86_64
+RLSA-2023:3106 Moderate/Sec. curl-7.61.1-30.el8_8.2.x86_64
+RLSA-2023:0096 Moderate/Sec. dbus-1:1.12.8-23.el8_7.1.x86_64
+RLSA-2023:4498 Moderate/Sec. dbus-1:1.12.8-24.el8_8.1.x86_64
+RLSA-2023:0096 Moderate/Sec. dbus-common-1:1.12.8-23.el8_7.1.noarch
+RLSA-2023:4498 Moderate/Sec. dbus-common-1:1.12.8-24.el8_8.1.noarch
+RLSA-2023:0096 Moderate/Sec. dbus-daemon-1:1.12.8-23.el8_7.1.x86_64
+RLSA-2023:4498 Moderate/Sec. dbus-daemon-1:1.12.8-24.el8_8.1.x86_64
+RLSA-2023:0096 Moderate/Sec. dbus-libs-1:1.12.8-23.el8_7.1.x86_64
+RLSA-2023:4498 Moderate/Sec. dbus-libs-1:1.12.8-24.el8_8.1.x86_64
+RLSA-2023:0096 Moderate/Sec. dbus-tools-1:1.12.8-23.el8_7.1.x86_64
+RLSA-2023:4498 Moderate/Sec. dbus-tools-1:1.12.8-24.el8_8.1.x86_64
+RLSA-2022:7720 Moderate/Sec. e2fsprogs-1.45.6-5.el8.x86_64
+RLSA-2022:7720 Moderate/Sec. e2fsprogs-libs-1.45.6-5.el8.x86_64
+RLSA-2023:0103 Moderate/Sec. expat-2.2.5-10.el8_7.1.x86_64
+RLSA-2022:7745 Moderate/Sec. freetype-2.9.1-9.el8.x86_64
+RLSA-2022:6463 Moderate/Sec. gnupg2-2.2.20-3.el8_6.x86_64
+RLSA-2022:6463 Moderate/Sec. gnupg2-smime-2.2.20-3.el8_6.x86_64
+RLSA-2022:7105 Moderate/Sec. gnutls-3.6.16-5.el8_6.x86_64
+RLSA-2023:1569 Moderate/Sec. gnutls-3.6.16-6.el8_7.x86_64
+RLSA-2023:0049 Moderate/Sec. grub2-common-1:2.02-142.el8_7.1.rocky.0.2.noarch
+RLSA-2023:0049 Moderate/Sec. grub2-pc-1:2.02-142.el8_7.1.rocky.0.2.x86_64
+RLSA-2023:0049 Moderate/Sec. grub2-pc-modules-1:2.02-142.el8_7.1.rocky.0.2.noarch
+RLSA-2023:0049 Moderate/Sec. grub2-tools-1:2.02-142.el8_7.1.rocky.0.2.x86_64
+RLSA-2023:0049 Moderate/Sec. grub2-tools-extra-1:2.02-142.el8_7.1.rocky.0.2.x86_64
+RLSA-2023:0049 Moderate/Sec. grub2-tools-minimal-1:2.02-142.el8_7.1.rocky.0.2.x86_64
+RLSA-2023:4524 Moderate/Sec. libcap-2.48-5.el8_8.x86_64
+RLSA-2022:7720 Moderate/Sec. libcom_err-1.45.6-5.el8.x86_64
+RLSA-2023:1140 Moderate/Sec. libcurl-7.61.1-25.el8_7.3.x86_64
+RLSA-2023:3106 Moderate/Sec. libcurl-7.61.1-30.el8_8.2.x86_64
+RLSA-2022:5311 Moderate/Sec. libgcrypt-1.8.5-7.el8_6.x86_64
+RLSA-2022:7730 Moderate/Sec. libldb-2.5.2-2.el8.x86_64
+RLSA-2022:7720 Moderate/Sec. libss-1.45.6-5.el8.x86_64
+RLSA-2023:3839 Moderate/Sec. libssh-0.9.6-10.el8_8.x86_64
+RLSA-2023:3839 Moderate/Sec. libssh-config-0.9.6-10.el8_8.noarch
+RLSA-2023:0116 Moderate/Sec. libtasn1-4.13-4.el8_7.x86_64
+RLSA-2022:7715 Moderate/Sec. libxml2-2.9.7-15.el8.x86_64
+RLSA-2023:0173 Moderate/Sec. libxml2-2.9.7-15.el8_7.1.x86_64
+RLSA-2022:5818 Moderate/Sec. openssl-1:1.1.1k-7.el8_6.x86_64
+RLSA-2022:5818 Moderate/Sec. openssl-libs-1:1.1.1k-7.el8_6.x86_64
+RLSA-2022:5809 Moderate/Sec. pcre2-10.32-3.el8_6.x86_64
+RLSA-2023:0833 Moderate/Sec. platform-python-3.6.8-48.el8_7.1.rocky.0.x86_64
+RLSA-2023:0835 Moderate/Sec. platform-python-setuptools-39.2.0-6.el8_7.1.noarch
+RLSA-2023:0833 Moderate/Sec. python3-libs-3.6.8-48.el8_7.1.rocky.0.x86_64
+RLSA-2022:7683 Moderate/Sec. python3-perf-4.18.0-425.3.1.el8.x86_64
+RLSA-2023:3847 Moderate/Sec. python3-perf-4.18.0-477.15.1.el8_8.x86_64
+RLSA-2023:0835 Moderate/Sec. python3-setuptools-wheel-39.2.0-6.el8_7.1.noarch
+RLSA-2022:7622 Moderate/Sec. python3-unbound-1.16.2-2.el8.x86_64
+RLSA-2022:7482 Moderate/Sec. qt5-srpm-macros-5.15.3-1.el8.noarch
+RLSA-2022:7793 Moderate/Sec. rsync-3.1.3-19.el8.x86_64
+RLSA-2022:7108 Moderate/Sec. sqlite-libs-3.26.0-16.el8_6.x86_64
+RLSA-2023:0110 Moderate/Sec. sqlite-libs-3.26.0-17.el8_7.x86_64
+RLSA-2023:3840 Moderate/Sec. sqlite-libs-3.26.0-18.el8_8.x86_64
+RLSA-2023:0837 Moderate/Sec. systemd-239-68.el8_7.4.x86_64
+RLSA-2023:3837 Moderate/Sec. systemd-239-74.el8_8.2.x86_64
+RLSA-2023:0837 Moderate/Sec. systemd-libs-239-68.el8_7.4.x86_64
+RLSA-2023:3837 Moderate/Sec. systemd-libs-239-74.el8_8.2.x86_64
+RLSA-2023:0837 Moderate/Sec. systemd-pam-239-68.el8_7.4.x86_64
+RLSA-2023:3837 Moderate/Sec. systemd-pam-239-74.el8_8.2.x86_64
+RLSA-2023:0837 Moderate/Sec. systemd-udev-239-68.el8_7.4.x86_64
+RLSA-2023:3837 Moderate/Sec. systemd-udev-239-74.el8_8.2.x86_64
+RLSA-2023:0842 Moderate/Sec. tar-2:1.30-6.el8_7.1.x86_64
+RLSA-2022:7622 Moderate/Sec. unbound-libs-1.16.2-2.el8.x86_64
+RLSA-2022:5813 Moderate/Sec. vim-minimal-2:8.0.1763-19.el8_6.4.x86_64
+[root@r81 ~]# yum updateinfo list updates --exclude=kernel* --sec-severity=Moderate  | wc -l
+65
+
+#+END_SRC
+
+#+BEGIN_SRC
+[root@r81 ~]# yum updateinfo list updates --exclude=kernel* --sec-severity=Low
+Last metadata expiration check: 1:29:18 ago on Sun 10 Sep 2023 09:19:03 PM KST.
+[root@r81 ~]# yum updateinfo list updates --exclude=kernel* --sec-severity=Low | wc -l
+1
+[root@r81 ~]# yum updateinfo list updates --exclude=kernel* --sec-severity=Critical | wc -l
+1
+[root@r81 ~]#
+
+#+END_SRC
+
+** can it be
+
+#+BEGIN_SRC 
+[root@r81 sec]# yum update --exclude=kernel* --sec-severity=Important  --downloadonly --downloaddir=.
+
+yum install *.rpm
+
+[root@r81 sec]# yum needs-restarting
+1 : /usr/lib/systemd/systemd --switched-root --system --deserialize 17
+541 : /usr/lib/systemd/systemd-journald
+574 : /usr/lib/systemd/systemd-udevd
+622 : /usr/bin/rpcbind -w -f
+633 : /sbin/auditd
+674 : /usr/sbin/sssd -i --logger=files
+694 : /usr/libexec/platform-python -Es /usr/sbin/tuned -l -P
+696 : /usr/libexec/sssd/sssd_be --domain implicit_files --uid 0 --gid 0 --logger=files
+700 : /usr/sbin/gssproxy -D
+709 : /usr/libexec/sssd/sssd_nss --uid 0 --gid 0 --logger=files
+734 : /usr/lib/systemd/systemd-logind
+6404 : /usr/sbin/NetworkManager --no-daemon
+6854 : sshd: vagrant [priv]
+6862 : /usr/lib/systemd/systemd --user
+6866 : (sd-pam)
+6872 : sshd: vagrant@pts/0
+6900 : sudo -i
+
+#+END_SRC
+
+#+BEGIN_SRC 
+[root@r81 ~]# yum update --exclude=kernel* --sec-severity=Important
+Last metadata expiration check: 1:36:31 ago on Sun 10 Sep 2023 09:19:03 PM KST.
+Dependencies resolved.
+Nothing to do.
+Complete!
+[root@r81 ~]#
+
+#+END_SRC

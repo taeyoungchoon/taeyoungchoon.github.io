@@ -1,0 +1,6 @@
+* ksh on rhel 6 with seg faults
+
+- https://access.redhat.com/solutions/142573
+  - when the user had run custom scripts on their system
+
+
