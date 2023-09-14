@@ -1,0 +1,111 @@
+* cli
+
+- ping -c 3 -m 1000 192.168.25.1
+- [ ] python
+- [ ] tclsh
+- [ ] tclquit
+- [ ] debugging
+- pwd
+- display stp
+- show stp brief
+  - display stp brief
+- display stp down-port
+- display stp history
+- display stp root
+- display cpu-usage
+- system-view
+- [ ] no bash and shell
+- display current-configuration | include sysname
+- display version
+- display ntp-service status
+- display mac-address
+- display arp
+- display interface brief
+- display interface NULL brief
+- show interface HundredGigE briefv
+- display link-aggregation summary
+- dir
+- display boot-loader
+- display acl all
+- display fan
+- display power
+- display logbuffer reverse size 3
+- display logfile summary
+- display ip interface brief
+
+* config
+
+#+BEGIN_SRC 
+interface HundredGigE1/0/49
+ port link-mode bridge
+ shutdown
+#+END_SRC
+
+#+BEGIN_SRC 
+interface Ten-GigabitEthernet1/0/47
+ port link-mode bridge
+ shutdown
+#+END_SRC
+
+#+BEGIN_SRC 
+interface Ten-GigabitEthernet1/0/42
+ port link-mode bridge
+ stp edged-port
+#+END_SRC
+
+#+BEGIN_SRC 
+ clock timezone KST add 09:00:00
+ clock protocol ntp
+#+END_SRC
+
+#+BEGIN_SRC 
+interface M-GigabitEthernet0/0/0
+ ip address 1.1.1.2 255.255.255.252
+#+END_SRC
+
+#+BEGIN_SRC 
+ ip route-static 0.0.0.0 192.168.25.1
+#+END_SRC
+
+#+BEGIN_SRC 
+return
+#+END_SRC
+
+#+BEGIN_SRC 
+interface Ten-GigabitEthernet1/0/45
+ port link-mode bridge
+ port link-aggregation group 1
+interface Ten-GigabitEthernet1/0/46
+ port link-mode bridge
+ port link-aggregation group 1
+#+END_SRC
+
+#+BEGIN_SRC 
+line aux 0
+ user-role network-admin
+ idle-timeout 5 0
+#+END_SRC
+
+#+BEGIN_SRC 
+line class vty
+ user-role network-operator
+ idle-timeout 5 0
+#+END_SRC
+
+#+BEGIN_SRC 
+interface NULL0
+#+END_SRC
+
+#+BEGIN_SRC 
+interface Vlan-interface1
+ ip address 192.168.25.5 255.255.255.0
+#+END_SRC
+
+#+BEGIN_SRC 
+ header incoming %
+XXX
+YYY
+ZZZ%
+#+END_SRC
+
+

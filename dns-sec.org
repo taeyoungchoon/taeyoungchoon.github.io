@@ -1,0 +1,12 @@
+* ele
+
+- bind9
+- bind9 some other
+
+* process
+
+1. remove bind9
+2. install bind9 some other but chroot env
+
+* isc.org
+* redhat

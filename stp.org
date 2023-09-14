@@ -1,0 +1,52 @@
+* from hp-switch
+
+** cli
+
+- display stp brief
+
+#+BEGIN_SRC
+<sysname>display stp brief 
+ VLAN ID  Port                                Role  STP State   Protection
+ 1        Bridge-Aggregation1                 ROOT  FORWARDING  NONE
+ 1        Ten-GigabitEthernet1/0/1            DESI  FORWARDING  NONE
+ 1        Ten-GigabitEthernet1/0/2            ALTE  DISCARDING  NONE
+#+END_SRC
+
+** config
+
+#+BEGIN_SRC 
+#
+ stp mode pvst 
+ stp global enable
+#
+#+END_SRC
+
+* mean
+
+- role
+  - list
+    - ROOT
+    - DESI
+    - ALTE
+  - role change
+    - DISA->DESI
+- stp state
+  - forwarding
+  - discarding
+- priority
+  - port priority
+    - 128.32
+- BPDU-Protection: Disabled
+- TC or TCN received: 0
+- Time since last TC: 148 days 18h:21m:15s
+- Bridge ID
+- Port
+  - Port role: Root Port
+  - Port cost(Legacy): Config=1000, Active=1000
+  - Port edged: Config=disabled, Active=disabled
+  - Point-to-Point: Config=auto, Active=true
+  - Rapid transition: True
+  - Protection type: Config=none, Active=none
+  - Transmit limit: 10 packets/hello-time
+  - Port ID: 128.1613
+  - Port times: Hello 2s MaxAge 20s FwdDelay 15s MsgAge 3s

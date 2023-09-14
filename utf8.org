@@ -1,0 +1,10 @@
+* 이 정도면 충분하겠지. 이름 짓기는 말이다.
+
+- utf8, utf
+- euc-kr, euc
+- cp949, ms
+- iconv와 그 친구
+- 한글 파일명, filename, 우리가 파일명이라고 부르는 것은 어디에 있고, 어떻게 기록되는 것일까. 파일의 속은.
+- subj base64 uuencode from world of email, smtp, mime
+- [2023-09-14 목] 파일 복사가 안되요. 한글 파일명이 문제가 된어서. nfs v4의 문제라고 한다.
+- dig in and dig out, hack, fun
