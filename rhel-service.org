@@ -1,0 +1,16 @@
+* service and services with cli
+
+systemctl status chronyd
+systemctl status iptables
+
+status service
+stauts services
+
+#+BEGIN_SRC shell
+  services=(chronyd iptables)
+
+  for service in "${services[@]}"; do
+      printf -v cmd_string 'systemctl --no-pager status %s' $service
+      echo $cmd_string
+  done
+#+END_SRC
