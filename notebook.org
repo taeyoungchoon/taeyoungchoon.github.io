@@ -79,12 +79,12 @@
 - 130만원 이상
 - [2022-04-16 Sat] not using
 
-** TODO the next, Thinkpad T15p gen 2
+** TODO the next, Thinkpad T15p gen 2, 2.07 kg
 
 - 2022.2.
 - [2022-04-16 Sat] using it
   - noisy
-  - heavy, 정말 무겁다.
+  - heavy, 정말 무겁다. (2.07 kg)
   - and powerful
   - [X] linux
     - [X] 지금 debian을 사용하고 있는데 외장 모니터로 출력을 보내지 못하고 있다. 해결 방안은, 중요하다.
@@ -103,10 +103,10 @@ T15p support by RHEL 8.3 and Ubuntu 20.04(OEM Kernel)
 T15p lots of memory, and enough
 
 1. [ ] T15: max 43g
-2. [X] T15p: max 64g > Gen 2, hard to buy, the days are gone
+2. [ ] T15p: max 64g > Gen 2, hard to buy, the days are gone
    - 레노버 씽크패드 T15p 20TNS00D00, 219만원 over
 3. [ ] T15g
-4. [X] T15 Gen 2: max 43g
+4. [ ] T15 Gen 2: max 43g
    - 레노버 씽크패드 T15 G2 20W4S00500, 219만원 over
 5. [X] T15p Gen 2: max 64g
    - 레노버 씽크패드 T15p G2 21A7S00100, 239만원 over
@@ -115,3 +115,9 @@ T15p lots of memory, and enough
 *** lg ultragear
 
 nil
+** TODO macbook pro 13-inch M2 2022, 1.37 kg
+
+- Memory:16 GB
+- Chip: Apple M2
+- macOS: ventura 13.5.1
+- weight: 1.37 kg
