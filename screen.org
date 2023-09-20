@@ -18,12 +18,10 @@ root@s001:~# chmod o+rw /dev/ttyUSB0
 root@s001:~# ls -al /dev/ttyUSB0
 crw-rw-rw- 1 root dialout 188, 0 Feb 17 13:18 /dev/ttyUSB0
 root@s001:~#
+
 #+end_src
 
-screen /dev/ttyUSB0
-
-* TODO screen howto
-
+#+begin_src 
 screen /dev/ttyUSB0
 C-a C-d
 pgrep -i screen
@@ -31,7 +29,20 @@ screen -ls
 screen -r
 C-a : THEN quit
 
+#+end_src
+
 * TODO multiple
 * DONE kill
 
 C-A k
+
+* DONE logging
+CLOSED: [2023-09-20 Wed 21:05]
+
+#+begin_src 
+C-a H
+#+end_src
+
+#+begin_src shell
+  screen -L
+#+end_src

@@ -1,0 +1,52 @@
+* iconv vs convmv
+* history
+
+- [2023-09-19 Tue] try and it works well
+  
+
+* howto
+
+- https://lea-linux.org/docs/index.php?title=Langue&oldid=41547
+  - french
+    
+#+begin_src shell
+  touch 한
+  ls > foo
+  cp foo foo_utf8
+  iconv -f utf8 -t euckr foo
+  iconv -f utf8 -t euckr foo > foo_euckr
+  iconv -f euckr -t utf8 foo_euckr
+
+  #+end_src
+
+#+begin_src 
+  mkdir bar
+  touch bar/글
+  cp -a bar bar_utf8
+  convmv -f utf8 -t euckr -r bar
+  convmv --notest -f utf8 -t euckr -r bar
+  cp -a bar bar_euckr
+
+#+end_src
+
+#+begin_src shell
+    $ lsb_release -a 2>/dev/null | grep -i release
+    Release:	22.04
+
+    locale list-locales
+    localectl set-locale ko_KR.eucKR
+    locale
+    localectl set-locale ko_KR.UTF8
+    locale
+
+    locale-gen
+    en_US.UTF-8... done
+    ko_KR.EUC-KR... done
+    ko_KR.UTF-8... done
+  
+    localedef
+
+    /etc/locale.gen
+    /etc/locale.alias
+    /etc/default/locale
+#+end_src
