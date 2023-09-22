@@ -1,0 +1,17 @@
+* DONE recover desktop icon
+
+- https://sourceforge.net/p/freemind/bugs/1195/
+
+#+BEGIN_SRC 
+[HKEY_CLASSES_ROOT\Freemind\DefaultIcon]
+from
+C:\Program Files (x86)\FreeMind\freemind.exe,1
+to
+C:\Program Files (x86)\FreeMind\freemind.exe,0
+#+END_SRC
+* history
+
+- mindjet's x 
+- [X] freemind
+  - still using
+- cmaptools
