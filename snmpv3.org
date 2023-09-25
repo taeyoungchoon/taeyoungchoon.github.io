@@ -1,0 +1,41 @@
+* refer
+
+- https://www.youtube.com/watch?v=NtVaekSicq0
+- https://packetpassers.com/arista-switch-snmp/
+
+* DONE v2
+
+** server
+
+#+BEGIN_SRC 
+snmp-server community arista ro
+
+#+END_SRC
+
+** client
+
+#+BEGIN_SRC 
+snmpwalk x.x.x.x -v2c -c arista 
+
+#+END_SRC
+
+* DONE v3
+
+** server
+
+#+BEGIN_SRC 
+snmp-server view sys-view system included
+snmp-server view sys-view iso included
+snmp-server view sys-view .1 included
+snmp-server group tech-sup v3 priv read sys-view
+snmp-server user tech-1 tech-sup v3 auth md5 arista123 priv aes arista123
+
+#+END_SRC
+
+** client
+
+#+BEGIN_SRC 
+snmpwalk 192.168.25.180 -v3 -u tech-1 -l AuthPriv -a Md5 -A arista123 -x AES -X arista12
+snmpget 192.168.25.180 -v3 -u tech-1 -l AuthPriv -a Md5 -A arista123 -x AES -X arista123 system.sysDescr.0
+
+#+END_SRC
