@@ -4,3 +4,65 @@ rpm -qp --scripts httpd-2.2.15-15.el6_2.1.x86_64.rpm
 rpm -q --scripts httpd
 
 rpm --setperms coreutils
+
+* COMMENT rpm name
+
+#+begin_src bash
+  httpd-2.2.15-15.el6_2.1.x86_64.rpm
+  httpd-2.2.15-15
+  .el6_2.1
+  .x86_64
+  .rpm 
+#+end_src
+
+#+begin_src bash
+  httpd-2.2.15-15.el6_2.1.x86_64.rpm
+  httpd-2.2.15-15 # -*
+  .el6_2.1        # .el*
+  .x86_64         # .*
+  .rpm            # .*
+#+end_src
+
+#+begin_src shell
+  F=httpd-2.2.15-15.el6_2.1.x86_64.rpm
+  echo $F
+  echo ${F}
+  echo ${F%.rpm}
+  T=${F%.rpm}
+  echo ${T%.x86_64}
+  T=${T%.x86_64}
+  echo ${T}
+  echo ${T%.el*}
+  T=${T%.el*}
+  echo ${T}
+  echo ${T%-*}
+  T=${T%-*}
+  echo ${T}
+  T=${T%-*}
+  echo ${T}
+#+end_src
+
+
+- https://en.wikipedia.org/wiki/RPM_Package_Manager
+  - <name>-<version>-<release>.<architecture>.rpm for binaries
+
+- [ ] https://serverfault.com/questions/557350/parse-an-rpm-name-into-its-components
+- [ ] https://github.com/rpm-software-management/yum/tree/master/rpmUtils
+- [ ] https://www.shellscript.sh/examples/rpm-versions/
+  - rev
+
+#+begin_src bash
+? echo python-redis-2.8.0-2.el6.noarch.rpm | rev
+mpr.hcraon.6le.2-0.8.2-sider-nohtyp
+? echo python-redis-2.8.0-2.el6.noarch.rpm | rev | cut -d'-' -f1-
+mpr.hcraon.6le.2-0.8.2-sider-nohtyp
+? echo python-redis-2.8.0-2.el6.noarch.rpm | rev | cut -d'-' -f2-
+0.8.2-sider-nohtyp
+? echo python-redis-2.8.0-2.el6.noarch.rpm | rev | cut -d'-' -f3-
+sider-nohtyp
+? echo python-redis-2.8.0-2.el6.noarch.rpm | rev | cut -d'-' -f3- | rev
+python-redis
+?
+#+end_src
+
+- BASH_REMATCH
