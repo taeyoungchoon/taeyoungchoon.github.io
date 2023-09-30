@@ -1,0 +1,94 @@
+* the truth
+
+- carved
+
+* flow
+
+- text
+- image
+- image at /var/www
+- image call from excel with htttps
+
+* TODO atom
+
+** TODO text to image
+
+#+begin_src
+pip3 install lorem-text
+lorem_text > genericText.txt
+cat genericText.txt
+fmt genericText.txt
+fmt genericText.txt > genericText2.txt
+cat genericText2.txt
+pango-view --dpi=120 -qo genericText2.png genericText2.txt
+open genericText2.png
+#+end_src
+
+** http
+
+#+begin_src
+python3 -m http.server 80
+
+#+end_src
+
+** cert
+
+#+begin_src
+  460  brew install mkcert
+  461  mkcert -install
+  462  brew install nss
+  463  mkcert -install
+  464  mkcert local.place-your-domain-here.com localhost 127.0.0.1 ::1
+  465  vi /private/etc/hosts
+  466  sudo vi /private/etc/hosts
+  467  clear
+  468  ls -tplr
+  469  mv local.place-your-domain-here.com+3.pem domain.pem
+  470  mv local.place-your-domain-here.com+3-key.pem domain-key.pem
+  
+#+end_src
+
+** TODO cert simple
+
+#+begin_src bash
+  461  mkcert -install
+  464  mkcert localhost
+  611  mv localhost-key.pem server.key
+  612  mv localhost.pem server.crt
+  613  /opt/homebrew/opt/httpd/bin/httpd -D FOREGROUND
+#+end_src
+
+** but https only supported with nginx
+
+#+begin_src
+brew install nginx
+brew servces 
+#+end_src
+
+#+begin_src 
+vi /opt/homebrew/etc/nginx/nginx.conf
+brew services restart nginx
+cp nginx.conf.default nginx.conf
+
+netstat -an | grep 443
+netstat -an | grep 5443
+curl https://localhost:443
+
+tail -f  /opt/homebrew/Cellar/nginx/1.25.2/logs/error.log
+#+end_src
+
+** TODO with apache2
+
+#+begin_src bash
+  559  /opt/homebrew/opt/httpd/bin/httpd -D FOREGROUND
+  500  brew services start httpd
+  
+#+end_src
+** TODO love.gif at /opt/homebrew/var/www
+
+** TODO excel function called image
+
+#+begin_src 
+=IMAGE("https://localhost:5443/love.gif")
+#+end_src
+

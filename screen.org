@@ -54,3 +54,18 @@ C-a H
 #+begin_src shell
   screen -L
 #+end_src
+
+* and speed
+
+screen /dev/tty.[board_name] 115200
+
+* alternative
+
+https://wiki.archlinux.org/title/working_with_the_serial_console
+
+- [X] picocom
+- [X] minicom
+- [ ] M-x serial-term
+- [ ] tio
+  - https://github.com/tio/tio
+  - tio --log /dev/ttyUSB0
