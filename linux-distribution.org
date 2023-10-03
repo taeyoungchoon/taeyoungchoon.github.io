@@ -1,3 +1,7 @@
+* asahi linux from apple silicon
+
+- https://asahilinux.org/about/
+
 * lots of 
 
 - brand linux such as redhat then centos, debian then ubuntu and slackware
