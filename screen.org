@@ -63,9 +63,11 @@ screen /dev/tty.[board_name] 115200
 
 https://wiki.archlinux.org/title/working_with_the_serial_console
 
-- [X] picocom
+- [X] screen
 - [X] minicom
+- [X] picocom
 - [ ] M-x serial-term
-- [ ] tio
+- [X] tio
   - https://github.com/tio/tio
   - tio --log /dev/ttyUSB0
+  - tio --log -b 9600 /dev/tty.usbserial-A50285BI
