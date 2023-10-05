@@ -1,0 +1,23 @@
+* https://pango.gnome.org/
+
+- gnome 소속이군요.
+
+* https://linux.die.net/man/1/pango-view
+
+- https://www.baeldung.com/linux/file-transform-text-into-pic
+  #+BEGIN_SRC shell
+    pip install lorem-text
+    lorem_text > genericText.txt
+    file genericText.txt 
+    cat genericText.txt
+    fmt genericText.txt > genericText2.txt
+    cat genericText2.txt
+    pango-view --dpi=120 -qo genericText2.png genericText2.txt
+
+  #+END_SRC
+
+  #+BEGIN_SRC shell
+    fortune | cowsay > asciiArt.txt
+    pango-view --dpi=120 --font="mono" -qo asciiArt.png asciiArt.txt
+
+  #+END_SRC
