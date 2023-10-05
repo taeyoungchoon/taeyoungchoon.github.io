@@ -1,3 +1,7 @@
+* expect with other kit
+
+- pexect-serial
+  
 * lots but less
 * TODO work with tclsh
 * TODO debug

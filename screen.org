@@ -31,6 +31,14 @@ C-a : THEN quit
 
 #+end_src
 
+- from mac os x, power
+
+#+begin_src
+? ls -tlr | grep usbserial
+crw-rw-rw-  1 root           wheel      0x9000001 Sep 27 10:46 cu.usbserial-A50285BI
+crw-rw-rw-  1 root           wheel      0x9000000 Sep 27 10:57 tty.usbserial-A50285BI
+#+end_src
+
 * TODO multiple
 * DONE kill
 
@@ -46,3 +54,20 @@ C-a H
 #+begin_src shell
   screen -L
 #+end_src
+
+* and speed
+
+screen /dev/tty.[board_name] 115200
+
+* alternative
+
+https://wiki.archlinux.org/title/working_with_the_serial_console
+
+- [X] screen
+- [X] minicom
+- [X] picocom
+- [ ] M-x serial-term
+- [X] tio
+  - https://github.com/tio/tio
+  - tio --log /dev/ttyUSB0
+  - tio --log -b 9600 /dev/tty.usbserial-A50285BI

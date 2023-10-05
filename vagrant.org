@@ -1,3 +1,7 @@
+* vagrant qemu provider?
+
+- https://github.com/ppggff/vagrant-qemu
+
 * TODO note
 
 - [2021-11-08 월] vagrant에 대한 의존성이 높다는 것은 좋은 것인가? vagrant up jo는 실패했다. virtualbox의 ui에서 시도하면 잘 동작한다. 
