@@ -9,3 +9,13 @@ http://chulhankim.github.io/blog/2013/07/29/setting-file-name-coding-system-on-w
 
 https://www.gnu.org/software/emacs/download.html
 pacman -S mingw-w64-x86_64-emacs
+
+* TODO emacs on windows and version now
+
+- using now: 26.3
+- downloading: 29.1
+  - https://www.gnu.org/software/emacs/download.html
+  - [2023-10-06 금] 동작한다. [2023-10-06 금 08:14] 동작한다.
+    #+begin_src bash
+      uptime
+    #+end_src
