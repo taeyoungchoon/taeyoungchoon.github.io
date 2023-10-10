@@ -1,3 +1,9 @@
+* TODO helper's like cyg-get, apt-cyg
+
+#+begin_src bash
+  cyg-get.bat -upgrade all
+#+end_src
+
 * so good
 
 #+BEGIN_SRC emacs-lisp

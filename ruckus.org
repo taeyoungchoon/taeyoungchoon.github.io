@@ -1,0 +1,11 @@
+* single stp?
+
+- https://docs.ruckuswireless.com/fastiron/08.0.50/fastiron-08050-commandref/GUID-99801E80-CB47-459D-A359-50EE7A67FCBE.html
+  - spanning-tree 802-1w [ single ] ethernet stackid/slot/port 
+- https://docs.commscope.com/bundle/fastiron-08095-l2guide/page/GUID-3831A672-8113-4A1A-834D-FD5A42382E97.html
+  - Single 802.1W Rapid Spanning Tree Protocol (SRSTP)
+- https://docs.commscope.com/bundle/fastiron-08095-l2guide/page/GUID-A72D99AA-5563-4AB7-943D-50767A6D0103.html
+   - Single Spanning Tree (SSTP)
+   - SSTP is disabled by default.
+
+
