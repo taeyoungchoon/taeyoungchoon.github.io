@@ -1,3 +1,7 @@
+* pcs and crm
+
+https://clusterlabs.org/pacemaker/doc/2.1/Pacemaker_Administration/html/pcs-crmsh.html
+
 * TODO redhat linux-ha exam
 
 https://www.redhat.com/en/services/training/ex436-rchoe-high-availability-clustering-exam?section=Objectives

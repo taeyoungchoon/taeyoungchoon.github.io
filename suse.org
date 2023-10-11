@@ -59,7 +59,9 @@ https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions
 - https://documentation.suse.com/sles-sap/15-SP1/html/SLES4SAP-guide/cha-s4s-about.html
 - include in SAP hana cluster
 - SUSE High Availability Cluster Services
-
+- Everything you need to know about SAP pacemaker cluster testing
+  - https://www.linkedin.com/pulse/everything-you-need-know-sap-pacemaker-cluster-testing-robin-singh/
+  
 * TODO opensuse
 
 - tumbleweed like stream version, rolling release
