@@ -2,6 +2,7 @@
 
 - https://kujung.tistory.com/109
 - similar to 'arp spoofing' process
+- router(L3) as a proxy arp
 
 * test using packet tracer
 
