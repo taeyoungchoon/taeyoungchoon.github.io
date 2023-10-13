@@ -1,7 +1,8 @@
 * DONE and gov, doc
 
-- 주요정보통신기반시설_기술적_취약점_분석ㆍ평가_방법_상세가이드.pdf
-- at https://www.krcert.or.kr/data/guideView.do?bulletin_writing_sequence=35988
+- 주요정보통신기반시설_기술적_취약점_분석ㆍ평가_방법_상세가이드.pdf (2021.3.)
+  - https://www.kisa.or.kr/2060204/form?postSeq=12&lang_type=KO&page=1
+  - [ ] 369-446 (78 pages)
 
 * DONE security, secure, sec but about how? and think about it
 
