@@ -1,0 +1,31 @@
+* stack
+
+- https://www.youtube.com/watch?v=1iqVk-MfXYU
+  - general
+- https://www.youtube.com/watch?v=k4gRAOQV9aM
+  - using x
+
+* word related to switch stacking
+
+1. etherchannel
+   - vPC(Virtual Port Channel) on Cisco Nexus
+2. MC-LAG(MLAG, Multi-chassis Link Aggregation Group)
+   - MEC(Multi-Chassis EtherChannel)
+3. Interface Numbering
+   - slot/interface
+   - switch/slot/interface
+4. VSS(Virtual Switching System)
+   - VSL(Virtual Switch Link)
+   - 4500, 6500, 6800
+5. stackwise
+   - stack ports
+   - stack cables
+   - ring
+   - stack discovery protocol(SDP)
+     - active
+     - standby > members
+6. stackwise virtual
+   - since 9400
+   - SVL(StackWise Virtual Link)
+   - VSS replacement
+   - LMP(Link Management Protocol) with SDP

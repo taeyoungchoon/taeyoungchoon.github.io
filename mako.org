@@ -1,3 +1,7 @@
+* best
+
+https://docs.nvidia.com/networking-ethernet-software/knowledge-base/Configuration-and-Usage/Automation/Configure-the-interfaces-File-with-Mako/
+
 * mako template
 
 - https://docs.makotemplates.org/en/latest/syntax.html

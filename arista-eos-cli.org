@@ -1,0 +1,261 @@
+* hostname
+
+#+begin_src 
+x_y
+#+end_src
+
+
+* user
+
+#+begin_src
+username admin secret xxx
+#+end_src
+
+* interface
+
+#+begin_src 
+interface et1
+  description ## to genian ##
+#+end_src
+
+#+begin_src 
+interface et2
+  ip address x.x.x.x/28
+  ip address y.y.y.y/24 secondary
+#+end_src
+
+* mgmt
+
+#+begin_src 
+interface Management1
+#+end_src
+  
+* loopback interface
+
+#+begin_src 
+interface loopback0
+#+end_src
+
+* port channel
+
+#+begin_src 
+interface ethernet 1-2
+  channel-group 10 mode active
+  show active
+#+end_src
+
+* vlan
+
+#+begin_src 
+vlan 15
+show vlan
+no vlan 15
+show vlan
+
+#+end_src
+
+#+begin_src 
+vlan 16 
+show vlan
+no vlan 16
+show vlan
+
+#+end_src
+
+#+begin_src 
+vlan 16
+vlan 17
+  name USER
+vlan 18-20
+#+end_src
+
+
+* access port
+#+begin_src 
+interface ethernet 20
+switchport access vlan 15
+
+#+end_src
+
+
+* trunk port
+#+begin_src 
+interface ethernet 31-32
+switchport trunk allowed vlan 15,16
+
+#+end_src
+
+
+* lldp
+#+begin_src 
+lldp run
+show lldp
+
+#+end_src
+
+
+* spanning tree
+#+begin_src 
+spanning-tree mode rapid-pvst
+spanning-tree vlan-id 15,16-17 8192
+spanning-tree vlan-id 18-20 priority 4096
+
+interface et17
+  switchport access vlan 5
+  spanning-tree cost 4
+  spanning-tree guard root
+
+interface et18
+  spanning-tree guard root
+
+#+end_src
+
+
+* clock
+#+begin_src 
+clock timezone Asia/Seoul
+show clock
+
+#+end_src
+
+
+* ntp
+#+begin_src 
+ntp local-interface Loopback0
+ntp server x.x.x.x
+
+#+end_src
+
+
+* route-map
+
+* acl
+#+begin_src 
+ip access-list vtyacl
+  10 permit tcp host x.x.x.x any eq 2022
+
+ip access-list snmpacl
+  10 permit tcp host x.x.x.x
+
+#+end_src
+
+  
+* ssh
+#+begin_src 
+management ssh
+  ip access-group vtyacl in
+  idel-timeout 5
+  server-port 2022
+
+#+end_src
+
+
+* vrrp
+#+begin_src 
+interface vlan7
+  ip address x.x.x.102/24
+  vrrp 7 priority-level 150
+  vrrp 7 ipv4 x.x.x.101
+
+#+end_src
+
+
+* aaa
+
+no aaa root
+
+* TODO snmp
+#+begin_src 
+snmp-server community foo ro
+snmp-server community bar ro snmpacl
+
+#+end_src
+
+
+* TODO snmp v3
+
+* TODO snmp trap
+#+begin_src 
+snmp-server host x.x.x.x version 2c see
+snmp-server enable traps
+
+#+end_src
+
+
+* TODO syslog
+#+begin_src 
+logging host x.x.x.x
+logging trap notifications
+logging source-interface Loopback0
+
+#+end_src
+
+
+* banner
+#+begin_src 
+banner login
+this is the banner line 1
+and line 2
+EOF
+
+#+end_src
+
+
+* alias
+#+begin_src 
+alias mac show mac address-table
+alias route show ip route
+
+#+end_src
+
+
+* bash
+
+#+begin_src 
+bash clear
+#+end_src
+
+
+
+* routing
+
+#+begin_src 
+ip routing
+#+end_src
+
+
+* static
+
+#+begin_src 
+ip route 0.0.0.0/0 x.x.x.x
+ip route 10.0.0.0/24 x.x.x.x name jack
+
+#+end_src
+
+* ospf
+
+#+begin_src 
+interface vlan 38
+  ip address x.x.x.x/30
+  ip ospf cost 1
+  ip ospf priority 255
+
+router ospf 10
+  router-id x.x.x.x
+  passive-interface vlan5
+  passive-interface vlan6
+  network x.x.x.x/32 area 0.0.0.0
+  max-lsa 0
+  default-information originate
+
+#+end_src
+  
+* rip
+* bgp
+* misc
+#+begin_src 
+transceiver qsfp default-mode 4x10G
+service routing protocols model multi-agent
+
+#+end_src
+
