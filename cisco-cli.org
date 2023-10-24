@@ -1,3 +1,60 @@
+* TODO arista run like
+
+** iso_config
+
+iso_conifg "hostname test"
+
+** TODO tcl
+
+- https://evilttl.com/wiki/TCL-Scripting-in-IOS-Basics
+
+#+begin_src bash
+  router#tclsh
+  router(tcl)# set foo {
+  +>conf t
+  +>int f0/1
+  +>ip addr.....
+  +>no ip route 0.0.0.0 .....
+  +>ip route 0.0.0.0 .....
+  +>exit  
+  +>exit  
+  +>}
+
+  router(tcl)#eval $foo
+  ...
+  router(tcl)#tclquit
+#+end_src
+
+** TODO terminal shell using ios.sh feature
+
+- https://www.cisco.com/c/en/us/td/docs/ios/netmgmt/configuration/guide/Convert/IOS_Shell/nm_ios_shell.html#wp1059206
+
+#+begin_src bash
+  show version | grep '^C'
+  function disable_intf () {
+      configure terminal
+      interface $1
+      shutdown
+      end
+  }
+
+  disable_intf 'eth0/0'
+#+end_src
+  
+#+begin_src bash
+  term shell
+  reload in 5
+  conf t; int gi0/0; speed 100; duplex full; end
+  reload cancel
+#+end_src
+
+** TODO configure replace
+
+** links
+
+- https://www.reddit.com/r/networking/comments/2ykp7o/cisco_ios_multiple_commands_per_line/
+- https://serverfault.com/questions/227661/is-there-a-way-to-submit-a-batch-of-commands-to-a-cisco-router-and-have-them-exe
+
 * cli at fusion
 
 - show vrf
