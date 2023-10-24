@@ -1,0 +1,21 @@
+* form2story, story2poem
+
+- form
+  - 도시는 무엇으로 사는가
+- story
+  - 삼체
+- poem-s
+
+* form
+
+- 무엇가 뭉친 것, 그리고 형태를 이루는 것
+
+* story
+
+- 내가 생각하는 이상적인 형태
+  - 그 이상은 시가 되겠다.
+
+* poem
+
+- 시를 생각할 때 코드를 생각한다. 조금 아닌 것 같은데, 꼭 아닌 것은 아닌 것인가?
+- James Gosling의 코드, 이미지로 본다는 것. picture, as image
