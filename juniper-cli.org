@@ -88,19 +88,35 @@ https://community.juniper.net/discussion/trouble-adding-a-self-signed-cert-for-h
 [edit system services extension-service request-response grpc]
 user@host# set ssl local-certificate jsd_certificate
 
-* TODO hack
+* TODO hack and working
 
-192.168.25.155
+** before you go
 
-https://iosonounrouter.wordpress.com/2021/12/20/test-juniper-telemetry-in-two-seconds/
 
+
+** based on
+
+- https://iosonounrouter.wordpress.com/2021/12/20/test-juniper-telemetry-in-two-seconds/
+- https://github.com/Juniper/jtimon
+- [ ] https://www.juniper.net/documentation/en_US/tech-center/topics/concept/openconfig.html
+- [ ] https://www.juniper.net/documentation/us/en/software/junos/interfaces-telemetry/topics/topic-map/grpc-services-telemetry.html
+  
+** env
+
+- 192.168.25.155
+
+** trying
+
+mkdir CA
 openssl genrsa -out CA/RootCA.key 2048
 openssl req -x509 -new -key CA/RootCA.key -days 3650 -out CA/RootCA.crt
 
+mkdir client
 openssl genrsa -out client/client.key 2048 
 openssl req -new -key client/client.key -out client/client.csr
 openssl x509 -req -in client/client.csr -CA CA/RootCA.crt -CAkey CA/RootCA.key -CAcreateserial -out client/client.crt -days 365
 
+mkdir router
 openssl genrsa -out router/router.key 2048 
 openssl req -new -key router/router.key -out router/router.csr
 openssl x509 -req -in router/router.csr -CA CA/RootCA.crt -CAkey CA/RootCA.key -CAcreateserial -out router/router.crt -days 365
@@ -126,22 +142,6 @@ set system services extension-service request-response grpc ssl port 32767
 set system services extension-service request-response grpc ssl local-certificate lcert
 
 
-    "host": "192.168.25.155",
-    "port": 32767,
-    "user": "jack",
-    "password": "1234qwer",
-
-
-        "clientcrt" : "/root/client/client.crt",
-        "clientkey" : "/root/client/client.key",
-        "ca" : "/root/CA/RootCA.crt"
-
-   "grpc" : {
-        "ws" : 1048576
-    },
-    "paths": [{
-        "path": "/network-instances/network-instance/protocols/protocol/bgp/",
-
 gnmic --timeout 1s -a 192.168.25.155:32767 -u jack -p 1234qwer --insecure --gzip sub --path "/"
 
 {
@@ -164,9 +164,6 @@ gnmic --timeout 1s -a 192.168.25.155:32767 -u jack -p 1234qwer --insecure --gzip
         "freq": 30000
     }]
 }
-
-
-
 
 ./jtimon-linux-x86_64 --config test.json –print
 
