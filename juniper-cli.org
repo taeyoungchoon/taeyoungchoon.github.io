@@ -1,0 +1,172 @@
+* ssl
+
+- https://www.juniper.net/documentation/us/en/software/junos/grpc-network-services/topics/topic-map/grpc-services-configuring.html
+- https://dave.dev/blog/2018/05/configuring-ssl-grpc-junos/
+
+* word and
+
+- openssl
+- SubjectAltName (SAN) IP Address field
+
+#+begin_src code
+openssl genrsa -out server.key 4096
+openssl req -new -key server.key -out server.csr
+openssl req -new -key server.key -out server.csr -subj "/C=US/ST=CA/L=Sunnyvale/O=Acme/OU=testing/CN=gnoi-server.example.com"
+openssl x509 -req -in server.csr -CA /etc/pki/certs/ServerRootCA.crt -CAkey /etc/pki/certs/ServerRootCA.key -set_serial 0101 -out server.crt -days 365 -sha256 -extfile openssl.cnf
+
+server.key
+server.csr
+server.crt
+
+openssl x509 -req -in server.csr -signkey server.key -out server.crt  -days 365 -sha256 -extfile openssl.cnf
+openssl x509 -text -noout -in server.crt
+request security pki local-certificate load certificate-id gnoi-server filename /var/tmp/server.crt key /var/tmp/server.key
+show security pki local-certificate certificate-id gnoi-server
+edit system services extension-service request-response grpc ssl
+set port port-number
+set port 50051
+set local-certificate certificate-name
+set local-certificate gnoi-server
+set use-pki
+set hot-reloading
+set ip-address address
+set ip-address 192.168.2.1
+top
+set system services extension-service traceoptions file jsd
+set system services extension-service traceoptions flag all
+commit
+
+#+end_src
+
+* easy
+
+- https://www.juniper.net/documentation/us/en/software/junos/interfaces-telemetry/topics/topic-map/grpc-services-telemetry.html
+
+#+begin_src bash
+  set extension-service request-response grpc ssl
+  set ssl local-certificate jsd_certificate
+#+end_src
+
+* one more thing
+
+#+begin_src bash
+request security pki generate-key-pair certificate-id foo
+request security pki local-certificate verify certificate-id foo
+clear security pki local certificate certificate-id foo
+
+set extension-service request-response grpc ssl
+set ssl local-certificate foo
+#+end_src
+
+* more
+
+#+begin_src bash
+  set system services ssh
+  set system services extension-service request-response grpc clear-text address 10.0.0.2
+  set system services extension-service request-response grpc clear-text port 32767
+  set system services extension-service notification allow-clients address 10.0.0.1/32
+  set services analytics streaming-server STREAMING-SERVER remote-address 10.10.10.1
+  set services analytics streaming-server STREAMING-SERVER remote-port 20023
+  set services analytics export-profile STREAMING-PROFILE local-address 10.10.10.2
+  set services analytics export-profile STREAMING-PROFILE local-port 20023
+  set services analytics export-profile STREAMING-PROFILE reporting-rate 30
+  set services analytics export-profile STREAMING-PROFILE format gpb
+  set services analytics export-profile STREAMING-PROFILE transport udp
+  set services analytics sensor SENSOR server-name STREAMING-SERVER
+  set services analytics sensor SENSOR export-name STREAMING-PROFILE
+  set services analytics sensor SENSOR resource /junos/system/linecard/interface/
+  set services analytics sensor SENSOR_LOGICAL server-name STREAMING-SERVER
+  set services analytics sensor SENSOR_LOGICAL export-name STREAMING-PROFILE
+  set services analytics sensor SENSOR_LOGICAL resource /junos/system/linecard/interface/logical/usage/
+#+end_src
+
+* go
+
+https://www.juniper.net/documentation/us/en/software/junos/interfaces-telemetry/topics/topic-map/grpc-services-telemetry.html
+https://community.juniper.net/discussion/trouble-adding-a-self-signed-cert-for-https
+
+[edit system services extension-service request-response grpc]
+user@host# set ssl local-certificate jsd_certificate
+
+* TODO hack
+
+192.168.25.155
+
+https://iosonounrouter.wordpress.com/2021/12/20/test-juniper-telemetry-in-two-seconds/
+
+openssl genrsa -out CA/RootCA.key 2048
+openssl req -x509 -new -key CA/RootCA.key -days 3650 -out CA/RootCA.crt
+
+openssl genrsa -out client/client.key 2048 
+openssl req -new -key client/client.key -out client/client.csr
+openssl x509 -req -in client/client.csr -CA CA/RootCA.crt -CAkey CA/RootCA.key -CAcreateserial -out client/client.crt -days 365
+
+openssl genrsa -out router/router.key 2048 
+openssl req -new -key router/router.key -out router/router.csr
+openssl x509 -req -in router/router.csr -CA CA/RootCA.crt -CAkey CA/RootCA.key -CAcreateserial -out router/router.crt -days 365
+cat router/router.crt router/router.key > router/router.pem
+
+scp -r * root@192.168.25.155:/var/tmp/
+
+set security pki ca-profile ca1 ca-identity caid1
+set security certificates local lcert load-key-file /var/tmp/router/router.pem
+commit
+
+run request security pki ca-certificate load ca-profile caprof1 filename /var/tmp/CA/RootCA.crt
+set system services extension-service request-response grpc ssl port 50051
+set system services extension-service request-response grpc ssl local-certificate lcert
+set system services extension-service request-response grpc ssl mutual-authentication certificate-authority ca1
+set system services extension-service request-response grpc ssl mutual-authentication client-certificate-request require-certificate-and-verify
+commit
+
+error: ca-profile caprof1 is not configured
+
+set system services extension-service request-response grpc ssl address 192.168.25.155
+set system services extension-service request-response grpc ssl port 32767
+set system services extension-service request-response grpc ssl local-certificate lcert
+
+
+    "host": "192.168.25.155",
+    "port": 32767,
+    "user": "jack",
+    "password": "1234qwer",
+
+
+        "clientcrt" : "/root/client/client.crt",
+        "clientkey" : "/root/client/client.key",
+        "ca" : "/root/CA/RootCA.crt"
+
+   "grpc" : {
+        "ws" : 1048576
+    },
+    "paths": [{
+        "path": "/network-instances/network-instance/protocols/protocol/bgp/",
+
+gnmic --timeout 1s -a 192.168.25.155:32767 -u jack -p 1234qwer --insecure --gzip sub --path "/"
+
+{
+    "host": "192.168.25.155",
+    "port": 32767,
+    "user": "jack",
+    "password": "1234qwer",
+    "cid": "cid",
+    "tls" : {
+        "clientcrt" : "/root/client/client.crt",
+        "clientkey" : "/root/client/client.key",
+        "ca" : "/root/CA/RootCA.crt",
+        "servername" : "10008"
+    },
+    "grpc" : {
+        "ws" : 1048576
+    },
+    "paths": [{
+        "path": "/network-instances/network-instance/protocols/protocol/bgp/",
+        "freq": 30000
+    }]
+}
+
+
+
+
+./jtimon-linux-x86_64 --config test.json –print
+
