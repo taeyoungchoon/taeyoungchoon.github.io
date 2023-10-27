@@ -1,0 +1,29 @@
+* TODO path issue
+
+#+begin_src bash
+  function make_data_dir {
+      if [[ -e /data ]]; then
+	  echo /data directory exist;
+      else
+	  echo /data directory not exist;
+	  echo make /data directory;
+	  mkdir /data;
+      fi
+  }
+
+  make_data_dir
+
+  touch /data/this-is-it
+  ls /data
+  tar cvf data.tar /data
+  tar tvf data.tar
+  rm -rf /data
+  tar xvf data.tar
+  ls
+  tar xvf data.tar -C /
+  ls /data
+
+  rm -rf /data
+
+
+#+end_src
