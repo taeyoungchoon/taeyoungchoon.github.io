@@ -12,3 +12,9 @@ http://h20565.www2.hp.com/portal/site/hpsc/template.PAGE/public/kb/docDisplay?do
 More drives failed (or were replaced) than the fault-tolerance level allows. 
 Unable to rebuild array. 
 If drives have not been replaced, this message indicates an intermittent drive failure.
+
+* ilo
+* history
+
+- 참 오래전에 썼다, 접했다. 살짝. g2 부터 일까? 지금은? g11 정도.
+  - 여기서 지금은 [2023-10-30 월] 이다.

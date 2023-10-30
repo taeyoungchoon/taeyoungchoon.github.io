@@ -1,3 +1,14 @@
+* format
+
+- About name
+- About location
+- About more
+- About people
+- About tag
+- About auth
+- About history
+- About note
+
 * manage?
 
 ** information fresh

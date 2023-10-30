@@ -1,1 +1,16 @@
-* ventoy vs rufus and more, still using 
+* ventoy vs rufus and more, still using and working
+* howto
+
+- [2023-10-30 월] 여전히 혼돈스럽다. mbr/gpt on bios/uefi
+  - ever, mbr/bios
+  - in the middle or somewhere, virtual?
+    - 무엇도 가능하지만, 일관성이라
+      - virtual but gpt/uefi
+  - recent, gpt/uefi
+
+** centos 7.9 iso to usb drive, burn
+  - Partition scheme
+    - [X] mbr
+    - t
+  - target system
+    - [X] BIOS or UEFI

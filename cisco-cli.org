@@ -1,3 +1,17 @@
+* TODO show proc cpu
+
+- https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst3750/software/troubleshooting/cpu_util.html
+  - This number is the total CPU utilization for all the active system processes, including the percentage of time at the interrupt level.
+  - The interrupt percentage is the CPU time spent receiving packets from the switch hardware.
+- https://community.cisco.com/t5/network-management/understanding-show-process-cpu-sorted-1min-command/td-p/2191650
+  - cpu utilization
+  - interrupt based utilization
+- sample
+  #+begin_src bash
+    CPU utilization for five seconds: 41%/38%; one minute: 39%; five minutes: 38%
+  #+end_src
+
+    
 * TODO arista run like
 
 ** iso_config

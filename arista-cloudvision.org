@@ -246,6 +246,7 @@ arista1>
 #+RESULTS:
 * TODO [2023-02-28 화] spec requirement
 
+- https://www.arista.com/en/cg-cv/cv-system-requirements
 - 무겁다
 - 그건 변하지 않는다
 - 변할 수 있다
@@ -277,3 +278,19 @@ python generateXmlForKvm.py -n cvp1 --device-bridge br0 -k 5 -i cvpTemplate.xml 
 * TODO [2023-02-28 화] simply as monitor, yes
 
 but how
+
+* TODO version-s
+
+- [X] 2022.2.0
+  #+begin_src bash
+    tar xvfz /store/iso/cvp-2022.2.0-kvm.tgz -C /data/cvp0/
+  #+end_src
+- between
+  - 2022.2.0 1 2 3 4
+  - 2022.3.0 1 2 3 4
+  - 2023.1.0 1 2
+    
+- [2023-10-30 월] 2023.1.2
+  - https://www.arista.com/en/support/software-download
+  - 2023.1.2 Release Notes
+    - 19 October 2023

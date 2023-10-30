@@ -115,6 +115,7 @@ T15p lots of memory, and enough
 *** lg ultragear
 
 nil
+
 ** TODO macbook pro 13-inch M2 2022, 1.37 kg
 
 - Memory:16 GB
