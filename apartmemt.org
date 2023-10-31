@@ -1,0 +1,20 @@
+* TODO gas
+
+- 가스계량기 밸브
+
+* TODO water
+
+- 수도계량기 밸브
+  - 세대별 수도계량기
+    - 아파트 각 세대 현관 앞 벽면
+- 누수
+  
+* TODO electricity
+
+- 전기차단기, 차단기
+- 두꺼비집
+
+* TODO 아파트 온도조절기
+
+- https://m.blog.naver.com/tootoopa/221707750011
+- 난방온도조절기, 온도조절기
