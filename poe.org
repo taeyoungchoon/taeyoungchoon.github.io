@@ -1,0 +1,15 @@
+* list
+
+- UPOE 90W / cisco only
+- UPOE+ / cisco only
+- PoE 15.4W
+- PoE+ 30W
+- Non POE
+
+* hmm
+
+- https://www.networkacademy.io/ccna/ethernet/power-over-ethernet
+
+* cli
+
+- show power inline

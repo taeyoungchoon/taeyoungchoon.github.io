@@ -1,0 +1,88 @@
+* list up
+
+- https://www.router-switch.com/cisco.html
+- https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-9200-series-switches/nb-06-cat9200-ser-data-sheet-cte-en.html
+- https://www.cisco.com/c/en/us/products/switches/switch-selector.html?ccid=cc000098&guide=enterprise-e|new-e|access-e|campus-e|campusge-e|campus1ge-e|campus1gecli-e&oid=otres000315
+- https://www.cisco.com/c/en/us/products/eos-eol-listing.html
+  
+* router
+
+** small business router
+
+- ISR 800
+- ISR 900
+- ISR 1000
+
+** branch router
+
+- ISR 4000
+  - ISR 4200
+  - ISR 4300
+  - ISR 4400
+
+** internet edge router
+    
+- ASR 1000
+
+** service provider edge router
+
+- ASR 9000
+
+** Cisco ISR G1
+
+** Cisco ISR G2
+
+* TODO switch
+
+** line one, EOS
+
+- 2960L
+- 2960X/2960XR
+  - no logger being sold
+- 3650
+- 3850
+
+** line two
+
+- c1000, fanless
+  - [ ] C1000-24P-4X-L with PoE and 10G uplink
+    - 195W
+    - $1,389
+  - C1000-24FP-4X-L with PoE and 10G uplink
+    - 370W
+- c1200
+  - [ ] C1200-24P-4X
+- c1300
+  - [ ] C1300-24P-4X
+- 9200L/9200
+  - [X] C9200L-24P-4X-E
+    - $1,779
+- 9300L/9300
+  - [ ] C9300L-24P-4X-E(Network Essentials)
+    - based on UADP 2.0 ASIC
+    - $3,309
+- 9300
+- 9400
+  - modular
+- 9500
+
+* security
+
+- ASA
+- Firepower
+
+* wireless
+
+- Aironet 1810 / 1810W
+- 1830
+- 1850
+- 2800
+- 3800
+
+* ip phone
+
+- 7800
+- 8800
+- 6800
+- 7900
+- 8900

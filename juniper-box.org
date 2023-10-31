@@ -1,0 +1,46 @@
+* product families
+
+- https://en.wikipedia.org/wiki/Juniper_Networks
+
+* routing
+
+- mx
+
+* Switching
+
+- [X] https://www.networkscreen.com
+  - https://www.networkscreen.com/products.asp
+  
+** list
+
+- ex for enterprise
+  - 2300
+    - [X] EX2300-24P inc PoE and uplinks
+      - $2,601
+  - 3400
+    - EX3400-24P inc PoE and uplinks
+      - 336 Gbps Switching capacity
+      - $3,921
+  - 4300
+    - EX4300-24P inc POE and uplinks
+      - 448 Gbps
+      - $7,502
+  - 4400
+    - EX4400-24P inc PoE and uplinks
+      - 912 Gbps
+      - EVPN-VXLAN
+      - $6,820
+- qfx for dc
+  
+* Security
+
+- srx
+  
+* Cloud Service
+
+- vSRX
+
+  
+* Software
+
+- Apstra
