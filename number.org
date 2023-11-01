@@ -1,0 +1,38 @@
+* numbers and data unit
+
+- https://www.eecis.udel.edu/~amer/Table-Kilo-Mega-Giga---YottaBytes.html
+
+| Number                    | number of zero | Cardinal numeral | Data Unit |
+|---------------------------+----------------+------------------+-----------|
+| 1,000                     |              3 | thousand         | kilobyte  |
+| 1,000,000                 |              6 | million          | megabyte  |
+| 1,000,000,000             |              9 | billion          | gigabyte  |
+| 1,000,000,000,000         |             12 | trillion         | terabyte  |
+| 1,000,000,000,000,000     |             15 | quadrillion      | petabyte  |
+| 1,000,000,000,000,000,000 |             18 | quintillion      | exabyte   |
+
+* number
+
+- one two three
+- 1 2 3
+- zero
+- 0
+- uno due tre
+  
+* data unit
+
+- bit
+- byte, 8 bit
+- kilobyte, 1000 byte
+- kibibyte, 1024 byte and why?
+  - https://www.logicmonitor.com/blog/what-the-hell-is-a-kibibyte
+
+* kilo
+
+- the symbol k
+- the greek word chilioi, meaning thousand
+  - one kilogram is 1000 grams
+  - one kilobit is 1000 bits
+  - one kilohertz is 1000 hertz
+- and why? there is a thousand
+  

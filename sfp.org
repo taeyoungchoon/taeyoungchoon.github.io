@@ -1,0 +1,8 @@
+* small form-factor pluggable
+
+- GBIC: Gigabit Interface Converter
+- SFP
+- [X] SFP+: 10G
+- QSFP: quad
+  - 40G
+  - 100G

@@ -3,7 +3,7 @@
 - UPOE 90W / cisco only
 - UPOE+ / cisco only
 - PoE 15.4W
-- PoE+ 30W
+- PoE+ 30W 802.3af/at
 - Non POE
 
 * hmm

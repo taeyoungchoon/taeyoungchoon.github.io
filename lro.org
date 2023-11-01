@@ -1,0 +1,29 @@
+* LRO (Large Receive Offload) or GRO (Generic Receive Offload)?
+
+* Enable or Disable LRO for All VMkernel Adapters on an ESXi Host
+
+- https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.networking.doc/GUID-93DB9BF9-8BCC-4F02-A538-261B669D4D47.html
+- Net.TcpipDefLROEnabled
+
+* from redhatm rhel
+
+- https://access.redhat.com/solutions/19758
+
+** initscripts
+
+ETHTOOL_OPTS="-K eth0 gro off/on"
+
+** ethtool
+
+# ethtool -K eth0 gro on  
+# ethtool -k eth0 | grep generic-receive-offload  
+# ethtool -K eth0 gro off  
+# ethtool -k eth0 | grep generic-receive-offload  
+
+** udev
+
+/etc/udev/rules.d/71-ethtool.rules
+SUBSYSTEM=="net", ACTION=="add", KERNEL=="ethX", RUN+="/sbin/ethtool -K ethX gro off/on"
+
+# udevadm test add
+# udevadm trigger -v
