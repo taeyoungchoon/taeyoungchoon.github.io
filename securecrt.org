@@ -93,8 +93,16 @@ RRR\r
 
 ** Keymap Functions
 ** Keymap Editor
-* delay
+* TODO delay, not yet about script, pythong?
 
-- https://www.vandyke.com/support/tips/echoflowctrl.html
-  - Line Send Delay session option
-  - 'Paste with Echo Flow Control' script
+1. https://www.vandyke.com/support/tips/echoflowctrl.html
+   - Line Send Delay session option
+   - 'Paste with Echo Flow Control' script
+2. [ ] session
+   - terminal
+     - emulation
+       - advanced
+	 - send delay options
+	   - [ ] line send delay: 5 milleseconds
+3. recent paste
+   - [ ] override line send delay: 5 milleseconds

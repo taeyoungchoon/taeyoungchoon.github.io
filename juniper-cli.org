@@ -88,10 +88,9 @@ https://community.juniper.net/discussion/trouble-adding-a-self-signed-cert-for-h
 [edit system services extension-service request-response grpc]
 user@host# set ssl local-certificate jsd_certificate
 
-* TODO hack and working
+* TODO hack and working about junos telemetry
 
 ** before you go
-
 
 
 ** based on
@@ -104,7 +103,7 @@ user@host# set ssl local-certificate jsd_certificate
 ** env
 
 - 192.168.25.155
-
+  
 ** trying
 
 mkdir CA
@@ -167,3 +166,24 @@ gnmic --timeout 1s -a 192.168.25.155:32767 -u jack -p 1234qwer --insecure --gzip
 
 ./jtimon-linux-x86_64 --config test.json –print
 
+* DONE password recovery
+
+- https://supportportal.juniper.net/s/article/EX-QFX-Password-recovery-procedure?language=en_US
+
+
+#+begin_src bash
+  Console access
+
+  Ctrl+C
+
+  More options
+  Recovery mode - Cli
+
+  configure
+  set system root-authentication plain-text-password
+  commit
+  exit
+
+  login: root
+  Password:
+#+end_src
