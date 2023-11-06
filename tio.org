@@ -1,0 +1,58 @@
+* tio
+
+- [X] tio
+  - https://github.com/tio/tio
+  - tio --log /dev/ttyUSB0
+  - tio --log -b 9600 /dev/tty.usbserial-A50285BI
+  - [X] tio -b 9600 /dev/tty.usbserial-A50285BI
+
+* from source
+
+#+begin_src bash
+  811  wget https://github.com/tio/tio/releases/download/v2.7/tio-2.7.tar.xz
+  829  tar xvfJ tio-2.7.tar.xz
+
+  820  yum install python3
+  824  pip3 install meson
+  846  pip3 install ninja
+
+  836  yum install g++
+  840  yum install -y gcc-c++
+
+  834  yum install git
+
+  847  meson setup build
+  848  meson compile -C build
+  849  meson install -C build
+
+  850  tio
+#+end_src
+
+* help
+
+#+begin_src bash
+  [08:28:28.970] Switched to hexadecimal mode
+  [08:28:30.903] Switched to normal mode
+  [08:28:33.455] Key commands:
+  [08:28:33.455]  ctrl-t ?       List available key commands
+  [08:28:33.455]  ctrl-t b       Send break
+  [08:28:33.455]  ctrl-t c       Show configuration
+  [08:28:33.455]  ctrl-t e       Toggle local echo mode
+  [08:28:33.455]  ctrl-t f       Toggle log to file
+  [08:28:33.455]  ctrl-t F       Flush data I/O buffers
+  [08:28:33.455]  ctrl-t g       Toggle serial port line
+  [08:28:33.455]  ctrl-t h       Toggle hexadecimal mode
+  [08:28:33.455]  ctrl-t l       Clear screen
+  [08:28:33.455]  ctrl-t L       Show line states
+  [08:28:33.455]  ctrl-t m       Toggle MSB to LSB bit order
+  [08:28:33.455]  ctrl-t p       Pulse serial port line
+  [08:28:33.455]  ctrl-t q       Quit
+  [08:28:33.455]  ctrl-t s       Show statistics
+  [08:28:33.455]  ctrl-t t       Toggle line timestamp mode
+  [08:28:33.455]  ctrl-t U       Toggle conversion to uppercase on output
+  [08:28:33.455]  ctrl-t v       Show version
+  [08:28:33.455]  ctrl-t x       Send file via Xmodem-1K
+  [08:28:33.455]  ctrl-t y       Send file via Ymodem
+  [08:28:33.455]  ctrl-t ctrl-t Send ctrl-t character
+  
+#+end_src

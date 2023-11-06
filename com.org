@@ -1,0 +1,19 @@
+* com, COM, communication port
+
+- https://en.wikipedia.org/wiki/COM_(hardware_interface)
+
+* windows
+
+- mode set mode
+- change port
+  
+#+begin_src bash
+  mode
+  mode com4 /status
+  chgport
+  change port
+  change port /query
+  reg query HKLM\HARDWARE\DEVICEMAP\SERIALCOMM
+  wmic path Win32_SerialPort
+#+end_src
+ 

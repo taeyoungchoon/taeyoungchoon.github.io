@@ -1,0 +1,53 @@
+* brocade vs cisco
+
+- https://www.reddit.com/r/Brocade/comments/l83rq7/help_w_basic_config_w_vlans/
+- http://www.netadmin.us/docs/Brocade-Cisco-CLI-Comparison.pdf
+- https://www.youtube.com/watch?v=-zsddysWbsU
+- https://support.alcadis.nl/Support_files/Ruckus/ICX//Ruckus%20Best%20Practice%20Guide/Brocade%20ICX%20and%20Cisco%20IOS%20Deployment%20Guide.pdf
+  
+#+begin_src bash
+  vlan 10 15 50
+  tagged ethernet 1/2/1
+
+  int eth 1/2/1
+  switch trunk encap dot1q
+  switch mode trunk
+  switchport trunk alloed vlan 10,15,20
+#+end_src
+  
+#+begin_src bash
+  Vlan 10
+  Tagged eth 1 eth 2
+
+  vlan 10, eth 1
+  vlan 10, eth 2
+
+  eth 1, vlan 10
+  eth 2, vlan 10
+
+#+end_src
+
+#+begin_src bash
+  vlan 10
+  Tagged eth 1 eth 2
+
+  vlan 20
+  Tagged eth 1
+
+  vlan 10, eth 1
+  vlan 10, eth 2
+  vlan 20, eth 1
+
+  vlan 10, eth 1
+  vlan 20, eth 1
+  vlan 10, eth 2
+
+  eth 1, vlan 10
+  eth 1, vlan 20
+  eth 2, vlan 10
+
+  eth 1, vlan 10 vlan 20
+  eth 2, vlan 10
+
+#+end_src
+

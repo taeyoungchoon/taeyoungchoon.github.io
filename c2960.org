@@ -1,0 +1,223 @@
+* DONE no bin, os recovery
+
+- https://www.cisco.com/c/en/us/support/docs/switches/catalyst-2950-series-switches/41845-192.html
+
+** process
+
+1) switch: set baud 115200
+   - unset baud, to recover default value 9600
+2) switch: copy xmodem: flash:x.bin
+3) switch: dir flash:
+4) switch: boot flash:x.bin
+
+* DONE init
+
+- [ ] if there's lots of files
+  - pressing it paste it
+
+** process from off
+
+1) press mode button
+2) power on
+3) release mode button
+   - when you see 'The password-recovery mechanism is enabled' message
+4) switch: flash_init
+   - to mount flash
+5) switch: set
+   - to see
+     - BOOT=flash:/c2960-lanbasek9-mz.122-55.SE10.bin
+6) dir flash:/
+7) del flash:/x
+   - except os image
+8) dir flash:/
+   #+begin_src bash
+     Switch#dir
+     Directory of flash:/
+
+	 2  -rwx        2343   Mar 1 1993 00:05:18 +00:00  config.text
+	 3  -rwx        1915   Mar 1 1993 00:05:18 +00:00  private-config.text
+	 5  -rwx        4120   Mar 1 1993 00:01:44 +00:00  multiple-fs
+       620  -rwx     9824980  Oct 28 2017 09:14:09 +00:00  c2960-lanbasek9-mz.122-55.SE10.bin
+
+     32514048 bytes total (22678528 bytes free)
+     Switch#   
+   #+end_src
+9) switch: boot
+10) switch>en
+11) switch#show boot
+12) switch#dir
+    - wr, gen two files:
+      - config.text
+      - private-config.text
+	
+* DONE vlan.dat
+
+- simply
+  #+begin_src bash
+    conf t
+    vlan 2
+    exit
+    dir flash:
+  #+end_src
+* TODO xmodem
+
+- [ ] just work, but
+
+#+begin_src bash
+  Switch#copy xmodem: flash:foo
+  Destination filename [foo]? 
+  Begin the Xmodem or Xmodem-1K transfer now...
+  CCCCCC
+  Starting xmodem transfer.  Press Ctrl+C to cancel.
+     18%      37 KB    0 KB/s 00:03:55 ETA   0 Errors
+#+end_src
+
+* TODO private-config.text
+* TODO delete lots of files /force /recursive
+
+** input
+
+- set
+  - BOOT=flash:/c2960-lanbasek9-mz.122-55.SE10.bin
+- dir flash:
+  #+begin_src bash
+    Switch#dir
+    Directory of flash:/
+
+	2  -rwx        2343   Mar 1 1993 00:05:18 +00:00  config.text
+	3  -rwx        1915   Mar 1 1993 00:05:18 +00:00  private-config.text
+	5  -rwx        4120   Mar 1 1993 00:01:44 +00:00  multiple-fs
+      620  -rwx     9824980  Oct 28 2017 09:14:09 +00:00  c2960-lanbasek9-mz.122-55.SE10.bin
+
+    32514048 bytes total (22678528 bytes free)
+    Switch#   
+  #+end_src
+  
+** except
+
+- c2960-lanbasek9-mz.122-55.SE10.bin
+- but bin
+
+** script
+
+*** boot loader
+
+- [ ] one by one, expect(ed)
+  
+  #+begin_src bash
+    cat list | awk '{ print $5 }' | grep -v bin$ | sed 's!^!del flash:!'
+  #+end_src
+
+*** from os
+  
+  #+begin_src bash
+    cat list | awk '{ print $9 }' | grep -v bin$ | sed 's!^!del /recursive /force !'
+  #+end_src
+
+* TODO config.text.renamed and private-config.text.renamed
+
+- [ ] if not wr? maybe
+- more than 10 seconds, while 'reload now'
+
+* DONE set enable password
+
+#+begin_src bash
+  enable password 0 1234qwer
+#+end_src
+
+* TODO line vty 0 4 and line vty 5 15
+* TODO line con 0
+* TODO lost password
+
+#+begin_src bash
+  flash_init
+  load_helper
+  dir flash:
+  rename flash:config.text flash:config.old
+  boot
+  'say no'
+  rename flash:config.old flash:config.text
+  copy flash:config.text system:running-config
+  conf t
+
+  enable password 0 1234qwer
+
+  line cons 0
+  password 1234qwer
+  login
+
+  line vty 0 4
+  password 1234qwer
+  login
+
+  wr
+#+end_src
+
+* TODO filesystem from 
+
+#+begin_src bash
+  switch: dir
+
+  List of filesystems currently registered:
+
+		 flash[0]: (read-write)
+		    vb[1]: (read-write)
+		    bs[2]: (read-only)
+		xmodem[3]: (read-only)
+		  null[4]: (read-write)
+  
+#+end_src
+
+#+begin_src bash
+  rename flash:config.text flash:config.backup
+  rename flash:config.backup flash:config.text
+  copy flash:config.text system:running-config
+  erase startup-config
+#+end_src
+
+#+begin_src bash
+  dir flash:/
+  dir nvram:/
+#+end_src
+
+#+begin_src bash
+  sw1#dir flash:
+  sw1#dir nvram:
+     62  -rw-           0                    <no date>  startup-config
+  sw1#dir system:
+      1  -rw-        1917                    <no date>  running-config
+
+  sw1#copy running-config startup-config
+  sw1#dir flash:
+      3  -rwx        1917   Mar 1 1993 00:09:24 +00:00  config.text
+  sw1#dir nvram:
+     62  -rw-        1917                    <no date>  startup-config
+  sw1#dir system:
+      1  -rw-        1917                    <no date>  running-config
+
+  sw1#erase startup-config
+  sw1#dir flash:
+  sw1#dir nvram:
+     62  -rw-           0                    <no date>  startup-config
+  sw1#dir system:
+      1  -rw-        1917                    <no date>  running-config
+#+end_src
+* TODO so, the process
+
+1) console connected
+2) press mode button
+3) power cable inject
+4) release mode button when you see 'The password-recovery mechanism is enabled'
+5) flash_init
+6) rename flash:config.text flash:config.old
+7) boot
+8) say 'no'
+9) en
+10) show boot
+11) dir
+12) cygwin-like
+  
+#+begin_src bash
+  cat list | awk '{ print $9 }' | grep -v bin$ | sed 's!^!del /recursive /force !'
+#+end_src
+
