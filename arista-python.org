@@ -1,0 +1,28 @@
+* links
+
+- [ ] https://arista-python-web2py.readthedocs.io/en/latest/core-concepts.html
+  
+* from http://192.168.25.176/eapi/onbox
+
+#+begin_src python
+  from EapiClientLib import EapiClient
+
+  switch = EapiClient( disableAaa=True, privLevel=15 )
+  response = switch.runCmds( 1, ['show version'] )
+  print "The switch's system MAC addess is", response['result'][0]['systemMacAddress']
+#+end_src
+
+#+begin_src python
+  python
+  from EapiClientLib import EapiClient
+  from pprint import pprint
+
+  cmds = [
+      "show clock"
+      ]
+
+  switch = EapiClient( disableAaa=True, privLevel=15 )
+  response = switch.runCmds( 1, cmds )
+  pprint(response)
+  quit
+#+end_src

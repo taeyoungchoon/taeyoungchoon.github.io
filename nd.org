@@ -1,0 +1,7 @@
+* nd, network device
+* list and vendor-s
+
+- cisco
+- juniper
+- arista
+- linux bridge

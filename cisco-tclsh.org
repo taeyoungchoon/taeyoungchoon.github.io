@@ -1,0 +1,101 @@
+* ntp enable
+
+#+begin_src bash
+  term shell
+  tclsh
+  ios_config "ntp server 192.168.25.20 iburst prefer"
+  tclquit
+  sh ntp ass
+#+end_src
+
+* ntp disable
+
+#+begin_src bash
+  term shell
+  tclsh
+  ios_config "no ntp server 192.168.25.20"
+  tclquit
+  sh ntp ass
+#+end_src
+
+* what about
+
+- term shell
+- shell processing full
+- man IOS.sh
+- ios_config
+- log_user
+- tclquit
+- typeahead
+- after
+- foreach
+
+* cmds
+
+#+begin_src bash
+  tclsh
+  foreach cmd {
+      "show clock"
+      "show ver | inc uptime"
+      } { $cmd }
+  tclquit
+#+end_src
+
+#+begin_src bash
+  tclsh
+  set cmds { 
+      "show version | include uptime" 
+      "show clock" 
+  }
+  foreach cmd $cmds { 
+      puts "#$cmd"
+      [$cmd] 
+  }
+  tclquit
+#+end_src
+
+* function
+
+#+begin_src bash
+  tclsh
+  proc cmds {} {
+      "show clock"
+  }
+  cmds
+  tclquit
+#+end_src
+
+#+begin_src bash
+  tclsh
+  proc go {} {
+      set cmds { 
+	  "show version | include uptime" 	
+	  "show clock" 
+      }
+      foreach cmd $cmds { 
+	  puts "#$cmd"
+	  [$cmd] 
+      }
+  }
+  go
+  tclquit
+#+end_src
+
+#+begin_src bash
+  term len 0
+  tclsh
+  set cmds { 
+      "show clock"
+      "show clock" 
+  }
+
+  proc go {} {
+      foreach cmd $::cmds { 
+	  puts "#$cmd"
+	  [$cmd] 
+      }
+  }
+  go
+  tclquit
+
+#+end_src

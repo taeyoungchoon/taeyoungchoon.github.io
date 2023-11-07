@@ -202,6 +202,7 @@
   sw1#dir system:
       1  -rw-        1917                    <no date>  running-config
 #+end_src
+
 * TODO so, the process
 
 1) console connected
@@ -220,4 +221,20 @@
 #+begin_src bash
   cat list | awk '{ print $9 }' | grep -v bin$ | sed 's!^!del /recursive /force !'
 #+end_src
+
+* DONE [2023-11-07 화] so, the process but requested
+
+** line up
+
+1) console connected
+2) press mode button
+3) inject power cable
+4) release mode button when you see 'The password-recovery mechanism is enabled'
+5) flash_init
+6) rename flash:config.text flash:config.old
+7) boot
+8) say 'no'
+9) en
+10) erase startup-config
+11) reload
 

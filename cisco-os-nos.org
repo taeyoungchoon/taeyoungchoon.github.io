@@ -1,0 +1,33 @@
+* list
+
+- ios
+  - internetwork operating system
+  #+begin_src elisp
+    (cons 'stone nil)
+  #+end_src
+
+  #+RESULTS:
+  | stone |
+
+- ios-xe
+  #+begin_src elisp
+    (cons 'linux 'iosd)
+  #+end_src
+
+  #+RESULTS:
+  : (linux . iosd)
+
+- ios-xr / yocto
+  - ever: xm / qnx
+    - qunix to qnix
+  - recent: lxc / yocto
+  - for: service provider
+  
+- nx-os / wind river linux > yocto
+  - from: san-os/mds
+    - ever: wind river linux
+    - now: yocto, guess
+  - for: nexus and mds
+  - for: data center
+
+- iol, iou, IOS On Linux/Unix

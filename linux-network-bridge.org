@@ -1,0 +1,221 @@
+* linux bridge, br, br0, br5
+
+- bridge
+- brctl
+
+* links, lots of
+
+- [ ] https://wiki.archlinux.org/title/network_bridge
+- [ ] https://wiki.linuxfoundation.org/networking/bridge
+  - brctl way
+- [ ] https://developers.redhat.com/articles/2022/04/06/introduction-linux-bridging-commands-and-features#basic_bridge_commands
+  - veth
+- [-] https://medium.com/@amazingandyyy/learn-linux-bridge-with-graphs-a425aa92945f
+  - [X] two ns and single bridge
+    #+begin_src bash
+      ip netns add ns1
+      ip netns add ns2
+      ip netns list
+
+      ip link add veth1a type veth peer name veth1b
+      ip link add veth2a type veth peer name veth2b
+      ip a
+
+      ip link set veth1b netns ns1
+      ip link set veth2b netns ns2
+      ip netns exec ns1 ip link set veth1b up
+      ip netns exec ns2 ip link set veth2b up
+      ip link set dev veth1a up
+      ip link set dev veth2a up
+      ip link
+
+      ip link add br0 type bridge
+      ip link set dev br0 up
+      ip link set master br0 dev veth1a
+      ip link set master br0 dev veth2a
+      brctl show br0
+      bridge link
+      ip netns
+      bridge fdb show br br0
+
+      ip netns exec ns1 ip addr add 10.55.56.10/24 dev veth1b
+      ip netns exec ns2 ip addr add 10.55.56.11/24 dev veth2b
+      ip netns exec ns1 ip a
+      ip netns exec ns2 ip a
+      ip netns exec ns1 ping -c 3 10.55.56.11
+      #tcpdump -vvvvln -i br0
+      #tcpdump -vvvvln -i veth1a
+      bridge fdb show br br0
+    #+end_src
+
+    #+begin_src bash
+      ip link set veth1a nomaster
+      ip link set veth2a nomaster
+      ip link delete br0 type bridge
+
+      ip link set dev veth1a down
+      ip link set dev veth2a down
+      ip link
+
+      ip netns exec ns1 ip link set veth1b down
+      ip netns exec ns2 ip link set veth2b down
+      ip netns exec ns1 ip link set veth1b netns 1
+      ip netns exec ns2 ip link set veth2b netns 1
+      ip link
+      ip netns exec ns1 ip a
+      ip netns exec ns2 ip a
+
+      ip link delete veth1a
+      ip link delete veth2a
+      ip link
+    #+end_src
+  - [X] two bridge
+    #+begin_src bash
+      ip link add veth1a type veth peer name veth1b
+      ip link
+      ip addr
+
+      ip link set dev veth1a up
+      ip link set dev veth1b up
+      ip link
+      ip addr
+
+      ip link add br0 type bridge
+      ip link set dev br0 up
+      ip link add br1 type bridge
+      ip link set dev br1 up
+      ip link set master br0 dev veth1a
+      ip link set master br1 dev veth1b
+      brctl show
+      bridge link
+      bridge fdb show br br0
+      bridge fdb show br br1
+    #+end_src
+    #+begin_src bash
+      ip link set veth1a nomaster
+      ip link set veth1b nomaster
+      ip link set dev veth1a down
+      ip link set dev veth1b down
+      ip link delete veth1a
+      ip link delete br0 type bridge
+      ip link delete br1 type bridge
+    #+end_src
+  - [ ] two bridge and two ns, lots of cables(three)
+    - design
+      #+begin_src bash
+	(ns1 veth1a) (veth1b br1) (br1 veth2a) (veth2b br2) (br2 veth3a) (veth3b ns2)
+
+	(ns1 veth1a)
+	(veth1b br1)
+	(br1 veth2a)
+	(veth2b br2)
+	(br2 veth3a)
+	(veth3b ns2)
+
+	(ns1 veth1a)
+	(ns2 veth3b)
+
+	(br1 veth1b)
+	(br1 veth2a)
+
+	(br2 veth2b)
+	(br2 veth3a)
+
+      #+end_src
+    - build
+      #+begin_src bash
+	ip netns add ns1
+	ip netns add ns2
+	ip netns list
+
+	ip link add veth1a type veth peer name veth1b
+	ip link add veth2a type veth peer name veth2b
+	ip link add veth3a type veth peer name veth3b
+	ip a
+
+	ip link set veth1a netns ns1
+	ip link set veth3b netns ns2
+	ip netns exec ns1 ip link set veth1a up
+	ip netns exec ns2 ip link set veth3b up
+	ip link set dev veth1b up
+	ip link set dev veth2a up
+	ip link set dev veth2b up
+	ip link set dev veth3a up
+	ip link
+
+	ip link add br0 type bridge
+	ip link add br1 type bridge
+	ip link set dev br0 up
+	ip link set dev br1 up
+	brctl show
+
+	ip link set master br0 dev veth1b
+	ip link set master br0 dev veth2a
+
+	ip link set master br1 dev veth2b
+	ip link set master br1 dev veth3a
+
+	brctl show
+	bridge link
+	ip netns
+	bridge fdb show br br0
+	bridge fdb show br br1
+
+	ip netns exec ns1 ip addr add 10.55.56.10/24 dev veth1a
+	ip netns exec ns2 ip addr add 10.55.56.11/24 dev veth3b
+	ip netns exec ns1 ip a
+	ip netns exec ns2 ip a
+	ip netns exec ns1 ping -c 3 10.55.56.11
+	#tcpdump -vvvvln -i br0
+	#tcpdump -vvvvln -i veth1a
+	bridge fdb show br br0
+	bridge fdb show br br1
+
+      #+end_src
+      #+begin_src bash
+	? ip netns exec ns1 arp
+	Address                  HWtype  HWaddress           Flags Mask            Iface
+	10.55.56.11              ether   1a:08:f6:4b:88:5d   C                     veth1a
+
+	? ip netns exec ns2 arp
+	Address                  HWtype  HWaddress           Flags Mask            Iface
+	10.55.56.10              ether   9a:03:aa:26:5c:c4   C                     veth3b
+
+	? bridge fdb show br br0
+	9a:03:aa:26:5c:c4 dev veth1b master br0
+	1a:08:f6:4b:88:5d dev veth2a master br0
+
+	? bridge fdb show br br1
+	9a:03:aa:26:5c:c4 dev veth2b master br1
+	1a:08:f6:4b:88:5d dev veth3a master br1
+
+	? brctl showstp br0
+	br0
+	 bridge id              8000.0af7286211c6
+	 designated root        8000.0af7286211c6
+
+	? brctl showstp br1
+	br1
+	 bridge id              8000.4a88fee38be8
+	 designated root        8000.4a88fee38be8
+
+	? brctl stp br0 on
+	? brctl stp br1 on
+
+	? brctl showstp br0
+	br0
+	 bridge id              8000.0af7286211c6
+	 designated root        8000.0af7286211c6
+
+	? brctl showstp br1
+	br1
+	 bridge id              8000.4a88fee38be8
+	 designated root        8000.0af7286211c6
+
+	? brctl show
+	bridge name     bridge id               STP enabled     interfaces
+	br0             8000.0af7286211c6       yes             veth1b
+								veth2a
+	br1             8000.4a88fee38be8       yes             veth2b
+								veth3a
+      #+end_src

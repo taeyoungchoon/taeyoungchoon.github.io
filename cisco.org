@@ -1,3 +1,4 @@
+* one of nd(network device)
 * not command but purpose
 
 * all
