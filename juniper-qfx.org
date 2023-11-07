@@ -1,0 +1,5 @@
+* vn
+
+- https://www.eve-ng.net/index.php/documentation/howtos/howto-add-juniper-vqfx/
+- https://networkrare.com/free-download-junos-juniper-image-for-gns3-eve-ng-vmware-and-virtual-box/
+  
