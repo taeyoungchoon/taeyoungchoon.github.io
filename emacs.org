@@ -1,3 +1,20 @@
+* TODO package-autoremove
+
+- why yaml-mode is selected to remove?
+
+#+begin_src bash
+  M-x package-autoremove
+  Packages to delete: 1 (yaml-mode), proceed? (y or n)
+  Package 'yaml-mode-20231003.1142' deleted.
+#+end_src
+
+#+begin_src bash
+  (custom-set-variables
+  '(package-selected-packages
+    '(yaml-mode magit graphviz-dot-mode slime)))
+
+#+end_src
+
 * DONE query and replace to enter(newline character)
 
 1. query-replace(%)

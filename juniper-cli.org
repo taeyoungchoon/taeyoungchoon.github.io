@@ -106,65 +106,68 @@ user@host# set ssl local-certificate jsd_certificate
   
 ** trying
 
-mkdir CA
-openssl genrsa -out CA/RootCA.key 2048
-openssl req -x509 -new -key CA/RootCA.key -days 3650 -out CA/RootCA.crt
+#+begin_src bash
+  mkdir CA
+  openssl genrsa -out CA/RootCA.key 2048
+  openssl req -x509 -new -key CA/RootCA.key -days 3650 -out CA/RootCA.crt
 
-mkdir client
-openssl genrsa -out client/client.key 2048 
-openssl req -new -key client/client.key -out client/client.csr
-openssl x509 -req -in client/client.csr -CA CA/RootCA.crt -CAkey CA/RootCA.key -CAcreateserial -out client/client.crt -days 365
+  mkdir client
+  openssl genrsa -out client/client.key 2048 
+  openssl req -new -key client/client.key -out client/client.csr
+  openssl x509 -req -in client/client.csr -CA CA/RootCA.crt -CAkey CA/RootCA.key -CAcreateserial -out client/client.crt -days 365
 
-mkdir router
-openssl genrsa -out router/router.key 2048 
-openssl req -new -key router/router.key -out router/router.csr
-openssl x509 -req -in router/router.csr -CA CA/RootCA.crt -CAkey CA/RootCA.key -CAcreateserial -out router/router.crt -days 365
-cat router/router.crt router/router.key > router/router.pem
+  mkdir router
+  openssl genrsa -out router/router.key 2048 
+  openssl req -new -key router/router.key -out router/router.csr
+  openssl x509 -req -in router/router.csr -CA CA/RootCA.crt -CAkey CA/RootCA.key -CAcreateserial -out router/router.crt -days 365
+  cat router/router.crt router/router.key > router/router.pem
 
-scp -r * root@192.168.25.155:/var/tmp/
+  scp -r * root@192.168.25.155:/var/tmp/
 
-set security pki ca-profile ca1 ca-identity caid1
-set security certificates local lcert load-key-file /var/tmp/router/router.pem
-commit
+  set security pki ca-profile ca1 ca-identity caid1
+  set security certificates local lcert load-key-file /var/tmp/router/router.pem
+  commit
 
-run request security pki ca-certificate load ca-profile caprof1 filename /var/tmp/CA/RootCA.crt
-set system services extension-service request-response grpc ssl port 50051
-set system services extension-service request-response grpc ssl local-certificate lcert
-set system services extension-service request-response grpc ssl mutual-authentication certificate-authority ca1
-set system services extension-service request-response grpc ssl mutual-authentication client-certificate-request require-certificate-and-verify
-commit
+  run request security pki ca-certificate load ca-profile caprof1 filename /var/tmp/CA/RootCA.crt
+  set system services extension-service request-response grpc ssl port 50051
+  set system services extension-service request-response grpc ssl local-certificate lcert
+  set system services extension-service request-response grpc ssl mutual-authentication certificate-authority ca1
+  set system services extension-service request-response grpc ssl mutual-authentication client-certificate-request require-certificate-and-verify
+  commit
 
-error: ca-profile caprof1 is not configured
+  error: ca-profile caprof1 is not configured
 
-set system services extension-service request-response grpc ssl address 192.168.25.155
-set system services extension-service request-response grpc ssl port 32767
-set system services extension-service request-response grpc ssl local-certificate lcert
+  set system services extension-service request-response grpc ssl address 192.168.25.155
+  set system services extension-service request-response grpc ssl port 32767
+  set system services extension-service request-response grpc ssl local-certificate lcert
 
 
-gnmic --timeout 1s -a 192.168.25.155:32767 -u jack -p 1234qwer --insecure --gzip sub --path "/"
+  gnmic --timeout 1s -a 192.168.25.155:32767 -u jack -p 1234qwer --insecure --gzip sub --path "/"
 
-{
-    "host": "192.168.25.155",
-    "port": 32767,
-    "user": "jack",
-    "password": "1234qwer",
-    "cid": "cid",
-    "tls" : {
-        "clientcrt" : "/root/client/client.crt",
-        "clientkey" : "/root/client/client.key",
-        "ca" : "/root/CA/RootCA.crt",
-        "servername" : "10008"
-    },
-    "grpc" : {
-        "ws" : 1048576
-    },
-    "paths": [{
-        "path": "/network-instances/network-instance/protocols/protocol/bgp/",
-        "freq": 30000
-    }]
-}
+  {
+      "host": "192.168.25.155",
+      "port": 32767,
+      "user": "jack",
+      "password": "1234qwer",
+      "cid": "cid",
+      "tls" : {
+	  "clientcrt" : "/root/client/client.crt",
+	  "clientkey" : "/root/client/client.key",
+	  "ca" : "/root/CA/RootCA.crt",
+	  "servername" : "10008"
+      },
+      "grpc" : {
+	  "ws" : 1048576
+      },
+      "paths": [{
+	  "path": "/network-instances/network-instance/protocols/protocol/bgp/",
+	  "freq": 30000
+      }]
+  }
 
-./jtimon-linux-x86_64 --config test.json –print
+  ./jtimon-linux-x86_64 --config test.json –print
+  
+#+end_src
 
 * DONE password recovery
 
