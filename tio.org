@@ -1,4 +1,4 @@
-* tio
+* DONE tio
 
 - [X] tio
   - https://github.com/tio/tio
@@ -6,7 +6,7 @@
   - tio --log -b 9600 /dev/tty.usbserial-A50285BI
   - [X] tio -b 9600 /dev/tty.usbserial-A50285BI
 
-* from source
+* TODO from source
 
 #+begin_src bash
   811  wget https://github.com/tio/tio/releases/download/v2.7/tio-2.7.tar.xz
@@ -28,7 +28,7 @@
   850  tio
 #+end_src
 
-* help
+* DONE help
 
 #+begin_src bash
   [08:28:28.970] Switched to hexadecimal mode
