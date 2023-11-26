@@ -113,33 +113,159 @@ kill some 'one'
 
 *** chk
 
-$ time sleep $(expr $RANDOM % 3)
+#+begin_src bash
+  $ time sleep $(expr $RANDOM % 3)
 
-real    0m0.004s
-user    0m0.001s
-sys     0m0.002s
-$ time sleep $(expr $RANDOM % 3)
+  real    0m0.004s
+  user    0m0.001s
+  sys     0m0.002s
+  $ time sleep $(expr $RANDOM % 3)
 
-real    0m2.003s
-user    0m0.000s
-sys     0m0.002s
-$ time sleep $(expr $RANDOM % 3)
+  real    0m2.003s
+  user    0m0.000s
+  sys     0m0.002s
+  $ time sleep $(expr $RANDOM % 3)
 
-real    0m2.004s
-user    0m0.000s
-sys     0m0.003s
-$ time sleep $(expr $RANDOM % 3)
+  real    0m2.004s
+  user    0m0.000s
+  sys     0m0.003s
+  $ time sleep $(expr $RANDOM % 3)
 
-real    0m1.003s
-user    0m0.000s
-sys     0m0.003s
+  real    0m1.003s
+  user    0m0.000s
+  sys     0m0.003s
+#+end_src
 
 *** real one, add 10m (60s * 10)
 
+#+begin_src bash
 10 4 * * * sleep $(expr $RANDOM \% 600); ~/bin/batch_job
+#+end_src
 
 *** site
 
 - http://www.askbjoernhansen.com/2007/11/19/space_out_cronjobs.html
 
 * TODO and anacron
+* DONE [2023-11-23 목] simply
+
+** allowed to run or not
+
+*** /usr/bin/crontab
+
+- user and group
+  - root root
+- permission
+  - -rwsr-xr-x.
+    - 4755
+    - [ ] about dot(.)
+    - others can execute with setuid
+      - so be 'root'
+    
+*** /var/spool/cron
+
+- user and group
+  - root root
+- permission
+  - drwx------
+    - root (even others, cause setuid set on /usr/bin/crontab) can write here as some
+      #+begin_src bash
+	? ls -al
+	drwx------. 2 root root 82 Nov 23 00:05 .
+	-rw-------. 1 jack jack 78 Nov 22 23:41 jack
+	-rw-------. 1 root root 15 Nov 23 00:05 root
+      #+end_src
+
+** selinux
+
+- sestatus
+
+** others like secure os
+
+- redcastle
+
+** right allow and deny using cron.allow and cron.deny then check
+
+*** prefered way (/etc/cron.deny exist)
+
+- allowed users at /etc/cron.allow
+
+#+begin_src bash
+  ? id
+  uid=0(root) gid=0(root) groups=0(root) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
+  ? ls -al /etc/cron.deny /etc/cron.allow
+  -rw-------. 1 root root 5 Nov 23 00:08 /etc/cron.allow
+  -rw-------. 1 root root 0 Nov 23 00:08 /etc/cron.deny
+  ? egrep 'jack|raul' /etc/cron.allow
+  jack
+  ? egrep 'jack|raul' /etc/cron.deny
+  ? su - jack -c 'crontab -l'
+  ,* * * * * printenv PATH > /tmp/cron.printenv
+  ,* * * * * date >> /tmp/cron.date
+  ? su - raul -c 'crontab -l'
+  You (raul) are not allowed to use this program (crontab)
+  See crontab(1) for more information
+  ?
+#+end_src
+
+*** suggested by file(/etc/cron.deny exist)
+
+- denied user at /etc/cron.deny
+
+#+begin_src bash
+  ? id
+  uid=0(root) gid=0(root) groups=0(root) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
+  ? ls -al /etc/cron.deny /etc/cron.allow
+  ls: cannot access /etc/cron.allow: No such file or directory
+  -rw-------. 1 root root 5 Nov 22 23:43 /etc/cron.deny
+  ? egrep 'jack|raul' /etc/cron.deny
+  raul
+  ? su - jack -c 'crontab -l'
+  ,* * * * * printenv PATH > /tmp/cron.printenv
+  ,* * * * * date >> /tmp/cron.date
+  ? su - raul -c 'crontab -l'
+  You (raul) are not allowed to use this program (crontab)
+  See crontab(1) for more information
+  ?
+#+end_src
+
+** broken /usr/bin/crontab permission
+
+- setuid removed
+
+#+begin_src bash
+  ? ls -al /usr/bin/crontab
+  -rwsr-xr-x. 1 root root 57576 Jan 13  2022 /usr/bin/crontab
+  ? chmod 755 /usr/bin/crontab
+  ? ls -al /usr/bin/crontab
+  -rwxr-xr-x. 1 root root 57576 Jan 13  2022 /usr/bin/crontab
+  ? su - jack -c 'crontab -l'
+  You (jack) are not allowed to use this program (crontab)
+  See crontab(1) for more information
+  ? su - raul -c 'crontab -l'
+  You (raul) are not allowed to use this program (crontab)
+  See crontab(1) for more information
+  ?
+#+end_src
+
+*** restore permission of cronie
+
+- check first 
+  - M: Mode differs (includes permissions and file type)
+  - T: mTime differs
+- restore
+    
+#+begin_src bash
+  ? rpm -V cronie
+  .......T.  c /etc/cron.deny
+  .M.......    /usr/bin/crontab
+  ? ls -al /usr/bin/crontab
+  -rwxr-xr-x. 1 root root 57576 Jan 13  2022 /usr/bin/crontab
+  ? rpm --setperms cronie
+  ? ls -al /usr/bin/crontab
+  -rwsr-xr-x. 1 root root 57576 Jan 13  2022 /usr/bin/crontab
+#+end_src
+
+* TODO pam way
+
+- Another  way  to  restrict  access  to  cron  is  to  use  PAM authentication in /etc/security/access.conf to set up users, which are allowed or disallowed to use crontab or modify system cron  jobs in the /etc/cron.d/ directory.
