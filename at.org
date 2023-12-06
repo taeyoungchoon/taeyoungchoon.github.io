@@ -1,0 +1,81 @@
+* command at and atq
+
+#+begin_src bash
+  ? pwd
+  /var/spool/at
+  ? atq
+  ? echo "wall tea" | at now + 1 min
+  job 19 at Wed Dec  6 08:25:00 2023
+  ? atq
+  19      Wed Dec  6 08:25:00 2023 a root
+  ? ls
+  a0001301b0cb7d  spool
+  ? tail -4 a0001301b0cb7d
+  ${SHELL:-/bin/sh} << 'marcinDELIMITER45159213'
+  wall tea
+
+  marcinDELIMITER45159213
+  ? ls spool/
+  ? mail
+  No mail for root
+  ?
+  Broadcast message from root@s001.t.com (Wed Dec  6 08:25:00 2023):
+
+  tea
+
+  ? atq
+  ? mail
+  No mail for root
+  ?
+#+end_src
+
+* and about time
+
+#+begin_src bash
+  at 16:32
+  at -t 2312061632
+  at -t 2312061632.30
+#+end_src
+
+** time so
+
+#+begin_src bash
+  ? N=$(date +%s); L=$((N+60)); F=$(date -d @$L +%H:%M); echo $F; echo 'wall tea' | at $F
+  09:09
+  job 55 at Wed Dec  6 09:09:00 2023
+  ? N=$(date +%C%y%m%d%H%M); L=$((N+1)); F=$L; echo $F; echo 'wall tea' | at -t $F
+  202312060909
+  job 56 at Wed Dec  6 09:09:00 2023
+  ? N=$(date +%y%m%d%H%M); L=$((N+1)); F=$L; echo $F; echo 'wall tea' | at -t $F
+  2312060909
+  job 57 at Wed Dec  6 09:09:00 2023
+  ? N=$(date +%m%d%H%M); L=$((N+1)); F=$L; echo $F; echo 'wall tea' | at -t $F
+  12060909
+  job 58 at Wed Dec  6 09:09:00 2023
+  ?
+#+end_src
+
+* and about file
+
+#+begin_src bash
+  at now -f file.sh
+  at now < file.sh
+#+end_src
+
+* merge almost
+
+#+begin_src bash
+  NOW=$(date +%Y%m%d%H%M)
+  LATER=$((NOW+1))
+
+  echo 'wall tea' | at -t $LATER
+#+end_src
+
+#+begin_src bash
+  NOW=$(date +%Y%m%d%H%M)
+  LATER=$((NOW+1))
+
+  echo 'wall tea' | at -t $LATER <<EOF
+  wall tea
+  EOF
+#+end_src

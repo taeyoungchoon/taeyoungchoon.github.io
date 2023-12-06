@@ -20,11 +20,12 @@ s/# //
 s/0/-1/
 w
 q
+
 #+END_SRC
 
 * DONE cat sshd_config.ed | ed -s sshd_config > /dev/null
 
-#+BEGIN_SRC 
+#+BEGIN_SRC bash
 ? cat sshd_config.ed
 
 /PermitRoot
@@ -34,16 +35,37 @@ q
 
 #+END_SRC
 
-* TODO ed inside bash
+* DONE ed inside bash
 
-  #+begin_src bash
-    echo '
-    0
-    i
-    hello
-    hi
-    .
-    w
-    q
-    ' | ed -s foo
-  #+end_src
+#+begin_src bash
+  echo '
+  0
+  i
+  hello
+  hi
+  .
+  w
+  q
+  ' | ed -s foo
+
+#+end_src
+
+* DONE with printf, single liner
+
+#+begin_src bash
+  function secure_ssh {
+      if [[ $( grep "^#Port 22$" /etc/ssh/sshd_config ) ]]; then
+	  sed -i 's/#Port 22/Port 2022/' /etc/ssh/sshd_config
+      fi
+
+      if [[ $( grep "^PermitRootLogin yes$" /etc/ssh/sshd_config ) ]]; then
+	  printf "%b" 'H\n/^PermitRootLogin yes\ns/yes/no/\nw\nq' | ed -s /etc/ssh/sshd_config
+      fi
+
+      service_state sshd restart
+  }
+#+end_src
+
+* DONE options
+
+- s: silent

@@ -2,3 +2,15 @@
 
 - date --set 2015-12-07
 - date --set 13:21:00
+
+* DONE format
+
+#+begin_src bash
+  date +%Y%m%d.%H%M%S
+  date +%C%y%m%d.%H%M%S
+#+end_src
+
+#+RESULTS:
+| 20231206.085206 |
+| 20231206.085206 |
+
