@@ -10,6 +10,8 @@
   | stone |
 
 - ios-xe
+  - [ ] https://blogs.cisco.com/networking/cisco-ios-xe-past-present-and-future
+    - not about simply
   #+begin_src elisp
     (cons 'linux 'iosd)
   #+end_src
