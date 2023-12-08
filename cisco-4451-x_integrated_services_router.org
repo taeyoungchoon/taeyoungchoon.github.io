@@ -1,0 +1,21 @@
+* links
+
+- https://www.cisco.com/c/en/us/support/routers/4451-x-integrated-services-router-isr/model.html
+  
+* TODO port
+
+- https://www.cisco.com/c/en/us/td/docs/routers/access/4400/hardware/installation/guide4400-4300/C4400_isr/Overview.html#33535
+
+#+ATTR_HTML: :border 1 :rules all :frame border
+| GE 0 mgmt   | AUX    | RJ-45(GE 0/0/0) | SFP(GE 0/0/0) | SFP(GE 0/0/2) | RJ-45(GE 0/0/2) | NIM slot 1 | NIM slot 2 | NIM slot 3 |
+| USB 0 and 1 | Serial | RJ-45(GE 0/0/1) | SFP(GE 0/0/1) | SFP(GE 0/0/3) | RJ-45(GE 0/0/3) |            |            |            |
+
+* TODO module
+
+** nim-2ge-cu-sfp, Cisco 2-Port Gigabit Ethernet WAN NIM 
+
+- NIM: network interface module
+
+#+ATTR_HTML: :border 1 :rules all :frame border
+| SFP1 | SFP2 | GE 0 | GE 1 |
+

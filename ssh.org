@@ -186,3 +186,53 @@ exec ssh-agent $SHELL
 ssh-add ~/.ssh/id_rsa
 
 ssh-add -l
+
+* TODO ssh -V on windows(cygwin, command prompt), wsl
+
+| platform       | version                                                      |
+|----------------+--------------------------------------------------------------|
+| cygwin         | OpenSSH_for_Windows_8.6p1, LibreSSL 3.4.3                    |
+| command prompt | OpenSSH_for_Windows_8.6p1, LibreSSL 3.4.3                    |
+| wsl            | OpenSSH_8.2p1 Ubuntu-4ubuntu0.9, OpenSSL 1.1.1f  31 Mar 2020 |
+
+** and .ssh/known_hosts format
+
+*** cygwin, nil
+*** command prompt
+
+- s001.t.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJPV+Lg7Ue7C7n53tv0MrTRaMePD3mNNkJMtUkIQsHk2
+- s001.t.com ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDHIx+pFAQRLpxsskVpEFYW55FNRgD9wECZepwRt52qWtPEBPTPHOkZaG88YBIimwYKaQa3YoKnP6NAwvor14Pf61eqFFSBhdFSJXM1+6xtXAaaCfTOVVPjHiv+I6CACWq+hbg/2rkO6D2rX6x+xIWwnvJICQbTRsqkWF+BQZdZIQkDb9WRaxdUJe7Tuf2Z2yJGhmsUId33LgIqv2NX9uVQIgSWZtVF6xygzLaRtpNOU/I2ueHedOg/Nvu6zILa/qcYP/3nucxwjysGa4R2yHBve+TueQvWGxF4agAb2xwjY6kx1/7dkFo4uNz6j6OoP4CDBkR4CshCBuRCdOXq6ltT
+- s001.t.com ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBE/jGBzjkvlCmxcOZeDpa/l1IN7mfCkC6fBgkf6yJRd7VCdSi6hu1paHTAPBT14g6eHS5IlXkDLqw71iB9Ulk8s=
+
+**** story
+
+#+begin_src bash
+  Warning: Permanently added 's001.t.com' (ED25519) to the list of known hosts.
+
+  Learned new hostkey: RSA SHA256:8t/bNxPPHiKTEFxg8WtexRM/VDqL2A0GrheBKyrTWC0
+  Learned new hostkey: ECDSA SHA256:E29SEdKPdLLKIGkRVL6QnMFalp0qte/m1ZE9akWNx+c
+  Adding new key for s001.t.com to C:\\Users\\jack/.ssh/known_hosts: ssh-rsa SHA256:8t/bNxPPHiKTEFxg8WtexRM/VDqL2A0GrheBKyrTWC0
+  Adding new key for s001.t.com to C:\\Users\\jack/.ssh/known_hosts: ecdsa-sha2-nistp256 SHA256:E29SEdKPdLLKIGkRVL6QnMFalp0qte/m1ZE9akWNx+c
+
+  debug1: Server host key: ssh-ed25519 SHA256:KXnWJzuDp+xk1HF7AOk4JnS/FfGS7uLWFCA152LE4h4
+#+end_src
+
+*** wsl
+
+- |1|N2rZqAaT5p/IwzPu1o96cDKjBTc=|+e4BT9OzfHplU9/VG+Rs7eUZku0= ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBE/jGBzjkvlCmxcOZeDpa/l1IN7mfCkC6fBgkf6yJRd7VCdSi6hu1paHTAPBT14g6eHS5IlXkDLqw71iB9Ulk8s=
+- |1|omklp5EhyNkubeLD7PhpFC3oBYo=|DYlcf0cKs95yoZnBhjW7p74od8g= ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBE/jGBzjkvlCmxcOZeDpa/l1IN7mfCkC6fBgkf6yJRd7VCdSi6hu1paHTAPBT14g6eHS5IlXkDLqw71iB9Ulk8s=
+
+**** explain
+
+- hashed form
+- disable the hostname hashing
+  - cli
+  #+begin_src bash
+    ssh -o HashKnownHosts=no
+  #+end_src
+  - .ssh/config
+  #+begin_src bash
+    Host *
+      HashKnownHosts no
+  #+end_src
+- convert to hashed form using 'ssh-keygen -H'

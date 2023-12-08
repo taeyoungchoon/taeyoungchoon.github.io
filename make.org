@@ -14,3 +14,10 @@ $ bash ./go.sh
 '.  Stop. No rule to make target 'start
 '.  Stop. No rule to make target 'ssh
 #+END_SRC
+
+* DONE error disable, like
+
+#+begin_src bash
+  clean:
+    -rm -f *.o
+#+end_src
