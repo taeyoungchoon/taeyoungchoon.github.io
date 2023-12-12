@@ -1,0 +1,23 @@
+* is free the nos, network operating system
+
+- for juniper network device
+- freebsd based
+
+* alternative called 'juniper os evolved'
+
+- evolved
+  - evolution
+  - evolve
+    - e
+      - out of
+    - volvo
+      - roll
+      - fold
+- linux based
+  - arista eos
+  - cisco ios-xe
+- lxc
+
+* vJunos-switch vna vJunosEvolved
+
+- https://www.juniper.net/us/en/dm/vjunos-labs.html
