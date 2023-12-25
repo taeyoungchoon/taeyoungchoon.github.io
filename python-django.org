@@ -1,0 +1,65 @@
+* TODO environment build up
+
+- mkdir learning_log
+- cd learning_log
+- python -m venv ll_env
+- source ll_env/bin/activate
+  
+- python install django==2.2.*
+
+* TODO project
+
+- django-admin startproject learning_log .
+- python manage.py migrate
+- python manage.py runserver
+
+* TODO apps
+  
+- python manage.py startapp articles
+- vi articles/models.py
+  #+begin_src python
+    from django.db import models
+
+    class Topic(models.Model):
+	pass
+
+    class Entry(models.Model):
+	pass
+  #+end_src
+- (opt) vi learning_log/setting.py
+  #+begin_src python
+    INSTALLED_APPS = [
+	'articles',
+	]
+  #+end_src
+- python manage.py makemigrations articles
+- python manage.py migrate
+
+* TODO admin
+
+- vi articles/admin.py
+  #+begin_src python
+    from django.contrib import admin
+    from .models import Topic, Entry
+
+    admin.site.register(Topic)
+    admin.site.register(Entry)
+  #+end_src
+- localhost:8080/admin
+  
+* TODO users
+
+- python manage.py createsuperuser
+  
+* TODO python manage.py shell -i ipython
+
+- vi articles/admin.py
+  #+begin_src python
+    from articles.models import Topic
+
+    topics = Topic.object.all()
+    for topic in topics:
+	print(topic.id, topic)
+  #+end_src
+- python manage.py shell
+- python manage.py shell -i ipython
