@@ -1,0 +1,177 @@
+* work with cvp
+
+** cvp 2023.1.3
+
+disk1.qcow2
+disk1.mbr
+
+disk2.qcow2
+disk2.ext
+
+** generateXmlForKvm.py
+
+? python3 generateXmlForKvm.py --help
+
+  -x DISK1, --disk1 DISK1
+                        Path to primary disk for CVP
+  -y DISK2, --disk2 DISK2
+                        Path to the data disk for CVP
+
+? grep vda *.py
+generateXmlForKvm.py:   xml.setDiskInfo( diskName=[ 'hda', 'vda' ],
+
+? grep vda *.xml
+      <target dev='vda' bus='virtio'/>
+
+1 	disk1.qcow2 	VM disk image for the CVP application.
+2 	disk2.qcow2 	Data disk image for the CVP application.
+
+** cvp-kvm-deployer
+
+https://github.com/arista-netdevops-community/cvp-kvm-deployer
+
+--rootsize 	VM disk size in GB 	50 	Yes 	Disk size for root file system (Minimum: 35)
+--datasize 	VM disk size in GB 	700 	Yes 	Disk size for data file system (Minimum: 110)
+
+               VM_DISK_ROOT=$2
+               VM_DISK_DATA=$2
+
+    virt-install \
+        --disk path=$LIBVIRT_IMAGES/$LIBVIRT_VMNAME.root.img,size=$VM_DISK_ROOT,bus=virtio,format=raw \
+        --disk path=$LIBVIRT_IMAGES/$LIBVIRT_VMNAME.data.img,size=$VM_DISK_DATA,bus=virtio,format=raw \
+        --disk path=$LIBVIRT_IMAGES/cvp.iso,device=cdrom,bus=sata,readonly=yes \
+        --initrd-inject=/tmp/cvp/ks.cfg \
+
+    rm -Rf $LIBVIRT_IMAGES/$LIBVIRT_VMNAME.root.img $LIBVIRT_IMAGES/$LIBVIRT_VMNAME.data.img
+
+bootloader --append=" crashkernel=auto" --location=mbr --boot-drive=vda
+zerombr
+clearpart --all --initlabel --drives=vda,vdb
+part /boot --size=512 --ondisk=vda --asprimary --fstype=ext4 --label=boot --fsoptions=acl,user_xattr,errors=remount-ro,nodev,noexec,nosuid
+part pv.00 --size=1 --grow --asprimary --ondisk=vda
+part pv.01 --size=1 --grow --asprimary --ondisk=vdb
+volgroup vg_root pv.00
+volgroup vg_data pv.01
+logvol / --fstype=ext4 --fsoptions=acl,user_xattr,errors=remount-ro --size=1 --grow --name=root --vgname=vg_root
+logvol /data --fstype=ext4 --fsoptions=acl,user_xattr,errors=remount-ro --size=1 --grow --vgname=vg_data
+
+/data
+ext4
+
+** mount qcow2
+
+https://gist.github.com/shamil/62935d9b456a6f9877b5
+https://www.baeldung.com/linux/mount-qcow2-image
+qcow2 mount
+
+*** nbd
+
+qemu-img create -f qcow2 test.qcow2 10M
+modprobe nbd max_part=8
+qemu-ndb --connect /dev/ndb0 test.qcow2
+fdisk -l /dev/nbd0
+mkdir /mnt/nbd0p1
+mount -o ro /dev/nbd0p1 /mnt/nbd0p1
+
+umount /mnt/nbd0p1
+qemu-nbd --disconnect /dev/nbd0
+rmmod nbd
+
+*** guestfish
+
+guestfish --rw
+add disk2.img
+run
+list-filesystems
+mount /dev/sda1 /
+ls /
+cat /tmp/test.txt
+
+*** guestmount
+
+guestmount --add ~/example.qcow2 --mount /dev/sda1 /mnt/qcow2
+
+guestmount -a path_to_image.qcow2 -i --ro /mount_point  # safe, read only
+guestmount -a path_to_image.qcow2 -i /mount_point  # use only on not running vm image
+
+    NBD is the most robust and efficient solution
+    guestmount is the simplest solution
+    guestfish is the only way to modify a virtual disk without mounting it in the host system
+    A loop device is a well-supported solution but requires conversion from QCOW2 to raw
+
+*** guestfish with disk2.qcow2
+
+[root@jo ~]# guestfish --ro
+
+Welcome to guestfish, the guest filesystem shell for
+editing virtual machine filesystems and disk images.
+
+Type: ‘help’ for help on commands
+      ‘man’ to read the manual
+      ‘quit’ to quit the shell
+
+><fs> add /tmp/disk2_1.qcow2
+><fs> run
+ 100% x 00:00
+><fs> list-filesystems
+/dev/sda: ext4
+><fs> mount /dev/sda /
+><fs> ls /
+lost+found
+><fs> df
+Filesystem      1K-blocks   Used  Available Use% Mounted on
+/dev/root         4128448 286944    3631792   8% /
+tmpfs              151380     92     151288   1% /run
+/dev               375216      0     375216   0% /dev
+shmfs              378440      0     378440   0% /dev/shm
+/dev/sda       1073273268  77848 1019491948   1% /sysroot
+
+><fs> quit
+
+*** nbdfuse
+*** virt-filesystems then resize2fs
+
+- [ ] https://wiki.kreonet.net/pages/viewpage.action?pageId=83329128
+
+[root@jo tmp]# virt-filesystems -l -h --all -a disk2_1.qcow2
+Name      Type        VFS   Label  MBR  Size  Parent
+/dev/sda  filesystem  ext4  -      -    1.0T  -
+/dev/sda  device      -     -      -    1.0T  -
+
+e2fsck /dev/sda
+resize2fs /dev/ubuntu-vg/ubuntu-lv 28G
+
+*** go
+
+vagrant up with rocky8
+scp disk2_1.qcow2 to /tmp/
+
+qemu-img info disk2_1.qcow2
+modprobe nbd max_part=8
+lsmod  | grep nbd
+qemu-nbd --connect /dev/nbd0 disk2_1.qcow2
+fdisk -l /dev/nbd0
+mkdir /mnt/tmp
+mount /dev/nbd0 /mnt/tmp
+df -h
+umount /mnt/tmp
+
+e2fsck -f /dev/nbd0
+resize2fs /dev/nbd0 800G
+mount /dev/nbd0 /mnt/tmp
+df -h
+umount /mnt/tmp/
+
+qemu-nbd --disconnect /dev/nbd0
+rmmod nbd
+
+qemu-info /tmp/disk2_1.qcow2
+
+*** TODO go with gen qcow2 then make fs on it(ext4)
+
+qemu-img create -f qcow2 disk2.qcow2 800G
+qemu-nbd --connect /dev/nbd0 disk2.qcow2
+fdisk /dev/nbd0
+
+loop
+
