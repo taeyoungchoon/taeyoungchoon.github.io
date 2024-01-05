@@ -49,6 +49,16 @@
     - wr, gen two files:
       - config.text
       - private-config.text
+
+** DONE simply say
+
+- [2024-01-03 수] tryed and working
+
+1) flash_init
+2) dir flash:
+3) rename flash:config.text flash:config.old
+4) boot
+
 	
 * DONE vlan.dat
 

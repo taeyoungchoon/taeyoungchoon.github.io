@@ -1,4 +1,4 @@
-* one of nd(network device)
+* one ofx nd(network device)
 * not command but purpose
 
 * all

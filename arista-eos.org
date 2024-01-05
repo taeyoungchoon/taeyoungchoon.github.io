@@ -77,7 +77,11 @@ show version | grep Software
 
 - copy terminal: usb1:/eos_up.txt
 
-* ssh
+* DONE config backup and restore
+
+- copy running-config running-config_20240103_1
+- configure replace flash:running-config_20240103_1
+* TODO ssh
 
 #+BEGIN_SRC bash
 bash
@@ -90,4 +94,50 @@ show ip access-lists default-control-plane-acl | sed -e 's/\[.*\]//' -e 's/defau
 arista1(config-acl-ssh-control-plane-acl2)#permit tcp any any eq 2022
 #+END_SRC
 
+* DONE ssh custom port/acl to vrf MGMT
 
+- [2024-01-04 목] confirm
+
+** process
+
+- ms1 to ns(vrf MGMT)
+#+begin_example
+vrf instance MGMT
+int ma1
+  vrf MGMT
+  ip address 192.168.25.165/24
+#+end_example
+
+- (opt1) modify service acl to support 20022
+#+begin_example
+sh ip access-lists default-control-plane-acl | redirect flash:cpacl.txt
+cd /mnt/flash
+sudo sed -i "s/\[.*//" cpacl.txt
+#+end_example
+
+#+begin_example
+conf t
+ip access-list custom-acl
+  280 permit tcp any any eq 20022
+#+end_example
+
+- (opt1)apply service acl
+#+begin_example
+system control-plane
+  ip access-group custom-acl vrf MGMT in
+#+end_example
+
+- acl to permit talk
+#+begin_example
+conf t
+ip access-list vtyacl
+  160 permit tcp host 192.168.25.193 any eq 20022
+  170 permit tcp host 192.168.25.193 any eq 22
+#+end_example
+  
+- apply to ssh
+#+begin_example
+management ssh
+  ip access-group vtyacl vrf MGMT in
+  service-port 20022
+#+end_example

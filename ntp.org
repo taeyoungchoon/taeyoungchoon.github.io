@@ -227,3 +227,21 @@ chronyc sourcestats
   disable monitor
   
 #+end_src
+
+* DONE ntpdate said, no server suitable for synchronization found
+
+- [ ] query working but can not be used for sync time
+  - wait then working, just 10m
+    
+#+begin_src bash
+
+  [root@cva1 ~]# ntpdate -q 192.168.25.31
+  server 192.168.25.31, stratum 3, offset -0.000017, delay 0.02568
+   2 Jan 08:33:57 ntpdate[5173]: no server suitable for synchronization found
+
+  [root@cva1 ~]# ntpdate -q 192.168.25.31
+  server 192.168.25.31, stratum 3, offset -0.000026, delay 0.02579
+   2 Jan 08:44:07 ntpdate[5524]: adjust time server 192.168.25.31 offset -0.000026 sec
+#+end_src
+
+
