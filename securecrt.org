@@ -104,5 +104,16 @@ RRR\r
        - advanced
 	 - send delay options
 	   - [ ] line send delay: 5 milleseconds
+	     - [2024-01-08 월 13:48] try with 100 ms
 3. recent paste
    - [ ] override line send delay: 5 milleseconds
+
+* DONE logging, tmp
+
+- using file > log session
+  - term len 0
+  - file > log session, start
+  - enter
+  - show run
+  - enter
+  - file > log session, stop

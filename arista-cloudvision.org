@@ -279,18 +279,11 @@ python generateXmlForKvm.py -n cvp1 --device-bridge br0 -k 5 -i cvpTemplate.xml 
 
 but how
 
-* TODO version-s
+* DONE cvp version-s
 
-- [X] 2022.2.0
-  #+begin_src bash
-    tar xvfz /store/iso/cvp-2022.2.0-kvm.tgz -C /data/cvp0/
-  #+end_src
-- between
-  - 2022.2.0 1 2 3 4
-  - 2022.3.0 1 2 3 4
-  - 2023.1.0 1 2
-    
-- [2023-10-30 월] 2023.1.2
-  - https://www.arista.com/en/support/software-download
-  - 2023.1.2 Release Notes
-    - 19 October 2023
+- [X] 2021.3.0
+  - using
+- 2023.1.2
+  - bug
+
+

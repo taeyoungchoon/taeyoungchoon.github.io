@@ -10,3 +10,18 @@
 plink -l user -pw xxx -m chk.script -sessionlog foo.log targetHost 
 
 #+END_SRC
+
+* logging
+
+- using session > logging
+  - term len 0
+  - change settings > session > logging      
+    - session logging: printable output
+    - log file name
+    - apply
+  - enter
+  - show run
+  - enter
+  - change settings > session > logging      
+    - session logging: none
+    - apply
