@@ -108,12 +108,12 @@ RRR\r
 3. recent paste
    - [ ] override line send delay: 5 milleseconds
 
-* DONE logging, tmp
+* DONE logging from securecrt
 
 - using file > log session
-  - term len 0
-  - file > log session, start
-  - enter
-  - show run
-  - enter
-  - file > log session, stop
+  1) term len 0
+  2) file > log session, start
+  3) enter
+  4) show run
+  5) enter
+  6) file > log session, stop

@@ -1,0 +1,10 @@
+* word
+
+- Terminal Access Controller Access-Control System
+  
+* howto
+
+- https://blog.boxcorea.com/wp/archives/2591
+- https://wiki.gentoo.org/wiki/Tac_plus
+
+* imple, tac plus

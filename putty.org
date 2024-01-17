@@ -11,17 +11,17 @@ plink -l user -pw xxx -m chk.script -sessionlog foo.log targetHost
 
 #+END_SRC
 
-* logging
+* DONE logging from putty
 
 - using session > logging
-  - term len 0
-  - change settings > session > logging      
-    - session logging: printable output
-    - log file name
-    - apply
-  - enter
-  - show run
-  - enter
-  - change settings > session > logging      
-    - session logging: none
-    - apply
+  1) term len 0
+  2) change settings > session > logging      
+     - session logging: printable output
+     - log file name
+     - apply
+  3) enter
+  4) show run
+  5) enter
+  6) change settings > session > logging      
+     - session logging: none
+     - apply
