@@ -2,12 +2,24 @@
 
 쉽지 않은 주제다. 그리고  다른 주제와 결합되면서 문제를 크게 만든다. 파이를 크게 만든다. 리눅스와 운영체제의 일종이다. 윈도우즈 여도 또 삼벌식을 세벌식이라고 해야하나, 도 문제가 되는데. 여기에 다시 편집기까지 한글이 보이는 것과 한글와 영어 타이핑에 방식의 전환에 이르기까지 말이다. 출판/출력까지 가면 정말이지 한숨이 나온다. 몇 년째인지? 
 
-* enable
+* DONE enable
 
 #+BEGIN_SRC 
 (setq default-input-method "korean-hangul3f")
 (global-set-key (kbd "S-SPC") 'toggle-input-method)
 #+END_SRC
+
+* DONE change with command
+
+#+begin_example
+  C-\
+  C-x RET C-\ method RET
+#+end_example
+
+* DONE search(C-s) vs toggle input method
+
+- [X] 검색 그리고 그 상태에서 input 방식을 바꾸면 2벌식으로 변경된다. 그리고 계속, 이런
+  - 입력 방식을 변경한 후에 검색을 하면 이 문제를 회피할 수 있다.
 
 * from linux 
 
