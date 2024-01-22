@@ -6,7 +6,7 @@
 
 - [[file:minikube.org][minikube]]
 
-* word(s) combined
+* word(s) combined, not just word(s)
 
 - service mesh, mesh
 - iptables nat kube-proxy proxy
@@ -47,4 +47,14 @@
 - kubeadn
 - kops
 - kubespray = ansible + kubeadm
-  
+
+* wiktionary like
+
+- cyberspace
+  - Kyber, navigate
+    - kibana from 'baby' in swahili
+  - William Gibson
+  - cybernetics
+    - governor
+      - g and k then c
+      - y and u, o
