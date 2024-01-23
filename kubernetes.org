@@ -58,3 +58,52 @@
     - governor
       - g and k then c
       - y and u, o
+
+* TODO ingress, external
+
+- https://docs.openshift.com/container-platform/4.8/networking/configuring_ingress_cluster_traffic/configuring-externalip.html
+  - Configuring ExternalIPs for services
+    - Example Service object with spec.externalIPs[] set
+    - ports
+      - nodPort
+      - port
+      - targetPort
+- https://www.cryingcloud.com/blog/2020/1/9/adding-external-load-balancer-ip-address-to-an-existing-kubernetes-service
+  - kubectl patch svc <svc-name> -n <namespace> -p '{"spec": {"type": "LoadBalancer", "externalIPs":["x.x.x.x"]}}
+    - patch
+    - svc
+      - EXTERNAL-IP
+- https://docs.oracle.com/en/operating-systems/olcne/1.6/orchestration/external-ips.html#ext-ip-disable
+  - olcne: oracle cloud native environment
+    - service
+- https://kubernetes.io/docs/concepts/services-networking/service/
+  - service
+    - External IPs
+      - If there are external IPs that route to one or more cluster nodes, Kubernetes Services can be exposed on those externalIPs. When network traffic arrives into the cluster, with the external IP (as destination IP) and the port matching that Service, rules and routes that Kubernetes has configured ensure that the traffic is routed to one of the endpoints for that Service.
+      - When you define a Service, you can specify externalIPs for any service type. In the example below, the Service named "my-service" can be accessed by clients using TCP, on "198.51.100.32:80" (calculated from .spec.externalIPs[] and .spec.ports[].port).
+      - 
+      #+begin_example
+	apiVersion: v1
+	kind: Service
+	metadata:
+	  name: my-service
+	spec:
+	  selector:
+	    app.kubernetes.io/name: MyApp
+	  ports:
+	    - name: http
+	      protocol: TCP
+	      port: 80
+	      targetPort: 49152
+	  externalIPs:
+	    - 198.51.100.32
+      #+end_example
+
+- [ ] https://kubernetes.io/docs/tutorials/services/connect-applications-service/
+  - Connecting Applications with Services
+- [ ] TYPE LoadBalancer and don't
+  - pending
+- [ ] https://kubernetes.io/docs/concepts/services-networking/ingress/
+  - ingress again
+- [ ] https://kubernetes.io/docs/concepts/services-networking/gateway/
+  - gateway

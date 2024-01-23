@@ -29,3 +29,10 @@
 * tbl, table, 테이블, 표
 
 - Ctrl-n, t
+
+* DONE [2024-01-23 화] 검은 화면 ts with 한글, 업데이트
+
+- https://pray-play.tistory.com/39
+  - 한컴자동업데이트를 수행하세요.
+- https://shhh9461.tistory.com/198
+  - 상세
