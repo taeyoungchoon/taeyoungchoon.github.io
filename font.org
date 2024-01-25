@@ -34,3 +34,11 @@
 * DONE ligature(to tie, bind)
 
 - font feature
+
+* putty
+
+- Consolas, 10-point
+
+* securecrt
+
+- Lucida Console 10pt
