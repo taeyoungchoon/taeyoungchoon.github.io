@@ -1,4 +1,6 @@
-* using bash
+* DONE using bash
+
+** print
 
 #+begin_src bash
   cat intf-s |\
@@ -7,6 +9,8 @@
       printf "  shut\n";
   done
 #+end_src
+
+** multiline variable
 
 #+begin_src bash
   name="Et11"
@@ -32,7 +36,35 @@
   done
 #+end_src
 
-* using python
+* DONE sed, not awk
+
+#+begin_src bash
+  $ cat template.tmpl
+  int INTERFACE
+    shut
+
+  while read intf; do
+      cat template.tmpl | sed "s/INTERFACE/${intf}/"
+  done < intf-s
+#+end_src
+
+* DONE using python
+
+** format
+
+#+begin_src python
+  s = '''
+  int {}
+    shut
+  '''
+  s.format('Eth11')
+
+  for intf in ['Et11', 'Et12']:
+      print(s.format(intf), end='!\n')
+
+#+end_src
+
+** Template
 
 - https://docs.python.org/3/library/string.html
 
@@ -50,20 +82,10 @@
     
 #+end_src
 
-#+begin_src python
-  s = '''
-  int {}
-    shut
-  '''
-  s.format('Eth11')
+* DONE using python and mako template
 
-  for intf in ['Et11', 'Et12']:
-      print(s.format(intf), end='!\n')
-
-#+end_src
-
-* using python and mako template
-
+- t-shell/naplm
+  
 ** shut.tmpl
 
 #+begin_example

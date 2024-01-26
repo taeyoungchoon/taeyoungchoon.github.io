@@ -1,0 +1,48 @@
+* list
+
+- configlet
+  - 1st generation
+  - python2
+  - library
+    - cvplibrary
+    - cvp
+  - variable
+    - ingest_vrf = Form.getFieldById('vrf').getValue()
+- action aka action pack
+  - python3
+  - library
+    - cloudvision.cvlib
+      - class Context(cloudvision-python-1.16.0/cloudvision/cvlib/context.py)
+	- as ctx
+	  - cmdOut = ctx.runDeviceCmds(["enable", "show boot"])
+	  - showbootResp = cmdOut[1]["response"]
+  - variable
+    - yaml
+      - action pack
+	- https://github.com/aristanetworks/cloudvision-python-actions
+      - with wrapper called 'manage arguements'
+	- direct
+	  - vrf = ctx.action.args.get("vrf")
+- studio
+  - python3
+  - mako template engine
+  - library
+    - cloudvision.cvlib
+    - cloudvision.Connector
+      - Streaming Telemetry Agent
+    - arista(gRPC based)
+      - Enterprise Routing
+      - L3 Leaf-Spine Fabric
+  - variable
+    - yaml format
+      - with wrapper called 'schema'
+      - datastructure preview called 'input tree'
+      - direct
+        - sampleRate = deviceSet['sampleRate']
+	  - python datastructure form
+	    - list
+	    - dictionary
+      - indirect using resolve()
+	- deviceSet = deviceSets.resolve()['deviceSet']
+	  - object
+	    - <webapp.v2.types.DeviceResolver object at 0x7f>
