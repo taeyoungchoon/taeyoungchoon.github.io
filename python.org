@@ -1,4 +1,4 @@
-* TODO COMMENT parts
+* TODO parts
 
 - [ ] with emacs
   1. [ ] sth?
@@ -17,14 +17,12 @@
     if True:
 	print(True)
   #+END_SRC
-
 - [X] for
   #+BEGIN_SRC python
     for i in range(3):
 	for j in range(3):
 	    print(i, j)
   #+END_SRC
-
 - [ ] re
 - [X] list
   #+BEGIN_SRC python
@@ -38,31 +36,85 @@
     import math
     math.pi
   #+END_SRC
-
-- print?
-* process
+- print
   
-** subprocess
+* DONE help
 
-https://docs.python.org/3/library/subprocess.html
+#+begin_src python
+  lt = [1, 2, 3]
+  type(lt)
+  dir(lt)
+  lt.reverse()
+  help(lt.reverse)
+  help(lt.sort)
+  lt.sort()
+  len(lt)
+#+end_src
 
-- communicate
-- [X] check_output
+* DONE os
 
-subprocess.check_output("uname")
+#+begin_src python
+  import os
+  import re
 
-- getoutput
-- getstatusoutput
-- [ ] popen, Popen
-- [ ] run
+  with open('t3','w') as f:
+      pass
 
-output = subprocess.run("uname", capture_output=True, shell=True, text=True)
-if output.returncode == 0: print(output.stdout)
+  for i in dir(os):
+      if re.search('re', i):
+	  print(i)
+        
+  help(os.rename)
 
-- os.system
-- os.spawn
+  os.stat('t3')
+  os.rename('t3', 't4')
+  os.listdir()
+#+end_src
 
-* def func
+* DONE re
+
+#+begin_src python
+  import re
+
+  re.search('foo', 'bar')
+  re.search('foo', 'foobar')
+  dir(re)
+  help(re.search)
+  re.match('foo', 'foobar')
+  re.split(':', 'a:b:c')
+  re.findall('a+', 'a_aa_aaa')
+  #sub
+  help(re.sub)
+  line = 'a_aa_aaa then ab_aab_aaab'
+  re.sub('aa+', 'X', line)
+#+end_src
+
+* DONE about file, open, read, write
+
+#+begin_src python
+  import os
+
+  os.listdir()
+  with open('see','w') as f:
+      pass
+
+  with open('see','a') as f:
+      f.write('first')
+      f.write('second')
+      f.write('third')
+
+  with open('see','a') as f:
+      f.write('\n')
+      f.write('first\n')
+      f.write('second\n')
+      f.write('third\n')
+
+  with open('see') as f:
+      stuff = f.read()
+      print(stuff)
+#+end_src
+
+* TODO def func
 
 #+BEGIN_SRC python
   def say(word):
@@ -77,6 +129,7 @@ if output.returncode == 0: print(output.stdout)
 #+RESULTS:
 : None
 
+* TODO class
 * TODO rest api
 
 - import requests
@@ -94,4 +147,46 @@ if output.returncode == 0: print(output.stdout)
 - from string import Template
 - with json, template then
 
-* TODO re
+* DONE process
+  
+** subprocess
+
+- https://docs.python.org/3/library/subprocess.html
+- https://docs.python.org/3.3/library/subprocess.html
+
+- [X] check_output
+- [X] getoutput
+- [X] getstatusoutput
+- [X] run
+- [ ] popen, Popen
+- [ ] communicate
+- [ ] os.system
+- [ ] os.spawn
+  
+
+#+begin_src python
+  import subprocess as sp
+
+  dir(sp)
+
+  # getoutput 
+  sp.getoutput('uname -a')
+  # getstatusoutput > tuple, (status, output)
+  sp.getstatusoutput('uname -a')
+  # check_output 
+  sp.check_output(['uname ', '-a'])
+  sp.check_output('uanme -a', shell=True)
+  # run > instance
+  sp.run(['uname', '-a'], capture_output=True, text=True)
+  sp.run('uname -a', capture_output=True, text=True, shell=True)
+
+  result = sp.run("uname -a", capture_output=True, shell=True, text=True)
+  if result.returncode == 0:
+      print(result.stdout)
+
+  result = sp.run("uname -x", capture_output=True, shell=True, text=True)
+  if result.returncode == 0:
+      print(result.stdout)
+  else:
+      print(result.stderr)
+  #+end_src

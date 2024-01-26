@@ -141,3 +141,53 @@ management ssh
   ip access-group vtyacl vrf MGMT in
   service-port 20022
 #+end_example
+
+* DONE configure session
+
+#+begin_example
+  v111y26#configure session s1 description shut
+  v111y26(config-s-s1)#interface ethernet 11
+  v111y26(config-s-s1-if-Et11)#shutdown 
+  v111y26(config-s-s1-if-Et11)#exit
+  v111y26(config-s-s1)#exit
+  v111y26#show configuration sessions 
+  Maximum number of completed sessions: 1
+  Maximum number of pending sessions: 5
+
+    Name    State         User       Terminal    Description
+    ---- ------------- ---------- -------------- -----------
+    s1      pending                              shut       
+
+  v111y26(config-s-s1)#show session-config diffs 
+  --- system:/running-config
+  +++ session:/s1-session-config
+  @@ -54,6 +54,7 @@
+   interface Ethernet10
+   !
+   interface Ethernet11
+  +   shutdown
+   !
+   interface Ethernet12
+   !
+  v111y26(config-s-s1)#commit
+  v111y26#
+
+  v111y26#configure session s2 description test
+  v111y26(config-s-s2)#exit
+  v111y26#configure session s3 description test
+  v111y26(config-s-s3)#exit
+  v111y26#show configuration sessions
+  Maximum number of completed sessions: 1
+  Maximum number of pending sessions: 5
+
+    Name    State         User       Terminal    Description
+    ---- ------------- ---------- -------------- -----------
+    s2      pending                              test       
+    s3      pending                              test       
+
+  v111y26#configure session s2 abort 
+  v111y26#configure session s3 abort
+  v111y26#configure session s3 abort
+  % Cannot abort non-existent session s3.
+  v111y26#
+#+end_example

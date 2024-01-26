@@ -4,6 +4,11 @@
 x_y
 #+end_src
 
+* nameserver, dns, ns
+
+#+begin_src bash
+  ip name-server vrf default 8.8.8.8
+#+end_src
 
 * user
 
@@ -259,3 +264,8 @@ service routing protocols model multi-agent
 
 #+end_src
 
+* vrf
+
+#+begin_src bash
+show vrf
+#+end_src

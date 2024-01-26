@@ -1,0 +1,92 @@
+* napalm is
+
+- NAPALM(Network Automation and Programmability Abstraction Layer with Multivendor support)
+- python library
+- functions to interact with different network device Operating Systems using a unified API
+- list of supported network operating systems
+  - arista eos
+  - cisco ios
+  - cisco ios-xr
+  - cisco nx-os
+  - juniper junos
+
+* install
+
+#+begin_src bash
+  ERROR: junos-eznc 2.7.0 has requirement ncclient>=0.6.15, but you'll have ncclient 0.6.13 which is incompatible.
+  Installing collected packages: future, textfsm, ntc-templates, scp, netmiko, yamlordereddictloader, transitions, junos-eznc, ttp, ttp-templates, netutils, napalm
+#+end_src
+
+#+begin_src bash
+  jack@think:~/t-shell/napalm$ pip install ncclient
+  Building wheels for collected packages: ncclient
+    Building wheel for ncclient (setup.py) ... done
+    Created wheel for ncclient: filename=ncclient-0.6.15-py2.py3-none-any.whl size=88094 
+    Stored in directory: /home/jack/.cache/pip/wheels/95/2b/47/76fd20a62955399cfbc45deb68cf306cf90dd1574b1f5fb458
+  Successfully built ncclient
+  Installing collected packages: ncclient
+    Attempting uninstall: ncclient
+      Found existing installation: ncclient 0.6.13
+      Uninstalling ncclient-0.6.13:
+	Successfully uninstalled ncclient-0.6.13
+	Successfully installed ncclient-0.6.15
+      
+  jack@think:~/t-shell/napalm$ pip show ncclient | grep Version
+  Version: 0.6.15
+  jack@think:~/t-shell/napalm$ pip show junos-eznc | grep Version
+  Version: 2.7.0
+#+end_src
+
+* napalm rel links
+
+- https://saidvandeklundert.net/2019-10-15-arista_configure_sessions/
+- https://napalm.readthedocs.io/en/latest/tutorials/changing_the_config.html
+
+* combine napalm eos
+
+- using 'configure session'
+  - compare config
+  - discard config
+  - commit config
+  
+#+begin_example
+  clock timezone Asia/Seoul
+#+end_example
+  
+#+begin_src python
+  import napalm
+
+  driver = napalm.get_network_driver('eos')
+  device = driver(hostname='192.168.26.111', username='admin', password='admin')
+  device.open()
+  device.load_merge_candidate(filename='tz.cfg')
+  print(device.compare_config())
+  device.discard_config()
+  #device.commit_config()
+#+end_src
+
+#+begin_example
+  Jan 26 14:12:39 v111y26 ConfigAgent: %SYS-5-CONFIG_SESSION_ENTERED: User admin entered configuration session napalm_595374 on command-api (192.168.25.157)
+  Jan 26 14:12:39 v111y26 ConfigAgent: %SYS-5-CONFIG_SESSION_EXITED: User admin exited configuration session napalm_595374 on command-api (192.168.25.157)
+  Jan 26 14:12:40 v111y26 ConfigAgent: %SYS-5-CONFIG_SESSION_ABORTED: User admin aborted configuration session napalm_595374 on command-api (192.168.25.157)
+#+end_example
+
+#+begin_src python
+  import napalm
+
+  driver = napalm.get_network_driver('eos')
+  device = driver(hostname='192.168.26.111', username='admin', password='admin')
+  device.open()
+  device.load_merge_candidate(filename='tz.cfg')
+  print(device.compare_config())
+  #device.discard_config()
+  device.commit_config()
+#+end_src
+
+#+begin_example
+  Jan 26 14:12:46 v111y26 ConfigAgent: %SYS-5-CONFIG_SESSION_ENTERED: User admin entered configuration session napalm_342399 on command-api (192.168.25.157)
+  Jan 26 14:12:46 v111y26 ConfigAgent: %SYS-5-CONFIG_SESSION_EXITED: User admin exited configuration session napalm_342399 on command-api (192.168.25.157)
+  Jan 26 14:12:48 v111y26 ConfigAgent: %SYS-5-CONFIG_SESSION_COMMIT_SUCCESS: User admin committed configuration session napalm_342399 successfully on command-api (192.168.25.157)
+  Jan 26 14:12:48 v111y26 ConfigAgent: %SYS-5-CONFIG_STARTUP: Startup config saved from system:/running-config by admin on command-api (192.168.25.157).
+#+end_example
+

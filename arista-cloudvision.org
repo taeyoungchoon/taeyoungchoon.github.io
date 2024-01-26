@@ -162,8 +162,6 @@ arista1 login: cvpadmin
 Password:
 arista1>
 
-
-=======
 * TODO with code
 
 #+BEGIN_SRC python

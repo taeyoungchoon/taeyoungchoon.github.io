@@ -1,0 +1,102 @@
+* using bash
+
+#+begin_src bash
+  cat intf-s |\
+  while read intf; do 
+      printf "int %s\n" $intf; 
+      printf "  shut\n";
+  done
+#+end_src
+
+#+begin_src bash
+  name="Et11"
+
+  cfg=$(cat << EOF
+  int $name
+    shut
+  EOF
+  )
+
+  echo "$cfg"
+#+end_src
+
+#+begin_src bash
+  cat intf-s | \
+  while read intf; do
+    cfg=$(cat << EOF
+  int $intf
+    shut
+  EOF
+  )
+    echo "$cfg"
+  done
+#+end_src
+
+* using python
+
+- https://docs.python.org/3/library/string.html
+
+#+begin_src python
+  from string import Template
+
+  s = Template('''
+  int $interface
+    shut
+  ''')
+  s.substitute(interface='Et11')
+
+  for intf in ['Et11', 'Et12']:
+      print(s.substitute(interface=intf), end='!\n')
+    
+#+end_src
+
+#+begin_src python
+  s = '''
+  int {}
+    shut
+  '''
+  s.format('Eth11')
+
+  for intf in ['Et11', 'Et12']:
+      print(s.format(intf), end='!\n')
+
+#+end_src
+
+* using python and mako template
+
+** shut.tmpl
+
+#+begin_example
+  % for item in intf:
+  !
+  interface ${item}
+    shut
+  % endfor
+  !
+#+end_example
+
+** shut.py
+
+#+begin_src python
+  from mako.template import Template
+
+  tmp = Template(filename='shut.tmpl')
+  print(tmp.render(intf=["en1","en2","en3"]))
+  
+#+end_src
+
+** result
+
+#+begin_example
+  $ python shut.py
+  !
+  interface en1
+    shut
+  !
+  interface en2
+    shut
+  !
+  interface en3
+    shut
+  !
+#+end_example
