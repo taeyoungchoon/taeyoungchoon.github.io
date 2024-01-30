@@ -84,6 +84,7 @@ ORA-39070: 로그 파일을 열 수 없습니다.
 ORA-29283: 부적합한 파일 작업
 ORA-06512: "SYS.UTL_FILE",  536행
 ORA-29283: 부적합한 파일 작업
+
 * oracle related one
 
 ** alert.log

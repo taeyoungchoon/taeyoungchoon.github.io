@@ -33,6 +33,16 @@
 
 * install
 
+** from windows
+
+- https://docs.docker.com/desktop/install/windows-install/#install-from-the-command-line
+  - Start-Process 'Docker Desktop Installer.exe' -Wait install
+    - -ArgumentList 'install', '--accept-license'
+  - By default, Docker Desktop is installed at C:\Program Files\Docker\Docker
+    - --installation-dir=<path>
+  - hack
+    - https://forums.docker.com/t/how-could-i-install-docker-for-windows-on-drive-e-my-ssd-c-is-full/52347/25
+  
 * orchestration using kubernetes, openshift, docker-compose
 
 * with mac os x
