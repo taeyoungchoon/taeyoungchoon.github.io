@@ -1,0 +1,7 @@
+* read
+
+- https://docs.python-guide.org/dev/virtualenvs/#virtualenvironments-ref
+
+*  venv vs virtualenv
+* --no-site-packages
+* pip vs pipenv
