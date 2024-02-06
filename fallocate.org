@@ -1,0 +1,30 @@
+* fallocate by code by somesone
+
+- https://blog.stackframe.dev/31
+
+* history
+
+- grubenv near original
+  #+begin_src bash
+    # GRUB Environment Block
+    saved_entry=65ba149935c54d618f5057907594858e-4.18.0-372.9.1.el8.x86_64
+    kernelopts=root=UUID=9c2d9ea4-e394-4cba-9ea3-ed1b703e53c8 ro net.ifnames=0 biosdevname=0 crashkernel=auto resume=UUID=cb9232fc-c038-4321-9b54-d8ecc2fb3e1c rhgb quiet
+    boot_success=1
+    boot_indeterminate=0
+    #####################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################
+  #+end_src
+- [2024-02-06 화] grub broken
+  #+begin_src bash
+    grub2-editenv list
+    ls -l /boot/grub2/grubenv
+    grubby --set-default-index=0
+    cat /boot/grub2/grubenv
+  #+end_src
+- near the same
+  #+begin_src bash
+    grub2-editenv - list
+    grub2-editenv - set "kernelopts=root=UUID=9c2d9ea4-e394-4cba-9ea3-ed1b703e53c8 ro net.ifnames=0 biosdevname=0 crashkernel=auto resume=UUID=cb9232fc-c038-4321-9b54-d8ecc2fb3e1c rhgb quiet"
+    grub2-editenv - set "boot_success=1"
+    grub2-editenv - set "boot_indeterminate=0"
+    grub2-editenv - list
+  #+end_src

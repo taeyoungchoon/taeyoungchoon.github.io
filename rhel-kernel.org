@@ -1,0 +1,125 @@
+* up from rhel 8
+
+- https://access.redhat.com/documentation/ko-kr/red_hat_enterprise_linux/8/html/managing_monitoring_and_updating_the_kernel/proc_compiling-custom-kernel-modules_managing-kernel-modules
+
+** DONE essential
+  
+#+begin_src bash
+  yum update kernel
+
+  uname -r
+  rpm -q kernel
+  yum repoquery kernel
+  yum install kernel-{versio}n  
+#+end_src
+
+** TODO grub cli, grubby
+
+#+begin_src bash
+  grubby --set-default $kernel_path
+  ls /boot/loader/entries
+
+  grubby --set-default /boot/vmlinuxz-<version>.<architecture>
+  grubby --info ALL | grep id
+  grubby --info=ALL | grep title
+  grubby --info=ALL | grep ^kernel
+
+  grubby --default-kernel
+  grubby --default-index
+  grubby --default-title
+
+  grubby --info /boot/vmlinuz-4.18.0-372.9.1.el8.x86_64  
+
+  grub2-reboot <index|title|id>
+#+end_src
+
+** DONE modules
+
+#+begin_src bash
+  modinfo virtio_net
+  lsmod | grep serio_raw
+  modprobe -r <MODULE_NAME>
+  echo <MODULE_NAME> > /etc/modules-load.d/<MODULE_NAME>.conf
+  modprobe.blacklist=module_name
+  ls /etc/modprobe.d/denylist.conf
+#+end_src
+
+** DONE grub mod
+
+#+begin_src bash
+  ls /etc/default/grub
+  grub2-mkconfig -o /boot/grub2/grub.cfg
+  grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg
+#+end_src
+
+* action aka log
+
+- yum install kernel-0:4.18.0-513.5.1.el8_9.x86_64
+- kernel
+  - kernel-core
+  - kernel-modules
+  - linux-firmware
+
+#+begin_src bash
+  uname -r
+  rpm -qa kernel
+  grubby --info ALL | egrep "index|title"
+  grubby --default-index
+  grubby --set-default-index 0
+  grubby --default-index
+#+end_src
+
+- grubenv load by grub.cfg
+
+#+begin_src bash
+  [root@joe grub2]# ls -l /boot/grub2/grubenv
+  -rw-------. 1 root root 1024 Feb  5 07:33 /boot/grub2/grubenv
+#+end_src
+
+- refer fallocate
+- clean up
+
+#+begin_example
+  uname -r
+  yum repoquery kernel
+  yum remove kernel-4.18.0-513.5.1.el8_9.x86_64 kernel-core-4.18.0-513.5.1.el8_9.x86_64 kernel-modules-4.18.0-513.5.1.el8_9.x86_64
+#+end_example
+
+#+begin_example  
+  yum remove kernel-4.18.0-372.9.1.el8.x86_64 kernel-core-4.18.0-372.9.1.el8.x86_64 kernel-modules-4.18.0-372.9.1.el8.x86_64 kernel-tools-4.18.0-372.9.1.el8.x86_64 kernel-tools-libs-4.18.0-372.9.1.el8.x86_64
+#+end_example
+
+- import rocky 8.8 dvd's kernel(488.10) to rocky 8.6
+
+#+begin_example
+  mount /dev/sr0 /mnt
+  cd /mnt
+  yum localinstall kernel-4.18.0-477.10.1.el8_8.x86_64.rpm kernel-core-4.18.0-477.10.1.el8_8.x86_64.rpm kernel-modules-4.18.0-477.10.1.el8_8.x86_64.rpm
+#+end_example
+
+- import rocky 8.8 dvd's kernel(477.10) to rocky 8.9(513.11)
+
+#+begin_example
+  [root@amy ~]# uname -r
+  4.18.0-513.11.1.el8_9.x86_64
+  [root@amy ~]# rpm -qa | grep kernel-core
+  kernel-core-4.18.0-513.5.1.el8_9.x86_64
+  kernel-core-4.18.0-513.11.1.el8_9.x86_64
+  [root@amy ~]#
+#+end_example
+
+- linux-firmware kick out or pop out
+  - Why kernel-core has dependency on linux-firmware rpm?
+    - rpm -qp --requires kernel-core-4.18.0-477.21.1.el8_8.x86_64.rpm
+  - it works in vm
+
+#+begin_example
+  mount /dev/sr0 /mnt
+  cd /mnt/BaseOS/Packages/k
+  yum localinstall kernel-4.18.0-477.10.1.el8_8.x86_64.rpm kernel-core-4.18.0-477.10.1.el8_8.x86_64.rpm kernel-modules-4.18.0-477.10.1.el8_8.x86_64.rpm ../l/linux-firmware-20230404-114.git2e92a49f.el8_8.noarch.rpm
+#+end_example
+
+#+begin_example
+  [root@amy ~]# uname -r
+  4.18.0-477.10.1.el8_8.x86_64
+#+end_example

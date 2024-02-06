@@ -1,0 +1,59 @@
+* not TAM(Technical Account Management)
+* pre: How to create and manage users
+
+- https://access.redhat.com/start/how-to-create-and-manage-users#multipleusers
+
+** process
+
+- user list
+- invite new users
+  - Invite users to create there own Red Hat login within your organization by sending each users an email with a unique invitation link. Your e-mail address will be included in the invite as a point of contact.
+- Enter the e-mail addresses of the users you would like to invite
+- Customer Portal Access Permissions
+  - Manage support cases
+    - user can view, create, and update support cases from the Support Cases page.
+- Send a message with the invite(optional)
+- Select which language to use for the invitation
+- Your Invitations
+  - Below is a summary of the status of you invitations. You will also receive an e-mail confirmation with these details.
+
+* case open
+
+1) access.redhat.com
+2) support cases
+3) troubleshoot
+
+** process
+
+1) get support
+   - [ ] account
+   - [ ] owner
+   - what can we help you with?
+     - bug or defect
+     - certification
+     - configuration
+     - customer service
+     - usage & docs help
+     - idea
+     - root cause analysis
+     - other
+2) summarize
+   - summary
+   - product
+     - version
+3) troubleshoot
+4) describe more
+   - hostname
+   - what are you experiencing? what are you expecting to happen?
+   - define the value or impact to you or the business
+   - where are you experiencing this behavior? what environment?
+   - when does this behavior occur? frequency? repeatedly? at certain times?
+5) management
+   - [ ] support level
+   - severity
+   - case owner's phone number
+   - preferred language
+   - group
+   - send notifications
+   - personal reference number
+6) review
