@@ -1,0 +1,61 @@
+* lots of ex, perl-Log-Dispatch
+
+1) codeready or powertools
+2) epel
+
+** rockylinux 8.6
+
+- using vagrant
+
+*** collection
+
+#+begin_src bash
+
+  dnf config-manager --set-enabled powertools
+  yum repolist
+  yum install --downloadonly --downloaddir='.' epel-release
+  # yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+  yum repolist
+
+  #dnf install perl-Log-Dispatch
+  #yum deplist gcc
+
+  yum install --downloadonly --downloaddir=. perl-Log-Dispatch
+  # yum-utils
+  #yumdownloader --downloadonly gcc
+  #yumdownloader --downloadonly --resolve gcc
+  yum localinstall *.rpm
+#+end_src
+*** DONE cute
+CLOSED: [2024-02-13 Tue 19:04]
+
+#+begin_src bash
+  dnf config-manager --set-enabled powertools
+  yum repolist
+
+  yum install --downloadonly --downloaddir='.' epel-release
+  mkdir backup
+  cp *.rpm backup
+  yum repolist
+
+  yum install --downloadonly --downloaddir=. perl-Log-Dispatch
+  cp *.rpm backup
+  yum localinstall *.rpm
+#+end_src
+
+** TODO rhel 8.6
+
+#+begin_src bash
+  subscription-manager repos --enable codeready-builder-for-rhel8-rpms
+  yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+  yum repolist
+
+  dnf install perl-Log-Dispatch
+
+  yum deplist gcc
+
+  yum install --downloadonly --downloaddir=. gcc
+  # yum-utils
+  yumdownloader --downloadonly gcc
+  yumdownloader --downloadonly --resolve gcc
+#+end_src
