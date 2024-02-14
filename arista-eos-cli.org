@@ -1,7 +1,8 @@
-* hostname
+* DONE hostname
+CLOSED: [2024-02-14 Wed 18:52]
 
 #+begin_src 
-x_y
+hostname veos101
 #+end_src
 
 * nameserver, dns, ns
@@ -10,26 +11,34 @@ x_y
   ip name-server vrf default 8.8.8.8
 #+end_src
 
-* user
+* TODO user
+
+- [ ] role
+- [ ] privilege
 
 #+begin_src
 username admin secret xxx
 #+end_src
 
-* interface
+* DONE enable password
+CLOSED: [2024-02-14 Wed 18:54]
 
-#+begin_src 
-interface et1
-  description ## to genian ##
+#+begin_src
+enable password xxx
 #+end_src
 
+* TODO interface
+
 #+begin_src 
-interface et2
+int et1
+  desc ### vrrp ###
   ip address x.x.x.x/28
   ip address y.y.y.y/24 secondary
 #+end_src
 
-* mgmt
+* TODO mgmt
+
+- [ ] vrf
 
 #+begin_src 
 interface Management1
@@ -49,53 +58,54 @@ interface ethernet 1-2
   show active
 #+end_src
 
-* vlan
+* DONE vlan
+CLOSED: [2024-02-14 Wed 19:11]
 
 #+begin_src 
-vlan 15
-show vlan
-no vlan 15
-show vlan
+vlan 10
+sh vlan
+no vlan 10
 
-#+end_src
-
-#+begin_src 
-vlan 16 
-show vlan
-no vlan 16
-show vlan
-
-#+end_src
-
-#+begin_src 
-vlan 16
-vlan 17
+vlan 15, 16
   name USER
 vlan 18-20
 #+end_src
 
-* access port
-#+begin_src 
-interface ethernet 20
-switchport access vlan 15
+* DONE access port
+CLOSED: [2024-02-14 Wed 19:09]
 
+#+begin_src
+vlan 15
+
+int eth1
+switchport mode access
+switchport access vlan 15
 #+end_src
 
-* trunk port
-#+begin_src 
-interface ethernet 31-32
+* DONE trunk port
+CLOSED: [2024-02-14 Wed 19:09]
+
+#+begin_src
+vlan 10, 20
+
+int eth 2-3
+switchport mode trunk
+switchport trunk allowed vlan all
 switchport trunk allowed vlan 15,16
 
+sh active
+
 #+end_src
 
-* lldp
+* DONE lldp
+CLOSED: [2024-02-14 Wed 19:03]
 #+begin_src 
+no lldp run
+sh lldp nei
 lldp run
-show lldp
-
 #+end_src
 
-* spanning tree
+* TODO spanning tree
 #+begin_src 
 spanning-tree mode rapid-pvst
 spanning-tree vlan-id 15,16-17 8192
@@ -109,20 +119,22 @@ interface et17
 interface et18
   spanning-tree guard root
 
+sh span
 #+end_src
 
-* clock
+* DONE clock
+CLOSED: [2024-02-14 Wed 19:01]
+
 #+begin_src 
 clock timezone Asia/Seoul
 show clock
-
 #+end_src
 
 * ntp
+
 #+begin_src 
 ntp local-interface Loopback0
 ntp server x.x.x.x
-
 #+end_src
 
 * route-map
@@ -146,11 +158,11 @@ management ssh
 
 #+end_src
 
-* DONE vrrp
-CLOSED: [2024-02-12 Mon 22:23]
+* TODO vrrp
 
-- [X] 'ip routing'
-
+- [X] ip routing
+- [ ] with vlan
+  
 ** env with clab
 
 #+begin_example
