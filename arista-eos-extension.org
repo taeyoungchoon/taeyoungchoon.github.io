@@ -54,3 +54,22 @@ $ ls
 TerminAttr-1.19.5-1.swix
 
 #+END_SRC
+
+* DONE again, simplify, 
+
+** conf t
+
+daemon TerminAttr
+shutdown
+
+copy flash:TerminAttr-1.7.4-1.swix extension:
+extension TerminAttr-1.7.4-1.swix
+copy installed-extensions boot-extensions
+
+daemon TerminAttr
+no shutdown
+
+** enable
+
+show version detail | grep TerminAttr-core
+show extensions 
