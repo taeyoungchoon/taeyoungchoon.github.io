@@ -1,0 +1,28 @@
+* TODO snip from arista cvp upgrade process
+
+#+begin_src 
+Run cmd: /data/tmp/upgrade/upgrade_utils.sh rpmmd5sumcheck /data/tmp/upgrade on  0.00
+
+function rpmmd5sumcheck(){
+   upgradeDir=$1
+   while read -a line; do
+       rpmMd5=$( md5sum ${upgradeDir}/${line[1]} | awk '{print $1}' )
+       if [ ${rpmMd5} != ${line[0]} ]; then
+         echo "md5sum check of ${line[1]} failed"
+         exit 1
+       fi
+   done < ${upgradeDir}/rpmMd5sum
+}
+
+[cvp@cvp2 upgrade]$ head -2 rpmMd5sum
+de379c1d72d564d70ac29c15a3671687  GeoIP-1.5.0-14.el7.x86_64.rpm
+34c9d97f09bf2bd1b3baab2a4703d795  NetworkManager-1.18.8-2.el7_9.x86_64.rpm
+#+end_src
+
+* TODO later on
+
+#+begin_src emacs-lisp
+  ((check f)
+   (list (f f.md5sum))
+   (diff (sum f) f.md5sum))
+#+end_src

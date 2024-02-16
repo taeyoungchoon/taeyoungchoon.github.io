@@ -50,11 +50,14 @@ interface Management1
 interface loopback0
 #+end_src
 
-* port channel
+* DONE port channel
 
 #+begin_src 
 interface ethernet 1-2
-  channel-group 10 mode active
+  channel-group 1000 mode active
+  show active
+int po 1000
+  switchport mode trunk
   show active
 #+end_src
 
@@ -341,7 +344,6 @@ service routing protocols model multi-agent
 show vrf
 #+end_src
 
-* TODO mlag
 * DONE config backup and restore
 CLOSED: [2024-02-12 Mon 22:25]
 
@@ -356,3 +358,79 @@ CLOSED: [2024-02-12 Mon 22:25]
 #+begin_example
   configure replace flash:running-config.save
 #+end_example
+* DONE mlag
+
+- from arista warrior
+- clab
+
+** containerlab
+
+#+begin_example
+  jack@think:~/lab2$ cat srlceos01.clab.yml
+  # topology documentation: http://containerlab.dev/lab-examples/srl-ceos/
+  name: srlceos01
+
+  topology:
+    nodes:
+      ceos1:
+	kind: arista_ceos
+	image: ceos:4.30.5M
+      ceos2:
+	kind: arista_ceos
+	image: ceos:4.30.5M
+
+    links:
+      - endpoints: ["ceos1:eth1", "ceos2:eth1"]
+      - endpoints: ["ceos1:eth2", "ceos2:eth2"]
+#+end_example
+  
+** ceos1
+
+#+begin_example
+    interface eth1-2
+    channel-group 1000 mode active
+    int po 1000
+    switchport mode trunk
+
+    vlan 4094
+    trunk group MLAG-Peer
+    int po 1000
+    switchport trunk group MLAG-Peer
+
+    int vlan 4094
+    ip address 10.255.255.1/30
+    no autostate
+    
+    mlag
+    local-interface vlan 4094
+    peer-address 10.255.255.2
+    peer-link port-Channel 1000
+    domain-id Arista-AB
+#+end_example
+
+** ceos2
+
+#+begin_example
+    interface eth1-2
+    channel-group 1000 mode active
+    int po 1000
+    switchport mode trunk
+
+    vlan 4094
+    trunk group MLAG-Peer
+    int po 1000
+    switchport trunk group MLAG-Peer
+
+    int vlan 4094
+    ip address 10.255.255.2/30
+    no autostate
+    
+    mlag
+    local-interface vlan 4094
+    peer-address 10.255.255.1
+    peer-link port-Channel 1000
+    domain-id Arista-AB
+#+end_example
+
+
+

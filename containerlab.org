@@ -206,3 +206,61 @@ C-b 2 then ssh admin@172.20.20.3
 C-b 3 then ssh admin@172.20.20.2
 #+end_example
 
+* TODO [2024-02-16 금] wsl and to the end
+
+** install eos-downloader to download ceos from cli
+
+#+begin_src bash
+  python --version
+  mkdir arista
+  cd arista
+  python -m venv .venv --prompt arista
+  source .venv/bin/activate
+  pip install eos-downloader
+#+end_src
+
+** download ceos 
+
+#+begin_src bash
+  cd arista
+  source .venv/bin/activate
+  ardl --token ef849b7c337b7fb3de433c07aa363f4f get eos --image-type cEOS -rtype M -l
+  docker import cEOS-lab-4.30.5M.tar.xz ceos:4.30.5M
+#+end_src
+
+** make work space
+
+#+begin_src bash
+  mkdir lab
+  cd lab
+  cp /etc/containerlab/lab-examples/srlceos01/srlceos01.clab.yml .
+#+end_src
+
+** edit srlceos01.clab.yml
+
+#+begin_src bash
+  name: srlceos01
+
+  topology:
+    nodes:
+      ceos1:
+	kind: arista_ceos
+	image: ceos:4.30.5M
+      ceos2:
+	kind: arista_ceos
+	image: ceos:4.30.5M
+
+    links:
+      - endpoints: ["ceos1:eth1", "ceos2:eth1"]
+      - endpoints: ["ceos1:eth2", "ceos2:eth2"]
+#+end_src
+
+#+begin_src bash
+  cd lab
+  sudo clab deploy
+  sudo clab inspect
+#+end_src
+
+#+begin_src bash
+  sudo clab destroy -c
+#+end_src
