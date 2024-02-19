@@ -1,0 +1,25 @@
+* DONE power cord, connector type and plug type
+
+- [2024-02-19 월] it works
+
+** power cord
+
+- C13(male)
+  - C14(female)
+  - IEC C13
+- C15 for PoE(male)
+
+** plug type
+
+- type F
+  - Schuko plug
+    - Schutzkontakt
+  - round and has the addition of top and bottom indentations 
+
+** combined
+
+| A   | B      | note                             |
+|-----+--------+----------------------------------|
+| C13 | type F | normal                           |
+| C15 | type F | PoE switch                       |
+| C13 | C14    | Rack PDU(Power Distribution Unit |

@@ -73,3 +73,25 @@ https://community.cisco.com/t5/smart-licensing-enterprise/smart-license-enabled-
 
 https://www.cisco.com/c/ko_kr/products/software/smart-accounts.html#~stickynav=2
 https://nexpert.tistory.com/679
+
+* DONE [2024-02-19 월] cisco, license
+
+- PIDs for Subscription Tier-Based Licenses for DCN (ACI+NX-OS) (Cisco Nexus 9000 Series Switches - Modular Platform)
+- PID: C1A1TN9500M816-3Y
+  - License: Advantage package
+  - 8- to 16-Slot Modular Platforms  
+- NX-OS License Package features Included in Tier-Based Licenses for Cisco Nexus 9000 and 3000 Series Switches
+  - Advantage
+    - All features included in the Essentials package plus the following features
+
+* DONE license honor period for approximately 255 days and 20 hours
+
+- https://community.cisco.com/t5/cisco-software-discussions/what-is-honor-based-licensing/td-p/4911958
+- then grace period
+  - During the grace period, the switch may still continue to operate with the licensed features,
+    but it could be limited in terms of functionality or performance
+
+* Honor Mode Licensing
+
+- https://www.cisco.com/c/en/us/td/docs/switches/datacenter/licensing-options/cisco-nexus-licensing-options-guide.html#HonorModeLicensing
+- Honor mode licensing allows you to enable or continue using a feature without having a valid license for that feature. 

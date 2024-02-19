@@ -1,0 +1,22 @@
+* DONE list
+
+- SC
+  - SC: Standard Connector
+- [X] LC with SFP(Small Form Factor) transceiver
+  - LC: Lucent but Little Connector
+- [X] MTP < MPO
+  - Multi-fiber connector
+  - MTP: Multiple-fiber Termination Push-on
+  - MPO: Multiple-fiber Push-On
+
+* DONE MPO and MTP
+
+| item        | MPO | MTP |
+|-------------+-----+-----|
+| core-s      |  24 |  32 |
+| fiber space | 4.6 | 5.3 |
+    
+* DONE MPO and cable-s
+
+- MTP/MPO Fiber Trunk Cable
+- MTP/MPO Breakout cable
