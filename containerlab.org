@@ -264,3 +264,12 @@ C-b 3 then ssh admin@172.20.20.2
 #+begin_src bash
   sudo clab destroy -c
 #+end_src
+
+* cli
+
+sudo clab deploy --reconfigure
+
+* network
+
+INFO[0004] Creating docker network: Name="clab", IPv4Subnet="172.20.20.0/24"
+INFO[0004] Creating lab directory: /home/debian/lab/clab-srlceos01

@@ -432,5 +432,238 @@ CLOSED: [2024-02-12 Mon 22:25]
     domain-id Arista-AB
 #+end_example
 
+* DONE mlag with tri
 
+- from arista warrior
+- clab
 
+** containerlab
+
+#+begin_example
+  debian@debian:~/lab$ cat srlceos01.clab.yml
+  # topology documentation: http://containerlab.dev/lab-examples/srl-ceos/
+  name: srlceos01
+
+  topology:
+    nodes:
+      ceos1:
+	kind: arista_ceos
+	image: arista/ceos:latest
+      ceos2:
+	kind: arista_ceos
+	image: arista/ceos:latest
+      ceos3:
+	kind: arista_ceos
+	image: arista/ceos:latest
+
+    links:
+      - endpoints: ["ceos1:eth1", "ceos2:eth1"]
+      - endpoints: ["ceos1:eth2", "ceos2:eth2"]
+      - endpoints: ["ceos1:eth3", "ceos3:eth1"]
+      - endpoints: ["ceos2:eth3", "ceos3:eth2"]
+#+end_example
+  
+** ceos1
+
+#+begin_example
+    interface eth1-2
+    channel-group 1000 mode active
+    int po 1000
+    switchport mode trunk
+
+    vlan 4094
+    trunk group MLAG-Peer
+    int po 1000
+    switchport trunk group MLAG-Peer
+
+    int vlan 4094
+    ip address 10.255.255.1/30
+    no autostate
+    
+    mlag
+    local-interface vlan 4094
+    peer-address 10.255.255.2
+    peer-link port-Channel 1000
+    domain-id Arista-AB
+#+end_example
+
+** ceos2
+
+#+begin_example
+    interface eth1-2
+    channel-group 1000 mode active
+    int po 1000
+    switchport mode trunk
+
+    vlan 4094
+    trunk group MLAG-Peer
+    int po 1000
+    switchport trunk group MLAG-Peer
+
+    int vlan 4094
+    ip address 10.255.255.2/30
+    no autostate
+    
+    mlag
+    local-interface vlan 4094
+    peer-address 10.255.255.1
+    peer-link port-Channel 1000
+    domain-id Arista-AB
+#+end_example
+
+** ceos1
+
+interface ethernet 3
+channel-group 10 mode active
+
+** ceos2
+
+interface ethernet 3
+channel-group 10 mode active
+
+** ceos3
+
+interface ethernet 1-2
+channel-group 10 mode active
+
+* DONE mlag with tri and ping
+
+- from arista warrior
+- clab
+
+** containerlab
+
+#+begin_example
+  debian@debian:~/lab$ cat srlceos01.clab.yml
+  # topology documentation: http://containerlab.dev/lab-examples/srl-ceos/
+  name: srlceos01
+
+  topology:
+    nodes:
+      ceos1:
+	kind: arista_ceos
+	image: arista/ceos:latest
+      ceos2:
+	kind: arista_ceos
+	image: arista/ceos:latest
+      ceos3:
+	kind: arista_ceos
+	image: arista/ceos:latest
+      ceos4:
+	kind: arista_ceos
+	image: arista/ceos:latest
+
+    links:
+      - endpoints: ["ceos1:eth1", "ceos2:eth1"]
+      - endpoints: ["ceos1:eth2", "ceos2:eth2"]
+      - endpoints: ["ceos1:eth3", "ceos3:eth1"]
+      - endpoints: ["ceos2:eth3", "ceos3:eth2"]
+      - endpoints: ["ceos1:eth4", "ceos4:eth1"]
+      - endpoints: ["ceos2:eth4", "ceos4:eth2"]
+#+end_example
+  
+** ceos1
+
+#+begin_example
+    interface eth1-2
+    channel-group 1000 mode active
+    int po 1000
+    switchport mode trunk
+
+    vlan 4094
+    trunk group MLAG-Peer
+    int po 1000
+    switchport trunk group MLAG-Peer
+
+    int vlan 4094
+    ip address 10.255.255.1/30
+    no autostate
+    
+    mlag
+    local-interface vlan 4094
+    peer-address 10.255.255.2
+    peer-link port-Channel 1000
+    domain-id Arista-AB
+#+end_example
+
+** ceos2
+
+#+begin_example
+    interface eth1-2
+    channel-group 1000 mode active
+    int po 1000
+    switchport mode trunk
+
+    vlan 4094
+    trunk group MLAG-Peer
+    int po 1000
+    switchport trunk group MLAG-Peer
+
+    int vlan 4094
+    ip address 10.255.255.2/30
+    no autostate
+    
+    mlag
+    local-interface vlan 4094
+    peer-address 10.255.255.1
+    peer-link port-Channel 1000
+    domain-id Arista-AB
+#+end_example
+
+** ceos1
+
+interface ethernet 3
+channel-group 10 mode active
+
+interface ethernet 4
+channel-group 20 mode active
+
+** ceos2
+
+interface ethernet 3
+channel-group 10 mode active
+
+interface ethernet 4
+channel-group 20 mode active
+
+** ceos3
+
+interface ethernet 1-2
+channel-group 10 mode active
+
+int vlan 1
+ip addr 1.1.1.1/24
+
+** ceos4
+
+interface ethernet 1-2
+channel-group 20 mode active
+
+int vlan 1
+ip addr 1.1.1.2/24
+
+** test
+
+*** ceos3
+
+ping 1.1.1.1
+
+*** ceos4
+
+int eth1
+shut
+int eth1
+no shut
+
+int eth2
+shut
+int eth2
+no shut
+
+*** TODO host
+
+docker stop ceos1
+docker start ceos1
+
+docker stop ceos2
+docker start ceos2 
