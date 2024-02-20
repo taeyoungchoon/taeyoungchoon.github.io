@@ -1,0 +1,32 @@
+* items
+
+- skb
+- sk_buff
+
+* site
+
+- https://wiki.kreonet.net/faster-data/
+- https://www.serveradminz.com/blog/20-40-100g-host-tuning/
+- https://www.chelsio.com/wp-content/uploads/resources/t6-100g-nic-epyc.pdf
+- https://fasterdata.es.net/host-tuning/linux/100g-tuning/
+- https://github.com/leandromoreira/linux-network-performance-parameters
+- https://learn.netdata.cloud/docs/data-collection/linux-systems/network
+- [ ] https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/monitoring_and_managing_system_status_and_performance/tuning-the-network-performance_monitoring-and-managing-system-status-and-performance
+
+* sysctl
+
+- netdev_max_backlog
+  - /proc/net/softnet_stat
+  
+* nic
+
+- ethtool
+  
+* test
+
+- https://fasterdata.es.net/host-tuning/linux/udp-tuning/
+
+** list
+
+- iperf
+
