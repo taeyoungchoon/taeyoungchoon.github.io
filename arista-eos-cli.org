@@ -436,6 +436,66 @@ CLOSED: [2024-02-12 Mon 22:25]
 
 - from arista warrior
 - clab
+=======
+* DONE varp
+
+- [X] what about 'ip routing'
+- [ ] testing
+
+** ceos1
+
+#+begin_example
+  vlan 10
+
+  int eth 1
+  switchport mode access
+  switchport access vlan 10
+
+  int vlan 10
+  ip addr 10.0.10.2/24
+
+  ip routing
+  
+  ip virtual-router mac-address 00:1c:73:00:00:99
+
+  int vlan 10
+  ip virtual-router address 10.0.10.1
+#+end_example
+
+** ceos2
+
+#+begin_example
+  vlan 10
+
+  int eth 1
+  switchport mode access
+  switchport access vlan 10
+
+  int vlan 10
+  ip addr 10.0.10.3/24
+
+  ip routing
+  
+  ip virtual-router mac-address 00:1c:73:00:00:99
+
+  int vlan 10
+  ip virtual-router address 10.0.10.1
+#+end_example
+
+** test
+
+#+begin_example
+  sh ip virtual-router
+  ping 10.0.10.1
+#+end_example
+
+** clean up
+
+#+begin_example
+  copy running-config running-config.save
+  configure replace flash:running-config.save
+#+end_example
+* TODO static route
 
 ** containerlab
 
