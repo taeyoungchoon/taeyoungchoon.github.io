@@ -142,7 +142,8 @@ ntp server x.x.x.x
 
 * route-map
 
-* acl
+* TODO acl
+
 #+begin_src 
 ip access-list vtyacl
   10 permit tcp host x.x.x.x any eq 2022
@@ -150,6 +151,14 @@ ip access-list vtyacl
 ip access-list snmpacl
   10 permit tcp host x.x.x.x
 
+ip access-list a1
+  10 permit ip any any log
+  20 deny ip any any
+#+end_src
+
+#+begin_src bash
+  int eth1
+    ip access-group a1 in
 #+end_src
 
 * ssh
