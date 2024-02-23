@@ -244,4 +244,249 @@ chronyc sourcestats
    2 Jan 08:44:07 ntpdate[5524]: adjust time server 192.168.25.31 offset -0.000026 sec
 #+end_src
 
+- [2024-02-23 금 10:05] then again
 
+** dig in
+
+*** working
+
+#+begin_example
+  [root@sr1 ~]# ntpq -c rl
+  associd=0 status=0615 leap_none, sync_ntp, 1 event, clock_sync,
+  version="ntpd 4.2.6p5@1.2349-o Tue Jun 23 15:38:18 UTC 2020 (1)",
+  processor="x86_64", system="Linux/3.10.0-1160.el7.x86_64", leap=00,
+  stratum=3, precision=-24, rootdelay=58.455, rootdisp=50.099,
+  refid=192.168.25.20,
+  reftime=e9826f0a.0e97dbe4  Fri, Feb 23 2024 10:10:34.057,
+  clock=e9826f19.156743cc  Fri, Feb 23 2024 10:10:49.083, peer=37489, tc=6,
+  mintc=3, offset=0.000, frequency=8.286, sys_jitter=0.000,
+  clk_jitter=1.941, clk_wander=0.000
+  [root@sr1 ~]# uptime
+   10:11:47 up 16 min,  1 user,  load average: 0.00, 0.03, 0.10
+#+end_example
+
+#+begin_example
+  [root@cvp2 ~]# ntpdate -q sr1.t.com
+  server 192.168.25.204, stratum 3, offset -0.000351, delay 0.02612
+  23 Feb 01:12:22 ntpdate[12708]: adjust time server 192.168.25.204 offset -0.000351 sec
+#+end_example
+
+*** stop ntpd
+
+#+begin_example
+[root@sr1 ~]# systemctl stop ntpd
+[root@sr1 ~]# ntpq -c rl
+ntpq: read: Connection refused
+#+end_example
+
+#+begin_example
+[root@cvp2 ~]# ntpdate -q sr1.t.com
+server 192.168.25.204, stratum 0, offset 0.000000, delay 0.00000
+23 Feb 01:12:52 ntpdate[15928]: no server suitable for synchronization found
+#+end_example
+
+*** reboot
+
+#+begin_example
+  [root@sr1 ~]# uptime
+   10:14:44 up 19 min,  1 user,  load average: 0.00, 0.02, 0.08
+  [root@sr1 ~]# reboot
+  Connection to sr1.t.com closed by remote host.
+  Connection to sr1.t.com closed.
+  jack@think:~$
+#+end_example
+
+- no_sys_peer
+
+#+begin_example
+  [root@sr1 ~]# ntpq -p
+       remote           refid      st t when poll reach   delay   offset  jitter
+  ==============================================================================
+  ,*192.168.25.20   216.239.35.0     2 u    1   64    3    0.212   -0.432   0.596
+  
+  [root@sr1 ~]# ntpq -c rl
+  associd=0 status=c618 leap_alarm, sync_ntp, 1 event, no_sys_peer,
+  version="ntpd 4.2.6p5@1.2349-o Tue Jun 23 15:38:18 UTC 2020 (1)",
+  processor="x86_64", system="Linux/3.10.0-1160.el7.x86_64", leap=11,
+  stratum=3, precision=-24, rootdelay=58.363, rootdisp=116.443,
+  refid=192.168.25.20,
+  reftime=e98270cf.c636d9b2  Fri, Feb 23 2024 10:18:07.774,
+  clock=e98270d3.de2aef89  Fri, Feb 23 2024 10:18:11.867, peer=505, tc=6,
+  mintc=3, offset=0.000, frequency=11.583, sys_jitter=0.000,
+  clk_jitter=0.173, clk_wander=0.000
+  [root@sr1 ~]#
+#+end_example
+
+#+begin_example
+  server 192.168.25.204, stratum 3, offset -0.003659, delay 0.02618
+  23 Feb 01:17:12 ntpdate[13978]: no server suitable for synchronization found
+#+end_example
+
+#+begin_example
+  [root@sr1 ~]# uptime
+   10:24:37 up 9 min,  1 user,  load average: 0.00, 0.10, 0.11
+  [root@sr1 ~]# ntpq -c pe
+       remote           refid      st t when poll reach   delay   offset  jitter
+  ==============================================================================
+  ,*192.168.25.20   216.239.35.0     2 u   54   64  177    0.530   -1.523   0.979
+  [root@sr1 ~]# ntpq -c as
+
+  ind assid status  conf reach auth condition  last_event cnt
+  ===========================================================
+    1   505  965a   yes   yes  none  sys.peer    sys_peer  5
+  [root@sr1 ~]# ntpq -c rl
+  associd=0 status=c618 leap_alarm, sync_ntp, 1 event, no_sys_peer,
+  version="ntpd 4.2.6p5@1.2349-o Tue Jun 23 15:38:18 UTC 2020 (1)",
+  processor="x86_64", system="Linux/3.10.0-1160.el7.x86_64", leap=11,
+  stratum=3, precision=-24, rootdelay=58.681, rootdisp=61.214,
+  refid=192.168.25.20,
+  reftime=e9827222.67604e8f  Fri, Feb 23 2024 10:23:46.403,
+  clock=e9827260.57a07d85  Fri, Feb 23 2024 10:24:48.342, peer=505, tc=6,
+  mintc=3, offset=0.000, frequency=11.583, sys_jitter=0.000,
+  clk_jitter=0.814, clk_wander=0.000
+  [root@sr1 ~]#
+#+end_example
+
+- not working then working after 15 min later
+
+#+begin_example
+  [root@sr1 ~]# uptime
+   10:29:49 up 14 min,  1 user,  load average: 0.00, 0.04, 0.08
+   
+  [root@sr1 ~]# ntpq -c rl
+  associd=0 status=c618 leap_alarm, sync_ntp, 1 event, no_sys_peer,
+  version="ntpd 4.2.6p5@1.2349-o Tue Jun 23 15:38:18 UTC 2020 (1)",
+  processor="x86_64", system="Linux/3.10.0-1160.el7.x86_64", leap=11,
+  stratum=3, precision=-24, rootdelay=50.326, rootdisp=40.902,
+  refid=192.168.25.20,
+  reftime=e9827376.1f99bb4a  Fri, Feb 23 2024 10:29:26.123,
+  clock=e9827390.b8d19dbc  Fri, Feb 23 2024 10:29:52.721, peer=505, tc=6,
+  mintc=3, offset=0.000, frequency=11.583, sys_jitter=0.000,
+  clk_jitter=1.397, clk_wander=0.000
+
+  [root@sr1 ~]# ntpq -c rl
+  associd=0 status=0615 leap_none, sync_ntp, 1 event, clock_sync,
+  version="ntpd 4.2.6p5@1.2349-o Tue Jun 23 15:38:18 UTC 2020 (1)",
+  processor="x86_64", system="Linux/3.10.0-1160.el7.x86_64", leap=00,
+  stratum=3, precision=-24, rootdelay=50.408, rootdisp=41.996,
+  refid=192.168.25.20,
+  reftime=e98273b8.7fb44eb7  Fri, Feb 23 2024 10:30:32.498,
+  clock=e98273cf.e862c0b6  Fri, Feb 23 2024 10:30:55.907, peer=505, tc=6,
+  mintc=3, offset=0.000, frequency=9.270, sys_jitter=0.000,
+  clk_jitter=1.505, clk_wander=0.000
+
+  [root@sr1 ~]# ntpq -c rl
+  associd=0 status=0615 leap_none, sync_ntp, 1 event, clock_sync,
+  version="ntpd 4.2.6p5@1.2349-o Tue Jun 23 15:38:18 UTC 2020 (1)",
+  processor="x86_64", system="Linux/3.10.0-1160.el7.x86_64", leap=00,
+  stratum=3, precision=-24, rootdelay=50.408, rootdisp=41.996,
+  refid=192.168.25.20,
+  reftime=e98273b8.7fb44eb7  Fri, Feb 23 2024 10:30:32.498,
+  clock=e98273d0.bf971917  Fri, Feb 23 2024 10:30:56.748, peer=505, tc=6,
+  mintc=3, offset=0.000, frequency=9.270, sys_jitter=0.000,
+  clk_jitter=1.505, clk_wander=0.000
+  
+  [root@sr1 ~]# uptime
+   10:31:00 up 16 min,  1 user,  load average: 0.00, 0.03, 0.07
+  [root@sr1 ~]#
+#+end_example
+
+#+begin_example
+  [root@cvp2 ~]# ntpdate -q sr1.t.com
+  server 192.168.25.204, stratum 3, offset 0.004183, delay 0.02612
+  23 Feb 01:32:02 ntpdate[19256]: adjust time server 192.168.25.204 offset 0.004183 sec
+  [root@cvp2 ~]#
+#+end_example
+
+- https://community.cloudera.com/t5/Support-Questions/Clock-Offset-Bad-on-cloudera-manager-server/m-p/281801/highlight/true
+  - I have also tried to restart the ntp service with service ntpd  restart and it seems to work but sometime the error reappears but spontaneously, after 15-20 minutes, fix itself automatically.
+
+- https://bugzilla.redhat.com/show_bug.cgi?id=1361382
+- https://www.redhat.com/en/blog/avoiding-clock-drift-vms
+  - Bug 1361382 - ntp-wait hangs after boot for a long time, unless ntpd is restarted 
+    - [ ] The problem is in the leap_alarm flag, i.e. ntpd is reporting it's not synchronized. The reason for that is the initial clock step, after which ntpd enters a state in which it measures the frequency of the clock and this takes about 900 seconds (it can be configured with the tos stepout command). This prevents ntpd from constantly stepping when the frequency has changed so much that the loop is not able to lock.
+      - tos
+      - stepout
+	- tinker stepout 0
+	
+    - [ ] This is not related to network connection. This is about the initial offset and the state of the ntpd's loop. When the initial offset is larger than 0.128s, ntpd will step the clock and then it will wait for at least 900 seconds (in default configuration) before it reports it's in the synchronized state.
+    - [ ] If the initial offset is smaller than 0.128s, it will not step the clock and will go straight to the synchronized state. One way to make sure the initial offset is small is to run ntpdate before ntpd. In Fedora/RHEL/CentOS you can enable the ntpdate service. You shouldn't need to restart ntpd, that's generally a bad idea.
+
+Does this help?
+
+#+begin_example
+  [root@cvp2 ~]# bc -q
+  900 / 60
+  15
+  quit
+  [root@cvp2 ~]#
+#+end_example
+
+#+begin_example
+  [root@s001 ~]# ntpq -p
+       remote           refid      st t when poll reach   delay   offset  jitter
+  ==============================================================================
+  ,*192.168.25.20   216.239.35.0     2 u   57  128  377    0.186    1.104   0.923
+
+  [root@sr1 ~]# ntpq -p
+       remote           refid      st t when poll reach   delay   offset  jitter
+  ==============================================================================
+  ,*192.168.25.20   216.239.35.0     2 u   36   64    7    0.253    0.491   0.146
+  [root@sr1 ~]#
+
+  [root@cvp2 ~]# ntpq -p
+       remote           refid      st t when poll reach   delay   offset  jitter
+  ==============================================================================
+  ,*fs2.t.com       216.239.35.0     2 u   15  128  377    0.296    2.132   0.612
+  [root@cvp2 ~]#
+#+end_example
+
+
+#+begin_example
+  [root@sr1 ~]# man ntp_misc | egrep 'tinker|stepout'
+  man: can't set the locale; make sure $LC_* and $LANG are correct
+	 tinker [ allan allan | dispersion dispersion | freq freq | huffpuff huffpuff | panic panic | step step | step-
+	 back step | stepfwd step | stepout stepout ]
+		 stepout stepout
+			 Specifies the stepout threshold in seconds. The default without this command is 900 s.
+#+end_example
+
+#+begin_example
+  [root@sr1 ~]# ntpq -c pe; ntpq -c rl|grep assoc
+       remote           refid      st t when poll reach   delay   offset  jitter
+  ==============================================================================
+  ,*192.168.25.20   216.239.35.0     2 u   33   64    1    0.384    7.713   0.068
+  associd=0 status=0615 leap_none, sync_ntp, 1 event, clock_sync,
+#+end_example
+
+#+begin_example
+  [root@sr1 ~]# cat /etc/ntp.conf | grep stepout
+  tinker stepout 60
+#+end_example
+
+#+begin_example
+  [root@cvp2 ~]# cat /etc/ntp.conf | grep stepout
+  tinker stepout 60
+  [root@cvp2 ~]#
+
+  [root@cvp2 ~]# ntpdate -q 192.168.25.20
+  server 192.168.25.20, stratum 2, offset -0.000426, delay 0.02621
+  23 Feb 02:12:02 ntpdate[4771]: adjust time server 192.168.25.20 offset -0.000426 sec
+  [root@cvp2 ~]#
+
+  [root@cvp2 ~]# ntpq -c pe
+       remote           refid      st t when poll reach   delay   offset  jitter
+  ==============================================================================
+   fs2.t.com       216.239.35.0     2 u   25   64    3    0.517   -0.286   0.272
+
+  [root@cvp2 ~]# ntpq -c rl
+  associd=0 status=c012 leap_alarm, sync_unspec, 1 event, freq_set,
+  version="ntpd 4.2.6p5@1.2349-o Tue Jun 23 15:38:18 UTC 2020 (1)",
+  processor="x86_64", system="Linux/5.12.12-1.el7.elrepo.x86_64", leap=11,
+  stratum=16, precision=-24, rootdelay=0.000, rootdisp=2.415, refid=INIT,
+  reftime=00000000.00000000  Mon, Jan  1 1900  0:00:00.000,
+  clock=e9827d5b.e1248c40  Fri, Feb 23 2024  2:11:39.879, peer=0, tc=3,
+  mintc=3, offset=0.000, frequency=12.551, sys_jitter=0.000,
+  clk_jitter=0.000, clk_wander=0.000
+  [root@cvp2 ~]
+#+end_example
