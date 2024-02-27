@@ -190,3 +190,43 @@
   else:
       print(result.stderr)
   #+end_src
+
+* DONE arg with sys.argv
+
+#+begin_src python
+  import sys
+
+  def help():
+      print("require argument")
+      sys.exit(1)
+
+  if len(sys.argv) == 1:
+      help()
+
+  opt = sys.argv[1]
+  print("do with {}".format(opt))
+#+end_src
+
+#+RESULTS:
+
+* TODO argparse later on
+* DONE dictionary
+
+#+begin_src python
+  d = {1:2, 3:4}
+  print("{} {} {}".format(d[1], d.get(1), d.get(2)))
+#+end_src
+
+#+RESULTS:
+: None
+
+* TODO generator, yield, lazy
+
+#+begin_src python
+  [x for x in range(0, 3)]
+  g = (x for x in range(0, 3))
+  next(g)
+  next(g)
+  next(g)
+  next(g)
+#+end_src

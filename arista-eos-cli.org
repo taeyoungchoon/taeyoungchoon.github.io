@@ -5,7 +5,7 @@ CLOSED: [2024-02-14 Wed 18:52]
 hostname veos101
 #+end_src
 
-* nameserver, dns, ns
+* TODO nameserver, dns, ns
 
 #+begin_src bash
   ip name-server vrf default 8.8.8.8
@@ -13,12 +13,36 @@ hostname veos101
 
 * TODO user
 
-- [ ] role
-- [ ] privilege
+- [X] role
+- [X] privilege
 
 #+begin_src
-username admin secret xxx
+username admin secret admin
+username cvpadmin priv 15 role network-admin secret 1234qwer
 #+end_src
+
+- cvpsystem
+
+** TODO cvpsystem
+
+#+begin_example
+Log Buffer:
+Feb 25 13:02:48 vv ConfigAgent: %SYS-5-CONFIG_SESSION_ENTERED: User cvpsystem entered configuration session capiVerify-1519-2c951f86d3de11ee83c850ac84260221 on TerminAttr (localhost)
+Feb 25 13:02:48 vv ConfigAgent: %SYS-5-CONFIG_SESSION_EXITED: User cvpsystem exited configuration session capiVerify-1519-2c951f86d3de11ee83c850ac84260221 on TerminAttr (localhost)
+Feb 25 13:02:48 vv ConfigAgent: %SYS-5-CONFIG_SESSION_ABORTED: User cvpsystem aborted configuration session capiVerify-1519-2c951f86d3de11ee83c850ac84260221 on TerminAttr (localhost)
+
+Feb 25 13:03:03 vv ConfigAgent: %SYS-5-CONFIG_SESSION_ENTERED: User cvpsystem entered configuration session capiVerify-1519-35a38996d3de11ee928750ac84260221 on TerminAttr (localhost)
+Feb 25 13:03:04 vv ConfigAgent: %SYS-5-CONFIG_SESSION_EXITED: User cvpsystem exited configuration session capiVerify-1519-35a38996d3de11ee928750ac84260221 on TerminAttr (localhost)
+Feb 25 13:03:04 vv ConfigAgent: %SYS-5-CONFIG_SESSION_ABORTED: User cvpsystem aborted configuration session capiVerify-1519-35a38996d3de11ee928750ac84260221 on TerminAttr (localhost)
+
+Feb 25 13:03:42 vv ConfigAgent: %SYS-5-CONFIG_SESSION_ENTERED: User cvpadmin entered configuration session CVP-configtask-79b1063c-bc0c-44be-91b0-8810701dbd7b on TerminAttr (localhost)
+Feb 25 13:03:43 vv ConfigAgent: %SYS-5-CONFIG_SESSION_EXITED: User cvpadmin exited configuration session CVP-configtask-79b1063c-bc0c-44be-91b0-8810701dbd7b on TerminAttr (localhost)
+Feb 25 13:03:45 vv ConfigAgent: %SYS-5-CONFIG_SESSION_ENTERED: User cvpadmin entered configuration session CVP-configtask-79b1063c-bc0c-44be-91b0-8810701dbd7b on TerminAttr (localhost)
+Feb 25 13:03:45 vv ConfigAgent: %SYS-5-CONFIG_SESSION_COMMIT_TIMER_STARTED: User cvpadmin committed session CVP-configtask-79b1063c-bc0c-44be-91b0-8810701dbd7b on TerminAttr (localhost), with timer 0:4:0(hr:min:sec).
+Feb 25 13:03:45 vv ConfigAgent: %SYS-5-CONFIG_SESSION_EXITED: User cvpadmin exited configuration session CVP-configtask-79b1063c-bc0c-44be-91b0-8810701dbd7b on TerminAttr (localhost)
+Feb 25 13:03:56 vv ConfigAgent: %SYS-5-CONFIG_SESSION_COMMIT_SUCCESS: User cvpadmin committed configuration session CVP-configtask-79b1063c-bc0c-44be-91b0-8810701dbd7b successfully on TerminAttr (localhost)
+Feb 25 13:03:57 vv ConfigAgent: %SYS-5-CONFIG_STARTUP: Startup config saved from system:/running-config by cvpadmin on TerminAttr (localhost).
+#+end_example
 
 * DONE enable password
 CLOSED: [2024-02-14 Wed 18:54]
@@ -347,11 +371,17 @@ service routing protocols model multi-agent
 
 #+end_src
 
-* vrf
+* TODO vrf
 
-#+begin_src bash
-show vrf
-#+end_src
+  show vrf
+  
+  vrf instance MGMT
+  int Ma1
+    vrf MGMT
+  ip routing vrf MGMT
+  ip route vrf MGMT 0.0.0.0/0 192.168.25.1
+  ntp server vrf MGMT 192.168.25.20 prefer iburst
+  ntp server vrf MGMT 192.168.25.204 iburst
 
 * DONE config backup and restore
 CLOSED: [2024-02-12 Mon 22:25]
@@ -736,3 +766,35 @@ docker start ceos1
 
 docker stop ceos2
 docker start ceos2 
+
+* DONE session
+
+- https://www.arista.com/en/um-eos/eos-configure-session
+
+** serial, parts
+
+#+begin_example
+configure session s1
+ip name-serfver 192.168.25.211
+commit
+#+end_example
+
+#+begin_example
+show config session
+config session x abort
+#+end_example
+
+** combine
+
+#+begin_example
+  conf session s1
+  sh conf session
+  ip name-server 192.168.25.211
+  conf session s2
+  sh conf session
+  abort
+  sh conf sesion
+  conf session s1
+  sh session-config diff
+  commit
+#+end_example

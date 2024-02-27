@@ -18,3 +18,39 @@ print(mytemplate.render())
 - https://en.wikipedia.org/wiki/Mako_(template_engine)
 - https://old.reddit.com/r/redditdev/comments/fewoh/a_beginners_guide_to_the_reddit_source_code_part/
 - https://techspot.zzzeek.org/
+
+* TODO syntax vs python block
+
+- https://docs.makotemplates.org/en/latest/syntax.html
+- 2 and 4
+  
+#+begin_src python
+  this is a template
+  <%
+      x = db.get_resource('foo')
+      y = [z.element for z in x if x.frobnizzle==5]
+  %>
+  % for elem in y:
+      element: ${elem}
+  % endfor
+#+end_src
+
+#+begin_src python
+  <%inherit file="base.html"/>
+  <%
+      rows = [[v for v in range(0,10)] for row in range(0,10)]
+  %>
+  <table>
+      % for row in rows:
+	  ${makerow(row)}
+      % endfor
+  </table>
+
+  <%def name="makerow(row)">
+      <tr>
+      % for name in row:
+	  <td>${name}</td>\
+      % endfor
+      </tr>
+  </%def>
+#+end_src
