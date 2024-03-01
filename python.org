@@ -114,7 +114,8 @@
       print(stuff)
 #+end_src
 
-* TODO def func
+* DONE def func
+CLOSED: [2024-03-01 Fri 16:38]
 
 #+BEGIN_SRC python
   def say(word):
@@ -129,7 +130,23 @@
 #+RESULTS:
 : None
 
-* TODO class
+* DONE class
+CLOSED: [2024-03-01 Fri 15:52]
+
+#+BEGIN_SRC python
+  class dog:
+      name = ""
+      age = ""
+      def getName(self):
+	  return self.name
+      def setName(self, name):
+	  self.name = name
+
+  big_dog = dog()
+  big_dog.setName("joe")
+  big_dog.getName()
+#+END_SRC
+
 * TODO rest api
 
 - import requests
@@ -142,6 +159,27 @@
 - json.loads
 - json.tool
 
+#+begin_src python
+  import json
+
+  jd = {1:2, 3:4}
+  json.dumps(jd)
+  json.loads(json.dumps(jd))
+
+  help(json.dumps)
+  help(json.loads)
+  help(json.load)
+  help(json.dump)
+
+  json.dump(jd, open('jd.json', 'w'))
+  with open('jd.json') as f:
+      print(f.read())
+
+  with open('jd.json') as f:
+      print(json.load(f))
+#+end_src
+  
+* TODO yaml
 * TODO template inside string
 
 - from string import Template
@@ -230,3 +268,28 @@
   next(g)
   next(g)
 #+end_src
+
+* TODO decorator
+
+#+begin_src python
+  class Person:
+    name: str
+    age: int
+
+  p = Person()
+  p.name = 'joe'
+  p.age = 32
+#+end_src
+
+#+begin_src python
+  from dataclasses import dataclass
+
+  @dataclass
+  class Person:
+    name: str
+    age: int
+
+  p = Person('meg', 34)
+#+end_src
+
+
