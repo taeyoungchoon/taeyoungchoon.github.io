@@ -269,9 +269,41 @@ CLOSED: [2024-03-01 Fri 15:52]
   next(g)
 #+end_src
 
+* DONE dunder method, double under
+CLOSED: [2024-03-02 Sat 00:01]
+
+#+begin_src python :results output
+class Vector:
+
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __add__(self, other):
+        return Vector(self.x + other.x, self.y + other.y)
+
+    def __repr__(self):
+        return f"{self.x} x {self.y}"
+    
+v1 = Vector(10, 20)
+v2 = Vector(50, 60)
+
+try:
+    v3 = v1 + v2
+except Exception as e:
+    print(e)
+
+print(v3)
+
+#+end_src
+
+#+RESULTS:
+: 60 x 80
 * TODO decorator
 
-#+begin_src python
+** class decorator
+
+#+begin_src python :results output
   class Person:
     name: str
     age: int
@@ -279,9 +311,13 @@ CLOSED: [2024-03-01 Fri 15:52]
   p = Person()
   p.name = 'joe'
   p.age = 32
+  print(p.name, p.age)
 #+end_src
 
-#+begin_src python
+#+RESULTS:
+: joe 32
+
+#+begin_src python :results output
   from dataclasses import dataclass
 
   @dataclass
@@ -290,6 +326,93 @@ CLOSED: [2024-03-01 Fri 15:52]
     age: int
 
   p = Person('meg', 34)
+  print(p)
 #+end_src
 
+#+RESULTS:
+: Person(name='meg', age=34)
 
+** function decorator
+
+#+begin_src python :results output
+def pre_decor(function):
+
+    def auth():
+        print("auth called")
+        function()
+
+    return auth
+
+def hello_world():
+    print("hello, world")
+
+pre_decor(hello_world)()
+#+end_src
+
+#+RESULTS:
+: auth called
+: hello, world
+
+#+begin_src python :results output
+def pre_decor(function):
+
+    def auth():
+        print("auth called")
+        function()
+
+    return auth
+
+@pre_decor
+def hello_world():
+    print("hello, world")
+
+hello_world()
+#+end_src
+
+#+RESULTS:
+: auth called
+: hello, world
+
+#+begin_src python :results output
+def pre_decor(function):
+
+    def auth(*args, **kwargs):
+        print("auth called")
+        value = function(*args, **kwargs)
+        return value
+    
+    return auth
+
+@pre_decor
+def hello_world(person):
+    print(f"hello, {person}")
+
+hello_world("jack")
+#+end_src
+
+#+RESULTS:
+: auth called
+: hello, jack
+
+#+begin_src python :results output
+def logger(func):
+    def wrapper(*args, **kwargs):
+        value = func(*args, **kwargs)
+        with open('log.out', 'a+') as f:
+            fname = func.__name__
+            print(f"{fname} turn v as {value}")
+            f.write(f"{fname} turn v as {value}\n")
+        return value
+
+    return wrapper
+
+@logger
+def add(x, y):
+    return x + y
+
+print(add(10, 20))
+#+end_src
+
+#+RESULTS:
+: add turn v as 30
+: 30
