@@ -13,31 +13,107 @@
   5. while true; do python3 foo.py; sleep 3; done
 - [X] ipython
 - [X] if
-  #+BEGIN_SRC python
-    if True:
-	print(True)
-  #+END_SRC
 - [X] for
-  #+BEGIN_SRC python
-    for i in range(3):
-	for j in range(3):
-	    print(i, j)
-  #+END_SRC
 - [ ] re
 - [X] list
-  #+BEGIN_SRC python
-    lt = [1, 2, 3]
-    print(lt)
-  #+END_SRC
 - [ ] hash
 - [ ] arg
-- [X] math
-  #+BEGIN_SRC python
-    import math
-    math.pi
-  #+END_SRC
-- print
-  
+- [ ] print
+
+* TODO if
+
+#+BEGIN_SRC python :results output
+if True:
+    print(True)
+elif False:
+    print(False)
+else:
+    print(None)
+#+END_SRC
+
+#+RESULTS:
+: True
+
+* TODO list comprehension
+
+#+begin_src python :results output
+lt1 = [x for x in range(3)]
+lt2 = [x for x in range(3) if x > 0]
+print(lt1, lt2, sep="\n")
+#print(lt2)
+#+end_src
+
+#+RESULTS:
+: [0, 1, 2]
+: [1, 2]
+
+* TODO functional(map, filter)
+* DONE lambda
+CLOSED: [2024-03-02 Sat 22:06]
+
+#+begin_src python :results output
+f = lambda a, b : a + b
+print(f(1, 2))
+#+end_src
+
+#+RESULTS:
+: 3
+
+* DONE print with format
+CLOSED: [2024-03-02 Sat 22:30]
+
+#+begin_src python :results output
+hello, name, num = "hi", "jack", 10000
+print("%s, %s with legend" % (hello, name))
+print("{0}, {1} with format".format(hello, name))
+print(f"{hello}, {name} with f-string")
+num = 10000
+print(f"{num:,}")
+#+end_src
+
+#+RESULTS:
+: hi, jack with legend
+: hi, jack with format
+: hi, jack with f-string
+: 10,000
+
+* DONE for
+CLOSED: [2024-03-02 Sat 22:37]
+
+#+BEGIN_SRC python :results output
+for i in range(0, 2):
+    for j in range(0, 2):
+        print(i, j)
+#+END_SRC
+
+#+RESULTS:
+: 0 0
+: 0 1
+: 1 0
+: 1 1
+
+* DONE list
+CLOSED: [2024-03-02 Sat 22:37]
+
+#+BEGIN_SRC python :results output
+lt = [1, 2, 3]
+print(lt)
+#+END_SRC
+
+#+RESULTS:
+: [1, 2, 3]
+
+* DONE math
+CLOSED: [2024-03-02 Sat 22:37]
+
+#+begin_src python :results output
+import math
+print(round(math.pi, 2))
+#+end_src
+
+#+RESULTS:
+: 3.14
+
 * DONE help
 
 #+begin_src python
@@ -147,12 +223,36 @@ CLOSED: [2024-03-01 Fri 15:52]
   big_dog.getName()
 #+END_SRC
 
+#+begin_src python
+class Host:
+    def __init__(self, machine, role):
+        self.machine = machine
+        self.role = role
+        self.age = 0
+        self.power = []
+#+end_src
+
+#+begin_src python
+class NetworkDevice:
+
+    def __init__(self):
+        self.name: str
+
+nd1 = NetworkDevice()
+nd1.name = "arista1.t.com"
+print(f"the name is {nd1.name}")
+#+end_src
+
+#+RESULTS:
+: None
+
 * TODO rest api
 
 - import requests
 - json, hash and template inside string
 
-* TODO json
+* DONE json
+CLOSED: [2024-03-02 Sat 22:38]
 
 - import json
 - json.dumps
@@ -178,7 +278,7 @@ CLOSED: [2024-03-01 Fri 15:52]
   with open('jd.json') as f:
       print(json.load(f))
 #+end_src
-  
+
 * TODO yaml
 * TODO template inside string
 
@@ -248,6 +348,77 @@ CLOSED: [2024-03-01 Fri 15:52]
 #+RESULTS:
 
 * TODO argparse later on
+* TODO def
+
+#+begin_src python :results output
+def summy(a, b):
+    return a + b
+
+print(summy(1, 2))
+#+end_src
+
+#+RESULTS:
+: 3
+
+* TODO range
+
+#+begin_src python :results output
+for i in range(1, 10):
+    if i % 2 == 0:
+        print(i)
+#+end_src
+
+#+RESULTS:
+: 2
+: 4
+: 6
+: 8
+
+* TODO input
+
+#+begin_src python
+value = input("input num : ")
+#+end_src
+
+#+RESULTS:
+
+* DONE re
+CLOSED: [2024-03-02 Sat 22:38]
+
+#+begin_src python :results output
+import re
+
+line = "this is the line"
+match = re.search('the', line)
+print(match.group(0))
+#+end_src
+
+#+RESULTS:
+: the
+
+#+begin_src python :results output
+import re
+
+line = "this-is-the"
+lt = line.split('-')
+print(lt)
+#+end_src
+
+#+RESULTS:
+: ['this', 'is', 'the']
+
+* TODO exception
+
+#+begin_src python :results output
+try:
+    if int(value) == int:        
+        pass
+except:
+    pass
+#+end_src
+
+#+RESULTS:
+
 * DONE dictionary
 
 #+begin_src python
