@@ -5,3 +5,379 @@ https://wiki.jenkins.io/display/JENKINS/Starting+and+Accessing+Jenkins
 * real
 
 https://ci.kronosnet.org
+
+* so
+
+- os: rhel 7.8
+- [X] jenkins: 2.346.1 to .3
+  - https://alpha.velog.io/@rjsdn04111/Jenkins-%EC%84%A4%EC%B9%98%EB%B6%80%ED%84%B0-%EC%97%B0%EB%8F%99%EA%B9%8C%EC%A7%80-dhi2o26m
+  - https://blog.csdn.net/qq_62740875/article/details/129827630
+- [X] java: 8
+  - java-1.8.0-openjdk java-1.8.0-openjdk-devel 
+- [ ] ant : 
+- [ ] maven :
+
+* refer
+
+- http://www.linuxdata.org/bbs/board.php?bo_table=Jenkins&wr_id=2
+- https://www.jenkins.io/doc/book/installing/linux/#red-hat-centos
+
+* about lts(pure)
+
+sudo wget -O /etc/yum.repos.d/jenkins.repo \
+    https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+sudo yum upgrade
+# Add required dependencies for the jenkins package
+sudo yum install fontconfig java-17-openjdk
+sudo yum install jenkins
+sudo systemctl daemon-reload
+
+* TODO more, ing
+
+sudo wget --no-check-certificate -O /etc/yum.repos.d/jenkins.repo \
+    https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+subscription-manager register
+subscription-manager attach
+sudo yum update
+yum install java-1.8.0-openjdk
+rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+yum install jenkins-2.346.1
+sudo systemctl daemon-reload
+firewall-cmd --add-port=8080/tcp --permanent
+firewall-cmd --add-port=8080/tcp
+firefox : http://192.168.25.161:8080
+cat /var/lib/jenkins/secrets/initialAdminPassword
+yum install java-1.8.0-openjdk-devel
+
+* ant then
+* maven then
+
+- maven 3.5.0 / book
+- https://tecadmin.net/install-apache-maven-on-centos/
+- [ ] maven 3.5.4
+  - https://blog.csdn.net/qq_62740875/article/details/129827630
+- maven 3.6.1
+- [ ] maven 3.6.3 / youtube
+  - https://royleej9.tistory.com/entry/Jenkins-Maven-%EC%84%A4%EC%A0%95
+  - https://www.youtube.com/watch?v=-5tA3hZTVfA
+- maven 3.9.6
+  - wget https://dlcdn.apache.org/maven/maven-3/3.9.6/binaries/apache-maven-3.9.6-bin.tar.gz
+
+* jenkins 2.440.1, 2.445 is the most recent
+
+yum install jenkins
+yum install java-11-openjdk java-11-openjdk-devlel
+alternative --config java
+jenkins-plugin-cli --plugins javax-mail-api:1.6.2-9
+
+* plugin cli
+
+https://github.com/jenkinsci/plugin-installation-manager-tool
+java -jar jenkins-plugin-manager-*.jar --war /your/path/to/jenkins.war --plugin-download-directory /your/path/to/plugins/ --plugin-file /your/path/to/plugins.txt --plugins delivery-pipeline-plugin:1.3.2 deployit-plugin
+
+wget https://github.com/jenkinsci/plugin-installation-manager-tool/releases/download/2.12.15/jenkins-plugin-manager-2.12.15.jar
+java -jar jenkins-plugin-manager-*.jar --plugins delivery-pipeline-plugin:1.3.2 deployit-plugin
+
+* docker for rhel 7
+
+- https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux_atomic_host/7/html-single/getting_started_with_containers/index#getting_docker_in_rhel_7
+
+subscription-manager repos --enable=rhel-7-server-rpms
+subscription-manager repos --enable=rhel-7-server-extras-rpms
+subscription-manager repos --enable=rhel-7-server-optional-rpms
+yum install docker device-mapper-libs device-mapper-event-libs
+systemctl start docker.service
+
+* installed
+
+[root@localhost cli]# java -jar jenkins-plugin-manager-*.jar --plugins mailer:470.vc91f60c5d8e2 --list
+
+Installed plugins:
+apache-httpcomponents-client-4-api 4.5.14-208.v438351942757
+bootstrap5-api 5.3.3-1
+bouncycastle-api 2.30.1.77-225.v26ea_c9455fd9
+branch-api 2.1152.v6f101e97dd77
+caffeine-api 3.1.8-133.v17b_1ff2e0599
+checks-api 2.0.2
+cloudbees-folder 6.901.vb_4c7a_da_75da_3
+commons-lang3-api 3.13.0-62.v7d18e55f51e2
+commons-text-api 1.11.0-95.v22a_d30ee5d36
+credentials 1337.v60b_d7b_c7b_c9f
+delivery-pipeline-plugin 1.3.2
+deployit-plugin 23.2.0
+display-url-api 2.200.vb_9327d658781
+durable-task 550.v0930093c4b_a_6
+echarts-api 5.5.0-1
+font-awesome-api 6.5.1-3
+instance-identity 185.v303dc7c645f9
+ionicons-api 56.v1b_1c8c49374e
+jackson2-api 2.16.1-373.ve709c6871598
+jakarta-activation-api 2.1.3-1
+jakarta-mail-api 2.1.3-1
+javax-activation-api 1.2.0-6
+jaxb 2.3.9-1
+jquery 1.12.4-1
+jquery3-api 3.7.1-2
+json-path-api 2.9.0-33.v2527142f2e1d
+junit 1259.v65ffcef24a_88
+mailer 470.vc91f60c5d8e2
+matrix-project 822.824.v14451b_c0fd42
+parameterized-trigger 787.v665fcf2a_830b_
+pipeline-graph-analysis 216.vfd8b_ece330ca_
+pipeline-input-step 491.vb_07d21da_1a_fb_
+pipeline-rest-api 2.34
+pipeline-stage-step 305.ve96d0205c1c6
+pipeline-stage-view 2.34
+plugin-util-api 4.1.0
+scm-api 683.vb_16722fb_b_80b_
+script-security 1326.vdb_c154de8669
+snakeyaml-api 2.2-111.vc6598e30cc65
+structs 337.v1b_04ea_4df7c8
+token-macro 400.v35420b_922dcb_
+workflow-api 1291.v51fd2a_625da_7
+workflow-basic-steps 1049.v257a_e6b_30fb_d
+workflow-cps 3883.vb_3ff2a_e3eea_f
+workflow-durable-task-step 1331.vc8c2fed35334
+workflow-job 1400.v7fd111b_ec82f
+workflow-multibranch 773.vc4fe1378f1d5
+workflow-scm-step 415.v434365564324
+workflow-step-api 657.v03b_e8115821b_
+workflow-support 865.v43e78cc44e0d
+* mailer 457 to 470
+
+[root@localhost cli]# java -jar jenkins-plugin-manager-*.jar --available-updates --plugins mailer:470
+Available updates:
+mailer (470) has an available update: 470.vc91f60c5d8e2
+
+[root@localhost cli]# java -jar jenkins-plugin-manager-*.jar --plugins mailer:470.vc91f60c5d8e2
+Done
+
+* TODO jenkinis 2.346.1 from rhel 7.8
+
+alternatives --config java
+yum install jenkins-2.346.1
+systemctl start jenkins
+
+* DONE Structs Plugin
+
+** say
+
+Failed to load: Structs Plugin (structs 325.vcb_307d2a_2782)
+ - Jenkins (2.361.4) or higher required
+
+** so
+
+- https://updates.jenkins.io/download/plugins/structs/
+  - 325
+    - Requires Jenkins 2.361.4
+  - 324
+    - Requires Jenkins 2.289.3
+    - https://updates.jenkins.io/download/plugins/structs/324.va_f5d6774f3a_d/structs.hpi
+
+* CUT
+* TODO [#B] jenkins specific version, way to go
+
+- [ ] https://community.jenkins.io/t/plugin-installation-failed/7756/4
+  - plugin manager > advanced
+    - Update Site
+      - url
+	- https://updates.jenkins.io/update-center.json?version=2.346.1
+- [ ] you have a message saying that you should restart Jenkins. I would first do so before updating plugins
+
+** other refer
+
+- https://www.north-47.com/update-jenkins-plugins-behind-a-corporate-proxy/
+- https://community.jenkins.io/t/jenkins-plugin-cli-download-wrong-plugin-version/12312
+- https://www.jenkins.io/templates/updates/
+
+** parse
+
+{"name":"structs","optional":false,"version":"324.va_f5d6774f3a_d"}
+{"name":"structs","optional":false,"version":"1.5"}
+{"name":"structs","optional":false,"version":"1.24"}
+
+** restart
+
+192.168.25.161:8080/restart
+
+* DONE ant first
+
+- ant
+  - struct
+    
+* TODO maven integration
+
+- maven
+
+* TODO [#B] jenkins 2.346.3
+
+- https://updates.jenkins.io/update-center.json?id=default&version=2.346.3
+
+* tree
+
+- apache-httpcomponents-client-4-api
+- common-lang3-api
+- javadoc
+- jsch
+  - trilead api
+  - credentials
+  - ssh credentials
+- junit
+  - lots
+    - jaxb
+      - JavaBeans Activation Framework (JAF) API (javax-activation-api 1.2.0-2) to be updated to 1.2.0-5 or higher
+  - caffeine-api.hpi
+  - checks-api.hpi
+  - commons-text-api.hpi
+  - display-url-api.hpi
+  - echarts-api.hpi
+  - ionicons-api.hpi
+  - jaxb.hpi
+  - scm-api.hpi
+  - script-security.hpi
+  - snakeyaml-api.hpi
+  - workflow-api.hpi
+  - workflow-support.hpi
+- mailer
+
+* DONE try except finally
+
+#+begin_src bash
+  cd /var/lib/jenkins
+  tar cvfz plugins.tgz plugins
+#+end_src
+
+#+begin_src bash
+  scp root@192.168.25.161:/var/lib/jenkins/plugins.tgz .
+#+end_src
+
+#+begin_src bash
+  mkdir downloaded
+  mv *.hpi downloaded
+#+end_src
+
+* TODO note
+
+** Ant flow from jenkins
+
+- https://plugins.jenkins.io/ant/
+  - documentation
+- https://plugins.jenkins.io/ant/releases/
+  - releases
+- https://updates.jenkins.io/download/plugins/ant/
+  - [X] releases > installation options > checksums
+  - list
+    - v497 Requires Jenkins 2.387.3
+    - v487 Requires Jenkins 2.361.4
+    - [X] v481 Requires Jenkins 2.289.3
+      - ant.hpi
+	- unzip -l ant.hpi
+- https://updates.jenkins.io/download/plugins/ant/
+  - dependencies
+  - list
+    - structs
+      - no dependencies found
+
+** ?version, Version-Specific Update Sites
+
+- not working well, enough
+- https://updates.jenkins.io/
+  - ex
+    - https://updates.jenkins.io/update-center.json?version=1.345
+- https://github.com/jenkins-infra/update-center2/tree/master/site
+- https://github.com/jenkins-infra/update-center2/blob/master/site/LAYOUT.md
+
+** cli, two
+
+- https://www.jenkins.io/doc/book/managing/cli/
+  - https://m.blog.naver.com/snazzy79/70172305869
+  - [ ] test
+- https://github.com/jenkinsci/plugin-installation-manager-tool
+  - not working on lower version, maybe
+
+** tar ball, plugins
+
+#+begin_src bash
+  cd /var/lib/jenkins
+  tar cvfz plugins.tgz plugins
+#+end_src
+
+** with linux, on linux
+
+*** request
+
+- rhel 7.8
+- jenkins 2.346.1 to 2.346.3
+- plugin
+  - ant
+  - maven
+- tar ball
+  - /var/lib/jenkins/plugins
+
+*** cli
+
+- pre
+
+#+begin_src bash
+subscription-manager register
+subscription-manager attach
+sudo yum update
+yum install java-11-openjdk java-11-openjdk-devlel
+firewall-cmd --add-port=8080/tcp --permanent
+firewall-cmd --add-port=8080/tcp
+#+end_src
+
+- install
+  
+#+begin_src bash
+wget --no-check-certificate -O /etc/yum.repos.d/jenkins.repo \
+    https://pkg.jenkins.io/redhat-stable/jenkins.repo
+rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+yum install jenkins
+systemctl start jenkins
+systemctl stop jenkins
+systemctl restart jenkins
+#+end_src
+
+- activating then working on it
+
+#+begin_src bash
+browsing with http://192.168.25.161:8080
+cat /var/lib/jenkins/secrets/initialAdminPassword
+#+end_src
+
+- cleaning
+
+#+begin_src bash
+yum remove jenkins
+ls /var/lib/jenkins/plugins
+rm -rf /var/lib/jenkins/plugins
+#+end_src
+
+- well-known
+
+#+begin_src bash
+yum install java-1.8.0-openjdk java-1.8.0-openjdk-devel
+alternative --config java
+rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+yum install jenkins-2.346.1
+yum remove jenkins-2.346.1
+#+end_src
+
+- targeting
+  
+#+begin_src bash
+yum install jenkins-2.346.3
+yum remove jenkins-2.346.3
+#+end_src
+
+
+
+
+
+
+
+
+
