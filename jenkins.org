@@ -372,12 +372,3 @@ yum remove jenkins-2.346.1
 yum install jenkins-2.346.3
 yum remove jenkins-2.346.3
 #+end_src
-
-
-
-
-
-
-
-
-
