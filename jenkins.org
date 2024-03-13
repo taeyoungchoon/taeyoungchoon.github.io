@@ -321,8 +321,7 @@ Failed to load: Structs Plugin (structs 325.vcb_307d2a_2782)
 - pre
 
 #+begin_src bash
-subscription-manager register
-subscription-manager attach
+subscription-manager register --username x --password y --auto-attach
 sudo yum update
 yum install java-11-openjdk java-11-openjdk-devlel
 firewall-cmd --add-port=8080/tcp --permanent
