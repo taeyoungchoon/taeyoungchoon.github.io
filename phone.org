@@ -62,6 +62,6 @@
 ** canu 502s, 캔유 방수폰
 ** canu 801Ex, 캔유 파파라치
 ** IM-A900S, 베가 시크릿 업 
-** iphone 6
-** TODO iphone se, 2020, using
-** TODO iphone se, 2022, not yet
+** DONE iphone 6
+** DONE iphone se 2 or 2020
+** TODO iphone se 3 or 2022, using
