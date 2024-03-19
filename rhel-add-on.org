@@ -1,0 +1,30 @@
+* list but pdf
+
+- https://static.redhat.com/legacy/f/pdf/rhel/RHEL6_Add-ons_datasheet.pdf
+
+** list from above, rhel 6
+
+- vs https://www.redhat.com/en/store/all-products
+
+*** list
+
+- [X] high availability
+- [X] resilient storage
+- [X] smart management
+  - become satellite
+    - https://access.redhat.com/announcements/7005568
+      - since 2023
+- [X] extended upgrade support
+- network load balancer
+  - Linux Virtual Servers (LVS)
+    - /etc/sysconfig/ha/lvs.cf
+  - Piranha
+    - to keepalived(l4, vip) and haproxy(l7) since rhel 7
+      - https://www.nakjunizm.com/2020/02/20/haproxy/
+- high performance network(HPN)
+  - https://access.redhat.com/articles/971333
+    - Remote Direct Memory Access (RDMA) over Converged Ethernet (RoCE) 
+- scalable file system
+  - xfs for rhel5 and rhel6, old days
+    - https://access.redhat.com/solutions/31707
+      

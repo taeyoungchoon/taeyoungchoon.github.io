@@ -13,4 +13,206 @@
 
 - gg: rhel 8.2 ha cluster
 - https://unixcop.com/pacemaker-ha-cluster-setup-on-centos8-rhel8/
+  - Pacemaker HA Cluster setup on Centos8/RHEL8
 
+* pay for it
+
+- https://www.redhat.com/en/store/high-availability-add#?sku=RH00025
+  - High Availability Add-On
+    - US$399
+- https://www.redhat.com/en/store/red-hat-enterprise-linux-server
+  - Red Hat Enterprise Linux Server with Add-on
+    - High Availability US$399
+- https://www.redhat.com/en/store/red-hat-enterprise-linux-virtual-datacenters
+  - Red Hat Enterprise Linux for Virtual Datacenters with Add-on
+    - High Availability US$1,245
+- https://www.redhat.com/en/store/all-products
+  - All products
+    
+* rhel with high availability
+
+- you need the HA repo
+- https://access.redhat.com/discussions/1581173
+  - Does red hat subscription also include redhat cluster support?
+    - For cluster support, you need the 'High Availability Add-On', which is available separately.
+      
+* guide
+
+- https://access.redhat.com/articles/6565761
+
+* lecture
+
+- https://www.redhat.com/en/services/training/rh436-red-hat-high-availability-clustering
+  - Red Hat High Availability Clustering
+    - Course content summary
+      - Install and configure a Pacemaker-based high availability cluster.
+
+* DONE iso
+
+- redhat customer portal > downloads, but
+- developer
+- Red Hat Developer Subscription for Individuals
+- Downloads > Red Hat Packages > pcs
+- https://access.redhat.com/downloads/content/pcs/0.10.12-6.el8_6.1/x86_64/fd431d51/package
+- https://access.redhat.com/downloads/content/83/ver=/rhel---8/8.6/x86_64/product-software
+  - Red Hat Enterprise Linux 8.6 Binary DVD (83.7 MB)
+- red hat customer portal
+  - downloads
+    - RPM Package Search
+      - pcs
+	- x86_64
+	  - version, 0.10.12-6.el8
+	    - Red Hat Enterprise Linux High Availability for x86_64
+     	      - product software
+                - version, 8.6
+                  - dvd(iso)
+
+* DONE install, check below with/without subscription
+
+- https://access.redhat.com/articles/6727561
+  - RHEL High Availability Documentation: Basic Administrative Procedures
+- Configuring and managing high availability clusters
+  - https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_high_availability_clusters
+  - https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/configuring_and_managing_high_availability_clusters/index#proc_installing-cluster-software-creating-high-availability-cluster
+  - Using the Red Hat High Availability Add-On to create and maintain Pacemaker clusters
+    - Chapter 4. Creating a Red Hat High-Availability cluster with Pacemaker
+      - 4.1. Installing cluster software
+
+#+begin_src bash
+  subscription-manager repos --list
+  subscription-manager repos --enable=rhel-8-for-x86_64-highavailability-rpms
+  yum install pcs pacemaker fence-agents-all
+  yum install pcs pacemaker fence-agents-model
+  rpm -q -a | grep fence
+#+end_src
+
+- https://access.redhat.com/solutions/45930
+
+* DONE install online with subscription
+
+#+begin_src bash
+  [root@rh8-6c0 ~]# subscription-manager status
+  +-------------------------------------------+
+     System Status Details
+  +-------------------------------------------+
+  Overall Status: Current
+
+  System Purpose Status: Not Specified
+
+  [root@rh8-6c0 ~]#
+
+  [root@rh8-6c0 ~]# subscription-manager repos | grep highavailability-rpms
+  Repo ID:   rhel-8-for-x86_64-highavailability-rpms
+
+  [root@rh8-6c0 ~]# yum repolist
+  Updating Subscription Management repositories.
+  repo id                                repo name
+  rhel-8-for-x86_64-appstream-rpms       Red Hat Enterprise Linux 8 for x86_64 - AppStream (RPMs)
+  rhel-8-for-x86_64-baseos-rpms          Red Hat Enterprise Linux 8 for x86_64 - BaseOS (RPMs)
+
+  [root@rh8-6c0 ~]#  subscription-manager repos --enable=rhel-8-for-x86_64-highavailability-rpms
+  Repository 'rhel-8-for-x86_64-highavailability-rpms' is enabled for this system.
+
+  [root@rh8-6c0 ~]# yum repolist
+  Updating Subscription Management repositories.
+  repo id                                 repo name
+  rhel-8-for-x86_64-appstream-rpms        Red Hat Enterprise Linux 8 for x86_64 - AppStream (RPMs)
+  rhel-8-for-x86_64-baseos-rpms           Red Hat Enterprise Linux 8 for x86_64 - BaseOS (RPMs)
+  rhel-8-for-x86_64-highavailability-rpms Red Hat Enterprise Linux 8 for x86_64 - High Availability (RPMs)
+  [root@rh8-6c0 ~]#
+
+  [root@rh8-6c0 ~]# yum install pcs
+  Updating Subscription Management repositories.
+  Last metadata expiration check: 0:02:26 ago on Tue Mar 19 09:45:53 2024.
+  Dependencies resolved.
+  ======================================================================================================
+   Package                        Arch   Version          Repository                               Size
+  ======================================================================================================
+  Installing:
+   pcs                            x86_64 0.10.17-2.el8    rhel-8-for-x86_64-highavailability-rpms  10 M
+  Installing dependencies:
+   clufter-bin                    x86_64 0.77.1-5.el8     rhel-8-for-x86_64-highavailability-rpms  34 k
+   clufter-common                 noarch 0.77.1-5.el8     rhel-8-for-x86_64-highavailability-rpms  81 k
+   corosync                       x86_64 3.1.7-1.el8      rhel-8-for-x86_64-highavailability-rpms 279 k
+   corosynclib                    x86_64 3.1.7-1.el8      rhel-8-for-x86_64-appstream-rpms         69 k
+
+   Transaction Summary
+  ======================================================================================================
+  Install  95 Packages
+
+  Total download size: 35 M
+  Installed size: 104 M
+  Is this ok [y/N]:y
+
+  [root@rh8-6c0 ~]# pcs --version
+  0.10.17
+  [root@rh8-6c0 ~]#
+#+end_src
+
+* DONE install offline with subscription
+
+#+BEGIN_SRC 
+[root@vm5 yum.repos.d]# cat ha.repo
+[baseos]
+name=added from: file:///data/dvd/BaseOS
+baseurl=file:///data/dvd/BaseOS
+enabled=1
+gpgcheck=0
+
+[appstream]
+name=added from: file:///data/dvd/AppStream
+baseurl=file:///data/dvd/AppStream
+enabled=1
+gpgcheck=0
+
+[ha]
+name=added from: file:///data/ha
+baseurl=file:///data/ha
+enabled=1
+gpgcheck=0
+#+END_SRC
+
+#+begin_src bash
+  mkdir -p /data/ha
+  mount ha.iso /mnt
+  cp -a /mnt/* /data/ha
+  mount /mnt
+#+end_src
+
+#+begin_src bash
+  mkdir -p /data/dvd
+  mount rhel8_6.iso /data/dvd
+#+end_src
+
+#+begin_src bash
+  cd /etc/yum.repod.d
+  mkdir backup
+  mv redhat.repo backup/
+  touch ha.repo
+  cat > ha.repo <<EOF
+  [baseos]
+  name=added from: file:///data/dvd/BaseOS
+  baseurl=file:///data/dvd/BaseOS
+  enabled=1
+  gpgcheck=0
+
+  [appstream]
+  name=added from: file:///data/dvd/AppStream
+  baseurl=file:///data/dvd/AppStream
+  enabled=1
+  gpgcheck=0
+
+  [ha]
+  name=added from: file:///data/ha
+  baseurl=file:///data/ha
+  enabled=1
+  gpgcheck=0
+  EOF
+  yum repolist
+  yum search pcs
+  yum install pcs
+#+end_src
+
+* TODO read
+
+https://www.samsungsds.com/kr/insights/1257645_4627.html

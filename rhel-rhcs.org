@@ -1,0 +1,12 @@
+* no more or more and/with add-on
+* red hat cluster suite
+
+- https://en.wikipedia.org/wiki/Red_Hat_cluster_suite
+- until rhel 7
+  - With Red Hat Enterprise Linux 7, the Load Balancer technology is now included in the base operating system and is no longer a Red Hat Enterprise Linux Add-On.
+
+** include
+
+- Linux Virtual Server(LVS)
+- GFS(Global File System)
+- High Availablity
