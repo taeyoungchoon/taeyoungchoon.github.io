@@ -1,0 +1,17 @@
+* PICC vs CVC, 중심정맥관
+
+- Peripherally Inserted Central Catheter
+- Central Venous Catheter
+  - central line (c-line)
+  - central venous line
+  - central venous access cathether
+- https://cdn.lecturio.com/assets/Nursing_CS_Comparison-Chart-of-Where-Different-Central-Lines-are-Placed.png
+
+* 중심정맥 vs 말초 정맥, 큰 정맥
+
+- [ ] https://www.amc.seoul.kr/asan/healthinfo/management/managementDetail.do?managementId=179
+
+* Catheter(도관)
+
+- thin tube
+- https://en.wikipedia.org/wiki/Catheter
