@@ -77,3 +77,30 @@ sshd: 192.168.200.0/24
    sshd: ALL
 3. allow
 
+* still using from centos 7.9
+
+#+begin_example
+[root@s001 sbin]# for f in *; do echo $f; ldd $f | grep libwrap; done | grep -B 1 wrap
+auditd
+        libwrap.so.0 => /lib64/libwrap.so.0 (0x00007fe93693a000)
+--
+exportfs
+        libwrap.so.0 => /lib64/libwrap.so.0 (0x00007f7a9a796000)
+--
+rpcbind
+        libwrap.so.0 => /lib64/libwrap.so.0 (0x00007f1561508000)
+--
+rpcinfo
+        libwrap.so.0 => /lib64/libwrap.so.0 (0x00007f0557183000)
+rpc.mountd
+        libwrap.so.0 => /lib64/libwrap.so.0 (0x00007f5b05106000)
+--
+rpc.rquotad
+        libwrap.so.0 => /lib64/libwrap.so.0 (0x00007fd7f5c05000)
+rpc.statd
+        libwrap.so.0 => /lib64/libwrap.so.0 (0x00007f3db4f1d000)
+--
+sshd
+        libwrap.so.0 => /lib64/libwrap.so.0 (0x00007fb1f3f44000)
+[root@s001 sbin]#
+#+end_example
