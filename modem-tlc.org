@@ -1,0 +1,11 @@
+* modem, tlc
+
+- https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=jhmoon02&logNo=50191566483
+- https://www.navimro.com/g/00323026/
+- https://patents.google.com/patent/KR20100123981A/ko
+- Telephone line carrier
+
+* some other
+
+- https://blog.naver.com/smartplc/220173546210
+  - CSMA/CA over powerline

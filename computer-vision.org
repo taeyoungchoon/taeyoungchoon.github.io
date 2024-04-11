@@ -1,0 +1,9 @@
+* list
+
+- https://en.wikipedia.org/wiki/SenseTime
+- 얼굴인식 출입 서비스
+- LG CNS 물리보안, 융합보안
+- https://www.lgcns.com/blog/cns-tech/security/1817/
+- 2021, SecuXper, http://www.secuxper.com
+  - IDP
+    - https://www.lgcns.com/blog/cns-tech/security/1841/

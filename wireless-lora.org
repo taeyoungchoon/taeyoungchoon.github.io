@@ -1,0 +1,16 @@
+* lora
+
+- https://en.wikipedia.org/wiki/LoRa
+- long range
+  - lo(ng) ra(nge)
+- https://learn.adafruit.com/lora-and-lorawan-radio-for-raspberry-pi
+  - raspberry pi
+- https://docs.arduino.cc/learn/communication/lorawan-101/
+  - arduino
+  
+* frequency, Z-Wave Frequency
+
+- https://www.silabs.com/wireless/z-wave/global-regions
+  - South Korea
+    - 920.9 MHz, 921.7 MHz, 923.1 MHz
+  

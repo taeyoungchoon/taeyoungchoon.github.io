@@ -1,0 +1,11 @@
+* list and links
+
+- https://en.wikipedia.org/wiki/Streaming_media
+- DVD
+- Napster
+- COVID-19
+- Bandwidth
+- Protocol
+  - multicast
+  - unicast
+
