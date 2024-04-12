@@ -108,3 +108,5 @@
 - book reading with think and writing at side of it, depend
 - aging
 - working and walking and more not most
+- pl.python, lang.python
+- arista.cvp.python, mako template, (ds alg)
