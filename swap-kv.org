@@ -1,0 +1,135 @@
+* think
+
+#+begin_src emacs-lisp
+  a1
+  a2
+  a3
+
+  n1
+  n2
+  n3
+  n4
+
+  n1 a1
+  n2 a2
+  n3 a1 a2
+  n4
+
+  a1 n1 n3
+  a2 n2 n3
+  a3
+
+  a1 n1
+  a1 n3
+  a2 n2
+  a2 n3
+
+  n1 a1
+  n3 a1
+  n2 a2
+  n3 a2
+
+  n1 a1
+  n2 a2
+  n3 a1
+  n3 a2
+
+  n1 a1
+  n2 a1
+  n3 a1 a2
+#+end_src
+
+#+RESULTS:
+
+#+begin_src python
+    '''
+    a1.node = [n1, n3]
+    a2.node = [n2, n3]
+    a3.node = []
+
+    [a1, n1]
+    [a1, n3]
+    [a2, n2]
+    [a2, n3]
+
+    [n1, a1]
+    [n3, a1]
+    [n2, a2]
+    [n3, a2]
+
+    [n1, a1]
+    [n2, a2]
+    [n3, a1]
+    [n3, a2]
+
+    n1.pol = [a1]
+    n2.pol = [a2]
+    n3.pol = [a1, a2]
+    n4
+    '''
+#+end_src
+
+#+begin_src python
+  from dataclasses import dataclass
+
+  @dataclass
+  class node:
+      name: str
+
+  @dataclass
+  class pol:
+      name: str
+      nodes: list
+
+  a1 = pol(name='a1', nodes=[])
+  a2 = pol(name='a2', nodes=[])
+  a3 = pol(name='a3', nodes=[])
+
+  a_all = [a1, a2, a3]
+
+  n1 = node(name='n1')
+  n2 = node(name='n2')
+  n3 = node(name='n3')
+  n4 = node(name='n4')
+
+  n_all = [n1, n2, n3, n4]
+
+  a1.nodes = [n1, n3]
+  a2.nodes = [n2, n3]
+
+  pairs_in = []
+  for a in a_all:
+      for node in a.nodes:
+	  pairs_in.append([a.name, node.name])
+        
+  # print(pairs_in)
+
+  def swap_list(lt):
+      x, y = lt[0], lt[1]
+      return [y, x]
+
+  pairs_out = [ ]
+  for pair in pairs_in:
+      pairs_out.append(swap_list(pair))
+
+  # print(pairs_out)
+
+  kv = {}
+  for pair in pairs_out:
+      k = pair[0]
+      v = pair[1]
+      if not kv.get(k, None):
+	  kv[k]=[]
+      kv[k].append(v)
+
+  print(a_all)
+  print(n_all)
+  print(kv)
+
+  del a1, a2, a3, a_all
+  del n1, n2, n3, n_all
+  del pairs_in, pairs_out, kv
+#+end_src
+
+#+RESULTS:
+: None
