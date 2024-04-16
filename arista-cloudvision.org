@@ -294,3 +294,23 @@ but how
       - CloudVision Portal 2021.3.0
 
 
+* DONE upgrade from 2021.3.0 to 2022.2.0
+
+- [X] how to upgrade from ver to ver
+
+** steps
+
+1) SSH as root into the primary node.
+2) Run these commands:
+   #+begin_example
+     rm -rf /tmp/upgrade
+     mkdir /data/upgrade
+     ln -s /data/upgrade /tmp/upgrade
+     SCP cvp-upgrade-2022.2.0.tgz /data/upgrade
+   #+end_example
+3) Run the 'su cvpadmin' command to trigger the shell.
+   - Select the upgrade option from the shell.
+
+** note
+
+- Upgrading to the current version may take up to 30 minutes.

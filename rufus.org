@@ -14,3 +14,16 @@
     - t
   - target system
     - [X] BIOS or UEFI
+
+** TODO rhel 8.6 iso to usb drive, burn
+
+- Drive Properties
+  - Partition scheme
+    - [X] GPT
+  - Target system
+    - [X] UEFI
+- Format Options
+  - Volume label
+    - [X] OS
+  - File system
+    - [X] FAT32

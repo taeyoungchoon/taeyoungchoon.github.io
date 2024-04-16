@@ -1,0 +1,36 @@
+* DONE add secondary ip using nmcli
+
+#+begin_example
+  ? pwd
+  /etc/sysconfig/network-scripts
+
+  ? ip -4 -o a s enp0s3 | awk '{ print $2, $4 }'; echo ''; cat ifcfg-service | egrep "IPADDR|PREFIX"
+  enp0s3 172.20.99.58/24
+
+  IPADDR=172.20.99.58
+  PREFIX=24
+
+  ? nmcli connection modify service +ipv4.addresses 172.20.99.59/24
+  ? nmcli connection up service
+  Connection successfully activated (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/16)
+
+  ? ip -4 -o a s enp0s3 | awk '{ print $2, $4 }'; echo ''; cat ifcfg-service | egrep "IPADDR|PREFIX"
+  enp0s3 172.20.99.58/24
+  enp0s3 172.20.99.59/24
+
+  IPADDR=172.20.99.58
+  PREFIX=24
+  IPADDR1=172.20.99.59
+  PREFIX1=24
+
+  ? nmcli connection modify service -ipv4.addresses 172.20.99.59/24
+  ? nmcli connection up service
+  Connection successfully activated (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/17)
+
+  ? ip -4 -o a s enp0s3 | awk '{ print $2, $4 }'; echo ''; cat ifcfg-service | egrep "IPADDR|PREFIX"
+  enp0s3 172.20.99.58/24
+
+  IPADDR=172.20.99.58
+  PREFIX=24
+  ?
+#+end_example
