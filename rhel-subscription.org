@@ -4,7 +4,7 @@
 subscription-manager status
 
 subscription-manager register --username=USERNAME --password=PASSWORD
-subscription-manager attach --all
+subscription-manager attach --auto
 subscription-manager remove --all
 subscription-manager unregister
 

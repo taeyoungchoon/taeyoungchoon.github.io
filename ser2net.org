@@ -1,0 +1,71 @@
+* log
+
+#+begin_example
+-> version
+ser2net version 3.5
+-> showoport
+Unkshon command: showoport
+-> show command:
+Unknown command: show
+-> showportConnection closed by foreign host.
+[root@t001 etc]#  telnet 192.168.25.211 10000
+Trying 192.168.25.211...
+telnet: connect to address 192.168.25.211: Connection refused
+[root@t001 etc]#
+#+end_example
+
+#+begin_example
+Apr 19 13:42:50 t001 kernel: ser2net[28730]: segfault at 60 ip 0000000000405f72 sp 00007fff81dad500 error 4 in ser2net[400000+1d000]
+Apr 19 13:42:50 t001 systemd-logind: Removed session 2825.
+#+end_example
+
+#+begin_example
+[root@t001 log]# rpm -qi $(rpm -qf /etc/ser2net.conf) | grep Install
+Install Date: Wed 13 Dec 2023 01:06:48 PM KST
+[root@t001 log]#
+#+end_example
+
+#+begin_example
+screen
+minicom
+putty /dev/ttyUSB0 -serial -sercfg 9600,8,n,1,N
+usbutils
+lsusb -v -d 002:004
+lsusb -v -d 0403:6001
+ser2net
+telent 192.168.25.211 5000
+ser2net -p 10000
+ser2net port 10001 device /dev/ttyUSB0
+dhclient
+#+end_example
+
+#+begin_example
+[root@t001 log]# rpm -qi $(rpm -qf /usr/bin/minicom) | grep Install
+Install Date: Mon 24 Jul 2023 05:03:17 PM KST
+
+-rw-r--r--.  1 root root      190 Jul 24  2023 minirc.dfl
+
+[root@t001 log]# rpm -qi $(rpm -qf /usr/bin/putty) | grep Install
+Install Date: Mon 04 Dec 2023 08:02:47 AM KST
+
+[root@t001 log]# rpm -qi $(rpm -qf /usr/bin/lsusb) | grep Install
+Install Date: Wed 13 Dec 2023 01:30:02 PM KST
+
+[root@t001 log]# rpm -qi $(rpm -qf /etc/ser2net.conf) | grep Install
+Install Date: Wed 13 Dec 2023 01:06:48 PM KST
+[root@t001 log]#
+
+[root@t001 log]# rpm -qi $(rpm -qf /etc/ser2net.conf) | grep Install
+Install Date: Wed 13 Dec 2023 01:06:48 PM KST
+
+-rw-r--r--.  1 root root    16703 Dec 13 13:55 ser2net.conf
+
+root     tty1                          Wed Dec 13 13:12 - 09:41 (6+20:29)
+root     pts/0        192.168.25.164   Wed Dec 13 13:05 - 15:33  (02:27)
+reboot   system boot  3.10.0-1160.90.1 Wed Dec 13 11:18 - 09:41 (6+22:23)
+root     pts/0        192.168.25.164   Thu Dec  7 07:59 - 08:24  (00:24)
+root     pts/0        192.168.25.164   Thu Dec  7 07:44 - 07:59  (00:15)
+root     pts/0        192.168.25.164   Wed Dec  6 13:36 - 16:21  (02:45)
+root     pts/0        192.168.25.164   Mon Dec  4 09:33 - 17:26  (07:53)
+root     pts/0        192.168.25.164   Mon Dec  4 07:55 - 09:33  (01:37)
+#+end_example

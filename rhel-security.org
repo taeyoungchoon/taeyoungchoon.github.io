@@ -19,7 +19,7 @@
 - pure install rhel 8.6 server
 - clone
 - mkdir sec; cd sec
-- yum update --security --exclude=kernel* --downloadonly --downloaddir=sec
+- yum update --security --exclude=kernel* --downloadonly --downloaddir=.
 
 ** what will be
 
@@ -227,5 +227,175 @@ Dependencies resolved.
 Nothing to do.
 Complete!
 [root@r81 ~]#
-
 #+END_SRC
+
+** [2024-04-18 목] then again
+
+- virtualbox
+- rhel 8.6
+- subscription
+
+- download security 
+#+begin_example
+mkdir sec
+cd sec
+yum update --exclude=kernel* --exclude=kmod-kvdo --downloadonly --downloaddir=.
+#+end_example
+
+- https://www.alibabacloud.com/help/en/alinux/user-guide/use-yum-to-perform-security-updates-1
+
+#+begin_example
+  yum install yum-utils
+  sudo yum upgrade --security --sec-severity={Critical,Important}
+#+end_example
+
+https://www.lesstif.com/system-admin/yumdownloader-yum-download-100205937.html
+
+#+begin_example
+yumdownloader --downloadonly --resolve gcc
+
+yum update --cve CVE-2012-3954
+
+yum update --advisory ELSA-2012-1141
+
+[root@r81 ~]# yum updateinfo list updates --exclude=kernel* --sec-severity=Moderate
+Last metadata expiration check: 1:28:47 ago on Sun 10 Sep 2023 09:19:03 PM KST.
+RLSA-2023:1140 Moderate/Sec. curl-7.61.1-25.el8_7.3.x86_64
+RLSA-2023:3106 Moderate/Sec. curl-7.61.1-30.el8_8.2.x86_64
+
+yum updateinfo | filter | update --dwonloadonly ; yum localinstall
+
+yum update --security --sec-severity Critical
+yum update --security --sec-severity Important
+yum update --security --sec-severity Moderate
+yum update --security --sec-severity Low
+
+yum updateinfo list updates --exclude=kernel* --exclude=kvdo --sec-severity=Moderate > Moderate.list
+#+end_example
+
+** process again
+
+#+begin_example
+subscription-manager register --username=USERNAME --password=PASSWORD
+subscription-manager attach --auto
+
+login as root
+
+mkdir sec
+
+yum updateinfo list updates --exclude=kernel* --exclude=kvdo --sec-severity=Moderate > Moderate.list
+cat Moderate.list | grep ^RH | cut -d " " -f 1 | uniq | while read item; do
+yum update -y --advisory $item --downloadonly --downloaddir=sec
+done
+
+yum updateinfo list updates --exclude=kernel* --exclude=kvdo --sec-severity=Critical | \
+grep ^RH | cut -d " " -f 1 | uniq | while read item; do
+yum update -y --advisory $item --downloadonly --downloaddir=sec
+done
+
+yum updateinfo list updates --exclude=kernel* --exclude=kvdo --sec-severity=Moderate > Moderate.list
+cat Moderate.list | grep ^RH | cut -d " " -f 1 | uniq | while read item; do
+yum update -y --advisory $item --downloadonly --downloaddir=sec
+done
+
+yum updateinfo list updates --exclude=kernel* --exclude=kvdo --sec-severity=Moderate > Moderate.list
+cat Moderate.list | grep ^RH | cut -d " " -f 1 | uniq | while read item; do
+yum update -y --advisory $item --downloadonly --downloaddir=sec
+done
+#+end_example
+
+#+begin_src bash
+  for sev in Moderate Critical Important Low; do
+      yum updateinfo list updates --exclude=kernel* --exclude=kvdo --sec-severity=$sev | \
+	  grep ^R | cut -d " " -f 1 | uniq | while read item; do
+	  yum update -y --advisory $item --downloadonly --downloaddir=sec
+      done
+  done
+#+end_src
+
+** cleaning
+
+#+begin_src bash
+  for sev in Moderate Critical Important Low; do
+      yum updateinfo list updates --sec-severity=$sev | awk '/^RHSA/ { print $1 }' | sort -u | while read item; do
+	  yum update -y --advisory $item --downloadonly --downloaddir=sec
+      done
+  done
+
+  tar cvfz sec-$(date +%Y%m%d.%H%M%S).tar.gz sec
+
+  yum localinstall --exclude=kernel* --exclude=kmod-kvdo sec/*.rpm
+
+  for sev in Moderate Critical Important Low; do
+      yum updateinfo list updates --exclude=kernel --exclude=kmod-kvdo --sec-severity=$sev
+  done
+#+end_src
+
+** cleaning p2, on rhel 8.6 pure installed
+
+*** build sec tarball
+
+#+begin_src bash
+subscription-manager register --username=USERNAME --password=PASSWORD
+subscription-manager attach --auto
+#+end_src
+
+#+begin_src bash
+  mkdir -p sec
+
+  for sev in Moderate Critical Important Low; do
+      printf "\n* $sev\n"
+      yum updateinfo list updates --sec-severity=$sev | awk '/^RHSA/ { print $1 }' | sort -u | while read item; do
+	  printf "\n** $item\n"
+	  yum update -y --advisory $item --downloadonly --downloaddir=sec
+      done
+  done
+
+  tar cvfz sec-$(date +%Y%m%d.%H%M%S).tar.gz sec
+
+  mkdir -p kernel
+  mv -f sec/kernel-* kernel
+  yum install -y sec/*.rpm
+
+  for sev in Moderate Critical Important Low; do
+      printf "\n* $sev\n"
+      yum updateinfo list updates --exclude=kernel-* --exclude=kmod-kvdo --sec-severity=$sev
+  done
+#+end_src
+
+*** deploy sec tarball
+
+#+begin_src bash
+  tar xvfz sec-*.gz
+  mkdir -p kernel
+  mv -f sec/kernel-* kernel
+  yum install -y sec/*.rpm
+#+end_src
+
+** issue
+
+- [ ] installed by someone
+  - but me first
+    - oracle later on
+- [ ] or installed already anyway
+  - rpm -qa
+    - query about
+      #+begin_example
+	[root@localhost BaseOS]# rpm -qa | grep tar-
+	libtar-1.2.20-17.el8.x86_64
+	tar-1.30-9.el8.x86_64
+      #+end_example
+
+** time goes
+
+- shim-x64
+- firefox
+
+** what about moderate? 
+
+in the middle
+
+** more
+
+- [X] uninstall but installed using *.rpm like
+  - install version you want
