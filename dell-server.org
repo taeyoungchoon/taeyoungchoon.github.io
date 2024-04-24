@@ -1,3 +1,13 @@
+* TODO usb boot
+
+** dell r640
+
+- F11 to start Boot Manager
+  - One-Shot UEFI Boot Menu
+    - Select USB drive
+- F10 to enter Lifecycle Controller
+- F2 to enter System Setup
+
 * r230 and more
 
 - https://www.youtube.com/watch?v=SKimN4vhtzg

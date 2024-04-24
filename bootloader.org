@@ -1,0 +1,7 @@
+* list
+
+- loadlin
+- lilo
+- grub
+- grub2
+- isolinux

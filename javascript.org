@@ -18,3 +18,25 @@
 
 - Diapo | a free jQuery slideshow by Pixedelic
 * Node.js
+* graph
+
+- https://akcoding.com/reactjs-graph-visualization-step-by-step-guide-to-react-vis/
+
+** list
+
+- react-vis
+- vis.js
+  - with react
+    - react-visjs
+- d3.js
+  - with react
+    - react-d3-graph
+    - react-d3-tree
+- chart.js
+  - react-chartjs-2
+- react-network-diagrams
+  - https://software.es.net/
+  
+** ds and react
+
+** bootstrap, react bootstrap, twitter bootstrap

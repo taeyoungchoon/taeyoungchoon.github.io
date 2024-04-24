@@ -1,7 +1,7 @@
 * DONE Cherry G80-3000S TKL
 
-- Fn + F9 : Windows Lock
-- LCtrl + Fn : Disable Functional Fn key
+- [X] LCtrl + Fn : Disable Functional Fn key
+- [X] Fn + F9 : Windows Lock
 
 ** list
 
@@ -10,13 +10,13 @@
    - https://blog.ham1.co.uk/2020/10/12/cherry-mx-1-0-fn-lock/
    - C-Fn 이걸로 충분하다
    - [2023-07-26 수 08:13] 오늘 또 한번 겪었다. 기억이 나지 않고, keyboard에서 그리고 맨 처음 글에서 도움을 얻었다. 참고로 왼쪽 Ctrl 키(LCtrl)다.
-     - [ ] so 'LCtrl + Fn'
-2. [ ] Fn + F9 : windows lock
+     - [X] so 'LCtrl + Fn'
+2. [X] Fn + F9 : windows lock
 3. Win not working, so now work with autohotkey
    - LAlt::LWin
    - 이런 emacs에 meta키로 사용하는 군요.
      - ESC를 누르면 되지 뭐, 하하
-   - 스위치 교체 가능이라는 것이 다나와의 상품 상세정보의 부가기능에 표시되어 있다
+   - 스위치 교체 가능이라는 것이 다나와의 상품 상세정보의 부가기능에 표시되어 있다01
 4. 수리는 피씨디렉트에서, 서울 고객지원센터
    - 1588-3877
    - 10a to 5p
