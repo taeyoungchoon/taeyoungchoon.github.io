@@ -1,11 +1,23 @@
-* cli
+* TODO rpm vs yum/dnf
 
+
+
+* TODO cli
+
+#+begin_src bash
 rpm -qp --scripts httpd-2.2.15-15.el6_2.1.x86_64.rpm
 rpm -q --scripts httpd
 
 rpm --setperms coreutils
+#+end_src
 
-* COMMENT rpm name
+* TODO rpm rel log
+
+#+begin_example
+warning: waiting for transaction lock on /var/lib/rpm/.rpm.lock
+#+end_example
+
+* TODO rpm name
 
 #+begin_src bash
   httpd-2.2.15-15.el6_2.1.x86_64.rpm
