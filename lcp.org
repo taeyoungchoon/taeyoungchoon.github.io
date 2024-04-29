@@ -1,0 +1,8 @@
+* lcp, load center panel
+
+- 분전반
+  - https://yyxx.tistory.com/213
+- mccb, molded case circuit breaker
+  - nfb, no fuse breaker
+- bus bar
+- elb, earth leakage breaker

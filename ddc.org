@@ -1,0 +1,3 @@
+* ddc, direct digital controller
+
+- https://www.youtube.com/watch?v=K1soc70el_A

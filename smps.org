@@ -1,0 +1,5 @@
+* switching mode power supply
+
+- AC-DC Converter
+- https://en.wikipedia.org/wiki/Switched-mode_power_supply
+  - is an electronic power supply that incorporates a switching regulator to convert electrical power efficiently. 

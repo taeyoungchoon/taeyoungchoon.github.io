@@ -1,3 +1,49 @@
+* TODO boot from usb drive in virtualbox
+
+- [ ] list of tasks to do process
+  1) insert usb drive
+  2) cmd(run as administrator)
+     - VBoxmanage list hostdrives
+       #+begin_example
+	 Drive:       \\.\PhysicalDrive2
+	 Model:       " USB  SanDisk 3.2Gen1"
+	 UUID:        007d972f-0000-0000-0000-000000000000
+	 Size:        28.6GiB
+	 Sector Size: 512 bytes
+	 Scheme:      MBR
+	 Partitions:                   First         Last
+	 ##  Type  Size      Start     Cyl/Head/Sec  Cyl/Head/Sec Active
+	  1   0c    28.6GiB    1.0MiB     0/ 32/33   1023/254/63   yes   FAT32LAB
+       #+end_example
+     - VBoxManage createmedium disk --filename C:\Users\%username%\Desktop\thumb_drive_for_mbr.vmdk --format=VMDK --variant RawDisk --property RawDrive=\\.\PhysicalDrive2
+     - VBoxmanage list hostdrives
+       #+begin_example
+	 Drive:       \\.\PhysicalDrive2
+	 Model:       " USB  SanDisk 3.2Gen1"
+	 UUID:        fed898b8-ed88-44e0-a163-8313b0018329
+	 Size:        28.6GiB
+	 Sector Size: 512 bytes
+	 Scheme:      GPT
+	 Partitions:
+	 ##  Type              Uuid                                   Size      Start   Active Name
+	  1  WindowsBasicData  d8e18a06-b1bd-4b3b-84ea-e085ef7af663   28.6GiB    1.0MiB  off   Main Data Partition
+       #+end_example
+     - VBoxManage createmedium disk --filename C:\Users\%username%\Desktop\thumb_drive_for_gpt.vmdk --format=VMDK --variant RawDisk --property RawDrive=\\.\PhysicalDrive2
+  3) virtualbox
+     - machine > new
+       - name: rh86_1
+       - type: linux
+       - version: Red Hat 8.x (64bit)
+       - base memory: 8192 MB
+       - Enable EFI
+       - create a virtual hard disk now: 40 GB
+     - rh86_1 > settings
+       - storage
+	 - controller: SATA
+	   - add attachment
+             - hard disk
+  	       - thumb_drive.vmdk
+
 * note
 
 - [2021-11-08 월] virtualbox에 대한 의존성이 높다는 것은 어떠한 의미인가? vagrant보다는 아래에 위치한다. 어디서는 동작하는 것 같지만 꼭 그런 것은 아니다. 윈도우즈는 hyper-v가 있다. virtualpc의 자식이다. wsl은 뭐라고 해야할까? 외자식? 
