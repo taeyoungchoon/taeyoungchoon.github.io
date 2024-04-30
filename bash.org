@@ -25,6 +25,7 @@
   - .bash_profile : then the next after /etc/profile
   - .bash_logout
   - .bash_history
+    - history -w
   - .bash_login : /etc/profile -> .bash_profile -> .bash_login -> .profile
   - .profile : /etc/profile -> .bash_profile -> .bash_login -> .profile
 
@@ -137,3 +138,33 @@ sum 1 2
 
 #+RESULTS:
 : 3
+
+* DONE about time
+
+- https://stackoverflow.com/questions/17066250/create-timestamp-variable-in-bash-script
+- https://www.man7.org/linux/man-pages/man1/bash.1.html
+  #+begin_example
+    %(datefmt)T
+  #+end_example
+  
+** EPOCHSECONDS
+
+- Since bash 5.0 (released on 7 Jan 2019)
+  - rhel8.6 use bash 4.4
+  - rhel9 use bash 5, maybe
+
+#+begin_example
+$ printf '%(%T)T\n'
+10:03:57
+
+$ printf '%(%Y%m%d.%H%M%S)T\n'
+20240430.100700
+#+end_example
+
+* DONE printf and echo
+
+- printf %b
+  - expand backslash escape sequences in the corresponding argument
+    in the same way as echo -e
+- echo -e
+  - enable interpretation of backslash escapes
