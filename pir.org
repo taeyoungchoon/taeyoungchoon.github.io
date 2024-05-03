@@ -1,0 +1,4 @@
+* pir, passive infrared sensor
+* infrared?
+* with others like CO2
+* lots called matrix/grid
