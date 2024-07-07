@@ -50,3 +50,19 @@ SAS-2: 6.0 Gbit/s, available since February 2009
 SAS-3: 12.0 Gbit/s, available since March 2013
 SAS-4: 22.5 Gbit/s called "24G", standard completed in 2017
 SAS-5: 45 Gbit/s is being developed
+
+* TODO 2024년 6월의 디스크
+
+- package aka form factor
+  - m.2
+- (host) interface
+  - PCIe 4.0 x4(4 lane)
+- NVME, the protocol
+- model
+  - PM9A1
+- capacity
+  - 256 GB
+- sequential read
+- sequential write
+- random read
+- random write
