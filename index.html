@@ -3,13 +3,13 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-04-03 월 08:20 -->
+<!-- 2024-07-07 일 22:10 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
-<meta name="generator" content="Org mode" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -30,8 +30,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -39,22 +40,22 @@
   }
   pre.src {
     position: relative;
-    overflow: visible;
-    padding-top: 1.2em;
+    overflow: auto;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
-  pre.src:hover:before { display: inline;}
+  pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -160,6 +161,19 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -176,88 +190,29 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
+  .org-svg { }
 </style>
-<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/readtheorg/css/htmlize.css"/>
-<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/readtheorg/css/readtheorg.css"/>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="http://www.pirilampo.org/styles/lib/js/jquery.stickytableheaders.js"></script>
-<script type="text/javascript" src="http://www.pirilampo.org/styles/readtheorg/js/readtheorg.js"></script>
-<script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
-</script>
 </head>
 <body>
-<div id="content">
-<div id="table-of-contents">
+<div id="content" class="content">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgc5974ed">1. re-init</a></li>
-<li><a href="#org651a94a">2. (cons t nil), think</a></li>
-<li><a href="#org160a8dd">3. programming &gt; lisp</a></li>
-<li><a href="#org31ec2f3">4. then emacs, emacs, emacs-lisp</a></li>
-<li><a href="#orgde41e4d">5. linux again, operating system with more such as network and what?</a></li>
-<li><a href="#orgc421c00">6. book, peom, nothing but think</a></li>
-<li><a href="#orgae768a8">7. I love you, lang</a></li>
-<li><a href="#org796eb81">8. t-mac.do</a>
-<ul>
-<li><a href="#orgb28537a">8.1. range</a></li>
-</ul>
-</li>
-<li><a href="#org1d7fd19">9. think, habit until the day</a></li>
-<li><a href="#org6b16e46">10. nowaday</a></li>
+<li><a href="#orgdd36edf">1. re-init</a></li>
+<li><a href="#org9be8928">2. I love you, lang, babel</a></li>
+<li><a href="#org4a35316">3. day one</a></li>
+<li><a href="#org6e10cc0">4. concept, thing</a></li>
+<li><a href="#org71a34ba">5. tasks, thing-s in progress</a></li>
 </ul>
 </div>
 </div>
+<p>
+##+SETUPFILE: theme-readtheorg.setup
+</p>
 
-<div id="outline-container-orgc5974ed" class="outline-2">
-<h2 id="orgc5974ed"><span class="section-number-2">1</span> re-init</h2>
+<div id="outline-container-orgdd36edf" class="outline-2">
+<h2 id="orgdd36edf"><span class="section-number-2">1.</span> re-init</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>C-c C-e h o</li>
@@ -265,151 +220,55 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org651a94a" class="outline-2">
-<h2 id="org651a94a"><span class="section-number-2">2</span> (cons t nil), think</h2>
-<div class="outline-text-2" id="text-2">
-<ul class="org-ul">
-<li>정반합</li>
-<li>아니 부</li>
-<li>(think ((emacs lisp linux) book))</li>
-</ul>
-</div>
+<div id="outline-container-org9be8928" class="outline-2">
+<h2 id="org9be8928"><span class="section-number-2">2.</span> I love you, lang, babel</h2>
 </div>
 
-<div id="outline-container-org160a8dd" class="outline-2">
-<h2 id="org160a8dd"><span class="section-number-2">3</span> programming &gt; lisp</h2>
+<div id="outline-container-org4a35316" class="outline-2">
+<h2 id="org4a35316"><span class="section-number-2">3.</span> day one</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
-<li>lisp, clisp, emacs-lisp</li>
-<li>emacs with slime</li>
-<li>quicklisp, (ql:update-all-dists)</li>
-</ul>
-
-<div class="org-src-container">
-<pre class="src src-emacs-lisp">(cons t nil)
-</pre>
-</div>
-
+<li>(ing (walk work))</li>
+<li>(coffee book think)
 <ul class="org-ul">
-<li>car, cdr, cond, loop, defun, if, when</li>
-<li class="off"><code>[&#xa0;]</code> bind on it or</li>
-<li>habit</li>
+<li>침잠하다, meltdown</li>
+</ul></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org31ec2f3" class="outline-2">
-<h2 id="org31ec2f3"><span class="section-number-2">4</span> then emacs, emacs, emacs-lisp</h2>
+<div id="outline-container-org6e10cc0" class="outline-2">
+<h2 id="org6e10cc0"><span class="section-number-2">4.</span> concept, thing</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
-<li>macro</li>
-<li>org-mode &gt; agenda</li>
-<li>dunnet</li>
-<li>with dropbox or what? git?</li>
-<li>habit</li>
+<li>(dc (spss (stable perf scale secure)))</li>
+<li>(emacs linux lisp)
+<ul class="org-ul">
+<li>(emacs (mode major minor)</li>
+<li>(lisp (atom list))</li>
+<li>(linux base)</li>
+</ul></li>
+<li>babel</li>
+<li>不
+<ul class="org-ul">
+<li>정반합</li>
+</ul></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgde41e4d" class="outline-2">
-<h2 id="orgde41e4d"><span class="section-number-2">5</span> linux again, operating system with more such as network and what?</h2>
+<div id="outline-container-org71a34ba" class="outline-2">
+<h2 id="org71a34ba"><span class="section-number-2">5.</span> tasks, thing-s in progress</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
-<li class="off"><code>[&#xa0;]</code> rhce? why?</li>
-<li>redhat, rpm, yum then what?</li>
-<li>debian, ubuntu, apt then where?</li>
-<li>what about slack!</li>
-<li>habit</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-orgc421c00" class="outline-2">
-<h2 id="orgc421c00"><span class="section-number-2">6</span> book, peom, nothing but think</h2>
-<div class="outline-text-2" id="text-6">
+<li class="on"><code>[X]</code> combining</li>
+<li>(smart) building with electricity and more</li>
+<li>automation system at (smart) building
 <ul class="org-ul">
-<li>habit</li>
-<li>book, 論語</li>
-</ul>
-
-<pre class="example">
-책이라 요즘 공부한다고 
-지식 공부라고 해야 할까 
-요즘 지식 공부를 한다고 책을 멀리하였다 
-여기서 책은 지식 공부용 책과는 다르다 
-지식 공부는 그 양식에서 책과 인쇄물 그리고 인터넷의 정보를 가리지 않는다 
-책은 책은 말이다
-</pre>
-
-<ul class="org-ul">
-<li class="on"><code>[X]</code> 우주만화</li>
-<li class="on"><code>[X]</code> 삼국지 조조전</li>
-<li class="off"><code>[&#xa0;]</code> 사피엔스에서 (사실 아직 보는 중이다) 다시 논어로
-<ul class="org-ul">
-<li>시작은 있고, 그 끝은 알 수 없다.</li>
-<li>삼국지 조조전에서 풀어낸 논어 그리고 그 이외의 전장에서</li>
+<li><a href="https://www.onlogic.com/blog/what-is-a-plc-how-does-it-work/">https://www.onlogic.com/blog/what-is-a-plc-how-does-it-work/</a></li>
 </ul></li>
-<li class="off"><code>[&#xa0;]</code> 신비의 섬
-<ul class="org-ul">
-<li>1권이다. 참 교육적인다. 목적에 부합한다.</li>
-</ul></li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-orgae768a8" class="outline-2">
-<h2 id="orgae768a8"><span class="section-number-2">7</span> I love you, lang</h2>
-<div class="outline-text-2" id="text-7">
-<ul class="org-ul">
-<li>한글, 한국어, 문장, 문서, 시</li>
-<li>영어</li>
-<li>중국어, 한자</li>
-<li>라틴어</li>
-<li>러시아어</li>
-<li>이탈리아어</li>
-<li>독일어</li>
-<li>불어</li>
-<li>c, c++, rust, go, perl, ruby, python, awk, sed, ed, javascript, typescript
-<ul class="org-ul">
-<li>그 차이는, 언어와 언어의 차이는 어디서 오는가?</li>
-</ul></li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org796eb81" class="outline-2">
-<h2 id="org796eb81"><span class="section-number-2">8</span> t-mac.do</h2>
-<div class="outline-text-2" id="text-8">
-<p>
-어떠한 용도로 또는 어떠한 목적을 가지고 작성하는가, 작성 되었는가. 맥이라. mac os x인지. apple mac 인지. mac address인지. 잠시 다시 보니 mac address로 보인다.
-</p>
-</div>
-
-<div id="outline-container-orgb28537a" class="outline-3">
-<h3 id="orgb28537a"><span class="section-number-3">8.1</span> range</h3>
-<div class="outline-text-3" id="text-8-1">
-<ul class="org-ul">
-<li>win : <a href="https://goo.gl/ncEN2q">https://goo.gl/ncEN2q</a></li>
-<li>aix : <a href="https://goo.gl/2jLHzm">https://goo.gl/2jLHzm</a></li>
-<li>linux : <a href="https://goo.gl/SUXE7k">https://goo.gl/SUXE7k</a></li>
-</ul>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org1d7fd19" class="outline-2">
-<h2 id="org1d7fd19"><span class="section-number-2">9</span> think, habit until the day</h2>
-</div>
-<div id="outline-container-org6b16e46" class="outline-2">
-<h2 id="org6b16e46"><span class="section-number-2">10</span> nowaday</h2>
-<div class="outline-text-2" id="text-10">
-<ul class="org-ul">
-<li>dna-sda</li>
-<li>sdn/nfv</li>
-<li>vba, python, perl, lisp and so on so code daily/momently</li>
-<li>book reading with think and writing at side of it, depend</li>
-<li>aging</li>
-<li>working and walking and more not most</li>
+<li>side by side, rhel</li>
+<li>nearby, networking</li>
 </ul>
 </div>
 </div>

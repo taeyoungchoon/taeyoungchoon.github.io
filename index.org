@@ -1,112 +1,34 @@
 #+SETUPFILE: theme-readtheorg.setup
 #+OPTIONS: html-postamble:nil
 
-* be
-
-- book
-- (lisp emacs linux)
-- ((eros logos) (ds alg))
-- walk work
-- body < Fe(Ferrum)
-- moleskine, franklin planner
-- imdb trailers.apple.com kyobo
-
 * re-init
 
 - C-c C-e h o
 
-* (cons t nil), think
+* I love you, lang, babel
 
-- 정반합
-- 아니 부
-- (think ((emacs lisp linux) book))
+* day one
 
-* programming > lisp
+- (ing (walk work))
+- (coffee book think)
+  - 침잠하다, meltdown
 
-- lisp, clisp, emacs-lisp
-- emacs with slime
-- quicklisp, (ql:update-all-dists)
+* concept, thing
 
-#+BEGIN_SRC emacs-lisp
-  (cons t nil)
-#+END_SRC
+- (dc (spss (stable perf scale secure)))
+- (emacs linux lisp)
+  - (emacs (mode major minor)
+  - (lisp (atom list))
+  - (linux base)
+- babel
+- 不
+  - 정반합
 
-#+RESULTS:
-| t |
+* tasks, thing-s in progress
 
-- car, cdr, cond, loop, defun, if, when
-- [ ] bind on it or
-- habit
-
-* then emacs, emacs, emacs-lisp
-
-- macro
-- org-mode > agenda
-- dunnet
-- with dropbox or what? git?
-- habit
-
-* linux again, operating system with more such as network and what?
-
-- [ ] rhce? why?
-- redhat, rpm, yum then what?
-- debian, ubuntu, apt then where?
-- what about slack!
-- habit
-
-* book, peom, nothing but think
-
-- habit
-- book, 論語
-
-#+BEGIN_SRC
-책이라 요즘 공부한다고 
-지식 공부라고 해야 할까 
-요즘 지식 공부를 한다고 책을 멀리하였다 
-여기서 책은 지식 공부용 책과는 다르다 
-지식 공부는 그 양식에서 책과 인쇄물 그리고 인터넷의 정보를 가리지 않는다 
-책은 책은 말이다
-#+END_SRC
-
-- [X] 우주만화
-- [X] 삼국지 조조전
-- [ ] 사피엔스에서 (사실 아직 보는 중이다) 다시 논어로
-  - 시작은 있고, 그 끝은 알 수 없다.
-  - 삼국지 조조전에서 풀어낸 논어 그리고 그 이외의 전장에서
-- [ ] 신비의 섬
-  - 1권이다. 참 교육적인다. 목적에 부합한다.
-
-* I love you, lang
-
-- 한글, 한국어, 문장, 문서, 시
-- 영어
-- 중국어, 한자
-- 라틴어
-- 러시아어
-- 이탈리아어
-- 독일어
-- 불어
-- c, c++, rust, go, perl, ruby, python, awk, sed, ed, javascript, typescript
-  - 그 차이는, 언어와 언어의 차이는 어디서 오는가?
-
-* t-mac.do
-
-어떠한 용도로 또는 어떠한 목적을 가지고 작성하는가, 작성 되었는가. 맥이라. mac os x인지. apple mac 인지. mac address인지. 잠시 다시 보니 mac address로 보인다.
-
-** range
-
-- win : https://goo.gl/ncEN2q 
-- aix : https://goo.gl/2jLHzm
-- linux : https://goo.gl/SUXE7k
-
-* think, habit until the day
-* nowaday
-
-- dna-sda
-- sdn/nfv
-- vba, python, perl, lisp and so on so code daily/momently
-- book reading with think and writing at side of it, depend
-- aging
-- working and walking and more not most
-- pl.python, lang.python
-- arista.cvp.python, mako template, (ds alg)
+- [X] combining
+- (smart) building with electricity and more
+- automation system at (smart) building
+  - https://www.onlogic.com/blog/what-is-a-plc-how-does-it-work/
+- side by side, rhel
+- nearby, networking
