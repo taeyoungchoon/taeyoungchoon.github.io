@@ -1,0 +1,33 @@
+VUB-FAPD
+Output SPDT
+Pressure Range 50...500Pa
+Designed by Thermokon
+IP54
+
+VUB-MPAN20 , damper switch
+Made in Switzerland
+2021-01-28
+
+VUB-DTBE30
+Outputs PT1000
+Measure Range T -40...+140
+Ambient Temp -35..+90
+Thermowell 320mm
+Designed by Thermokon
+IP65
+
+SOLENOID VALVE
+RPV-1607DYF
+4282J
+M.P. 4.3MPa
+M.O.P.D. 3.6MPa
+AC220V 50Hz 6W
+AC220-230V 60Hz 4,5-5W
+SAGInoMIYA
+MADE IN JAPAN 0993
+
+GYO DONG SIGNAL
+ELEMENT IPT100
+PROTEC 300 m/m
+LEN nil
+DIA nil
