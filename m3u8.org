@@ -1,0 +1,7 @@
+* m3u8? m3u
+
+- m3u, mp3 url < winplay3
+- m3u8, (m3u UTF-8)
+  - (m3u8 ((mp3 url) UTF-8)
+- application/vnd.apple.mpegurl
+- audio/mpegurl

@@ -1,0 +1,3 @@
+* winamp no more
+
+- xmms, clone
