@@ -1,0 +1,9 @@
+* mccs(mantech continuous cluster service)
+
+* manual
+
+- https://gcloud.kt.com/manual/ucloud_server_image_HA_v3.6.pdf
+
+* link
+
+- https://www.softwarecatalog.co.kr/src/Item/ItemMaster.aspx?Serial=7814
