@@ -125,7 +125,6 @@ https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=mogni&logNo=
 
 * 문서 작성, 글쓰기
 
-
 - 문서 작성과 글쓰기
   - 글쓰기에 종류가 있고, 문서 작성이 그 종류 중 하나이다.
   - 일기
@@ -141,3 +140,17 @@ https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=mogni&logNo=
   - 일반적으로 논리에 따른다.
 - 양식
   - 내용을 양식에 맞춘다, 양식에 내용을 맞춘다.
+
+* 형식
+
+'형식이 갖추어져 있으면 그 안에 내용을 채워 넣는다'라고 이야기 한다. form이라.
+
+* 내용
+
+atom, 물론 중요하다. 중요한가.
+
+* 문법
+
+맞추면 좋다. 아가서 크리스티와의 대화, 뭐
+
+
