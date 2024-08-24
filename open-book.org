@@ -1,0 +1,12 @@
+* open book, and what I am, what i am
+
+- 나-너-우리, 가이아
+- spss
+  - stable
+  - perf
+  - scale
+  - secure
+- dc, dcs, data center set
+  - seed, state, mon
+  - binder, binder-ng
+

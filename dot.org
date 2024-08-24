@@ -44,6 +44,7 @@ digraph sample {
 
 #+RESULTS:
 [[file:dot.png]]
+
 * on web
 
 http://www.webgraphviz.com/?source=techstories.org
