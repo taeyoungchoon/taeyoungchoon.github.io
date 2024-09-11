@@ -1,0 +1,14 @@
+* mon and sound
+
+#+begin_src bash
+say -v "Yuna" "CCTV 카메라에 이상이 발생하였습니다. 확인 바랍니다." -o cctv.aiff
+afplay cctv.aiff
+afconvert -f WAVE -d LEI32 cctv.aiff cctv.wav
+afplay cctv.wav
+#+end_src
+
+- https://apple.stackexchange.com/questions/201318/how-to-make-say-command-speak-and-output-to-the-file-at-the-same-time
+
+#+begin_src bash
+espeak -v ko+f3 "CCTV 카메라에 이상이 발생하였습니다. 확인 바랍니다."
+#+end_src
