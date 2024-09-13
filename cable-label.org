@@ -1,0 +1,22 @@
+* TODO howto with start and end
+
+#+begin_example
+S: L1 SW-23
+E: B1 G9/24
+#+end_example
+
+#+begin_example
+S: iptime1 p3
+E: printer1 p1
+#+end_example
+
+#+begin_example
+S: printer1 p1
+E: iptime1 p3
+#+end_example
+
+- b1_iptime1 p3
+- location_code port
+- building0 floor1 zone2 rack3 server4 port5
+  - refer aws
+

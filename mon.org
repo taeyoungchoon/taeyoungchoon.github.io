@@ -1,3 +1,14 @@
+* mon with bash
+
+* mon with bash and others
+
+* mon at cygwin
+
+- [ ] echo -e \\a
+- [X] cat /cygdrive/c/Windows/Media/Alarm01.wav > /dev/dsp
+  
+* mon with nagios
+
 * TODO mon with
 
 - core
