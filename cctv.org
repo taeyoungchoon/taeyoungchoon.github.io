@@ -1,3 +1,8 @@
+* 감시 카메라, 감시카메라, cctv와 snmp, ping
+* cctv라는 ip 주소를 가진 유선 또는 무선의 장치(device)
+
+- ping, nmap, count
+
 * mon and sound
 
 #+begin_src bash
