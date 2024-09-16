@@ -3,3 +3,10 @@
 1. M-x load-theme
 2. Load custom theme: wombat
 
+* DONE zenburn
+
+#+begin_src emacs-lisp
+  (use-package zenburn-theme
+    :ensure t)
+  (load-theme 'zenburn)
+#+end_src
