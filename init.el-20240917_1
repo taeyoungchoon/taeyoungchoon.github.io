@@ -1,0 +1,220 @@
+(require 'package)
+(add-to-list 'package-archives
+  '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
+
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+(use-package graphviz-dot-mode
+  :ensure t
+  :config
+  (setq graphviz-dot-indent-width 4))
+
+(use-package use-package-ensure-system-package
+  :ensure t)
+
+;; (use-package image
+;;   :custom
+;;   ;; Enable converting external formats (ie. webp) to internal ones.
+;;   (image-use-external-converter t))
+;; (cdr (assq 'png dynamic-library-alist))
+
+;; font
+(set-face-font 'default (font-spec :family "D2Coding" :size 18))
+;; (custom-set-faces
+;;  '(default ((t (:family "D2Coding" :foundry "outline" :slant normal :weight normal :height 119 :width normal)))))
+
+(global-set-key [?\C-h] 'delete-backward-char)
+(global-set-key [?\C-x ?h] 'help-command)
+;; overrides mark-whole-buffer
+
+;; (setq w32-alt-is-meta nil)
+(global-visual-line-mode t)
+(setq inhibit-splash-screen t)
+(display-time)
+(load-theme 'wombat)
+(setq default-directory "t:/home")
+
+; about backup & auto-save
+; http://www.gnu.org/software/emacs/manual/html_node/elisp/Auto_002dSaving.html
+(setq make-backup-files t)
+(setq backup-directory-alist
+      `((".*" . ,temporary-file-directory)))
+
+(setq auto-save-default t)
+(setq auto-save-interval 300)
+(setq auto-save-timeout 30)
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
+
+; C:\Users\<username>\AppData\Local\Teqmp
+; (defvar user-temporary-file-directory
+; "~/.emacs-backup")
+
+; language
+(set-language-environment "Korean")
+(prefer-coding-system 'utf-8)
+(setq default-input-method "korean-hangul3f")
+(global-set-key (kbd "S-SPC") 'toggle-input-method)
+
+;;(prefer-coding-system 'utf-8)
+;;(set-file-name-coding-system 'utf-8)
+;;(set-terminal-coding-system 'utf-8)
+;;(set-keyboard-coding-system 'utf-8)
+;;(set-selection-coding-system 'utf-8)
+;;(set-buffer-file-coding-system 'utf-8)
+
+;;(if (eq system-type 'windows-nt)
+;;  (set-file-name-coding-system 'euc-kr)
+;;  (set-w32-system-coding-system 'euc-kr)
+;;  )
+
+; move around
+(global-set-key (kbd "C-x <up>") 'windmove-up)
+(global-set-key (kbd "C-x <down>") 'windmove-down)
+(global-set-key (kbd "C-x <right>") 'windmove-right)
+(global-set-key (kbd "C-x <left>") 'windmove-left)
+
+;;(require 'ace-jump-mode)
+;;(define-key global-map (kbd "C-x j") 'ace-jump-mode)
+
+; buffer move
+(global-set-key (kbd "<C-S-up>")     'buf-move-up)
+(global-set-key (kbd "<C-S-down>")   'buf-move-down)
+(global-set-key (kbd "<C-S-left>")   'buf-move-left)
+(global-set-key (kbd "<C-S-right>")  'buf-move-right)
+
+; swap window
+; C-u M-p to do so
+;(global-set-key (kbd "M-p") 'ace-window)
+(global-set-key (kbd "M-s") 'ace-swap-window)
+
+; resizing window with windresize
+
+; package dictionary.el
+(global-set-key (kbd "<f8>") 'dictionary-lookup-definition)
+
+;; mail
+(setq gnus-select-method '(nnimap "gmail"
+				  (nnimap-address "imap.gmail.com")
+                                  (nnimap-server-port 993)
+                                  (nnimap-stream ssl)))
+;;(setq gnus-secondary-select-methods '((nntp "news.gwene.org")))
+
+;; org-mode
+(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+(define-key global-map "\C-ca" 'org-agenda)
+;; (setq org-log-done t)
+;; https://orgmode.org/manual/Hard-indentation.html
+(setq org-adapt-indentation nil
+      org-hide-leading-stars nil
+      org-odd-levels-only nil)
+;; (require 'org-tempo)
+
+;; printer
+;; (require 'printing)
+;; (pr-update-menus)
+;; http://www.emacs.uniyar.ac.ru/doc/em24h/emacs018.htm
+;; http://www.emacswiki.org/emacs/PrintingFromEmacs#toc5
+;; (setq printer-name "//127.0.0.1/Printer")
+(setenv "GS_LIB" "c:/Program Files/gs/gs10.03.0/lib;c:/Program Files/gs/gs10.03.0/fonts")
+(setq ps-lpr-command "c:/Program Files/gs/gs10.03.0/bin/gswin64c.exe")
+(setq ps-lpr-switches '("-q" "-dNOPAUSE" "-dBATCH" "-sDEVICE=mswinpr2"))
+(setq ps-printer-name t)
+
+;; lisp
+;; (ql:add-to-init-file)
+;; (ql:quickload "quicklisp-slime-helper")
+
+; slime
+;(setq inferior-lisp-program "c:/Program Files/Steel Bank Common Lisp/1.2.11/sbcl.exe")
+;(setq slime-lisp-implementations '((sbcl ("C:\\Program Files\\Steel Bank Common Lisp\\1.2.11\\sbcl.exe" "--core" "C:\\Program Files\\Steel Bank Common Lisp\\1.2.11\\sbcl.core"))))
+;(setq slime-lisp-implementations '((sbcl ("C:\\Program Files\\Steel Bank Common Lisp\\1.2.11\\sbcl.exe"))))
+(setq inferior-lisp-program "sbcl")
+;; (setq inferior-lisp-program "clisp")
+;(setq slime-contribs '(slime-fancy))
+;; (require 'slime)
+;(require 'slime-autoloads)
+;; (slime-setup '(slime-fancy))
+
+;; twitter
+;;(require 'twittering-mode)
+;;(setq twittering-use-master-password t)
+
+; recent open files
+(recentf-mode 1)
+        (global-set-key (kbd "<f7>") 'recentf-open-files)
+
+;; feed
+(global-set-key (kbd "C-x w") 'elfeed)
+(setq org-display-custom-times t)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   '("9fb561389e5ac5b9ead13a24fb4c2a3544910f67f12cfcfe77b75f36248017d0" default))
+ '(display-time-mode t)
+ '(elfeed-feeds
+   '("https://lwn.net/headlines/rss" "http://www.50ply.com/atom.xml" "http://nullprogram.com/feed/" "http://www.terminally-incoherent.com/blog/feed/"))
+ '(graphviz-dot-preview-extension "png")
+ '(org-time-stamp-custom-formats '("<%Y-%m-%d>" . "<%Y-%m-%d %H:%M>"))
+ '(package-selected-packages
+   '(zenburn-theme 2bit 2048-game 0xc ahk-mode 0x0 0blayout material-theme better-defaults elpy yaml-mode json-mode elfeed pylint graphviz-dot-mode htmlize dictionary slime)))
+
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((dot . t)
+   (shell . t)
+   (python . t)
+   (sed . t)
+   (awk . t)
+   (emacs-lisp . t )
+   )) ; this line activates dot
+
+(setq org-confirm-babel-evaluate nil)
+
+;; mako
+;; (require 'mmm-auto)
+;; (setq mmm-global-mode 'maybe)
+;; (add-to-list 'auto-mode-alist '("\\.mako\\'" . html-mode))
+;; (mmm-add-mode-ext-class 'html-mode "\\.mako\\'" 'mako)
+
+(defun ascii-table ()
+  "Display basic ASCII table (0 thru 128)."
+  (interactive)
+  (switch-to-buffer "*ASCII*")
+  (erase-buffer)
+    (setq buffer-read-only nil)        ;; Not need to edit the content, just read mode (added)
+    (local-set-key "q" 'bury-buffer)   ;; Nice to have the option to bury the buffer (added)
+    (save-excursion (let ((i -1))
+		      (insert "ASCII characters 0 thru 127.\n\n")
+		      (insert " Hex  Dec  Char|  Hex  Dec  Char|  Hex  Dec  Char|  Hex  Dec  Char\n")
+		      (while (< i 31)
+			(insert (format "%4x %4d %4s | %4x %4d %4s | %4x %4d %4s | %4x %4d %4s\n"
+					(setq i (+ 1  i)) i (single-key-description i)
+					(setq i (+ 32 i)) i (single-key-description i)
+					(setq i (+ 32 i)) i (single-key-description i)
+					(setq i (+ 32 i)) i (single-key-description i)))
+			(setq i (- i 96))))))
+
+;; yaml
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
+
+;; https://www.emacswiki.org/emacs/FrameSize
+;; (add-to-list 'default-frame-alist '(width . 120))
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+(setq python-shell-interpreter "python3"
+      python-shell-interpreter-args "-i")
