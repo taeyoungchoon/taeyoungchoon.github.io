@@ -1,0 +1,3 @@
+* ghostscript, gs
+
+써왔다. ps, postscript
