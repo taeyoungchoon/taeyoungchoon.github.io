@@ -3,3 +3,27 @@
 #+BEGIN_SRC 
 =IF(LEN(IFERROR(VLOOKUP(C90,$A$2:$A$110,1,FALSE),""))>0,"O","X")
 #+END_SRC
+
+* countifs
+
+- tip: excel table to org-mode using 'C-c |'
+
+| subject | type |
+|---------+------|
+| game    | x    |
+| game    | x    |
+| game    | y    |
+| game    | y    |
+| game    | y    |
+| game    | z    |
+
+#+begin_example
+=COUNTIFS($A$2:$A$7,$F$1,$B$2:$B$7,E2)
+#+end_example
+
+| type | game |
+|------+------|
+| x    |    2 |
+| y    |    3 |
+| z    |    1 |
+
