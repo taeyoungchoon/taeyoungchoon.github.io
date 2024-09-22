@@ -10,8 +10,7 @@
 * day one
 
 - (ing (walk work))
-- (coffee book think)
-  - 침잠하다, meltdown
+- (think (tea book))
 
 * concept, thing
 
@@ -23,7 +22,10 @@
 - babel
 - 不
   - 정반합
-
+- dcs, data center set
+- seed -> state <-> mon
+- ((plan measure) act mon)
+  
 * tasks, thing-s in progress
 
 - [X] combining
