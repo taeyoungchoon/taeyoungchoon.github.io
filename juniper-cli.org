@@ -347,7 +347,7 @@ user@host# set ssl local-certificate jsd_certificate
   set vlans default l3-interface vlan.0
 #+end_src
 
-* TODO config
+* DONE init config
 
 #+begin_src bash
   config
@@ -357,5 +357,21 @@ user@host# set ssl local-certificate jsd_certificate
   Retype new password: xxx
   show | compare
   commit
-
 #+end_src
+
+* DONE add user, admin
+
+#+begin_src bash
+  configure
+  set system login user admin class super-user authentication plain-text-password
+  show | compare
+  commit
+#+end_src
+
+* DONE commit or rollback
+* DONE issue, error: minimum password length is 6
+
+#+begin_example
+  123$qweR
+  P@ssw0rd
+#+end_example

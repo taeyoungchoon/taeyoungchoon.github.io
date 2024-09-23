@@ -62,3 +62,24 @@ Filesystem              Size       Used      Avail  Capacity   Mounted on
 /dev/da0s3d             369M       188K       339M        0%  /var/tmp
 /dev/da0s4d              62M       164K        57M        0%  /config
 #+END_SRC
+
+* DONE cli abou 'match' later with find
+
+ #+begin_src bash
+   root@L3_Switch1> show interfaces terse | match me             
+   bme0                    up    up
+   bme0.32768              up    up   inet     128.0.0.1/2     
+   me0                     up    up
+   me0.0                   up    up   inet     192.168.25.221/24
+   pime                    up    up
+   vme                     up    down
+
+   root@L3_Switch1> show interfaces terse | match ^me   
+   me0                     up    up
+   me0.0                   up    up   inet     192.168.25.221/24
+
+   root@L3_Switch1> show interfaces terse | match ^me.*24$ 
+   me0.0                   up    up   inet     192.168.25.221/24
+ #+end_src
+
+* DONE login as root then cli

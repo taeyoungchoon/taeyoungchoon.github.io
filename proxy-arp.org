@@ -1,3 +1,10 @@
+* arista
+
+#+begin_src bash
+DCS-7050-48c8#sh run all | grep "proxy-arp" | egrep -v "no ip local-proxy-arp|no ip proxy-arp"
+DCS-7050-48c8#
+#+end_src
+
 * korean say, no
 
 - https://kujung.tistory.com/109
