@@ -3,6 +3,6 @@
 - GBIC: Gigabit Interface Converter
 - SFP
 - [X] SFP+: 10G
-- QSFP: quad
+- QSFP: quad(x4)
   - 40G
   - 100G

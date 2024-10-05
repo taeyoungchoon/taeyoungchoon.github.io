@@ -1,0 +1,6 @@
+* both
+
+- https://www.gigatechproducts.com/understanding-mtp-mpo/
+  
+** mpo, Multi-fiber Push On/Pull Off
+** mtp, Multi-fiber Termination Push On/Pull Off

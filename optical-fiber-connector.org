@@ -1,13 +1,15 @@
 * DONE list
 
-- SC
+- [X] SC
   - SC: Standard Connector
 - [X] LC with SFP(Small Form Factor) transceiver
   - LC: Lucent but Little Connector
-- [X] MTP < MPO
-  - Multi-fiber connector
-  - MTP: Multiple-fiber Termination Push-on
+- [X] MPO > MTP, Multi-fiber connector
   - MPO: Multiple-fiber Push-On
+  - MTP: known as Multiple-fiber Termination Push-on but check below
+    - US Conec
+    - MT: 'Mechanical Transfer'
+      - MT ferrule
 
 * DONE MPO and MTP
 
@@ -20,3 +22,25 @@
 
 - MTP/MPO Fiber Trunk Cable
 - MTP/MPO Breakout cable
+
+* refer
+
+- https://en.wikipedia.org/wiki/Optical_fiber_connector
+
+* TODO push no
+
+* ex. QSFP-40/100-SRBD SFP
+
+- 100Gb
+- SRBD
+  - SR, 10Gb
+  - BD: BiDi, 40Gb
+
+* MMF, Multi Mode Fiber used more
+
+- https://en.wikipedia.org/wiki/Multi-mode_optical_fiber
+
+* 10G-SR, 10G-LR
+
+- 10GBase-SR SFP+
+- 10GBase-LR SFP+ with SMF, 10km

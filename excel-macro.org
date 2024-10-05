@@ -1,0 +1,42 @@
+* save
+
+- [ ] 개인용 매크로 통합 문서, personal macro workbook
+- [ ] 새 통합 문서
+- [ ] 현재 통합 문서
+
+* vba, merge cell-s
+
+- https://www.youtube.com/watch?v=60kYGSG6XSU
+
+#+begin_example
+  Sub vba_merge()
+    Range("C4:C5").Merge
+  End Sub
+#+end_example
+
+#+begin_example
+  Sub vba_merge()
+    Selection.Merge
+  End Sub
+#+end_example
+
+#+begin_example
+  Sub vba_merge ()
+
+  Dim val As String
+  Dim rng As Range
+
+  Set rng = Selection
+  For Each Cell In rng
+      val = val & " " & Cell.Value
+  Next Cell
+
+  With rng
+      .Merge
+      .Value = Trim(val)
+      .WrapText = True
+      .HorizontalAlignment = xlCenter
+      .VerticalAlignment = xlCenter
+  End With
+  End Sub
+#+end_example
