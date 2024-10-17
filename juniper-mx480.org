@@ -75,6 +75,7 @@ Possible completions:
 - https://forum.huawei.com/enterprise/en/forwarding-performance-and-switching-capacity/thread/570609-861
 - then the packet forwarding rate of the Gigabit Ethernet interface is 1.488Mpps, and the packet forwarding rate of the 10G Ethernet interface is 14.88Mpps.
 - A 24-port 100 Mbit/s switch must have a forwarding performance of 3.5712Mpps and a switching capacity of 4.8 Gbps.
+  
 ** calc
 
 - capacity = ports * rate * 2(full duplex)

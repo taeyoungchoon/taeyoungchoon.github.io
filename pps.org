@@ -1,0 +1,29 @@
+* forward rate, packet throughput
+
+- pps, packet / second
+- https://alluknow.tistory.com/16
+
+** if 64 byte packet comes in
+** if 1500 byte packet
+
+* TODO vs switching capacity
+
+- comes with backplane
+- calc
+  - https://romyismycat.tistory.com/entry/스위칭-용량Gbps과-포워딩-성능pps의-차이는
+- 24 port gigabit ethernet switch
+  - 1 Gbps x 24 = 24 Gbps
+    - full duplex, so 24 Gbps x 2 = 48 Gbps
+- Arista 7050SX3-48C8
+  - 7050SX3-48C8 : 48x SFP+ & 8x QSFP100
+  #+begin_example
+  CL-USER> (* (+ (* 100 8) (* 48 10)) 2)
+  2560
+  #+end_example
+  - https://www.arista.com/assets/data/pdf/Datasheets/7050X3-Datasheet_ko.pdf
+  - https://www.arista.com/assets/data/pdf/Datasheets/7050X3-Datasheet.pdf
+  - tip
+    - QSFP100 with 100GbE, 40GbE, 4x10GbE, 4x25GbE or 2x 50GbE
+    - SFP25 with 25GbE
+    - SFP+ with 1
+      - https://www.fibermall.com/ko/blog/sfp-plus-module.htm?srsltid=AfmBOopVDKmBkhAhZHp8V2t7AV1KnKpg0cTf4HMgrAekHJN9m4JNNsfi
