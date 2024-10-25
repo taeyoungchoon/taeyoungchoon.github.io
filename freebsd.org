@@ -62,3 +62,65 @@ mkdir /data
 mount /data
 gpart delete -i 2 /dev/ada1
 
+* spec.disk
+
+** dig in
+
+# sysctl kern.disks
+kern.disks: xbd2 xbd1 ada0
+
+diskinfo -v ada0 
+
+sysctl -n kern.geom.confxml
+fdisk ada0
+mount
+df -h
+
+diskinfo -v da0
+gstat -pb
+
+smartctl -x /dev/ada0 | grep Solid
+
+zpool iostat -lv
+
+https://www.cyberciti.biz/faq/linux-getting-scsi-ide-harddisk-information/
+
+** howto
+
+https://www.cyberciti.biz/faq/freebsd-hard-disk-information/
+
+cat /var/run/dmesg.boot
+diskinfo -v disk_name
+diskinfo -v ad4
+
+* spec.memory
+
+** howto
+
+sysctl hw.physmem
+
+sysctl -n hw.physmem | awk '{ byte =$1 /1024/1024/1024; print byte " GB" }'
+
+** dig in
+
+sysctl hw | egrep 'hw.(phys|user|real)'
+
+grep memory /var/run/dmesg.boot 
+
+pciconf -lv
+
+dmidecode -t memory
+
+* TODO freebsd spec: memory, disk
+
+** disk
+
+https://www.cyberciti.biz/faq/freebsd-hard-disk-information/
+
+cat /var/run/dmesg.boot
+diskinfo -v disk_name
+diskinfo -v ad4
+
+** memory
+
+sysctl hw.physmem
