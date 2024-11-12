@@ -6,7 +6,15 @@
 - systemd, ever init
 - apache, include?
 - ovs? nop
-
+- [2024-11-11 월] 나에게 일인가? 일이다.
+  #+begin_src emacs-lisp
+    (work :based-on linux)
+    (work :base linux)
+    (work)
+    (work :base network)
+    (work :base (network (arista cisco juniper)))
+  #+end_src
+  
 * note
 
 getting complicated more and more

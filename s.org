@@ -1,0 +1,1 @@
+* tail with s like this, '-s'
