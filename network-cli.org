@@ -1,0 +1,22 @@
+* network에서 cli란
+
+- cli, 명령어 방식의 그리고 api 방식의 또는 gui, tui, voice, vr(/hackers)
+- api / cli vs pure api
+- gopher-like, tui, tree, tree user interface
+- voice / cli, mean then vr(/hackers)
+
+* simple vs complex request
+
+#+begin_example
+  list
+  ls
+  ls -l
+  ls -al
+
+  ls -l --block-size=K
+  ls -l --block-size=KB
+
+  hostnamectl set-hostname
+#+end_example
+
+* what about the others, linux, operating system, lots of

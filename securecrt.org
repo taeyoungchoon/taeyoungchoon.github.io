@@ -1,3 +1,18 @@
+* DONE securecrt font
+
+- Lucida Console, now, still
+  #+begin_example
+    Changes in SecureCRT 5.5 (Beta 2) -- February 27, 2007
+    ------------------------------------------------------
+
+    Changes:
+
+      - The default font has been changed to "Lucida Console" due to a
+	Windows Vista compatibility issue.  This change only affects new
+	installations of SecureCRT.
+  #+end_example
+- Fixedsys, ever
+
 * log file
 
 - Options > Global Options
