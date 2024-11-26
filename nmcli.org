@@ -35,3 +35,6 @@ nmcli c add con-name team0 type team ifname team0 config '{"runner": { "name": "
 * comment
 
 - yum install bash-completion -y
+
+* TODO bond
+* TODO bridge

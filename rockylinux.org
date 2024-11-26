@@ -1,3 +1,8 @@
+* DONE [2024-11-25 월] old, archive
+
+- https://dl.rockylinux.org/vault/rocky/
+- https://dl.rockylinux.org/vault/rocky/8.6/isos/x86_64/Rocky-8.6-x86_64-dvd1.iso
+  
 * cli with vagrant
 
 ** TODO generic/rocky8 at ssh

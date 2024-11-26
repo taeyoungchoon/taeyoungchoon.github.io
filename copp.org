@@ -1,0 +1,31 @@
+* DONE docs
+
+- [X] Cisco Nexus 9000 Series NX-OS Security Configuration Guide, Release 10.2(x)
+- [X] Cisco Nexus 9000 Series NX-OS Quality of Service Configuration Guide, Release 10.2(x)
+- [X] Verify Control Plane Policing Violations on Nexus Platforms
+
+* TODO cli
+
+#+begin_example
+  setup
+
+  Configure best practices CoPP profile (strict/moderate/lenient/dense/skip) [strict]: strict
+#+end_example
+
+#+begin_example
+  show running-config copp all
+  show copp status
+  show policy-map interface control-plane
+  show policy-map interface control-plane | egrep "class|dropped|violated.*at " | grep -v "dropped 0"
+  show policy-map interface control-plane | egrep "class|trans|conform|dropped"
+  show policy-map interface control-plane class copp-system-p-class-monitoring | egrep "class|module|trans|conform|dropped" | diff -s
+  show policy-map interface control-plane class copp-system-p-class-l3uc-data | egrep "class|module|trans|conform|dropped" | diff -s
+  show policy-map interface control-plane class copp-system-p-class-normal | egrep "class|module|trans|conform|dropped" | diff -s
+  show policy-map interface control-plane class copp-system-p-class-ndp | egrep "class|module|trans|conform|dropped" | diff -s
+  show policy-map interface control-plane class copp-system-p-class-exception-diag | egrep "class|module|trans|conform|dropped" | diff -s
+  show policy-map interface control-plane class class-default | egrep "class|module|trans|conform|dropped" | diff -s
+#+end_example
+
+#+begin_example
+sh running-config aclmgr all | be copp-system-p-acl-icmp
+#+end_example

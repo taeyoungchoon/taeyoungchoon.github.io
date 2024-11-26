@@ -14,10 +14,10 @@
 
 - install latex then edit init.el
 
-#+BEGIN_SRC 
+#+BEGIN_SRC emacs-lisp
 
-(setq org-latex-packages-alist '())
-(add-to-list 'org-latex-packages-alist '("" "kotex" t))
+  (setq org-latex-packages-alist '())
+  (add-to-list 'org-latex-packages-alist '("" "kotex" t))
 
 #+END_SRC
 
