@@ -3,7 +3,8 @@
 - [2021-11-08 월] minikube start --driver=docker 뭐 나쁘지는 않다.
 - [2021-11-15 월] 어디까지 알아야 할까. 많이 알지는 못하지만, 도구라고 부른다.
 - [2021-11-16 Tue] 시작은 결국 minikube 인가?
-
+- [2024-11-27 수] 이거 지금도 일까?
+  
 * TODO cli but minikube or kubectl
 
 minikube addons list

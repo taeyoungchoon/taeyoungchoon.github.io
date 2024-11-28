@@ -1,6 +1,39 @@
 * history
 
 - [2020-12-20 Sun 01:42] friendly a little
+  
+
+* TODO [2024-11-27 수] ingress
+
+- network
+- incoming
+- concept
+- using, for example, nginx
+
+* DONE [2024-11-27 수] kubectl version
+
+#+begin_src bash
+  kubectl version
+
+  Client Version: v1.25.16
+  Kustomize Version: v4.5.7
+  Server Version: v1.25.16
+#+end_src
+
+- client and server, then kustomize?
+
+* DONE [2024-11-27 수] kubectl top node fail with 'error: Metrics API not available'
+
+- then again
+- Kubernetes Metrics Server
+
+#+begin_src bash
+  kubectl apply -f \ https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+  kubectl top node
+  kubectl top pod
+  kubectl top pod --sort-by cpu
+  kubectl top pod --sort-by memory
+#+end_src
 
 * see also
 
