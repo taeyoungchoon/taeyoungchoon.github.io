@@ -1,0 +1,9 @@
+* band? music or in the network
+
+- bandwidth, band width, what about band height
+- network device
+  - front port
+    - what about back port, console port, aux, management
+  
+* in band, out of band, ztp
+

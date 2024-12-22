@@ -1,1 +1,4 @@
 * radius server or protocol?
+* TODO free
+
+- [2024-12-20 Fri] 또 다시 free가 언급되었다.

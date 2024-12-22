@@ -1,4 +1,7 @@
 * dynamic host configuration protocol
+* TODO dhcp and ztp
+
+- zero-touch provisioning에서 dhcp가 ip도 주고, script도 보내 준다. 운영체제와 각종 모듈도 업데이트 한다면 그 파일은 scp/sftp로 전송할 것이다. 예전에는 tftp/ftp를 사용했다.
 
 * steps
 

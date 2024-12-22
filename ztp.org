@@ -2,7 +2,9 @@
 
 - zero touch provisioning
 - Zero Touch Provisioning
-
+- in-band ztp
+- out of band ztp
+  
 * desc as
 
 #+BEGIN_SRC emacs-lisp
