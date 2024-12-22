@@ -1,0 +1,15 @@
+* until
+
+- [2024-12-22 Sun 13:28] MacBook Pro의 운영체제를 'macOS Sequo 15.1.1'에서 'macOS Sequoia 15.2'로 업데이트하고 있다.
+  - status
+    - Downloading
+    - About 1 minute remaining
+    - About 30 minutes remaining
+      - 1분에서 30분으로?
+  - 사실 큰 불안감은 없다.
+- [2024-12-22 Sun 13:28] iphone의 운영체제를 'iOS 18.2'로 업데이트하고 있다.
+  - status
+    - Preparing Update
+  - 문제는 여기다. 많이 느려지면 안되는데, main stream이라고 생각하고, 넘어갔다.
+- [2024-12-22 Sun] 언제까지 해야하지, CentOS Stream이 생각난다.
+
