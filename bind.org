@@ -1,0 +1,33 @@
+* DONE bind, the name
+
+- map to
+
+* DONE bind book cover
+
+- grasshopper
+  
+* DONE bind 8 to 9, version-s
+
+- bind 9, the recent [2024-12-27 Fri]
+  
+* TODO role: master, slave, cache
+* TODO in chroot
+
+- [[file:chroot.org][chroot]] is
+  - C-c C-o to open link
+  - C-c C-l to edit link    
+
+* TODO package(d) vs source compile(d)
+* TODO using redhat package
+
+** bind9 vs bind9.x
+
+- bind9.x is temporal
+
+** install package(d)
+
+- [[file:redhat-package.org][redhat package]] called rpm with lots of other package
+
+* TODO check
+* TODO stop/start
+* TODO process
