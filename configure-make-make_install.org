@@ -1,0 +1,7 @@
+* configure; make; make install
+
+#+begin_src bash
+configure
+make
+make install
+#+end_src
