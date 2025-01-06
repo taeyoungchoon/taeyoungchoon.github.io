@@ -1,0 +1,19 @@
+* package
+
+- tgz
+- rpm
+- yum vs dnf
+  - remote package
+
+* TODO various, version-s, util
+
+- life cycle
+- what about security
+- what about security of bind-like, critical package
+- set
+  
+* from remote
+* from local
+* download to be local
+** TODO to download
+** download-ing
