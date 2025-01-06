@@ -1,0 +1,3 @@
+* vs simplicity
+* increasing complexity
+* care complexity

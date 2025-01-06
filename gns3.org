@@ -6,3 +6,6 @@ https://www.gns3.com/marketplace/appliances
 * history
 
 - [2022-08-04 목] not working on it, windows10, wsl2 and hyper-v enabled env
+- [2025-01-03 금] then again with
+  - netplan
+  - VBoxManage.exe modifyvm "GNS3 VM" --nested-hw-virt on
