@@ -1,0 +1,15 @@
+* type
+
+- 시수(市水): city water, potable water, drinking water
+  - https://blog.naver.com/dsjang650628/221544429679
+- 중수(中水), reusing water
+  - https://blog.naver.com/neosun1977/220805847151
+  - https://namu.wiki/w/%EC%A4%91%EC%88%98
+
+* rel
+
+- 시수조, 시수저수조 > 고가수조(시수용)
+  - 아래 두개
+- 중수조, 중수저수조 > 고가수조(중수용)
+  - 위에 두개 
+- [[https://www.epa.gov/ground-water-and-drinking-water/potable-water-reuse-and-drinking-water][EPA]](Environmental Protection Agency)

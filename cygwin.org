@@ -49,3 +49,27 @@ nil
 * [2022-12-27 화] cygwin today
 
 오늘 그리고 cygwin 업데이트 중이다. 그리고 다른 친구들도 함께. 언제부터 였을까? 또 다른 이들도 언제부터 였을까? 또 언제까지 일까? centos도 rockylinux도 slackware도 emacs, vi, sed, ed, vim, tc(turbo c), mdir, nc, (me body (if soul))
+
+* DONE cygwin clone using pmcyg
+
+- pmcyg to download Cygwin(partial mirror)
+
+** links
+
+- https://github.com/rwpenney/pmcyg
+-    https://pypi.org/project/pmcyg
+  
+** step
+
+1. download and install pmcyg
+   #+begin_src bash
+     C:\Users\jack>pip install pmcyg
+     C:\Users\jack>pip list | findstr pmcyg
+     pmcyg             3.2.2
+   #+end_src
+
+   #+RESULTS:
+
+2. 'pmcyg' to work with gui
+2. copy c:\users\jack\cygwin directory to thumb drive
+3. copy sample script to thumb drive 
