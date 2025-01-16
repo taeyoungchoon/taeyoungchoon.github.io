@@ -1,0 +1,34 @@
+* no space left on the device
+
+** -m 25
+
+- https://www.linuxquestions.org/questions/linux-server-73/inodes-full-on-dev-mapper-centos-root-4175675198/
+  #+begin_src bash
+  xfs_info /dev/mapper/centos-home | grep imaxpct
+  df -i /dev/mapper/centos-home
+  xfs_growfs -m 25 /dev/mapper/centos-home
+  #+end_src
+
+- https://superuser.com/questions/816627/xfs-incorrect-statement-of-no-space-left-on-device
+  #+begin_src bash
+  xfs_growfs -m 50% /
+  df -hi
+  #+end_src
+  
+- https://linux.die.net/man/8/xfs_growfs
+  #+begin_src bash
+  -m
+  Specify a new value for the maximum percentage of space in the filesystem that can be allocated as inodes.
+  In mkfs.xfs(8) this is specified with -i maxpct=nn.
+  #+end_src
+
+** hack
+
+- https://access.redhat.com/solutions/3572011
+
+** inode64
+
+#+begin_src bash
+mount -o remount,inode64 /dev/sda1
+#+end_src
+
