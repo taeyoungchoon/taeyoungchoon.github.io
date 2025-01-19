@@ -1,0 +1,7 @@
+* TODO multicast is
+* TODO cli, cisco vs arista
+
+#+begin_src bash
+  ip igmp join-group
+  ip igmp static-group
+#+end_src

@@ -1,8 +1,11 @@
+* is
+
+- [2025-01-17 금] not a toy
+  
 * history
 
 - [2020-12-20 Sun 01:42] friendly a little
   
-
 * TODO [2024-11-27 수] ingress
 
 - network

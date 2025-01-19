@@ -1,3 +1,7 @@
+* history
+
+- [2025-01-17 금] still
+  
 * protocol
 * aka IEEE 802.1X
 * so what
@@ -11,12 +15,25 @@
 - (RADIUS (EAPOL EAP))
 - extension called MAB(MAC Authentication Bypass)
 
+* implementation of authentication server
+
+- cisco ise
+- cisco acs
+  - acs 4.2 using self-signed certificate
+    - https://community.cisco.com/t5/network-access-control/acs-4-2-generate-self-signed-certificate/td-p/2004380
+- arista agni
+  
 * implementations
 
 - Xsupplicant
 - wpa-supplicant with NetworkManager
 - iphone, android, chrome os
 - mac os x, windows
+  - interface
+    - properties
+      - authentication : peap
+	- authentication method : eap-mschap v2
+      - additional settings
 
 * flow
 
@@ -30,3 +47,15 @@
 | EAP Response ->          | RADIUS Access-Request ->   |                      |
 |                          | <- RADIUS Access-Accept    |                      |
 | <- EAP Success           |                            |                      |
+
+* protocols part 1
+
+- peap
+
+* protocols part 2
+
+- ms-chapv2
+
+* protocols combined
+
+- peap then ms-chapv2
