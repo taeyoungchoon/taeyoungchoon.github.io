@@ -3,5 +3,4 @@
 - https://www.arista.com/en/um-eos/eos-system-reset?searchword=eos%20section%207%203%20supervisor%20redundancy
 - https://arista.my.site.com/AristaCommunity/s/article/ztp-set-up-guide
 - https://www.arista.com/en/um-eos/eos-recovery-procedures?searchword=eos%206%205%20aboot%20shell
-  - but
- usb
+  - but usb

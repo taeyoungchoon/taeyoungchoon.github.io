@@ -1,0 +1,38 @@
+* fabric module
+
+** fr
+
+The Arista 7308X3 Fabric Module is designed to work as part of the modular architecture in the Arista 7308X3 chassis. While a single fabric module can technically enable the system to function, it is not typically intended to operate alone in a production environment due to performance and redundancy considerations.
+
+Yes, it can work alone, but with significant limitations:
+
+Performance Constraints: A single fabric module may not provide sufficient bandwidth to fully utilize all line card slots in the chassis. It might bottleneck data throughput in high-demand scenarios.
+
+https://www.arista.com/assets/data/pdf/qsg/qsg-books/QS_7300_Modular.pdf
+
+arista 7308 x3 fabric module , single, work
+
+** dig in, words
+
+- chassis DCS-7308 : fabric module slots 4
+- fabric module DCS-7308X3-FM
+- linecard module DCS-7308X3-32C-LC
+- supervisor module DCS-7300-SUP
+
+Each line card connects to all fabric modules in a non-blocking full mesh and leverages flow based dynamic load balancing to improve the fabric efficiency by reducing the probability of hash polarization.
+
+** architecture
+
+7300X3 Architecture
+
+The 7300X Series architecture is designed around an internal CLOS with line cards and fabric modules fully interconnected to deliver a low latency fully non-blocking system. 
+Each line card has self contained switch modules and interconnect via the vertical fabric modules for over 50 Tbps of switching capacity. Dual redundant supervisor modules provide centralized control plane and management functionality.
+
+https://www.arista.com/assets/data/pdf/Whitepapers/Arista7500RSwitchArchitectureWP.pdf
+
+*** parts
+
+1) front panel ports
+2) packet processor
+3) passive midplane connectors
+4) fabric module
