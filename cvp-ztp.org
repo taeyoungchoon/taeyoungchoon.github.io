@@ -1,0 +1,175 @@
+* from ztp base
+* TODO dig in from cvp
+
+** flow
+
+#+begin_src bash
+  cvpi version
+  netstat -anp | grep :80
+  netstat -anp | grep :443
+  kubectl get all | grep nginx
+  kubectl describe daemonsets.apps nginx-app
+  cd /etc/nginx
+  cat nginx.conf
+  cd conf.d
+  grep -r ztp *
+  cd locations
+  cat cvp.http.conf
+#+end_src
+
+** 80, 443
+
+- nginx
+
+#+begin_src bash
+  [root@cvp3 locations]# cvpi version
+  cvpi version 2024.3.0-2 go1.22.1
+
+  [root@cvp3 locations]# ss -lntpu4 | grep ':80 '
+  tcp   LISTEN 0      511           0.0.0.0:80         0.0.0.0:*    users:(("nginx",pid=145383,fd=6),("nginx",pid=145382,fd=6),("nginx",pid=145381,fd=6),("nginx",pid=145380,fd=6),("nginx",pid=16970,fd=6))
+
+  [root@cvp3 locations]# ss -lntpu4 | grep ':443 '
+  tcp   LISTEN 0      511           0.0.0.0:443        0.0.0.0:*    users:(("nginx",pid=145383,fd=8),("nginx",pid=145382,fd=8),("nginx",pid=145381,fd=8),("nginx",pid=145380,fd=8),("nginx",pid=16970,fd=8))
+#+end_src
+
+** nginx with ztp
+
+#+begin_src bash
+  [root@cvp3 locations]# grep ztp *
+  cvp-ztp.http.conf:# ztp module when it's up
+  cvp-ztp.http.conf:location ~* /ztp/bootstrap {
+  cvp.http.conf:# HTTP access to the ZTP bootstrap script. This will override the 404 in cvp-ztp.http.conf
+  cvp.http.conf:location ^~ /ztp/bootstrap {
+  cvp.https.conf:location ^~ /ztp/ {
+  cvp.https.conf:    # Allow up to 1MB post from EOS instances during ztp
+  cvp.https.conf:    location ~* /cvpservice/services/ztp/config {
+  services.https.conf:location ^~ /arista.ztp.v1.ZtpGlobalConfigService/ {
+  services.https.conf:location ^~ /arista.ztp.v1.ZtpDeviceConfigService/ {
+#+end_src
+
+** to ambassador, name, port 8443
+
+#+begin_src bash
+  [root@cvp3 locations]# cat cvp.http.conf | egrep 'location|amb'
+  location ^~ /ztp/bootstrap {
+      proxy_pass https://ambassador.default.svc.cluster.local.:8443;
+#+end_src
+
+#+begin_src bash
+  [root@cvp3 conf.d]# kubectl exec -it pod/cvp-backend-745898998d-cmbvz -- ls -l /ambassador/cert
+  total 0
+  lrwxrwxrwx 1 root root 14 Jan 22 04:24 tls.crt -> ..data/tls.crt
+#+end_src
+
+#+begin_src bash
+  [root@cvp3 conf.d]# ss -lntpu4 | grep :8443
+  tcp   LISTEN 0      4096          0.0.0.0:8443       0.0.0.0:*    users:(("envoy",pid=17388,fd=44),("envoy",pid=17388,fd=43),("envoy",pid=17388,fd=42),("envoy",pid=17388,fd=41),("envoy",pid=17388,fd=39))
+  [root@cvp3 conf.d]#
+#+end_src
+
+#+begin_src bash
+  [root@cvp3 conf.d]# ps -ef | grep envoy | grep -v grep
+  cvp        16394   16110  0 Jan22 ?        00:00:14 /usr/bin/python /usr/bin/diagd /ambassador/snapshots /ambassador/bootstrap-ads.json /ambassador/envoy/envoy.json --notices /ambassador/notices.json --port 8004 --kick kill -HUP 1
+  cvp        17229   16394  5 Jan22 ?        01:03:11 /usr/bin/python /usr/bin/diagd /ambassador/snapshots /ambassador/bootstrap-ads.json /ambassador/envoy/envoy.json --notices /ambassador/notices.json --port 8004 --kick kill -HUP 1
+  cvp        17388   16110  4 Jan22 ?        00:52:51 envoy -c /ambassador/bootstrap-ads.json --base-id 0 --drain-time-s 600 -l error --concurrency 4 --bootstrap-version 3
+#+end_src
+
+#+begin_src bash
+	     |-containerd-shim(15630)-+-busyambassador(16110)-+-diagd(16394)---diagd(17229)-+-{diagd}(17230)
+	     |                        |                       |                             |-{diagd}(17231)
+	     |                        |                       |                             |-{diagd}(17232)
+	     |                        |                       |                             |-{diagd}(17244)
+	     |                        |                       |                             |-{diagd}(17387)
+	     |                        |                       |                             `-{diagd}(55284)
+	     |                        |                       |-envoy(17388)-+-{envoy}(17389)
+	     |                        |                       |              |-{envoy}(17390)
+	     |                        |                       |              |-{envoy}(17391)
+	     |                        |                       |              |-{envoy}(17396)
+	     |                        |                       |              |-{envoy}(17398)
+	     |                        |                       |              |-{envoy}(17399)
+	     |                        |                       |              |-{envoy}(17401)
+	     |                        |                       |              |-{envoy}(17402)
+	     |                        |                       |              |-{envoy}(17403)
+	     |                        |                       |              |-{envoy}(17404)
+	     |                        |                       |              |-{envoy}(17405)
+	     |                        |                       |              |-{envoy}(17406)
+	     |                        |                       |              |-{envoy}(17407)
+	     |                        |                       |              |-{envoy}(17408)
+	     |                        |                       |              |-{envoy}(17603)
+	     |                        |                       |              `-{envoy}(20193)
+	     |                        |                       |-{busyambassador}(16291)
+	     |                        |                       |-{busyambassador}(16292)
+	     |                        |                       |-{busyambassador}(16293)
+	     |                        |                       |-{busyambassador}(16294)
+#+end_src
+
+#+begin_src bash
+  [root@cvp3 16110]# cvpi -v=3 status all
+  COMPONENT                                         ACTION              NODE                STATUS                           ERROR
+  ambassador                                            status              primary             (E) RUNNING                      -
+  ambassador-svc                                        status              primary             (E) RUNNING                      -
+  cvp-backend                                           status              primary             (E) RUNNING                      -
+  cvp-frontend                                          status              primary             (E) RUNNING                      -
+  cvp-metrics                                           status              primary             (E) RUNNING                      -
+  cvp-www                                               status              primary             (E) RUNNING                      -
+#+end_src
+
+#+begin_src bash
+  [root@cvp3 16110]# cvpi info  ambassador
+#+end_src
+
+** /cvpi/conf/kubernetes/ambassador.yaml but more
+
+- /cvpi/conf/kubernetes
+  - [X] ztp.yaml
+  - [ ] service-ztp.yaml
+- stop, wait
+  - ztp, nginx
+  - ambassador/envoy, app/tomcat-like
+    - cert
+      - /ambassador/cert
+- nginx > ambassador
+#+begin_src bash
+  /usr/bin/ztp
+  -apiserver=apiserver.default.svc.cluster.local.:9900
+  -serveraddr=:10082
+  -svcaddr=ambassador.default.svc.cluster.local.:8443
+  -svcauth=certs,/aeris/cert/aerisadmin.crt,/aeris/cert/aerisadmin.key,/ambassador/cert/tls.crt
+  -use-ambassador-conn=true
+  -bootstrapFilePath=/ztp/resources/bootstrap_script
+  -challengeFilePath=/ztp/resources/challenge_script
+#+end_src
+
+#+begin_src bash
+  39    debug:
+  40      kubectl: ["kubectl", "logs", "daemonset/ambassador"]
+  41      kubectl-pods: ["kubectl", "get", "pods", "-l", "app=ambassador"]
+  42      kubectl-describe: ["kubectl", "describe", "daemonset", "-l", "app=ambassador"]
+  43      kubectl-describe-po: ["kubectl", "describe", "pods", "-l", "app=ambassador"]
+  60      debug:
+  61        ambassador: ["bash", "-c", "kubectl get svc ambassador -o yaml"]
+#+end_src
+
+#+begin_src bash
+  [root@cvp3 cvpi]# kubectl exec -it ambassador-ftjsb -- bash
+  bash-5.0$ pwd
+  /ambassador
+  bash-5.0$
+  bash-5.0$ ps -ef
+  PID   USER     TIME  COMMAND
+      1 10010     4:36 busyambassador entrypoint
+     25 10010     0:14 {diagd} /usr/bin/python /usr/bin/diagd /ambassador/snapshots /ambassador/bootstrap-ads.json /ambassador/envoy/envoy.json --notices /ambassador/notices.json --port 8004 --kick kill -HUP 1
+     31 10010     1h04 {diagd} /usr/bin/python /usr/bin/diagd /ambassador/snapshots /ambassador/bootstrap-ads.json /ambassador/envoy/envoy.json --notices /ambassador/notices.json --port 8004 --kick kill -HUP 1
+     43 10010    54:11 envoy -c /ambassador/bootstrap-ads.json --base-id 0 --drain-time-s 600 -l error --concurrency 4 --bootstrap-version 3
+    502 10010     0:00 bash
+    510 10010     0:00 ps -ef
+  bash-5.0$
+#+end_src
+
+#+begin_src bash
+  bash-5.0$ pwd
+  /ambassador/envoy
+  bash-5.0$ grep ztp
+
+  /cvpservice/services/ztp/config
+#+end_src

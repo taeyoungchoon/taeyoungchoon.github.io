@@ -1,0 +1,41 @@
+* cvpi debug
+
+#+begin_src bash
+  [root@cvp3 ~]# cvpi debug
+
+  I0123 08:05:29.183780 1255862 debug.go:75] Prometheus data will be collected. Needs prometheus-server component to be running and initialized. This can take a few minutes, depending on how much data is present.
+  Executing command. This may take some time...
+
+  NODE                PATH                                               ERROR
+  primary             /data/debug/cvpi_debug_all_20250123081826.tar.gz   -
+  [root@cvp3 ~]#
+#+end_src
+
+#+begin_src bash
+  [root@cvp3 debug]# ls -tlr
+  total 9400580
+  -rw-r--r-- 1 cvp cvp  644291656 Dec 20 12:08 cvpi_debug_all_20241220030323.tar.gz
+  -rw-r--r-- 1 cvp cvp 1733449447 Dec 27 12:23 cvpi_debug_all_20241227031001.tar.gz
+  -rw-r--r-- 1 cvp cvp 2316273112 Jan  3 12:27 cvpi_debug_all_20250103031011.tar.gz
+  -rw-r--r-- 1 cvp cvp 2431343962 Jan 10 12:27 cvpi_debug_all_20250110031105.tar.gz
+  -rw-r--r-- 1 cvp cvp 2500801403 Jan 17 12:27 cvpi_debug_all_20250117031021.tar.gz
+  drwxr-xr-x 4 cvp cvp       4096 Jan 23 08:05 cvpi_debug_cvp3.t.com_primary_20250123080529991286473
+  [root@cvp3 debug]# ls -tlr
+  total 9400584
+  -rw-r--r-- 1 cvp cvp  644291656 Dec 20 12:08 cvpi_debug_all_20241220030323.tar.gz
+  -rw-r--r-- 1 cvp cvp 1733449447 Dec 27 12:23 cvpi_debug_all_20241227031001.tar.gz
+  -rw-r--r-- 1 cvp cvp 2316273112 Jan  3 12:27 cvpi_debug_all_20250103031011.tar.gz
+  -rw-r--r-- 1 cvp cvp 2431343962 Jan 10 12:27 cvpi_debug_all_20250110031105.tar.gz
+  -rw-r--r-- 1 cvp cvp 2500801403 Jan 17 12:27 cvpi_debug_all_20250117031021.tar.gz
+  drwxr-xr-x 2 cvp cvp       4096 Jan 23 08:18 cvpi_debug_all_20250123081826
+  drwxr-xr-x 4 cvp cvp       4096 Jan 23 08:18 cvpi_debug_cvp3.t.com_primary_20250123080529991286473
+  [root@cvp3 debug]# ls -tlr
+  total 11824564
+  -rw-r--r-- 1 cvp cvp  644291656 Dec 20 12:08 cvpi_debug_all_20241220030323.tar.gz
+  -rw-r--r-- 1 cvp cvp 1733449447 Dec 27 12:23 cvpi_debug_all_20241227031001.tar.gz
+  -rw-r--r-- 1 cvp cvp 2316273112 Jan  3 12:27 cvpi_debug_all_20250103031011.tar.gz
+  -rw-r--r-- 1 cvp cvp 2431343962 Jan 10 12:27 cvpi_debug_all_20250110031105.tar.gz
+  -rw-r--r-- 1 cvp cvp 2500801403 Jan 17 12:27 cvpi_debug_all_20250117031021.tar.gz
+  -rw-r--r-- 1 cvp cvp 2482156818 Jan 23 08:34 cvpi_debug_all_20250123081826.tar.gz
+  [root@cvp3 debug]#
+#+end_src

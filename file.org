@@ -1,0 +1,46 @@
+* file
+
+모든 것이 파일이다. [[https://en.wikipedia.org/wiki/Everything_is_a_file][Everything is a file.]] 철학이라. 어쨌거나.
+
+* DONE file size then block rel to ibm, md5, filesystem
+
+- md5 and sha from sec space
+  #+begin_src emacs-lisp
+    (sec
+     (hash
+      (md5 sha)))
+  #+end_src
+
+#+begin_src bash
+  md5sum file
+  sha256sum file
+#+end_src
+
+#+begin_src bash
+  stat file
+  ls -l file
+  ls -lh file
+  ls -ls file
+#+end_src
+
+#+begin_src bash
+  ? dumpe2fs /dev/sdc | grep -i 'block size'
+  Block size:               4096
+  ? dd if=/dev/zero of=f.bs_1 count=1 bs=1
+  ? dd if=/dev/zero of=f.bs_1024 count=1 bs=1024
+  ? dd if=/dev/zero of=f.bs_2048 count=1 bs=2048
+  ? dd if=/dev/zero of=f.bs_4096 count=1 bs=4096
+  ? dd if=/dev/zero of=f.bs_4097 count=1 bs=4097
+  ? ls -ls --block-size=K
+  4K -rw-r--r-- 1 root root 1K Jan 24 09:34 f.bs_1
+  4K -rw-r--r-- 1 root root 1K Jan 24 09:34 f.bs_1024
+  4K -rw-r--r-- 1 root root 2K Jan 24 09:34 f.bs_2048
+  4K -rw-r--r-- 1 root root 4K Jan 24 09:35 f.bs_4096
+  8K -rw-r--r-- 1 root root 5K Jan 24 09:35 f.bs_4097
+#+end_src
+
+- 1 block eq to 4096 byte-s
+- much less using 1 block
+- over 4096 byte-s using 2 block
+
+* file then directory
