@@ -13,6 +13,3 @@
 - chatgpt
 - gemini
 
-* so
-
-
