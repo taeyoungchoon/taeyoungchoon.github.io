@@ -2,3 +2,17 @@
 
 - ai > ml >= dl
 - big data
+
+* recent, chat with ai, fr-like or some
+
+- perplexity
+  - library
+    - [X] delete all threads
+- copilot
+- siri
+- chatgpt
+- gemini
+
+* so
+
+
