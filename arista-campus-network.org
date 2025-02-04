@@ -1,0 +1,8 @@
+* files
+
+- https://www.youtube.com/watch?v=eFb_gNeittY
+- [ ] https://www.arista.io/help/2024.3/articles/b3ZlcnZpZXcuY2FtcHVzLmdldHRpbmdTdGFydGVk
+- [ ] https://avd.arista.com/4.7/examples/campus-fabric/index.html
+- https://www.arista.com/assets/data/pdf/Whitepapers/Cognitive-Campus-WP.pdf
+- https://www.arista.com/en/solutions/cognitive-campus
+- https://solutions.arista.com/arista-for-campus-and-wi-fi

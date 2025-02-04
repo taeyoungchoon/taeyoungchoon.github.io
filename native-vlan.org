@@ -1,0 +1,9 @@
+* others
+
+- default vlan
+- native vlan
+- vlan
+
+* native vlan
+
+쓸모라, tagging이 없는 구형 장비 또는
