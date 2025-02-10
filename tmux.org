@@ -13,10 +13,10 @@
 * DONE step
 
 - tmux
-- C-x % 
-- C-x o
-- C-x o
-- C-x d
+- C-b % 
+- C-b o
+- C-b o
+- C-b d
 - tmux attach
 
 * TODO type to all window s
@@ -31,3 +31,20 @@
 * zoom in and out
 
 - C-b z
+
+* TODO and more today
+
+#+begin_src bash
+  tmux ls
+  tmux
+  C-b n
+  C-b n
+  C-b n
+  C-b n
+  C-b d
+#+end_src
+
+#+begin_src bash
+  tmux ls
+  tmux attach-session -t 0
+#+end_src

@@ -1,0 +1,4 @@
+* site
+
+- https://arista.my.site.com/AristaCommunity/s/article/How-to-prevent-rogue-DHCP-servers-on-Campus
+- https://arista.my.site.com/AristaCommunity/s/question/0D52I00007ERqS3SAL/dhcp-snooping

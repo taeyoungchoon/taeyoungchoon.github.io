@@ -767,7 +767,15 @@ docker start ceos1
 docker stop ceos2
 docker start ceos2 
 
-* DONE session
+* DONE config backup and restore
+
+#+begin_src bash
+  leaf2_2#copy running-config backup-config
+  Copy completed successfully.                                                            
+  leaf2_2#configure replace file:/mnt/flash/backup-config
+  leaf2_2#reload now
+#+end_src
+* DONE session part 1, trying
 
 - https://www.arista.com/en/um-eos/eos-configure-session
 
@@ -798,3 +806,83 @@ config session x abort
   sh session-config diff
   commit
 #+end_example
+
+* DONE session part 2
+
+** arista eos session cli
+
+#+begin_example
+  show session-config diffs 
+  show configuration sessions detail 
+  show configuration sessions history 
+  show configuration sessions
+  show session-config named cvp-provisioning-eafa0a85-d46f-40d6-9e4a-5b6e3f1be174
+  configure session cvp-provisioning-eafa0a85-d46f-40d6-9e4a-5b6e3f1be174
+  commit/abort
+#+end_example
+
+** site
+
+https://www.arista.com/en/um-eos/eos-configure-session
+
+** sample
+
+leaf2#show session-config diffs 
+% Not currently in a session
+
+leaf2#show configuration sessions detail 
+Maximum number of completed sessions: 1
+Maximum number of pending sessions: 5
+Merge on commit is disabled
+Autosave to startup-config on commit is disabled
+
+  Name                                                  State     User Terminal
+  ----------------------------------------------------- --------- ---- --------
+  cvp-provisioning-cd845ed1-68fa-49d4-b4df-b02651105a1f committed              
+
+  Name                                                        Completed Time 
+  ----------------------------------------------------- ---------------------
+  cvp-provisioning-cd845ed1-68fa-49d4-b4df-b02651105a1f  2025-02-07 05:21:14 
+
+  Name                                                  Committed By
+  ----------------------------------------------------- ------------
+  cvp-provisioning-cd845ed1-68fa-49d4-b4df-b02651105a1f     cvpadmin
+
+
+leaf2#show configuration sessions history 
+Commit Hash Session Name                                          User    
+----------- ----------------------------------------------------- --------
+fd9c7e3     cvp-provisioning-7c6dc9ef-1256-4cde-9d57-31c1484decde cvpadmin
+a801bd2     cvp-provisioning-0545fc05-552e-4e30-8bcf-9fe7a66a57ba cvpadmin
+d44ec13     cvp-provisioning-7199a6b9-d260-4067-94dd-5ef3be720c73 cvpadmin
+
+Description                                       Commit Time        
+------------------------------------------------- -------------------
+n/a                                               2025-02-07 05:21:16
+n/a                                               2025-02-06 23:47:31
+n/a                                               2025-02-06 01:47:23
+
+Commit Cancel
+Timer Expiry 
+-------------
+240.0        
+240.0
+240.0
+
+leaf2#show configuration sessions
+Maximum number of completed sessions: 1
+Maximum number of pending sessions: 5
+Merge on commit is disabled
+Autosave to startup-config on commit is disabled
+
+  Name                                                  State    User  Terminal
+  ----------------------------------------------------- -------- ----- --------
+  cvp-provisioning-eafa0a85-d46f-40d6-9e4a-5b6e3f1be174 pending
+
+leaf2#show session-config named cvp-provisioning-eafa0a85-d46f-40d6-9e4a-5b6e3f1be174
+...
+
+leaf2#configure session cvp-provisioning-eafa0a85-d46f-40d6-9e4a-5b6e3f1be174
+commit
+leaf2#
+leaf2#sh running-config

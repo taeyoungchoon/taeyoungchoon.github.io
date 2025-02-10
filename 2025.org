@@ -1,0 +1,25 @@
+* yet
+* plan
+
+- copyright
+- cloudvision > cvp > studio
+  - acl, working
+  - qos, more
+- arista network
+  - software product
+    - eos
+    - cvp
+    - agni
+    - mss
+- cisco
+  - nx-os
+- wireless network
+- linux
+  - rhel or rocky but alma
+    - version?
+  - cgroup with namespace
+  - iproute2
+- building
+- multicast
+- kubernetes
+  - helm from lord of the rings

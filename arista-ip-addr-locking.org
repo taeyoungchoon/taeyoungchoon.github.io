@@ -1,0 +1,6 @@
+* site
+
+- https://www.arista.com/en/um-eos/eos-ip-address-locking
+- https://www.arista.com/en/support/toi/eos-4-25-1f/14628-ip-locking-release-updates
+
+- 

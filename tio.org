@@ -28,6 +28,14 @@
   850  tio
 #+end_src
 
+* DONE from almalinux using epel
+
+#+begin_src bash
+  yum install epel-release
+  yum search tio | grep ^tio
+  yum install tio
+#+end_src
+
 * DONE help
 
 #+begin_src bash
@@ -55,4 +63,17 @@
   [08:28:33.455]  ctrl-t y       Send file via Ymodem
   [08:28:33.455]  ctrl-t ctrl-t Send ctrl-t character
   
+#+end_src
+
+* DONE help.need
+
+#+begin_src bash
+  [08:28:33.455] Key commands:
+  [08:28:33.455]  ctrl-t q       Quit
+#+end_src
+
+* DONE dot bashrc
+
+#+begin_src bash
+alias tio='tio --log -b 9600'
 #+end_src
