@@ -1,0 +1,37 @@
+* TODO dhcp
+
+** DONE using arista eos
+
+#+begin_example
+  DHCP#show running-config section dhcp
+  dhcp server
+     debug log file:/tmp/debug-dhcp.log
+     !
+     subnet 192.168.60.0/24
+	reservations
+	   mac-address aaaa.bbbb.cccc
+	      ipv4-address 192.168.60.52
+	range 192.168.60.51 192.168.60.100
+	dns server 192.168.25.20
+	default-gateway 192.168.60.1
+	tftp server file https://192.168.25.191/ztp/bootstrap
+#+end_example
+
+** TODO using dhcpd
+
+* TODO ap, register
+
+- set ip manually, discovery manually
+  - https://arista.my.site.com/AristaCommunity/s/article/Configuring-an-Access-Point-statically
+    
+** DONE get ip from dhcp, discovery manually
+
+#+begin_src bash
+  show server discovery
+  server discovery method ipdns pri 192.168.25.165
+  WAIT
+#+end_src
+  
+** TODO get ip from dhcp, discovery dynamically
+  
+* TODO wireless lan manager such as cue aka cvw

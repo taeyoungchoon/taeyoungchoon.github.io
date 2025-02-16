@@ -60,3 +60,44 @@ mount /dev/volumegroup/logicalvolume /mnt/somewhere
 9. mount /dev/mapper/lv_data /data
    - mount 진행
 
+* DONE lvm with fdisk
+
+- attach disk from virtualbox
+  - vm
+    - settings
+      - storage
+	- controller
+	  - add hard disk
+	    - create
+	  - chooose to attach
+  - boot
+    - dmesg
+    - fdisk -l
+- parted /dev/sdb
+  - mklabel
+    - gpt
+- fdisk /dev/sdb
+  - type: lvm
+- pvcreate /dev/sdb1
+- vgextend almalinux_al94-3 /dev/sdb1
+- lvextend /dev/almalinux_al94-3/root /dev/sdb1
+- xfs_growfs /
+
+* DONE lvm with fdisk, simple
+
+#+begin_src bash
+  fdisk /dev/sdc
+  g
+  n
+  1
+  t
+  lvm
+  p
+  w
+  pvcreate /dev/sdc1
+  vgextend almalinux_al94-3 /dev/sdb1
+  lvextend /dev/almalinux_al94-3/root /dev/sdb1
+  df -h /
+  xfs_growfs /
+  df -h /
+#+end_src
