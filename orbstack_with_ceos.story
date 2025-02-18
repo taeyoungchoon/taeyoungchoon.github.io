@@ -1,11 +1,6 @@
-TK=
-ardl --token $TK get eos --image-type cEOS64 --version 4.32.0F
+###
 
 brew install orbstack
-
-ls -l $(which docker)
-docker run -p 80:80 docker/getting-started
-open http://localhost
 
 orb create ubuntu
 ssh orb
@@ -15,14 +10,16 @@ curl -sL https://containerlab.dev/setup | sudo -E bash -s "setup-bash-prompt"
 clab version
 exit
 
+###
+
 ssh orb
 
 sudo apt-get update -y
-sudo apt-get install ca-certificates curl
+sudo apt-get install -y ca-certificates curl
 sudo install -m 0755 -d /etc/apt/keyrings
 sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
 sudo chmod a+r /etc/apt/keyrings/docker.asc
-echo   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
   $(. /etc/os-release && echo "$VERSION_CODENAME") stable" |   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update -y
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
@@ -35,6 +32,8 @@ cd ~/clab-quickstart
 curl -LO \
 https://raw.githubusercontent.com/srl-labs/containerlab/main/lab-examples/srlceos01/srlceos01.clab.yml
 
+###
+
 #https://github.com/titom73/eos-downloader
 sudo apt-get install python3-pip -y
 sudo apt-get install python3-venv -y
@@ -44,14 +43,11 @@ cd clab-quickstart
 source bin/activate
 pip install eos-downloader
 
-ardl --token <your-token> get eos --image-type cEOS64 --version 4.32.0F
-
-OR
-
-#login arista then download cEOS64-lab-4.32.0F.tar.xz
-cp /mnt/mac/Users/taeyoungchoon/Downloads/cEOS64-lab-4.32.0F.tar.xz clab-quickstart/
-
+TK=
+ardl --token $TK get eos --format cEOS64 --version 4.32.0F
 docker import cEOS64-lab-4.32.0F.tar.xz ceos:4.32.0F
+
+###
 
 #about makefile
 all: help
@@ -63,6 +59,8 @@ inspect:
 	sudo clab inspect
 destroy:
 	sudo clab destroy
+
+###
 
 #about srlceos01.clab.yml
 name: srlceos01
@@ -80,8 +78,12 @@ topology:
     - endpoints: ["ceos1:eth1", "ceos2:eth1"]
     - endpoints: ["ceos1:eth2", "ceos2:eth2"]    
 
+###
+
 make deploy
 make inspect
+
+###
 
 make destroy
 

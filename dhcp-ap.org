@@ -1,0 +1,37 @@
+* try
+
+#+begin_src bash
+routers 192.168.1.1;
+option domain-name "t.com";
+option domain-name-servers 8.8.8.8;
+default-lease-time 7200;
+max-lease-time 86400;
+
+
+class "ap" {
+    match vendor-class-identifier "c-220";
+    option my-vendor-option 1234;
+}
+
+subnet 192.168.0.0 netmask 255.255.0.0 {
+    pool {
+	class "ap";
+	range 192.168.112.100 192.168.1.200 {
+	    host ap1 {
+		hardware ethernet aa:aa:aa:aa:aa:aa;
+		fixed-address 192.168.112.100;
+	    }
+
+	}
+    }
+
+}
+
+host ap2 {
+    hardware ethernet aa:aa:aa:aa:aa:bb;
+    fixed-address 192.168.112.101;
+}
+
+#include "/etc/dhcp/conf.d/*.conf";
+#include "/etc/dhcp/conf.d/host/*.conf";
+#+end_src

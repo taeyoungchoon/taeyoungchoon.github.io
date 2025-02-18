@@ -1,0 +1,40 @@
+* from lifecycle controller
+
+- os deploy
+- choose os
+-
+
+* from idrac
+
+- config
+- virtual media
+- mount drivers
+- [ ] inst.dd=LABEL=OEMDRV
+  
+* racadm
+  
+** refer but real
+
+- [ ] https://forums.almalinux.org/t/almalinux-does-not-recognize-disk/2680
+  - repo but more
+    - https://elrepo.org/linux/dud/el9/x86_64/
+- [ ] https://www.dell.com/support/home/en-us/product-support/servicetag/0-eWdtRkQraVZMdGpuVXROeWlRdDZIdz090/drivers
+  - driver.tgz
+  - https://www.dell.com/support/home/en-us/drivers/driversdetails?driverid=vv996&oscode=rhel9&productcode=poweredge-r250
+** just refer
+
+- [ ] https://www.dell.com/support/kbdoc/en-us/000160908/how-to-mount-and-unmount-the-driver-packs-via-idrac9
+- [ ] https://www.dell.com/support/search/en-us#q=OEMDRV&sort=relevancy&f:langFacet
+- [ ] https://www.dell.com/support/home/en-us/drivers/driversdetails?driverId=GJYYG
+  - Version : 24.08.10, A00
+  - Release date : 24 Sep 2024
+  - Download Type : Applications
+  - Category : Drivers for OS Deployment
+  - File Name : Drivers-for-OS-Deployment_Application_GJYYG_LN_24.08.10_A00.BIN
+  - File Size : 25.26 MB
+  - Supported OS List :
+    - Red Hat Enterprise Linux 9.4x86_64
+  - Manual : https://dl.dell.com/content/manual20559915-lifecycle-controller-operating-system-driver-pack-version-24-08-10-reference-guide.pdf?language=en-us
+  - Installation : You can update the Driver Pack using Lifecycle Controller.
+- [ ] https://www.dell.com/support/kbdoc/en-us/000231524/poweredge-how-to-install-and-configure-linux-on-dell-servers
+- [ ] https://www.dell.com/support/contents/en-us/videos/videoplayer/how-to-install-os-using-lifecycle-controller-manual-installation-mode/6079814744001
