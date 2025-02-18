@@ -1,0 +1,1 @@
+* fdisk forever or using parted-like
