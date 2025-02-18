@@ -1,0 +1,21 @@
+* install
+
+- postgresql-server
+
+* cli
+
+- psql
+
+* dababase
+
+- create database
+
+* table
+
+- create table
+- insert
+- select
+
+* export
+
+- \copy
