@@ -1,3 +1,7 @@
+* history
+
+- 언제부터 사용해 왔는지 모르겠다.
+  
 * DONE print kr
 
 ** way 1

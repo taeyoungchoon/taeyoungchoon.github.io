@@ -1,0 +1,32 @@
+* so what will be?
+
+- [X] two ip
+- [ ] route issues
+
+* more
+
+- ip_forward
+- default gateway
+
+* nic and ip
+
+- eth0, eth1
+- 192.168.10 192.168.20
+
+
+* config
+
+#+begin_src bash
+route add x.x.x.x/x x.x.x.x
+/etc/sysconfig/network-scripts/ifcfg-eth0
+/etc/sysconfig/network-scripts/route-eth0
+10.0.0.0/16 via 10.10.10.1 dev eth0
+#+end_src
+
+* netmask, subnet mask, prefix
+* secondary ip
+* best practice
+
+- https://www.ni.com/en/support/documentation/supplemental/11/best-practices-for-using-multiple-network-interfaces--nics--with.html?srsltid=AfmBOopiSBVvX3GbgFelMsKnYPEngaqqv616pg8pn8G4UXhzUhZwFAIM
+
+* multihoming
