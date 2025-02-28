@@ -1,0 +1,8 @@
+* coa, change of authorization
+* dm, disconnect message
+* coa vs dm
+
+- https://support.huawei.com/enterprise/en/doc/EDOC1100112357/e93f1c34/configuring-the-radius-coa-or-dm-function
+- https://support.huawei.com/enterprise/en/doc/EDOC1100306152/ffaab0a1/optional-configuring-the-radius-coa-and-dm-functions
+- https://www.arista.com/ko/ug-cv-cue/cv-cue-ssid-settings?searchword=cv%20cue%20monitoring%20wi%20fi
+- [ ] https://arista.my.site.com/AristaCommunity/s/article/radius-disconnect-and-coa-support-on-arista-aps

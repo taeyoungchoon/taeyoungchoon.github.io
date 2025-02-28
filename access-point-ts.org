@@ -1,0 +1,6 @@
+* links
+
+- https://www.arista.com/en/qsg-wap-o105/wap-o105-access-point-troubleshooting
+- https://arista.my.site.com/AristaCommunity/s/article/radius-disconnect-and-coa-support-on-arista-aps
+- https://arista.my.site.com/AristaCommunity/s/article/how-to-collect-arista-ap-debug-logs
+- https://arista.my.site.com/AristaCommunity/s/article/how-to-collect-wired-and-wireless-traces-using-cloudvision-wifi

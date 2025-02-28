@@ -1,0 +1,11 @@
+* link
+
+- https://en.wikipedia.org/wiki/Captive_portal
+- http://candelatech.com/cookbook/wifire/Captive_Portal_Captive_Portal_Testing
+  - http://www.msftconnecttest.com/connecttest.txt
+- https://www.rfc-editor.org/rfc/rfc8952.pdf
+- https://arubanetworking.hpe.com/techdocs/AOS-CX/10.11/HTML/security_6200-6300-6400/Content/Chp_Cap_port/abt-cap-por-rad-fl.htm
+
+* related to arista
+* related to radius
+
