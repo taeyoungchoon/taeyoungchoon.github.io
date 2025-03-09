@@ -4,3 +4,24 @@ https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=1192222&logN
 https://access.redhat.com/solutions/253273
 
 About > Subscription : System Not Registered
+
+* TODO [2025-03-05 수] again
+
+- https://access.redhat.com/management
+  - https://console.redhat.com/subscriptions/inventory/
+- subscription from hybrid cloud console(http://console.redhat.com)
+  - [ ] usage
+    - rhel
+      - subscription active
+	- Data can take up to 24 hours to be processed and will appear on this page when ready.
+      - subscription activated
+	- it cound take up 24 hours for data to appear
+  - [ ] inventory
+    - 일년이 되었나 보다, 그래서 패키지가 리스팅 되지 않았던 것일까? 아니면
+    - list
+      - red hat beta access
+	- start date: 2025-03-04
+	- end date: 2026-03-04	  
+      - red hat developer subscription for individuals
+	- start date: 2025-03-04
+	- end date: 2026-03-04	  

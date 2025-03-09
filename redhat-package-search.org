@@ -1,0 +1,41 @@
+* pre
+
+- redhat subscrition
+
+* from to
+
+- https://access.redhat.com/downloads
+  - https://access.redhat.com/downloads/content/package-browser
+    - redhat subscrition required to access this 
+
+* TODO [2025-03-05 수] case, openssh
+
+** index
+
+- 9.9p1-7.el10_0
+- 9.9p1-5.el10.1
+- 8.7p1-45.el9
+- 8.0p1-25.el8_10
+- 8.0p1-24.el8
+- 8.0p1-15.el8_6.3
+- 8.0p1-15.el8_6  
+
+** index and words
+
+- 9.9p1-7.el10_0
+  - 2025-02-18 Dmitry Belyavskiy <dbelyavs@redhat.com> - 9.9p1-7
+  - 2025-02-13 Dmitry Belyavskiy <dbelyavs@redhat.com> - 9.9p1-6
+- 9.9p1-5.el10.1
+  - 2025-01-27 Dmitry Belyavskiy <dbelyavs@redhat.com> - 9.9p1-5
+- 8.7p1-45.el9
+  - 2025-02-18 Dmitry Belyavskiy <dbelyavs@redhat.com> - 8.7p1-45
+- 8.0p1-25.el8_10
+  - 2024-06-25 Stepan Broz <sbroz@redhat.com> - 8.0p1-25
+- 8.0p1-24.el8
+  - 2024-02-06 Dmitry Belyavskiy <dbelyavs@redhat.com> - 8.0p1-24
+- 8.0p1-15.el8_6.3
+  - 2024-01-08 Dmitry Belyavskiy <dbelyavs@redhat.com> - 8.0p1-153.
+- 8.0p1-15.el8_6
+  - 2023-07-20 Dmitry Belyavskiy <dbelyavs@redhat.com> - 8.0p1-15
+
+* then update
