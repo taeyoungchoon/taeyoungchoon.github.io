@@ -1,0 +1,162 @@
+* TODO password locking from linux
+
+** anyway
+
+- not this
+  - https://m.blog.naver.com/wideeyed/221512008307
+    #+begin_src bash
+      groupadd secured
+      useradd raul -g secured
+      mkdir /foo
+      chgrp secured /foo
+      chmod o-rwx /foo
+      su - raul -c 'ls /foo'
+      su - raul -c 'touch /foo/try'
+    #+end_src
+
+** encfs
+
+- https://wiki.archlinux.org/title/EncFS
+- https://github.com/vgough/encfs
+- https://github.com/rfjakob/gocryptfs
+- https://wiki.archlinux.org/title/ECryptfs  
+- https://www.makeuseof.com/how-to-password-protect-files-folders-on-linux/
+
+  
+*** files, download
+
+- https://hkjeon2.tistory.com/65
+- https://access.redhat.com/solutions/10154  
+  - yum-utils
+    - inc yumdownloader
+
+#+begin_src bash
+  mkdir tmp
+  yum install xyz --downloadonly --downloaddir=TARGET_DIR
+  yumdownloader xyz --resolve --destdir=TARGET_DIR
+#+end_src
+
+*** before
+  
+#+begin_src bash
+  mkdir ~/.encrypted ~/secmount
+  encfs ~/.encrypted ~/secmount
+  # enter password-like aka passphrase
+  fusermount -u ~/secmount
+  encfsctl password ~/.encrypted
+  encfs --reverse  
+#+end_src
+
+*** real one from almalinux 9.4
+
+#+begin_src bash
+  [root@localhost ~]# cat /etc/redhat-release 
+  AlmaLinux release 9.4 (Seafoam Ocelot)
+  [root@localhost ~]# yum install epel-release
+  [root@localhost ~]# yum install fuse-encfs
+  [root@localhost ~]# 
+  [root@localhost ~]# mkdir ~/.encrypted ~/secmount
+  [root@localhost ~]# ps -ef | grep encfs
+  root       14390    4613  0 15:53 pts/0    00:00:00 grep --color=auto encfs
+  [root@localhost ~]# encfs ~/.encrypted ~/secmount/
+  Creating new encrypted volume.
+  Please choose from one of the following options:
+   enter "x" for expert configuration mode,
+   enter "p" for pre-configured paranoia mode,
+   anything else, or an empty line will select standard mode.
+  ?>
+
+  Standard configuration selected.
+
+  Configuration finished.  The filesystem to be created has
+  the following properties:
+  Filesystem cipher: "ssl/aes", version 3:0:2
+  Filename encoding: "nameio/block", version 4:0:2
+  Key Size: 192 bits
+  Block Size: 1024 bytes
+  Each file contains 8 byte header with unique IV data.
+  Filenames encoded using IV chaining mode.
+  File holes passed through to ciphertext.
+
+  Now you will need to enter a password for your filesystem.
+  You will need to remember this password, as there is absolutely
+  no recovery mechanism.  However, the password can be changed
+  later using encfsctl.
+
+  New Encfs Password:
+  Verify Encfs Password:
+  [root@localhost ~]# ps -ef | grep encfs
+  root       14393       1  0 15:54 ?        00:00:00 encfs /root/.encrypted /root/secmount/
+  root       14397    4613  0 15:57 pts/0    00:00:00 grep --color=auto encfs
+  [root@localhost ~]# df -Th
+  Filesystem                 Type        Size  Used Avail Use% Mounted on
+  devtmpfs                   devtmpfs    4.0M     0  4.0M   0% /dev
+  tmpfs                      tmpfs       1.8G     0  1.8G   0% /dev/shm
+  tmpfs                      tmpfs       729M  8.6M  721M   2% /run
+  /dev/mapper/almalinux-root xfs          17G  1.8G   15G  11% /
+  /dev/sda2                  xfs         960M  218M  743M  23% /boot
+  /dev/sda1                  vfat        599M  7.1M  592M   2% /boot/efi
+  tmpfs                      tmpfs       365M     0  365M   0% /run/user/0
+  encfs                      fuse.encfs   17G  1.8G   15G  11% /root/secmount
+  [root@localhost ~]# du -hs .encrypted/
+  4.0K    .encrypted/
+  [root@localhost ~]# touch secmount/foo
+  [root@localhost ~]# touch secmount/bar
+  [root@localhost ~]# dd if=/dev/zero of=secmount/f1.dd bs=1024 count=1
+  1+0 records in
+  1+0 records out
+  1024 bytes (1.0 kB, 1.0 KiB) copied, 0.000207722 s, 4.9 MB/s
+  [root@localhost ~]# dd if=/dev/zero of=secmount/f2.dd bs=1024 count=100
+  100+0 records in
+  100+0 records out
+  102400 bytes (102 kB, 100 KiB) copied, 0.00218546 s, 46.9 MB/s
+  [root@localhost ~]# du -hs .encrypted/
+  112K    .encrypted/
+  [root@localhost ~]# du -hs secmount/
+  108K    secmount/
+  [root@localhost ~]# fusermount -u ~/secmount/
+  [root@localhost ~]# du -hs .encrypted/
+  112K    .encrypted/
+  [root@localhost ~]# du -hs secmount/
+  0       secmount/
+  [root@localhost ~]# ps -ef | grep encfs
+  root       14412    4613  0 15:59 pts/0    00:00:00 grep --color=auto encfs
+  [root@localhost ~]# ls secmount/
+  [root@localhost ~]# encfs ~/.encrypted ~/secmount/
+  EncfS Password: 
+  [root@localhost ~]# ls ~/secmount
+  bar  f1.dd  f2.dd  foo
+  [root@localhost ~]# fusermount -u ~/secmount/
+  [root@localhost ~]# encfsctl password ~/.encrypted
+  invalid command: "password"
+  [root@localhost ~]# encfsctl passwd ~/.encrypted
+  Enter current Encfs password
+  EncfS Password:
+  Enter new Encfs password
+  New Encfs Password:
+  Verify Encfs Password:
+  Volume Key successfully updated.
+  [root@localhost ~]# ps -ef | grep encfs
+  root       14442    4613  0 16:01 pts/0    00:00:00 grep --color=auto encfs
+  [root@localhost ~]# encfs ~/.encrypted ~/secmount/
+  EncfS Password: 
+  Error decoding volume key, password incorrect
+  [root@localhost ~]# encfs ~/.encrypted ~/secmount/
+  EncfS Password: 
+  [root@localhost ~]# ls ~/secmount/
+  bar  f1.dd  f2.dd  foo
+  [root@localhost ~]# fusermount -u ~/secmount/
+  [root@localhost ~]# 
+#+end_src
+
+*** real one from almalinux 8.10
+
+- https://computingpost.medium.com/enable-powertools-repository-on-almalinux-8-e013cdb10b99
+
+#+begin_src bash
+  yum install --downloadonly --downloaddir=tmp/ epel-release
+  yum install tmp/epel-release-8-21.el8.noarch.rpm
+  dnf config-manager --set-enabled powertools
+  yum install --downloadonly --downloaddir=tmp/ fuse-encfs
+  yum localinstall tmp/*.rpm
+#+end_src

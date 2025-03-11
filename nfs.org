@@ -42,7 +42,6 @@
 - systemctl start nfs-secure
 - mount with sec=krb5p
 
-
 ** and more selinux with 4.2
 
 - /etc/sysconfig/nfs : -V 4.2
@@ -118,3 +117,21 @@ sed -i '/data/d' /etc/fstab
 - rpcinfo -p
 - tcpdump -i eth1 192.168.99.120 -n
 - tcpdump -i eth1 port nfs
+
+* TODO nfs with password
+
+#+begin_src bash
+  sudo mount -t nfs -O user=root,pass=mypass lserver:/root /mnt/d0
+#+end_src
+
+** links
+
+- https://serverfault.com/questions/750497/fstab-entry-to-mount-nfs-with-password
+- https://stackoverflow.com/questions/53604706/mount-network-share-with-nfs-with-username-password
+- https://www.dell.com/support/manuals/en-pa/unity-380/unity_p_hst_nfs_fs/linux-or-solaris-host-mounting-the-nfs-share?guid=guid-3c4b4e1b-34e1-4b46-a457-ac749c183bc1&lang=en-us
+  - mount -t nfs svr:/point 
+- https://www.dell.com/support/manuals/en-pa/dell-emc-os-9/z9100-on-9.14.2.4-config/mounting-an-nfs-file-system?guid=guid-d0723c5b-05d2-42a5-bca9-8cf3b053adbf&lang=en-us
+  - mount -t nfs rhost:pass mount-point username password
+- https://access.redhat.com/solutions/3144151
+  - mount -o vers=4.0 10.1.1.1:/export /isilon
+  - mount -vvvv -overs=4.0 10.1.1.1:/export /isilon
