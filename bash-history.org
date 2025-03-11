@@ -1,0 +1,12 @@
+* DONE bash history
+
+- file
+  - .bash_history
+
+* DONE backup howto
+
+#+begin_src bash
+  mkdir backup
+  history -a
+  cp .bash_history backup
+#+end_src
