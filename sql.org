@@ -1,0 +1,27 @@
+* sql, sequel, database
+
+* join
+
+** inner join vs cartesian product
+
+*** René Descartes
+
+- type é using C-x 8 ' e from emacs
+- Cartesius
+  - Cartesian
+
+** inner join as regualar join    
+
+#+begin_src sql
+select *
+from Customers
+join Orders On Customers.CustomerID = Orders.CustomerID;
+#+end_src
+
+** other join
+
+- self join
+- cross join
+- full(outer) join
+- left(outer) join
+- right(outer) join

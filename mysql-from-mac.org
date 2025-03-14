@@ -1,0 +1,12 @@
+* or some others
+* steps or script
+
+#+begin_src bash
+brew install mysql
+# brew services start mysql
+mysql.server start
+mysql_secure_installation
+mysql -u root -p
+mysql.server stop
+brew install --cask mysqlworkbench
+#+end_src
