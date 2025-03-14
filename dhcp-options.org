@@ -1,0 +1,37 @@
+* TODO ip-address, string, text
+
+- text with space-s
+- string used for mac, ip, hostname like that
+
+#+begin_example
+  The ip-address data type can be entered either as an explicit IP address (e.g., 239.254.197.10) or as a domain name (e.g., haagen.isc.org). When entering a domain name, be sure that that domain name resolves to a single IP address.
+
+  The text data type specifies an NVT ASCII string, which must be enclosed in double quotes - for example, to specify a root-path option, the syntax would be
+
+  option root-path "10.0.1.4:/var/tmp/rootfs";
+
+  The string data type specifies either an NVT ASCII string enclosed in double quotes, or a series of octets specified in hexadecimal, separated by colons. For example:
+
+  option dhcp-client-identifier "CLIENT-FOO";
+  or
+  option dhcp-client-identifier 43:4c:49:45:54:2d:46:4f:4f;
+#+end_example
+
+#+begin_example
+  option broadcast-address ip-address;
+  option bootfile-name text;
+  option dhcp-client-identifier string;
+  option domain-name text;
+  option domain-search domain-list; 
+#+end_example
+
+#+begin_example
+  option sql-server-address code 193 = ip-address;
+  option sql-server-address sql.example.com;
+
+  option sql-default-connection-name code 194 = text;
+  option sql-default-connection-name "PRODZA";
+
+  option sql-identification-token code 195 = string;
+  option sql-identification-token 17:23:19:a6:42:ea:99:7c:22;
+#+end_example

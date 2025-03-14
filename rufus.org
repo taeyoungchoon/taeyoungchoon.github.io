@@ -27,3 +27,10 @@
     - [X] OS
   - File system
     - [X] FAT32
+
+      
+** DONE be without rufus made
+
+- rufus
+- boot selection
+  - non bootable
