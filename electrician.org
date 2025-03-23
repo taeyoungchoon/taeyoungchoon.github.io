@@ -1,0 +1,79 @@
+* DONE reason, why
+
+- not just getting old
+- gathering atom, one of them
+  
+* TODO what, about
+
+- electron from the base
+- histroy
+  - https://en.wikipedia.org/wiki/History_of_electrical_engineering
+  - https://www.twinkl.kr/teaching-wiki/the-history-of-electricity
+- with somesone as history, list
+  1) William Gilbert
+  2) Ewald Georg von Kleist
+     - Leyden jar
+  3) Pieter van Musschenbroek
+  4) Bejamin Franklin
+     - Kite
+  5) Luigi Galvani
+  6) C. A. Coulomb
+     - Coulomb's law
+  7) Alessandro Volta
+     - Electric Battery
+       - Volaic pile
+     - volt(V)
+       - https://namu.wiki/w/전압
+       - https://blog.naver.com/keri_on/221204999614
+       - 1.5 V
+       - 230 V
+	 - 220 V
+	 - 110 V > 220 V
+	 - 200 V > 380 V
+  8) Sir Humphri Davy
+     - electrolysis
+     - calcium
+     - magnesium
+     - strontium
+     - barium
+  9) Hans Christian Oersted
+  10) Michael Faraday
+      - Electric Montor
+  11) Johann Seebeck
+  12) Joseph Henry
+  13) Georg Ohm
+  14) James Clerk Maxwell
+      - Maxwell's demon
+  15) Ludwig Boltzmann
+  16) Andre-Marie Ampere
+      - ampere's law
+      - solenoid
+      - ampere(A)
+      - electrical telegraph
+      - http://simplyknowledge.com/popular/biography/andre-marie-ampere
+  17) Nikola Tesla
+      - Alternating Current
+  18) Thomas Edison
+      - Direct Current electric generator
+  19) Heinrich Hertz
+      - Electomagnetic wave
+  20) Guglielmo Marconi
+- english or korean
+- examination
+  - 전기기사
+  - 전기산업기사
+  - 전기공사기사
+- word
+  - 전자기학, electromagnetim
+  - 전하, electric charge
+  - 전기장, electric field
+  - 자기장, magnetic field
+  - 양성자, proton
+  - 전자, electron
+  - 전력, electric power
+  - 전기 저항, electric resistance
+  - 기전력, electromotive force, emf
+  - 접지, ground, earth
+  - 단락, short circuit, short, s/c
+  - electric arc
+
