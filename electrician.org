@@ -77,3 +77,10 @@
   - 단락, short circuit, short, s/c
   - electric arc
 
+* refer
+
+- http://www.kocw.net/home/search/kemView.do?kemId=1172766
+- http://www.kocw.net/home/search/search.do?query=전기기기
+- [ ] http://www.kocw.net/home/search/kemView.do?kemId=1206588
+- [ ] http://www.kocw.net/home/cview.do?cid=40057f39ef868545
+- [ ] mooc, hmm
