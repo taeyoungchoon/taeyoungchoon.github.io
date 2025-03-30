@@ -1,0 +1,85 @@
+** TODO list databases
+
+#+begin_src sql
+  SELECT name AS database_name, database_id, create_date
+  FROM sys.databases
+  ORDER BY name;
+#+end_src
+
+** TODO list tables
+
+#+begin_src sql
+  SELECT TABLE_NAME
+  FROM INFORMATION_SCHEMA.TABLES
+  WHERE TABLE_TYPE = 'BASE TABLE'
+  ORDER BY TABLE_NAME;
+#+end_src
+
+** TODO list top 3 rows
+
+#+begin_src sql
+  SELECT TOP 3 *
+  FROM your_table_name
+  ORDER BY your_column_name DESC;
+#+end_src
+
+** TODO show schema
+
+#+begin_src sql
+  SELECT 
+      COLUMN_NAME,
+      DATA_TYPE,
+      CHARACTER_MAXIMUM_LENGTH,
+      IS_NULLABLE,
+      COLUMN_DEFAULT
+  FROM 
+      INFORMATION_SCHEMA.COLUMNS
+  WHERE 
+      TABLE_NAME = 'YourTableName'
+  ORDER BY 
+      ORDINAL_POSITION;
+#+end_src
+
+** TODO list top 3 rows from all tables with table name
+
+- using dynamic sql
+
+#+begin_src sql
+  DECLARE @TableName NVARCHAR(128)
+  DECLARE @SQL NVARCHAR(MAX)
+
+  DECLARE TableCursor CURSOR FOR
+  SELECT TABLE_NAME
+  FROM INFORMATION_SCHEMA.TABLES
+  WHERE TABLE_TYPE = 'BASE TABLE'
+
+  OPEN TableCursor
+  FETCH NEXT FROM TableCursor INTO @TableName
+
+  WHILE @@FETCH_STATUS = 0
+  BEGIN
+      SET @SQL = 'SELECT TOP 3 ''' + @TableName + ''' AS TableName, * FROM ' + @TableName
+
+      EXEC sp_executesql @SQL
+
+      FETCH NEXT FROM TableCursor INTO @TableName
+  END
+
+  CLOSE TableCursor
+  DEALLOCATE TableCursor
+#+end_src
+
+** TODO cli using sqlcmd
+
+#+begin_src bash
+  sqlcmd
+  sp_databases
+  go
+#+end_src
+
+** TODO sqlcmd with external sql file
+
+#+begin_src bash
+  sqlcmd -i foo.sql -o foo.out
+#+end_src
+
