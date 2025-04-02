@@ -1,0 +1,171 @@
+* DONE requirement
+** spec
+
+- https://www.arista.com/en/cg-cv/cv-system-requirements
+- https://www.arista.com/en/support/software-download
+  - CloudVision
+    - CloudVision Portal
+      - Active Releases
+	- 2024.3
+	  - 2024.3.0
+	    - CloudVision-2024.3.0-ReleaseNotes-v1.2.pdf
+	      - 2. Supported Scale
+		- 2.1 Cluster Scale
+		  - Cluster Deployment
+		    - Multinode
+		  - Pre-Node Resources
+		    - DCA-200-CV default
+		    - list
+		      - 28 CPUs
+  		      - 52G RAM
+		      - 1 TB data disk
+		  - Number of Devices
+		    - 1000
+		  - Number of Active Interfaces
+		    - 40000
+		  - Flow Tracking
+		    - 5K flow updates/sec
+		  - WIFI Supported
+		    - Yes
+        - 2025.1
+	  - 2025.1.0
+	    - [ ] 2 TB data disk
+
+*** lab
+
+- cpu 16c
+- mem 32g
+- dsk 1t
+
+*** production
+
+- cpu 28c
+- mem 52g
+- dsk 1t > 25 since 2025.1.0
+
+* TODO shared resource if not
+
+** note
+
+- https://www.arista.com/en/cg-cv/cv-dns--ntp-server-migration
+
+** list
+
+- [ ] ntp
+- [ ] dns
+  - register name on it
+- [ ] dhcp
+    
+* TODO operating system
+
+- centos 7.9
+  - ever
+- [ ] almalinux 9.4
+  - based on
+    - CloudVision-2024.3.0-ReleaseNotes-v1.2.pdf
+      - 6.4 CentOS Version for RPM Installer
+	- Support Versions for RPM Installer 2024.3+
+	  - AlmaLinux release 9.4
+    - cvp vm, inside
+      #+begin_src bash
+	$ cvpi version | cut -d '-' -f 1 | sed '/^$/d' | awk '{ print $3 }'
+	2024.3.0
+	$ cat /etc/redhat-release
+	AlmaLinux release 9.4 (Seafoam Ocelot)
+	$
+      #+end_src
+- base
+  - server with gui
+- [ ] local repo
+
+** network
+
+- [ ] using cockpit, prefer
+
+*** sample 1
+
+#+begin_src emacs-lisp
+  (bridge0 (nic1))
+  (bridge0 (ip nm gw ns1))
+#+end_src
+
+*** sample 2
+
+#+begin_src emacs-lisp
+  (bridge0 (bond0 (nic1 nic3)))
+  (bridge0 (ip nm gw ns1))
+#+end_src
+
+** package
+
+- [ ] libvirtd started or not
+  
+#+begin_src bash
+  yum install libvirt virt-manager virsh
+  systemctl enable libvirtd
+  systemctl start libvirtd
+#+end_src
+
+* TODO cvp specific
+
+** python
+
+- cpu
+  - 28c
+- mem
+  - 53248 MiB
+    #+begin_src emacs-lisp
+      (* 1024 52)
+    #+end_src
+
+    #+RESULTS:
+    : 53248
+  - 54255952 KiB
+    #+begin_src emacs-lisp
+      (* 1024 1024 52)
+    #+end_src
+
+    #+RESULTS:
+    : 54525952
+
+#+begin_src python
+  python generateXmlForKvm.py -n cvp1 --device-bridge bridge0 -k 1 -i cvpTemplate.xml -o cvp.xml \
+  -x '/data/cvp1/disk1.qcow2' -y '/data/cvp1/disk2.qcow2' -b 53248 -p 28 -e '/usr/libexec/qemu-kvm'
+#+end_src
+
+#+RESULTS:
+
+** virsh
+
+#+begin_src bash
+  virsh list --all
+  virsh define cvp1.xml
+  virsh start cvp1
+#+end_src
+
+** configure
+
+*** list
+
+- dns
+  - 192.168.0.20
+- dns_domains
+  - t.com
+- ntp_servers
+  - server
+    - 192.168.0.20
+- default_route
+  - 192.168.0.1
+- hostname
+  - cvp1.t.com
+- interfaces
+  - eth0
+    - address
+      - 192.168.0.192
+    - mask
+      - 255.255.255.0
+
+* TODO refer
+
+- https://www.arista.io/help/2024.3/articles/aW5zdGFsbGF0aW9uLkFsbC5pbnN0YWxsYXRpb25LVk0=
+  

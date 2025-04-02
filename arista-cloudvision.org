@@ -293,7 +293,6 @@ but how
     - static analyze
       - CloudVision Portal 2021.3.0
 
-
 * DONE upgrade from 2021.3.0 to 2022.2.0
 
 - [X] how to upgrade from ver to ver

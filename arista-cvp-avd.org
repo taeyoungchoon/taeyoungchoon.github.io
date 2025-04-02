@@ -1,0 +1,7 @@
+* source, python
+
+- https://github.com/aristanetworks/ansible-avd.git
+- pyavd
+- https://cvp.avd.sh/en/stable
+  - cvprac
+    - RESTful API Client

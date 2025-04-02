@@ -1,0 +1,6 @@
+* ztr and studio
+
+- https://www.arista.io/help/2024.3/articles/b3ZlcnZpZXcuenRw#zero-touch-replacementhttps://www.arista.io/help/2024.3/articles/b3ZlcnZpZXcuenRw#zero-touch-replacement
+  - Note:
+    - ZTR will only replace configuration provisioned in Network Provisioning and Configlets.
+    - Configuration provisioned in Studios will not be carried over in the replacement.

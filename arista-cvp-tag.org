@@ -1,0 +1,41 @@
+* what tag,
+
+- label?
+  - https://www.arista.com/ko/cg-cv/cv-device-labels
+
+* TODO with ansible avd
+
+- https://cvp.avd.sh/en/stable/docs/modules/cv_tag_v3/
+  - cv_tag_v3
+    - device_tags
+    - interface_tags
+- https://avd.arista.com/4.8/roles/eos_designs/docs/how-to/cloudvision-tags-preview.html
+  - generate_cv_tags
+- https://avd.arista.com/4.8/roles/eos_cli_config_gen/docs/input-variables.html?h=device_tag#metadata
+  - metadata
+    - cv_tags
+      - device_tags
+	- name
+	  value
+      - interface-tags
+	- interface
+	  - tags
+	    - name
+	      value
+- https://avd.arista.com/3.8/docs/how-to/first-project.html
+
+* TODO cloudvision api call with rest
+
+- https://aristanetworks.github.io/cloudvision-apis/examples/rest/tag/
+  - since 2021.1.0
+  
+* TODO cloudvision with python/grpc
+
+- https://aristanetworks.github.io/cloudvision-apis/examples/grpc/
+  - https://github.com/aristanetworks/cloudvision-python/blob/trunk/examples/resources/tag/v2/get_tags.py
+
+* TODO cvp > resource explorer > tag.v2
+
+* TODO aristanetworks / cloudvision-apis
+
+- https://github.com/aristanetworks/cloudvision-apis

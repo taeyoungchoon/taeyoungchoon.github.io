@@ -1,0 +1,9 @@
+* DONE shell recent, 2024.3.0
+
+#+begin_src bash
+  kubectl exec -it pod/hbasemaster-0 -- bash
+  hbase shell
+  list
+  exit
+  exit
+#+end_src

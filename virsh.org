@@ -19,6 +19,22 @@ systemctl status serial-getty@ttyS0.service
 grubby --update-kernel=ALL --args="console=ttyS0"
 #+END_SRC
 
-* so
+* TODO memory
 
-조금 맘에 들지 않는다. 꼭 그럴 필요가 있을까 싶지만
+** live, config
+
+** edit
+
+- https://louky0714.tistory.com/48
+  - memory
+  - currentMemory
+
+** setmaxmem, setmem
+    
+#+begin_src bash
+  virsh dumpxml cvp1 | grep -i memory
+  virsh setmaxmem --domain cvp1 --size 55574528 --config
+  virsh dumpxml cvp1 | grep -i memory
+  virsh setmem --domain cvp1 --size 55574528 --config
+  virsh dumpxml cvp1 | grep -i memory
+#+end_src
