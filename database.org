@@ -1,6 +1,10 @@
 * oracle database and the others even nosql type
 
 - oracle database
+  - oracle-database.org
 - mysql and friends like that, mariadb
+  - mariadb.org
+  - mysql.org
+  - postgresql.org
+  - sql-server.org
 - nosql type, mongo and cassandra
-
