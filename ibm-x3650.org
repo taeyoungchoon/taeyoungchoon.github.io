@@ -1,0 +1,25 @@
+* with IMM(Integrated Management Module)
+
+** enable howto
+
+- https://www.youtube.com/watch?v=9G9CJZygNy4
+  - Configuring IMM on IBM System M4 Server
+
+*** steps
+
+- IBM System x
+  - Server Firmware
+    - <F1> Setup
+      - System Configuration and Boot Management
+	- System Settings
+	  - Integrated Management Module
+	    - Reset IMM to defaults
+	    - Network Configuration
+	      - Network Interface Port
+		- Dedicated
+	      - DHCP Control
+		- Static IP
+	      - IP Address
+	      - Subnet Mask
+	      - Default Gateway
+- https://x.x.x.x , USERID / PASSW0RD

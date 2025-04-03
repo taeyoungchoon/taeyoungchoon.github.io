@@ -1,0 +1,16 @@
+* TODO sql server service-s from sql server 2022
+
+- services.msc
+  - SQL Server
+    - C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Binn\sqlservr.exe" -sMSSQLSERVER
+	- Active
+  - SQL Server Agent
+  - SQL Server Browser
+  - SQL Server CEIP Service
+    - [ ] CEIP
+	- Active
+  - SQL Server VSS Writer
+    - backup/restore
+	- using Windows VSS infrastructure
+	- Active
+	
