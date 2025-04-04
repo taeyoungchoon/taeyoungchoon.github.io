@@ -57,7 +57,7 @@ nil
 ** links
 
 - https://github.com/rwpenney/pmcyg
--    https://pypi.org/project/pmcyg
+- https://pypi.org/project/pmcyg
   
 ** step
 

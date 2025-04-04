@@ -103,3 +103,14 @@ Get-Process SQLAGENT -FileVersionInfo
 Get-EventLog -list
 Get-EventLog Application -Newest 3
 #+END_SRC
+
+* DONE date and timestamp to filename
+
+#+begin_example
+  PS C:\Users\jack> get-date -uformat '%Y-%m-%d'
+  2025-04-04
+  PS C:\Users\jack> $stamp=get-date -uformat '%Y-%m-%d'
+  PS C:\Users\jack> echo ${stamp}_error.txt
+  2025-04-04_error.txt
+  PS C:\Users\jack>
+#+end_example

@@ -1,0 +1,64 @@
+* DONE tasklist
+
+#+begin_example
+  PS C:\Users\jack> tasklist.exe /SVC /FI 'IMAGENAME eq SearchIndexer.exe'
+
+  이미지 이름                    PID 서비스
+  ========================= ======== ============================================
+  SearchIndexer.exe            17656 WSearch
+  PS C:\Users\jack> tasklist.exe /SVC /FI 'SERVICES eq WSearch'
+
+  이미지 이름                    PID 서비스
+  ========================= ======== ============================================
+  SearchIndexer.exe            17656 WSearch
+  PS C:\Users\jac>
+#+end_example
+
+* DONE get-process and get-service
+
+#+begin_example
+  PS C:\Users\jack> get-service | findstr /I wsearch
+  Running  WSearch            Windows Search
+  PS C:\Users\jack> get-process | findstr /I searchindexer
+      869      18    18924      38008             17656   0 SearchIndexer
+  PS C:\Users\jack>
+#+end_example
+
+- services.msc
+  - Windows Search
+    - stop
+
+#+begin_example
+  PS C:\Users\jack> get-service | findstr /I wsearch
+  Stopped  WSearch            Windows Search
+  PS C:\Users\jack> get-process | findstr /I searchindexer
+  PS C:\Users\jack>
+#+end_example
+
+#+begin_example
+PS C:\WINDOWS\system32> start-service WSearch
+PS C:\WINDOWS\system32> get-service WSearch
+
+Status   Name               DisplayName
+------   ----               -----------
+Running  WSearch            Windows Search
+
+
+PS C:\WINDOWS\system32>
+#+end_example
+
+* TODO sc query wsearch
+
+* TODO dig in name
+
+- display name
+  - kr
+    - Windows 업데이트
+  - en
+    - Windows Update
+- service name
+  - wuauserv
+- image name
+  - svchost.exe
+- image path, or maybe
+  - C:\WINDOWS\system32\svchost.exe -k netsvcs -p
