@@ -93,15 +93,17 @@ for i in range(0, 2):
 : 1 1
 
 * DONE list
-CLOSED: [2024-03-02 Sat 22:37]
+
+- append
 
 #+BEGIN_SRC python :results output
-lt = [1, 2, 3]
-print(lt)
+  lt = [1, 2, 3, 4]
+  lt.append(5)
+  print(lt)
 #+END_SRC
 
 #+RESULTS:
-: [1, 2, 3]
+: [1, 2, 3, 4, 5]
 
 * DONE math
 CLOSED: [2024-03-02 Sat 22:37]

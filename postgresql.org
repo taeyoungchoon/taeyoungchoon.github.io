@@ -19,3 +19,39 @@
 * export
 
 - \copy
+
+* TODO cli or flow
+
+#+begin_src bash
+  psql -U postgres
+  \l
+  \c sales
+  \dt
+  \q
+#+end_src
+
+#+begin_src bash
+  psql -U postgres -d sales
+  \dt
+  \q
+#+end_src
+
+* meta command
+
+#+begin_src bash
+  \?
+  \q
+  \l
+  \c sales
+  \dt
+  \d customers
+  \dt+
+  \dn
+  \dv
+  \di
+  \du username
+  \o file
+  \i file
+#+end_src
+
+* TODO pgadmin master password

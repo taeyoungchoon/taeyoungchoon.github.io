@@ -775,6 +775,7 @@ docker start ceos2
   leaf2_2#configure replace file:/mnt/flash/backup-config
   leaf2_2#reload now
 #+end_src
+
 * DONE session part 1, trying
 
 - https://www.arista.com/en/um-eos/eos-configure-session
@@ -827,6 +828,7 @@ https://www.arista.com/en/um-eos/eos-configure-session
 
 ** sample
 
+#+begin_example
 leaf2#show session-config diffs 
 % Not currently in a session
 
@@ -886,3 +888,4 @@ leaf2#configure session cvp-provisioning-eafa0a85-d46f-40d6-9e4a-5b6e3f1be174
 commit
 leaf2#
 leaf2#sh running-config
+#+end_example
