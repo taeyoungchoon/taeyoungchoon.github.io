@@ -30,11 +30,93 @@ grubby --update-kernel=ALL --args="console=ttyS0"
   - currentMemory
 
 ** setmaxmem, setmem
-    
-#+begin_src bash
+
+- config
+- live
+- current
+  - online then live
+  - offline then config
+- story (2 GiB to 3 GiB : 1024 * 1024 * 3 KiB)
+  #+begin_example
+    virsh shutdown --domain al0
+    virsh dominfo --domain al0
+    virsh setmaxmem --domain al0 --size 3145728 --config
+    virsh setmem --domain al0 --size 3145728 --config 
+    virsh dominfo --domain al0   
+    virsh start --domain al0
+  #+end_example
+  
+  #+begin_src bash
   virsh dumpxml cvp1 | grep -i memory
   virsh setmaxmem --domain cvp1 --size 55574528 --config
   virsh dumpxml cvp1 | grep -i memory
   virsh setmem --domain cvp1 --size 55574528 --config
   virsh dumpxml cvp1 | grep -i memory
-#+end_src
+  #+end_src
+
+  #+begin_example
+    virsh shutdown --domain cvp1
+    virsh dominfo --domain cvp1
+    virsh setmaxmem --domain cvp1 --size 100663296 --config
+    virsh setmem --domain cvp1 --size 100663296 --config 
+    virsh dominfo --domain cvp1   
+    virsh start --domain cvp1
+  #+end_example
+  
+- another story
+  - dumpxml
+    - 3145728 KiB
+      - 1024 * 1024 * 3
+  - dominfo
+    - 3145728 KiB    
+  - virt-manager
+    - 3072 MiB
+      - 1024 * 3
+    
+*** impl
+
+#+begin_example
+  [root@s005 ~]# virsh dominfo 12 | grep -i memory
+  Max memory:     2097152 KiB
+  Used memory:    2097152 KiB
+
+  [root@s005 ~]# bc -q
+  1024*2
+  2048
+  1024 * 1024 * 1
+  1048576
+  1024 * 1024 * 2
+  2097152
+  1024 * 1024 * 3
+  3145728
+  quit
+
+  [root@s005 ~]# virsh setmaxmem --domain al9_0 --size 3145728 --live
+  error: Unable to change MaxMemorySize
+  error: Requested operation is not valid: cannot resize the maximum memory on an active domain
+
+  [root@s005 ~]# virsh setmaxmem --domain al9_0 --size 3145728 --current
+  error: Unable to change MaxMemorySize
+  error: Requested operation is not valid: cannot resize the maximum memory on an active domain
+
+  [root@s005 ~]# virsh setmaxmem --domain al9_0 --size 3145728 --config
+
+  [root@s005 ~]# virsh dominfo 12 | grep -i memory
+  Max memory:     2097152 KiB
+  Used memory:    2097152 KiB
+  [root@s005 ~]# virsh list --all
+   Id   Name      State
+  --------------------------
+   3    cvp1      running
+   12   al9_0     running
+
+    936  virsh setmaxmem --domain al9_0 --size 3145728 --live	nil
+    937  virsh setmaxmem --domain al9_0 --size 3145728 --current	nil
+    938  virsh setmaxmem --domain al9_0 --size 3145728 --config	t
+
+  [root@s005 ~]# virsh setmaxmem --domain al9_0 --size 2097152 --config
+
+  [root@s005 ~]# virsh dominfo --domain al9_0 | grep -i memory
+  Max memory:     2097152 KiB
+  Used memory:    2097152 KiB
+#+end_example

@@ -1,0 +1,18 @@
+* aka
+
+- program
+- software
+  - hardware
+- application
+- process
+  - thread
+- package
+  - distribution
+    - linux distribution
+      
+* not here but word, related
+
+- developer
+- software developer
+- software engineer
+- architect

@@ -1,0 +1,28 @@
+* list
+
+#+begin_src bash
+  $ choco list | grep python
+  python 3.13.2
+  python2 2.7.18
+  python3 3.13.2
+  python311 3.11.9
+  python312 3.12.9
+  python313 3.13.2
+
+  $ choco uninstall python311
+  $ choco uninstall python312
+
+  jack@think ~/tmp/t-shell/choco
+  $ choco list | grep python
+  python 3.13.2
+  python2 2.7.18
+  python3 3.13.2
+  python313 3.13.2
+
+  jack@think ~/tmp/t-shell/choco
+  $ python --version
+  Python 3.7.12
+
+  C:\Users\jack>python --version
+  Python 3.13.2
+#+end_src

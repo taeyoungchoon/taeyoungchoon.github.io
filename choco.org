@@ -170,6 +170,35 @@ In [32]: error
 Out[32]: b''
 #+END_SRC
 
+- [2025-04-09 수 08:04] make upgrade from t-shell/choco/
+  - [X] remove C:\ProgramData\ChocolateyHttpCache
+  - [X] uninstall nmap vs. autohotkey
+  - [ ] gs to 10.05.0
+  - [ ] chrome, google chrome, GoogleChrome
+    - ERROR: Checksum
+      #+begin_example
+	You have GoogleChrome v132.0.6834.160 installed. Version 135.0.7049.41 is available based on your source(s).
+	Downloading package from source 'https://community.chocolatey.org/api/v2/'
+	Progress: Downloading GoogleChrome 135.0.7049.41... 100%
+
+	GoogleChrome v135.0.7049.41 [Approved]
+	GoogleChrome package files upgrade completed. Performing other installation steps.
+	File appears to be downloaded already. Verifying with package checksum to determine if it needs to be redownloaded.
+	Error - hashes do not match. Actual value was '4091AE08E285B15ACA2ECC0C7BBFD28D5E5D7986DF6BD95C84C2B249B0B09060'.
+	Downloading googlechrome 64 bit
+	  from 'https://dl.google.com/dl/chrome/install/googlechromestandaloneenterprise64.msi'
+	Progress: 100% - Completed download of C:\tools\cygwin\tmp\chocolatey\GoogleChrome\135.0.7049.41\googlechromestandaloneenterprise64.msi (125.89 MB).
+	Download of googlechromestandaloneenterprise64.msi (125.89 MB) completed.
+	Error - hashes do not match. Actual value was '4091AE08E285B15ACA2ECC0C7BBFD28D5E5D7986DF6BD95C84C2B249B0B09060'.
+	ERROR: Checksum for 'C:\tools\cygwin\tmp\chocolatey\GoogleChrome\135.0.7049.41\googlechromestandaloneenterprise64.msi' did not meet 'f636f77521781ba03c39d8be3e2ecdba828f1eee12cc0fee00509d6ae960c59b' for checksum type 'sha256'. Consider passing the actual checksums through with --checksum --checksum64 once you validate the checksums are appropriate. A less secure option is to pass --ignore-checksums if necessary.
+	The upgrade of GoogleChrome was NOT successful.
+	Error while running 'C:\ProgramData\chocolatey\lib\GoogleChrome\tools\chocolateyInstall.ps1'.
+	 See log for details.
+      #+end_example
+  - [ ] lots of delayed install of software
+    - [ ] lots of python
+      - 3.13.2
+      - 3.12.9
 * with windows, what about the others?
 
 - apt-cyg update
@@ -184,3 +213,23 @@ choco update all -y
 choco list -l
 choco search -e vlc
 choco search vim
+
+* DONE upgrade all but exclude/except
+
+#+begin_src bash
+  choco upgrade --except="x,y"
+#+end_src
+
+#+begin_src bash
+  choco pin list
+  choco pin add --name=x
+  choco pin add --name=x --version=y
+  choco pin remove --name=x
+#+end_src
+
+#+begin_src bash
+  choco pin list
+  choco pin add --name GoogleChrome
+  choco pin list
+  choco upgrade all
+#+end_src
