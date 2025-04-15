@@ -1,0 +1,28 @@
+* TODO tech support
+* TODO word
+
+- subscription
+- carepack
+  
+** one more thing
+
+- TAM, Technical Account Management
+  
+* list
+
+- https://www.rockplace.co.kr/Carepack
+  - 제공되는 서비스
+    - 설치 지원
+      - [X] 설치를 해준다?
+	- 아니다
+    - 장애 지원
+- https://blog.naver.com/zagatoson/222483873237
+  - subscription rel
+    - inc
+      - upgrade
+      - update
+      - patch
+      - bug fix
+- HP, HPE
+- https://techsg.co.kr/contents/Oracle_Linux_Introduction.pdf
+  
