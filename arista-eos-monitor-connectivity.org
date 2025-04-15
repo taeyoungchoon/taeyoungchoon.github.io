@@ -1,0 +1,34 @@
+* DONE sample
+
+** config
+
+#+begin_example
+  !
+  interface Loopback7
+     no shutdown
+	ip address 1.1.1.1/32
+  !
+  monitor connectivity
+     host local
+	ip 1.1.1.1
+  !
+#+end_example
+
+** tool
+
+#+begin_example
+bash Cli -p15 -c $'enable\n configure\n interface loopback 7\n no shut\n end'      
+bash Cli -p15 -c $'enable\n configure\n interface loopback 7\n shut\n end'
+
+ping 1.1.1.1
+sh mon con host local
+sh log 10
+
+Apr  9 10:28:20 sw1 ConnectivityMonitor: %CONNECTIVITYMON-5-HOST_UNREACHABLE: Host local (1.1.1.1) is unreachable with ICMP probes
+
+Apr  9 10:28:20 
+BL1 
+ConnectivityMonitor: 
+%CONNECTIVITYMON-5-HOST_UNREACHABLE: 
+Host local (1.1.1.1) is unreachable with ICMP probes
+#+end_example

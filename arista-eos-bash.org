@@ -1,0 +1,49 @@
+* knowing
+
+- Cli
+- FastCli
+  
+* sample
+
+#+begin_example
+bash Cli -p15 -c "sh conf sess" | awk '/pending/ && !/Max/ {print $1 }' | sed -e 's/^/conf session /' -e 's/$/ commit/' | Cli -p 15
+bash Cli -p15 -c $'enable\n configure\n interface loopback 7\n no shut\n end'      
+bash Cli -p15 -c $'enable\n configure\n interface loopback 7\n shut\n end'
+bash Cli -p15 -c $'config session s6\n exit\n'
+bash Cli -p15 -c $'config session s7\n exit\n'
+bash FastCli -p15 -c $'config session s6\n exit\n config session s7\n exit\n'
+bash FastCli -p15 -c $'config session s6 abort\n config session s7 abort\n'
+#+end_example
+
+* TODO what the -> $'xxx'
+
+** man echo
+
+#+begin_example
+NAME
+       echo - display a line of text
+
+DESCRIPTION
+       Echo the STRING(s) to standard output.
+
+       -n     do not output the trailing newline
+
+       -e     enable interpretation of backslash escapes
+#+end_example
+
+** sample
+
+#+begin_example
+  ? echo -n 'hi\n'
+  hi\n?
+  ?
+  ? echo -n -e 'hi\n'
+  hi
+  ?
+  ? echo -n $'hi\n'
+  hi
+  ?
+  ? printf 'hi\n'
+  hi
+  ?
+#+end_example

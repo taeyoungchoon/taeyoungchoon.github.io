@@ -1,0 +1,137 @@
+* DONE pending session to commit using event handler with monitor connectivity feature
+
+** using
+
+- event-handler as a frame/platform
+  - input/event generation using monitor connectivity feature
+  - shell script to commit all pending session-s
+
+** links
+
+- https://www.arista.com/ko/support/toi/eos-4-20-1f/13913-connectivity-monitor
+- https://www.arista.com/en/um-eos/eos-command-line-interface-cli#xx1125153
+- https://arista.my.site.com/AristaCommunity/s/article/arista-custom-event-handler-to-take-action-based-on-interface-utilization
+  
+** config
+
+#+begin_example
+  !
+  interface Loopback7
+     no shutdown
+     ip address 1.1.1.1/32
+  !
+  monitor connectivity
+     host local
+	ip 1.1.1.1
+  !
+  event-handler pending-sess-handler
+     action bash Cli -p 15 -c "sh conf sess" | awk '/pending/ && !/Max/ {print $1 }' | sed -e 's/^/conf session /' -e 's/$/ commit/' | Cli -p 15
+     delay 1
+     asynchronous
+     !
+     trigger on-logging
+	regex CONNECTIVITYMON-5-HOST_UNREACHABLE
+  !
+#+end_example
+
+** strory
+
+#+begin_example
+  BL1#ping 1.1.1.1
+  PING 1.1.1.1 (1.1.1.1) 72(100) bytes of data.
+  80 bytes from 1.1.1.1: icmp_seq=1 ttl=64 time=0.119 ms
+  80 bytes from 1.1.1.1: icmp_seq=2 ttl=64 time=0.048 ms
+  80 bytes from 1.1.1.1: icmp_seq=3 ttl=64 time=0.041 ms
+  80 bytes from 1.1.1.1: icmp_seq=4 ttl=64 time=0.046 ms
+  80 bytes from 1.1.1.1: icmp_seq=5 ttl=64 time=0.046 ms
+
+  --- 1.1.1.1 ping statistics ---
+  5 packets transmitted, 5 received, 0% packet loss, time 6ms
+  rtt min/avg/max/mdev = 0.041/0.060/0.119/0.029 ms, ipg/ewma 1.526/0.088 ms
+  BL1#sh conf sess
+  Maximum number of completed sessions: 1
+  Maximum number of pending sessions: 5
+  Merge on commit is disabled
+  Autosave to startup-config on commit is disabled
+
+    Name    State       User    Terminal
+    ---- ----------- ---------- --------
+
+  BL1#config sess s1
+  BL1(config-s-s1)#exit
+  ! Exiting configuration session without committing changes. To get back to the session, type 'configure session s1'.
+  BL1#config sess s2
+  BL1(config-s-s2)#exit
+  ! Exiting configuration session without committing changes. To get back to the session, type 'configure session s2'.
+  BL1#sh conf sess
+  Maximum number of completed sessions: 1
+  Maximum number of pending sessions: 5
+  Merge on commit is disabled
+  Autosave to startup-config on commit is disabled
+
+    Name    State         User    Terminal
+    ---- ------------- ---------- --------
+    s1      pending
+    s2      pending
+
+  BL1#sh event-handler pending-sess-handler | grep Total
+  Total Trigger Detections: 4
+  Total Trigger Activations: 4
+  Total Actions: 4
+  BL1#conf
+  BL1(config)#interface loopback 7
+  BL1(config-if-Lo7)#shutdown
+  BL1(config-if-Lo7)#exit
+  BL1(config)#exit
+  BL1#ping 1.1.1.1
+  ping: connect: Network is unreachable
+  BL1#sh event-handler pending-sess-handler | grep Total
+  Total Trigger Detections: 5
+  Total Trigger Activations: 5
+  Total Actions: 5
+  BL1#sh conf sess
+  Maximum number of completed sessions: 1
+  Maximum number of pending sessions: 5
+  Merge on commit is disabled
+  Autosave to startup-config on commit is disabled
+
+    Name    State       User    Terminal
+    ---- ----------- ---------- --------
+
+  BL1#
+#+end_example
+
+** tool
+
+#+begin_example
+bash Cli -p15 -c $'enable\n configure\n interface loopback 7\n no shut\n end'      
+bash Cli -p15 -c $'enable\n configure\n interface loopback 7\n shut\n end'
+
+ping 1.1.1.1
+sh mon con host local
+sh log 10
+
+sh conf sess
+conf sess s1
+exit
+conf sess s2
+exit
+
+sh event-handler pending-sess-handler
+sh event-handler pending-sess-handler | grep Total
+
+sh conf sess
+bash Cli -p15 -c $'config session s6\n exit\n'
+bash Cli -p15 -c $'config session s7\n exit\n'
+
+bash FastCli -p15 -c $'config session s6\n exit\n config session s7\n exit\n'
+bash FastCli -p15 -c $'config session s6 abort\n config session s7 abort\n'
+
+Apr  9 10:28:20 sw1 ConnectivityMonitor: %CONNECTIVITYMON-5-HOST_UNREACHABLE: Host local (1.1.1.1) is unreachable with ICMP probes
+
+Apr  9 10:28:20 
+BL1 
+ConnectivityMonitor: 
+%CONNECTIVITYMON-5-HOST_UNREACHABLE: 
+Host local (1.1.1.1) is unreachable with ICMP probes
+#+end_example
