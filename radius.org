@@ -2,3 +2,31 @@
 * TODO free
 
 - [2024-12-20 Fri] 또 다시 free가 언급되었다.
+
+* TODO radius vsa, vendor specific attribute
+
+- https://arista.my.site.com/AristaCommunity/s/article/Wireless-802-1X-and-MBA-Use-Cases-and-Workflows
+
+** cvw
+
+- role based control
+  - radius vsa
+    - rule type
+      - 802.1x default vsa
+    - operand
+      - equals
+    - enter value
+      - Accept
+    - Assign Role
+      - Accept(Accept)
+
+
+** radius server
+
+#+begin_example
+  Mojo-User-Role = Accept
+#+end_example
+
+#+begin_example
+  vlan 249
+#+end_example

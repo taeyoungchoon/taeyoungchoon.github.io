@@ -1,3 +1,7 @@
+* windows time, tool-s
+
+- w32tm
+  
 * time about time if not
 
 시간이 없다면 그리고 여기 지역적인 문제도 들어가야 한다. 한국이라면 KST가 좋다. 

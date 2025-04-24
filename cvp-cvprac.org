@@ -1,0 +1,480 @@
+* API Explorer > REST API Explorer vs cvprac
+* inside source code
+
+- download
+- docs
+  - cvprac
+    - using requests
+  - docs
+    - [ ] labs
+  - [X] test
+* DONE flow
+
+#+begin_example
+  ? cat /etc/redhat-release
+  AlmaLinux release 9.5 (Teal Serval)
+#+end_example
+
+#+begin_example
+  python -m venv venv
+  source venv/bin/active
+  pip install cvprac
+  pip install ipython
+  ipython
+#+end_example
+
+#+begin_example
+  import cvprac
+  import urllib3
+  urllib3.disable_warnings()
+  from pprint import pprint
+  from cvprac.cvp_client import CvpClient
+
+  client = CvpClient()
+  client.connect(['xxx'], 'cvpadmin', 'yyy')
+
+  result = client.get('/cvpInfo/getCvpInfo.do')
+  print("version: {}".format(result['version']))
+
+  inventory = client.api.get_inventory()
+  print("number of devices: {}".format( len(inventory) ))
+#+end_example
+
+#+begin_example
+  result
+  inventory
+  dir(client.api)
+  help(client.api)
+  client.api. TAB
+  client.api.get_users()
+  help(client.api.get_users)
+#+end_example
+
+#+begin_example
+  import cvprac
+  import urllib3
+  urllib3.disable_warnings()
+  from pprint import pprint
+  from cvprac.cvp_client import CvpClient as cvpclient
+
+  c = cvpclient()
+  c.connect(['cvp1.t.com'],'cvpadmin','1234qwer')
+  a = c.api
+  a.get_cvp_info()
+  type(dir(a))
+  [i for i in dir(a) if re.search('user', i)]
+#+end_example
+
+* dir(a)
+
+#+begin_example
+  In [52]: [i for i in dir(a) if re.search('user', i)]
+  Out[52]: ['add_user', 'delete_user', 'get_user', 'get_users', 'update_user']
+
+  In [53]: dir(a)
+  Out[53]:
+  ['__class__',
+   '__delattr__',
+   '__dict__',
+   '__dir__',
+   '__doc__',
+   '__eq__',
+   '__format__',
+   '__ge__',
+   '__getattribute__',
+   '__gt__',
+   '__hash__',
+   '__init__',
+   '__init_subclass__',
+   '__le__',
+   '__lt__',
+   '__module__',
+   '__ne__',
+   '__new__',
+   '__reduce__',
+   '__reduce_ex__',
+   '__repr__',
+   '__setattr__',
+   '__sizeof__',
+   '__str__',
+   '__subclasshook__',
+   '__weakref__',
+   '_add_temp_action',
+   '_container_op',
+   '_save_topology_v2',
+ 
+   'add_configlet',
+   'add_configlet_builder',
+   'add_container',
+ 
+   'add_device_to_inventory',
+   'add_devices_to_inventory',
+ 
+   'add_image',
+ 
+   'add_note_to_configlet',
+   'add_note_to_task',
+   'add_notes_to_change_control',
+   'add_role',
+   'add_user',
+   'apply_configlets_to_container',
+   'apply_configlets_to_device',
+ 
+   'apply_image_to_container',
+   'apply_image_to_device',
+   'apply_image_to_element',
+ 
+   'approve_change_control',
+   'cancel_change_controls',
+   'cancel_image',
+   'cancel_task',
+    'capture_container_level_snapshot',
+ 
+   'change_control_approval_get_all',
+   'change_control_approval_get_one',
+   'change_control_approve',
+   'change_control_available_tasks',
+   'change_control_create_for_tasks',
+   'change_control_create_with_custom_stages',
+   'change_control_delete',
+   'change_control_get_all',
+   'change_control_get_one',
+   'change_control_schedule',
+   'change_control_start',
+   'change_control_stop',
+ 
+   'check_compliance',
+   'clnt',
+ 
+   'create_change_control',
+   'create_change_control_v3',
+ 
+   'create_enroll_token',
+ 
+   'cvp_version_compare',
+ 
+   'delete_change_control_approval',
+   'delete_change_controls',
+ 
+   'delete_configlet',
+   'delete_container',
+ 
+   'delete_device',
+   'delete_devices',
+   'delete_devices_by_serial',
+ 
+   'delete_image_bundle',
+ 
+   'delete_role',
+   'delete_roles',
+ 
+   'delete_user',
+ 
+   'deploy_device',
+ 
+   'device_decommissioning',
+   'device_decommissioning_status_get_all',
+   'device_decommissioning_status_get_one',
+ 
+   'execute_change_controls',
+   'execute_task',
+   'filter_topology',
+ 
+   'get_all_tags',
+   'get_all_temp_actions',
+   'get_all_workspaces',
+ 
+   'get_applied_containers',
+   'get_applied_devices',
+   'get_audit_logs_by_id',
+ 
+   'get_change_control_info',
+   'get_change_control_status',
+   'get_change_controls',
+ 
+   'get_configlet_builder',
+   'get_configlet_by_name',
+   'get_configlet_history',
+   'get_configlets',
+   'get_configlets_and_mappers',
+   'get_configlets_by_container_id',
+   'get_configlets_by_device_id',
+   'get_configlets_by_netelement_id',
+ 
+   'get_container_by_id',
+   'get_container_by_name',
+   'get_containers',
+ 
+   'get_cvp_info',
+   'get_default_snapshot_template',
+ 
+   'get_device_by_mac',
+   'get_device_by_name',
+   'get_device_by_serial',
+   'get_device_configuration',
+   'get_device_image_info',
+   'get_devices_in_container',
+ 
+   'get_event_by_id',
+ 
+   'get_image_bundle_by_container_id',
+   'get_image_bundle_by_name',
+   'get_image_bundles',
+   'get_images',
+ 
+   'get_inventory',
+ 
+   'get_logs_by_id',
+   'get_non_connected_device_count',
+   'get_parent_container_for_device',
+ 
+   'get_role',
+   'get_roles',
+ 
+   'get_tag_assignment_edits',
+   'get_tag_edits',
+ 
+   'get_task_by_id',
+   'get_tasks',
+   'get_tasks_by_status',
+ 
+   'get_user',
+   'get_users',
+ 
+   'get_workspace',
+ 
+   'log',
+   'move_device_to_container',
+ 
+   'remove_configlets_from_container',
+   'remove_configlets_from_device',
+ 
+   'remove_image_from_container',
+   'remove_image_from_device',
+   'remove_image_from_element',
+ 
+   'request_timeout',
+   'reset_device',
+   'retry_add_to_inventory',
+ 
+   'save_image_bundle',
+   'save_inventory',
+ 
+   'search_configlets',
+   'search_topology',
+ 
+   'svc_account_delete',
+   'svc_account_delete_expired_tokens',
+   'svc_account_get_all',
+   'svc_account_get_one',
+   'svc_account_set',
+ 
+   'svc_account_token_delete',
+   'svc_account_token_get_all',
+   'svc_account_token_get_one',
+   'svc_account_token_set',
+ 
+   'tag_assignment_config',
+   'tag_config',
+ 
+   'update_configlet',
+   'update_configlet_builder',
+   'update_image_bundle',
+   'update_reconcile_configlet',
+   'update_role',
+   'update_user',
+ 
+   'validate_config',
+   'validate_config_for_device',
+   'validate_configlets_for_device',
+ 
+   'workspace_build_status',
+   'workspace_config']
+
+  In [54]:
+#+end_example
+
+* cvp_api.py
+
+#+begin_example
+  ? cat cvp_api.py | grep "    def "  
+      def __init__(self, clnt, request_timeout=30):
+      def cvp_version_compare(self, opr, version, msg):
+      def get_cvp_info(self):
+      def add_user(self, username, password, role, status, first_name,
+      def update_user(self, username, password, role, status, first_name,
+      def get_user(self, username):
+      def get_users(self, query='', start=0, end=0):
+      def delete_user(self, username):
+      def get_task_by_id(self, task_id):
+      def get_tasks_by_status(self, status, start=0, end=0):
+      def get_tasks(self, start=0, end=0):
+      def get_logs_by_id(self, task_id, start=0, end=0):
+      def get_audit_logs_by_id(self, cc_id, stage_id=None, data_size=75):
+      def add_note_to_task(self, task_id, note):
+      def execute_task(self, task_id):
+      def cancel_task(self, task_id):
+      def get_configlets(self, start=0, end=0):
+      def get_configlets_and_mappers(self):
+      def get_configlet_builder(self, c_id):
+      def search_configlets(self, query, start=0, end=0):
+      def get_configlet_by_name(self, name):
+      def get_configlets_by_container_id(self, c_id, start=0, end=0):
+      def get_configlets_by_netelement_id(self, d_id, start=0, end=0):
+      def get_image_bundle_by_container_id(self, container_id, start=0, end=0,
+      def get_configlet_history(self, key, start=0, end=0):
+      def get_inventory(self, start=0, end=0, query='', provisioned=True):
+      def add_devices_to_inventory(self, device_list, wait=False):
+      def add_device_to_inventory(self, device_ip, parent_name,
+      def retry_add_to_inventory(self, dev_mac, device_ip, username,
+      def delete_device(self, dev_mac):
+      def delete_devices(self, dev_macs):
+      def delete_devices_by_serial(self, devices):
+      def get_non_connected_device_count(self):
+      def save_inventory(self):
+      def get_devices_in_container(self, name):
+      def get_device_by_name(self, fqdn, search_by_hostname=False):
+      def get_device_by_mac(self, dev_mac):
+      def get_device_by_serial(self, device_serial):
+      def get_device_configuration(self, dev_mac):
+      def get_device_image_info(self, dev_mac):
+      def get_containers(self, start=0, end=0):
+      def get_container_by_name(self, name):
+      def get_container_by_id(self, key):
+      def get_configlets_by_device_id(self, mac, start=0, end=0):
+      def add_configlet_builder(self, name, config, draft=False, form=None):
+      def add_configlet(self, name, config):
+      def delete_configlet(self, name, key):
+      def update_configlet(self, config, key, name, wait_task_ids=False):
+      def update_configlet_builder(self, name, key, config, draft=False,
+      def update_reconcile_configlet(self, dev_mac, config, key, name,
+      def add_note_to_configlet(self, key, note):
+      def validate_config_for_device(self, dev_mac, config):
+      def validate_config(self, dev_mac, config):
+      def get_all_temp_actions(self, start=0, end=0):
+      def _add_temp_action(self, data):
+      def _save_topology_v2(self, data):
+      def apply_configlets_to_device(self, app_name, dev, new_configlets, # pylint: disable=too-many-locals
+      def remove_configlets_from_device(self, app_name, dev, del_configlets,
+      def apply_configlets_to_container(self, app_name, container,
+      def remove_configlets_from_container(self, app_name, container,
+      def validate_configlets_for_device(self, mac, configlet_keys,
+      def get_applied_devices(self, configlet_name, start=0, end=0):
+      def get_applied_containers(self, configlet_name, start=0, end=0):
+      def _container_op(self, container_name, container_key, parent_name,
+      def add_container(self, container_name, parent_name, parent_key):
+      def delete_container(self, container_name, container_key, parent_name,
+      def get_parent_container_for_device(self, dev_mac):
+      def move_device_to_container(self, app_name, device, container,
+      def search_topology(self, query, start=0, end=0):
+      def filter_topology(self, node_id='root', fmt='topology',
+      def check_compliance(self, node_key, node_type):
+      def get_event_by_id(self, e_id):
+      def get_default_snapshot_template(self):
+      def capture_container_level_snapshot(self, template_key, container_key):
+      def add_image(self, filepath):
+      def cancel_image(self, image_name):
+      def get_images(self, start=0, end=0):
+      def get_image_bundles(self, start=0, end=0):
+      def get_image_bundle_by_name(self, name):
+      def delete_image_bundle(self, image_key, image_name):
+      def save_image_bundle(self, name, images, certified=True):
+      def update_image_bundle(self, bundle_id, name, images, certified=True):
+      def apply_image_to_device(self, image, device, create_task=True):
+      def apply_image_to_container(self, image, container, create_task=True):
+      def apply_image_to_element(self, image, element, name, id_type,
+      def remove_image_from_device(self, image, device):
+      def remove_image_from_container(self, image, container):
+      def remove_image_from_element(self, image, element, name, id_type):
+      def get_change_controls(self, query='', start=0, end=0):
+      def change_control_available_tasks(self, query='', start=0, end=0):
+      def create_change_control(self, name, change_control_tasks, timezone,
+      def create_change_control_v3(self, cc_id, name, tasks, sequential=True):
+      def add_notes_to_change_control(self, cc_id, notes):
+      def execute_change_controls(self, cc_ids):
+      def approve_change_control(self, cc_id, timestamp=None):
+      def delete_change_control_approval(self, cc_id):
+      def cancel_change_controls(self, cc_ids):
+      def delete_change_controls(self, cc_ids):
+      def get_change_control_info(self, cc_id):
+      def get_change_control_status(self, cc_id):
+      def reset_device(self, app_name, device, create_task=True):
+      def deploy_device(self, device, container, configlets=None,
+      def create_enroll_token(self, duration, devices=None):
+      def get_all_tags(self, element_type='ELEMENT_TYPE_UNSPECIFIED', workspace_id=''):
+      def get_tag_edits(self, workspace_id):
+      def get_tag_assignment_edits(self, workspace_id):
+      def tag_config(self, element_type, workspace_id, tag_label, tag_value, remove=False):
+      def tag_assignment_config(self, element_type, workspace_id, tag_label,
+      def get_all_workspaces(self):
+      def get_workspace(self, workspace_id):
+      def workspace_config(self, workspace_id, display_name,
+      def workspace_build_status(self, workspace_id, build_id):
+      def change_control_get_one(self, cc_id, cc_time=None):
+      def change_control_get_all(self):
+      def change_control_approval_get_one(self, cc_id, cc_time=None):
+      def change_control_approval_get_all(self):
+      def change_control_approve(self, cc_id, notes="", approve=True):
+      def change_control_delete(self, cc_id):
+      def change_control_create_with_custom_stages(self, custom_cc=None):
+      def change_control_create_for_tasks(self, cc_id, name, tasks, series=True):
+      def change_control_start(self, cc_id, notes=""):
+      def change_control_stop(self, cc_id, notes=""):
+      def change_control_schedule(self, cc_id, schedule_time, notes=""):
+      def device_decommissioning(self, device_id, request_id):
+      def device_decommissioning_status_get_one(self, request_id):
+      def device_decommissioning_status_get_all(self, status="DECOMMISSIONING_STATUS_UNSPECIFIED"):
+      def add_role(self, name, description, moduleList):
+      def update_role(self, rolekey, name, description, moduleList):
+      def get_role(self, rolekey):
+      def get_roles(self):
+      def delete_role(self, rolekey):
+      def delete_roles(self, rolekeys):
+      def svc_account_token_get_all(self):
+      def svc_account_token_get_one(self, token_id):
+      def svc_account_token_delete(self, token_id):
+      def svc_account_token_set(self, username, duration, description):
+      def svc_account_get_all(self):
+      def svc_account_get_one(self, username):
+      def _get_valid_role_ids(self, roles):
+      def svc_account_set(self, username, description, roles, status):
+      def svc_account_delete(self, username):
+      def svc_account_delete_expired_tokens(self):
+#+end_example
+
+#+begin_example
+  ? cat cvp_api.py | grep "    def "  | cut -d '(' -f 1 | sed 's/    def //' | grep -v change_control  | grep -v svc_account  | grep -v image | grep -v inventory | grep -v role | grep -v container  | grep -v decommissioning | grep -v configlet | grep -v device | grep -v workspace | grep -v task | grep -v temp | grep -v tag  | grep -v topology | grep -v user | grep -v cvp | grep -v log | grep -v compliance
+#+end_example
+
+** static
+
+- id 
+  - user
+  - role
+  - svc_account
+- inventory
+  - device
+- container
+- image
+- configlet
+- tag
+- cvp
+- log
+
+** dynamic
+  
+- topology
+- [X] compliance
+  - cvp
+    - devices
+      - compliance overview
+	- bugs and cves
+	- config and image
+	- end of lie
+	  - hard
+	  - soft
+- decomissioning
+- workspace
+- change_control
+- task
+- [ ] temp

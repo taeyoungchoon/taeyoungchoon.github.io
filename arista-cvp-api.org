@@ -1,0 +1,38 @@
+* word from cvp installed api explorer
+
+- state based api
+
+
+* TODO from, to but history
+
+1) rest old
+   - https://cvp1.t.com/cvpservice/event/getAllEvents.do?startIndex=0&endIndex=0&isCompletedRequired=true
+     - /cvpservice/event/getAllEvents.do
+     - [ ] https://cvp1.t.com/cvpservice
+2) gRPC, state word came
+   - REST bindings for GetSome, SetSome, DeleteSome were updated in CVP 2024.3.0.
+     The request payload for these endpoints should have the same structure as the request to the GetSome, SetSome, DeleteSome gRPC endpoints.
+3) resource api inside cvp
+4) REST bindings for Resource APIs were introduced in CVP 2021.1.0
+5) now resource api
+   - https://github.com/aristanetworks/cloudvision-apis/blob/trunk/docs/content/examples/REST/_index.files/examples_cvprac.py
+     - /api/resources/event/v1/Event/all
+     - /api/resources/inventory/v1/Device/all
+     - https://cvp1.t.com/api/resources/event/v1/Event/all
+     - [ ] https://cvp1.t.com/api/resources    
+
+* TODO api url
+
+- [ ] https://aristanetworks.github.io/cloudvision-apis/
+- https://github.com/aristanetworks/cloudvision-apis/tree/trunk
+
+* cvp installed
+
+- api explorer
+  - resource explorer
+  - rest api explorer
+    - swagger
+- telemetry browser
+  - tree
+- metric explorer
+  - search
