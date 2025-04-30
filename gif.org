@@ -1,3 +1,4 @@
 * animated gif using imagemagick
 
 ? convert -delay 50 -loop 3 -auto-orient IMG*.jpeg ani.gif
+

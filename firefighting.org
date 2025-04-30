@@ -1,0 +1,13 @@
+* word
+
+- 13F A/V_P/S
+  - alarm value
+  - pressure switch
+    - aka waterflow switch
+  - fire sprinkler system
+- 13F 소화전-1
+- 13F 소화전-2
+- 13F 연기식아나로그-1
+  - smoke detector
+- 13F 열식아나로그-1  
+  - heat detector

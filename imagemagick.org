@@ -1,0 +1,11 @@
+* DONE convert png to jpg
+
+#+begin_src bash
+  magick mogrify -format jpg *.png
+#+end_src
+
+* DONE animated gif using imagemagick
+
+#+begin_src bash
+  convert -delay 50 -loop 3 -auto-orient IMG*.jpeg ani.gi
+#+end_src
