@@ -1,25 +1,103 @@
 * yet
 * plan
 
-- copyright
-- cloudvision > cvp > studio
-  - acl, working
-  - qos, more
-- arista network
-  - software product
-    - eos
-    - cvp
-    - agni
-    - mss
-- cisco
-  - nx-os
-- wireless network
-- linux
-  - rhel or rocky but alma
-    - version?
-  - cgroup with namespace
-  - iproute2
-- building
-- multicast
-- kubernetes
-  - helm from lord of the rings
+1) copyright
+2) arista network
+   - software product
+     - eos
+     - cvp
+     - agni
+     - mss
+3) cisco
+   - nx-os
+4) wireless network
+   - with sec, radius like
+5) linux
+   - rhel or rocky but alma
+     - version?
+   - cgroup with namespace
+   - iproute2
+   - dual nic
+6) building
+   - legacy or the other foundation like operating system
+7) multicast
+   - cctv
+   - cable tv
+8) kubernetes
+   - helm from lord of the rings
+   - on and on with docker-compose like
+9) cloudvision > cvp > studio
+   - acl, working
+   - qos, more
+   - api
+     - cloudvision api, named
+       - python
+       - go
+     - cvprac
+       - rest old
+     - avd, ansible
+       - avd
+	 - pyavd
+	   - config generation
+       - eos
+       - cvp
+	 - cvprac
+	   - to deploy
+	 - requests
+     - grpc-web
+     - web socket, ws, wss
+     - eapi
+     - program, programmable
+     - state
+     - rest new but grpc
+     - grpc, proto the model
+     - rest old
+     - cloudvision(python)
+       - https://aristanetworks.github.io/cloudvision-python/index.html
+	 - but python say
+	 - same
+     - say it
+       - api, interface
+       - code2code
+       - 인터페이스는 서비스를 제공하는 코드와 그 서비스를 이용하는 코드 사이에서의 정교한 경계선이 된다.
+	 - ch4 interface , the practice programming , brian w. kernghan , rob pike
+       - 좋은 라이브러리 설계 또는 좋은 인터페이스 설계는 단번에 얻어지지 않는다.
+       - 한 번은 버릴 마음을 먹어라. 어차피 그렇게 될 것이므로
+	 - rest, old
+	   - cvprac
+	   - ansible avd/cvp
+	 - grpc
+	   - cloudvision api
+             - model, proto
+	       - python
+	       - go
+	       - grpc-web
+	       - t, others
+	 - rest, recent/new
+     - list of
+     - tools and tips
+       - guide like
+	 - inc eapi
+	 - process
+	   - configlet
+	     - python2
+	       - cvplibrary
+	   - action
+	     - python3
+	       - cvlib < cloudvion-python , grpc
+		 - https://www.arista.io/help/articles/cHJvdmlzaW9uaW5nLmFjdGlvbnMuYWN0aW9uQ3VzdG9t
+		 - https://aristanetworks.github.io/cloudvision-python/cloudvision.html
+	   - studio
+	     - mako template engine
+	   - rpc?
+	     - stub, skel
+       - repl, read eval print look, feedback
+	 - using ipython
+  	   - a = c.api
+  	   - a.get < tab
+     - In addition to pure-gRPC clients, HTTP REST mappings are easily generated through the great gRPC ecosystem.
+       - https://aristanetworks.github.io/cloudvision-apis/
+     - https://www.perplexity.ai/search/arista-avd-ansible-module-use-B0TI6dnPTV2b_6A5.REKGg
+       - cloudvision-grpc-web / grpc-web
+       - enable web applications (such as dashboards or custom UIs) to interact with CloudVision’s gRPC APIs directly from the browser
+       - https://aristanetworks.github.io/cloudvision/modules/cloudvision_grpc_web.html
