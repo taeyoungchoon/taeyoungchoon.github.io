@@ -1,1 +1,11 @@
 * using, not using
+
+- 사용하고 있는가? 사용하지는 않는다. 그런데 왜 계속 설치하고 있는가? 업데이트를 수행하고 있는가?
+
+* TODO with emacs
+
+* history
+
+- [2025-05-06 화] using it
+  - installing it using choco
+  - using it?

@@ -199,20 +199,23 @@ Out[32]: b''
     - [ ] lots of python
       - 3.13.2
       - 3.12.9
-* with windows, what about the others?
 
-- apt-cyg update
-- choco upgrade
-- brew update
-- apt upgrade
-- t-pkg upgrade
+* TODO with windows, what about the others?
 
-* cli
+#+begin_src bash
+  apt-cyg update
+  choco upgrade all
+  brew update
+  apt upgrade
+  t-pkg upgrade
+#+end_src
 
-choco update all -y
-choco list -l
-choco search -e vlc
-choco search vim
+* TODO cli
+
+#+begin_src bash
+  choco search -e vlc
+  choco search vim
+#+end_src
 
 * DONE upgrade all but exclude/except
 

@@ -1,0 +1,122 @@
+* application program interface
+
+** the name
+
+- api
+- interface
+- program
+  - programmable
+
+** code2code
+
+- logos2logos
+- chef2manager
+  - chef2clerk
+    - chef manager
+    - chef clerk
+- mean, include
+  - about food
+  - in kitchen
+- really mean
+  - protocol
+  - not human
+
+* vs sdk
+
+* win32 api
+
+- windows api
+- c language based api
+
+* linux kernel api
+* vs cli
+
+- human interaction
+- api, application interfaction
+- cli for user
+- api for application
+
+* TODO grpc
+
+- https://grpc.io/docs/what-is-grpc/introduction/
+* TODO grpc vs rest
+
+- https://arista.my.site.com/AristaCommunity/s/article/cloudvision-portal-restful-api-client
+- https://github.com/aristanetworks/cvprac
+- https://arista.my.site.com/AristaCommunity/s/article/cvp-apis-a-non-programmers-guide  
+  
+* TODO rest vs rest
+* rest only
+
+- return json
+- https://medium.com/@sunitparekh/guidelines-on-json-responses-for-restful-services-1ba7c0c015d
+  
+* TODO grpc and protocol buffer
+* cue
+
+- https://www.arista.com/assets/data/pdf/Whitepapers/Arista-Wi-Fi-API-App-Note.pdf
+- https://arista.my.site.com/AristaCommunity/s/article/arista-cloudvision-wifi-and-apis
+
+* cvp
+
+- https://arista.my.site.com/AristaCommunity/s/article/using-the-cloudvision-api-with-service-accounts
+
+* TODO cvp, dig in
+
+- https://arista.my.site.com/AristaCommunity/s/article/Understanding-CloudVIsion-APIs-and-accessing-NetDB-data
+  - provisioning REST APIs have been upgraded to newer versions, rewritten in Golang to increase their performance,
+  - [ ] grpc world
+    - and some of them like the Change Control (CVP 2019.1+)
+    - and Compliance Check APIs (CVP 2020.3+) and a few others have been migrated to gRPC-based Service APIs.
+  - In parallel, we started working on Resource APIs,  
+    - that standardizes both provisioning and telemetry APIs
+  - Initially, Resource APIs only shipped with events, tags, and an inventory resource and only supported accessing this data via gRPC libraries.
+  - In 2021.1.0, Resource APIs got an upgrade and all existing and new resources have had auto-generated REST bindings.
+    - auto gen to rest
+  - Currently, there's an ongoing migration process and in the coming releases, all provisioning and service APIs will be migrated to resource APIs.
+    - auto but ing
+      - will to resource(view) api
+- 2019
+  - Service APIs were introduced in CVP 2019.1 as part of the efforts to rewrite the provisioning APIs in Golang (gRPC based)
+    and the first modules were written for the new change control system
+  - /api/v3/services/ccapi.ChangeControl/GetStatus
+  - clnt.api.create_change_control_v3(cc_id, cc_name, task_list)
+  - clnt.api.approve_change_control(cc_id, timestamp=datetime.utcnow().isoformat() + 'Z')
+  - [ ] NOTE Ansible-cvp will have a change control module based on resource APIs later in 2022.
+  - Service APIs didn't have swagger documentation on the UI,
+    however, the developer tools of the browsers can be used the same way as with the older provisioning APIs,
+    the only difference being that instead of looking at HTTP REST calls,
+    the UI uses wRPC to make service requests.
+    - All wRPC calls will be under the same object in the "Name" column on the left-hand side of the developer tools and each call can be checked under the Messages tab as seen below:
+    - [ ] wss://x.x.x.x/api/v3/wrpc
+      - websocket, secure
+      - https://192.0.2.100/api/v3/wrpc/ccapi.ChangeControl/Update
+    - [ ] Fortunately, cvprac has these APIs already, so no need to reinvent the wheel and write your own python wrappers!
+  - complianceCheck API i
+- Resource APIs were introduced in CVP 2020.2.0 and all provisioning APIs (.do +service APIs) will be migrated to resources in the coming years.
+  Initially there was no HTTP REST binding for any of the resources (introduced later in 2021.1.0) and only the following resources were available:
+
+    events.v1, 
+    tags.v1, 
+    inventory.v1.
+
+- In 2021.2.0 we've introduced the first phase of the new provisioning APIs: 
+
+    studio.v1, 
+    workspace.v1,
+    tag.v2 and 
+    changecontrol.v1
+    	
+* ansible
+
+- mda
+  - model driven architecture
+
+* gnmi, grpc
+
+- https://github.com/aristanetworks/cloudvision-go/wiki/CloudVision-Overview
+
+* the new resource APIs will be documented on the UI
+
+- https://arista.my.site.com/AristaCommunity/s/article/Understanding-CloudVIsion-APIs-and-accessing-NetDB-data
+- https://github.com/aristanetworks/cloudvision-apis/blob/trunk/arista/tag.v2/services.gen.swagger.json
