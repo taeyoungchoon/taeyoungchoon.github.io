@@ -1,0 +1,25 @@
+* so what will be?
+
+** compute rel
+
+#+begin_src emacs-lisp
+(emacs (mode (major minor)))
+(lisp ((list atom) process))
+(linux base)
+(tool (emacs linux lisp))
+(pl (lisp c (perl perl6 python)))
+(hl (korean english))
+(cisco juniper arista)
+(switching routing)
+(evpn)
+(radius)
+#+end_src
+
+#+begin_src emacs-lisp
+(net (general span switch route)
+     (sdn soften)
+     (evpn bgp vxlan))
+#+end_src
+
+** human rel
+

@@ -1,0 +1,9 @@
+* rpc, remote procedure call, not subroutine
+
+- fortran
+  - procedure
+- pascal
+  - subroutine
+- t
+  - function
+    - nowaday

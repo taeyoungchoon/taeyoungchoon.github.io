@@ -1,0 +1,5 @@
+* book of own, own?
+* written by
+
+- Brian W. Kernighan,
+- Dennis M.Ritchie
