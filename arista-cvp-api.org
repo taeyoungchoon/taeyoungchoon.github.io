@@ -35,3 +35,93 @@
   - tree
 - metric explorer
   - search
+
+
+* programmable cvp
+
+- api
+  - a, pi
+    - application interface by programming
+    - app 2 app
+- function
+  - function 2 function
+    - RPC
+      - google RPC, gRPC
+- REST API
+  - grep data from remote
+  - one more thing
+    - do thing
+
+** inside
+
+- configlet
+  - python2
+  - library
+    - cvplibrary
+  - print()
+- studio/action
+  - python3
+  - library
+    - cvplib
+  - mako template engine
+    - programming
+    - output
+  - gRPC
+    - input
+  - datastructure ui with validation
+    - input
+    
+** outside
+
+- gRPC
+  - every thing
+- REST API
+  - simple to use
+
+** outside wrapper
+
+- cvprac library
+  - r
+    - REST API
+- ansible (module) < mda
+  - module
+    - avd
+      - template
+    - cvp
+  - yaml
+    - mda
+
+** tip
+
+*** python
+
+- dir
+- type
+- venv
+- ipython
+  - repl
+    - read, eval, print loop
+
+*** metric and internal document
+
+- api explorer
+  - resource explorer
+  - rest api explorer
+    - swagger
+- telemetry browser
+  - tree
+- metric explorer
+  - search
+
+*** expect to eos
+
+- single eos
+  - single cli
+- later
+  - eapi
+  - ansible eos
+
+*** RPC
+
+- stub
+- skel
