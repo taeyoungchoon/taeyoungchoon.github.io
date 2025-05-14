@@ -58,18 +58,32 @@
   - python2
   - library
     - cvplibrary
+  - form
+    - from cvplibrary import Form
+    - input
   - print()
+    - output
+  - pp: cvplibrary python2
+    - https://github.com/aristanetworks/CloudVisionPortal-Examples/blob/master/CloudVision_ConfigletBuilders/Jinja_Templates/example.py
+    #+begin_src python
+    from jinja2 import Template
+    from jinja2 import Environment, PackageLoader
+    from cvplibrary import Form
+    from cvplibrary import CVPGlobalVariables, GlobalVariableNames
+    from cvplibrary import RestClient
+    #+end_src
 - studio/action
   - python3
   - library
     - cvplib
+      - https://github.com/aristanetworks/cloudvision-python/tree/trunk/cloudvision
+  - datastructure ui with validation
+    - input
+  - gRPC
+    - input
   - mako template engine
     - programming
     - output
-  - gRPC
-    - input
-  - datastructure ui with validation
-    - input
     
 ** outside
 
