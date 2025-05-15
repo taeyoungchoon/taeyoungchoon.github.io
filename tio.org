@@ -77,3 +77,13 @@
 #+begin_src bash
 alias tio='tio --log -b 9600'
 #+end_src
+
+* sample
+
+#+begin_example
+alias tio='tio --log -b 9600'
+alias spine2_1="tio /dev/ttyUSB0 --log --log-file spine2_1.$(date +%Y%m%d.%H%M%S).log"
+alias spine2_2="tio /dev/ttyUSB1 --log --log-file spine2_2.$(date +%Y%m%d.%H%M%S).log"
+alias leaf2_1="tio  /dev/ttyUSB2 --log --log-file leaf2_1.$(date +%Y%m%d.%H%M%S).log"
+alias leaf2_2="tio  /dev/ttyUSB3 --log --log-file leaf2_2.$(date +%Y%m%d.%H%M%S).log"
+#+end_example
