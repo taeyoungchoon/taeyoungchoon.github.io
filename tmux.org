@@ -31,7 +31,7 @@
 * zoom in and out
 
 - C-b z
-
+  
 * TODO and more today
 
 #+begin_src bash

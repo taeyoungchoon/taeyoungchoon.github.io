@@ -58,6 +58,7 @@
   - python2
   - library
     - cvplibrary
+    - help('modules')
   - form
     - from cvplibrary import Form
     - input
