@@ -1,0 +1,58 @@
+* pptx, ooxml, Office Open XML
+* story about font
+
+- ppt/fonts/font1.fntdata
+- font1.fntdata: Embedded OpenType (EOT), \321@ \340\025 family
+- The Embedded OpenType File Format (EOT)
+
+* hack
+
+#+begin_example
+  $ grep -r -i Cali *
+  slides/slide1.xml
+#+end_example
+
+- file:///C:/Users/jack/Desktop/tmp/see/ppt/slides/slide1.xml
+- https://schemas.microsoft.com/office/drawing/2014/main
+  - The resource you are looking for has been removed, had its name changed, or is temporarily unavailable.
+    
+#+begin_src xml
+  <p:sp>
+    <p:nvSpPr>
+      <p:cNvPr id="2" name="제목 1">
+	<a:extLst>
+	  <a:ext uri="{FF2B5EF4-FFF2-40B4-BE49-F238E27FC236}">
+	    <a16:creationId xmlns:a16="http://schemas.microsoft.com/office/drawing/2014/main" id="{3FCEFC45-661A-1165-AACE-7D50A25C6AA2}"/>
+	  </a:ext>
+	</a:extLst>
+      </p:cNvPr>
+      <p:cNvSpPr>
+	<a:spLocks noGrp="1"/>
+      </p:cNvSpPr>
+      <p:nvPr>
+	<p:ph type="ctrTitle"/>
+      </p:nvPr>
+    </p:nvSpPr>
+    <p:spPr/>
+    <p:txBody>
+      <a:bodyPr/>
+      <a:lstStyle/>
+      <a:p>
+	<a:r>
+	  <a:rPr lang="en-US" altLang="ko-KR" dirty="0" err="1">
+	    <a:latin typeface="Calibri" panose="020F0502020204030204" pitchFamily="34" charset="0"/>
+	    <a:ea typeface="Calibri" panose="020F0502020204030204" pitchFamily="34" charset="0"/>
+	    <a:cs typeface="Calibri" panose="020F0502020204030204" pitchFamily="34" charset="0"/>
+	  </a:rPr>
+	  <a:t>asdf</a:t>
+	</a:r>
+	<a:endParaRPr lang="ko-KR" altLang="en-US" dirty="0">
+	  <a:latin typeface="Calibri" panose="020F0502020204030204" pitchFamily="34" charset="0"/>
+	  <a:cs typeface="Calibri" panose="020F0502020204030204" pitchFamily="34" charset="0"/>
+	</a:endParaRPr>
+      </a:p>
+    </p:txBody>
+  </p:sp>
+#+end_src
+
+- https://stackoverflow.com/questions/3249737/convert-a-fntdata-file-into-a-ttf
