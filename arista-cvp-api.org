@@ -140,3 +140,20 @@
 
 - stub
 - skel
+
+* TODO grpc
+
+#+begin_src bash
+git clone https://github.com/aristanetworks/cloudvision-apis
+#+end_src
+
+#+begin_src bash
+TK=''
+
+grpcurl -H "Authorization: Bearer $TK" \
+-import-path ./cloudvision-apis \
+-proto ./cloudvision-apis/arista/configstatus.v1/services.gen.proto \
+-cacert cvp.crt \
+192.168.25.165:443 \
+arista.configstatus.v1.SummaryService.GetAll
+#+end_src
