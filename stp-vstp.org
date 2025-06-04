@@ -1,0 +1,10 @@
+* lots of spanning tree
+
+- stp
+- rstp
+- mstp
+- pvst
+  - cisco but
+    - widely implemented
+- vstp
+  - juniper

@@ -1,0 +1,8 @@
+* list
+
+- 사장 President as P
+- 부장 BJ, as B
+- 차장 CJ, as C
+- 과장 GJ, as G
+- 대리 DR, as D
+- 사원 SW, as S
