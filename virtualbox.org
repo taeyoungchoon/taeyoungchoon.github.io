@@ -82,3 +82,27 @@ and it works well
 * version
 
 6.1.16
+
+* TODO virtualbox on wsl2 enabled(hyper-v enable), working but perf
+
+- https://www.clien.net/service/board/cm_app/16337912
+- https://learn.microsoft.com/ko-kr/windows/wsl/faq
+  - However, recently both VirtualBox and VMware have released versions that support Hyper-V and WSL2. 
+    - https://www.virtualbox.org/wiki/Changelog-6.0
+      - Added support for using Hyper-V as the fallback execution core on Windows host, to avoid inability to run VMs at the price of reduced performance.
+
+** big picture	
+	
+#+BEGIN_SRC dot :file dot.png 
+  digraph virtualbox {
+
+	  edge[dir=none]
+
+	  wsl2 -> "hyper-v"
+	  virtualbox -> "hyper-v"
+  }
+#+END_SRC
+
+** performance issue
+
+- https://forums.virtualbox.org/viewtopic.php?t=112113

@@ -1,5 +1,17 @@
 * route
 
+#+begin_example
 route print -4
 route delete 0.0.0.0 mask 0.0.0.0 192.168.0.1 -p
 route add 192.168.0.0 mask 255.255.0.0 192.168.0.1 -p
+#+end_example
+
+* list
+
+- wired
+- wireless
+- wan
+- openvpn
+- fortinet
+- virtualbox
+- hyper-v

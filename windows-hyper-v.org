@@ -1,0 +1,3 @@
+* rel to wsl
+
+* TODO wsl2 combined with hyper-v

@@ -21,5 +21,9 @@ Dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase
 #+END_SRC
 
 - [2024-01-31 수] 지금 그리고 windows 11에서
-
+- [2025-06-09 월] 다시, 공간 확보
+  - pre
+    - windirstat > Windows(C:) - 21.7% Free
+  - post
+    - windirstat > Windows(C:) - 23.3% Free    
 

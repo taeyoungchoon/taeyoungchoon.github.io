@@ -1,4 +1,5 @@
 * being public
+
 - [ ] https://learn.microsoft.com/en-us/windows/wsl/networking
 - https://serverfault.com/questions/1060307/accessing-wsl2-from-public-ip-address
 - https://gist.github.com/stormwild/f464fae904212d4334b3905655a2218c
@@ -6,7 +7,10 @@
 - https://stackoverflow.com/questions/61002681/connecting-to-wsl2-server-via-local-network
 - https://dev.to/aitorsol/wsl2-windows-linux-subsystem-a-guide-to-install-a-local-web-server-ubuntu-20-04-apache-php8-y-mysql8-3bbk
 
-* wsl network
+* TODO wsl network
+
+** dns, resolver
+
 * with apache
 
 #+BEGIN_SRC 
@@ -29,3 +33,9 @@ netsh interface portproxy reset
 * with dhcp
 
 - https://askubuntu.com/questions/1402382/setting-up-a-dhcp-server-on-ubuntu-wsl-to-connect-to-a-raspberry-pi
+
+* TODO wsl2 combined with hyper-v
+
+- and I'm using it
+
+* vs 

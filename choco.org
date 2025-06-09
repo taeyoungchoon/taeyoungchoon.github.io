@@ -236,3 +236,20 @@ Out[32]: b''
   choco pin list
   choco upgrade all
 #+end_src
+
+* TODO remove old
+
+- [2025-06-09 월] 무언가 변화가 있다. 예전에도 진행된 내용이 있다. 조금 더
+
+** did
+
+- [X] Purge Outdated Packages
+  - Chocolatey GUI
+    - settings
+      - purge outdated packages
+  - nil
+- [X] choco-cleaner
+  - Choco-Cleaner finished deleting 477 unnecessary Chocolatey files and reclaimed ~ 460,018 KB!
+  - nil
+- [X] manually
+  - t

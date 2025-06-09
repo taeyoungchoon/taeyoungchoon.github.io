@@ -1,0 +1,22 @@
+* list
+
+- Common
+- Spec
+  - Interface
+    - 100Gbps QSFP 32port 지원, 16port(광모듈 포함) 제안
+      - [ ] QSFP100
+    - 1Gbps SFP 2port 지원
+      - [ ] SFP+
+  - 스위치 용량, Switching Capacity
+    - Tbps(Terabit), Gbps
+  - 포워딩 성능, Forwarding Rate, Packet/Second
+    - Bpps(Billion), Mpps(Mega)
+- Reference
+- 비교
+  - MAC
+  - Routing rel
+  - Latency
+- 인증서
+  - 방송통신기자재 적합성 평가 인증
+  - 보안기능확인서
+- 적용 기술
