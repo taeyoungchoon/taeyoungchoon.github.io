@@ -1,0 +1,20 @@
+* DONE gimp with choco
+
+#+begin_src bash
+  choco install gimp
+  choco list gimp
+#+end_src
+
+* DONE transparent background with ai file
+
+- gg: gimp transparent background howto
+  - with ai(adobe illustrator file)
+  - [X] use [[file:inkscape.org][inkscape]], much better
+    
+** steps
+  
+1) layer > transparency > add alpha channel
+2) fuzzy select tool or free select tool
+3) delete or 'colors > color to alpha'
+4) save as png file
+   - [ ] save background color

@@ -1,0 +1,11 @@
+* DONE inkscape with choco
+
+#+begin_src bash
+  choco install inkscape
+  choco list inkscape
+#+end_src
+
+* DONE transparent background
+
+- gg: inkscape transparent background howto
+  - with ai(adobe illustrator file)

@@ -1,0 +1,21 @@
+* intel ops pc, open pluggable specification
+
+- https://en.wikipedia.org/wiki/Open_Pluggable_Specification
+
+* ex
+
+- https://www.lge.co.kr/displays/86tr3dk
+- 86TR3PJ , 86인치 , DJ?
+  - https://www.lg-informationdisplay.com/product/digital-signage/interactive/86TR3PJ
+  - https://www.lg-informationdisplay.com/product/digital-signage/interactive/86TR3DJ
+- 75TR3PJ , 75인치 , DJ?
+  - https://www.lg-informationdisplay.com/product/digital-signage/interactive/75TR3PJ
+  - https://www.lg-informationdisplay.com/product/digital-signage/interactive/75TR3DJ
+  
+* operating system
+
+** note
+
+- windows 10 iot enterprise
+- windows 10
+- TPM , trusted platform module

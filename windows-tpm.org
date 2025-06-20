@@ -1,0 +1,9 @@
+* tpm , trusted platform module
+
+- https://en.wikipedia.org/wiki/Trusted_Platform_Module
+
+* windows
+
+- windows security
+  - device security
+    - [X] security processor
