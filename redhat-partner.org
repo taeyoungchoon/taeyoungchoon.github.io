@@ -1,0 +1,9 @@
+* red hat partners, partner
+
+- per year, each year
+
+* DONE renew process
+
+1) 관리자 계정으로 수신된 정보 갱신 메일을 수신한다.
+2) 메일 안의 링크를 통해서 파트너 관리 페이지에 접근/로그인한다.
+3) 변경된 정보를 갱신하고, 제출한다.
