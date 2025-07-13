@@ -194,7 +194,6 @@ digraph dcs2 {
 }
 #+END_SRC
 
-
 * DONE print kr
 
 ** way 1
