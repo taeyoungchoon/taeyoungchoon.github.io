@@ -1,3 +1,10 @@
+* shopt -s globstar
+
+#+begin_src bash
+shopt -s globstar
+ls **/*.log
+#+end_src
+
 * TODO config
 
 - but the beginning
