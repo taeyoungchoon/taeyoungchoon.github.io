@@ -101,3 +101,8 @@
        - cloudvision-grpc-web / grpc-web
        - enable web applications (such as dashboards or custom UIs) to interact with CloudVision’s gRPC APIs directly from the browser
        - https://aristanetworks.github.io/cloudvision/modules/cloudvision_grpc_web.html
+
+* TODO plan b
+
+- [2025-11-03 Mon 22:53] 활성화 되었다. 
+
