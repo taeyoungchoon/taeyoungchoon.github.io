@@ -1,0 +1,13 @@
+* computer display
+
+* list
+
+1. LG LED Monitor 27ML600SW
+   - 모델명: 27ML600S
+   - 제폼CODE: 27ML600S-WB.BKRVESN
+   - 제조년월 10 / 2023
+   - 정격입력: 19V 2.0A
+   - 온모드 소비전력: 18.5W
+   - 링크
+     - https://www.lge.co.kr/support/product-27ML600S-WB
+     - https://www.lge.co.kr/monitors/27ml600sw

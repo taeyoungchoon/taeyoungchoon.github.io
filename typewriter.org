@@ -1,0 +1,7 @@
+* TODO [2026-01-01 Thu] 이거 타자기
+
+* TODO shift key
+* TODO shift lock key(caps lock from shift lock key)
+
+release using shift key
+

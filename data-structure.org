@@ -1,0 +1,5 @@
+* data structure, type of data structure
+* history
+
+- 증권 거래소에서 아무래도 뭐가 있지 않았을까? 기억이 나지 않는다.
+- 예금보험공사에서는 필요했다. 파일에 형태를 담고, awk와 조합했다. 

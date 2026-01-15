@@ -1,2 +1,12 @@
 * job in korea
 * job in other place-s
+* TODO (job nil)
+* 잡코리아
+
+- 웹사이트: http://jobkorea.co.kr
+
+** 이력서 관리
+** 입사지원 현황
+** 취업활동 증명서
+
+- 실업인정
