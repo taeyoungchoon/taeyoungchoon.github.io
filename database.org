@@ -8,3 +8,94 @@
   - postgresql.org
   - sql-server.org
 - nosql type, mongo and cassandra
+* TODO schema
+
+- external schema
+- conceptual schema
+- internal schema
+
+* TODO relation
+
+1) relation
+2) attribe
+3) degree
+4) tuple
+5) cardinality
+6) domain
+
+* TODO key
+
+- super
+  - uniq row
+- candidate
+- primary
+  - uniq
+  - [ ] null
+- alternate/secondary
+- foreign
+  
+* TODO anomaly, anomalies
+
+- insert anomaly
+- update anomaly
+- deletion anomaly
+
+* TODO nf, normal form, database normalization
+
+- FD, functional dependency
+  
+** 1nf
+
+- [X] partial FD
+
+** 2nf
+
+- [ ] partial FD
+- [X] transitive FD
+
+** 3nf
+
+- [ ] partial FD
+- [ ] transitive FD
+
+** bcnf
+* ERD, Entity Relationship Diagram
+
+- entity
+- attribute
+- relationship
+
+* TODO sql
+** ddl, definition
+
+- create
+- alter
+- drop
+- truncate
+- rename
+  
+** dml, manipulation
+
+- insert
+- update
+- delete
+- select
+
+** dcl, control
+
+- grant
+- revoke
+
+
+** tcl, transaction control language
+
+- commit
+- rollback
+- savepoint
+
+** recovery
+
+- undo
+- redo
+
+  
