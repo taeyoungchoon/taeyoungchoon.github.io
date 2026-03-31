@@ -1,6 +1,34 @@
-* 형식 논리, format logic
 * sites
 
 - [ ] https://math.libretexts.org/Courses/Prince_Georges_Community_College/MAT_1130_Mathematical_Ideas_Mirtova_Jones_(PGCC%3A_Fall_2022)/02%3A_Logic/2.01%3A_Introduction_to_Formal_Logic
 - [ ] https://www.britannica.com/topic/formal-logic
 - [ ] https://www.youtube.com/watch?v=Bt84jX0gDTE
+
+* so, words
+
+- psat, PSAT, public service aptitude test
+  - 언어논리
+    - 형식논리학 지식 필요
+  - 자료해석
+  - 상황판단
+- 공무원 9급
+  - 지식형 > 추론형, since 2025
+- formal logic, logic
+- 형식논리학, 논리학
+- sentensal logic
+  - https://philosophy.hku.hk/think/sl/
+- propositional logic
+  - https://en.wikipedia.org/wiki/Propositional_logic
+  - proposition, 명제
+- 철학
+- 언어논리
+
+* symbol
+
+- not ~ 부정
+- and A 논리곱
+- or V 논리합
+- if, then -> 조건
+- if and only if, <-> 동치
+- xor, 둘 중 하나만 참, 배타적 논리합
+  
