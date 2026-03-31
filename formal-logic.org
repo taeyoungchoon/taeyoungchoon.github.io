@@ -1,0 +1,6 @@
+* 형식 논리, format logic
+* sites
+
+- [ ] https://math.libretexts.org/Courses/Prince_Georges_Community_College/MAT_1130_Mathematical_Ideas_Mirtova_Jones_(PGCC%3A_Fall_2022)/02%3A_Logic/2.01%3A_Introduction_to_Formal_Logic
+- [ ] https://www.britannica.com/topic/formal-logic
+- [ ] https://www.youtube.com/watch?v=Bt84jX0gDTE

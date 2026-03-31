@@ -14,3 +14,27 @@
 * 훈민정음에서 한글로, 한문은, 국어
 
 1910, 1920, 1930, 1940, 1931 만주사변, 1937 중일전쟁, 1941 태평양전쟁, 그 때 국어는 그리고 조선어가 있었다. 조선어학회. 그 이름이 이해가 된다. 세종, 주시경, 공명우, 나.
+
+* 용어들
+
+- 형태소, morpheme
+- 음절, syllable
+- 음운, phoneme
+  
+- 단어, word
+- 어휘, voca
+
+- 품사
+- part of the speech
+- 명사, noun
+- 동사, verb
+- 형용사, adjective
+- 용언, predicate word
+- 관형사, pro-noun, adnominal, determiner
+- 부사, adverb
+- 조사, particle, grammatical particle
+- 조동사, auxiliary verb
+
+- part of the sentence
+- 주어, subject
+- 목적어
