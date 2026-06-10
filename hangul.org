@@ -72,3 +72,10 @@ fatal: pathspec '?쒓?.org' did not match any files
 
 http://faculty.olympic.edu/ejung/
 
+* TODO writing
+
+- 설총, 이두
+- 세종, 훈민정음
+- 헐버트 / 육영공원, 사민필지
+- 헐버트 > 주시경 / 배재학당
+- 헐버트, 독립신문, 띄어쓰기   

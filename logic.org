@@ -1,0 +1,9 @@
+* 철학에서, 언어에서, 언어논리, if p then q
+
+- Premise 1: If P, then Q (P -> Q)
+- Premise 2: P is true
+- Conclusion: Therefore, Q is true
+
+* TODO link
+
+- https://www.youtube.com/watch?v=LmwlN8jFyg0&t=41s

@@ -1,0 +1,8 @@
+* tips and tricks
+
+- logic/logos and impl-s
+  - logic/logos
+    - tight think
+  - impl-s
+    - implementation
+

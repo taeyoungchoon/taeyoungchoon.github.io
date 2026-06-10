@@ -1,7 +1,65 @@
+* pre
+
+** xor
+
+#+begin_src emacs-lisp
+(logxor 0 0)
+(logxor 1 0)
+(logxor 0 1)
+(logxor 1 1)
+#+end_src
+
+#+RESULTS:
+: 0
+
 * list
 
-** ECB, Electronic Code Book
-** CBC, Cipher Block Chaining
-** CFB, Cipher Feedback
-** OFB, Output Feedback
-** CTR, CounTeR
+* DONE ECB, Electronic Code Book
+
+** encrypt
+
+E(P)
+
+** decrypt
+
+D(C)
+  
+* DONE CBC, Cipher Block Chaining
+
+** encrypt
+
+E(P XOR C)
+
+** decrypt
+
+D(C) XOR C_{pre}
+
+* TODO CFB, Cipher Feedback
+
+** encrypt
+
+E(C) XOR P
+
+** decrypt
+
+nil
+
+* DONE OFB, Output Feedback
+
+** crypt
+
+E(K) XOR P
+
+** decrypt
+
+E(K) XOR C
+
+* DONE CTR, CounTeR
+
+** crypt
+
+E(N) XOR P
+
+** decrypt
+
+E(N) XOR C

@@ -1,0 +1,14 @@
+* song vs music, sound
+
+- 소리에서 노래로, 노래는 음악의 한 장르가 되다.
+- '우가우가' 이런 소리를 냈을까? 이건 무슨 뜻이지. '아얏'하고 아프다는 표현을 했을까?
+- 자료를 모은다. 아톰이다. 이들이 모이면 리스트가 된다. 재구성한다. 의미를 갖춘다. 작다면 여기서 끝이 나겠지만. 복잡해질 수 있다. 지금이든 이후에든지 말이다. 
+
+#+begin_src emacs-lisp
+(cons t nil)
+(setf emacs '(mode major minor))
+(setf tool '(emacs linux lisp))
+#+end_src
+
+#+RESULTS:
+| emacs | linux | lisp |

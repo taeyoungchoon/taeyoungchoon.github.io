@@ -16,3 +16,7 @@
   - and more such as embedded wireless on switch or on AP
 - 3504 wireless controller
 - mobility express
+
+* TODO packet with 4 address
+
+실제로 4개의 주소를 가지고 있는가? 

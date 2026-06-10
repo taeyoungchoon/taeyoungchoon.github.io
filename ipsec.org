@@ -1,3 +1,15 @@
+* TODO tips and tricks
+
+- ipsec, ip security
+- AH
+- ESP
+- IKE
+  - SA
+    - SPI
+- mode
+  - transport
+  - tunnel
+
 * word
 
 - SPI (Security Parameter Index)

@@ -1,0 +1,8 @@
+* predicate, p
+* used at lisp
+* svo, but predicate spo, sp
+
+- 영어와 한국어의 차이.
+- 영어는 영국어, 미국어, 영국식 영어, 미국식 영어, english. 한국어, korean.
+- 동사와 형용사. 서술어.
+- 영어만을 생각한다면, 영어과라면 svo면 충분하지만. 언어학으로 보자면 spo가 더 적절하다.

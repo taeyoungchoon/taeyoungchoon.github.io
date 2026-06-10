@@ -38,3 +38,44 @@
 - part of the sentence
 - 주어, subject
 - 목적어
+
+* 다시 그리고 오늘
+
+- 형태소, 단어, 품사, 어절, 통사, 문장
+  - 이렇다고 한다.
+- 형태소, 단어, word, 어절, 통사, 문장, 품사
+  - 이게 조금 나아 보인다.
+- 단어, word
+  - 단어는 왜인지 명사만을 지칭하는 것 같다.
+  - single, complex, 책, emacs, linux
+    - with affix
+      - 혼밥, 혼술, emacsen, linuxer(linux + er)
+    - body + body
+      - 세계사, 한국사, 중국사, 러시아사, 지구사, 파운데이션사, history of the foundation
+  - with option + shift, level control
+- 국어, 한국어, 한글, 표준어, 어법, 맞춤법, 한글 맞춤법
+  - 중국, 그 시기
+    - 말은 소리는 있었다.
+    - 표현하는 문자가 없었다.
+    - 이두, 설총, 원효
+    - 말과 문자의 서로간의 영향
+  - 한글 창제기, 훈민정음, 세종
+    - 그리고 대접이 후하지는 못했다.
+  - 개항기
+    - 그 아저씨, 이름이, 벗, 띄어 쓰기, 띄어쓰기, 무엇이 맞는가. 독립신문에서의 띄어쓰기
+  - 일본, 그 시기
+    - 어려운 시절, 한국어를 더 연구하게 되었다.
+    - 역사를 더 연구하게 되었다.
+      - 이 전에도 그런 적인 있었다. 원나라의 영향을 받았던 시절에도 그랬다.
+- 문장, 홑문장, 복합문장, 복합문장의 구성 방안
+  - 홑문장
+  - 문장의 조합
+    - "다녀왔습니다"라고 말했다. 그랬다.
+    - 다녀왔습니다고 말했다. 그랬다.
+    - 여것도 문장과 문장의 결합이다.
+    - 나는 내일 아침밥을 먹고 집을 나설 것이다.
+      - 나는 집을 나설 것이다.
+      - 아침밥을 먹고
+    - What I have done is one of the things what I ever tried.
+    - Do something, if you want to make it happen.
+    - If you do so, then do it now.
